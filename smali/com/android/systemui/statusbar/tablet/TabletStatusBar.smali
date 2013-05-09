@@ -66,7 +66,7 @@
 
 .field mBarContents:Landroid/view/ViewGroup;
 
-.field mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+.field mBatteryController:Lcom/ghareeb/BatteryMod/BatteryController;
 
 .field mBluetoothController:Lcom/android/systemui/statusbar/policy/BluetoothController;
 
@@ -2462,7 +2462,7 @@
     invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/tablet/NotificationPanel;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     .line 231
-    iget-object v2, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mBatteryController:Lcom/ghareeb/BatteryMod/BatteryController;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mNotificationPanel:Lcom/android/systemui/statusbar/tablet/NotificationPanel;
 
@@ -2474,10 +2474,10 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    invoke-virtual {v2, v1}, Lcom/android/systemui/statusbar/policy/BatteryController;->addIconView(Landroid/widget/ImageView;)V
+    invoke-virtual {v2, v1}, Lcom/ghareeb/BatteryMod/BatteryController;->addIconView(Landroid/widget/ImageView;)V
 
     .line 232
-    iget-object v2, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mBatteryController:Lcom/ghareeb/BatteryMod/BatteryController;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mNotificationPanel:Lcom/android/systemui/statusbar/tablet/NotificationPanel;
 
@@ -2489,7 +2489,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    invoke-virtual {v2, v1}, Lcom/android/systemui/statusbar/policy/BatteryController;->addLabelView(Landroid/widget/TextView;)V
+    invoke-virtual {v2, v1}, Lcom/ghareeb/BatteryMod/BatteryController;->addLabelView(Landroid/widget/TextView;)V
 
     .line 235
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mHasDockBattery:Z
@@ -4232,7 +4232,7 @@
     iput-boolean v0, v1, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mHasDockBattery:Z
 
     .line 601
-    new-instance v17, Lcom/android/systemui/statusbar/policy/BatteryController;
+    new-instance v17, Lcom/ghareeb/BatteryMod/BatteryController;
 
     move-object/from16 v0, p0
 
@@ -4240,18 +4240,18 @@
 
     move-object/from16 v18, v0
 
-    invoke-direct/range {v17 .. v18}, Lcom/android/systemui/statusbar/policy/BatteryController;-><init>(Landroid/content/Context;)V
+    invoke-direct/range {v17 .. v18}, Lcom/ghareeb/BatteryMod/BatteryController;-><init>(Landroid/content/Context;)V
 
     move-object/from16 v0, v17
 
     move-object/from16 v1, p0
 
-    iput-object v0, v1, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+    iput-object v0, v1, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mBatteryController:Lcom/ghareeb/BatteryMod/BatteryController;
 
     .line 602
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mBatteryController:Lcom/ghareeb/BatteryMod/BatteryController;
 
     move-object/from16 v18, v0
 
@@ -4269,12 +4269,12 @@
 
     move-object/from16 v1, v17
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/policy/BatteryController;->addIconView(Landroid/widget/ImageView;)V
+    invoke-virtual {v0, v1}, Lcom/ghareeb/BatteryMod/BatteryController;->addIconView(Landroid/widget/ImageView;)V
 
     .line 603
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mBatteryController:Lcom/ghareeb/BatteryMod/BatteryController;
 
     move-object/from16 v18, v0
 
@@ -4292,7 +4292,7 @@
 
     move-object/from16 v1, v17
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/policy/BatteryController;->addLabelView(Landroid/widget/TextView;)V
+    invoke-virtual {v0, v1}, Lcom/ghareeb/BatteryMod/BatteryController;->addLabelView(Landroid/widget/TextView;)V
 
     .line 606
     move-object/from16 v0, p0

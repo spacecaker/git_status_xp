@@ -75,7 +75,7 @@
 
 .field private mAutoBrightness:Z
 
-.field mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+.field mBatteryController:Lcom/ghareeb/BatteryMod/BatteryController;
 
 .field private mBrightnessControl:Z
 
@@ -6545,16 +6545,16 @@
     iput-object v8, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mLocationController:Lcom/android/systemui/statusbar/policy/LocationController;
 
     .line 436
-    new-instance v8, Lcom/android/systemui/statusbar/policy/BatteryController;
+    new-instance v8, Lcom/ghareeb/BatteryMod/BatteryController;
 
     iget-object v9, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mContext:Landroid/content/Context;
 
-    invoke-direct {v8, v9}, Lcom/android/systemui/statusbar/policy/BatteryController;-><init>(Landroid/content/Context;)V
+    invoke-direct {v8, v9}, Lcom/ghareeb/BatteryMod/BatteryController;-><init>(Landroid/content/Context;)V
 
-    iput-object v8, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+    iput-object v8, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mBatteryController:Lcom/ghareeb/BatteryMod/BatteryController;
 
     .line 437
-    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mBatteryController:Lcom/ghareeb/BatteryMod/BatteryController;
 
     const v8, 0x7f0e0033
 
@@ -6564,10 +6564,10 @@
 
     check-cast v8, Landroid/widget/ImageView;
 
-    invoke-virtual {v9, v8}, Lcom/android/systemui/statusbar/policy/BatteryController;->addIconView(Landroid/widget/ImageView;)V
+    invoke-virtual {v9, v8}, Lcom/ghareeb/BatteryMod/BatteryController;->addIconView(Landroid/widget/ImageView;)V
 
     .line 438
-    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+    iget-object v9, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mBatteryController:Lcom/ghareeb/BatteryMod/BatteryController;
 
     const v8, 0x7f0e0032
 
@@ -6577,7 +6577,7 @@
 
     check-cast v8, Landroid/widget/TextView;
 
-    invoke-virtual {v9, v8}, Lcom/android/systemui/statusbar/policy/BatteryController;->addLabelView(Landroid/widget/TextView;)V
+    invoke-virtual {v9, v8}, Lcom/ghareeb/BatteryMod/BatteryController;->addLabelView(Landroid/widget/TextView;)V
 
     .line 439
     new-instance v8, Lcom/android/systemui/statusbar/policy/NetworkController;

@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 279
+    .line 267
     iput-object p1, p0, Lcom/android/systemui/recent/RecentTasksLoader$1$1;->this$1:Lcom/android/systemui/recent/RecentTasksLoader$1;
 
     iput-object p2, p0, Lcom/android/systemui/recent/RecentTasksLoader$1$1;->val$td:Lcom/android/systemui/recent/TaskDescription;
@@ -46,24 +46,24 @@
     .locals 2
 
     .prologue
-    .line 281
+    .line 269
     iget-object v1, p0, Lcom/android/systemui/recent/RecentTasksLoader$1$1;->val$td:Lcom/android/systemui/recent/TaskDescription;
 
     monitor-enter v1
 
-    .line 282
+    .line 270
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/recent/RecentTasksLoader$1$1;->val$td:Lcom/android/systemui/recent/TaskDescription;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
 
-    .line 283
+    .line 271
     monitor-exit v1
 
-    .line 284
+    .line 272
     return-void
 
-    .line 283
+    .line 271
     :catchall_0
     move-exception v0
 

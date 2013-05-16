@@ -11,14 +11,6 @@
 .end annotation
 
 
-# static fields
-.field private static final SIGNAL_CLUSTER_STYLE_HIDDEN:I = 0x2
-
-.field private static final SIGNAL_CLUSTER_STYLE_NORMAL:I = 0x0
-
-.field private static final SIGNAL_CLUSTER_STYLE_TEXT:I = 0x1
-
-
 # instance fields
 .field dBm:I
 
@@ -32,13 +24,9 @@
 
 .field mMobileSignalText:Landroid/widget/TextView;
 
-.field private mPhoneState:I
-
 .field private mPhoneStateListener:Landroid/telephony/PhoneStateListener;
 
 .field private mSignalClusterStyle:I
-
-.field private signalStrength:Landroid/telephony/SignalStrength;
 
 
 # direct methods

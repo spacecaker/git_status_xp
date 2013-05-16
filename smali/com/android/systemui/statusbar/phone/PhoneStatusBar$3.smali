@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 546
+    .line 527
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$3;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,11 +42,11 @@
     .parameter "v"
 
     .prologue
-    .line 548
+    .line 529
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$3;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->toggleRecentApps()V
 
-    .line 549
+    .line 530
     return-void
 .end method

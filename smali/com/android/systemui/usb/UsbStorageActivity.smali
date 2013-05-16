@@ -3,18 +3,8 @@
 .source "UsbStorageActivity.java"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
 .implements Landroid/content/DialogInterface$OnCancelListener;
-
-
-# static fields
-.field private static final DLG_CONFIRM_KILL_STORAGE_USERS:I = 0x1
-
-.field private static final DLG_ERROR_SHARING:I = 0x2
-
-.field private static final TAG:Ljava/lang/String; = "UsbStorageActivity"
-
-.field static final localLOGV:Z
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
@@ -451,7 +441,7 @@
     .line 155
     iget-object v0, p0, Lcom/android/systemui/usb/UsbStorageActivity;->mIcon:Landroid/widget/ImageView;
 
-    const v1, 0x108061e
+    const v1, 0x10805ff
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -492,7 +482,7 @@
     .line 162
     iget-object v0, p0, Lcom/android/systemui/usb/UsbStorageActivity;->mIcon:Landroid/widget/ImageView;
 
-    const v1, 0x108061d
+    const v1, 0x10805fe
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -679,7 +669,7 @@
 
     .line 122
     :cond_1
-    const v1, 0x10900bf
+    const v1, 0x10900ae
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/usb/UsbStorageActivity;->setContentView(I)V
 
@@ -695,7 +685,7 @@
     iput-object v1, p0, Lcom/android/systemui/usb/UsbStorageActivity;->mIcon:Landroid/widget/ImageView;
 
     .line 125
-    const v1, 0x102035f
+    const v1, 0x102034d
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/usb/UsbStorageActivity;->findViewById(I)Landroid/view/View;
 
@@ -717,7 +707,7 @@
     iput-object v1, p0, Lcom/android/systemui/usb/UsbStorageActivity;->mMessage:Landroid/widget/TextView;
 
     .line 128
-    const v1, 0x1020360
+    const v1, 0x102034e
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/usb/UsbStorageActivity;->findViewById(I)Landroid/view/View;
 
@@ -733,7 +723,7 @@
     invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 130
-    const v1, 0x1020361
+    const v1, 0x102034f
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/usb/UsbStorageActivity;->findViewById(I)Landroid/view/View;
 

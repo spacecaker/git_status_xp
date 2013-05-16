@@ -16,33 +16,9 @@
 
 
 # static fields
-.field private static final AIRPLANE_ID:I = 0x0
+.field private static final BUTTONS_DEFAULT:Ljava/lang/String;
 
-.field private static final BLUETOOTH_ID:I = 0x2
-
-.field private static final BUTTONS_DEFAULT:Ljava/lang/String; = null
-
-.field private static final BUTTON_DELIMITER:Ljava/lang/String; = "\\|"
-
-.field private static final FLASHLIGHT_ID:I = 0x5
-
-.field private static final GPS_ID:I = 0x3
-
-.field private static final KEY_TOGGLES:[Ljava/lang/String; = null
-
-.field private static final MOBILE_DATA_ID:I = 0x6
-
-.field private static final NETWORK_MODE_ID:I = 0x7
-
-.field private static final NO_TOGGLES:Ljava/lang/String; = "no_toggles"
-
-.field private static final ROTATE_ID:I = 0x1
-
-.field private static final SOUND_ID:I = 0x8
-
-.field static final TAG:Ljava/lang/String; = "SettingsView"
-
-.field private static final WIFI_ID:I = 0x4
+.field private static final KEY_TOGGLES:[Ljava/lang/String;
 
 
 # instance fields
@@ -292,7 +268,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f03001f
+    const v5, 0x7f03001a
 
     invoke-virtual {v4, v5, p0, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1274,7 +1250,7 @@
 
     move-result v1
 
-    const v2, 0x7f0e0092
+    const v2, 0x7f0e008e
 
     if-ne v1, v2, :cond_1
 
@@ -1370,7 +1346,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/tablet/SettingsView;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0e008e
+    const v0, 0x7f0e008a
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/SettingsView;->findViewById(I)Landroid/view/View;
 
@@ -1387,7 +1363,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/tablet/SettingsView;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0e0091
+    const v0, 0x7f0e008d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/SettingsView;->findViewById(I)Landroid/view/View;
 
@@ -1426,7 +1402,7 @@
 
     .line 144
     :cond_1
-    const v0, 0x7f0e0092
+    const v0, 0x7f0e008e
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/SettingsView;->findViewById(I)Landroid/view/View;
 

@@ -14,22 +14,12 @@
 .end annotation
 
 
-# static fields
-.field public static final VMAX:F = 1000.0f
-
-.field public static final VMIN:F = 100.0f
-
-
 # instance fields
-.field public component:Landroid/content/ComponentName;
-
 .field public dist:F
 
 .field final synthetic this$0:Lcom/android/systemui/Nyandroid$Board;
 
 .field public v:F
-
-.field public vr:F
 
 .field public z:F
 

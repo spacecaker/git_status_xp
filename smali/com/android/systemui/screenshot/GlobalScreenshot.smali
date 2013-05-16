@@ -3,34 +3,6 @@
 .source "GlobalScreenshot.java"
 
 
-# static fields
-.field private static final BACKGROUND_ALPHA:F = 0.5f
-
-.field private static final SCREENSHOT_DROP_IN_DURATION:I = 0x1ae
-
-.field private static final SCREENSHOT_DROP_IN_MIN_SCALE:F = 0.725f
-
-.field private static final SCREENSHOT_DROP_OUT_DELAY:I = 0x1f4
-
-.field private static final SCREENSHOT_DROP_OUT_DURATION:I = 0x1ae
-
-.field private static final SCREENSHOT_DROP_OUT_MIN_SCALE:F = 0.45f
-
-.field private static final SCREENSHOT_DROP_OUT_MIN_SCALE_OFFSET:F = 0.0f
-
-.field private static final SCREENSHOT_DROP_OUT_SCALE_DURATION:I = 0x172
-
-.field private static final SCREENSHOT_FAST_DROP_OUT_DURATION:I = 0x140
-
-.field private static final SCREENSHOT_FAST_DROP_OUT_MIN_SCALE:F = 0.6f
-
-.field private static final SCREENSHOT_FLASH_TO_PEAK_DURATION:I = 0x82
-
-.field private static final SCREENSHOT_NOTIFICATION_ID:I = 0x315
-
-.field private static final SCREENSHOT_SCALE:F = 1.0f
-
-
 # instance fields
 .field private mBackgroundView:Landroid/widget/ImageView;
 
@@ -251,7 +223,7 @@
     iput v0, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mNotificationIconSize:I
 
     .line 308
-    const v0, 0x7f0a0021
+    const v0, 0x7f0a001b
 
     invoke-virtual {v9, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

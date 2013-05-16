@@ -14,15 +14,7 @@
 
 
 # static fields
-.field private static final BUTTONS_DEFAULT:Ljava/lang/String; = "toggleWifi|toggleBluetooth|toggleGPS|toggleSound"
-
-.field public static final BUTTON_DELIMITER:Ljava/lang/String; = "|"
-
-.field private static final BUTTON_LAYOUT_PARAMS:Landroid/widget/LinearLayout$LayoutParams; = null
-
-.field private static final LAYOUT_SCROLL_BUTTON_THRESHOLD:I = 0x6
-
-.field private static final TAG:Ljava/lang/String; = "PowerWidget"
+.field private static final BUTTON_LAYOUT_PARAMS:Landroid/widget/LinearLayout$LayoutParams;
 
 .field private static final WIDGET_LAYOUT_PARAMS:Landroid/widget/FrameLayout$LayoutParams;
 
@@ -363,7 +355,7 @@
 
     move-result-object v0
 
-    const v1, 0x107002a
+    const v1, 0x1070024
 
     invoke-static {v0, v1}, Lcom/android/systemui/statusbar/powerwidget/PowerWidget;->getLongIntArray(Landroid/content/res/Resources;I)[J
 
@@ -378,7 +370,7 @@
 
     move-result-object v0
 
-    const v1, 0x1070029
+    const v1, 0x1070023
 
     invoke-static {v0, v1}, Lcom/android/systemui/statusbar/powerwidget/PowerWidget;->getLongIntArray(Landroid/content/res/Resources;I)[J
 
@@ -1076,43 +1068,6 @@
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
     .line 248
-    return-void
-.end method
-
-.method private unloadButton(Ljava/lang/String;)V
-    .locals 2
-    .parameter "key"
-
-    .prologue
-    .line 231
-    iget-object v0, p0, Lcom/android/systemui/statusbar/powerwidget/PowerWidget;->mButtons:Ljava/util/HashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 233
-    iget-object v0, p0, Lcom/android/systemui/statusbar/powerwidget/PowerWidget;->mButtons:Ljava/util/HashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/powerwidget/PowerButton;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/powerwidget/PowerButton;->setupButton(Landroid/view/View;)V
-
-    .line 235
-    iget-object v0, p0, Lcom/android/systemui/statusbar/powerwidget/PowerWidget;->mButtons:Ljava/util/HashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 237
-    :cond_0
     return-void
 .end method
 

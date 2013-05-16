@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 2320
+    .line 2290
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$7$1$1;->this$2:Lcom/android/systemui/statusbar/phone/PhoneStatusBar$7$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 2323
+    .line 2293
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$7$1$1;->this$2:Lcom/android/systemui/statusbar/phone/PhoneStatusBar$7$1;
 
@@ -55,7 +55,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/policy/NotificationRowLayout;->setViewRemoval(Z)V
 
-    .line 2324
+    .line 2294
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$7$1$1;->this$2:Lcom/android/systemui/statusbar/phone/PhoneStatusBar$7$1;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$7$1;->this$1:Lcom/android/systemui/statusbar/phone/PhoneStatusBar$7;
@@ -71,11 +71,11 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2326
+    .line 2296
     :goto_0
     return-void
 
-    .line 2325
+    .line 2295
     :catch_0
     move-exception v0
 

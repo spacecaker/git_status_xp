@@ -3,10 +3,6 @@
 .source "DateView.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "DateView"
-
-
 # instance fields
 .field private mAttachedToWindow:Z
 

@@ -6,18 +6,6 @@
 .implements Landroid/animation/LayoutTransition$TransitionListener;
 
 
-# static fields
-.field private static final ADVANCE_DELAY:I = 0x1388
-
-.field private static final CLICKABLE_TICKER:Z = true
-
-.field private static final MSG_ADVANCE:I = 0x1
-
-.field private static final QUEUE_LENGTH:I = 0x3
-
-.field private static final TAG:Ljava/lang/String; = "StatusBar.TabletTicker"
-
-
 # instance fields
 .field private mBar:Lcom/android/systemui/statusbar/tablet/TabletStatusBar;
 
@@ -347,7 +335,7 @@
     if-eqz v2, :cond_0
 
     .line 262
-    const v16, 0x7f0e0095
+    const v16, 0x7f0e0091
 
     .line 266
     .local v16, iconId:I
@@ -359,7 +347,7 @@
     if-eqz v2, :cond_3
 
     .line 267
-    const v2, 0x7f030022
+    const v2, 0x7f03001d
 
     const/4 v3, 0x0
 
@@ -375,7 +363,7 @@
 
     .line 268
     .local v14, group:Landroid/view/ViewGroup;
-    const v2, 0x7f0e0096
+    const v2, 0x7f0e0092
 
     invoke-virtual {v14, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -488,7 +476,7 @@
     .end local v14           #group:Landroid/view/ViewGroup;
     .end local v16           #iconId:I
     :cond_0
-    const v16, 0x7f0e0093
+    const v16, 0x7f0e008f
 
     .restart local v16       #iconId:I
     goto :goto_0
@@ -532,7 +520,7 @@
     .end local v13           #expanded:Landroid/view/View;
     .end local v21           #lp:Landroid/widget/FrameLayout$LayoutParams;
     :goto_3
-    const v2, 0x7f0e0079
+    const v2, 0x7f0e0077
 
     invoke-virtual {v14, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -668,7 +656,7 @@
     if-eqz v2, :cond_4
 
     .line 288
-    const v2, 0x7f030021
+    const v2, 0x7f03001c
 
     move-object/from16 v0, p0
 
@@ -744,7 +732,7 @@
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
 
     .line 294
-    const v2, 0x7f0e0094
+    const v2, 0x7f0e0090
 
     invoke-virtual {v14, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -827,7 +815,7 @@
 
     .line 216
     .local v7, view:Landroid/widget/FrameLayout;
-    const v2, 0x7f0a002a
+    const v2, 0x7f0a0024
 
     invoke-virtual {v6, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

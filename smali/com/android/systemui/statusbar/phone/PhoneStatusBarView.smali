@@ -3,12 +3,6 @@
 .source "PhoneStatusBarView.java"
 
 
-# static fields
-.field static final DIM_ANIM_TIME:I = 0x190
-
-.field private static final TAG:Ljava/lang/String; = "PhoneStatusBarView"
-
-
 # instance fields
 .field mButtonBounds:Landroid/graphics/Rect;
 
@@ -26,13 +20,7 @@
 
 .field mStartAlpha:I
 
-.field mStartX:I
-
-.field mStartY:I
-
 .field mStatusIcons:Landroid/view/ViewGroup;
-
-.field mTracking:Z
 
 
 # direct methods
@@ -74,80 +62,6 @@
 
     .line 55
     return-void
-.end method
-
-.method private getViewOffset(Landroid/view/View;)I
-    .locals 5
-    .parameter "v"
-
-    .prologue
-    .line 128
-    const/4 v0, 0x0
-
-    .line 129
-    .local v0, offset:I
-    :goto_0
-    if-eq p1, p0, :cond_1
-
-    .line 130
-    invoke-virtual {p1}, Landroid/view/View;->getLeft()I
-
-    move-result v2
-
-    add-int/2addr v0, v2
-
-    .line 131
-    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v1
-
-    .line 132
-    .local v1, p:Landroid/view/ViewParent;
-    instance-of v2, p1, Landroid/view/View;
-
-    if-eqz v2, :cond_0
-
-    move-object p1, v1
-
-    .line 133
-    check-cast p1, Landroid/view/View;
-
-    goto :goto_0
-
-    .line 135
-    :cond_0
-    new-instance v2, Ljava/lang/RuntimeException;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, " is not a child of "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-
-    .line 138
-    .end local v1           #p:Landroid/view/ViewParent;
-    :cond_1
-    return v0
 .end method
 
 
@@ -359,7 +273,7 @@
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
     .line 60
-    const v0, 0x7f0e002f
+    const v0, 0x7f0e002d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -370,7 +284,7 @@
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mNotificationIcons:Landroid/view/ViewGroup;
 
     .line 61
-    const v0, 0x7f0e0030
+    const v0, 0x7f0e002e
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->findViewById(I)Landroid/view/View;
 

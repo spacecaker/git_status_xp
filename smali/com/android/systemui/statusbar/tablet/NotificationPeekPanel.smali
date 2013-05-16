@@ -172,15 +172,3 @@
 
     return v0
 .end method
-
-.method public setBar(Lcom/android/systemui/statusbar/tablet/TabletStatusBar;)V
-    .locals 0
-    .parameter "bar"
-
-    .prologue
-    .line 44
-    iput-object p1, p0, Lcom/android/systemui/statusbar/tablet/NotificationPeekPanel;->mBar:Lcom/android/systemui/statusbar/tablet/TabletStatusBar;
-
-    .line 45
-    return-void
-.end method

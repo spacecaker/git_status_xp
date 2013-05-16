@@ -14,46 +14,6 @@
 .end annotation
 
 
-# static fields
-.field private static final INDEX_MASK:I = 0xffff
-
-.field private static final MSG_ADD_NOTIFICATION:I = 0x20000
-
-.field private static final MSG_DISABLE:I = 0x50000
-
-.field private static final MSG_ICON:I = 0x10000
-
-.field private static final MSG_MASK:I = -0x10000
-
-.field private static final MSG_REMOVE_NOTIFICATION:I = 0x40000
-
-.field private static final MSG_SET_HARD_KEYBOARD_STATUS:I = 0xa0000
-
-.field private static final MSG_SET_SYSTEMUI_VISIBILITY:I = 0x70000
-
-.field private static final MSG_SET_VISIBILITY:I = 0x60000
-
-.field private static final MSG_SHIFT:I = 0x10
-
-.field private static final MSG_SHOW_IME_BUTTON:I = 0x90000
-
-.field private static final MSG_TOGGLE_RECENT_APPS:I = 0xb0000
-
-.field private static final MSG_TOP_APP_WINDOW_CHANGED:I = 0x80000
-
-.field private static final MSG_UPDATE_NOTIFICATION:I = 0x30000
-
-.field private static final OP_COLLAPSE:I = 0x2
-
-.field private static final OP_EXPAND:I = 0x1
-
-.field private static final OP_REMOVE_ICON:I = 0x2
-
-.field private static final OP_SET_ICON:I = 0x1
-
-.field private static final TAG:Ljava/lang/String; = "StatusBar.CommandQueue"
-
-
 # instance fields
 .field private mCallbacks:Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 

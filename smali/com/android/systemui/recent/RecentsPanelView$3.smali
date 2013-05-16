@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 690
+    .line 604
     iput-object p1, p0, Lcom/android/systemui/recent/RecentsPanelView$3;->this$0:Lcom/android/systemui/recent/RecentsPanelView;
 
     iput-object p2, p0, Lcom/android/systemui/recent/RecentsPanelView$3;->val$selectedView:Landroid/view/View;
@@ -47,20 +47,20 @@
     .parameter "item"
 
     .prologue
-    .line 692
+    .line 606
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v2
 
-    const v3, 0x7f0e009b
+    const v3, 0x7f0e0097
 
     if-ne v2, v3, :cond_0
 
-    .line 693
+    .line 607
     iget-object v2, p0, Lcom/android/systemui/recent/RecentsPanelView$3;->this$0:Lcom/android/systemui/recent/RecentsPanelView;
 
     #getter for: Lcom/android/systemui/recent/RecentsPanelView;->mRecentsContainer:Landroid/view/ViewGroup;
-    invoke-static {v2}, Lcom/android/systemui/recent/RecentsPanelView;->access$400(Lcom/android/systemui/recent/RecentsPanelView;)Landroid/view/ViewGroup;
+    invoke-static {v2}, Lcom/android/systemui/recent/RecentsPanelView;->access$300(Lcom/android/systemui/recent/RecentsPanelView;)Landroid/view/ViewGroup;
 
     move-result-object v2
 
@@ -68,24 +68,24 @@
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->removeViewInLayout(Landroid/view/View;)V
 
-    .line 706
+    .line 620
     :goto_0
     const/4 v2, 0x1
 
     :goto_1
     return v2
 
-    .line 694
+    .line 608
     :cond_0
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v2
 
-    const v3, 0x7f0e009c
+    const v3, 0x7f0e0098
 
     if-ne v2, v3, :cond_2
 
-    .line 695
+    .line 609
     iget-object v2, p0, Lcom/android/systemui/recent/RecentsPanelView$3;->val$selectedView:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getTag()Ljava/lang/Object;
@@ -94,27 +94,27 @@
 
     check-cast v1, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;
 
-    .line 696
+    .line 610
     .local v1, viewHolder:Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;
     if-eqz v1, :cond_1
 
-    .line 697
+    .line 611
     iget-object v0, v1, Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;->taskDescription:Lcom/android/systemui/recent/TaskDescription;
 
-    .line 698
+    .line 612
     .local v0, ad:Lcom/android/systemui/recent/TaskDescription;
     iget-object v2, p0, Lcom/android/systemui/recent/RecentsPanelView$3;->this$0:Lcom/android/systemui/recent/RecentsPanelView;
 
     iget-object v3, v0, Lcom/android/systemui/recent/TaskDescription;->packageName:Ljava/lang/String;
 
     #calls: Lcom/android/systemui/recent/RecentsPanelView;->startApplicationDetailsActivity(Ljava/lang/String;)V
-    invoke-static {v2, v3}, Lcom/android/systemui/recent/RecentsPanelView;->access$500(Lcom/android/systemui/recent/RecentsPanelView;Ljava/lang/String;)V
+    invoke-static {v2, v3}, Lcom/android/systemui/recent/RecentsPanelView;->access$400(Lcom/android/systemui/recent/RecentsPanelView;Ljava/lang/String;)V
 
-    .line 699
+    .line 613
     iget-object v2, p0, Lcom/android/systemui/recent/RecentsPanelView$3;->this$0:Lcom/android/systemui/recent/RecentsPanelView;
 
     #getter for: Lcom/android/systemui/recent/RecentsPanelView;->mBar:Lcom/android/systemui/statusbar/StatusBar;
-    invoke-static {v2}, Lcom/android/systemui/recent/RecentsPanelView;->access$600(Lcom/android/systemui/recent/RecentsPanelView;)Lcom/android/systemui/statusbar/StatusBar;
+    invoke-static {v2}, Lcom/android/systemui/recent/RecentsPanelView;->access$500(Lcom/android/systemui/recent/RecentsPanelView;)Lcom/android/systemui/statusbar/StatusBar;
 
     move-result-object v2
 
@@ -122,7 +122,7 @@
 
     goto :goto_0
 
-    .line 701
+    .line 615
     .end local v0           #ad:Lcom/android/systemui/recent/TaskDescription;
     :cond_1
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -151,7 +151,7 @@
 
     throw v2
 
-    .line 704
+    .line 618
     .end local v1           #viewHolder:Lcom/android/systemui/recent/RecentsPanelView$ViewHolder;
     :cond_2
     const/4 v2, 0x0

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 145
+    .line 142
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/Clock$1;->this$0:Lcom/android/systemui/statusbar/policy/Clock;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 148
+    .line 145
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 149
+    .line 146
     .local v0, action:Ljava/lang/String;
     const-string v2, "android.intent.action.TIMEZONE_CHANGED"
 
@@ -55,14 +55,14 @@
 
     if-eqz v2, :cond_0
 
-    .line 150
+    .line 147
     const-string v2, "time-zone"
 
     invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 151
+    .line 148
     .local v1, tz:Ljava/lang/String;
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/Clock$1;->this$0:Lcom/android/systemui/statusbar/policy/Clock;
 
@@ -75,30 +75,30 @@
     move-result-object v3
 
     #setter for: Lcom/android/systemui/statusbar/policy/Clock;->mCalendar:Ljava/util/Calendar;
-    invoke-static {v2, v3}, Lcom/android/systemui/statusbar/policy/Clock;->access$102(Lcom/android/systemui/statusbar/policy/Clock;Ljava/util/Calendar;)Ljava/util/Calendar;
+    invoke-static {v2, v3}, Lcom/android/systemui/statusbar/policy/Clock;->access$202(Lcom/android/systemui/statusbar/policy/Clock;Ljava/util/Calendar;)Ljava/util/Calendar;
 
-    .line 152
+    .line 149
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/Clock$1;->this$0:Lcom/android/systemui/statusbar/policy/Clock;
 
     #getter for: Lcom/android/systemui/statusbar/policy/Clock;->mClockFormat:Ljava/text/SimpleDateFormat;
-    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/Clock;->access$200(Lcom/android/systemui/statusbar/policy/Clock;)Ljava/text/SimpleDateFormat;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/Clock;->access$300(Lcom/android/systemui/statusbar/policy/Clock;)Ljava/text/SimpleDateFormat;
 
     move-result-object v2
 
     if-eqz v2, :cond_0
 
-    .line 153
+    .line 150
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/Clock$1;->this$0:Lcom/android/systemui/statusbar/policy/Clock;
 
     #getter for: Lcom/android/systemui/statusbar/policy/Clock;->mClockFormat:Ljava/text/SimpleDateFormat;
-    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/Clock;->access$200(Lcom/android/systemui/statusbar/policy/Clock;)Ljava/text/SimpleDateFormat;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/Clock;->access$300(Lcom/android/systemui/statusbar/policy/Clock;)Ljava/text/SimpleDateFormat;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/Clock$1;->this$0:Lcom/android/systemui/statusbar/policy/Clock;
 
     #getter for: Lcom/android/systemui/statusbar/policy/Clock;->mCalendar:Ljava/util/Calendar;
-    invoke-static {v3}, Lcom/android/systemui/statusbar/policy/Clock;->access$100(Lcom/android/systemui/statusbar/policy/Clock;)Ljava/util/Calendar;
+    invoke-static {v3}, Lcom/android/systemui/statusbar/policy/Clock;->access$200(Lcom/android/systemui/statusbar/policy/Clock;)Ljava/util/Calendar;
 
     move-result-object v3
 
@@ -108,13 +108,13 @@
 
     invoke-virtual {v2, v3}, Ljava/text/SimpleDateFormat;->setTimeZone(Ljava/util/TimeZone;)V
 
-    .line 156
+    .line 153
     .end local v1           #tz:Ljava/lang/String;
     :cond_0
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/Clock$1;->this$0:Lcom/android/systemui/statusbar/policy/Clock;
 
     invoke-virtual {v2}, Lcom/android/systemui/statusbar/policy/Clock;->updateClock()V
 
-    .line 157
+    .line 154
     return-void
 .end method

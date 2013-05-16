@@ -3,10 +3,6 @@
 .source "SyncButton.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "SyncButton"
-
-
 # instance fields
 .field private mSyncObserver:Landroid/content/SyncStatusObserver;
 

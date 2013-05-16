@@ -62,53 +62,6 @@
 
 
 # virtual methods
-.method public add(Landroid/os/IBinder;Lcom/android/internal/statusbar/StatusBarNotification;Landroid/view/View;Landroid/view/View;Landroid/view/View;Lcom/android/systemui/statusbar/StatusBarIconView;)I
-    .locals 2
-    .parameter "key"
-    .parameter "notification"
-    .parameter "row"
-    .parameter "content"
-    .parameter "expanded"
-    .parameter "icon"
-
-    .prologue
-    .line 91
-    new-instance v0, Lcom/android/systemui/statusbar/NotificationData$Entry;
-
-    invoke-direct {v0}, Lcom/android/systemui/statusbar/NotificationData$Entry;-><init>()V
-
-    .line 92
-    .local v0, entry:Lcom/android/systemui/statusbar/NotificationData$Entry;
-    iput-object p1, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->key:Landroid/os/IBinder;
-
-    .line 93
-    iput-object p2, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->notification:Lcom/android/internal/statusbar/StatusBarNotification;
-
-    .line 94
-    iput-object p3, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->row:Landroid/view/View;
-
-    .line 95
-    iput-object p4, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->content:Landroid/view/View;
-
-    .line 96
-    iput-object p5, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->expanded:Landroid/view/View;
-
-    .line 97
-    iput-object p6, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->icon:Lcom/android/systemui/statusbar/StatusBarIconView;
-
-    .line 98
-    const/4 v1, 0x0
-
-    iput-object v1, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->largeIcon:Landroid/widget/ImageView;
-
-    .line 99
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationData;->add(Lcom/android/systemui/statusbar/NotificationData$Entry;)I
-
-    move-result v1
-
-    return v1
-.end method
-
 .method public add(Lcom/android/systemui/statusbar/NotificationData$Entry;)I
     .locals 4
     .parameter "entry"
@@ -277,51 +230,6 @@
     const/4 v2, 0x1
 
     .line 137
-    .end local v0           #e:Lcom/android/systemui/statusbar/NotificationData$Entry;
-    :goto_0
-    return v2
-
-    :cond_1
-    const/4 v2, 0x0
-
-    goto :goto_0
-.end method
-
-.method public hasVisibleItems()Z
-    .locals 3
-
-    .prologue
-    .line 118
-    iget-object v2, p0, Lcom/android/systemui/statusbar/NotificationData;->mEntries:Ljava/util/ArrayList;
-
-    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    .local v1, i$:Ljava/util/Iterator;
-    :cond_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/NotificationData$Entry;
-
-    .line 119
-    .local v0, e:Lcom/android/systemui/statusbar/NotificationData$Entry;
-    iget-object v2, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->expanded:Landroid/view/View;
-
-    if-eqz v2, :cond_0
-
-    .line 120
-    const/4 v2, 0x1
-
-    .line 123
     .end local v0           #e:Lcom/android/systemui/statusbar/NotificationData$Entry;
     :goto_0
     return v2

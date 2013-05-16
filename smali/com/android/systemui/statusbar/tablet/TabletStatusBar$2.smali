@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 664
+    .line 632
     iput-object p1, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$2;->this$0:Lcom/android/systemui/statusbar/tablet/TabletStatusBar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,14 +45,14 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 666
+    .line 634
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 670
+    .line 638
     iget-object v0, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$2;->this$0:Lcom/android/systemui/statusbar/tablet/TabletStatusBar;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mShadow:Landroid/view/View;
@@ -61,14 +61,14 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 671
+    .line 639
     iget-object v0, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$2;->this$0:Lcom/android/systemui/statusbar/tablet/TabletStatusBar;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mBarContents:Landroid/view/ViewGroup;
 
     invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    .line 674
+    .line 642
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$2;->this$0:Lcom/android/systemui/statusbar/tablet/TabletStatusBar;
 
@@ -83,12 +83,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 679
+    .line 647
     :cond_0
     :goto_0
     return v2
 
-    .line 675
+    .line 643
     :catch_0
     move-exception v0
 

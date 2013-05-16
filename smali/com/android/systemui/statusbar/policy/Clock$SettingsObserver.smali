@@ -75,15 +75,6 @@
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
     .line 82
-    const-string v1, "clock_color"
-
-    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
-
-    .line 84
     return-void
 .end method
 
@@ -92,11 +83,12 @@
     .parameter "selfChange"
 
     .prologue
-    .line 88
+    .line 85
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/Clock$SettingsObserver;->this$0:Lcom/android/systemui/statusbar/policy/Clock;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/Clock;->updateSettings()V
+    #calls: Lcom/android/systemui/statusbar/policy/Clock;->updateSettings()V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/Clock;->access$100(Lcom/android/systemui/statusbar/policy/Clock;)V
 
-    .line 89
+    .line 86
     return-void
 .end method

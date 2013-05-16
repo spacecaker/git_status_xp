@@ -3,20 +3,6 @@
 .source "InputMethodButton.java"
 
 
-# static fields
-.field private static final DEBUG:Z = false
-
-.field private static final ID_IME_BUTTON_VISIBILITY_ALWAYS_HIDE:I = 0x2
-
-.field private static final ID_IME_BUTTON_VISIBILITY_ALWAYS_SHOW:I = 0x1
-
-.field private static final ID_IME_BUTTON_VISIBILITY_AUTO:I = 0x0
-
-.field private static final TAG:Ljava/lang/String; = "StatusBar/InputMethodButton"
-
-.field private static final TAG_TRY_SUPPRESSING_IME_SWITCHER:Ljava/lang/String; = "TrySuppressingImeSwitcher"
-
-
 # instance fields
 .field private mHardKeyboardAvailable:Z
 

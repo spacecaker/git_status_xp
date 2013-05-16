@@ -17,12 +17,6 @@
 
 
 # static fields
-.field private static final SCREENSHOTS_DIR_NAME:Ljava/lang/String; = "Screenshots"
-
-.field private static final SCREENSHOT_FILE_NAME_TEMPLATE:Ljava/lang/String; = "Screenshot_%s.png"
-
-.field private static final SCREENSHOT_FILE_PATH_TEMPLATE:Ljava/lang/String; = "%s/%s/%s"
-
 .field private static mTickerAddSpace:Z
 
 

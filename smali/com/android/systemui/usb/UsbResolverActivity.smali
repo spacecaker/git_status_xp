@@ -3,12 +3,6 @@
 .source "UsbResolverActivity.java"
 
 
-# static fields
-.field public static final EXTRA_RESOLVE_INFOS:Ljava/lang/String; = "rlist"
-
-.field public static final TAG:Ljava/lang/String; = "UsbResolverActivity"
-
-
 # instance fields
 .field private mAccessory:Landroid/hardware/usb/UsbAccessory;
 

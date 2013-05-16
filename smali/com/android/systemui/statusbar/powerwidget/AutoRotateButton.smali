@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final OBSERVED_URIS:Ljava/util/List; = null
+.field private static final OBSERVED_URIS:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -14,8 +14,6 @@
         }
     .end annotation
 .end field
-
-.field private static final TAG:Ljava/lang/String; = "AutoRotateButton"
 
 
 # direct methods

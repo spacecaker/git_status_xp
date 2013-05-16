@@ -12,9 +12,9 @@
 
 
 # static fields
-.field private static final INTENT_FILTER:Landroid/content/IntentFilter; = null
+.field private static final INTENT_FILTER:Landroid/content/IntentFilter;
 
-.field private static final OBSERVED_URIS:Ljava/util/List; = null
+.field private static final OBSERVED_URIS:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -24,10 +24,6 @@
         }
     .end annotation
 .end field
-
-.field private static final TAG:Ljava/lang/String; = "SoundButton"
-
-.field private static final VIBRATE_DURATION:I = 0xfa
 
 
 # instance fields

@@ -3,16 +3,6 @@
 .source "RecentsCallback.java"
 
 
-# static fields
-.field public static final SWIPE_DOWN:I = 0x3
-
-.field public static final SWIPE_LEFT:I = 0x0
-
-.field public static final SWIPE_RIGHT:I = 0x1
-
-.field public static final SWIPE_UP:I = 0x2
-
-
 # virtual methods
 .method public abstract dismiss()V
 .end method

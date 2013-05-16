@@ -3,10 +3,6 @@
 .source "MediaKeyEventButton.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "MediaKeyEventButton"
-
-
 # instance fields
 .field private mAM:Landroid/media/AudioManager;
 

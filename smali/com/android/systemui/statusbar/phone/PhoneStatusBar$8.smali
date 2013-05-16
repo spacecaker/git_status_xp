@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 2359
+    .line 2329
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$8;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 2363
+    .line 2333
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
@@ -52,7 +52,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2366
+    .line 2336
     :goto_0
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -72,15 +72,15 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 2368
+    .line 2338
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$8;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->animateCollapse()V
 
-    .line 2369
+    .line 2339
     return-void
 
-    .line 2364
+    .line 2334
     :catch_0
     move-exception v0
 

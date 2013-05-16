@@ -11,24 +11,6 @@
 .end annotation
 
 
-# static fields
-.field private static final BATTERY_ICON_STYLE_CHARGE:I = 0x7f0200de
-
-.field private static final BATTERY_ICON_STYLE_NORMAL:I = 0x7f0200d5
-
-.field private static final BATTERY_STYLE_GONE:I = 0x2
-
-.field private static final BATTERY_STYLE_NORMAL:I = 0x0
-
-.field private static final BATTERY_STYLE_TEXT:I = 0x1
-
-.field private static final BATTERY_TEXT_STYLE_MIN:I = 0x7f080023
-
-.field private static final BATTERY_TEXT_STYLE_NORMAL:I = 0x7f080022
-
-.field private static final TAG:Ljava/lang/String; = "StatusBar.DockBatteryController"
-
-
 # instance fields
 .field private mBatteryIcon:I
 

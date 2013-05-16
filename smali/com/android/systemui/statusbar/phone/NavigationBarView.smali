@@ -13,23 +13,7 @@
 
 
 # static fields
-.field static final ANIMATE_HIDE_TRANSITION:Z = false
-
-.field static final DEBUG:Z = false
-
-.field static final DEBUG_DEADZONE:Z = false
-
-.field private static EDIT_MODE:Z = false
-
-.field static final MSG_CHECK_INVALID_LAYOUT:I = 0x21ee
-
-.field static final NAVBAR_ALWAYS_AT_RIGHT:Z = true
-
-.field static final NAVBAR_EDIT:Ljava/lang/String; = "android.intent.action.NAVBAR_EDIT"
-
-.field static final TAG:Ljava/lang/String; = "PhoneStatusBar/NavigationBarView"
-
-.field static final WORKAROUND_INVALID_LAYOUT:Z = true
+.field private static EDIT_MODE:Z
 
 
 # instance fields
@@ -147,7 +131,7 @@
 
     .line 141
     .local v0, res:Landroid/content/res/Resources;
-    const v1, 0x7f0a0010
+    const v1, 0x7f0a000a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1313,66 +1297,6 @@
 
     .line 219
     goto :goto_a
-.end method
-
-.method public setHidden(Z)V
-    .locals 3
-    .parameter "hide"
-
-    .prologue
-    .line 284
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mHidden:Z
-
-    if-ne p1, v0, :cond_0
-
-    .line 292
-    :goto_0
-    return-void
-
-    .line 286
-    :cond_0
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mHidden:Z
-
-    .line 287
-    const-string v1, "PhoneStatusBar/NavigationBarView"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    if-eqz p1, :cond_1
-
-    const-string v0, "HIDING"
-
-    :goto_1
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v2, " navigation bar"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 291
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->setLowProfile(Z)V
-
-    goto :goto_0
-
-    .line 287
-    :cond_1
-    const-string v0, "SHOWING"
-
-    goto :goto_1
 .end method
 
 .method protected setListener(Landroid/view/View$OnClickListener;Lcom/android/systemui/recent/RecentsPanelView;)V

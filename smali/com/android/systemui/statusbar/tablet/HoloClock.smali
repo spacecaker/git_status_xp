@@ -12,21 +12,7 @@
 
 
 # static fields
-.field private static AM_PM_STYLE:I = 0x0
-
-.field private static final AM_PM_STYLE_GONE:I = 0x2
-
-.field private static final AM_PM_STYLE_NORMAL:I = 0x0
-
-.field private static final AM_PM_STYLE_SMALL:I = 0x1
-
-.field private static final CLOCK_BG_FONT:Ljava/lang/String; = "/system/fonts/AndroidClock_Highlight.ttf"
-
-.field private static final CLOCK_FG_FONT:Ljava/lang/String; = "/system/fonts/AndroidClock.ttf"
-
-.field private static final CLOCK_FONT:Ljava/lang/String; = "/system/fonts/AndroidClock_Solid.ttf"
-
-.field private static final FONT_DIR:Ljava/lang/String; = "/system/fonts/"
+.field private static AM_PM_STYLE:I
 
 .field private static sBackgroundType:Landroid/graphics/Typeface;
 
@@ -876,7 +862,7 @@
 
     .line 122
     :cond_0
-    const v0, 0x7f0e0076
+    const v0, 0x7f0e0074
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/HoloClock;->findViewById(I)Landroid/view/View;
 
@@ -907,7 +893,7 @@
 
     .line 128
     :cond_1
-    const v0, 0x7f0e0077
+    const v0, 0x7f0e0075
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/HoloClock;->findViewById(I)Landroid/view/View;
 
@@ -931,7 +917,7 @@
 
     .line 132
     :cond_2
-    const v0, 0x7f0e0065
+    const v0, 0x7f0e0063
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/HoloClock;->findViewById(I)Landroid/view/View;
 

@@ -3,8 +3,8 @@
 .source "InputMethodsPanel.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/tablet/StatusBarPanel;
 .implements Landroid/view/View$OnClickListener;
+.implements Lcom/android/systemui/statusbar/tablet/StatusBarPanel;
 
 
 # annotations
@@ -14,12 +14,6 @@
         Lcom/android/systemui/statusbar/tablet/InputMethodsPanel$InputMethodComparator;
     }
 .end annotation
-
-
-# static fields
-.field private static final DEBUG:Z = false
-
-.field private static final TAG:Ljava/lang/String; = "InputMethodsPanel"
 
 
 # instance fields
@@ -310,7 +304,7 @@
 
     .line 230
     .local v9, view:Landroid/view/View;
-    const v10, 0x7f0e0056
+    const v10, 0x7f0e0054
 
     invoke-virtual {v9, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -320,7 +314,7 @@
 
     .line 231
     .local v6, subtypeIcon:Landroid/widget/ImageView;
-    const v10, 0x7f0e0057
+    const v10, 0x7f0e0055
 
     invoke-virtual {v9, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -330,7 +324,7 @@
 
     .line 232
     .local v3, itemTitle:Landroid/widget/TextView;
-    const v10, 0x7f0e0058
+    const v10, 0x7f0e0056
 
     invoke-virtual {v9, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -340,7 +334,7 @@
 
     .line 233
     .local v2, itemSubtitle:Landroid/widget/TextView;
-    const v10, 0x7f0e005a
+    const v10, 0x7f0e0058
 
     invoke-virtual {v9, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -350,7 +344,7 @@
 
     .line 234
     .local v5, settingsIcon:Landroid/widget/ImageView;
-    const v10, 0x7f0e0054
+    const v10, 0x7f0e0052
 
     invoke-virtual {v9, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -463,7 +457,7 @@
     .line 261
     .restart local v4       #settingsActivity:Ljava/lang/String;
     :cond_3
-    const v10, 0x7f0e0059
+    const v10, 0x7f0e0057
 
     invoke-virtual {v9, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1178,7 +1172,7 @@
 
     .line 375
     .local v2, radioView:Landroid/view/View;
-    const v4, 0x7f0e0055
+    const v4, 0x7f0e0053
 
     invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1317,7 +1311,7 @@
 
     .line 343
     .local v2, radioView:Landroid/view/View;
-    const v5, 0x7f0e0055
+    const v5, 0x7f0e0053
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1729,7 +1723,7 @@
 
     .prologue
     .line 141
-    const v0, 0x7f0e005f
+    const v0, 0x7f0e005d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/InputMethodsPanel;->findViewById(I)Landroid/view/View;
 
@@ -1740,7 +1734,7 @@
     iput-object v0, p0, Lcom/android/systemui/statusbar/tablet/InputMethodsPanel;->mInputMethodMenuList:Landroid/widget/LinearLayout;
 
     .line 142
-    const v0, 0x7f0e005c
+    const v0, 0x7f0e005a
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/InputMethodsPanel;->findViewById(I)Landroid/view/View;
 
@@ -1751,7 +1745,7 @@
     iput-object v0, p0, Lcom/android/systemui/statusbar/tablet/InputMethodsPanel;->mHardKeyboardSection:Landroid/widget/LinearLayout;
 
     .line 143
-    const v0, 0x7f0e005e
+    const v0, 0x7f0e005c
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/InputMethodsPanel;->findViewById(I)Landroid/view/View;
 
@@ -1762,7 +1756,7 @@
     iput-object v0, p0, Lcom/android/systemui/statusbar/tablet/InputMethodsPanel;->mHardKeyboardSwitch:Landroid/widget/Switch;
 
     .line 144
-    const v0, 0x7f0e0060
+    const v0, 0x7f0e005e
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/InputMethodsPanel;->findViewById(I)Landroid/view/View;
 

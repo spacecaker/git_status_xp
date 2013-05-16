@@ -7,10 +7,6 @@
 .implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "UsbConfirmActivity"
-
-
 # instance fields
 .field private mAccessory:Landroid/hardware/usb/UsbAccessory;
 
@@ -21,8 +17,6 @@
 .field private mDevice:Landroid/hardware/usb/UsbDevice;
 
 .field private mDisconnectedReceiver:Lcom/android/systemui/usb/UsbDisconnectedReceiver;
-
-.field private mPermissionGranted:Z
 
 .field private mResolveInfo:Landroid/content/pm/ResolveInfo;
 

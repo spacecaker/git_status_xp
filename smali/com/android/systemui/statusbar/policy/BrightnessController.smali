@@ -6,14 +6,6 @@
 .implements Lcom/android/systemui/statusbar/policy/ToggleSlider$Listener;
 
 
-# static fields
-.field private static final MAXIMUM_BACKLIGHT:I = 0xff
-
-.field private static final MINIMUM_BACKLIGHT:I = 0x1e
-
-.field private static final TAG:Ljava/lang/String; = "StatusBar.BrightnessController"
-
-
 # instance fields
 .field private mContext:Landroid/content/Context;
 

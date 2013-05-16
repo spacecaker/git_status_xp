@@ -15,10 +15,6 @@
 .end annotation
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "StatusBar.ToggleSlider"
-
-
 # instance fields
 .field private mLabel:Landroid/widget/TextView;
 
@@ -74,7 +70,7 @@
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 60
-    const v2, 0x7f030023
+    const v2, 0x7f03001e
 
     invoke-static {p1, v2, p0}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -93,7 +89,7 @@
 
     .line 66
     .local v0, a:Landroid/content/res/TypedArray;
-    const v2, 0x7f0e0097
+    const v2, 0x7f0e0093
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/policy/ToggleSlider;->findViewById(I)Landroid/view/View;
 
@@ -111,7 +107,7 @@
     .line 68
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/ToggleSlider;->mToggle:Landroid/widget/CompoundButton;
 
-    const v3, 0x7f020122
+    const v3, 0x7f020121
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -120,7 +116,7 @@
     invoke-virtual {v2, v3}, Landroid/widget/CompoundButton;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 70
-    const v2, 0x7f0e0098
+    const v2, 0x7f0e0094
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/policy/ToggleSlider;->findViewById(I)Landroid/view/View;
 
@@ -136,7 +132,7 @@
     invoke-virtual {v2, p0}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
     .line 73
-    const v2, 0x7f0e0099
+    const v2, 0x7f0e0095
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/policy/ToggleSlider;->findViewById(I)Landroid/view/View;
 
@@ -207,20 +203,6 @@
     return-void
 .end method
 
-.method public isChecked()Z
-    .locals 1
-
-    .prologue
-    .line 145
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/ToggleSlider;->mToggle:Landroid/widget/CompoundButton;
-
-    invoke-virtual {v0}, Landroid/widget/CompoundButton;->isChecked()Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
     .locals 6
     .parameter "toggle"
@@ -241,7 +223,7 @@
     if-eqz p2, :cond_1
 
     .line 97
-    const v3, 0x10804eb
+    const v3, 0x10804d2
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -249,7 +231,7 @@
 
     .line 99
     .local v2, thumb:Landroid/graphics/drawable/Drawable;
-    const v3, 0x7f020120
+    const v3, 0x7f02011f
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -293,7 +275,7 @@
     .end local v1           #slider:Landroid/graphics/drawable/Drawable;
     .end local v2           #thumb:Landroid/graphics/drawable/Drawable;
     :cond_1
-    const v3, 0x10804ef
+    const v3, 0x10804d6
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -301,7 +283,7 @@
 
     .line 104
     .restart local v2       #thumb:Landroid/graphics/drawable/Drawable;
-    const v3, 0x10804f1
+    const v3, 0x10804d8
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

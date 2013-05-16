@@ -18,21 +18,6 @@
 .field final synthetic this$1:Lcom/android/systemui/ImageWallpaper$DrawableEngine;
 
 
-# direct methods
-.method constructor <init>(Lcom/android/systemui/ImageWallpaper$DrawableEngine;)V
-    .locals 0
-    .parameter
-
-    .prologue
-    .line 143
-    iput-object p1, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine$WallpaperObserver;->this$1:Lcom/android/systemui/ImageWallpaper$DrawableEngine;
-
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
-
-    return-void
-.end method
-
-
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4

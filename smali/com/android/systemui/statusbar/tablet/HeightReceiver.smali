@@ -11,10 +11,6 @@
 .end annotation
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "StatusBar.HeightReceiver"
-
-
 # instance fields
 .field mContext:Landroid/content/Context;
 
@@ -164,20 +160,6 @@
     invoke-virtual {p0, v2, v1}, Lcom/android/systemui/statusbar/tablet/HeightReceiver;->onReceive(Landroid/content/Context;Landroid/content/Intent;)V
 
     .line 72
-    return-void
-.end method
-
-.method public removeOnBarHeightChangedListener(Lcom/android/systemui/statusbar/tablet/HeightReceiver$OnBarHeightChangedListener;)V
-    .locals 1
-    .parameter "l"
-
-    .prologue
-    .line 57
-    iget-object v0, p0, Lcom/android/systemui/statusbar/tablet/HeightReceiver;->mListeners:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-
-    .line 58
     return-void
 .end method
 

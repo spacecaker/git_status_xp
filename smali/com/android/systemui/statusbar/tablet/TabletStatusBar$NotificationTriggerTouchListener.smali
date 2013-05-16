@@ -37,19 +37,19 @@
     .parameter
 
     .prologue
-    .line 1526
+    .line 1494
     iput-object p1, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->this$0:Lcom/android/systemui/statusbar/tablet/TabletStatusBar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1530
+    .line 1498
     new-instance v0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener$1;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener$1;-><init>(Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->mHiliteOnR:Ljava/lang/Runnable;
 
-    .line 1527
+    .line 1495
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -64,7 +64,7 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->mTouchSlop:I
 
-    .line 1528
+    .line 1496
     return-void
 .end method
 
@@ -75,10 +75,10 @@
     .parameter "on"
 
     .prologue
-    .line 1535
+    .line 1503
     if-eqz p1, :cond_0
 
-    .line 1536
+    .line 1504
     iget-object v0, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->this$0:Lcom/android/systemui/statusbar/tablet/TabletStatusBar;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mNotificationArea:Landroid/view/View;
@@ -89,11 +89,11 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 1541
+    .line 1509
     :goto_0
     return-void
 
-    .line 1538
+    .line 1506
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->this$0:Lcom/android/systemui/statusbar/tablet/TabletStatusBar;
 
@@ -103,7 +103,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 1539
+    .line 1507
     iget-object v0, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->this$0:Lcom/android/systemui/statusbar/tablet/TabletStatusBar;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mNotificationArea:Landroid/view/View;
@@ -127,7 +127,7 @@
 
     const/4 v1, 0x1
 
-    .line 1550
+    .line 1518
     iget-object v3, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->this$0:Lcom/android/systemui/statusbar/tablet/TabletStatusBar;
 
     iget v3, v3, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mDisabled:I
@@ -138,28 +138,28 @@
 
     if-eqz v3, :cond_1
 
-    .line 1599
+    .line 1567
     :cond_0
     :goto_0
     return v1
 
-    .line 1554
+    .line 1522
     :cond_1
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    .line 1555
+    .line 1523
     .local v0, action:I
     packed-switch v0, :pswitch_data_0
 
     :cond_2
     move v1, v2
 
-    .line 1599
+    .line 1567
     goto :goto_0
 
-    .line 1557
+    .line 1525
     :pswitch_0
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
 
@@ -167,42 +167,42 @@
 
     iput-object v3, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->mVT:Landroid/view/VelocityTracker;
 
-    .line 1558
+    .line 1526
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
     move-result v3
 
     iput v3, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->mInitialTouchX:F
 
-    .line 1559
+    .line 1527
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
 
     move-result v3
 
     iput v3, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->mInitialTouchY:F
 
-    .line 1560
+    .line 1528
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->hilite(Z)V
 
-    .line 1565
+    .line 1533
     :pswitch_1
     iget-object v3, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->mVT:Landroid/view/VelocityTracker;
 
     if-eqz v3, :cond_0
 
-    .line 1566
+    .line 1534
     iget-object v3, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->mVT:Landroid/view/VelocityTracker;
 
     invoke-virtual {v3, p2}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
 
-    .line 1567
+    .line 1535
     iget-object v3, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->mVT:Landroid/view/VelocityTracker;
 
     const/16 v4, 0x3e8
 
     invoke-virtual {v3, v4}, Landroid/view/VelocityTracker;->computeCurrentVelocity(I)V
 
-    .line 1569
+    .line 1537
     iget-object v3, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->mVT:Landroid/view/VelocityTracker;
 
     invoke-virtual {v3}, Landroid/view/VelocityTracker;->getYVelocity()F
@@ -221,39 +221,39 @@
 
     if-gez v3, :cond_0
 
-    .line 1570
+    .line 1538
     iget-object v3, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->this$0:Lcom/android/systemui/statusbar/tablet/TabletStatusBar;
 
     invoke-virtual {v3}, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->animateExpand()V
 
-    .line 1571
+    .line 1539
     iget-object v3, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->this$0:Lcom/android/systemui/statusbar/tablet/TabletStatusBar;
 
     invoke-virtual {v3, v1}, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->visibilityChanged(Z)V
 
-    .line 1572
+    .line 1540
     invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->hilite(Z)V
 
-    .line 1573
+    .line 1541
     iget-object v2, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->mVT:Landroid/view/VelocityTracker;
 
     invoke-virtual {v2}, Landroid/view/VelocityTracker;->recycle()V
 
-    .line 1574
+    .line 1542
     iput-object v5, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->mVT:Landroid/view/VelocityTracker;
 
     goto :goto_0
 
-    .line 1580
+    .line 1548
     :pswitch_2
     invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->hilite(Z)V
 
-    .line 1581
+    .line 1549
     iget-object v3, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->mVT:Landroid/view/VelocityTracker;
 
     if-eqz v3, :cond_2
 
-    .line 1582
+    .line 1550
     if-ne v0, v1, :cond_3
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
@@ -310,34 +310,34 @@
 
     if-ge v3, v4, :cond_3
 
-    .line 1588
+    .line 1556
     iget-object v3, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->this$0:Lcom/android/systemui/statusbar/tablet/TabletStatusBar;
 
     invoke-virtual {v3}, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->animateExpand()V
 
-    .line 1589
+    .line 1557
     iget-object v3, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->this$0:Lcom/android/systemui/statusbar/tablet/TabletStatusBar;
 
     invoke-virtual {v3, v1}, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->visibilityChanged(Z)V
 
-    .line 1590
+    .line 1558
     invoke-virtual {p1, v1}, Landroid/view/View;->sendAccessibilityEvent(I)V
 
-    .line 1591
+    .line 1559
     invoke-virtual {p1, v2}, Landroid/view/View;->playSoundEffect(I)V
 
-    .line 1594
+    .line 1562
     :cond_3
     iget-object v2, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->mVT:Landroid/view/VelocityTracker;
 
     invoke-virtual {v2}, Landroid/view/VelocityTracker;->recycle()V
 
-    .line 1595
+    .line 1563
     iput-object v5, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$NotificationTriggerTouchListener;->mVT:Landroid/view/VelocityTracker;
 
     goto/16 :goto_0
 
-    .line 1555
+    .line 1523
     nop
 
     :pswitch_data_0

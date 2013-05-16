@@ -11,10 +11,6 @@
 .end annotation
 
 
-# static fields
-.field static final DEBUG:Z
-
-
 # instance fields
 .field private mBoard:Lcom/android/systemui/Nyandroid$Board;
 

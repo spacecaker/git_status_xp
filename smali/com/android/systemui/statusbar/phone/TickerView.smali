@@ -42,15 +42,3 @@
     .line 36
     return-void
 .end method
-
-.method public setTicker(Lcom/android/systemui/statusbar/phone/Ticker;)V
-    .locals 0
-    .parameter "t"
-
-    .prologue
-    .line 39
-    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/TickerView;->mTicker:Lcom/android/systemui/statusbar/phone/Ticker;
-
-    .line 40
-    return-void
-.end method

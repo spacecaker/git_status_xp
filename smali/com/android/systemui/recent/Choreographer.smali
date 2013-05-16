@@ -6,18 +6,6 @@
 .implements Landroid/animation/Animator$AnimatorListener;
 
 
-# static fields
-.field private static final CLOSE_DURATION:I = 0xfa
-
-.field private static final DEBUG:Z = false
-
-.field private static final OPEN_DURATION:I = 0x88
-
-.field private static final SCRIM_DURATION:I = 0x190
-
-.field private static final TAG:Ljava/lang/String; = "RecentsPanelView"
-
-
 # instance fields
 .field final HYPERSPACE_OFFRAMP:I
 

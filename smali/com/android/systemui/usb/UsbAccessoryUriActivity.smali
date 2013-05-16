@@ -6,10 +6,6 @@
 .implements Landroid/content/DialogInterface$OnClickListener;
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "UsbAccessoryUriActivity"
-
-
 # instance fields
 .field private mAccessory:Landroid/hardware/usb/UsbAccessory;
 

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 2348
+    .line 2318
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$7$1$3;->this$2:Lcom/android/systemui/statusbar/phone/PhoneStatusBar$7$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 2350
+    .line 2320
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$7$1$3;->this$2:Lcom/android/systemui/statusbar/phone/PhoneStatusBar$7$1;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$7$1;->this$1:Lcom/android/systemui/statusbar/phone/PhoneStatusBar$7;
@@ -52,6 +52,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->animateCollapse(Z)V
 
-    .line 2351
+    .line 2321
     return-void
 .end method

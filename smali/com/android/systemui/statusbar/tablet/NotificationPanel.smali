@@ -3,8 +3,8 @@
 .source "NotificationPanel.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/tablet/StatusBarPanel;
 .implements Landroid/view/View$OnClickListener;
+.implements Lcom/android/systemui/statusbar/tablet/StatusBarPanel;
 
 
 # annotations
@@ -16,12 +16,6 @@
 
 
 # static fields
-.field static final DEBUG:Z = false
-
-.field static final PANEL_FADE_DURATION:I = 0x96
-
-.field static final TAG:Ljava/lang/String; = "Tablet/NotificationPanel"
-
 .field static sAccelerateInterpolator:Landroid/view/animation/Interpolator;
 
 .field static sDecelerateInterpolator:Landroid/view/animation/Interpolator;
@@ -169,7 +163,7 @@
 
     .line 349
     .local v2, infl:Landroid/view/LayoutInflater;
-    const v5, 0x7f030020
+    const v5, 0x7f03001b
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/tablet/NotificationPanel;->mContentFrame:Landroid/view/ViewGroup;
 
@@ -491,7 +485,7 @@
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/tablet/NotificationPanel;->setWillNotDraw(Z)V
 
     .line 87
-    const v0, 0x7f0e006b
+    const v0, 0x7f0e0069
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/NotificationPanel;->findViewById(I)Landroid/view/View;
 
@@ -507,7 +501,7 @@
     invoke-virtual {v0}, Landroid/view/ViewGroup;->bringToFront()V
 
     .line 89
-    const v0, 0x7f0e006f
+    const v0, 0x7f0e006d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/NotificationPanel;->findViewById(I)Landroid/view/View;
 
@@ -523,7 +517,7 @@
     invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/tablet/NotificationPanelTitle;->setPanel(Lcom/android/systemui/statusbar/tablet/NotificationPanel;)V
 
     .line 92
-    const v0, 0x7f0e004d
+    const v0, 0x7f0e004c
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/NotificationPanel;->findViewById(I)Landroid/view/View;
 
@@ -532,7 +526,7 @@
     iput-object v0, p0, Lcom/android/systemui/statusbar/tablet/NotificationPanel;->mSettingsButton:Landroid/view/View;
 
     .line 93
-    const v0, 0x7f0e0075
+    const v0, 0x7f0e0073
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/NotificationPanel;->findViewById(I)Landroid/view/View;
 
@@ -541,7 +535,7 @@
     iput-object v0, p0, Lcom/android/systemui/statusbar/tablet/NotificationPanel;->mNotificationButton:Landroid/view/View;
 
     .line 95
-    const v0, 0x7f0e006d
+    const v0, 0x7f0e006b
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/NotificationPanel;->findViewById(I)Landroid/view/View;
 
@@ -550,7 +544,7 @@
     iput-object v0, p0, Lcom/android/systemui/statusbar/tablet/NotificationPanel;->mNotificationScroller:Landroid/view/View;
 
     .line 96
-    const v0, 0x7f0e006c
+    const v0, 0x7f0e006a
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/NotificationPanel;->findViewById(I)Landroid/view/View;
 
@@ -566,7 +560,7 @@
     iput v0, p0, Lcom/android/systemui/statusbar/tablet/NotificationPanel;->mContentFrameMissingTranslation:F
 
     .line 100
-    const v0, 0x7f0e004e
+    const v0, 0x7f0e004d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/NotificationPanel;->findViewById(I)Landroid/view/View;
 

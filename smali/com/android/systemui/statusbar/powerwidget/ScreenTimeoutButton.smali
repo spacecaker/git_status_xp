@@ -4,11 +4,7 @@
 
 
 # static fields
-.field private static final CM_MODE_15_60_300:I = 0x0
-
-.field private static final CM_MODE_30_120_300:I = 0x1
-
-.field private static final OBSERVED_URIS:Ljava/util/List; = null
+.field private static final OBSERVED_URIS:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -18,16 +14,6 @@
         }
     .end annotation
 .end field
-
-.field private static final SCREEN_TIMEOUT_HIGH:I = 0x1d4c0
-
-.field private static final SCREEN_TIMEOUT_LOW:I = 0x7530
-
-.field private static final SCREEN_TIMEOUT_MAX:I = 0x493e0
-
-.field private static final SCREEN_TIMEOUT_MIN:I = 0x3a98
-
-.field private static final SCREEN_TIMEOUT_NORMAL:I = 0xea60
 
 
 # instance fields
@@ -170,7 +156,7 @@
     .line 159
     .local v1, resId:I
     :goto_0
-    const v2, 0x7f08008c
+    const v2, 0x7f08008b
 
     const/4 v3, 0x2
 

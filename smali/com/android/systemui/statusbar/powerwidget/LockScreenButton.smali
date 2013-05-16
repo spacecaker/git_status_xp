@@ -3,10 +3,6 @@
 .source "LockScreenButton.java"
 
 
-# static fields
-.field private static final KEY_DISABLED:Ljava/lang/String; = "lockscreen_disabled"
-
-
 # instance fields
 .field private mDisabledLockscreen:Z
 

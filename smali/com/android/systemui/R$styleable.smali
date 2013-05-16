@@ -15,25 +15,13 @@
 
 
 # static fields
-.field public static final KeyButtonView:[I = null
-
-.field public static final KeyButtonView_glowBackground:I = 0x2
-
-.field public static final KeyButtonView_keyCode:I = 0x0
-
-.field public static final KeyButtonView_keyRepeat:I = 0x1
+.field public static final KeyButtonView:[I
 
 .field public static final NotificationLinearLayout:[I
 
-.field public static final NotificationLinearLayout_insetLeft:I
-
 .field public static final NotificationRowLayout:[I
 
-.field public static final NotificationRowLayout_rowHeight:I
-
 .field public static final ToggleSlider:[I
-
-.field public static final ToggleSlider_text:I
 
 
 # direct methods
@@ -45,7 +33,7 @@
 
     const/4 v2, 0x0
 
-    .line 1352
+    .line 1320
     const/4 v0, 0x3
 
     new-array v0, v0, [I
@@ -54,7 +42,7 @@
 
     sput-object v0, Lcom/android/systemui/R$styleable;->KeyButtonView:[I
 
-    .line 1409
+    .line 1377
     new-array v0, v3, [I
 
     const v1, 0x7f010004
@@ -63,7 +51,7 @@
 
     sput-object v0, Lcom/android/systemui/R$styleable;->NotificationLinearLayout:[I
 
-    .line 1438
+    .line 1406
     new-array v0, v3, [I
 
     const v1, 0x7f010005
@@ -72,7 +60,7 @@
 
     sput-object v0, Lcom/android/systemui/R$styleable;->NotificationRowLayout:[I
 
-    .line 1467
+    .line 1435
     new-array v0, v3, [I
 
     const v1, 0x7f010003
@@ -83,7 +71,7 @@
 
     return-void
 
-    .line 1352
+    .line 1320
     :array_0
     .array-data 0x4
         0x0t 0x0t 0x1t 0x7ft
@@ -96,7 +84,7 @@
     .locals 0
 
     .prologue
-    .line 1337
+    .line 1305
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

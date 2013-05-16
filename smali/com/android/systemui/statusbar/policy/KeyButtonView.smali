@@ -3,10 +3,6 @@
 .source "KeyButtonView.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "StatusBar.KeyButtonView"
-
-
 # instance fields
 .field final BUTTON_QUIESCENT_ALPHA:F
 

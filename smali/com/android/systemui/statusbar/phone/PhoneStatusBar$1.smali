@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 407
+    .line 404
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$1;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 409
+    .line 406
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$1;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mContext:Landroid/content/Context;
@@ -63,12 +63,12 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 411
+    .line 408
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$1;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->animateCollapse()V
 
-    .line 413
+    .line 410
     :cond_0
     return-void
 .end method

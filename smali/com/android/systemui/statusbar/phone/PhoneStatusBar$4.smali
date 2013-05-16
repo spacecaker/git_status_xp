@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1281
+    .line 1257
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$4;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,9 +43,9 @@
     .parameter "hasFocus"
 
     .prologue
-    .line 1285
+    .line 1261
     invoke-virtual {p1, p2}, Landroid/view/View;->setSelected(Z)V
 
-    .line 1286
+    .line 1262
     return-void
 .end method

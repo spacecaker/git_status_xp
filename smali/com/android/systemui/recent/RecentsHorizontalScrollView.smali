@@ -6,12 +6,6 @@
 .implements Lcom/android/systemui/SwipeHelper$Callback;
 
 
-# static fields
-.field private static final DEBUG:Z = false
-
-.field private static final TAG:Ljava/lang/String; = "RecentsPanelView"
-
-
 # instance fields
 .field private mAdapter:Lcom/android/systemui/recent/RecentsPanelView$TaskDescriptionAdapter;
 
@@ -230,7 +224,7 @@
 
     .line 90
     .local v2, launchAppListener:Landroid/view/View$OnClickListener;
-    const v7, 0x7f0e007e
+    const v7, 0x7f0e007c
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -255,7 +249,7 @@
     invoke-virtual {v5, v3}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
     .line 105
-    const v7, 0x7f0e0081
+    const v7, 0x7f0e007f
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -574,7 +568,7 @@
 
     .prologue
     .line 174
-    const v0, 0x7f0e007d
+    const v0, 0x7f0e007b
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -777,7 +771,7 @@
     invoke-virtual {p0, v1}, Lcom/android/systemui/recent/RecentsHorizontalScrollView;->setScrollbarFadingEnabled(Z)V
 
     .line 234
-    const v1, 0x7f0e0089
+    const v1, 0x7f0e0085
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recent/RecentsHorizontalScrollView;->findViewById(I)Landroid/view/View;
 
@@ -794,7 +788,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0022
+    const v2, 0x7f0a001c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 

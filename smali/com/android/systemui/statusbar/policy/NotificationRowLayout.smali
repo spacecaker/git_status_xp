@@ -6,18 +6,6 @@
 .implements Lcom/android/systemui/SwipeHelper$Callback;
 
 
-# static fields
-.field private static final APPEAR_ANIM_LEN:I = 0xfa
-
-.field private static final DEBUG:Z = false
-
-.field private static final DISAPPEAR_ANIM_LEN:I = 0xfa
-
-.field private static final SLOW_ANIMATIONS:Z = false
-
-.field private static final TAG:Ljava/lang/String; = "NotificationRowLayout"
-
-
 # instance fields
 .field mAnimateBounds:Z
 
@@ -275,7 +263,7 @@
 
     .prologue
     .line 116
-    const v1, 0x7f0e0078
+    const v1, 0x7f0e0076
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -302,20 +290,6 @@
     const/4 v1, 0x0
 
     goto :goto_0
-.end method
-
-.method public dismissRowAnimated(Landroid/view/View;)V
-    .locals 1
-    .parameter "child"
-
-    .prologue
-    .line 204
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/policy/NotificationRowLayout;->dismissRowAnimated(Landroid/view/View;I)V
-
-    .line 205
-    return-void
 .end method
 
 .method public dismissRowAnimated(Landroid/view/View;I)V
@@ -446,7 +420,7 @@
 
     .prologue
     .line 121
-    const v1, 0x7f0e0078
+    const v1, 0x7f0e0076
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1122,18 +1096,6 @@
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x80t 0x3ft
     .end array-data
-.end method
-
-.method public setAnimateBounds(Z)V
-    .locals 0
-    .parameter "anim"
-
-    .prologue
-    .line 99
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/policy/NotificationRowLayout;->mAnimateBounds:Z
-
-    .line 100
-    return-void
 .end method
 
 .method public setForcedHeight(I)V

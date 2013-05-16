@@ -6,10 +6,6 @@
 .implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "StatusBar.AutoRotateController"
-
-
 # instance fields
 .field private mAutoRotation:Z
 

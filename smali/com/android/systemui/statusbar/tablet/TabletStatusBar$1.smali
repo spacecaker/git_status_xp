@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 634
+    .line 602
     iput-object p1, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$1;->this$0:Lcom/android/systemui/statusbar/tablet/TabletStatusBar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,14 +45,14 @@
     .parameter "transitionType"
 
     .prologue
-    .line 639
+    .line 607
     iget-object v0, p0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar$1;->this$0:Lcom/android/systemui/statusbar/tablet/TabletStatusBar;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/tablet/TabletStatusBar;->mBarContents:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->invalidate()V
 
-    .line 640
+    .line 608
     return-void
 .end method
 
@@ -64,6 +64,6 @@
     .parameter "transitionType"
 
     .prologue
-    .line 642
+    .line 610
     return-void
 .end method

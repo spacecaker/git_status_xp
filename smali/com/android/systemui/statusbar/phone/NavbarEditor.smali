@@ -16,22 +16,6 @@
 
 
 # static fields
-.field public static final NAVBAR_ALWAYS_MENU:Ljava/lang/String; = "menu1"
-
-.field public static final NAVBAR_BACK:Ljava/lang/String; = "back"
-
-.field public static final NAVBAR_CONDITIONAL_MENU:Ljava/lang/String; = "menu0"
-
-.field public static final NAVBAR_EMPTY:Ljava/lang/String; = "empty"
-
-.field public static final NAVBAR_HOME:Ljava/lang/String; = "home"
-
-.field public static final NAVBAR_MENU_BIG:Ljava/lang/String; = "menu2"
-
-.field public static final NAVBAR_RECENT:Ljava/lang/String; = "recent"
-
-.field public static final NAVBAR_SEARCH:Ljava/lang/String; = "search"
-
 .field public static final buttonMap:Ljava/util/LinkedHashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -115,7 +99,7 @@
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NavbarEditor$ButtonInfo;
 
-    const v1, 0x7f080084
+    const v1, 0x7f080083
 
     const v2, 0x7f080041
 
@@ -138,7 +122,7 @@
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NavbarEditor$ButtonInfo;
 
-    const v1, 0x7f080089
+    const v1, 0x7f080088
 
     const v5, 0x7f020033
 
@@ -161,7 +145,7 @@
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NavbarEditor$ButtonInfo;
 
-    const v1, 0x7f08008a
+    const v1, 0x7f080089
 
     const v5, 0x7f020033
 
@@ -184,7 +168,7 @@
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NavbarEditor$ButtonInfo;
 
-    const v1, 0x7f08008b
+    const v1, 0x7f08008a
 
     const v4, 0x7f020031
 
@@ -207,7 +191,7 @@
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NavbarEditor$ButtonInfo;
 
-    const v1, 0x7f080087
+    const v1, 0x7f080086
 
     const v2, 0x7f080040
 
@@ -230,7 +214,7 @@
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NavbarEditor$ButtonInfo;
 
-    const v1, 0x7f080086
+    const v1, 0x7f080085
 
     const v2, 0x7f080040
 
@@ -253,7 +237,7 @@
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NavbarEditor$ButtonInfo;
 
-    const v1, 0x7f080085
+    const v1, 0x7f080084
 
     const v2, 0x7f080043
 
@@ -276,7 +260,7 @@
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/NavbarEditor$ButtonInfo;
 
-    const v1, 0x7f080088
+    const v1, 0x7f080087
 
     const v2, 0x7f080081
 
@@ -1363,7 +1347,7 @@
     .local v1, builder:Landroid/app/AlertDialog$Builder;
     iget-object v8, p0, Lcom/android/systemui/statusbar/phone/NavbarEditor;->mContext:Landroid/content/Context;
 
-    const v11, 0x7f080083
+    const v11, 0x7f080082
 
     invoke-virtual {v8, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

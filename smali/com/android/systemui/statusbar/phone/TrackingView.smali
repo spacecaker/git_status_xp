@@ -8,12 +8,6 @@
 
 .field mService:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-.field mStartX:I
-
-.field mStartY:I
-
-.field mTracking:Z
-
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V

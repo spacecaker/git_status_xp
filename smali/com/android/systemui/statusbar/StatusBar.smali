@@ -6,12 +6,6 @@
 .implements Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
 
-# static fields
-.field private static final SPEW:Z = false
-
-.field static final TAG:Ljava/lang/String; = "StatusBar"
-
-
 # instance fields
 .field protected mBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
@@ -446,7 +440,7 @@
 
     const v15, 0x800048
 
-    const/16 v16, 0x4
+    const/16 v16, -0x3
 
     invoke-direct/range {v11 .. v16}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
 
@@ -544,7 +538,7 @@
 
     .prologue
     .line 164
-    const v4, 0x7f0e0078
+    const v4, 0x7f0e0076
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

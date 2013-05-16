@@ -3,13 +3,7 @@
     <dimen name="status_bar_edge_ignore">5.0dip</dimen>
     <dimen name="status_bar_recents_app_icon_max_width">48.0dip</dimen>
     <dimen name="status_bar_recents_app_icon_max_height">48.0dip</dimen>
-    <dimen name="status_bar_recents_app_icon_max_width_sense4">42.0dip</dimen>
-    <dimen name="status_bar_recents_app_icon_max_height_sense4">42.0dip</dimen>
-    <dimen name="status_bar_recents_thumbnail_width_webaokp">170.0dip</dimen>
-    <dimen name="status_bar_recents_thumbnail_height_webaokp">210.0dip</dimen>
-    <dimen name="status_bar_recents_thumbnail_width_sense4">162.0dip</dimen>
-    <dimen name="status_bar_recents_thumbnail_height_sense4">385.0dip</dimen>
-    <dimen name="status_bar_recents_thumbnail_width">162.0dip</dimen>
+    <dimen name="status_bar_recents_thumbnail_width">164.0dip</dimen>
     <dimen name="status_bar_recents_thumbnail_height">145.0dip</dimen>
     <dimen name="status_bar_recents_app_label_text_size">14.0dip</dimen>
     <dimen name="status_bar_recents_app_description_text_size">14.0dip</dimen>

@@ -4,63 +4,7 @@
 
 
 # static fields
-.field public static final BUTTON_AIRPLANE:Ljava/lang/String; = "toggleAirplane"
-
-.field public static final BUTTON_AUTOROTATE:Ljava/lang/String; = "toggleAutoRotate"
-
-.field public static final BUTTON_BLUETOOTH:Ljava/lang/String; = "toggleBluetooth"
-
-.field public static final BUTTON_BRIGHTNESS:Ljava/lang/String; = "toggleBrightness"
-
-.field public static final BUTTON_FLASHLIGHT:Ljava/lang/String; = "toggleFlashlight"
-
-.field public static final BUTTON_GPS:Ljava/lang/String; = "toggleGPS"
-
-.field public static final BUTTON_LOCKSCREEN:Ljava/lang/String; = "toggleLockScreen"
-
-.field public static final BUTTON_LTE:Ljava/lang/String; = "toggleLte"
-
-.field public static final BUTTON_MEDIA_NEXT:Ljava/lang/String; = "toggleMediaNext"
-
-.field public static final BUTTON_MEDIA_PLAY_PAUSE:Ljava/lang/String; = "toggleMediaPlayPause"
-
-.field public static final BUTTON_MEDIA_PREVIOUS:Ljava/lang/String; = "toggleMediaPrevious"
-
-.field public static final BUTTON_MOBILEDATA:Ljava/lang/String; = "toggleMobileData"
-
-.field public static final BUTTON_NETWORKMODE:Ljava/lang/String; = "toggleNetworkMode"
-
-.field public static final BUTTON_SCREENTIMEOUT:Ljava/lang/String; = "toggleScreenTimeout"
-
-.field public static final BUTTON_SLEEP:Ljava/lang/String; = "toggleSleepMode"
-
-.field public static final BUTTON_SOUND:Ljava/lang/String; = "toggleSound"
-
-.field public static final BUTTON_SYNC:Ljava/lang/String; = "toggleSync"
-
-.field public static final BUTTON_UNKNOWN:Ljava/lang/String; = "unknown"
-
-.field public static final BUTTON_WIFI:Ljava/lang/String; = "toggleWifi"
-
-.field public static final BUTTON_WIFIAP:Ljava/lang/String; = "toggleWifiAp"
-
-.field public static final BUTTON_WIMAX:Ljava/lang/String; = "toggleWimax"
-
-.field private static final MASK_MODE:Landroid/graphics/PorterDuff$Mode; = null
-
-.field public static final STATE_DISABLED:I = 0x2
-
-.field public static final STATE_ENABLED:I = 0x1
-
-.field public static final STATE_INTERMEDIATE:I = 0x5
-
-.field public static final STATE_TURNING_OFF:I = 0x4
-
-.field public static final STATE_TURNING_ON:I = 0x3
-
-.field public static final STATE_UNKNOWN:I = 0x6
-
-.field public static final TAG:Ljava/lang/String; = "PowerButton"
+.field private static final MASK_MODE:Landroid/graphics/PorterDuff$Mode;
 
 
 # instance fields

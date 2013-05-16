@@ -21,10 +21,6 @@
 
 
 # static fields
-.field public static final FIXED_STARS:Z = true
-
-.field public static final NUM_CATS:I = 0x14
-
 .field static sRNG:Ljava/util/Random;
 
 
@@ -105,44 +101,6 @@
     return v0
 .end method
 
-.method static pick([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .parameter
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<E:",
-            "Ljava/lang/Object;",
-            ">([TE;)TE;"
-        }
-    .end annotation
-
-    .prologue
-    .line 73
-    .local p0, array:[Ljava/lang/Object;,"[TE;"
-    array-length v0, p0
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    .line 74
-    :goto_0
-    return-object v0
-
-    :cond_0
-    sget-object v0, Lcom/android/systemui/Nyandroid$Board;->sRNG:Ljava/util/Random;
-
-    array-length v1, p0
-
-    invoke-virtual {v0, v1}, Ljava/util/Random;->nextInt(I)I
-
-    move-result v0
-
-    aget-object v0, p0, v0
-
-    goto :goto_0
-.end method
-
 .method static randfrange(FF)F
     .locals 1
     .parameter "a"
@@ -161,30 +119,6 @@
     move-result v0
 
     return v0
-.end method
-
-.method static randsign()I
-    .locals 1
-
-    .prologue
-    .line 69
-    sget-object v0, Lcom/android/systemui/Nyandroid$Board;->sRNG:Ljava/util/Random;
-
-    invoke-virtual {v0}, Ljava/util/Random;->nextBoolean()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, -0x1
-
-    goto :goto_0
 .end method
 
 .method private reset()V

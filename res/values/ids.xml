@@ -43,8 +43,6 @@
     <item type="id" name="mobile_signal">false</item>
     <item type="id" name="mobile_type">false</item>
     <item type="id" name="mobile_inout">false</item>
-    <item type="id" name="center">false</item>
-    <item type="id" name="clockcenter">false</item>
     <item type="id" name="icons">false</item>
     <item type="id" name="moreIcon">false</item>
     <item type="id" name="notificationIcons">false</item>
@@ -76,10 +74,10 @@
     <item type="id" name="compat_mode_radio_group">false</item>
     <item type="id" name="compat_mode_off_radio">false</item>
     <item type="id" name="compat_mode_on_radio">false</item>
+    <item type="id" name="exp_power_stat">false</item>
     <item type="id" name="date">false</item>
     <item type="id" name="settings_button">false</item>
     <item type="id" name="clear_all_button">false</item>
-    <item type="id" name="exp_power_stat">false</item>
     <item type="id" name="noNotificationsTitle">false</item>
     <item type="id" name="scroll">false</item>
     <item type="id" name="latestItems">false</item>
@@ -132,8 +130,6 @@
     <item type="id" name="app_label">false</item>
     <item type="id" name="app_description">false</item>
     <item type="id" name="recents_callout_line">false</item>
-    <item type="id" name="linearLayout_recentitem">false</item>
-    <item type="id" name="linearLayout_info">false</item>
     <item type="id" name="recents_root">false</item>
     <item type="id" name="recents_bg_protect">false</item>
     <item type="id" name="recents_container">false</item>
@@ -157,4 +153,6 @@
     <item type="id" name="close">false</item>
     <item type="id" name="recent_remove_item">false</item>
     <item type="id" name="recent_inspect_item">false</item>
+    <item type="id" name="persentext">false</item>
+    <item type="id" name="traffic">false</item>
 </resources>

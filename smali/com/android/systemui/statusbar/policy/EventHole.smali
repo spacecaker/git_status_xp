@@ -6,10 +6,6 @@
 .implements Landroid/view/ViewTreeObserver$OnComputeInternalInsetsListener;
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "StatusBar.EventHole"
-
-
 # instance fields
 .field private mLoc:[I
 

@@ -11,10 +11,6 @@
 .end annotation
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "NotificationIconArea"
-
-
 # instance fields
 .field mIconLayout:Lcom/android/systemui/statusbar/tablet/NotificationIconArea$IconLayout;
 
@@ -30,7 +26,7 @@
     invoke-direct {p0, p1, p2}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 41
-    const v0, 0x7f0e002d
+    const v0, 0x7f0e002b
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/NotificationIconArea;->findViewById(I)Landroid/view/View;
 

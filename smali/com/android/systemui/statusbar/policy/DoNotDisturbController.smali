@@ -3,12 +3,8 @@
 .source "DoNotDisturbController.java"
 
 # interfaces
-.implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 .implements Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;
-
-
-# static fields
-.field private static final TAG:Ljava/lang/String; = "StatusBar.DoNotDisturbController"
+.implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
 
 # instance fields

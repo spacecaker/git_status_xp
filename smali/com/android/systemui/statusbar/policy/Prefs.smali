@@ -3,16 +3,6 @@
 .source "Prefs.java"
 
 
-# static fields
-.field public static final DO_NOT_DISTURB_DEFAULT:Z = false
-
-.field public static final DO_NOT_DISTURB_PREF:Ljava/lang/String; = "do_not_disturb"
-
-.field private static final SHARED_PREFS_NAME:Ljava/lang/String; = "status_bar"
-
-.field public static final SHOWN_COMPAT_MODE_HELP:Ljava/lang/String; = "shown_compat_mode_help"
-
-
 # direct methods
 .method public constructor <init>()V
     .locals 0

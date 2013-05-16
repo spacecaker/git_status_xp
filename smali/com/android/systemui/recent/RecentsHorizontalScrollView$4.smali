@@ -55,7 +55,7 @@
     .line 93
     iget-object v1, p0, Lcom/android/systemui/recent/RecentsHorizontalScrollView$4;->val$view:Landroid/view/View;
 
-    const v2, 0x7f0e0082
+    const v2, 0x7f0e0080
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

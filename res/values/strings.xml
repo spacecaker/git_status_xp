@@ -134,7 +134,6 @@ If you re-enable data, you may be charged by the operator."</string>
     <string name="gps_notification_searching_text">Searching for GPS</string>
     <string name="gps_notification_found_text">Location set by GPS</string>
     <string name="accessibility_clear_all">Clear all notifications.</string>
-    <string name="recent_apps_title">Recent apps</string>
     <string name="navbar_dialog_title">Choose action to assign</string>
     <string name="navbar_home_button">Home button</string>
     <string name="navbar_recent_button">Recent button</string>
@@ -145,4 +144,5 @@ If you re-enable data, you may be charged by the operator."</string>
     <string name="navbar_menu_always_button">Menu (alwaysShow) button</string>
     <string name="navbar_menu_big_button">Menu button</string>
     <string name="powerwidget_screen_timeout_toast">Screen timeout set to: %1$d %2$s</string>
+    <string name="persen">%</string>
 </resources>

@@ -3,14 +3,8 @@
 .source "CompatModePanel.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/tablet/StatusBarPanel;
 .implements Landroid/view/View$OnClickListener;
-
-
-# static fields
-.field private static final DEBUG:Z = false
-
-.field private static final TAG:Ljava/lang/String; = "CompatModePanel"
+.implements Lcom/android/systemui/statusbar/tablet/StatusBarPanel;
 
 
 # instance fields
@@ -310,7 +304,7 @@
 
     .prologue
     .line 56
-    const v0, 0x7f0e004b
+    const v0, 0x7f0e0049
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/CompatModePanel;->findViewById(I)Landroid/view/View;
 
@@ -321,7 +315,7 @@
     iput-object v0, p0, Lcom/android/systemui/statusbar/tablet/CompatModePanel;->mOnButton:Landroid/widget/RadioButton;
 
     .line 57
-    const v0, 0x7f0e004a
+    const v0, 0x7f0e0048
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/tablet/CompatModePanel;->findViewById(I)Landroid/view/View;
 

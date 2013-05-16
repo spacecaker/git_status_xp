@@ -12,29 +12,7 @@
 
 
 # static fields
-.field static final ALPHA_FADE_END:F = 0.5f
-
-.field public static ALPHA_FADE_START:F = 0.0f
-
-.field private static final CONSTRAIN_SWIPE:Z = true
-
-.field private static final DEBUG:Z = false
-
-.field private static final DEBUG_INVALIDATE:Z = false
-
-.field private static final DISMISS_IF_SWIPED_FAR_ENOUGH:Z = true
-
-.field private static final FADE_OUT_DURING_SWIPE:Z = true
-
-.field private static final SLOW_ANIMATIONS:Z = false
-
-.field private static final SNAP_ANIM_LEN:I = 0x96
-
-.field static final TAG:Ljava/lang/String; = "com.android.systemui.SwipeHelper"
-
-.field public static final X:I = 0x0
-
-.field public static final Y:I = 0x1
+.field public static ALPHA_FADE_START:F
 
 .field private static sLinearInterpolator:Landroid/view/animation/LinearInterpolator;
 

@@ -11,20 +11,6 @@
 .end annotation
 
 
-# static fields
-.field private static final DEBUG:Z = false
-
-.field static final FIXED_SIZED_SURFACE:Z = true
-
-.field private static final GL_LOG_TAG:Ljava/lang/String; = "ImageWallpaperGL"
-
-.field private static final PROPERTY_KERNEL_QEMU:Ljava/lang/String; = "ro.kernel.qemu"
-
-.field private static final TAG:Ljava/lang/String; = "ImageWallpaper"
-
-.field static final USE_OPENGL:Z = true
-
-
 # instance fields
 .field mIsHwAccelerated:Z
 

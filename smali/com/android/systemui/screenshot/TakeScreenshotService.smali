@@ -4,8 +4,6 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String; = "TakeScreenshotService"
-
 .field private static mScreenshot:Lcom/android/systemui/screenshot/GlobalScreenshot;
 
 

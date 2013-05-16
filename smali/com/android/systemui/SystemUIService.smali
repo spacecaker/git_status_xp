@@ -3,10 +3,6 @@
 .source "SystemUIService.java"
 
 
-# static fields
-.field static final TAG:Ljava/lang/String; = "SystemUIService"
-
-
 # instance fields
 .field final SERVICES:[Ljava/lang/Object;
 

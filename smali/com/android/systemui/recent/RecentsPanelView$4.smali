@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 709
+    .line 623
     iput-object p1, p0, Lcom/android/systemui/recent/RecentsPanelView$4;->this$0:Lcom/android/systemui/recent/RecentsPanelView;
 
     iput-object p2, p0, Lcom/android/systemui/recent/RecentsPanelView$4;->val$thumbnailView:Landroid/view/View;
@@ -47,13 +47,13 @@
     .parameter "menu"
 
     .prologue
-    .line 711
+    .line 625
     iget-object v0, p0, Lcom/android/systemui/recent/RecentsPanelView$4;->val$thumbnailView:Landroid/view/View;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setSelected(Z)V
 
-    .line 712
+    .line 626
     return-void
 .end method

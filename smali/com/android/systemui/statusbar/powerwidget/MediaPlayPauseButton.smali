@@ -3,14 +3,6 @@
 .source "MediaPlayPauseButton.java"
 
 
-# static fields
-.field private static final MEDIA_STATE_ACTIVE:I = 0x1
-
-.field private static final MEDIA_STATE_INACTIVE:I = 0x0
-
-.field private static final MEDIA_STATE_UNKNOWN:I = -0x1
-
-
 # instance fields
 .field private mCurrentState:I
 

@@ -3,12 +3,6 @@
 .source "RecentsScrollViewPerformanceHelper.java"
 
 
-# static fields
-.field public static final OPTIMIZE_SW_RENDERED_RECENTS:Z = true
-
-.field public static final USE_DARK_FADE_IN_HW_ACCELERATED_MODE:Z = true
-
-
 # instance fields
 .field private mAttachedToWindow:Z
 
@@ -1077,7 +1071,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f02012a
+    const v1, 0x7f020129
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

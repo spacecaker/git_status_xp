@@ -4,25 +4,13 @@
 
 
 # static fields
-.field private static final AUTO_BACKLIGHT:I = -0x1
+.field private static final BACKLIGHTS:[I
 
-.field private static final BACKLIGHTS:[I = null
+.field private static final BRIGHTNESS_MODE_URI:Landroid/net/Uri;
 
-.field private static final BRIGHTNESS_MODE_URI:Landroid/net/Uri; = null
+.field private static final BRIGHTNESS_URI:Landroid/net/Uri;
 
-.field private static final BRIGHTNESS_URI:Landroid/net/Uri; = null
-
-.field private static final HIGH_BACKLIGHT:I = 0xbf
-
-.field private static final LOW_BACKLIGHT:I = 0x3f
-
-.field private static final MAX_BACKLIGHT:I = 0xff
-
-.field private static final MID_BACKLIGHT:I = 0x7f
-
-.field private static final MIN_BACKLIGHT:I = 0x1e
-
-.field private static final OBSERVED_URIS:Ljava/util/List; = null
+.field private static final OBSERVED_URIS:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -32,8 +20,6 @@
         }
     .end annotation
 .end field
-
-.field private static final TAG:Ljava/lang/String; = "BrightnessButton"
 
 
 # instance fields

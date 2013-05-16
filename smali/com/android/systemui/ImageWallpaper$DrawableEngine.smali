@@ -20,24 +20,6 @@
 .end annotation
 
 
-# static fields
-.field static final EGL_CONTEXT_CLIENT_VERSION:I = 0x3098
-
-.field static final EGL_OPENGL_ES2_BIT:I = 0x4
-
-.field private static final FLOAT_SIZE_BYTES:I = 0x4
-
-.field private static final TRIANGLE_VERTICES_DATA_POS_OFFSET:I = 0x0
-
-.field private static final TRIANGLE_VERTICES_DATA_STRIDE_BYTES:I = 0x14
-
-.field private static final TRIANGLE_VERTICES_DATA_UV_OFFSET:I = 0x3
-
-.field private static final sSimpleFS:Ljava/lang/String; = "precision mediump float;\n\nvarying vec2 outTexCoords;\nuniform sampler2D texture;\n\nvoid main(void) {\n    gl_FragColor = texture2D(texture, outTexCoords);\n}\n\n"
-
-.field private static final sSimpleVS:Ljava/lang/String; = "attribute vec4 position;\nattribute vec2 texCoords;\nvarying vec2 outTexCoords;\nuniform mat4 projection;\n\nvoid main(void) {\n    outTexCoords = texCoords;\n    gl_Position = projection * position;\n}\n\n"
-
-
 # instance fields
 .field mBackground:Landroid/graphics/Bitmap;
 

@@ -11,10 +11,6 @@
 .end annotation
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "StatusBarIconView"
-
-
 # instance fields
 .field private mIcon:Lcom/android/internal/statusbar/StatusBarIcon;
 
@@ -57,7 +53,7 @@
 
     .line 96
     .local v3, res:Landroid/content/res/Resources;
-    const v5, 0x7f0a0013
+    const v5, 0x7f0a000d
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -65,7 +61,7 @@
 
     .line 97
     .local v2, outerBounds:I
-    const v5, 0x7f0a0014
+    const v5, 0x7f0a000e
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -87,7 +83,7 @@
     invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/StatusBarIconView;->setScaleY(F)V
 
     .line 101
-    const v5, 0x7f0a0015
+    const v5, 0x7f0a000f
 
     invoke-virtual {v3, v5, v7, v7}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -155,7 +151,7 @@
     .line 66
     iget-object v10, p0, Lcom/android/systemui/statusbar/StatusBarIconView;->mNumberPain:Landroid/graphics/Paint;
 
-    const v11, 0x7f020125
+    const v11, 0x7f020124
 
     invoke-virtual {v5, v11}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -223,7 +219,7 @@
     if-eqz p3, :cond_1
 
     .line 81
-    const v8, 0x7f0a0013
+    const v8, 0x7f0a000d
 
     invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -231,7 +227,7 @@
 
     .line 82
     .local v4, outerBounds:I
-    const v8, 0x7f0a0014
+    const v8, 0x7f0a000e
 
     invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -253,7 +249,7 @@
     invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/StatusBarIconView;->setScaleY(F)V
 
     .line 86
-    const v8, 0x7f0a0015
+    const v8, 0x7f0a000f
 
     invoke-virtual {v5, v8, v9, v9}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -278,17 +274,6 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/systemui/statusbar/StatusBarIconView;)Landroid/content/Context;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 45
-    iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarIconView;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/statusbar/StatusBarIconView;)Landroid/content/Context;
     .locals 1
     .parameter "x0"
 

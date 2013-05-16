@@ -7,10 +7,6 @@
 .implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "UsbPermissionActivity"
-
-
 # instance fields
 .field private mAccessory:Landroid/hardware/usb/UsbAccessory;
 

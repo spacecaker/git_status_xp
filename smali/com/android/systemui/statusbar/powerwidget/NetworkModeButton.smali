@@ -4,25 +4,7 @@
 
 
 # static fields
-.field public static final ACTION_MODIFY_NETWORK_MODE:Ljava/lang/String; = "com.android.internal.telephony.MODIFY_NETWORK_MODE"
-
-.field public static final ACTION_NETWORK_MODE_CHANGED:Ljava/lang/String; = "com.android.internal.telephony.NETWORK_MODE_CHANGED"
-
-.field public static final ACTION_REQUEST_NETWORK_MODE:Ljava/lang/String; = "com.android.internal.telephony.REQUEST_NETWORK_MODE"
-
-.field private static final CM_MODE_3G2G:I = 0x0
-
-.field private static final CM_MODE_3GONLY:I = 0x1
-
-.field private static final CM_MODE_BOTH:I = 0x2
-
-.field public static final EXTRA_NETWORK_MODE:Ljava/lang/String; = "networkMode"
-
-.field private static final NETWORK_MODE_UNKNOWN:I = -0x64
-
-.field private static final NO_NETWORK_MODE_YET:I = -0x63
-
-.field private static final OBSERVED_URIS:Ljava/util/List; = null
+.field private static final OBSERVED_URIS:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -32,8 +14,6 @@
         }
     .end annotation
 .end field
-
-.field private static final TAG:Ljava/lang/String; = "NetworkModeButton"
 
 
 # instance fields

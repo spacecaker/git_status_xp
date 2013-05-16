@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 2372
+    .line 2342
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$9;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 2374
+    .line 2344
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 2375
+    .line 2345
     .local v0, action:Ljava/lang/String;
     const-string v3, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
 
@@ -63,11 +63,11 @@
 
     if-eqz v3, :cond_3
 
-    .line 2377
+    .line 2347
     :cond_0
     const/4 v1, 0x0
 
-    .line 2378
+    .line 2348
     .local v1, excludeRecents:Z
     const-string v3, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
 
@@ -77,32 +77,32 @@
 
     if-eqz v3, :cond_1
 
-    .line 2379
+    .line 2349
     const-string v3, "reason"
 
     invoke-virtual {p2, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 2380
+    .line 2350
     .local v2, reason:Ljava/lang/String;
     if-eqz v2, :cond_1
 
-    .line 2381
+    .line 2351
     const-string v3, "recentapps"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    .line 2384
+    .line 2354
     .end local v2           #reason:Ljava/lang/String;
     :cond_1
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$9;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     invoke-virtual {v3, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->animateCollapse(Z)V
 
-    .line 2385
+    .line 2355
     const-string v3, "android.intent.action.SCREEN_OFF"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -111,20 +111,20 @@
 
     if-eqz v3, :cond_2
 
-    .line 2391
+    .line 2361
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$9;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     iget-object v3, v3, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mExpandedDialog:Landroid/app/Dialog;
 
     invoke-virtual {v3}, Landroid/app/Dialog;->hide()V
 
-    .line 2400
+    .line 2370
     .end local v1           #excludeRecents:Z
     :cond_2
     :goto_0
     return-void
 
-    .line 2394
+    .line 2364
     :cond_3
     const-string v3, "android.intent.action.CONFIGURATION_CHANGED"
 
@@ -134,20 +134,20 @@
 
     if-eqz v3, :cond_4
 
-    .line 2395
+    .line 2365
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$9;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     #calls: Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->repositionNavigationBar()V
     invoke-static {v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->access$1000(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
 
-    .line 2396
+    .line 2366
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$9;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateResources()V
 
     goto :goto_0
 
-    .line 2397
+    .line 2367
     :cond_4
     const-string v3, "android.intent.action.SCREEN_ON"
 
@@ -157,7 +157,7 @@
 
     if-eqz v3, :cond_2
 
-    .line 2398
+    .line 2368
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$9;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     iget-object v3, v3, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mExpandedDialog:Landroid/app/Dialog;

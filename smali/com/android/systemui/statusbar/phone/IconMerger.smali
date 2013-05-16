@@ -3,12 +3,6 @@
 .source "IconMerger.java"
 
 
-# static fields
-.field private static final DEBUG:Z = false
-
-.field private static final TAG:Ljava/lang/String; = "IconMerger"
-
-
 # instance fields
 .field private mIconSize:I
 
@@ -30,7 +24,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0013
+    const v1, 0x7f0a000d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

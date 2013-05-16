@@ -3,12 +3,6 @@
 .source "PowerUI.java"
 
 
-# static fields
-.field static final DEBUG:Z = false
-
-.field static final TAG:Ljava/lang/String; = "PowerUI"
-
-
 # instance fields
 .field mBatteryLevel:I
 

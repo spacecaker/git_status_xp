@@ -3,12 +3,6 @@
 .source "CompatModeButton.java"
 
 
-# static fields
-.field private static final DEBUG:Z = false
-
-.field private static final TAG:Ljava/lang/String; = "StatusBar.CompatModeButton"
-
-
 # instance fields
 .field private mAM:Landroid/app/ActivityManager;
 

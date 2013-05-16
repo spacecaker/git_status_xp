@@ -120,25 +120,3 @@
     .line 319
     return-void
 .end method
-
-.method unobserve()V
-    .locals 1
-
-    .prologue
-    .line 310
-    iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarIconView$SettingsObserver;->this$0:Lcom/android/systemui/statusbar/StatusBarIconView;
-
-    #getter for: Lcom/android/systemui/statusbar/StatusBarIconView;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/android/systemui/statusbar/StatusBarIconView;->access$100(Lcom/android/systemui/statusbar/StatusBarIconView;)Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
-
-    .line 311
-    return-void
-.end method

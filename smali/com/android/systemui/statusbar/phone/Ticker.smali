@@ -11,10 +11,6 @@
 .end annotation
 
 
-# static fields
-.field private static final TICKER_SEGMENT_DELAY:I = 0xbb8
-
-
 # instance fields
 .field private mAdvanceTicker:Ljava/lang/Runnable;
 
@@ -89,7 +85,7 @@
 
     .line 151
     .local v2, res:Landroid/content/res/Resources;
-    const v4, 0x7f0a0013
+    const v4, 0x7f0a000d
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -97,7 +93,7 @@
 
     .line 152
     .local v1, outerBounds:I
-    const v4, 0x7f0a0014
+    const v4, 0x7f0a000e
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -114,7 +110,7 @@
     iput v4, p0, Lcom/android/systemui/statusbar/phone/Ticker;->mIconScale:F
 
     .line 155
-    const v4, 0x7f0e0037
+    const v4, 0x7f0e0035
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -123,7 +119,7 @@
     iput-object v4, p0, Lcom/android/systemui/statusbar/phone/Ticker;->mTickerView:Landroid/view/View;
 
     .line 157
-    const v4, 0x7f0e0038
+    const v4, 0x7f0e0036
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -166,7 +162,7 @@
     invoke-virtual {v4, v5}, Landroid/widget/ImageSwitcher;->setScaleY(F)V
 
     .line 165
-    const v4, 0x7f0e0039
+    const v4, 0x7f0e0037
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

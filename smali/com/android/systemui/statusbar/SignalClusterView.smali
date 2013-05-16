@@ -14,14 +14,6 @@
 .end annotation
 
 
-# static fields
-.field static final DEBUG:Z = false
-
-.field private static final SIGNAL_CLUSTER_STYLE_NORMAL:I = 0x0
-
-.field static final TAG:Ljava/lang/String; = "SignalClusterView"
-
-
 # instance fields
 .field mHandler:Landroid/os/Handler;
 

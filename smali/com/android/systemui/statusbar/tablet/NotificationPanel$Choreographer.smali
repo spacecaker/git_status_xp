@@ -17,18 +17,10 @@
 .end annotation
 
 
-# static fields
-.field static final CLOSE_DURATION:I = 0xfa
-
-.field static final OPEN_DURATION:I = 0xfa
-
-
 # instance fields
 .field final HYPERSPACE_OFFRAMP:I
 
 .field mContentAnim:Landroid/animation/AnimatorSet;
-
-.field mPanelHeight:I
 
 .field mVisible:Z
 

@@ -3,12 +3,6 @@
 .source "MobileDataButton.java"
 
 
-# static fields
-.field public static final ACTION_MODIFY_NETWORK_MODE:Ljava/lang/String; = "com.android.internal.telephony.MODIFY_NETWORK_MODE"
-
-.field public static final EXTRA_NETWORK_MODE:Ljava/lang/String; = "networkMode"
-
-
 # direct methods
 .method public constructor <init>()V
     .locals 1

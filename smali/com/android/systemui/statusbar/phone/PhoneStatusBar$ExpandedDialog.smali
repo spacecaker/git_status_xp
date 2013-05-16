@@ -25,15 +25,15 @@
     .parameter "context"
 
     .prologue
-    .line 287
+    .line 285
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$ExpandedDialog;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    .line 288
+    .line 286
     const v0, 0x1030010
 
     invoke-direct {p0, p2, v0}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
 
-    .line 289
+    .line 287
     return-void
 .end method
 
@@ -46,7 +46,7 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 293
+    .line 291
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v2
@@ -55,7 +55,7 @@
 
     move v0, v1
 
-    .line 294
+    .line 292
     .local v0, down:Z
     :goto_0
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
@@ -64,7 +64,7 @@
 
     packed-switch v2, :pswitch_data_0
 
-    .line 301
+    .line 299
     invoke-super {p0, p1}, Landroid/app/Dialog;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
     move-result v1
@@ -73,26 +73,26 @@
     :goto_1
     return v1
 
-    .line 293
+    .line 291
     .end local v0           #down:Z
     :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 296
+    .line 294
     .restart local v0       #down:Z
     :pswitch_0
     if-nez v0, :cond_0
 
-    .line 297
+    .line 295
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$ExpandedDialog;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->animateCollapse()V
 
     goto :goto_1
 
-    .line 294
+    .line 292
     :pswitch_data_0
     .packed-switch 0x4
         :pswitch_0

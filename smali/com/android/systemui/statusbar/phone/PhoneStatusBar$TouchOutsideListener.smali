@@ -33,18 +33,18 @@
     .parameter "panel"
 
     .prologue
-    .line 2565
+    .line 2535
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$TouchOutsideListener;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2566
+    .line 2536
     iput p2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$TouchOutsideListener;->mMsg:I
 
-    .line 2567
+    .line 2537
     iput-object p3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$TouchOutsideListener;->mPanel:Lcom/android/systemui/recent/RecentsPanelView;
 
-    .line 2568
+    .line 2538
     return-void
 .end method
 
@@ -56,12 +56,12 @@
     .parameter "ev"
 
     .prologue
-    .line 2571
+    .line 2541
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    .line 2572
+    .line 2542
     .local v0, action:I
     const/4 v1, 0x4
 
@@ -89,7 +89,7 @@
 
     if-nez v1, :cond_1
 
-    .line 2575
+    .line 2545
     :cond_0
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$TouchOutsideListener;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
@@ -99,7 +99,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$H;->removeMessages(I)V
 
-    .line 2576
+    .line 2546
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$TouchOutsideListener;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
     iget-object v1, v1, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mHandler:Lcom/android/systemui/statusbar/phone/PhoneStatusBar$H;
@@ -108,10 +108,10 @@
 
     invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$H;->sendEmptyMessage(I)Z
 
-    .line 2577
+    .line 2547
     const/4 v1, 0x1
 
-    .line 2579
+    .line 2549
     :goto_0
     return v1
 

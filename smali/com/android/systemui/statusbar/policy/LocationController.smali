@@ -6,12 +6,6 @@
 .implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
 
-# static fields
-.field private static final GPS_NOTIFICATION_ID:I = 0x3d8d7
-
-.field private static final TAG:Ljava/lang/String; = "StatusBar.LocationController"
-
-
 # instance fields
 .field private mCheckBox:Landroid/widget/CompoundButton;
 
@@ -189,7 +183,7 @@
     if-eqz v9, :cond_0
 
     .line 99
-    const v11, 0x1080562
+    const v11, 0x1080544
 
     .line 100
     .local v11, iconId:I

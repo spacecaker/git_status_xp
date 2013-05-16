@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/power_widget_button" android:background="@drawable/stat_power_background" android:focusable="true" android:clickable="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/power_widget_button_image" android:layout_width="fill_parent" android:layout_height="0.0dip" android:scaleType="center" android:layout_weight="1.0" />
+    <ImageView android:id="@id/power_widget_button_indic" android:layout_width="fill_parent" android:layout_height="2.0dip" android:scaleType="fitXY" />
+</LinearLayout>

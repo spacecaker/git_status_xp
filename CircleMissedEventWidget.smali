@@ -144,7 +144,7 @@
 
     .line 107
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v2, 0x109007c
+    const v2, 0x1090077
 
     invoke-virtual {v1, v2, p0, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -154,7 +154,7 @@
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->setGravity(I)V
 
     .line 114
-    const v2, 0x102025f
+    const v2, 0x102025e
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->findViewById(I)Landroid/view/View;
 
@@ -165,7 +165,7 @@
     iput-object v2, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCall:Landroid/widget/LinearLayout;
 
     .line 115
-    const v2, 0x1020261
+    const v2, 0x1020260
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->findViewById(I)Landroid/view/View;
 
@@ -176,7 +176,7 @@
     iput-object v2, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedMsg:Landroid/widget/LinearLayout;
 
     .line 116
-    const v2, 0x102025e
+    const v2, 0x102025d
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->findViewById(I)Landroid/view/View;
 
@@ -187,7 +187,7 @@
     iput-object v2, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallMsg:Landroid/widget/LinearLayout;
 
     .line 120
-    const v2, 0x1020260
+    const v2, 0x102025f
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->findViewById(I)Landroid/view/View;
 
@@ -198,7 +198,7 @@
     iput-object v2, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallTextView:Landroid/widget/TextView;
 
     .line 121
-    const v2, 0x1020262
+    const v2, 0x1020261
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->findViewById(I)Landroid/view/View;
 
@@ -231,38 +231,38 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/CircleUnlockView;->setOnCircleUnlockListener(Lcom/android/internal/policy/impl/CircleUnlockView$OnCircleUnlockListener;)V
 
-    .line 173
+    .line 178
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 174
+    .line 179
     .local v0, filter:Landroid/content/IntentFilter;
     const-string v2, "com.android.server.NotificationManagerService.NotificationArrived"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 175
+    .line 180
     const-string v2, "com.android.server.NotificationManagerService.NotificationRemoved"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 177
+    .line 182
     new-instance v2, Lcom/android/internal/policy/impl/CircleMissedEventWidget$4;
 
     invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/CircleMissedEventWidget$4;-><init>(Lcom/android/internal/policy/impl/CircleMissedEventWidget;)V
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 188
+    .line 193
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 190
+    .line 195
     invoke-direct {p0}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->updateMissedEvent()V
 
-    .line 191
+    .line 196
     return-void
 .end method
 
@@ -353,7 +353,7 @@
 
     const/4 v3, 0x0
 
-    .line 287
+    .line 292
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mContext:Landroid/content/Context;
 
     const-string v2, "notification"
@@ -364,23 +364,23 @@
 
     check-cast v0, Landroid/app/NotificationManager;
 
-    .line 289
+    .line 294
     .local v0, mNM:Landroid/app/NotificationManager;
     if-nez v0, :cond_0
 
     move v1, v3
 
-    .line 308
+    .line 313
     :goto_0
     return v1
 
-    .line 292
+    .line 297
     :cond_0
     sget-object v1, Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;->MissedCall:Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;
 
     if-ne p1, v1, :cond_2
 
-    .line 293
+    .line 298
     const-string v1, "com.android.phone"
 
     invoke-virtual {v0, v1, v4}, Landroid/app/NotificationManager;->getNotificationInfo(Ljava/lang/String;I)Landroid/app/NotificationInfo;
@@ -389,7 +389,7 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallNotiInfo:Landroid/app/NotificationInfo;
 
-    .line 300
+    .line 305
     :cond_1
     :goto_1
     sget-object v1, Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;->MissedCall:Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;
@@ -400,20 +400,20 @@
 
     if-eqz v1, :cond_4
 
-    .line 302
+    .line 307
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallNotiInfo:Landroid/app/NotificationInfo;
 
     iget v1, v1, Landroid/app/NotificationInfo;->missedCount:I
 
     goto :goto_0
 
-    .line 294
+    .line 299
     :cond_2
     sget-object v1, Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;->MissedMsg:Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;
 
     if-ne p1, v1, :cond_3
 
-    .line 295
+    .line 300
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->MSG_PKG:Ljava/lang/String;
 
     const/16 v2, 0x7b
@@ -426,13 +426,13 @@
 
     goto :goto_1
 
-    .line 296
+    .line 301
     :cond_3
     sget-object v1, Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;->MissedEMail:Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;
 
     if-ne p1, v1, :cond_1
 
-    .line 297
+    .line 302
     const-string v1, "com.android.email"
 
     invoke-virtual {v0, v1, v4}, Landroid/app/NotificationManager;->getNotificationInfo(Ljava/lang/String;I)Landroid/app/NotificationInfo;
@@ -443,7 +443,7 @@
 
     goto :goto_1
 
-    .line 303
+    .line 308
     :cond_4
     sget-object v1, Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;->MissedMsg:Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;
 
@@ -458,7 +458,7 @@
 
     if-eqz v1, :cond_6
 
-    .line 305
+    .line 310
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mUnreadMsgNotiInfo:Landroid/app/NotificationInfo;
 
     iget v1, v1, Landroid/app/NotificationInfo;->missedCount:I
@@ -468,7 +468,7 @@
     :cond_6
     move v1, v3
 
-    .line 308
+    .line 313
     goto :goto_0
 .end method
 
@@ -476,10 +476,10 @@
     .locals 0
 
     .prologue
-    .line 223
+    .line 228
     invoke-direct {p0}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->updateMissedEvent()V
 
-    .line 224
+    .line 229
     return-void
 .end method
 
@@ -488,44 +488,44 @@
     .parameter "notiMode"
 
     .prologue
-    .line 312
+    .line 317
     const/4 v0, 0x0
 
-    .line 313
+    .line 318
     .local v0, intent:Landroid/app/PendingIntent;
     sget-object v1, Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;->MissedCall:Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;
 
     if-ne p1, v1, :cond_2
 
-    .line 314
+    .line 319
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallNotiInfo:Landroid/app/NotificationInfo;
 
     iget-object v1, v1, Landroid/app/NotificationInfo;->contentIntent:Landroid/app/PendingIntent;
 
     if-eqz v1, :cond_0
 
-    .line 315
+    .line 320
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallNotiInfo:Landroid/app/NotificationInfo;
 
     iget-object v0, v1, Landroid/app/NotificationInfo;->contentIntent:Landroid/app/PendingIntent;
 
-    .line 323
+    .line 328
     :cond_0
     :goto_0
     if-eqz v0, :cond_1
 
-    .line 326
+    .line 331
     :try_start_0
     invoke-virtual {v0}, Landroid/app/PendingIntent;->send()V
     :try_end_0
     .catch Landroid/app/PendingIntent$CanceledException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 331
+    .line 336
     :cond_1
     :goto_1
     return-void
 
-    .line 317
+    .line 322
     :cond_2
     sget-object v1, Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;->MissedMsg:Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;
 
@@ -535,7 +535,7 @@
 
     if-ne p1, v1, :cond_0
 
-    .line 318
+    .line 323
     :cond_3
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mUnreadMsgNotiInfo:Landroid/app/NotificationInfo;
 
@@ -543,14 +543,14 @@
 
     if-eqz v1, :cond_0
 
-    .line 319
+    .line 324
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mUnreadMsgNotiInfo:Landroid/app/NotificationInfo;
 
     iget-object v0, v1, Landroid/app/NotificationInfo;->contentIntent:Landroid/app/PendingIntent;
 
     goto :goto_0
 
-    .line 327
+    .line 332
     :catch_0
     move-exception v1
 
@@ -563,22 +563,22 @@
     .prologue
     const/16 v5, 0x3e7
 
-    .line 247
+    .line 252
     const/4 v2, 0x0
 
-    .line 248
+    .line 253
     .local v2, nCallCount:I
     const/4 v3, 0x0
 
-    .line 249
+    .line 254
     .local v3, nMsgCount:I
     const/4 v0, 0x0
 
-    .line 250
+    .line 255
     .local v0, bUpdatedCallCount:Z
     const/4 v1, 0x0
 
-    .line 252
+    .line 257
     .local v1, bUpdatedMsgCount:Z
     sget-object v4, Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;->MissedCall:Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;
 
@@ -586,30 +586,30 @@
 
     move-result v2
 
-    .line 253
+    .line 258
     sget-object v4, Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;->MissedMsg:Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;
 
     invoke-direct {p0, v4}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->getNumMissedEvent(Lcom/android/internal/policy/impl/CircleMissedEventWidget$NotiMode;)I
 
     move-result v3
 
-    .line 255
+    .line 260
     iget v4, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallCount:I
 
     if-eq v2, v4, :cond_3
 
     if-ltz v2, :cond_3
 
-    .line 256
+    .line 261
     const/4 v0, 0x1
 
-    .line 257
+    .line 262
     if-le v2, v5, :cond_2
 
-    .line 258
+    .line 263
     iput v5, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallCount:I
 
-    .line 266
+    .line 271
     :goto_0
     iget v4, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedMsgCount:I
 
@@ -617,22 +617,22 @@
 
     if-ltz v2, :cond_5
 
-    .line 267
+    .line 272
     const/4 v1, 0x1
 
-    .line 268
+    .line 273
     if-le v3, v5, :cond_4
 
-    .line 269
+    .line 274
     iput v5, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedMsgCount:I
 
-    .line 277
+    .line 282
     :goto_1
     if-nez v1, :cond_0
 
     if-eqz v0, :cond_1
 
-    .line 278
+    .line 283
     :cond_0
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallTextView:Landroid/widget/TextView;
 
@@ -644,7 +644,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 279
+    .line 284
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedMsgTextView:Landroid/widget/TextView;
 
     iget v5, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedMsgCount:I
@@ -655,32 +655,32 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 282
+    .line 287
     :cond_1
     invoke-direct {p0}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->updateMissedIcons()V
 
-    .line 283
+    .line 288
     return-void
 
-    .line 260
+    .line 265
     :cond_2
     iput v2, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallCount:I
 
     goto :goto_0
 
-    .line 262
+    .line 267
     :cond_3
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 271
+    .line 276
     :cond_4
     iput v3, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedMsgCount:I
 
     goto :goto_1
 
-    .line 273
+    .line 278
     :cond_5
     const/4 v1, 0x0
 
@@ -695,7 +695,7 @@
 
     const/4 v1, 0x0
 
-    .line 195
+    .line 200
     iget v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallCount:I
 
     if-lez v0, :cond_0
@@ -704,103 +704,103 @@
 
     if-lez v0, :cond_0
 
-    .line 196
+    .line 201
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->setVisibility(I)V
 
-    .line 197
+    .line 202
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCall:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 198
+    .line 203
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedMsg:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 199
+    .line 204
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallMsg:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 200
+    .line 205
     sget-object v0, Lcom/android/internal/policy/impl/CircleMissedEventWidget$UnlockMode;->MissedCallAndMsg:Lcom/android/internal/policy/impl/CircleMissedEventWidget$UnlockMode;
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mUnlockMode:Lcom/android/internal/policy/impl/CircleMissedEventWidget$UnlockMode;
 
-    .line 219
+    .line 224
     :goto_0
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->invalidate()V
 
-    .line 220
+    .line 225
     return-void
 
-    .line 202
+    .line 207
     :cond_0
     iget v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallCount:I
 
     if-lez v0, :cond_1
 
-    .line 203
+    .line 208
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->setVisibility(I)V
 
-    .line 204
+    .line 209
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCall:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 205
+    .line 210
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedMsg:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 206
+    .line 211
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallMsg:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 207
+    .line 212
     sget-object v0, Lcom/android/internal/policy/impl/CircleMissedEventWidget$UnlockMode;->MissedCall:Lcom/android/internal/policy/impl/CircleMissedEventWidget$UnlockMode;
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mUnlockMode:Lcom/android/internal/policy/impl/CircleMissedEventWidget$UnlockMode;
 
     goto :goto_0
 
-    .line 208
+    .line 213
     :cond_1
     iget v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedMsgCount:I
 
     if-lez v0, :cond_2
 
-    .line 209
+    .line 214
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->setVisibility(I)V
 
-    .line 210
+    .line 215
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCall:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 211
+    .line 216
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedMsg:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 212
+    .line 217
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallMsg:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 213
+    .line 218
     sget-object v0, Lcom/android/internal/policy/impl/CircleMissedEventWidget$UnlockMode;->MissedMsg:Lcom/android/internal/policy/impl/CircleMissedEventWidget$UnlockMode;
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mUnlockMode:Lcom/android/internal/policy/impl/CircleMissedEventWidget$UnlockMode;
 
     goto :goto_0
 
-    .line 215
+    .line 220
     :cond_2
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->setVisibility(I)V
 
-    .line 216
+    .line 221
     sget-object v0, Lcom/android/internal/policy/impl/CircleMissedEventWidget$UnlockMode;->MissedNone:Lcom/android/internal/policy/impl/CircleMissedEventWidget$UnlockMode;
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mUnlockMode:Lcom/android/internal/policy/impl/CircleMissedEventWidget$UnlockMode;
@@ -816,14 +816,14 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 228
+    .line 233
     const-string v0, "CircleMissedEventWidget"
 
     const-string v1, "cleanUp()"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 229
+    .line 234
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -832,16 +832,16 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 230
+    .line 235
     iput-object v2, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 231
+    .line 236
     iput-object v2, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mCircleUnlockView:Lcom/android/internal/policy/impl/CircleUnlockView;
 
-    .line 232
+    .line 237
     iput-object v2, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
-    .line 233
+    .line 238
     return-void
 .end method
 
@@ -853,10 +853,10 @@
 
     const/4 v5, 0x1
 
-    .line 334
+    .line 339
     const-string v0, ""
 
-    .line 336
+    .line 341
     .local v0, TTSMessage:Ljava/lang/String;
     iget v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallCount:I
 
@@ -866,10 +866,10 @@
 
     if-lez v1, :cond_0
 
-    .line 337
+    .line 342
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mContext:Landroid/content/Context;
 
-    const v2, 0x1040470
+    const v2, 0x104051f
 
     const/4 v3, 0x2
 
@@ -895,20 +895,20 @@
 
     move-result-object v0
 
-    .line 352
+    .line 357
     :goto_0
     return-object v0
 
-    .line 339
+    .line 344
     :cond_0
     iget v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallCount:I
 
     if-le v1, v5, :cond_1
 
-    .line 340
+    .line 345
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mContext:Landroid/content/Context;
 
-    const v2, 0x104046e
+    const v2, 0x104051d
 
     new-array v3, v5, [Ljava/lang/Object;
 
@@ -926,16 +926,16 @@
 
     goto :goto_0
 
-    .line 341
+    .line 346
     :cond_1
     iget v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedMsgCount:I
 
     if-le v1, v5, :cond_2
 
-    .line 342
+    .line 347
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mContext:Landroid/content/Context;
 
-    const v2, 0x104046f
+    const v2, 0x104051e
 
     new-array v3, v5, [Ljava/lang/Object;
 
@@ -953,16 +953,16 @@
 
     goto :goto_0
 
-    .line 343
+    .line 348
     :cond_2
     iget v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedCallCount:I
 
     if-ne v1, v5, :cond_3
 
-    .line 344
+    .line 349
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mContext:Landroid/content/Context;
 
-    const v2, 0x104046c
+    const v2, 0x104051b
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -970,16 +970,16 @@
 
     goto :goto_0
 
-    .line 345
+    .line 350
     :cond_3
     iget v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mMissedMsgCount:I
 
     if-ne v1, v5, :cond_4
 
-    .line 346
+    .line 351
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mContext:Landroid/content/Context;
 
-    const v2, 0x104046d
+    const v2, 0x104051c
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -987,11 +987,11 @@
 
     goto :goto_0
 
-    .line 348
+    .line 353
     :cond_4
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mContext:Landroid/content/Context;
 
-    const v2, 0x104046b
+    const v2, 0x104051a
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1004,14 +1004,14 @@
     .locals 2
 
     .prologue
-    .line 237
+    .line 242
     const-string v0, "CircleMissedEventWidget"
 
     const-string v1, "onPause()"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 238
+    .line 243
     return-void
 .end method
 
@@ -1019,16 +1019,16 @@
     .locals 2
 
     .prologue
-    .line 242
+    .line 247
     const-string v0, "CircleMissedEventWidget"
 
     const-string v1, "onResume()"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 243
+    .line 248
     invoke-direct {p0}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->updateMissedEvent()V
 
-    .line 244
+    .line 249
     return-void
 .end method

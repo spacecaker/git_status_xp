@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 616
+    .line 613
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$9;->this$0:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,13 +46,13 @@
 
     const-string v3, "lockscreen"
 
-    .line 618
+    .line 615
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$9;->this$0:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     #calls: Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->resetMinTimer()V
     invoke-static {v1}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->access$500(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
 
-    .line 619
+    .line 616
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$9;->this$0:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     #getter for: Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -62,7 +62,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 620
+    .line 617
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$9;->this$0:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     #getter for: Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -72,7 +72,7 @@
 
     invoke-interface {v1}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 621
+    .line 618
     :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$9;->this$0:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
@@ -85,14 +85,14 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 622
+    .line 619
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.android.music.musicservicecommand.togglepause"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 623
+    .line 620
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "musicplayer.from"
 
@@ -100,16 +100,16 @@
 
     invoke-virtual {v0, v4, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 624
+    .line 621
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$9;->this$0:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-virtual {v1, p1, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->sendBroadcastAfterBooting(Landroid/view/View;Landroid/content/Intent;)V
 
-    .line 630
+    .line 627
     :goto_0
     return-void
 
-    .line 626
+    .line 623
     .end local v0           #intent:Landroid/content/Intent;
     :cond_1
     new-instance v0, Landroid/content/Intent;
@@ -118,7 +118,7 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 627
+    .line 624
     .restart local v0       #intent:Landroid/content/Intent;
     const-string v1, "musicplayer.from"
 
@@ -126,7 +126,7 @@
 
     invoke-virtual {v0, v4, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 628
+    .line 625
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$9;->this$0:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-virtual {v1, p1, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->sendBroadcastAfterBooting(Landroid/view/View;Landroid/content/Intent;)V

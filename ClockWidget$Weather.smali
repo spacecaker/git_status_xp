@@ -378,27 +378,27 @@
 
     :array_0
     .array-data 0x4
-        0xc9t 0x3t 0x8t 0x1t
-        0xcat 0x3t 0x8t 0x1t
-        0xcbt 0x3t 0x8t 0x1t
-        0xcct 0x3t 0x8t 0x1t
-        0xcdt 0x3t 0x8t 0x1t
-        0xcet 0x3t 0x8t 0x1t
-        0xcft 0x3t 0x8t 0x1t
-        0xd0t 0x3t 0x8t 0x1t
-        0xd1t 0x3t 0x8t 0x1t
-        0xd2t 0x3t 0x8t 0x1t
-        0xd3t 0x3t 0x8t 0x1t
-        0xd4t 0x3t 0x8t 0x1t
-        0xd4t 0x3t 0x8t 0x1t
-        0xd5t 0x3t 0x8t 0x1t
-        0xd6t 0x3t 0x8t 0x1t
-        0xebt 0x3t 0x8t 0x1t
-        0xect 0x3t 0x8t 0x1t
-        0xedt 0x3t 0x8t 0x1t
-        0xeet 0x3t 0x8t 0x1t
-        0xeft 0x3t 0x8t 0x1t
-        0xf0t 0x3t 0x8t 0x1t
+        0xf6t 0x3t 0x8t 0x1t
+        0xf7t 0x3t 0x8t 0x1t
+        0xf8t 0x3t 0x8t 0x1t
+        0xf9t 0x3t 0x8t 0x1t
+        0xfat 0x3t 0x8t 0x1t
+        0xfbt 0x3t 0x8t 0x1t
+        0xfct 0x3t 0x8t 0x1t
+        0xfdt 0x3t 0x8t 0x1t
+        0xfet 0x3t 0x8t 0x1t
+        0xfft 0x3t 0x8t 0x1t
+        0x0t 0x4t 0x8t 0x1t
+        0x1t 0x4t 0x8t 0x1t
+        0x1t 0x4t 0x8t 0x1t
+        0x2t 0x4t 0x8t 0x1t
+        0x3t 0x4t 0x8t 0x1t
+        0x18t 0x4t 0x8t 0x1t
+        0x19t 0x4t 0x8t 0x1t
+        0x1at 0x4t 0x8t 0x1t
+        0x1bt 0x4t 0x8t 0x1t
+        0x1ct 0x4t 0x8t 0x1t
+        0x1dt 0x4t 0x8t 0x1t
     .end array-data
 .end method
 
@@ -408,7 +408,7 @@
     .locals 12
 
     .prologue
-    const v10, 0x1040473
+    const v10, 0x1040522
 
     const/4 v9, 0x1
 
@@ -511,7 +511,7 @@
 
     iget-object v7, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mContext:Landroid/content/Context;
 
-    const v8, 0x1040471
+    const v8, 0x1040520
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -600,7 +600,7 @@
 
     iget-object v7, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mContext:Landroid/content/Context;
 
-    const v8, 0x1040472
+    const v8, 0x1040521
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -724,7 +724,7 @@
     invoke-super {p0}, Landroid/widget/RelativeLayout;->onFinishInflate()V
 
     .line 301
-    const v0, 0x102026f
+    const v0, 0x1020270
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->findViewById(I)Landroid/view/View;
 
@@ -737,12 +737,12 @@
     .line 302
     iget-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mNoServiceText:Landroid/widget/TextView;
 
-    const v1, 0x1040467
+    const v1, 0x1040516
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     .line 303
-    const v0, 0x1020270
+    const v0, 0x1020271
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->findViewById(I)Landroid/view/View;
 
@@ -753,7 +753,7 @@
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherDataBox:Landroid/widget/RelativeLayout;
 
     .line 304
-    const v0, 0x1020272
+    const v0, 0x1020273
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->findViewById(I)Landroid/view/View;
 
@@ -764,7 +764,7 @@
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherCity:Landroid/widget/TextView;
 
     .line 305
-    const v0, 0x1020273
+    const v0, 0x1020274
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->findViewById(I)Landroid/view/View;
 
@@ -775,7 +775,7 @@
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherTemperature:Landroid/widget/TextView;
 
     .line 306
-    const v0, 0x1020274
+    const v0, 0x1020275
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->findViewById(I)Landroid/view/View;
 
@@ -1050,7 +1050,7 @@
 
     move-result-object v8
 
-    const v9, 0x10803b1
+    const v9, 0x10803dc
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1169,7 +1169,7 @@
 
     move-result-object v8
 
-    const v9, 0x10803b2
+    const v9, 0x10803dd
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

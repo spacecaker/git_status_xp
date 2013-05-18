@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 121
+    .line 122
     iput-object p1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$1;->this$0:Lcom/android/internal/policy/impl/CircleLockScreen;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 127
+    .line 128
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen$1;->this$0:Lcom/android/internal/policy/impl/CircleLockScreen;
 
     const/4 v1, 0x1
@@ -50,7 +50,7 @@
     #calls: Lcom/android/internal/policy/impl/CircleLockScreen;->bedimBackground(Z)V
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/CircleLockScreen;->access$000(Lcom/android/internal/policy/impl/CircleLockScreen;Z)V
 
-    .line 128
+    .line 129
     return-void
 .end method
 
@@ -59,7 +59,7 @@
     .parameter "v"
 
     .prologue
-    .line 132
+    .line 133
     return-void
 .end method
 
@@ -68,7 +68,7 @@
     .parameter "v"
 
     .prologue
-    .line 137
+    .line 138
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen$1;->this$0:Lcom/android/internal/policy/impl/CircleLockScreen;
 
     const/4 v1, 0x0
@@ -76,6 +76,6 @@
     #calls: Lcom/android/internal/policy/impl/CircleLockScreen;->bedimBackground(Z)V
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/CircleLockScreen;->access$000(Lcom/android/internal/policy/impl/CircleLockScreen;Z)V
 
-    .line 138
+    .line 139
     return-void
 .end method

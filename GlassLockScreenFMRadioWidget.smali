@@ -223,12 +223,12 @@
 
     .line 155
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v2, 0x109007f
+    const v2, 0x109007b
 
     invoke-virtual {v1, v2, p0, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     .line 157
-    const v2, 0x1020277
+    const v2, 0x1020278
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->findViewById(I)Landroid/view/View;
 
@@ -497,7 +497,7 @@
     .parameter "chname"
 
     .prologue
-    const v3, 0x1040474
+    const v3, 0x1040541
 
     const-string v5, " MHz"
 
@@ -642,7 +642,7 @@
     const/4 v3, 0x1
 
     .line 299
-    const v1, 0x102027c
+    const v1, 0x102027d
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->findViewById(I)Landroid/view/View;
 
@@ -663,7 +663,7 @@
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setSelected(Z)V
 
     .line 303
-    const v1, 0x1020281
+    const v1, 0x1020282
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->findViewById(I)Landroid/view/View;
 
@@ -684,7 +684,7 @@
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setSelected(Z)V
 
     .line 307
-    const v1, 0x1020278
+    const v1, 0x1020279
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->findViewById(I)Landroid/view/View;
 
@@ -695,7 +695,7 @@
     iput-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->mMaxFMRadio:Landroid/widget/FrameLayout;
 
     .line 308
-    const v1, 0x102027a
+    const v1, 0x102027b
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->findViewById(I)Landroid/view/View;
 
@@ -706,7 +706,7 @@
     iput-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->mBoxInMaxFMRadio:Landroid/widget/LinearLayout;
 
     .line 309
-    const v1, 0x1020279
+    const v1, 0x102027a
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->findViewById(I)Landroid/view/View;
 
@@ -717,7 +717,7 @@
     iput-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->mMinFMControllerHandle:Landroid/widget/LinearLayout;
 
     .line 310
-    const v1, 0x102027b
+    const v1, 0x102027c
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->findViewById(I)Landroid/view/View;
 
@@ -749,7 +749,7 @@
     iput-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->mTouchListener:Landroid/view/View$OnTouchListener;
 
     .line 410
-    const v1, 0x1020280
+    const v1, 0x1020281
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->findViewById(I)Landroid/view/View;
 
@@ -769,7 +769,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 422
-    const v1, 0x102027e
+    const v1, 0x102027f
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->findViewById(I)Landroid/view/View;
 
@@ -789,7 +789,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 436
-    const v1, 0x102027f
+    const v1, 0x1020280
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->findViewById(I)Landroid/view/View;
 
@@ -1105,19 +1105,19 @@
     .local v0, animation:Landroid/view/animation/Animation;
     int-to-long v1, p3
 
-    invoke-virtual {v0, v1, v2}, Landroid/view/animation/Animation;->setDuration(J)V
+    invoke-virtual {v0, v1, v2}, Landroid/view/animation/TranslateAnimation;->setDuration(J)V
 
     .line 614
     new-instance v1, Landroid/view/animation/DecelerateInterpolator;
 
     invoke-direct {v1}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
 
-    invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
+    invoke-virtual {v0, v1}, Landroid/view/animation/TranslateAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
     .line 615
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setFillAfter(Z)V
+    invoke-virtual {v0, v1}, Landroid/view/animation/TranslateAnimation;->setFillAfter(Z)V
 
     .line 616
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->mMaxFMRadio:Landroid/widget/FrameLayout;
@@ -1301,7 +1301,7 @@
     .line 252
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->mPauseButton:Landroid/widget/ImageButton;
 
-    const v2, 0x10803a9
+    const v2, 0x10803d3
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setBackgroundResource(I)V
 
@@ -1309,7 +1309,7 @@
     :goto_3
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->mFMAppImage:Landroid/widget/ImageView;
 
-    const v2, 0x1080231
+    const v2, 0x1080234
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1319,7 +1319,7 @@
     :cond_4
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->mPauseButton:Landroid/widget/ImageButton;
 
-    const v2, 0x10803a8
+    const v2, 0x10803d2
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setBackgroundResource(I)V
 
@@ -1441,7 +1441,7 @@
     .line 285
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->mPauseButton:Landroid/widget/ImageButton;
 
-    const v1, 0x10803a9
+    const v1, 0x10803d3
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setBackgroundResource(I)V
 
@@ -1452,7 +1452,7 @@
     .line 290
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->mFMAppImage:Landroid/widget/ImageView;
 
-    const v1, 0x1080231
+    const v1, 0x1080234
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1462,7 +1462,7 @@
     :cond_5
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->mPauseButton:Landroid/widget/ImageButton;
 
-    const v1, 0x10803a8
+    const v1, 0x10803d2
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setBackgroundResource(I)V
 
@@ -1795,7 +1795,7 @@
     .line 576
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->mMaxFMRadio:Landroid/widget/FrameLayout;
 
-    const v2, 0x1080398
+    const v2, 0x10803c2
 
     invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->setBackgroundResource(I)V
 
@@ -1956,7 +1956,7 @@
     .line 563
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->mMaxFMRadio:Landroid/widget/FrameLayout;
 
-    const v2, 0x1080399
+    const v2, 0x10803c3
 
     invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->setBackgroundResource(I)V
 

@@ -93,54 +93,83 @@
 .end method
 
 .method public isDrivingMode()Z
-    .locals 5
+    .locals 6
 
     .prologue
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     .line 48
-    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreenTTS;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreenTTS;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v2, "driving_mode_on"
+    const-string v3, "driving_mode_on"
 
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v1
+    move-result v2
 
-    if-ne v1, v4, :cond_0
+    if-ne v2, v5, :cond_0
 
-    move v0, v4
+    move v0, v5
 
-    .line 51
+    .line 49
     .local v0, drivingMode:Z
     :goto_0
-    if-eqz v0, :cond_1
+    iget-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreenTTS;->mContext:Landroid/content/Context;
 
-    move v1, v4
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v3, "driving_mode_unlock_screen_contents"
+
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-ne v2, v5, :cond_1
+
+    move v1, v5
+
+    .line 51
+    .local v1, unlockDrivingMode:Z
+    :goto_1
+    if-eqz v0, :cond_2
+
+    if-eqz v1, :cond_2
+
+    move v2, v5
 
     .line 54
-    :goto_1
-    return v1
+    :goto_2
+    return v2
 
     .end local v0           #drivingMode:Z
+    .end local v1           #unlockDrivingMode:Z
     :cond_0
-    move v0, v3
+    move v0, v4
 
     .line 48
     goto :goto_0
 
     .restart local v0       #drivingMode:Z
     :cond_1
-    move v1, v3
+    move v1, v4
+
+    .line 49
+    goto :goto_1
+
+    .restart local v1       #unlockDrivingMode:Z
+    :cond_2
+    move v2, v4
 
     .line 54
-    goto :goto_1
+    goto :goto_2
 .end method
 
 .method public onInit(I)V

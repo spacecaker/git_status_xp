@@ -73,13 +73,13 @@
     if-eq v3, v4, :cond_1
 
     .line 80
-    const v3, 0x109007d
+    const v3, 0x1090079
 
     invoke-virtual {v0, v3, p0, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     .line 88
     :goto_0
-    const v3, 0x1020263
+    const v3, 0x102026b
 
     invoke-virtual {p0, v3}, Lcom/android/internal/policy/impl/ClockWidget;->findViewById(I)Landroid/view/View;
 
@@ -90,7 +90,7 @@
     iput-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget;->mRoot:Landroid/widget/LinearLayout;
 
     .line 89
-    const v3, 0x1020264
+    const v3, 0x102026c
 
     invoke-virtual {p0, v3}, Lcom/android/internal/policy/impl/ClockWidget;->findViewById(I)Landroid/view/View;
 
@@ -101,7 +101,7 @@
     iput-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget;->mEmergencyCall:Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;
 
     .line 90
-    const v3, 0x1020266
+    const v3, 0x102026e
 
     invoke-virtual {p0, v3}, Lcom/android/internal/policy/impl/ClockWidget;->findViewById(I)Landroid/view/View;
 
@@ -112,7 +112,7 @@
     iput-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget;->mClock:Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;
 
     .line 91
-    const v3, 0x102026e
+    const v3, 0x102026f
 
     invoke-virtual {p0, v3}, Lcom/android/internal/policy/impl/ClockWidget;->findViewById(I)Landroid/view/View;
 
@@ -123,7 +123,7 @@
     iput-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget;->mWeather:Lcom/android/internal/policy/impl/ClockWidget$Weather;
 
     .line 92
-    const v3, 0x1020275
+    const v3, 0x1020276
 
     invoke-virtual {p0, v3}, Lcom/android/internal/policy/impl/ClockWidget;->findViewById(I)Landroid/view/View;
 
@@ -147,7 +147,7 @@
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/ClockWidget;->mContext:Landroid/content/Context;
 
-    const v5, 0x104031b
+    const v5, 0x1040346
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -165,7 +165,7 @@
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/ClockWidget;->mContext:Landroid/content/Context;
 
-    const v5, 0x104031e
+    const v5, 0x1040349
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -225,7 +225,7 @@
     .line 84
     .end local v1           #showClock:Z
     :cond_1
-    const v3, 0x109007e
+    const v3, 0x109007a
 
     invoke-virtual {v0, v3, p0, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -355,12 +355,12 @@
     .parameter "spn"
 
     .prologue
-    .line 964
+    .line 915
     iget-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget;->mEmergencyCall:Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->updateText()V
 
-    .line 965
+    .line 916
     return-void
 .end method
 
@@ -385,27 +385,12 @@
     .parameter "simState"
 
     .prologue
-    .line 960
+    .line 911
     iget-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget;->mEmergencyCall:Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->updateText()V
 
-    .line 961
-    return-void
-.end method
-
-.method public onUpdateBatteryInfo(II)V
-    .locals 1
-    .parameter "batteryInfoStatus"
-    .parameter "batteryLevel"
-
-    .prologue
-    .line 968
-    iget-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget;->mCharger:Lcom/android/internal/policy/impl/ClockWidget$Charge;
-
-    invoke-virtual {v0, p1, p2}, Lcom/android/internal/policy/impl/ClockWidget$Charge;->onUpdateBatteryInfo(II)V
-
-    .line 969
+    .line 912
     return-void
 .end method
 

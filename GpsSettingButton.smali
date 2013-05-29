@@ -3,16 +3,8 @@
 .source "GpsSettingButton.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton$GpsObserver;
-    }
-.end annotation
-
-
 # instance fields
-.field private mGpsObserver:Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton$GpsObserver;
+.field private mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
 
 # direct methods
@@ -22,17 +14,17 @@
     .parameter "attrs"
 
     .prologue
-    .line 32
+    .line 25
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/quickpanel/QuickSettingButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 19
-    new-instance v0, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton$GpsObserver;
+    .line 28
+    new-instance v0, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton$1;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton$GpsObserver;-><init>(Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton$1;-><init>(Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;)V
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;->mGpsObserver:Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton$GpsObserver;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 33
+    .line 26
     return-void
 .end method
 
@@ -41,7 +33,7 @@
     .parameter "x0"
 
     .prologue
-    .line 17
+    .line 20
     invoke-direct {p0}, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;->updateStatus()V
 
     return-void
@@ -52,7 +44,7 @@
     .parameter "enabled"
 
     .prologue
-    .line 101
+    .line 109
     iget-object v0, p0, Lcom/android/systemui/statusbar/quickpanel/QuickSettingButton;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -63,7 +55,7 @@
 
     invoke-static {v0, v1, p1}, Landroid/provider/Settings$Secure;->setLocationProviderEnabled(Landroid/content/ContentResolver;Ljava/lang/String;Z)V
 
-    .line 103
+    .line 111
     return-void
 .end method
 
@@ -71,24 +63,21 @@
     .locals 6
 
     .prologue
-    .line 65
+    .line 69
     const/4 v1, 0x0
 
     .local v1, iconRes:I
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    .local v3, statusIconRes:I
-    const/4 v4, -0x1
-
-    .line 66
-    .local v4, textColor:I
+    .line 70
+    .local v4, statusIconRes:I
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;->getRootView()Landroid/view/View;
 
     move-result-object v2
 
-    .line 67
+    .line 71
     .local v2, rootView:Landroid/view/View;
-    const v5, 0x7f09000b
+    const v5, 0x7f0a000c
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -96,43 +85,54 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 70
+    .line 72
     .local v0, icon:Landroid/widget/ImageView;
+    const v5, 0x7f0a000e
+
+    invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/ImageView;
+
+    .line 74
+    .local v3, statusIcon:Landroid/widget/ImageView;
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;->getActivateStatus()I
 
     move-result v5
 
     packed-switch v5, :pswitch_data_0
 
-    .line 81
+    .line 84
     :goto_0
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 83
-    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;->setTextColor(I)V
+    .line 85
+    invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 84
+    .line 86
     return-void
 
-    .line 72
-    :pswitch_0
-    const v1, 0x7f020011
-
-    .line 74
-    goto :goto_0
-
     .line 76
-    :pswitch_1
-    const v1, 0x7f020010
+    :pswitch_0
+    const v1, 0x7f020018
 
     .line 77
-    const v4, -0x333334
+    const v4, 0x7f02001b
+
+    .line 78
+    goto :goto_0
+
+    .line 80
+    :pswitch_1
+    const v1, 0x7f020017
+
+    .line 81
+    const v4, 0x7f02001a
 
     goto :goto_0
 
-    .line 70
-    nop
-
+    .line 74
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -144,7 +144,7 @@
     .locals 2
 
     .prologue
-    .line 55
+    .line 59
     iget-object v0, p0, Lcom/android/systemui/statusbar/quickpanel/QuickSettingButton;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -159,19 +159,19 @@
 
     if-eqz v0, :cond_0
 
-    .line 57
+    .line 61
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;->setActivateStatus(I)V
 
-    .line 61
+    .line 65
     :goto_0
     invoke-direct {p0}, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;->updateIcons()V
 
-    .line 62
+    .line 66
     return-void
 
-    .line 59
+    .line 63
     :cond_0
     const/4 v0, 0x0
 
@@ -183,82 +183,60 @@
 
 # virtual methods
 .method public activate()V
-    .locals 2
+    .locals 1
 
     .prologue
-    .line 91
-    const-string v0, "GpsSettingButton"
-
-    const-string v1, "activate()"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 92
+    .line 95
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;->setGPSEnabled(Z)V
 
-    .line 93
+    .line 101
     return-void
 .end method
 
 .method public deactivate()V
-    .locals 2
+    .locals 1
 
     .prologue
-    .line 96
-    const-string v0, "GpsSettingButton"
-
-    const-string v1, "deactivate()"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 97
+    .line 105
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;->setGPSEnabled(Z)V
 
-    .line 98
+    .line 106
     return-void
 .end method
 
 .method protected onAttachedToWindow()V
-    .locals 4
+    .locals 3
 
     .prologue
-    .line 37
+    .line 40
     invoke-super {p0}, Lcom/android/systemui/statusbar/quickpanel/QuickSettingButton;->onAttachedToWindow()V
 
-    .line 38
-    const-string v0, "GpsSettingButton"
-
-    const-string v1, "onAttachedToWindow()"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 40
-    iget-object v0, p0, Lcom/android/systemui/statusbar/quickpanel/QuickSettingButton;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "location_providers_allowed"
-
-    invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;->mGpsObserver:Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton$GpsObserver;
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
-
     .line 43
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;->updateStatus()V
+    new-instance v0, Landroid/content/IntentFilter;
+
+    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
     .line 44
+    .local v0, filter:Landroid/content/IntentFilter;
+    const-string v1, "android.location.PROVIDERS_CHANGED"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 45
+    iget-object v1, p0, Lcom/android/systemui/statusbar/quickpanel/QuickSettingButton;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    .line 47
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;->updateStatus()V
+
+    .line 48
     return-void
 .end method
 
@@ -266,28 +244,17 @@
     .locals 2
 
     .prologue
-    .line 48
+    .line 52
     invoke-super {p0}, Lcom/android/systemui/statusbar/quickpanel/QuickSettingButton;->onDetachedFromWindow()V
 
-    .line 49
-    const-string v0, "GpsSettingButton"
-
-    const-string v1, "onDetachedFromWindow()"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 51
+    .line 55
     iget-object v0, p0, Lcom/android/systemui/statusbar/quickpanel/QuickSettingButton;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    move-result-object v0
+    invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;->mGpsObserver:Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton$GpsObserver;
-
-    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
-
-    .line 52
+    .line 56
     return-void
 .end method
 
@@ -295,11 +262,11 @@
     .locals 1
 
     .prologue
-    .line 87
-    const v0, 0x7f070012
+    .line 89
+    const v0, 0x7f080014
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/quickpanel/GpsSettingButton;->setText(I)V
 
-    .line 88
+    .line 90
     return-void
 .end method

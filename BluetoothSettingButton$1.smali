@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 22
+    .line 38
     iput-object p1, p0, Lcom/android/systemui/statusbar/quickpanel/BluetoothSettingButton$1;->this$0:Lcom/android/systemui/statusbar/quickpanel/BluetoothSettingButton;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,12 +35,12 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .locals 3
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 25
+    .line 41
     const-string v1, "android.bluetooth.adapter.extra.STATE"
 
     const/high16 v2, -0x8000
@@ -49,36 +49,13 @@
 
     move-result v0
 
-    .line 26
+    .line 43
     .local v0, state:I
-    const-string v1, "BluetoothSettingButton"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "onReceive()-S:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 27
     iget-object v1, p0, Lcom/android/systemui/statusbar/quickpanel/BluetoothSettingButton$1;->this$0:Lcom/android/systemui/statusbar/quickpanel/BluetoothSettingButton;
 
     #calls: Lcom/android/systemui/statusbar/quickpanel/BluetoothSettingButton;->handleStateChanged(I)V
     invoke-static {v1, v0}, Lcom/android/systemui/statusbar/quickpanel/BluetoothSettingButton;->access$000(Lcom/android/systemui/statusbar/quickpanel/BluetoothSettingButton;I)V
 
-    .line 28
+    .line 44
     return-void
 .end method

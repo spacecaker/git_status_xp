@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 26
+    .line 24
     iput-object p1, p0, Lcom/android/systemui/statusbar/quickpanel/QuickSettingButton$1;->this$0:Lcom/android/systemui/statusbar/quickpanel/QuickSettingButton;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,11 +40,11 @@
     .parameter "intent"
 
     .prologue
-    .line 29
+    .line 27
     iget-object v0, p0, Lcom/android/systemui/statusbar/quickpanel/QuickSettingButton$1;->this$0:Lcom/android/systemui/statusbar/quickpanel/QuickSettingButton;
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/quickpanel/QuickSettingButton;->updateResources()V
 
-    .line 30
+    .line 28
     return-void
 .end method

@@ -50,7 +50,7 @@ ro.kernel.android.checkjni=1
 ro.ril.ntmodeglobal=true
 
 rild.libpath=/system/lib/libbrcm_ril.so
-ro.telephony.ril_class=samsung
+ro.telephony.ril_class=SamsungRIL
 rild.libargs=-d /dev/smd0
 DEVICE_PROVISIONED=1
 persist.rild.nitz_plmn=
@@ -95,7 +95,7 @@ net.dns2=8.8.4.4
 # Managing modem answere on switch from 2G to 3G
 ro.ril.ntmodeglobal=true
 
-ro.telephony.ril_class=samsung
+ro.telephony.ril_class=SamsungRIL
 mobiledata.interfaces=pdp0,eth0,gprs,ppp0
 
 # camera
@@ -158,7 +158,7 @@ persist.sys.scrollingcache=3
 #
 wifi.interface=eth0
 wifi.supplicant_scan_interval=15
-ro.telephony.ril_class=samsung
+ro.telephony.ril_class=SamsungRIL
 ro.telephony.sends_barcount=1
 mobiledata.interfaces=pdp0,eth0,gprs,ppp0
 persist.service.usb.setting=0

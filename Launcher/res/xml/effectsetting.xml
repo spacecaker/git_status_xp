@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen android:title="@string/effect_setting"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ListPreference android:entries="@array/workspace_effects_list_preference" android:title="@string/desktop_slide" android:key="desktopeffects" android:defaultValue="@integer/default_zeor" android:entryValues="@array/workspace_effectsvalue_list_preference" />
-    <ListPreference android:entries="@array/app_effects_list_preference" android:title="@string/app_list_slide" android:key="appeffects" android:defaultValue="@integer/default_zeor" android:entryValues="@array/app_effectsvalue_list_preference" />
-</PreferenceScreen>

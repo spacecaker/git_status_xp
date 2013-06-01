@@ -1,11 +1,14 @@
 .class Lcom/android/music/MediaPlaybackService$5;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "MediaPlaybackService.java"
+
+# interfaces
+.implements Landroid/media/AudioManager$OnAudioFocusChangeListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/music/MediaPlaybackService;->registerExternalStorageListener()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/music/MediaPlaybackService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,205 +27,153 @@
     .parameter
 
     .prologue
-    .line 1397
+    .line 1
     iput-object p1, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    .line 428
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
-    .parameter "context"
-    .parameter "intent"
+.method public onAudioFocusChange(I)V
+    .locals 3
+    .parameter "focusChange"
 
     .prologue
-    const/4 v3, 0x1
+    const/4 v2, 0x0
 
-    const-string v5, "where"
+    const-string v1, "MediaPlaybackService"
 
-    const-string v4, "android.intent.action.MEDIA_MOUNTED"
+    .line 431
+    packed-switch p1, :pswitch_data_0
 
-    .line 1400
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    .line 455
+    :pswitch_0
+    const-string v0, "MediaPlaybackService"
 
-    move-result-object v0
+    const-string v0, "Unknown audio focus change code"
 
-    .line 1403
-    .local v0, action:Ljava/lang/String;
-    const-string v1, "where"
+    invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p2, v5}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    const-string v1, "android.intent.action.MEDIA_MOUNTED"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 1404
-    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
-
-    move-result-object v1
-
-    const-string v2, "where"
-
-    invoke-virtual {v1, v5}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v2, "myfiles"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 1429
+    .line 457
     :cond_0
     :goto_0
     return-void
 
-    .line 1410
-    :cond_1
-    const-string v1, "android.intent.action.MEDIA_EJECT"
+    .line 433
+    :pswitch_1
+    const-string v0, "MediaPlaybackService"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string v0, "AudioFocus: received AUDIOFOCUS_LOSS"
 
-    move-result v1
+    invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v1, :cond_2
+    .line 434
+    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
 
-    .line 1411
-    iget-object v1, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
+    invoke-virtual {v0}, Lcom/android/music/MediaPlaybackService;->isPlaying()Z
 
-    #calls: Lcom/android/music/MediaPlaybackService;->saveQueue(Z)V
-    invoke-static {v1, v3}, Lcom/android/music/MediaPlaybackService;->access$2600(Lcom/android/music/MediaPlaybackService;Z)V
+    move-result v0
 
-    .line 1413
-    iget-object v1, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
+    if-eqz v0, :cond_0
 
-    const/4 v2, 0x0
+    .line 435
+    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
 
-    #setter for: Lcom/android/music/MediaPlaybackService;->mQueueIsSaveable:Z
-    invoke-static {v1, v2}, Lcom/android/music/MediaPlaybackService;->access$2802(Lcom/android/music/MediaPlaybackService;Z)Z
+    #setter for: Lcom/android/music/MediaPlaybackService;->mPausedByTransientLossOfFocus:Z
+    invoke-static {v0, v2}, Lcom/android/music/MediaPlaybackService;->access$15(Lcom/android/music/MediaPlaybackService;Z)V
 
-    .line 1414
-    iget-object v1, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
+    .line 436
+    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/net/Uri;->getPath()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/android/music/MediaPlaybackService;->closeExternalStorageFiles(Ljava/lang/String;)V
+    invoke-virtual {v0}, Lcom/android/music/MediaPlaybackService;->pause()V
 
     goto :goto_0
 
-    .line 1415
-    :cond_2
-    const-string v1, "android.intent.action.MEDIA_MOUNTED"
+    .line 441
+    :pswitch_2
+    const-string v0, "MediaPlaybackService"
 
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string v0, "AudioFocus: received AUDIOFOCUS_LOSS_TRANSIENT"
 
-    move-result v1
+    invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v1, :cond_0
+    .line 442
+    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
 
-    .line 1417
-    iget-object v1, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
+    invoke-virtual {v0}, Lcom/android/music/MediaPlaybackService;->isPlaying()Z
 
-    #getter for: Lcom/android/music/MediaPlaybackService;->mPlayer:Lcom/android/music/MediaPlaybackService$MultiPlayer;
-    invoke-static {v1}, Lcom/android/music/MediaPlaybackService;->access$200(Lcom/android/music/MediaPlaybackService;)Lcom/android/music/MediaPlaybackService$MultiPlayer;
+    move-result v0
 
-    move-result-object v1
+    if-eqz v0, :cond_0
 
-    if-eqz v1, :cond_3
+    .line 443
+    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
 
-    iget-object v1, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
+    const/4 v1, 0x1
 
-    #getter for: Lcom/android/music/MediaPlaybackService;->mPlayer:Lcom/android/music/MediaPlaybackService$MultiPlayer;
-    invoke-static {v1}, Lcom/android/music/MediaPlaybackService;->access$200(Lcom/android/music/MediaPlaybackService;)Lcom/android/music/MediaPlaybackService$MultiPlayer;
+    #setter for: Lcom/android/music/MediaPlaybackService;->mPausedByTransientLossOfFocus:Z
+    invoke-static {v0, v1}, Lcom/android/music/MediaPlaybackService;->access$15(Lcom/android/music/MediaPlaybackService;Z)V
 
-    move-result-object v1
+    .line 444
+    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
 
-    invoke-virtual {v1}, Lcom/android/music/MediaPlaybackService$MultiPlayer;->isInitialized()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    iget-object v1, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
-
-    invoke-virtual {v1}, Lcom/android/music/MediaPlaybackService;->isPlaying()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    .line 1418
-    iget-object v1, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
-
-    invoke-virtual {v1}, Lcom/android/music/MediaPlaybackService;->pause()V
-
-    .line 1421
-    :cond_3
-    iget-object v1, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
-
-    invoke-static {v1}, Lcom/android/music/MediaPlaybackService;->access$2908(Lcom/android/music/MediaPlaybackService;)I
-
-    .line 1422
-    iget-object v1, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
-
-    iget-object v2, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
-
-    invoke-static {v2}, Lcom/android/music/MusicUtils;->getCardId(Landroid/content/Context;)I
-
-    move-result v2
-
-    #setter for: Lcom/android/music/MediaPlaybackService;->mCardId:I
-    invoke-static {v1, v2}, Lcom/android/music/MediaPlaybackService;->access$3002(Lcom/android/music/MediaPlaybackService;I)I
-
-    .line 1423
-    iget-object v1, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
-
-    #calls: Lcom/android/music/MediaPlaybackService;->reloadQueue()V
-    invoke-static {v1}, Lcom/android/music/MediaPlaybackService;->access$3100(Lcom/android/music/MediaPlaybackService;)V
-
-    .line 1425
-    iget-object v1, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
-
-    #setter for: Lcom/android/music/MediaPlaybackService;->mQueueIsSaveable:Z
-    invoke-static {v1, v3}, Lcom/android/music/MediaPlaybackService;->access$2802(Lcom/android/music/MediaPlaybackService;Z)Z
-
-    .line 1426
-    iget-object v1, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
-
-    const-string v2, "com.android.music.queuechanged"
-
-    #calls: Lcom/android/music/MediaPlaybackService;->notifyChange(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Lcom/android/music/MediaPlaybackService;->access$1100(Lcom/android/music/MediaPlaybackService;Ljava/lang/String;)V
-
-    .line 1427
-    iget-object v1, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
-
-    const-string v2, "com.android.music.metachanged"
-
-    #calls: Lcom/android/music/MediaPlaybackService;->notifyChange(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Lcom/android/music/MediaPlaybackService;->access$1100(Lcom/android/music/MediaPlaybackService;Ljava/lang/String;)V
+    invoke-virtual {v0}, Lcom/android/music/MediaPlaybackService;->pause()V
 
     goto :goto_0
+
+    .line 448
+    :pswitch_3
+    const-string v0, "MediaPlaybackService"
+
+    const-string v0, "AudioFocus: received AUDIOFOCUS_GAIN"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 449
+    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
+
+    invoke-virtual {v0}, Lcom/android/music/MediaPlaybackService;->isPlaying()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
+
+    #getter for: Lcom/android/music/MediaPlaybackService;->mPausedByTransientLossOfFocus:Z
+    invoke-static {v0}, Lcom/android/music/MediaPlaybackService;->access$23(Lcom/android/music/MediaPlaybackService;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 450
+    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
+
+    #setter for: Lcom/android/music/MediaPlaybackService;->mPausedByTransientLossOfFocus:Z
+    invoke-static {v0, v2}, Lcom/android/music/MediaPlaybackService;->access$15(Lcom/android/music/MediaPlaybackService;Z)V
+
+    .line 451
+    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$5;->this$0:Lcom/android/music/MediaPlaybackService;
+
+    #calls: Lcom/android/music/MediaPlaybackService;->startAndFadeIn()V
+    invoke-static {v0}, Lcom/android/music/MediaPlaybackService;->access$5(Lcom/android/music/MediaPlaybackService;)V
+
+    goto :goto_0
+
+    .line 431
+    nop
+
+    :pswitch_data_0
+    .packed-switch -0x3
+        :pswitch_2
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+        :pswitch_3
+    .end packed-switch
 .end method

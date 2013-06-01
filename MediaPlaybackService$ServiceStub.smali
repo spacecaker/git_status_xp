@@ -33,17 +33,17 @@
     .parameter "service"
 
     .prologue
-    .line 3267
+    .line 2051
     invoke-direct {p0}, Lcom/android/music/IMediaPlaybackService$Stub;-><init>()V
 
-    .line 3268
+    .line 2052
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
-    .line 3269
+    .line 2053
     return-void
 .end method
 
@@ -53,7 +53,7 @@
     .locals 2
 
     .prologue
-    .line 3337
+    .line 2124
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -76,7 +76,7 @@
     .parameter "action"
 
     .prologue
-    .line 3319
+    .line 2106
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -88,7 +88,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/android/music/MediaPlaybackService;->enqueue([JI)V
 
-    .line 3320
+    .line 2107
     return-void
 .end method
 
@@ -96,7 +96,7 @@
     .locals 2
 
     .prologue
-    .line 3310
+    .line 2097
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -117,7 +117,7 @@
     .locals 1
 
     .prologue
-    .line 3307
+    .line 2094
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -138,7 +138,7 @@
     .locals 2
 
     .prologue
-    .line 3316
+    .line 2103
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -159,7 +159,7 @@
     .locals 1
 
     .prologue
-    .line 3313
+    .line 2100
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -180,7 +180,7 @@
     .locals 2
 
     .prologue
-    .line 3331
+    .line 2118
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -197,75 +197,11 @@
     return-wide v0
 .end method
 
-.method public getAudioSessionId()I
-    .locals 1
-
-    .prologue
-    .line 3365
-    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    .end local p0
-    check-cast p0, Lcom/android/music/MediaPlaybackService;
-
-    invoke-virtual {p0}, Lcom/android/music/MediaPlaybackService;->getAudioSessionId()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getCurrentAlbumInfo()Lcom/sec/android/app/music/MusicAlbumInfo;
-    .locals 1
-
-    .prologue
-    .line 3394
-    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    .end local p0
-    check-cast p0, Lcom/android/music/MediaPlaybackService;
-
-    invoke-virtual {p0}, Lcom/android/music/MediaPlaybackService;->getCurrentAlbumInfo()Lcom/sec/android/app/music/MusicAlbumInfo;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getFilePath()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 3387
-    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    .end local p0
-    check-cast p0, Lcom/android/music/MediaPlaybackService;
-
-    #calls: Lcom/android/music/MediaPlaybackService;->getFilePath()Ljava/lang/String;
-    invoke-static {p0}, Lcom/android/music/MediaPlaybackService;->access$3200(Lcom/android/music/MediaPlaybackService;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public getMediaMountedCount()I
     .locals 1
 
     .prologue
-    .line 3361
+    .line 2148
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -282,33 +218,11 @@
     return v0
 .end method
 
-.method public getNextAlbumInfo(I)Lcom/sec/android/app/music/MusicAlbumInfo;
-    .locals 1
-    .parameter "nextindex"
-
-    .prologue
-    .line 3399
-    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    .end local p0
-    check-cast p0, Lcom/android/music/MediaPlaybackService;
-
-    invoke-virtual {p0, p1}, Lcom/android/music/MediaPlaybackService;->getNextAlbumInfo(I)Lcom/sec/android/app/music/MusicAlbumInfo;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public getPath()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 3328
+    .line 2115
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -325,33 +239,11 @@
     return-object v0
 .end method
 
-.method public getPrevAlbumInfo(I)Lcom/sec/android/app/music/MusicAlbumInfo;
-    .locals 1
-    .parameter "previndex"
-
-    .prologue
-    .line 3404
-    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    .end local p0
-    check-cast p0, Lcom/android/music/MediaPlaybackService;
-
-    invoke-virtual {p0, p1}, Lcom/android/music/MediaPlaybackService;->getPrevAlbumInfo(I)Lcom/sec/android/app/music/MusicAlbumInfo;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public getQueue()[J
     .locals 1
 
     .prologue
-    .line 3322
+    .line 2109
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -372,7 +264,7 @@
     .locals 1
 
     .prologue
-    .line 3280
+    .line 2067
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -393,7 +285,7 @@
     .locals 1
 
     .prologue
-    .line 3358
+    .line 2145
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -414,7 +306,7 @@
     .locals 1
 
     .prologue
-    .line 3346
+    .line 2133
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -435,7 +327,7 @@
     .locals 1
 
     .prologue
-    .line 3304
+    .line 2091
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -452,31 +344,11 @@
     return-object v0
 .end method
 
-.method public hideNotification()V
-    .locals 1
-
-    .prologue
-    .line 3377
-    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    .end local p0
-    check-cast p0, Lcom/android/music/MediaPlaybackService;
-
-    invoke-virtual {p0}, Lcom/android/music/MediaPlaybackService;->hideNotification()V
-
-    .line 3378
-    return-void
-.end method
-
 .method public isPlaying()Z
     .locals 1
 
     .prologue
-    .line 3286
+    .line 2073
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -499,7 +371,7 @@
     .parameter "to"
 
     .prologue
-    .line 3325
+    .line 2112
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -511,7 +383,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/android/music/MediaPlaybackService;->moveQueueItem(II)V
 
-    .line 3326
+    .line 2113
     return-void
 .end method
 
@@ -519,7 +391,7 @@
     .locals 1
 
     .prologue
-    .line 3301
+    .line 2088
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -533,29 +405,8 @@
 
     invoke-virtual {p0, v0}, Lcom/android/music/MediaPlaybackService;->next(Z)V
 
-    .line 3302
+    .line 2089
     return-void
-.end method
-
-.method public nextPosition()I
-    .locals 1
-
-    .prologue
-    .line 3411
-    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    .end local p0
-    check-cast p0, Lcom/android/music/MediaPlaybackService;
-
-    invoke-virtual {p0}, Lcom/android/music/MediaPlaybackService;->nextPosition()I
-
-    move-result v0
-
-    return v0
 .end method
 
 .method public open([JI)V
@@ -564,7 +415,7 @@
     .parameter "position"
 
     .prologue
-    .line 3277
+    .line 2064
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -576,16 +427,17 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/android/music/MediaPlaybackService;->open([JI)V
 
-    .line 3278
+    .line 2065
     return-void
 .end method
 
-.method public openFile(Ljava/lang/String;)V
+.method public openFile(Ljava/lang/String;Z)V
     .locals 1
     .parameter "path"
+    .parameter "oneShot"
 
     .prologue
-    .line 3273
+    .line 2061
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -595,9 +447,30 @@
     .end local p0
     check-cast p0, Lcom/android/music/MediaPlaybackService;
 
-    invoke-virtual {p0, p1}, Lcom/android/music/MediaPlaybackService;->open(Ljava/lang/String;)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/music/MediaPlaybackService;->open(Ljava/lang/String;Z)V
 
-    .line 3275
+    .line 2062
+    return-void
+.end method
+
+.method public openFileAsync(Ljava/lang/String;)V
+    .locals 1
+    .parameter "path"
+
+    .prologue
+    .line 2057
+    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    .end local p0
+    check-cast p0, Lcom/android/music/MediaPlaybackService;
+
+    invoke-virtual {p0, p1}, Lcom/android/music/MediaPlaybackService;->openAsync(Ljava/lang/String;)V
+
+    .line 2058
     return-void
 .end method
 
@@ -605,7 +478,7 @@
     .locals 1
 
     .prologue
-    .line 3292
+    .line 2079
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -617,7 +490,7 @@
 
     invoke-virtual {p0}, Lcom/android/music/MediaPlaybackService;->pause()V
 
-    .line 3293
+    .line 2080
     return-void
 .end method
 
@@ -625,7 +498,7 @@
     .locals 1
 
     .prologue
-    .line 3295
+    .line 2082
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -637,7 +510,7 @@
 
     invoke-virtual {p0}, Lcom/android/music/MediaPlaybackService;->play()V
 
-    .line 3296
+    .line 2083
     return-void
 .end method
 
@@ -645,7 +518,7 @@
     .locals 2
 
     .prologue
-    .line 3334
+    .line 2121
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -666,7 +539,7 @@
     .locals 1
 
     .prologue
-    .line 3298
+    .line 2085
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -678,29 +551,8 @@
 
     invoke-virtual {p0}, Lcom/android/music/MediaPlaybackService;->prev()V
 
-    .line 3299
+    .line 2086
     return-void
-.end method
-
-.method public prevPosition()I
-    .locals 1
-
-    .prologue
-    .line 3416
-    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    .end local p0
-    check-cast p0, Lcom/android/music/MediaPlaybackService;
-
-    invoke-virtual {p0}, Lcom/android/music/MediaPlaybackService;->prevPosition()I
-
-    move-result v0
-
-    return v0
 .end method
 
 .method public removeTrack(J)I
@@ -708,7 +560,7 @@
     .parameter "id"
 
     .prologue
-    .line 3352
+    .line 2139
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -731,7 +583,7 @@
     .parameter "last"
 
     .prologue
-    .line 3349
+    .line 2136
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -753,7 +605,7 @@
     .parameter "pos"
 
     .prologue
-    .line 3340
+    .line 2127
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -775,7 +627,7 @@
     .parameter "index"
 
     .prologue
-    .line 3283
+    .line 2070
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -787,28 +639,7 @@
 
     invoke-virtual {p0, p1}, Lcom/android/music/MediaPlaybackService;->setQueuePosition(I)V
 
-    .line 3284
-    return-void
-.end method
-
-.method public setR2VSMode(I)V
-    .locals 1
-    .parameter "mode"
-
-    .prologue
-    .line 3372
-    iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    .end local p0
-    check-cast p0, Lcom/android/music/MediaPlaybackService;
-
-    invoke-virtual {p0, p1}, Lcom/android/music/MediaPlaybackService;->setR2VSMode(I)V
-
-    .line 3373
+    .line 2071
     return-void
 .end method
 
@@ -817,7 +648,7 @@
     .parameter "repeatmode"
 
     .prologue
-    .line 3355
+    .line 2142
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -829,7 +660,7 @@
 
     invoke-virtual {p0, p1}, Lcom/android/music/MediaPlaybackService;->setRepeatMode(I)V
 
-    .line 3356
+    .line 2143
     return-void
 .end method
 
@@ -838,7 +669,7 @@
     .parameter "shufflemode"
 
     .prologue
-    .line 3343
+    .line 2130
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -850,7 +681,7 @@
 
     invoke-virtual {p0, p1}, Lcom/android/music/MediaPlaybackService;->setShuffleMode(I)V
 
-    .line 3344
+    .line 2131
     return-void
 .end method
 
@@ -858,7 +689,7 @@
     .locals 1
 
     .prologue
-    .line 3289
+    .line 2076
     iget-object v0, p0, Lcom/android/music/MediaPlaybackService$ServiceStub;->mService:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -870,6 +701,6 @@
 
     invoke-virtual {p0}, Lcom/android/music/MediaPlaybackService;->stop()V
 
-    .line 3290
+    .line 2077
     return-void
 .end method

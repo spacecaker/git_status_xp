@@ -25,25 +25,26 @@
     .locals 1
 
     .prologue
-    .line 2384
+    .line 1590
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2386
+    .line 1592
     new-instance v0, Ljava/util/Random;
 
     invoke-direct {v0}, Ljava/util/Random;-><init>()V
 
     iput-object v0, p0, Lcom/android/music/MediaPlaybackService$Shuffler;->mRandom:Ljava/util/Random;
 
+    .line 1590
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/music/MediaPlaybackService$1;)V
+.method synthetic constructor <init>(Lcom/android/music/MediaPlaybackService$Shuffler;)V
     .locals 0
-    .parameter "x0"
+    .parameter
 
     .prologue
-    .line 2384
+    .line 1590
     invoke-direct {p0}, Lcom/android/music/MediaPlaybackService$Shuffler;-><init>()V
 
     return-void
@@ -56,7 +57,7 @@
     .parameter "interval"
 
     .prologue
-    .line 2390
+    .line 1596
     :cond_0
     iget-object v1, p0, Lcom/android/music/MediaPlaybackService$Shuffler;->mRandom:Ljava/util/Random;
 
@@ -64,7 +65,7 @@
 
     move-result v0
 
-    .line 2391
+    .line 1597
     .local v0, ret:I
     iget v1, p0, Lcom/android/music/MediaPlaybackService$Shuffler;->mPrevious:I
 
@@ -74,10 +75,10 @@
 
     if-gt p1, v1, :cond_0
 
-    .line 2392
+    .line 1598
     :cond_1
     iput v0, p0, Lcom/android/music/MediaPlaybackService$Shuffler;->mPrevious:I
 
-    .line 2393
+    .line 1599
     return v0
 .end method

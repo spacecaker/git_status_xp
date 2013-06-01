@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<setupmenu row="2" columns="3">
+    <menu id="0" name="@string/mostly_used">
+        <item id="1001" name="@string/system_widget" icon="m1.png" />
+        <item id="1002" name="@string/wallpaper" icon="m2.png" />
+        <item id="1003" name="@string/theme" icon="m3.png" />
+        <item id="1005" name="@string/screen_editor" icon="m5.png" />
+        <item id="1006" name="@string/desktop_setting" icon="m6.png" />
+        <item id="1007" name="@string/system_setting" icon="m7.png" />
+    </menu>
+</setupmenu>

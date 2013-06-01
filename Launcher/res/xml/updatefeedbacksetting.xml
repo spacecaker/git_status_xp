@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/update_feedback"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:title="@string/version_update" android:key="@string/setting_key_update" />
+    <Preference android:title="@string/share_friends" android:key="@string/setting_key_share" />
+    <Preference android:title="@string/share_friends" android:key="@string/setting_key_feedback" />
+</PreferenceScreen>

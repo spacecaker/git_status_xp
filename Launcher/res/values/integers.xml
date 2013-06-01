@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="config_allAppsFadeInTime">700</integer>
+    <integer name="config_allAppsFadeOutTime">700</integer>
+    <integer name="config_allAppsBatchLoadDelay">0</integer>
+    <integer name="config_allAppsBatchSize">0</integer>
+    <integer name="config_crosshairsFadeInTime">600</integer>
+    <integer name="config_dragOutlineMaxAlpha">128</integer>
+    <integer name="config_dragOutlineFadeTime">900</integer>
+    <integer name="setup_menu_row">2</integer>
+    <integer name="setup_menu_columns">3</integer>
+    <integer name="apps_customize_maxCellCountX">10</integer>
+    <integer name="apps_customize_maxCellCountY">10</integer>
+    <integer name="default_zeor">0</integer>
+    <integer name="setting_showFadeOutTime">800</integer>
+    <integer name="setting_showFadeInTime">800</integer>
+    <integer name="Workspace_cellCountX">4</integer>
+    <integer name="Workspace_cellCountY">4</integer>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!-- PageSelect -->
+   	
+<!-- Folder3D Start-->
+
+     <!-- folder params need config by different theme  -->
+      <interge name="folder_front_icon_w" type="dip" value="52"/>
+   	 <interge name="folder_front_icon_h" type="dip" value="32"/>
+   	   <interge name="folder_front_margin_offset" type="dip" value="1"/>
+      <interge name="folder_front_width" type="dip" value="60"/>
+   	 <interge name="folder_front_height" type="dip" value="86"/>
+     <interge name="folder_front_height_large" type="dip" value="88"/>
+     <interge name="folder_icon_rotation_degree" type="" value="0"/>
+    <!--   folder_icon_rotation_offsetx =6 if cell_width is 60-->
+   	 <interge name="folder_icon_rotation_offsetx" type="dip" value="0"/>
+   	 <interge name="folder_icon_rotation_offsety" type="dip" value="16"/>
+   	<interge name="folder_transform_num" type=" " value="6"/>
+   	<interge name="folder_icon_row_num" type=" " value="2"/>
+   	<interge name="folder_icon_posy" type="dip" value="0"/>
+    <interge name="folder_icon_scale_factor" type=" " value="30"/>
+     <string name="folder_title_color" value="#000000"/>
+     <!--  folder params end config -->
+    
+<!-- Folder3D Ended -->
+	<interge name="icon_bg_num" type="" value="0"/>	
+<!-- page indicator -->
+	<interge name="page_indicator_style" type="" value="1"/> <!--1:S3 2:S2-->
+<!-- <interge name="app_icon_size" type="dip" value="48"/> -->
+</resources>

@@ -24,13 +24,13 @@
     .parameter "b"
 
     .prologue
-    .line 954
+    .line 824
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
-    .line 955
+    .line 825
     iput-object p1, p0, Lcom/android/music/MusicUtils$FastBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
-    .line 956
+    .line 826
     return-void
 .end method
 
@@ -43,14 +43,14 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 959
+    .line 829
     iget-object v0, p0, Lcom/android/music/MusicUtils$FastBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
     const/4 v1, 0x0
 
     invoke-virtual {p1, v0, v2, v2, v1}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    .line 960
+    .line 830
     return-void
 .end method
 
@@ -58,7 +58,7 @@
     .locals 1
 
     .prologue
-    .line 963
+    .line 833
     const/4 v0, -0x1
 
     return v0
@@ -69,7 +69,7 @@
     .parameter "alpha"
 
     .prologue
-    .line 967
+    .line 837
     return-void
 .end method
 
@@ -78,6 +78,6 @@
     .parameter "cf"
 
     .prologue
-    .line 970
+    .line 840
     return-void
 .end method

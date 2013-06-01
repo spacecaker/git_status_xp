@@ -27,13 +27,13 @@
     .parameter "callback"
 
     .prologue
-    .line 238
+    .line 204
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 239
+    .line 205
     iput-object p1, p0, Lcom/android/music/MusicUtils$ServiceBinder;->mCallback:Landroid/content/ServiceConnection;
 
-    .line 240
+    .line 206
     return-void
 .end method
 
@@ -45,27 +45,27 @@
     .parameter "service"
 
     .prologue
-    .line 243
+    .line 209
     invoke-static {p2}, Lcom/android/music/IMediaPlaybackService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/music/IMediaPlaybackService;
 
     move-result-object v0
 
     sput-object v0, Lcom/android/music/MusicUtils;->sService:Lcom/android/music/IMediaPlaybackService;
 
-    .line 244
+    .line 210
     invoke-static {}, Lcom/android/music/MusicUtils;->initAlbumArtCache()V
 
-    .line 245
+    .line 211
     iget-object v0, p0, Lcom/android/music/MusicUtils$ServiceBinder;->mCallback:Landroid/content/ServiceConnection;
 
     if-eqz v0, :cond_0
 
-    .line 246
+    .line 212
     iget-object v0, p0, Lcom/android/music/MusicUtils$ServiceBinder;->mCallback:Landroid/content/ServiceConnection;
 
     invoke-interface {v0, p1, p2}, Landroid/content/ServiceConnection;->onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
 
-    .line 248
+    .line 214
     :cond_0
     return-void
 .end method
@@ -75,22 +75,22 @@
     .parameter "className"
 
     .prologue
-    .line 251
+    .line 217
     iget-object v0, p0, Lcom/android/music/MusicUtils$ServiceBinder;->mCallback:Landroid/content/ServiceConnection;
 
     if-eqz v0, :cond_0
 
-    .line 252
+    .line 218
     iget-object v0, p0, Lcom/android/music/MusicUtils$ServiceBinder;->mCallback:Landroid/content/ServiceConnection;
 
     invoke-interface {v0, p1}, Landroid/content/ServiceConnection;->onServiceDisconnected(Landroid/content/ComponentName;)V
 
-    .line 254
+    .line 220
     :cond_0
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/music/MusicUtils;->sService:Lcom/android/music/IMediaPlaybackService;
 
-    .line 255
+    .line 221
     return-void
 .end method

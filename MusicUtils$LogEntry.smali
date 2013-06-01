@@ -26,20 +26,20 @@
     .parameter "o"
 
     .prologue
-    .line 1508
+    .line 1312
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1509
+    .line 1313
     iput-object p1, p0, Lcom/android/music/MusicUtils$LogEntry;->item:Ljava/lang/Object;
 
-    .line 1510
+    .line 1314
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/music/MusicUtils$LogEntry;->time:J
 
-    .line 1511
+    .line 1315
     return-void
 .end method
 
@@ -50,8 +50,8 @@
     .parameter "out"
 
     .prologue
-    .line 1514
-    invoke-static {}, Lcom/android/music/MusicUtils;->access$000()Landroid/text/format/Time;
+    .line 1318
+    invoke-static {}, Lcom/android/music/MusicUtils;->access$0()Landroid/text/format/Time;
 
     move-result-object v0
 
@@ -59,12 +59,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/text/format/Time;->set(J)V
 
-    .line 1515
+    .line 1319
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-static {}, Lcom/android/music/MusicUtils;->access$000()Landroid/text/format/Time;
+    invoke-static {}, Lcom/android/music/MusicUtils;->access$0()Landroid/text/format/Time;
 
     move-result-object v1
 
@@ -72,9 +70,11 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     const-string v1, " : "
 
@@ -88,14 +88,14 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1516
+    .line 1320
     iget-object v0, p0, Lcom/android/music/MusicUtils$LogEntry;->item:Ljava/lang/Object;
 
     instance-of v0, v0, Ljava/lang/Exception;
 
     if-eqz v0, :cond_0
 
-    .line 1517
+    .line 1321
     iget-object p0, p0, Lcom/android/music/MusicUtils$LogEntry;->item:Ljava/lang/Object;
 
     .end local p0
@@ -103,11 +103,11 @@
 
     invoke-virtual {p0, p1}, Ljava/lang/Exception;->printStackTrace(Ljava/io/PrintWriter;)V
 
-    .line 1521
+    .line 1325
     :goto_0
     return-void
 
-    .line 1519
+    .line 1323
     .restart local p0
     :cond_0
     iget-object v0, p0, Lcom/android/music/MusicUtils$LogEntry;->item:Ljava/lang/Object;

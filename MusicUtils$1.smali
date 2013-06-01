@@ -1,4 +1,4 @@
-.class final Lcom/android/music/MusicUtils$1;
+.class Lcom/android/music/MusicUtils$1;
 .super Ljava/lang/Object;
 .source "MusicUtils.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x0
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$ll:Landroid/widget/TabWidget;
+.field private final synthetic val$ll:Landroid/widget/TabWidget;
 
 
 # direct methods
@@ -27,9 +27,10 @@
     .parameter
 
     .prologue
-    .line 1291
+    .line 1
     iput-object p1, p0, Lcom/android/music/MusicUtils$1;->val$ll:Landroid/widget/TabWidget;
 
+    .line 1156
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,10 +44,10 @@
     .parameter "hasFocus"
 
     .prologue
-    .line 1294
+    .line 1159
     if-eqz p2, :cond_0
 
-    .line 1295
+    .line 1160
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -57,30 +58,31 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-lt v0, v1, :cond_1
 
-    .line 1296
+    .line 1168
+    .end local v0           #i:I
+    :cond_0
+    :goto_1
+    return-void
+
+    .line 1161
+    .restart local v0       #i:I
+    :cond_1
     iget-object v1, p0, Lcom/android/music/MusicUtils$1;->val$ll:Landroid/widget/TabWidget;
 
     invoke-virtual {v1, v0}, Landroid/widget/TabWidget;->getChildTabViewAt(I)Landroid/view/View;
 
     move-result-object v1
 
-    if-ne v1, p1, :cond_1
+    if-ne v1, p1, :cond_2
 
-    .line 1297
+    .line 1162
     iget-object v1, p0, Lcom/android/music/MusicUtils$1;->val$ll:Landroid/widget/TabWidget;
 
     invoke-virtual {v1, v0}, Landroid/widget/TabWidget;->setCurrentTab(I)V
 
-    .line 1299
-    iget-object v1, p0, Lcom/android/music/MusicUtils$1;->val$ll:Landroid/widget/TabWidget;
-
-    const/4 v2, 0x2
-
-    invoke-virtual {v1, v2}, Landroid/widget/TabWidget;->playSoundEffect(I)V
-
-    .line 1301
+    .line 1163
     iget-object v1, p0, Lcom/android/music/MusicUtils$1;->val$ll:Landroid/widget/TabWidget;
 
     invoke-virtual {v1}, Landroid/widget/TabWidget;->getContext()Landroid/content/Context;
@@ -103,14 +105,10 @@
 
     invoke-static {v1, p1, v2}, Lcom/android/music/MusicUtils;->processTabClick(Landroid/app/Activity;Landroid/view/View;I)V
 
-    .line 1306
-    .end local v0           #i:I
-    :cond_0
-    return-void
+    goto :goto_1
 
-    .line 1295
-    .restart local v0       #i:I
-    :cond_1
+    .line 1160
+    :cond_2
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0

@@ -1,4 +1,4 @@
-.class final Lcom/android/music/MusicUtils$2;
+.class Lcom/android/music/MusicUtils$2;
 .super Ljava/lang/Object;
 .source "MusicUtils.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x0
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$ll:Landroid/widget/TabWidget;
+.field private final synthetic val$ll:Landroid/widget/TabWidget;
 
 
 # direct methods
@@ -27,9 +27,10 @@
     .parameter
 
     .prologue
-    .line 1308
+    .line 1
     iput-object p1, p0, Lcom/android/music/MusicUtils$2;->val$ll:Landroid/widget/TabWidget;
 
+    .line 1170
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,7 +43,7 @@
     .parameter "v"
 
     .prologue
-    .line 1311
+    .line 1173
     iget-object v0, p0, Lcom/android/music/MusicUtils$2;->val$ll:Landroid/widget/TabWidget;
 
     invoke-virtual {v0}, Landroid/widget/TabWidget;->getContext()Landroid/content/Context;
@@ -65,6 +66,6 @@
 
     invoke-static {v0, p1, v1}, Lcom/android/music/MusicUtils;->processTabClick(Landroid/app/Activity;Landroid/view/View;I)V
 
-    .line 1312
+    .line 1174
     return-void
 .end method

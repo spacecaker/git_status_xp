@@ -14,6 +14,9 @@
 
 	<!-- Contacts -->
 	<item
+		component="com.android.contacts/com.android.contacts.Contacts"
+		image="contacts" />
+	<item
 		component="com.android.contacts/com.android.contacts.DialtactsContactsEntryActivity"
 		image="contacts" />
 	<item

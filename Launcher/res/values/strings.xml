@@ -17,15 +17,15 @@
     <string name="setting_key_circled">circled</string>
     <string name="setting_key_shake_wallpaper">shake_wallpaper</string>
     <string name="setting_key_basic_setting">setting_key_basic_setting</string>
-    <string name="setting_report">http://www.coolauncher.cn/iloong/service/report</string>
-    <string name="setting_onlinetheme">http://www.coolauncher.cn/zt.htm</string>
-    <string name="setting_apkdownload">http://www.coolauncher.cn/iloong/service/download</string>
-    <string name="server_app_url">http://w1.mumucloud.com/openAPI/DownurlHandler.ashx</string>
-    <string name="other_app_url">http://w1.mumucloud.com/openAPI/packageDownurlHandler.ashx</string>
-    <string name="download_response_url">http://w1.mumucloud.com/openAPI/UI_apkDownHandler.ashx</string>
+    <string name="setting_report">http://forum.xda-developers.com/showthread.php?t=2261227</string>
+    <string name="setting_onlinetheme">http://forum.xda-developers.com/showthread.php?t=2261227</string>
+    <string name="setting_apkdownload" />
+    <string name="server_app_url" />
+    <string name="other_app_url" />
+    <string name="download_response_url" />
     <string name="sharedUserId" />
     <string name="process" />
-    <string name="app_name">SpaceWiz5.0</string>
+    <string name="app_name">LauncherS3</string>
     <string name="uid_name">Android Core Apps</string>
     <string name="folder_name">Folder</string>
     <string name="contact_name">Contacts</string>
@@ -91,7 +91,7 @@
     <string name="permdesc_write_settings">Allows an application to change the settings and shortcuts in Home.</string>
     <string name="gadget_error_text">Problem loading widget</string>
     <string name="default_browser_url">http://www.google.com/m?client=ms-{CID}source=android-home-hotseat</string>
-    <string name="errorHint">A error has happened %1$s.Please click <b><i>REPORT</i></b> to send the error information to us by email, Thanks!!!</string>
+    <string name="errorHint">A error has happened %1$s.Please click <i><b>REPORT</b></i> to send the error information to us by email, Thanks!!!</string>
     <string name="hello">hello iLoong User</string>
     <string name="folder_renamed">Folder renamed to %1$s</string>
     <string name="folder_name_format">Folder: %1$s</string>
@@ -243,7 +243,4 @@
     <string name="airpush_dialog_introduction">Introduction:</string>
     <string name="applist_load_toast">Please wait for loading...</string>
     <string name="app_unknow">unknow</string>
-    <string name="airpush_dialog_unit">http://www.coolauncher.cn/zt.htm</string>
-    <string name="airpush_dialog_url">http://www.coolauncher.cn/zt.htm</string>
-    <string name="space_name">SpaceWiz5.0</string>
 </resources>

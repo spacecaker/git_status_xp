@@ -1,5 +1,5 @@
 version: 1.5.1
-apkFileName: TouchSpaceWiz50Launcher.apk
+apkFileName: launcher.apk
 isFrameworkApk: false
 usesFramework:
   ids:

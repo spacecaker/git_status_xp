@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="app_effects_list_preference">
+        <item>Padrão</item>
+        <item>Aleatório</item>
+        <item>Monte</item>
+        <item>Caixa interior</item>
+        <item>Caixa exterior</item>
+        <item>Girar</item>
+        <item>Virar ao contrário</item>
+        <item>Moínho</item>
+        <item>Onda</item>
+        <item>Roda</item>
+        <item>Bola</item>
+        <item>Cilíndro</item>
+    </string-array>
+    <string-array name="app_effectsvalue_list_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="workspace_effects_list_preference">
+        <item>Padrãod</item>
+        <item>Aleatório</item>
+        <item>Monte</item>
+        <item>Caixa interior</item>
+        <item>Caixa exterior</item>
+        <item>Girar</item>
+        <item>Virar ao contrário</item>
+        <item>Moínho</item>
+        <item>Roda</item>
+        <item>Padrão</item>
+    </string-array>
+    <string-array name="workspace_effectsvalue_list_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+</resources>

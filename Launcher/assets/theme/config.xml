@@ -26,6 +26,11 @@
 <!-- Folder3D Ended -->
 	<interge name="icon_bg_num" type="" value="0"/>	
 <!-- page indicator -->
-	<interge name="page_indicator_style" type="" value="1"/> <!--1:S3 2:S2-->
+	<interge name="page_indicator_style" type="" value="0"/> <!--0:android4.0 -->
+	<interge name="page_indicator_total_size" type="dip" value="90"/>
+    <interge name="page_indicator_focus_w" type="dip" value="2"/>
+	<interge name="page_indicator_focus_w_small" type="dip" value="2"/>
+	<interge name="page_indicator_normal_w" type="dip" value="1"/>
+	<interge name="page_indicator_normal_w_small" type="dip" value="1"/>
 <!-- <interge name="app_icon_size" type="dip" value="48"/> -->
 </resources>

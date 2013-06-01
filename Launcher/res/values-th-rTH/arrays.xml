@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="app_effects_list_preference">
+        <item>มาตรฐาน</item>
+        <item>สุ่ม</item>
+        <item>กอง</item>
+        <item>กล่องภายใน</item>
+        <item>กล่องภายนอก</item>
+        <item>ดีด</item>
+        <item>พลิกข้าม</item>
+        <item>กังหันลม</item>
+        <item>คลื่น</item>
+        <item>ล้อ</item>
+        <item>ลูกบอล</item>
+        <item>กระบอก</item>
+    </string-array>
+    <string-array name="app_effectsvalue_list_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="workspace_effects_list_preference">
+        <item>มาตรฐาน</item>
+        <item>สุ่ม</item>
+        <item>กอง</item>
+        <item>กล่องภายใน</item>
+        <item>กล่องภายนอก</item>
+        <item>ดีด</item>
+        <item>พลิกข้าม</item>
+        <item>กังหันลม</item>
+        <item>คลื่น</item>
+        <item>ค่าเริ่มต้น</item>
+    </string-array>
+    <string-array name="workspace_effectsvalue_list_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+</resources>

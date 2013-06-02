@@ -71,30 +71,6 @@
     .end annotation
 .end method
 
-.method public abstract getAudioSessionId()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getCurrentAlbumInfo()Lcom/sec/android/app/music/MusicAlbumInfo;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getFilePath()Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getMediaMountedCount()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -103,23 +79,7 @@
     .end annotation
 .end method
 
-.method public abstract getNextAlbumInfo(I)Lcom/sec/android/app/music/MusicAlbumInfo;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getPath()Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getPrevAlbumInfo(I)Lcom/sec/android/app/music/MusicAlbumInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -167,14 +127,6 @@
     .end annotation
 .end method
 
-.method public abstract hideNotification()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract isPlaying()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -199,14 +151,6 @@
     .end annotation
 .end method
 
-.method public abstract nextPosition()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract open([JI)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -215,7 +159,15 @@
     .end annotation
 .end method
 
-.method public abstract openFile(Ljava/lang/String;)V
+.method public abstract openFile(Ljava/lang/String;Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract openFileAsync(Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -255,14 +207,6 @@
     .end annotation
 .end method
 
-.method public abstract prevPosition()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract removeTrack(J)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -288,14 +232,6 @@
 .end method
 
 .method public abstract setQueuePosition(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setR2VSMode(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

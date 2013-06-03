@@ -8,13 +8,15 @@
 
 .field private mAirplaneModePreference:Landroid/preference/CheckBoxPreference;
 
+.field private mTelMan:Landroid/telephony/TelephonyManager;
+
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
     .prologue
-    .line 48
+    .line 46
     invoke-direct {p0}, Landroid/preference/PreferenceActivity;-><init>()V
 
     return-void
@@ -28,7 +30,7 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 104
+    .line 135
     invoke-static {p0}, Lcom/android/settings/AirplaneModeEnabler;->isAirplaneModeOn(Landroid/content/Context;)Z
 
     move-result v1
@@ -37,11 +39,11 @@
 
     move v1, v3
 
-    .line 110
+    .line 141
     :goto_0
     return v1
 
-    .line 108
+    .line 139
     :cond_0
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -53,7 +55,7 @@
 
     move-result-object v0
 
-    .line 110
+    .line 141
     .local v0, toggleable:Ljava/lang/String;
     if-eqz v0, :cond_1
 
@@ -82,12 +84,12 @@
     .parameter "data"
 
     .prologue
-    .line 232
+    .line 278
     const/4 v1, 0x1
 
     if-ne p1, v1, :cond_0
 
-    .line 233
+    .line 279
     const-string v1, "exit_ecm_result"
 
     const/4 v2, 0x0
@@ -100,7 +102,7 @@
 
     move-result-object v0
 
-    .line 235
+    .line 281
     .local v0, isChoiceYes:Ljava/lang/Boolean;
     iget-object v1, p0, Lcom/android/settings/WirelessSettings;->mAirplaneModeEnabler:Lcom/android/settings/AirplaneModeEnabler;
 
@@ -116,699 +118,570 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/android/settings/AirplaneModeEnabler;->setAirplaneModeInECM(ZZ)V
 
-    .line 238
+    .line 284
     .end local v0           #isChoiceYes:Ljava/lang/Boolean;
     :cond_0
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 18
+    .locals 14
     .parameter "savedInstanceState"
 
     .prologue
-    .line 115
-    invoke-super/range {p0 .. p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
+    .line 146
+    invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 117
-    const v16, 0x7f040031
+    .line 148
+    const v12, 0x7f040039
 
-    move-object/from16 v0, p0
+    invoke-virtual {p0, v12}, Lcom/android/settings/WirelessSettings;->addPreferencesFromResource(I)V
 
-    move/from16 v1, v16
+    .line 151
+    invoke-virtual {p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->addPreferencesFromResource(I)V
+    move-result-object v12
 
-    .line 120
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    const-string v13, "synchronise"
 
-    move-result-object v16
+    invoke-virtual {p0, v13}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    const-string v17, "synchronise"
+    move-result-object v13
 
-    move-object/from16 v0, p0
+    invoke-virtual {v12, v13}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
-    move-object/from16 v1, v17
+    .line 154
+    const-string v12, "toggle_airplane"
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v12}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v17
+    move-result-object v0
 
-    invoke-virtual/range {v16 .. v17}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    check-cast v0, Landroid/preference/CheckBoxPreference;
 
-    .line 123
-    const-string v16, "toggle_airplane"
+    .line 155
+    .local v0, airplane:Landroid/preference/CheckBoxPreference;
+    const-string v12, "toggle_wifi"
 
-    move-object/from16 v0, p0
+    invoke-virtual {p0, v12}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-object/from16 v1, v16
+    move-result-object v10
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    check-cast v10, Landroid/preference/CheckBoxPreference;
+
+    .line 156
+    .local v10, wifi:Landroid/preference/CheckBoxPreference;
+    const-string v12, "toggle_bluetooth"
+
+    invoke-virtual {p0, v12}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/preference/CheckBoxPreference;
+
+    .line 157
+    .local v1, bt:Landroid/preference/CheckBoxPreference;
+    const-string v12, "toggle_nfc"
+
+    invoke-virtual {p0, v12}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
     check-cast v4, Landroid/preference/CheckBoxPreference;
 
-    .line 124
-    .local v4, airplane:Landroid/preference/CheckBoxPreference;
-    const-string v16, "toggle_wifi"
+    .line 159
+    .local v4, nfc:Landroid/preference/CheckBoxPreference;
+    new-instance v12, Lcom/android/settings/AirplaneModeEnabler;
 
-    move-object/from16 v0, p0
+    invoke-direct {v12, p0, v0}, Lcom/android/settings/AirplaneModeEnabler;-><init>(Landroid/content/Context;Landroid/preference/CheckBoxPreference;)V
 
-    move-object/from16 v1, v16
+    iput-object v12, p0, Lcom/android/settings/WirelessSettings;->mAirplaneModeEnabler:Lcom/android/settings/AirplaneModeEnabler;
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    .line 160
+    const-string v12, "toggle_airplane"
 
-    move-result-object v14
-
-    check-cast v14, Landroid/preference/CheckBoxPreference;
-
-    .line 125
-    .local v14, wifi:Landroid/preference/CheckBoxPreference;
-    const-string v16, "toggle_bluetooth"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/preference/CheckBoxPreference;
-
-    .line 126
-    .local v5, bt:Landroid/preference/CheckBoxPreference;
-    const-string v16, "toggle_nfc"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/preference/CheckBoxPreference;
-
-    .line 128
-    .local v8, nfc:Landroid/preference/CheckBoxPreference;
-    new-instance v16, Lcom/android/settings/AirplaneModeEnabler;
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p0
-
-    move-object v2, v4
-
-    invoke-direct {v0, v1, v2}, Lcom/android/settings/AirplaneModeEnabler;-><init>(Landroid/content/Context;Landroid/preference/CheckBoxPreference;)V
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/android/settings/WirelessSettings;->mAirplaneModeEnabler:Lcom/android/settings/AirplaneModeEnabler;
-
-    .line 129
-    const-string v16, "toggle_airplane"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v12}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object p1
 
     .end local p1
     check-cast p1, Landroid/preference/CheckBoxPreference;
 
-    move-object/from16 v0, p1
+    iput-object p1, p0, Lcom/android/settings/WirelessSettings;->mAirplaneModePreference:Landroid/preference/CheckBoxPreference;
 
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/android/settings/WirelessSettings;->mAirplaneModePreference:Landroid/preference/CheckBoxPreference;
-
-    .line 134
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v16
-
-    const-string v17, "airplane_mode_toggleable_radios"
-
-    invoke-static/range {v16 .. v17}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    .line 165
+    invoke-virtual {p0}, Lcom/android/settings/WirelessSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v12
 
-    .line 138
-    .local v12, toggleable:Ljava/lang/String;
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getResources()Landroid/content/res/Resources;
+    const-string v13, "airplane_mode_toggleable_radios"
 
-    move-result-object v16
+    invoke-static {v12, v13}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
-    const v17, 0x10d001b
-
-    invoke-virtual/range {v16 .. v17}, Landroid/content/res/Resources;->getBoolean(I)Z
-
-    move-result v7
-
-    .line 140
-    .local v7, isWimaxEnabled:Z
-    if-nez v7, :cond_7
-
-    .line 141
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v11
-
-    .line 142
-    .local v11, root:Landroid/preference/PreferenceScreen;
-    const-string v16, "wimax_settings"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v10
-
-    .line 143
-    .local v10, ps:Landroid/preference/Preference;
-    if-eqz v10, :cond_0
-
-    .line 144
-    invoke-virtual {v11, v10}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 154
-    .end local v10           #ps:Landroid/preference/Preference;
-    .end local v11           #root:Landroid/preference/PreferenceScreen;
-    :cond_0
-    :goto_0
-    if-eqz v12, :cond_1
-
-    const-string v16, "wifi"
-
-    move-object v0, v12
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v16
-
-    if-nez v16, :cond_2
-
-    .line 155
-    :cond_1
-    const-string v16, "toggle_airplane"
-
-    move-object v0, v14
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setDependency(Ljava/lang/String;)V
-
-    .line 156
-    const-string v16, "wifi_settings"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v16
-
-    const-string v17, "toggle_airplane"
-
-    invoke-virtual/range {v16 .. v17}, Landroid/preference/Preference;->setDependency(Ljava/lang/String;)V
-
-    .line 157
-    const-string v16, "vpn_settings"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v16
-
-    const-string v17, "toggle_airplane"
-
-    invoke-virtual/range {v16 .. v17}, Landroid/preference/Preference;->setDependency(Ljava/lang/String;)V
-
-    .line 161
-    :cond_2
-    if-eqz v12, :cond_3
-
-    const-string v16, "bluetooth"
-
-    move-object v0, v12
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v16
-
-    if-nez v16, :cond_4
-
-    .line 164
-    :cond_3
-    const-string v16, "bt_settings"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v16
-
-    const-string v17, "toggle_airplane"
-
-    invoke-virtual/range {v16 .. v17}, Landroid/preference/Preference;->setDependency(Ljava/lang/String;)V
-
-    .line 168
-    :cond_4
-    const-string v16, "bluetooth"
-
-    invoke-static/range {v16 .. v16}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v16
-
-    if-nez v16, :cond_5
+    move-result-object v8
 
     .line 169
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .local v8, toggleable:Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/settings/WirelessSettings;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v16
+    move-result-object v12
 
-    move-object/from16 v0, v16
+    const v13, 0x10d001f
 
-    move-object v1, v5
-
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 174
-    :cond_5
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v16
-
-    move-object/from16 v0, v16
-
-    move-object v1, v8
-
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 178
-    const-string v16, "connectivity"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/net/ConnectivityManager;
-
-    .line 180
-    .local v6, cm:Landroid/net/ConnectivityManager;
-    invoke-virtual {v6}, Landroid/net/ConnectivityManager;->isTetheringSupported()Z
-
-    move-result v16
-
-    if-nez v16, :cond_9
-
-    .line 181
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v16
-
-    const-string v17, "tether_settings"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v17
-
-    invoke-virtual/range {v16 .. v17}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 200
-    :goto_1
-    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Landroid/telephony/TelephonyManager;->getSimState()I
+    invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v3
 
-    .line 201
-    .local v3, SimState:I
-    if-eqz v3, :cond_6
+    .line 171
+    .local v3, isWimaxEnabled:Z
+    if-nez v3, :cond_6
 
-    const/16 v16, 0x1
+    .line 172
+    invoke-virtual {p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
-    move v0, v3
+    move-result-object v7
 
-    move/from16 v1, v16
+    .line 173
+    .local v7, root:Landroid/preference/PreferenceScreen;
+    const-string v12, "wimax_settings"
 
-    if-ne v0, v1, :cond_c
+    invoke-virtual {p0, v12}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    .line 202
-    :cond_6
-    const-string v16, "network_settings"
+    move-result-object v6
 
-    move-object/from16 v0, p0
+    .line 174
+    .local v6, ps:Landroid/preference/Preference;
+    if-eqz v6, :cond_0
 
-    move-object/from16 v1, v16
+    .line 175
+    invoke-virtual {v7, v6}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    .line 185
+    .end local v6           #ps:Landroid/preference/Preference;
+    .end local v7           #root:Landroid/preference/PreferenceScreen;
+    :cond_0
+    :goto_0
+    if-eqz v8, :cond_1
 
-    move-result-object v16
+    const-string v12, "wifi"
 
-    const/16 v17, 0x0
+    invoke-virtual {v8, v12}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual/range {v16 .. v17}, Landroid/preference/Preference;->setEnabled(Z)V
+    move-result v12
 
-    .line 207
-    :goto_2
-    invoke-static {}, Lcom/android/settings/HideSetting;->Instance()Lcom/android/settings/HideSetting;
+    if-nez v12, :cond_2
 
-    move-result-object v16
+    .line 186
+    :cond_1
+    const-string v12, "toggle_airplane"
 
-    move-object/from16 v0, v16
+    invoke-virtual {v10, v12}, Landroid/preference/CheckBoxPreference;->setDependency(Ljava/lang/String;)V
 
-    move-object/from16 v1, p0
+    .line 187
+    const-string v12, "wifi_settings"
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/HideSetting;->hideSettings(Landroid/preference/PreferenceActivity;)V
+    invoke-virtual {p0, v12}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    .line 208
-    return-void
+    move-result-object v12
 
-    .line 146
-    .end local v3           #SimState:I
-    .end local v6           #cm:Landroid/net/ConnectivityManager;
-    :cond_7
-    if-eqz v12, :cond_8
+    const-string v13, "toggle_airplane"
 
-    const-string v16, "wimax"
+    invoke-virtual {v12, v13}, Landroid/preference/Preference;->setDependency(Ljava/lang/String;)V
 
-    move-object v0, v12
+    .line 188
+    const-string v12, "vpn_settings"
 
-    move-object/from16 v1, v16
+    invoke-virtual {p0, v12}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result-object v12
 
-    move-result v16
+    const-string v13, "toggle_airplane"
 
-    if-nez v16, :cond_0
+    invoke-virtual {v12, v13}, Landroid/preference/Preference;->setDependency(Ljava/lang/String;)V
 
-    if-eqz v7, :cond_0
+    .line 192
+    :cond_2
+    if-eqz v8, :cond_3
 
-    .line 148
-    :cond_8
-    const-string v16, "wimax_settings"
+    const-string v12, "bluetooth"
 
-    move-object/from16 v0, p0
+    invoke-virtual {v8, v12}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-object/from16 v1, v16
+    move-result v12
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    if-nez v12, :cond_4
 
-    move-result-object v10
+    .line 195
+    :cond_3
+    const-string v12, "bt_settings"
 
-    .line 149
-    .restart local v10       #ps:Landroid/preference/Preference;
-    const-string v16, "toggle_airplane"
+    invoke-virtual {p0, v12}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-object v0, v10
+    move-result-object v12
 
-    move-object/from16 v1, v16
+    const-string v13, "toggle_airplane"
 
-    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setDependency(Ljava/lang/String;)V
+    invoke-virtual {v12, v13}, Landroid/preference/Preference;->setDependency(Ljava/lang/String;)V
 
-    goto/16 :goto_0
+    .line 199
+    :cond_4
+    const-string v12, "bluetooth"
 
-    .line 183
-    .end local v10           #ps:Landroid/preference/Preference;
-    .restart local v6       #cm:Landroid/net/ConnectivityManager;
-    :cond_9
-    invoke-virtual {v6}, Landroid/net/ConnectivityManager;->getTetherableUsbRegexs()[Ljava/lang/String;
+    invoke-static {v12}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v12
+
+    if-nez v12, :cond_5
+
+    .line 200
+    invoke-virtual {p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v12
+
+    invoke-virtual {v12, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 205
+    :cond_5
+    invoke-virtual {p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v12
+
+    invoke-virtual {v12, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 209
+    const-string v12, "connectivity"
+
+    invoke-virtual {p0, v12}, Lcom/android/settings/WirelessSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/net/ConnectivityManager;
+
+    .line 211
+    .local v2, cm:Landroid/net/ConnectivityManager;
+    invoke-virtual {v2}, Landroid/net/ConnectivityManager;->isTetheringSupported()Z
+
+    move-result v12
+
+    if-nez v12, :cond_8
+
+    .line 212
+    invoke-virtual {p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v12
+
+    const-string v13, "tether_settings"
+
+    invoke-virtual {p0, v13}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v13
 
-    .line 184
-    .local v13, usbRegexs:[Ljava/lang/String;
-    invoke-virtual {v6}, Landroid/net/ConnectivityManager;->getTetherableWifiRegexs()[Ljava/lang/String;
+    invoke-virtual {v12, v13}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
-    move-result-object v15
+    .line 230
+    :goto_1
+    return-void
 
-    .line 185
-    .local v15, wifiRegexs:[Ljava/lang/String;
-    const-string v16, "tether_settings"
+    .line 177
+    .end local v2           #cm:Landroid/net/ConnectivityManager;
+    :cond_6
+    if-eqz v8, :cond_7
 
-    move-object/from16 v0, p0
+    const-string v12, "wimax"
 
-    move-object/from16 v1, v16
+    invoke-virtual {v8, v12}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    move-result v12
+
+    if-nez v12, :cond_0
+
+    if-eqz v3, :cond_0
+
+    .line 179
+    :cond_7
+    const-string v12, "wimax_settings"
+
+    invoke-virtual {p0, v12}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v6
+
+    .line 180
+    .restart local v6       #ps:Landroid/preference/Preference;
+    const-string v12, "toggle_airplane"
+
+    invoke-virtual {v6, v12}, Landroid/preference/Preference;->setDependency(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    .line 214
+    .end local v6           #ps:Landroid/preference/Preference;
+    .restart local v2       #cm:Landroid/net/ConnectivityManager;
+    :cond_8
+    invoke-virtual {v2}, Landroid/net/ConnectivityManager;->getTetherableUsbRegexs()[Ljava/lang/String;
 
     move-result-object v9
 
-    .line 186
-    .local v9, p:Landroid/preference/Preference;
-    move-object v0, v15
+    .line 215
+    .local v9, usbRegexs:[Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/net/ConnectivityManager;->getTetherableWifiRegexs()[Ljava/lang/String;
 
-    array-length v0, v0
+    move-result-object v11
 
-    move/from16 v16, v0
+    .line 216
+    .local v11, wifiRegexs:[Ljava/lang/String;
+    const-string v12, "tether_settings"
 
-    if-nez v16, :cond_a
+    invoke-virtual {p0, v12}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    .line 187
-    const v16, 0x7f080277
+    move-result-object v5
 
-    move-object v0, v9
+    .line 217
+    .local v5, p:Landroid/preference/Preference;
+    array-length v12, v11
 
-    move/from16 v1, v16
+    if-nez v12, :cond_9
 
-    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setTitle(I)V
+    .line 218
+    const v12, 0x7f0802a3
 
-    .line 188
-    const v16, 0x7f08027a
+    invoke-virtual {v5, v12}, Landroid/preference/Preference;->setTitle(I)V
 
-    move-object v0, v9
+    .line 219
+    const v12, 0x7f0802a6
 
-    move/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
+    invoke-virtual {v5, v12}, Landroid/preference/Preference;->setSummary(I)V
 
     goto :goto_1
 
-    .line 190
+    .line 221
+    :cond_9
+    array-length v12, v9
+
+    if-nez v12, :cond_a
+
+    .line 222
+    const v12, 0x7f0802a4
+
+    invoke-virtual {v5, v12}, Landroid/preference/Preference;->setTitle(I)V
+
+    .line 223
+    const v12, 0x7f0802a7
+
+    invoke-virtual {v5, v12}, Landroid/preference/Preference;->setSummary(I)V
+
+    goto :goto_1
+
+    .line 225
     :cond_a
-    move-object v0, v13
+    const v12, 0x7f0802a5
 
-    array-length v0, v0
+    invoke-virtual {v5, v12}, Landroid/preference/Preference;->setTitle(I)V
 
-    move/from16 v16, v0
+    .line 226
+    const v12, 0x7f0802a8
 
-    if-nez v16, :cond_b
+    invoke-virtual {v5, v12}, Landroid/preference/Preference;->setSummary(I)V
 
-    .line 191
-    const v16, 0x7f080278
-
-    move-object v0, v9
-
-    move/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setTitle(I)V
-
-    .line 192
-    const v16, 0x7f08027b
-
-    move-object v0, v9
-
-    move/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
-
-    goto/16 :goto_1
-
-    .line 194
-    :cond_b
-    const v16, 0x7f080279
-
-    move-object v0, v9
-
-    move/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setTitle(I)V
-
-    .line 195
-    const v16, 0x7f08027c
-
-    move-object v0, v9
-
-    move/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
-
-    goto/16 :goto_1
-
-    .line 204
-    .end local v9           #p:Landroid/preference/Preference;
-    .end local v13           #usbRegexs:[Ljava/lang/String;
-    .end local v15           #wifiRegexs:[Ljava/lang/String;
-    .restart local v3       #SimState:I
-    :cond_c
-    const-string v16, "network_settings"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v16
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object v17
-
-    invoke-static/range {v17 .. v17}, Lcom/android/settings/AirplaneModeEnabler;->isAirplaneModeOn(Landroid/content/Context;)Z
-
-    move-result v17
-
-    if-nez v17, :cond_d
-
-    const/16 v17, 0x1
-
-    :goto_3
-    invoke-virtual/range {v16 .. v17}, Landroid/preference/Preference;->setEnabled(Z)V
-
-    goto/16 :goto_2
-
-    :cond_d
-    const/16 v17, 0x0
-
-    goto :goto_3
+    goto :goto_1
 .end method
 
 .method protected onPause()V
     .locals 1
 
     .prologue
-    .line 222
+    .line 268
     invoke-super {p0}, Landroid/preference/PreferenceActivity;->onPause()V
 
-    .line 224
+    .line 270
     iget-object v0, p0, Lcom/android/settings/WirelessSettings;->mAirplaneModeEnabler:Lcom/android/settings/AirplaneModeEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/AirplaneModeEnabler;->pause()V
 
-    .line 228
+    .line 274
     return-void
 .end method
 
 .method public onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
-    .locals 6
+    .locals 7
     .parameter "preferenceScreen"
     .parameter "preference"
 
     .prologue
-    const/4 v5, 0x1
+    const/4 v5, 0x0
 
-    .line 81
+    const/4 v6, 0x1
+
+    .line 82
     invoke-virtual {p2}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 83
-    .local v1, key:Ljava/lang/String;
-    const-string v2, "synchronise"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
     .line 84
+    .local v1, key:Ljava/lang/String;
+    const-string v3, "network_settings"
+
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    .line 86
+    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/android/settings/WirelessSettings;->mTelMan:Landroid/telephony/TelephonyManager;
+
+    .line 87
+    iget-object v3, p0, Lcom/android/settings/WirelessSettings;->mTelMan:Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSimState()I
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/settings/WirelessSettings;->mTelMan:Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSimState()I
+
+    move-result v3
+
+    if-ne v3, v6, :cond_1
+
+    .line 91
+    :cond_0
+    new-instance v2, Landroid/app/AlertDialog$Builder;
+
+    invoke-direct {v2, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    .line 92
+    .local v2, mInsertSimPopup:Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v2, v5}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+
+    .line 94
+    const v3, 0x7f0804f7
+
+    invoke-virtual {p0, v3}, Lcom/android/settings/WirelessSettings;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    .line 95
+    const v3, 0x7f0804f8
+
+    invoke-virtual {p0, v3}, Lcom/android/settings/WirelessSettings;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    .line 96
+    const v3, 0x7f080327
+
+    new-instance v4, Lcom/android/settings/WirelessSettings$1;
+
+    invoke-direct {v4, p0}, Lcom/android/settings/WirelessSettings$1;-><init>(Lcom/android/settings/WirelessSettings;)V
+
+    invoke-virtual {v2, v3, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    .line 102
+    invoke-virtual {v2, v6}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+
+    .line 103
+    new-instance v3, Lcom/android/settings/WirelessSettings$2;
+
+    invoke-direct {v3, p0}, Lcom/android/settings/WirelessSettings$2;-><init>(Lcom/android/settings/WirelessSettings;)V
+
+    invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
+
+    .line 109
+    invoke-virtual {v2}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
+
+    move v3, v6
+
+    .line 131
+    .end local v2           #mInsertSimPopup:Landroid/app/AlertDialog$Builder;
+    :goto_0
+    return v3
+
+    .line 114
+    :cond_1
+    const-string v3, "synchronise"
+
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    .line 115
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 85
+    .line 116
     .local v0, i:Landroid/content/Intent;
-    const-string v2, "android.intent.action.MAIN"
+    const-string v3, "android.intent.action.MAIN"
 
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, v3}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 86
-    const-string v2, "com.smlds"
+    .line 117
+    const-string v3, "com.smlds"
 
-    const-string v3, "com.smlds.smluiMenuList_eu_open"
+    const-string v4, "com.smlds.smluiMenuList_eu_open"
 
-    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 87
-    const/high16 v2, 0x1000
+    .line 118
+    const/high16 v3, 0x1000
 
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+    invoke-virtual {v0, v3}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 88
+    .line 119
     invoke-virtual {p0, v0}, Lcom/android/settings/WirelessSettings;->startActivity(Landroid/content/Intent;)V
 
-    .line 91
+    .line 122
     .end local v0           #i:Landroid/content/Intent;
-    :cond_0
-    iget-object v2, p0, Lcom/android/settings/WirelessSettings;->mAirplaneModePreference:Landroid/preference/CheckBoxPreference;
+    :cond_2
+    iget-object v3, p0, Lcom/android/settings/WirelessSettings;->mAirplaneModePreference:Landroid/preference/CheckBoxPreference;
 
-    if-ne p2, v2, :cond_1
+    if-ne p2, v3, :cond_3
 
-    const-string v2, "ril.cdma.inecmmode"
+    const-string v3, "ril.cdma.inecmmode"
 
-    invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v2}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+    invoke-static {v3}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_3
 
-    .line 94
-    new-instance v2, Landroid/content/Intent;
+    .line 125
+    new-instance v3, Landroid/content/Intent;
 
-    const-string v3, "android.intent.action.ACTION_SHOW_NOTICE_ECM_BLOCK_OTHERS"
+    const-string v4, "android.intent.action.ACTION_SHOW_NOTICE_ECM_BLOCK_OTHERS"
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    invoke-direct {v2, v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    invoke-direct {v3, v4, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    invoke-virtual {p0, v2, v5}, Lcom/android/settings/WirelessSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v3, v6}, Lcom/android/settings/WirelessSettings;->startActivityForResult(Landroid/content/Intent;I)V
 
-    move v2, v5
+    move v3, v6
 
-    .line 100
-    :goto_0
-    return v2
+    .line 128
+    goto :goto_0
 
-    :cond_1
-    const/4 v2, 0x0
+    :cond_3
+    move v3, v5
 
+    .line 131
     goto :goto_0
 .end method
 
@@ -816,14 +689,14 @@
     .locals 1
 
     .prologue
-    .line 212
+    .line 234
     invoke-super {p0}, Landroid/preference/PreferenceActivity;->onResume()V
 
-    .line 214
+    .line 236
     iget-object v0, p0, Lcom/android/settings/WirelessSettings;->mAirplaneModeEnabler:Lcom/android/settings/AirplaneModeEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/AirplaneModeEnabler;->resume()V
 
-    .line 218
+    .line 264
     return-void
 .end method

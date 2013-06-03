@@ -249,11 +249,11 @@
     invoke-direct {v0}, Lcom/android/systemui/statusbar/NotificationData;-><init>()V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mMiniConData:Lcom/android/systemui/statusbar/NotificationData;
-	
-	.line 183
-	iput-boolean v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mFocusBlocked:Z
 
-	.line 769
+    .line 183
+    iput-boolean v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mFocusBlocked:Z
+
+    .line 769
     new-instance v0, Lcom/android/systemui/statusbar/StatusBarService$1;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarService$1;-><init>(Lcom/android/systemui/statusbar/StatusBarService;)V
@@ -553,7 +553,7 @@
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
 
     invoke-virtual {v0, v4}, Lcom/android/systemui/statusbar/ExpandedView;->setVisibility(I)V
-	
+
     .line 100
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
 
@@ -1988,6 +1988,8 @@
 
     move-result v1
 
+    const/4 v1, 0x0
+
     int-to-float v1, v1
 
     cmpg-float v0, v0, v1
@@ -2056,6 +2058,8 @@
     invoke-virtual {v2}, Lcom/android/systemui/statusbar/StatusBarView;->getHeight()I
 
     move-result v2
+
+    const/4 v2, 0x0
 
     add-int v0, v1, v2
 
@@ -2902,6 +2906,8 @@
 
     move-result v1
 
+    const/4 v1, 0x0
+
     sub-int/2addr v0, v1
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCloseView:Lcom/android/systemui/statusbar/CloseDragHandle;
@@ -3043,6 +3049,8 @@
     const/4 v4, 0x1
 
     const/4 v7, 0x0
+
+  const-string v5, "StatusBarService"
 
     .line 1039
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisabled:I
@@ -4182,6 +4190,13 @@
 
     invoke-virtual {v0, v4}, Lcom/android/systemui/statusbar/ExpandedView;->setVisibility(I)V
 
+    .line 100
+    iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/StatusBarView;->setVisibility(I)V
+
     .line 870
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisabled:I
 
@@ -4507,6 +4522,8 @@
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/StatusBarView;->getHeight()I
 
     move-result v0
+
+    const/4 v0, 0x0
 
     int-to-float v0, v0
 

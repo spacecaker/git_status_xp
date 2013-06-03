@@ -17,7 +17,11 @@
 # static fields
 .field public static final BatteryHistoryChart:[I
 
+.field public static final IconPreference:[I
+
 .field public static final IconPreferenceScreen:[I
+
+.field public static final IconPreference_icon:I
 
 .field public static final WifiEncryptionState:[I
 
@@ -31,7 +35,7 @@
 
     const/4 v2, 0x0
 
-    .line 15908
+    .line 13014
     const/16 v0, 0x9
 
     new-array v0, v0, [I
@@ -40,7 +44,16 @@
 
     sput-object v0, Lcom/android/settings/R$styleable;->BatteryHistoryChart:[I
 
-    .line 15995
+    .line 13101
+    new-array v0, v3, [I
+
+    const v1, 0x7f010001
+
+    aput v1, v0, v2
+
+    sput-object v0, Lcom/android/settings/R$styleable;->IconPreference:[I
+
+    .line 6450
     new-array v0, v3, [I
 
     const v1, 0x7f010001
@@ -49,7 +62,7 @@
 
     sput-object v0, Lcom/android/settings/R$styleable;->IconPreferenceScreen:[I
 
-    .line 16018
+    .line 13124
     new-array v0, v3, [I
 
     const/high16 v1, 0x7f01
@@ -60,7 +73,9 @@
 
     return-void
 
-    .line 15908
+    .line 13014
+    nop
+
     nop
 
     :array_0
@@ -81,7 +96,7 @@
     .locals 0
 
     .prologue
-    .line 15881
+    .line 12987
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -10,9 +10,6 @@
 .method public abstract keyguardDoneDrawing()V
 .end method
 
-.method public abstract pokeWakeDimlock(I)V
-.end method
-
 .method public abstract pokeWakelock()V
 .end method
 

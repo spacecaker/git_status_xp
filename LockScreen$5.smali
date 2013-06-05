@@ -1,4 +1,4 @@
-.class Lcom/android/internal/policy/impl/LockScreen$4;
+.class Lcom/android/internal/policy/impl/LockScreen$5;
 .super Ljava/lang/Object;
 .source "LockScreen.java"
 
@@ -28,9 +28,9 @@
 
     .prologue
     .line 1
-    iput-object p1, p0, Lcom/android/internal/policy/impl/LockScreen$4;->this$0:Lcom/android/internal/policy/impl/LockScreen;
+    iput-object p1, p0, Lcom/android/internal/policy/impl/LockScreen$5;->this$0:Lcom/android/internal/policy/impl/LockScreen;
 
-    .line 548
+    .line 555
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,8 +43,8 @@
     .parameter
 
     .prologue
-    .line 550
-    iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$4;->this$0:Lcom/android/internal/policy/impl/LockScreen;
+    .line 557
+    iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$5;->this$0:Lcom/android/internal/policy/impl/LockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/LockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
     invoke-static {v0}, Lcom/android/internal/policy/impl/LockScreen;->access$0(Lcom/android/internal/policy/impl/LockScreen;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -53,14 +53,14 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 551
-    iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$4;->this$0:Lcom/android/internal/policy/impl/LockScreen;
+    .line 558
+    iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$5;->this$0:Lcom/android/internal/policy/impl/LockScreen;
 
-    const/16 v1, 0x58
+    const/16 v1, 0x57
 
     #calls: Lcom/android/internal/policy/impl/LockScreen;->sendMediaButtonEvent(I)V
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/LockScreen;->access$7(Lcom/android/internal/policy/impl/LockScreen;I)V
 
-    .line 552
+    .line 559
     return-void
 .end method

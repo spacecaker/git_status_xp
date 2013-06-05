@@ -24,31 +24,11 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/internal/policy/impl/LockScreen$Status;
-
-.field public static final enum CorporateLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
+.field private static final synthetic ENUM$VALUES:[Lcom/android/internal/policy/impl/LockScreen$Status;
 
 .field public static final enum NetworkLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
 
-.field public static final enum NetworkSubsetLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
 .field public static final enum Normal:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-.field public static final enum RuimCorporateLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-.field public static final enum RuimHrpdLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-.field public static final enum RuimNetwork1Locked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-.field public static final enum RuimNetwork2Locked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-.field public static final enum RuimRuimLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-.field public static final enum RuimServiceProviderLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-.field public static final enum ServiceProviderLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-.field public static final enum SimIOError:Lcom/android/internal/policy/impl/LockScreen$Status;
 
 .field public static final enum SimLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
 
@@ -56,11 +36,7 @@
 
 .field public static final enum SimMissingLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
 
-.field public static final enum SimPukBlocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
 .field public static final enum SimPukLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-.field public static final enum SimSimLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
 
 
 # instance fields
@@ -78,210 +54,78 @@
 
     const/4 v5, 0x2
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    const/4 v3, 0x1
+    const/4 v3, 0x0
 
-    .line 137
+    .line 299
     new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
 
     const-string v1, "Normal"
 
-    invoke-direct {v0, v1, v4, v3}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
+    invoke-direct {v0, v1, v3, v4}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
 
     sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->Normal:Lcom/android/internal/policy/impl/LockScreen$Status;
 
-    .line 142
+    .line 304
     new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
 
     const-string v1, "NetworkLocked"
 
-    invoke-direct {v0, v1, v3, v3}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
+    invoke-direct {v0, v1, v4, v4}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
 
     sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->NetworkLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
 
-    .line 147
+    .line 309
     new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
 
     const-string v1, "SimMissing"
 
-    invoke-direct {v0, v1, v5, v4}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
+    invoke-direct {v0, v1, v5, v3}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
 
     sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->SimMissing:Lcom/android/internal/policy/impl/LockScreen$Status;
 
-    .line 153
+    .line 315
     new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
 
     const-string v1, "SimMissingLocked"
 
-    invoke-direct {v0, v1, v6, v4}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
+    invoke-direct {v0, v1, v6, v3}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
 
     sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->SimMissingLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
 
-    .line 159
+    .line 321
     new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
 
     const-string v1, "SimPukLocked"
 
-    invoke-direct {v0, v1, v7, v4}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
+    invoke-direct {v0, v1, v7, v3}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
 
     sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->SimPukLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
 
-    .line 164
+    .line 326
     new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
 
     const-string v1, "SimLocked"
 
     const/4 v2, 0x5
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
+    invoke-direct {v0, v1, v2, v4}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
 
     sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->SimLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
 
-    .line 169
-    new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    const-string v1, "SimIOError"
-
-    const/4 v2, 0x6
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
-
-    sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->SimIOError:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    .line 174
-    new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    const-string v1, "NetworkSubsetLocked"
-
-    const/4 v2, 0x7
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
-
-    sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->NetworkSubsetLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    .line 179
-    new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    const-string v1, "CorporateLocked"
-
-    const/16 v2, 0x8
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
-
-    sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->CorporateLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    .line 184
-    new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    const-string v1, "ServiceProviderLocked"
-
-    const/16 v2, 0x9
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
-
-    sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->ServiceProviderLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    .line 189
-    new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    const-string v1, "SimSimLocked"
-
-    const/16 v2, 0xa
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
-
-    sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->SimSimLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    .line 194
-    new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    const-string v1, "RuimNetwork1Locked"
-
-    const/16 v2, 0xb
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
-
-    sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->RuimNetwork1Locked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    .line 199
-    new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    const-string v1, "RuimNetwork2Locked"
-
-    const/16 v2, 0xc
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
-
-    sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->RuimNetwork2Locked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    .line 204
-    new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    const-string v1, "RuimHrpdLocked"
-
-    const/16 v2, 0xd
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
-
-    sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->RuimHrpdLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    .line 209
-    new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    const-string v1, "RuimCorporateLocked"
-
-    const/16 v2, 0xe
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
-
-    sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->RuimCorporateLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    .line 214
-    new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    const-string v1, "RuimServiceProviderLocked"
-
-    const/16 v2, 0xf
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
-
-    sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->RuimServiceProviderLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    .line 219
-    new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    const-string v1, "RuimRuimLocked"
-
-    const/16 v2, 0x10
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
-
-    sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->RuimRuimLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    .line 224
-    new-instance v0, Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    const-string v1, "SimPukBlocked"
-
-    const/16 v2, 0x11
-
-    invoke-direct {v0, v1, v2, v4}, Lcom/android/internal/policy/impl/LockScreen$Status;-><init>(Ljava/lang/String;IZ)V
-
-    sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->SimPukBlocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    .line 133
-    const/16 v0, 0x12
+    .line 295
+    const/4 v0, 0x6
 
     new-array v0, v0, [Lcom/android/internal/policy/impl/LockScreen$Status;
 
     sget-object v1, Lcom/android/internal/policy/impl/LockScreen$Status;->Normal:Lcom/android/internal/policy/impl/LockScreen$Status;
 
-    aput-object v1, v0, v4
+    aput-object v1, v0, v3
 
     sget-object v1, Lcom/android/internal/policy/impl/LockScreen$Status;->NetworkLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v4
 
     sget-object v1, Lcom/android/internal/policy/impl/LockScreen$Status;->SimMissing:Lcom/android/internal/policy/impl/LockScreen$Status;
 
@@ -301,79 +145,7 @@
 
     aput-object v2, v0, v1
 
-    const/4 v1, 0x6
-
-    sget-object v2, Lcom/android/internal/policy/impl/LockScreen$Status;->SimIOError:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x7
-
-    sget-object v2, Lcom/android/internal/policy/impl/LockScreen$Status;->NetworkSubsetLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x8
-
-    sget-object v2, Lcom/android/internal/policy/impl/LockScreen$Status;->CorporateLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x9
-
-    sget-object v2, Lcom/android/internal/policy/impl/LockScreen$Status;->ServiceProviderLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0xa
-
-    sget-object v2, Lcom/android/internal/policy/impl/LockScreen$Status;->SimSimLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0xb
-
-    sget-object v2, Lcom/android/internal/policy/impl/LockScreen$Status;->RuimNetwork1Locked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0xc
-
-    sget-object v2, Lcom/android/internal/policy/impl/LockScreen$Status;->RuimNetwork2Locked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0xd
-
-    sget-object v2, Lcom/android/internal/policy/impl/LockScreen$Status;->RuimHrpdLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0xe
-
-    sget-object v2, Lcom/android/internal/policy/impl/LockScreen$Status;->RuimCorporateLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0xf
-
-    sget-object v2, Lcom/android/internal/policy/impl/LockScreen$Status;->RuimServiceProviderLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x10
-
-    sget-object v2, Lcom/android/internal/policy/impl/LockScreen$Status;->RuimRuimLocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x11
-
-    sget-object v2, Lcom/android/internal/policy/impl/LockScreen$Status;->SimPukBlocked:Lcom/android/internal/policy/impl/LockScreen$Status;
-
-    aput-object v2, v0, v1
-
-    sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->$VALUES:[Lcom/android/internal/policy/impl/LockScreen$Status;
+    sput-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->ENUM$VALUES:[Lcom/android/internal/policy/impl/LockScreen$Status;
 
     return-void
 .end method
@@ -382,56 +154,52 @@
     .locals 0
     .parameter
     .parameter
-    .parameter "mShowStatusLines"
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(Z)V"
-        }
-    .end annotation
+    .parameter
 
     .prologue
-    .line 228
+    .line 330
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 229
+    .line 331
     iput-boolean p3, p0, Lcom/android/internal/policy/impl/LockScreen$Status;->mShowStatusLines:Z
 
-    .line 230
+    .line 332
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/policy/impl/LockScreen$Status;
     .locals 1
-    .parameter "name"
+    .parameter
 
     .prologue
-    .line 133
+    .line 1
     const-class v0, Lcom/android/internal/policy/impl/LockScreen$Status;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
     move-result-object p0
 
-    .end local p0
     check-cast p0, Lcom/android/internal/policy/impl/LockScreen$Status;
 
     return-object p0
 .end method
 
 .method public static values()[Lcom/android/internal/policy/impl/LockScreen$Status;
-    .locals 1
+    .locals 4
 
     .prologue
-    .line 133
-    sget-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->$VALUES:[Lcom/android/internal/policy/impl/LockScreen$Status;
+    const/4 v3, 0x0
 
-    invoke-virtual {v0}, [Lcom/android/internal/policy/impl/LockScreen$Status;->clone()Ljava/lang/Object;
+    .line 1
+    sget-object v0, Lcom/android/internal/policy/impl/LockScreen$Status;->ENUM$VALUES:[Lcom/android/internal/policy/impl/LockScreen$Status;
 
-    move-result-object v0
+    array-length v1, v0
 
-    check-cast v0, [Lcom/android/internal/policy/impl/LockScreen$Status;
+    new-array v2, v1, [Lcom/android/internal/policy/impl/LockScreen$Status;
 
-    return-object v0
+    invoke-static {v0, v3, v2, v3, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    return-object v2
 .end method
 
 
@@ -440,7 +208,7 @@
     .locals 1
 
     .prologue
-    .line 237
+    .line 339
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/LockScreen$Status;->mShowStatusLines:Z
 
     return v0

@@ -3,12 +3,12 @@
 .source "LockScreen.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/policy/impl/LockScreen;->toastMessage(Landroid/widget/TextView;Ljava/lang/String;II)V
+    value = Lcom/android/internal/policy/impl/LockScreen;-><init>(Landroid/content/Context;Landroid/content/res/Configuration;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Lcom/android/internal/policy/impl/KeyguardScreenCallback;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,31 +20,17 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/internal/policy/impl/LockScreen;
 
-.field final synthetic val$oldColors:Landroid/content/res/ColorStateList;
-
-.field final synthetic val$oldText:Ljava/lang/String;
-
-.field final synthetic val$textView:Landroid/widget/TextView;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/policy/impl/LockScreen;Landroid/widget/TextView;Ljava/lang/String;Landroid/content/res/ColorStateList;)V
+.method constructor <init>(Lcom/android/internal/policy/impl/LockScreen;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
     .parameter
 
     .prologue
-    .line 494
+    .line 1
     iput-object p1, p0, Lcom/android/internal/policy/impl/LockScreen$3;->this$0:Lcom/android/internal/policy/impl/LockScreen;
 
-    iput-object p2, p0, Lcom/android/internal/policy/impl/LockScreen$3;->val$textView:Landroid/widget/TextView;
-
-    iput-object p3, p0, Lcom/android/internal/policy/impl/LockScreen$3;->val$oldText:Ljava/lang/String;
-
-    iput-object p4, p0, Lcom/android/internal/policy/impl/LockScreen$3;->val$oldColors:Landroid/content/res/ColorStateList;
-
+    .line 534
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,31 +38,94 @@
 
 
 # virtual methods
-.method public run()V
+.method public onClick(Landroid/view/View;)V
     .locals 3
+    .parameter
 
     .prologue
-    const/4 v2, 0x0
+    const/16 v2, 0x8
 
-    .line 496
-    iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$3;->val$textView:Landroid/widget/TextView;
+    .line 536
+    iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$3;->this$0:Lcom/android/internal/policy/impl/LockScreen;
 
-    iget-object v1, p0, Lcom/android/internal/policy/impl/LockScreen$3;->val$oldText:Ljava/lang/String;
+    #getter for: Lcom/android/internal/policy/impl/LockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/LockScreen;->access$0(Lcom/android/internal/policy/impl/LockScreen;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    move-result-object v0
 
-    .line 497
-    iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$3;->val$textView:Landroid/widget/TextView;
+    invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    iget-object v1, p0, Lcom/android/internal/policy/impl/LockScreen$3;->val$oldColors:Landroid/content/res/ColorStateList;
+    .line 537
+    iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$3;->this$0:Lcom/android/internal/policy/impl/LockScreen;
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
+    #calls: Lcom/android/internal/policy/impl/LockScreen;->refreshMusicStatus()V
+    invoke-static {v0}, Lcom/android/internal/policy/impl/LockScreen;->access$1(Lcom/android/internal/policy/impl/LockScreen;)V
 
-    .line 498
-    iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$3;->val$textView:Landroid/widget/TextView;
+    .line 538
+    iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$3;->this$0:Lcom/android/internal/policy/impl/LockScreen;
 
-    invoke-virtual {v0, v2, v2, v2, v2}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
+    #getter for: Lcom/android/internal/policy/impl/LockScreen;->am:Landroid/media/AudioManager;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/LockScreen;->access$2(Lcom/android/internal/policy/impl/LockScreen;)Landroid/media/AudioManager;
 
-    .line 499
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/media/AudioManager;->isMusicActive()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 539
+    iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$3;->this$0:Lcom/android/internal/policy/impl/LockScreen;
+
+    #getter for: Lcom/android/internal/policy/impl/LockScreen;->mPlayIcon:Landroid/widget/ImageButton;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/LockScreen;->access$4(Lcom/android/internal/policy/impl/LockScreen;)Landroid/widget/ImageButton;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setVisibility(I)V
+
+    .line 540
+    iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$3;->this$0:Lcom/android/internal/policy/impl/LockScreen;
+
+    #getter for: Lcom/android/internal/policy/impl/LockScreen;->mPauseIcon:Landroid/widget/ImageButton;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/LockScreen;->access$3(Lcom/android/internal/policy/impl/LockScreen;)Landroid/widget/ImageButton;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageButton;->setVisibility(I)V
+
+    .line 541
+    iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$3;->this$0:Lcom/android/internal/policy/impl/LockScreen;
+
+    #getter for: Lcom/android/internal/policy/impl/LockScreen;->mRewindIcon:Landroid/widget/ImageButton;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/LockScreen;->access$5(Lcom/android/internal/policy/impl/LockScreen;)Landroid/widget/ImageButton;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageButton;->setVisibility(I)V
+
+    .line 542
+    iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$3;->this$0:Lcom/android/internal/policy/impl/LockScreen;
+
+    #getter for: Lcom/android/internal/policy/impl/LockScreen;->mForwardIcon:Landroid/widget/ImageButton;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/LockScreen;->access$6(Lcom/android/internal/policy/impl/LockScreen;)Landroid/widget/ImageButton;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageButton;->setVisibility(I)V
+
+    .line 543
+    iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$3;->this$0:Lcom/android/internal/policy/impl/LockScreen;
+
+    const/16 v1, 0x55
+
+    #calls: Lcom/android/internal/policy/impl/LockScreen;->sendMediaButtonEvent(I)V
+    invoke-static {v0, v1}, Lcom/android/internal/policy/impl/LockScreen;->access$7(Lcom/android/internal/policy/impl/LockScreen;I)V
+
+    .line 545
+    :cond_0
     return-void
 .end method

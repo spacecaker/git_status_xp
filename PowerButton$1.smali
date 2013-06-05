@@ -47,11 +47,11 @@
     if-eqz v2, :cond_0
 
     .line 91
-    const v0, 0x3060014
+    const v0, 0x7f09003a
 
     .line 92
     .local v0, buttonIcon:I
-    const v1, 0x3060016
+    const v1, 0x7f09003c
 
     .line 93
     .local v1, buttonState:I
@@ -79,7 +79,7 @@
     .line 105
     iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
 
-    const v3, 0x302006b
+    const v3, 0x7f0200ed
 
     #calls: Lcom/lidroid/systemui/quickpanel/PowerButton;->updateImageView(II)V
     invoke-static {v2, v1, v3}, Lcom/lidroid/systemui/quickpanel/PowerButton;->access$000(Lcom/lidroid/systemui/quickpanel/PowerButton;II)V
@@ -97,7 +97,7 @@
     :pswitch_0
     iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
 
-    const v3, 0x302006d
+    const v3, 0x7f0200f0
 
     #calls: Lcom/lidroid/systemui/quickpanel/PowerButton;->updateImageView(II)V
     invoke-static {v2, v1, v3}, Lcom/lidroid/systemui/quickpanel/PowerButton;->access$000(Lcom/lidroid/systemui/quickpanel/PowerButton;II)V
@@ -108,7 +108,18 @@
     :pswitch_1
     iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
 
-    const v3, 0x302006c
+    const v3, 0x7f0200ef
+
+    #calls: Lcom/lidroid/systemui/quickpanel/PowerButton;->updateImageView(II)V
+    invoke-static {v2, v1, v3}, Lcom/lidroid/systemui/quickpanel/PowerButton;->access$000(Lcom/lidroid/systemui/quickpanel/PowerButton;II)V
+
+    goto :goto_0
+
+    .line 102
+    :pswitch_2
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
+
+    const v3, 0x7f0200ee
 
     #calls: Lcom/lidroid/systemui/quickpanel/PowerButton;->updateImageView(II)V
     invoke-static {v2, v1, v3}, Lcom/lidroid/systemui/quickpanel/PowerButton;->access$000(Lcom/lidroid/systemui/quickpanel/PowerButton;II)V
@@ -116,9 +127,12 @@
     goto :goto_0
 
     .line 97
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
         :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

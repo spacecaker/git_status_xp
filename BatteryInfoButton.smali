@@ -1,10 +1,10 @@
-.class public Lcom/lidroid/systemui/quickpanel/RebootButton;
+.class public Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;
 .super Lcom/lidroid/systemui/quickpanel/PowerButton;
-.source "RebootButton.java"
+.source "BatteryInfoButton.java"
 
 
 # instance fields
-.field private action:Ljava/lang/String;
+.field private infoType:Ljava/lang/String;
 
 
 # direct methods
@@ -12,47 +12,42 @@
     .locals 1
 
     .prologue
-    .line 12
+    .line 10
     invoke-direct {p0}, Lcom/lidroid/systemui/quickpanel/PowerButton;-><init>()V
 
-    .line 10
-    const-string v0, "now"
+    .line 11
+    const-string v0, "toggleBatteryInfo"
 
-    iput-object v0, p0, Lcom/lidroid/systemui/quickpanel/RebootButton;->action:Ljava/lang/String;
+    iput-object v0, p0, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;->mType:Ljava/lang/String;
 
-    .line 13
-    const-string v0, "toggleReboot"
-
-    iput-object v0, p0, Lcom/lidroid/systemui/quickpanel/RebootButton;->mType:Ljava/lang/String;
-
-    .line 14
+    .line 12
     const/4 v0, 0x3
 
-    iput v0, p0, Lcom/lidroid/systemui/quickpanel/RebootButton;->mState:I
+    iput v0, p0, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;->mState:I
 
-    .line 15
+    .line 13
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/lidroid/systemui/quickpanel/RebootButton;)Ljava/lang/String;
+.method static synthetic access$000(Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;)Ljava/lang/String;
     .locals 1
     .parameter "x0"
 
     .prologue
     .line 9
-    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/RebootButton;->action:Ljava/lang/String;
+    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;->infoType:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method static synthetic access$002(Lcom/lidroid/systemui/quickpanel/RebootButton;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic access$002(Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
     .line 9
-    iput-object p1, p0, Lcom/lidroid/systemui/quickpanel/RebootButton;->action:Ljava/lang/String;
+    iput-object p1, p0, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;->infoType:Ljava/lang/String;
 
     return-object p1
 .end method
@@ -62,7 +57,7 @@
 
     .prologue
     .line 378
-    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/RebootButton;->mView:Landroid/view/View;
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;->mView:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -84,17 +79,17 @@
     return-void
 .end method
 
-.method private reboot()V
+.method private openBatteryActivity()V
     .locals 6
 
     .prologue
     .line 27
-    const-string v3, "now"
+    const-string v3, "battery_info"
 
-    iput-object v3, p0, Lcom/lidroid/systemui/quickpanel/RebootButton;->action:Ljava/lang/String;
+    iput-object v3, p0, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;->infoType:Ljava/lang/String;
 
     .line 28
-    iget-object v3, p0, Lcom/lidroid/systemui/quickpanel/RebootButton;->mView:Landroid/view/View;
+    iget-object v3, p0, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;->mView:Landroid/view/View;
 
     invoke-virtual {v3}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -108,36 +103,36 @@
 
     .line 30
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v3, 0x7f07003d
+    const v3, 0x7f070031
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     .line 33
-    const v3, 0x7f0b0000
+    const v3, 0x7f0b0004
 
     const/4 v4, 0x0
 
-    new-instance v5, Lcom/lidroid/systemui/quickpanel/RebootButton$1;
+    new-instance v5, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton$1;
 
-    invoke-direct {v5, p0, v1}, Lcom/lidroid/systemui/quickpanel/RebootButton$1;-><init>(Lcom/lidroid/systemui/quickpanel/RebootButton;Landroid/content/Context;)V
+    invoke-direct {v5, p0, v1}, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton$1;-><init>(Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;Landroid/content/Context;)V
 
     invoke-virtual {v0, v3, v4, v5}, Landroid/app/AlertDialog$Builder;->setSingleChoiceItems(IILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 40
     const v3, 0x104000a
 
-    new-instance v4, Lcom/lidroid/systemui/quickpanel/RebootButton$2;
+    new-instance v4, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton$2;
 
-    invoke-direct {v4, p0, v1}, Lcom/lidroid/systemui/quickpanel/RebootButton$2;-><init>(Lcom/lidroid/systemui/quickpanel/RebootButton;Landroid/content/Context;)V
+    invoke-direct {v4, p0, v1}, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton$2;-><init>(Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;Landroid/content/Context;)V
 
     invoke-virtual {v0, v3, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 47
     const/high16 v3, 0x104
 
-    new-instance v4, Lcom/lidroid/systemui/quickpanel/RebootButton$3;
+    new-instance v4, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton$3;
 
-    invoke-direct {v4, p0}, Lcom/lidroid/systemui/quickpanel/RebootButton$3;-><init>(Lcom/lidroid/systemui/quickpanel/RebootButton;)V
+    invoke-direct {v4, p0}, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton$3;-><init>(Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;)V
 
     invoke-virtual {v0, v3, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -159,10 +154,10 @@
     .line 55
     invoke-virtual {v2}, Landroid/app/AlertDialog;->show()V
 
-    .line 5
-    invoke-direct {p0}, Lcom/lidroid/systemui/quickpanel/RebootButton;->animateCollapse()V
-
     .line 56
+    invoke-direct {p0}, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;->animateCollapse()V
+
+    .line 57
     return-void
 .end method
 
@@ -172,8 +167,8 @@
     .locals 1
 
     .prologue
-    .line 24
-    const v0, 0x7f07003d
+    .line 22
+    const v0, 0x7f070031
 
     return v0
 .end method
@@ -182,7 +177,7 @@
     .locals 1
 
     .prologue
-    .line 23
+    .line 21
     const/4 v0, 0x0
 
     return v0
@@ -192,8 +187,8 @@
     .locals 0
 
     .prologue
-    .line 22
-    invoke-direct {p0}, Lcom/lidroid/systemui/quickpanel/RebootButton;->reboot()V
+    .line 20
+    invoke-direct {p0}, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;->openBatteryActivity()V
 
     return-void
 .end method
@@ -202,16 +197,16 @@
     .locals 1
 
     .prologue
-    .line 18
+    .line 16
     const/4 v0, 0x3
 
-    iput v0, p0, Lcom/lidroid/systemui/quickpanel/RebootButton;->mState:I
+    iput v0, p0, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;->mState:I
 
-    .line 19
-    const v0, 0x7f020103
+    .line 17
+    const v0, 0x7f0200ec
 
-    iput v0, p0, Lcom/lidroid/systemui/quickpanel/RebootButton;->mIcon:I
+    iput v0, p0, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;->mIcon:I
 
-    .line 20
+    .line 18
     return-void
 .end method

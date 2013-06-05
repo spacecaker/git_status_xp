@@ -275,11 +275,17 @@
 .end method
 
 .method private static getNextBrightnessValue(Landroid/content/Context;)I
-    .locals 10
+    .locals 13
     .parameter "context"
 
     .prologue
+    const/16 v11, 0x2f
+
+    const/4 v12, 0x5
+
     const/16 v9, 0x66
+
+    const/4 v10, 0x4
 
     const/4 v8, 0x3
 
@@ -341,108 +347,134 @@
 
     .line 143
     :cond_1
-    if-ge v0, v7, :cond_4
+    if-ge v0, v7, :cond_5
+
+    const/4 v2, 0x1
+
+    if-eq v1, v2, :cond_2
+
+    if-eq v1, v10, :cond_2
 
     .line 144
-    if-ne v1, v6, :cond_2
+    if-ne v1, v6, :cond_3
 
+    :cond_2
     move v2, v7
 
     .line 145
     goto :goto_0
 
     .line 146
-    :cond_2
-    if-ne v1, v8, :cond_3
+    :cond_3
+    if-ne v1, v8, :cond_4
 
     move v2, v5
 
     .line 147
     goto :goto_0
 
-    :cond_3
+    :cond_4
+    if-eq v1, v12, :cond_13
+
     move v2, v9
 
     .line 149
     goto :goto_0
 
     .line 151
-    :cond_4
-    if-ge v0, v9, :cond_8
+    :cond_5
+    if-ge v0, v9, :cond_a
+
+    if-eq v1, v10, :cond_6
 
     .line 152
-    if-nez v1, :cond_5
+    if-nez v1, :cond_7
 
+    :cond_6
     move v2, v9
 
     .line 153
     goto :goto_0
 
     .line 154
-    :cond_5
-    if-eq v1, v6, :cond_6
+    :cond_7
+    if-eq v1, v6, :cond_8
 
-    if-ne v1, v8, :cond_7
+    if-ne v1, v8, :cond_9
 
-    :cond_6
+    :cond_8
     move v2, v5
 
     .line 155
     goto :goto_0
 
     .line 157
-    :cond_7
+    :cond_9
+    if-eq v1, v12, :cond_12
+
     const/16 v2, 0x7f
 
     goto :goto_0
 
     .line 159
-    :cond_8
+    :cond_a
     const/16 v2, 0x7f
 
-    if-ge v0, v2, :cond_a
+    if-ge v0, v2, :cond_c
+
+    if-eq v1, v10, :cond_12
+
+    if-eq v1, v12, :cond_12
 
     .line 160
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_9
+    if-ne v1, v2, :cond_b
 
     .line 161
     const/16 v2, 0x7f
 
     goto :goto_0
 
-    :cond_9
+    :cond_b
     move v2, v5
 
     .line 163
     goto :goto_0
 
     .line 165
-    :cond_a
+    :cond_c
     const/16 v2, 0xbf
 
-    if-ge v0, v2, :cond_c
+    if-ge v0, v2, :cond_e
+
+    if-eq v1, v10, :cond_12
+
+    if-eq v1, v12, :cond_12
 
     .line 166
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_b
+    if-ne v1, v2, :cond_d
 
     .line 167
     const/16 v2, 0xbf
 
     goto :goto_0
 
-    :cond_b
+    :cond_d
     move v2, v5
 
     .line 169
     goto :goto_0
 
     .line 171
-    :cond_c
-    if-ge v0, v5, :cond_d
+    :cond_e
+    if-ge v0, v5, :cond_f
+
+    if-eq v1, v10, :cond_12
+
+    if-eq v1, v12, :cond_12
 
     move v2, v5
 
@@ -450,14 +482,16 @@
     goto :goto_0
 
     .line 173
-    :cond_d
+    :cond_f
     invoke-static {p0}, Lcom/lidroid/systemui/quickpanel/BrightnessButton;->isAutomaticModeSupported(Landroid/content/Context;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_10
 
-    if-eq v1, v8, :cond_e
+    if-eq v1, v8, :cond_10
+
+    if-eq v1, v10, :cond_12
 
     .line 174
     const/4 v2, -0x1
@@ -465,19 +499,29 @@
     goto :goto_0
 
     .line 175
-    :cond_e
-    if-ne v1, v6, :cond_f
+    :cond_10
+    if-eq v1, v12, :cond_11
 
+    if-ne v1, v6, :cond_12
+
+    :cond_11
     move v2, v7
 
     .line 176
     goto :goto_0
 
     .line 178
-    :cond_f
+    :cond_12
     invoke-static {p0}, Lcom/lidroid/systemui/quickpanel/BrightnessButton;->getMinBacklight(Landroid/content/Context;)I
 
     move-result v2
+
+    goto :goto_0
+
+    :cond_13
+    if-ge v0, v11, :cond_10
+
+    move v2, v11
 
     goto :goto_0
 .end method
@@ -662,7 +706,7 @@
 
     .prologue
     .line 248
-    const v0, 0x30b0048
+    const v0, 0x7f070038
 
     return v0
 .end method
@@ -837,7 +881,7 @@
     .locals 5
 
     .prologue
-    const v4, 0x3020073
+    const v4, 0x7f0200f6
 
     const/4 v3, 0x5
 
@@ -859,7 +903,7 @@
     if-eqz v1, :cond_0
 
     .line 55
-    const v1, 0x3020070
+    const v1, 0x7f0200f3
 
     iput v1, p0, Lcom/lidroid/systemui/quickpanel/BrightnessButton;->mIcon:I
 
@@ -880,7 +924,7 @@
 
     .line 72
     :pswitch_0
-    const v1, 0x3020072
+    const v1, 0x7f0200f5
 
     iput v1, p0, Lcom/lidroid/systemui/quickpanel/BrightnessButton;->mIcon:I
 
@@ -911,7 +955,7 @@
 
     .line 68
     :pswitch_3
-    const v1, 0x3020071
+    const v1, 0x7f0200f4
 
     iput v1, p0, Lcom/lidroid/systemui/quickpanel/BrightnessButton;->mIcon:I
 

@@ -22,19 +22,19 @@
 
     const/4 v0, 0x0
 
-    .line 12
+    .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 14
+    .line 18
     iput-boolean v0, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mInTransition:Z
 
-    .line 16
+    .line 19
     iput-object v1, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mActualState:Ljava/lang/Boolean;
 
-    .line 18
+    .line 20
     iput-object v1, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mIntendedState:Ljava/lang/Boolean;
 
-    .line 24
+    .line 26
     iput-boolean v0, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mDeferredStateChangeRequestNeeded:Z
 
     return-void
@@ -50,32 +50,32 @@
     .parameter "context"
 
     .prologue
-    .line 131
+    .line 136
     invoke-virtual {p0, p1}, Lcom/lidroid/systemui/quickpanel/StateTracker;->getActualState(Landroid/content/Context;)I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 137
+    .line 142
     const/4 v0, 0x5
 
     :goto_0
     return v0
 
-    .line 133
+    .line 138
     :pswitch_0
     const/4 v0, 0x2
 
     goto :goto_0
 
-    .line 135
+    .line 140
     :pswitch_1
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 131
+    .line 136
     nop
 
     :pswitch_data_0
@@ -89,7 +89,7 @@
     .locals 1
 
     .prologue
-    .line 112
+    .line 116
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mIntendedState:Ljava/lang/Boolean;
 
     if-eqz v0, :cond_0
@@ -131,14 +131,14 @@
 
     const-string v5, "StateTracker"
 
-    .line 72
+    .line 76
     iget-boolean v0, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mInTransition:Z
 
-    .line 73
+    .line 77
     .local v0, wasInTransition:Z
     packed-switch p2, :pswitch_data_0
 
-    .line 92
+    .line 96
     :goto_0
     if-eqz v0, :cond_1
 
@@ -146,19 +146,19 @@
 
     if-nez v1, :cond_1
 
-    .line 93
+    .line 97
     iget-boolean v1, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mDeferredStateChangeRequestNeeded:Z
 
     if-eqz v1, :cond_1
 
-    .line 94
+    .line 98
     const-string v1, "StateTracker"
 
     const-string v1, "processing deferred state change"
 
     invoke-static {v5, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 95
+    .line 99
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mActualState:Ljava/lang/Boolean;
 
     if-eqz v1, :cond_2
@@ -177,41 +177,28 @@
 
     if-eqz v1, :cond_2
 
-    .line 97
+    .line 101
     const-string v1, "StateTracker"
 
     const-string v1, "... but intended state matches, so no changes."
 
     invoke-static {v5, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 102
+    .line 106
     :cond_0
     :goto_1
     iput-boolean v3, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mDeferredStateChangeRequestNeeded:Z
 
-    .line 105
+    .line 109
     :cond_1
     return-void
 
-    .line 75
+    .line 79
     :pswitch_0
     iput-boolean v3, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mInTransition:Z
 
-    .line 76
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mActualState:Ljava/lang/Boolean;
-
-    goto :goto_0
-
-    .line 79
-    :pswitch_1
-    iput-boolean v3, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mInTransition:Z
-
     .line 80
-    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
 
@@ -220,23 +207,10 @@
     goto :goto_0
 
     .line 83
-    :pswitch_2
-    iput-boolean v4, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mInTransition:Z
+    :pswitch_1
+    iput-boolean v3, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mInTransition:Z
 
     .line 84
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mActualState:Ljava/lang/Boolean;
-
-    goto :goto_0
-
-    .line 87
-    :pswitch_3
-    iput-boolean v4, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mInTransition:Z
-
-    .line 88
     invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -245,16 +219,42 @@
 
     goto :goto_0
 
-    .line 98
+    .line 87
+    :pswitch_2
+    iput-boolean v4, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mInTransition:Z
+
+    .line 88
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mActualState:Ljava/lang/Boolean;
+
+    goto :goto_0
+
+    .line 91
+    :pswitch_3
+    iput-boolean v4, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mInTransition:Z
+
+    .line 92
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mActualState:Ljava/lang/Boolean;
+
+    goto :goto_0
+
+    .line 102
     :cond_2
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mIntendedState:Ljava/lang/Boolean;
 
     if-eqz v1, :cond_0
 
-    .line 99
+    .line 103
     iput-boolean v4, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mInTransition:Z
 
-    .line 100
+    .line 104
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mIntendedState:Ljava/lang/Boolean;
 
     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
@@ -265,7 +265,7 @@
 
     goto :goto_1
 
-    .line 73
+    .line 77
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -282,20 +282,20 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 32
+    .line 34
     invoke-virtual {p0, p1}, Lcom/lidroid/systemui/quickpanel/StateTracker;->getTriState(Landroid/content/Context;)I
 
     move-result v0
 
-    .line 33
+    .line 35
     .local v0, currentState:I
     const/4 v1, 0x0
 
-    .line 34
+    .line 36
     .local v1, newState:Z
     packed-switch v0, :pswitch_data_0
 
-    .line 47
+    .line 49
     :cond_0
     :goto_0
     :pswitch_0
@@ -305,39 +305,39 @@
 
     iput-object v2, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mIntendedState:Ljava/lang/Boolean;
 
-    .line 48
+    .line 50
     iget-boolean v2, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mInTransition:Z
 
     if-eqz v2, :cond_2
 
-    .line 53
+    .line 55
     iput-boolean v3, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mDeferredStateChangeRequestNeeded:Z
 
-    .line 58
+    .line 60
     :goto_1
     return-void
 
-    .line 36
+    .line 38
     :pswitch_1
     const/4 v1, 0x0
 
-    .line 37
+    .line 39
     goto :goto_0
 
-    .line 39
+    .line 41
     :pswitch_2
     const/4 v1, 0x1
 
-    .line 40
+    .line 42
     goto :goto_0
 
-    .line 42
+    .line 44
     :pswitch_3
     iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mIntendedState:Ljava/lang/Boolean;
 
     if-eqz v2, :cond_0
 
-    .line 43
+    .line 45
     iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mIntendedState:Ljava/lang/Boolean;
 
     invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
@@ -358,16 +358,16 @@
 
     goto :goto_2
 
-    .line 55
+    .line 57
     :cond_2
     iput-boolean v3, p0, Lcom/lidroid/systemui/quickpanel/StateTracker;->mInTransition:Z
 
-    .line 56
+    .line 58
     invoke-virtual {p0, p1, v1}, Lcom/lidroid/systemui/quickpanel/StateTracker;->requestStateChange(Landroid/content/Context;Z)V
 
     goto :goto_1
 
-    .line 34
+    .line 36
     nop
 
     :pswitch_data_0

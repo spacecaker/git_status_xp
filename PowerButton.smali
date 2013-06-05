@@ -34,6 +34,8 @@
 
 .field public static final BUTTON_AUTOROTATE:Ljava/lang/String; = "toggleAutoRotate"
 
+.field public static final BUTTON_BATTERY_INFO:Ljava/lang/String; = "toggleBatteryInfo"
+
 .field public static final BUTTON_BLUETOOTH:Ljava/lang/String; = "toggleBluetooth"
 
 .field public static final BUTTON_BRIGHTNESS:Ljava/lang/String; = "toggleBrightness"
@@ -46,6 +48,8 @@
 
 .field public static final BUTTON_MOBILEDATA:Ljava/lang/String; = "toggleMobileData"
 
+.field public static final BUTTON_NETWORKMODE:Ljava/lang/String; = "toggleNetworkMode"
+
 .field public static final BUTTON_REBOOT:Ljava/lang/String; = "toggleReboot"
 
 .field public static final BUTTON_SCREENTIMEOUT:Ljava/lang/String; = "toggleScreenTimeout"
@@ -54,11 +58,19 @@
 
 .field public static final BUTTON_SOUND:Ljava/lang/String; = "toggleSound"
 
+.field public static final BUTTON_STAY_AWAKE_PLUGGED:Ljava/lang/String; = "toggleStayAwakePlugged"
+
 .field public static final BUTTON_SYNC:Ljava/lang/String; = "toggleSync"
 
 .field public static final BUTTON_UNKNOWN:Ljava/lang/String; = "unknown"
 
+.field public static final BUTTON_USB_CONNECTION_MODE:Ljava/lang/String; = "toggleUSBConnectionMode"
+
+.field public static final BUTTON_USB_DEBUGGING:Ljava/lang/String; = "toggleUSBDebugging"
+
 .field public static final BUTTON_WIFI:Ljava/lang/String; = "toggleWifi"
+
+.field public static final BUTTON_WIFI_AP:Ljava/lang/String; = "toggleWifiAp"
 
 .field private static GLOBAL_ON_CLICK_LISTENER:Landroid/view/View$OnClickListener; = null
 
@@ -91,6 +103,8 @@
 .field protected mState:I
 
 .field protected mStatusIcon:I
+
+.field private mTouchListener:Landroid/view/View$OnTouchListener;
 
 .field protected mType:Ljava/lang/String;
 
@@ -217,15 +231,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 66
-    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
-
-    const-string v1, "toggleFlashlight"
-
-    const-class v2, Lcom/lidroid/systemui/quickpanel/FlashlightButton;
-
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
     .line 67
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
@@ -244,7 +249,70 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 69
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleFlashlight"
+
+    const-class v2, Lcom/lidroid/systemui/quickpanel/FlashlightButton;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 70
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleNetworkMode"
+
+    const-class v2, Lcom/lidroid/systemui/quickpanel/NetworkModeButton;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 71
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleUSBDebugging"
+
+    const-class v2, Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
     .line 72
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleUSBConnectionMode"
+
+    const-class v2, Lcom/lidroid/systemui/quickpanel/USBConnectionModeButton;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 73
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleWifiAp"
+
+    const-class v2, Lcom/lidroid/systemui/quickpanel/WifiApButton;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 74
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleStayAwakePlugged"
+
+    const-class v2, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 75
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleBatteryInfo"
+
+    const-class v2, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 80
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -285,6 +353,13 @@
     invoke-direct {v0, p0}, Lcom/lidroid/systemui/quickpanel/PowerButton$2;-><init>(Lcom/lidroid/systemui/quickpanel/PowerButton;)V
 
     iput-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mClickListener:Landroid/view/View$OnClickListener;
+
+    .line 179
+    new-instance v0, Lcom/lidroid/systemui/quickpanel/PowerButton$4;
+
+    invoke-direct {v0, p0}, Lcom/lidroid/systemui/quickpanel/PowerButton$4;-><init>(Lcom/lidroid/systemui/quickpanel/PowerButton;)V
+
+    iput-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mTouchListener:Landroid/view/View$OnTouchListener;
 
     .line 194
     new-instance v0, Lcom/lidroid/systemui/quickpanel/PowerButton$3;
@@ -1287,6 +1362,13 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
+    .line 159
+    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
+
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mTouchListener:Landroid/view/View$OnTouchListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+
     .line 160
     :cond_0
     return-void
@@ -1322,7 +1404,7 @@
     if-eqz v2, :cond_0
 
     .line 119
-    const v0, 0x3060015
+    const v0, 0x7f09003b
 
     .line 120
     .local v0, buttonText:I

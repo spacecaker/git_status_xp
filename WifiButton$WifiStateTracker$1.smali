@@ -76,15 +76,45 @@
     .parameter "args"
 
     .prologue
-    .line 46
-    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/WifiButton$WifiStateTracker$1;->val$wifiManager:Landroid/net/wifi/WifiManager;
+    const/4 p1, 0x0
 
+    .line 46
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/WifiButton$WifiStateTracker$1;->val$wifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v1}, Landroid/net/wifi/WifiManager;->getWifiApState()I
+
+    move-result v0
+
+    .line 52
+    .local v0, wifiApState:I
     iget-boolean v1, p0, Lcom/lidroid/systemui/quickpanel/WifiButton$WifiStateTracker$1;->val$desiredState:Z
 
-    invoke-virtual {v0, v1}, Landroid/net/wifi/WifiManager;->setWifiEnabledDialog(Z)Z
+    if-eqz v1, :cond_1
 
-    .line 47
-    const/4 v0, 0x0
+    const/4 v1, 0x2
 
-    return-object v0
+    if-eq v0, v1, :cond_0
+
+    const/4 v1, 0x3
+
+    if-ne v0, v1, :cond_1
+
+    .line 54
+    :cond_0
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/WifiButton$WifiStateTracker$1;->val$wifiManager:Landroid/net/wifi/WifiManager;
+
+    const/4 p0, 0x0
+
+    invoke-virtual {v1, p1, p0}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
+
+    .line 57
+    :cond_1
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/WifiButton$WifiStateTracker$1;->val$wifiManager:Landroid/net/wifi/WifiManager;
+
+    iget-boolean p0, p0, Lcom/lidroid/systemui/quickpanel/WifiButton$WifiStateTracker$1;->val$desiredState:Z
+
+    invoke-virtual {v1, p0}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
+
+    .line 58
+    return-object p1
 .end method

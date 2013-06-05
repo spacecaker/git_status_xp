@@ -17,11 +17,38 @@
     iput-object v0, p0, Lcom/lidroid/systemui/quickpanel/ShutdownButton;->mType:Ljava/lang/String;
 
     .line 12
-    const/4 v0, 0x2
+    const/4 v0, 0x3
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/ShutdownButton;->mState:I
 
     .line 13
+    return-void
+.end method
+
+.method private animateCollapse()V
+    .locals 3
+
+    .prologue
+    .line 378
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/ShutdownButton;->mView:Landroid/view/View;
+
+    invoke-virtual {v2}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    const-string v2, "statusbar"
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/StatusBarManager;
+
+    .line 379
+    .local v0, sbm:Landroid/app/StatusBarManager;
+    invoke-virtual {v0}, Landroid/app/StatusBarManager;->collapse()V
+
+    .line 380
     return-void
 .end method
 
@@ -44,17 +71,12 @@
 
     .line 27
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v3, 0x1080027
-
-    invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setIcon(I)Landroid/app/AlertDialog$Builder;
-
-    .line 28
-    const v3, 0x30b0039
+    const v3, 0x7f07003e
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     .line 29
-    const v3, 0x30b0050
+    const v3, 0x7f070040
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -94,6 +116,9 @@
     .line 48
     invoke-virtual {v2}, Landroid/app/AlertDialog;->show()V
 
+    .line 4
+    invoke-direct {p0}, Lcom/lidroid/systemui/quickpanel/ShutdownButton;->animateCollapse()V
+
     .line 49
     return-void
 .end method
@@ -105,7 +130,7 @@
 
     .prologue
     .line 22
-    const v0, 0x30b004e
+    const v0, 0x7f07003e
 
     return v0
 .end method
@@ -135,12 +160,12 @@
 
     .prologue
     .line 16
-    const/4 v0, 0x2
+    const/4 v0, 0x3
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/ShutdownButton;->mState:I
 
     .line 17
-    const v0, 0x3020089
+    const v0, 0x7f020112
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/ShutdownButton;->mIcon:I
 

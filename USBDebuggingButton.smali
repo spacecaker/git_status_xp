@@ -1,6 +1,6 @@
-.class public Lcom/lidroid/systemui/quickpanel/AutoRotateButton;
+.class public Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;
 .super Lcom/lidroid/systemui/quickpanel/PowerButton;
-.source "AutoRotateButton.java"
+.source "USBDebuggingButton.java"
 
 
 # static fields
@@ -21,17 +21,17 @@
     .locals 2
 
     .prologue
-    .line 13
+    .line 14
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    sput-object v0, Lcom/lidroid/systemui/quickpanel/AutoRotateButton;->OBSERVED_URIS:Ljava/util/List;
+    sput-object v0, Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;->OBSERVED_URIS:Ljava/util/List;
 
-    .line 15
-    sget-object v0, Lcom/lidroid/systemui/quickpanel/AutoRotateButton;->OBSERVED_URIS:Ljava/util/List;
+    .line 16
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;->OBSERVED_URIS:Ljava/util/List;
 
-    const-string v1, "accelerometer_rotation"
+    const-string v1, "adb_enabled"
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -39,7 +39,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 16
+    .line 17
     return-void
 .end method
 
@@ -47,35 +47,47 @@
     .locals 1
 
     .prologue
-    .line 18
+    .line 19
     invoke-direct {p0}, Lcom/lidroid/systemui/quickpanel/PowerButton;-><init>()V
 
-    const-string v0, "toggleAutoRotate"
+    const-string v0, "toggleUSBDebugging"
 
-    iput-object v0, p0, Lcom/lidroid/systemui/quickpanel/AutoRotateButton;->mType:Ljava/lang/String;
+    iput-object v0, p0, Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;->mType:Ljava/lang/String;
 
     return-void
 .end method
 
-.method private static getOrientationState(Landroid/content/Context;)I
-    .locals 3
+.method private static getDebuggingState(Landroid/content/Context;)Z
+    .locals 4
     .parameter "context"
 
     .prologue
-    .line 61
+    const/4 v3, 0x1
+
+    const/4 v2, 0x0
+
+    .line 60
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    const-string v1, "accelerometer_rotation"
-
-    const/4 v2, 0x0
+    const-string v1, "adb_enabled"
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
+    if-ne v0, v3, :cond_0
+
+    move v0, v3
+
+    :goto_0
     return v0
+
+    :cond_0
+    move v0, v2
+
+    goto :goto_0
 .end method
 
 
@@ -93,8 +105,8 @@
     .end annotation
 
     .prologue
-    .line 57
-    sget-object v0, Lcom/lidroid/systemui/quickpanel/AutoRotateButton;->OBSERVED_URIS:Ljava/util/List;
+    .line 56
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;->OBSERVED_URIS:Ljava/util/List;
 
     return-object v0
 .end method
@@ -103,8 +115,8 @@
     .locals 1
 
     .prologue
-    .line 67
-    const v0, 0x7f070017
+    .line 65
+    const v0, 0x7f070032
 
     return v0
 .end method
@@ -113,26 +125,26 @@
     .locals 2
 
     .prologue
-    .line 48
+    .line 47
     new-instance v0, Landroid/content/Intent;
 
-    const-string v1, "android.settings.DISPLAY_SETTINGS"
+    const-string v1, "android.settings.APPLICATION_DEVELOPMENT_SETTINGS"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 49
+    .line 48
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "android.intent.category.DEFAULT"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 50
+    .line 49
     const/high16 v1, 0x1000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 51
-    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/AutoRotateButton;->mView:Landroid/view/View;
+    .line 50
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;->mView:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -140,104 +152,102 @@
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 52
+    .line 51
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method protected toggleState()V
-    .locals 4
+    .locals 3
 
     .prologue
-    const-string v3, "accelerometer_rotation"
-
-    .line 33
-    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/AutoRotateButton;->mView:Landroid/view/View;
+    .line 164
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;->mView:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v1
 
-    .line 34
-    .local v0, context:Landroid/content/Context;
-    invoke-static {v0}, Lcom/lidroid/systemui/quickpanel/AutoRotateButton;->getOrientationState(Landroid/content/Context;)I
+    invoke-static {v1}, Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;->getDebuggingState(Landroid/content/Context;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-eqz v1, :cond_0
 
-    .line 35
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    .line 166
+    const/4 v0, 0x0
+
+    .line 174
+    .local v0, intState:I
+    :goto_0
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;->mView:Landroid/view/View;
+
+    invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    const-string v2, "accelerometer_rotation"
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    const/4 v2, 0x1
+    move-result-object v1
 
-    invoke-static {v1, v3, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    const-string v2, "adb_enabled"
 
-    .line 43
-    :goto_0
+    invoke-static {v1, v2, v0}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 176
     return-void
 
-    .line 39
+    .line 170
+    .end local v0           #intState:I
     :cond_0
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    const/4 v0, 0x1
 
-    move-result-object v1
-
-    const-string v2, "accelerometer_rotation"
-
-    const/4 v2, 0x0
-
-    invoke-static {v1, v3, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
+    .restart local v0       #intState:I
     goto :goto_0
 .end method
 
 .method protected updateState()V
-    .locals 2
+    .locals 1
 
     .prologue
-    const/4 v1, 0x1
-
-    .line 22
-    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/AutoRotateButton;->mView:Landroid/view/View;
+    .line 23
+    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;->mView:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/lidroid/systemui/quickpanel/AutoRotateButton;->getOrientationState(Landroid/content/Context;)I
+    invoke-static {v0}, Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;->getDebuggingState(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-ne v0, v1, :cond_0
-
-    .line 23
-    const v0, 0x7f020100
-
-    iput v0, p0, Lcom/lidroid/systemui/quickpanel/AutoRotateButton;->mIcon:I
+    if-eqz v0, :cond_0
 
     .line 24
-    iput v1, p0, Lcom/lidroid/systemui/quickpanel/AutoRotateButton;->mState:I
+    const v0, 0x7f0200ec
 
-    .line 29
+    iput v0, p0, Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;->mIcon:I
+
+    .line 25
+    const/4 v0, 0x1
+
+    iput v0, p0, Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;->mState:I
+
+    .line 30
     :goto_0
     return-void
 
-    .line 26
-    :cond_0
-    const v0, 0x7f0200ff
-
-    iput v0, p0, Lcom/lidroid/systemui/quickpanel/AutoRotateButton;->mIcon:I
-
     .line 27
+    :cond_0
+    const v0, 0x7f0200e7
+
+    iput v0, p0, Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;->mIcon:I
+
+    .line 28
     const/4 v0, 0x2
 
-    iput v0, p0, Lcom/lidroid/systemui/quickpanel/AutoRotateButton;->mState:I
+    iput v0, p0, Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;->mState:I
 
     goto :goto_0
 .end method

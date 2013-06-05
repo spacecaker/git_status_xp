@@ -73,7 +73,7 @@
 
     .prologue
     .line 132
-    const v0, 0x30b0045
+    const v0, 0x7f070011
 
     return v0
 .end method
@@ -153,9 +153,9 @@
     .locals 4
 
     .prologue
-    const v3, 0x302006f
+    const v3, 0x7f0200f2
 
-    const v2, 0x302006e
+    const v2, 0x7f0200f1
 
     .line 82
     sget-object v0, Lcom/lidroid/systemui/quickpanel/BluetoothButton;->sBluetoothState:Lcom/lidroid/systemui/quickpanel/StateTracker;

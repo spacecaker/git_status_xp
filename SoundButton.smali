@@ -481,7 +481,7 @@
     .locals 2
 
     .prologue
-    const v1, 0x30b0040
+    const v1, 0x7f070013
 
     .line 263
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/SoundButton;->mView:Landroid/view/View;
@@ -504,7 +504,7 @@
 
     .line 265
     :pswitch_0
-    const v0, 0x30b0041
+    const v0, 0x7f070014
 
     goto :goto_0
 
@@ -516,13 +516,13 @@
 
     .line 271
     :pswitch_2
-    const v0, 0x30b0043
+    const v0, 0x7f070016
 
     goto :goto_0
 
     .line 274
     :pswitch_3
-    const v0, 0x30b0042
+    const v0, 0x7f070015
 
     goto :goto_0
 
@@ -833,7 +833,7 @@
 
     .line 38
     :pswitch_0
-    const v0, 0x3020082
+    const v0, 0x7f020107
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/SoundButton;->mIcon:I
 
@@ -844,7 +844,7 @@
 
     .line 42
     :pswitch_1
-    const v0, 0x3020081
+    const v0, 0x7f020106
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/SoundButton;->mIcon:I
 
@@ -855,7 +855,7 @@
 
     .line 46
     :pswitch_2
-    const v0, 0x302008d
+    const v0, 0x7f020107
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/SoundButton;->mIcon:I
 
@@ -866,7 +866,7 @@
 
     .line 50
     :pswitch_3
-    const v0, 0x302008a
+    const v0, 0x7f020113
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/SoundButton;->mIcon:I
 

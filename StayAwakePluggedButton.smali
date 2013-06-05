@@ -1,6 +1,6 @@
-.class public Lcom/lidroid/systemui/quickpanel/AirplaneButton;
+.class public Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;
 .super Lcom/lidroid/systemui/quickpanel/PowerButton;
-.source "AirplaneButton.java"
+.source "StayAwakePluggedButton.java"
 
 
 # static fields
@@ -26,12 +26,12 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    sput-object v0, Lcom/lidroid/systemui/quickpanel/AirplaneButton;->OBSERVED_URIS:Ljava/util/List;
+    sput-object v0, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;->OBSERVED_URIS:Ljava/util/List;
 
     .line 16
-    sget-object v0, Lcom/lidroid/systemui/quickpanel/AirplaneButton;->OBSERVED_URIS:Ljava/util/List;
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;->OBSERVED_URIS:Ljava/util/List;
 
-    const-string v1, "airplane_mode_on"
+    const-string v1, "stay_on_while_plugged_in"
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -50,14 +50,14 @@
     .line 19
     invoke-direct {p0}, Lcom/lidroid/systemui/quickpanel/PowerButton;-><init>()V
 
-    const-string v0, "toggleAirplane"
+    const-string v0, "toggleStayAwakePlugged"
 
-    iput-object v0, p0, Lcom/lidroid/systemui/quickpanel/AirplaneButton;->mType:Ljava/lang/String;
+    iput-object v0, p0, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;->mType:Ljava/lang/String;
 
     return-void
 .end method
 
-.method private static getState(Landroid/content/Context;)Z
+.method private static getStayAwakePluggedEnabled(Landroid/content/Context;)Z
     .locals 4
     .parameter "context"
 
@@ -71,13 +71,13 @@
 
     move-result-object v0
 
-    const-string v1, "airplane_mode_on"
+    const-string v1, "stay_on_while_plugged_in"
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
-    if-ne v0, v3, :cond_0
+    if-eqz v0, :cond_0
 
     move v0, v3
 
@@ -106,7 +106,7 @@
 
     .prologue
     .line 56
-    sget-object v0, Lcom/lidroid/systemui/quickpanel/AirplaneButton;->OBSERVED_URIS:Ljava/util/List;
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;->OBSERVED_URIS:Ljava/util/List;
 
     return-object v0
 .end method
@@ -116,7 +116,7 @@
 
     .prologue
     .line 65
-    const v0, 0x7f07003b
+    const v0, 0x7f070035
 
     return v0
 .end method
@@ -128,7 +128,7 @@
     .line 47
     new-instance v0, Landroid/content/Intent;
 
-    const-string v1, "android.settings.AIRPLANE_MODE_SETTINGS"
+    const-string v1, "android.settings.APPLICATION_DEVELOPMENT_SETTINGS"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
@@ -144,7 +144,7 @@
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 50
-    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/AirplaneButton;->mView:Landroid/view/View;
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;->mView:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -159,78 +159,52 @@
 .end method
 
 .method protected toggleState()V
-    .locals 8
+    .locals 3
 
     .prologue
-    const/4 v7, 0x1
+    .line 164
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;->mView:Landroid/view/View;
 
-    const/4 v6, 0x0
+    invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
-    .line 34
-    iget-object v3, p0, Lcom/lidroid/systemui/quickpanel/AirplaneButton;->mView:Landroid/view/View;
+    move-result-object v1
 
-    invoke-virtual {v3}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-static {v1}, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;->getStayAwakePluggedEnabled(Landroid/content/Context;)Z
 
-    move-result-object v0
+    move-result v1
 
-    .line 35
-    .local v0, context:Landroid/content/Context;
-    invoke-static {v0}, Lcom/lidroid/systemui/quickpanel/AirplaneButton;->getState(Landroid/content/Context;)Z
+    if-eqz v1, :cond_0
 
-    move-result v2
+    .line 166
+    const/4 v0, 0x0
 
-    .line 36
-    .local v2, state:Z
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v3
-
-    const-string v4, "airplane_mode_on"
-
-    if-eqz v2, :cond_0
-
-    move v5, v6
-
+    .line 174
+    .local v0, intState:I
     :goto_0
-    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;->mView:Landroid/view/View;
 
-    .line 39
-    new-instance v1, Landroid/content/Intent;
+    invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
-    const-string v3, "android.intent.action.AIRPLANE_MODE"
+    move-result-object v1
 
-    invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    .line 41
-    .local v1, intent:Landroid/content/Intent;
-    const-string v3, "state"
+    move-result-object v1
 
-    if-nez v2, :cond_1
+    const-string v2, "stay_on_while_plugged_in"
 
-    move v4, v7
+    invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    :goto_1
-    invoke-virtual {v1, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
-
-    .line 42
-    invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    .line 43
+    .line 176
     return-void
 
-    .end local v1           #intent:Landroid/content/Intent;
+    .line 170
+    .end local v0           #intState:I
     :cond_0
-    move v5, v7
+    const/4 v0, 0x3
 
-    .line 36
+    .restart local v0       #intState:I
     goto :goto_0
-
-    .restart local v1       #intent:Landroid/content/Intent;
-    :cond_1
-    move v4, v6
-
-    .line 41
-    goto :goto_1
 .end method
 
 .method protected updateState()V
@@ -238,27 +212,27 @@
 
     .prologue
     .line 23
-    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/AirplaneButton;->mView:Landroid/view/View;
+    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;->mView:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/lidroid/systemui/quickpanel/AirplaneButton;->getState(Landroid/content/Context;)Z
+    invoke-static {v0}, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;->getStayAwakePluggedEnabled(Landroid/content/Context;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
     .line 24
-    const v0, 0x7f0200eb
+    const v0, 0x7f020115
 
-    iput v0, p0, Lcom/lidroid/systemui/quickpanel/AirplaneButton;->mIcon:I
+    iput v0, p0, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;->mIcon:I
 
     .line 25
     const/4 v0, 0x1
 
-    iput v0, p0, Lcom/lidroid/systemui/quickpanel/AirplaneButton;->mState:I
+    iput v0, p0, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;->mState:I
 
     .line 30
     :goto_0
@@ -266,14 +240,14 @@
 
     .line 27
     :cond_0
-    const v0, 0x7f0200ea
+    const v0, 0x7f020114
 
-    iput v0, p0, Lcom/lidroid/systemui/quickpanel/AirplaneButton;->mIcon:I
+    iput v0, p0, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;->mIcon:I
 
     .line 28
     const/4 v0, 0x2
 
-    iput v0, p0, Lcom/lidroid/systemui/quickpanel/AirplaneButton;->mState:I
+    iput v0, p0, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;->mState:I
 
     goto :goto_0
 .end method

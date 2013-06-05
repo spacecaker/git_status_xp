@@ -92,6 +92,39 @@
     return v1
 .end method
 
+.method private getWiFiActualState(Landroid/content/Context;)I
+    .locals 2
+    .parameter "context"
+
+    .prologue
+    .line 21
+    const-string v1, "wifi"
+
+    invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/net/wifi/WifiManager;
+
+    .line 23
+    .local v0, wifiManager:Landroid/net/wifi/WifiManager;
+    if-eqz v0, :cond_0
+
+    .line 24
+    invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->getWifiState()I
+
+    move-result v1
+
+    .line 26
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x6
+
+    goto :goto_0
+.end method
+
 
 # virtual methods
 .method protected getBroadcastIntentFilter()Landroid/content/IntentFilter;
@@ -118,13 +151,13 @@
 
     .prologue
     .line 93
-    const v0, 0x30b003e
+    const v0, 0x7f070019
 
     return v0
 .end method
 
 .method protected handleLongClick()Z
-    .locals 3
+    .locals 4
 
     .prologue
     .line 58
@@ -154,11 +187,27 @@
 
     move-result-object v1
 
+    invoke-direct {p0, v1}, Lcom/lidroid/systemui/quickpanel/MobileDataButton;->getWiFiActualState(Landroid/content/Context;)I
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_0
+
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 62
     const/4 v1, 0x1
 
+    goto :goto_0
+
+    .line 62
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :goto_0
     return v1
 .end method
 
@@ -212,6 +261,14 @@
 
     .line 43
     .local v1, context:Landroid/content/Context;
+    invoke-direct {p0, v1}, Lcom/lidroid/systemui/quickpanel/MobileDataButton;->getWiFiActualState(Landroid/content/Context;)I
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_1
+
     invoke-static {v1}, Lcom/lidroid/systemui/quickpanel/MobileDataButton;->getDataState(Landroid/content/Context;)Z
 
     move-result v2
@@ -245,6 +302,7 @@
 
     invoke-virtual {v0, v3}, Landroid/net/ConnectivityManager;->setMobileDataEnabled(Z)V
 
+    :cond_1
     goto :goto_0
 .end method
 
@@ -252,7 +310,7 @@
     .locals 3
 
     .prologue
-    const v1, 0x3020075
+    const v1, 0x7f0200f8
 
     const-string v2, "MobileDataButton"
 
@@ -306,7 +364,7 @@
 
     .line 34
     :cond_1
-    const v0, 0x3020074
+    const v0, 0x7f0200f7
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/MobileDataButton;->mIcon:I
 

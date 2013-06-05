@@ -13,11 +13,15 @@
 
 
 # static fields
-.field private static final BUTTONS_DEFAULT:Ljava/lang/String; = "toggleWifi|toggleMobileData|toggleBluetooth|toggleGPS|toggleFlashlight|toggleBrightness|toggleAirplane|toggleSound|toggleAutoRotate|toggleSync|toggleScreenTimeout|toggleLockScreen|toggleReboot|toggleShutdown"
+.field private static final BUTTONS_DEFAULT:Ljava/lang/String; = "toggleBatteryInfo|toggleWifi|toggleWifiAp|toggleBluetooth|toggleGPS|toggleSound|toggleFlashlight|toggleBrightness|toggleScreenTimeout|toggleStayAwakePlugged|toggleSync|toggleLockScreen|toggleAutoRotate|toggleAirplane|toggleMobileData|toggleNetworkMode|toggleUSBConnectionMode|toggleUSBDebugging|toggleReboot|toggleShutdown"
 
 .field public static final BUTTON_DELIMITER:Ljava/lang/String; = "|"
 
 .field private static final BUTTON_LAYOUT_PARAMS:Landroid/widget/LinearLayout$LayoutParams; = null
+
+.field private static final BUTTON_LAYOUT_PARAMS_GRID_LANDSCAPE:Landroid/widget/LinearLayout$LayoutParams; = null
+
+.field private static final BUTTON_LAYOUT_PARAMS_GRID_PORTRAIT:Landroid/widget/LinearLayout$LayoutParams; = null
 
 .field public static final EXPANDED_BRIGHTNESS_MODE:Ljava/lang/String; = "expanded_brightness_mode"
 
@@ -28,8 +32,6 @@
 .field public static final EXPANDED_HIDE_ONCHANGE:Ljava/lang/String; = "expanded_hide_onchange"
 
 .field public static final EXPANDED_RING_MODE:Ljava/lang/String; = "expanded_ring_mode"
-
-.field public static final EXPANDED_SCREENTIMEOUT_MODE:Ljava/lang/String; = "expanded_screentimeout_mode"
 
 .field private static final LAYOUT_SCROLL_BUTTON_THRESHOLD_LAND:I = 0x8
 
@@ -47,9 +49,31 @@
 
 .field private mContext:Landroid/content/Context;
 
+.field private mGridScrollView:Landroid/widget/ScrollView;
+
 .field private mHandler:Landroid/os/Handler;
 
 .field private mInflater:Landroid/view/LayoutInflater;
+
+.field private mLinearLayoutRow1:Landroid/widget/LinearLayout;
+
+.field private mLinearLayoutRow10:Landroid/widget/LinearLayout;
+
+.field private mLinearLayoutRow2:Landroid/widget/LinearLayout;
+
+.field private mLinearLayoutRow3:Landroid/widget/LinearLayout;
+
+.field private mLinearLayoutRow4:Landroid/widget/LinearLayout;
+
+.field private mLinearLayoutRow5:Landroid/widget/LinearLayout;
+
+.field private mLinearLayoutRow6:Landroid/widget/LinearLayout;
+
+.field private mLinearLayoutRow7:Landroid/widget/LinearLayout;
+
+.field private mLinearLayoutRow8:Landroid/widget/LinearLayout;
+
+.field private mLinearLayoutRow9:Landroid/widget/LinearLayout;
 
 .field private mObservers:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -63,6 +87,8 @@
 .end field
 
 .field private mScrollView:Landroid/widget/HorizontalScrollView;
+
+.field private mVerticalLinearLayout:Landroid/widget/LinearLayout;
 
 
 # direct methods
@@ -89,6 +115,24 @@
     invoke-direct {v0, v2, v3, v1}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
     sput-object v0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->BUTTON_LAYOUT_PARAMS:Landroid/widget/LinearLayout$LayoutParams;
+
+    .line 45
+    new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
+
+    const v1, 0x3e4ccccd
+
+    invoke-direct {v0, v2, v3, v1}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
+
+    sput-object v0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->BUTTON_LAYOUT_PARAMS_GRID_PORTRAIT:Landroid/widget/LinearLayout$LayoutParams;
+
+    .line 46
+    new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
+
+    const/high16 v1, 0x3e00
+
+    invoke-direct {v0, v2, v3, v1}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
+
+    sput-object v0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->BUTTON_LAYOUT_PARAMS_GRID_LANDSCAPE:Landroid/widget/LinearLayout$LayoutParams;
 
     return-void
 .end method
@@ -175,6 +219,319 @@
     return-void
 .end method
 
+.method private addRowsToVerticalLinearLayout()V
+    .locals 3
+
+    .prologue
+    .line 648
+    new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
+
+    const/4 v1, -0x1
+
+    const/4 v2, -0x2
+
+    invoke-direct {v0, v1, v2}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    .line 650
+    .local v0, layoutParams:Landroid/widget/LinearLayout$LayoutParams;
+    new-instance v1, Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mVerticalLinearLayout:Landroid/widget/LinearLayout;
+
+    .line 651
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mVerticalLinearLayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 652
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mVerticalLinearLayout:Landroid/widget/LinearLayout;
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    .line 654
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mVerticalLinearLayout:Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow1:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    .line 655
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mVerticalLinearLayout:Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow2:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    .line 656
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mVerticalLinearLayout:Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow3:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    .line 657
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mVerticalLinearLayout:Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow4:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    .line 658
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mVerticalLinearLayout:Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow5:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    .line 659
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mVerticalLinearLayout:Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow6:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    .line 660
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mVerticalLinearLayout:Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow7:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    .line 661
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mVerticalLinearLayout:Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow8:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    .line 662
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mVerticalLinearLayout:Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow9:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    .line 663
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mVerticalLinearLayout:Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow10:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    .line 665
+    return-void
+.end method
+
+.method private addViewToLinearLayoutRowsAndFixWidth(Landroid/view/View;I)V
+    .locals 4
+    .parameter "localView"
+    .parameter "position"
+
+    .prologue
+    .line 496
+    new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
+
+    const/4 v1, 0x0
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f060001
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    invoke-direct {v0, v1, v2}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    .line 497
+    .local v0, layoutParams:Landroid/widget/LinearLayout$LayoutParams;
+    const/high16 v1, 0x3f80
+
+    iput v1, v0, Landroid/widget/LinearLayout$LayoutParams;->weight:F
+
+    .line 499
+    const/4 v1, 0x1
+
+    if-lt p2, v1, :cond_1
+
+    const/4 v1, 0x3
+
+    if-gt p2, v1, :cond_1
+
+    .line 501
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow1:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, p1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 540
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 503
+    :cond_1
+    const/4 v1, 0x4
+
+    if-lt p2, v1, :cond_2
+
+    const/4 v1, 0x6
+
+    if-gt p2, v1, :cond_2
+
+    .line 505
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow2:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, p1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    goto :goto_0
+
+    .line 507
+    :cond_2
+    const/4 v1, 0x7
+
+    if-lt p2, v1, :cond_3
+
+    const/16 v1, 0x9
+
+    if-gt p2, v1, :cond_3
+
+    .line 509
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow3:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, p1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    goto :goto_0
+
+    .line 511
+    :cond_3
+    const/16 v1, 0xa
+
+    if-lt p2, v1, :cond_4
+
+    const/16 v1, 0xc
+
+    if-gt p2, v1, :cond_4
+
+    .line 513
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow4:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, p1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    goto :goto_0
+
+    .line 515
+    :cond_4
+    const/16 v1, 0xd
+
+    if-lt p2, v1, :cond_5
+
+    const/16 v1, 0xf
+
+    if-gt p2, v1, :cond_5
+
+    .line 517
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow5:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, p1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    goto :goto_0
+
+    .line 519
+    :cond_5
+    const/16 v1, 0x10
+
+    if-lt p2, v1, :cond_6
+
+    const/16 v1, 0x12
+
+    if-gt p2, v1, :cond_6
+
+    .line 521
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow6:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, p1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    goto :goto_0
+
+    .line 523
+    :cond_6
+    const/16 v1, 0x13
+
+    if-lt p2, v1, :cond_7
+
+    const/16 v1, 0x15
+
+    if-gt p2, v1, :cond_7
+
+    .line 525
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow7:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, p1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    goto :goto_0
+
+    .line 527
+    :cond_7
+    const/16 v1, 0x16
+
+    if-lt p2, v1, :cond_8
+
+    const/16 v1, 0x18
+
+    if-gt p2, v1, :cond_8
+
+    .line 529
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow8:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, p1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    goto :goto_0
+
+    .line 531
+    :cond_8
+    const/16 v1, 0x19
+
+    if-lt p2, v1, :cond_9
+
+    const/16 v1, 0x1b
+
+    if-gt p2, v1, :cond_9
+
+    .line 533
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow9:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, p1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    goto :goto_0
+
+    .line 535
+    :cond_9
+    const/16 v1, 0x1c
+
+    if-lt p2, v1, :cond_0
+
+    const/16 v1, 0x1e
+
+    if-gt p2, v1, :cond_0
+
+    .line 537
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow10:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, p1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    goto :goto_0
+.end method
+
 .method private animateCollapse()V
     .locals 3
 
@@ -196,6 +553,39 @@
 
     .line 380
     return-void
+.end method
+
+.method private isOrientationLandscape()Z
+    .locals 3
+
+    .prologue
+    .line 311
+    const/4 v0, 0x0
+
+    .line 313
+    .local v0, landscape:Z
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v1
+
+    iget v1, v1, Landroid/content/res/Configuration;->orientation:I
+
+    const/4 v2, 0x2
+
+    if-ne v1, v2, :cond_0
+
+    .line 315
+    const/4 v0, 0x1
+
+    .line 319
+    :cond_0
+    return v0
 .end method
 
 .method private needScrollBar(I)Z
@@ -316,6 +706,268 @@
 
     .line 272
     :cond_0
+    return-void
+.end method
+
+.method private setupLinearLayoutRows()V
+    .locals 5
+
+    .prologue
+    const/4 v4, 0x0
+
+    const/high16 v3, 0x4040
+
+    .line 439
+    new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
+
+    const/4 v1, -0x1
+
+    const/4 v2, -0x2
+
+    invoke-direct {v0, v1, v2}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    .line 441
+    .local v0, layoutParams:Landroid/widget/LinearLayout$LayoutParams;
+    new-instance v1, Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow1:Landroid/widget/LinearLayout;
+
+    .line 442
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow1:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    .line 443
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow1:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 444
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow1:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v3}, Landroid/widget/LinearLayout;->setWeightSum(F)V
+
+    .line 446
+    new-instance v1, Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow2:Landroid/widget/LinearLayout;
+
+    .line 447
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow2:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    .line 448
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow2:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 449
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow2:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v3}, Landroid/widget/LinearLayout;->setWeightSum(F)V
+
+    .line 451
+    new-instance v1, Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow3:Landroid/widget/LinearLayout;
+
+    .line 452
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow3:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    .line 453
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow3:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 454
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow3:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v3}, Landroid/widget/LinearLayout;->setWeightSum(F)V
+
+    .line 456
+    new-instance v1, Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow4:Landroid/widget/LinearLayout;
+
+    .line 457
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow4:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    .line 458
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow4:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 459
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow4:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v3}, Landroid/widget/LinearLayout;->setWeightSum(F)V
+
+    .line 461
+    new-instance v1, Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow5:Landroid/widget/LinearLayout;
+
+    .line 462
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow5:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    .line 463
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow5:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 464
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow5:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v3}, Landroid/widget/LinearLayout;->setWeightSum(F)V
+
+    .line 466
+    new-instance v1, Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow6:Landroid/widget/LinearLayout;
+
+    .line 467
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow6:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    .line 468
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow6:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 469
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow6:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v3}, Landroid/widget/LinearLayout;->setWeightSum(F)V
+
+    .line 471
+    new-instance v1, Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow7:Landroid/widget/LinearLayout;
+
+    .line 472
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow7:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    .line 473
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow7:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 474
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow7:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v3}, Landroid/widget/LinearLayout;->setWeightSum(F)V
+
+    .line 476
+    new-instance v1, Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow8:Landroid/widget/LinearLayout;
+
+    .line 477
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow8:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    .line 478
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow8:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 479
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow8:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v3}, Landroid/widget/LinearLayout;->setWeightSum(F)V
+
+    .line 481
+    new-instance v1, Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow9:Landroid/widget/LinearLayout;
+
+    .line 482
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow9:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    .line 483
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow9:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 484
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow9:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v3}, Landroid/widget/LinearLayout;->setWeightSum(F)V
+
+    .line 486
+    new-instance v1, Landroid/widget/LinearLayout;
+
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow10:Landroid/widget/LinearLayout;
+
+    .line 487
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow10:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    .line 488
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow10:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 489
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mLinearLayoutRow10:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v3}, Landroid/widget/LinearLayout;->setWeightSum(F)V
+
+    .line 491
     return-void
 .end method
 
@@ -608,7 +1260,7 @@
 .end method
 
 .method public setupWidget()V
-    .locals 14
+    .locals 15
 
     .prologue
     const/4 v13, 0x0
@@ -678,7 +1330,7 @@
     invoke-static {v11, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 169
-    const-string v4, "toggleWifi|toggleMobileData|toggleBluetooth|toggleGPS|toggleFlashlight|toggleBrightness|toggleAirplane|toggleSound|toggleAutoRotate|toggleSync|toggleScreenTimeout|toggleLockScreen|toggleReboot|toggleShutdown"
+    const-string v4, "toggleBatteryInfo|toggleWifi|toggleWifiAp|toggleBluetooth|toggleGPS|toggleSound|toggleFlashlight|toggleBrightness|toggleScreenTimeout|toggleStayAwakePlugged|toggleSync|toggleLockScreen|toggleAutoRotate|toggleAirplane|toggleMobileData|toggleNetworkMode|toggleUSBConnectionMode|toggleUSBDebugging|toggleReboot|toggleShutdown"
 
     .line 171
     :cond_1
@@ -720,6 +1372,9 @@
 
     invoke-virtual {v8, v9}, Landroid/widget/LinearLayout;->setGravity(I)V
 
+    .line 17
+    invoke-direct {p0}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->setupLinearLayoutRows()V
+
     .line 178
     const/4 v2, 0x0
 
@@ -739,7 +1394,7 @@
 
     .local v6, i$:I
     :goto_0
-    if-ge v6, v7, :cond_3
+    if-ge v6, v7, :cond_4
 
     aget-object v1, v0, v6
 
@@ -770,7 +1425,7 @@
     .line 182
     iget-object v9, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mInflater:Landroid/view/LayoutInflater;
 
-    const v10, 0x3030002
+    const v10, 0x7f03000c
 
     invoke-virtual {v9, v10, v13, v12}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -782,15 +1437,23 @@
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_3
 
     .line 186
     sget-object v9, Lcom/lidroid/systemui/quickpanel/PowerWidget;->BUTTON_LAYOUT_PARAMS:Landroid/widget/LinearLayout$LayoutParams;
 
+    const/4 v14, 0x0
+
+    if-eqz v14, :cond_2
+
     invoke-virtual {v8, v3, v9}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 187
+    :cond_2
     add-int/lit8 v2, v2, 0x1
+
+    .line 18
+    invoke-direct {p0, v3, v2}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->addViewToLinearLayoutRowsAndFixWidth(Landroid/view/View;I)V
 
     .line 179
     :goto_1
@@ -799,7 +1462,7 @@
     goto :goto_0
 
     .line 189
-    :cond_2
+    :cond_3
     const-string v9, "PowerWidget"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -827,17 +1490,19 @@
     .line 194
     .end local v1           #button:Ljava/lang/String;
     .end local v3           #buttonView:Landroid/view/View;
-    :cond_3
+    :cond_4
     invoke-direct {p0, v2}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->needScrollBar(I)Z
 
     move-result v9
 
-    if-eqz v9, :cond_4
+    const/4 v9, 0x0
+
+    if-eqz v9, :cond_5
 
     .line 204
     iget-object v9, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mInflater:Landroid/view/LayoutInflater;
 
-    const v10, 0x3030004
+    const v10, 0x7f03000f
 
     invoke-virtual {v9, v10, v13, v12}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -925,10 +1590,42 @@
 
     .line 211
     .end local v5           #filter:Landroid/content/IntentFilter;
-    :cond_4
+    :cond_5
+    const/4 v14, 0x0
+
+    if-eqz v14, :cond_6
+
     sget-object v9, Lcom/lidroid/systemui/quickpanel/PowerWidget;->WIDGET_LAYOUT_PARAMS:Landroid/widget/FrameLayout$LayoutParams;
 
     invoke-virtual {p0, v8, v9}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 21
+    :cond_6
+    iget-object v9, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mInflater:Landroid/view/LayoutInflater;
+
+    const v14, 0x7f03000d
+
+    invoke-virtual {v9, v14, v13, v12}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v9
+
+    check-cast v9, Landroid/widget/ScrollView;
+
+    iput-object v9, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mGridScrollView:Landroid/widget/ScrollView;
+
+    .line 23
+    iget-object v14, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mGridScrollView:Landroid/widget/ScrollView;
+
+    invoke-direct {p0}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->addRowsToVerticalLinearLayout()V
+
+    iget-object v9, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget;->mVerticalLinearLayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v14, v9}, Landroid/widget/ScrollView;->addView(Landroid/view/View;)V
+
+    .line 25
+    sget-object v9, Lcom/lidroid/systemui/quickpanel/PowerWidget;->WIDGET_LAYOUT_PARAMS:Landroid/widget/FrameLayout$LayoutParams;
+
+    invoke-virtual {p0, v14, v9}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     goto :goto_2
 .end method

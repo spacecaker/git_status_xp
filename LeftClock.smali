@@ -1,6 +1,6 @@
-.class public Lcom/android/systemui/statusbar/CenterClock;
+.class public Lcom/android/systemui/statusbar/LeftClock;
 .super Lcom/android/systemui/statusbar/Clock;
-.source "CenterClock.java"
+.source "LeftClock.java"
 
 
 # direct methods
@@ -12,7 +12,7 @@
     .line 32
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/CenterClock;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/LeftClock;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 33
     return-void
@@ -27,7 +27,7 @@
     .line 36
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, p2, v0}, Lcom/android/systemui/statusbar/CenterClock;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+    invoke-direct {p0, p1, p2, v0}, Lcom/android/systemui/statusbar/LeftClock;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 37
     return-void
@@ -62,7 +62,7 @@
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/Clock$SettingsObserver;->observe()V
 
     .line 46
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/CenterClock;->updateSettings()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LeftClock;->updateSettings()V
 
     .line 47
     return-void
@@ -74,7 +74,9 @@
     .locals 6
 
     .prologue
-    const/4 v5, 0x0
+    const/4 v5, 0x2
+
+    const/4 v4, 0x0
 
     .line 51
     invoke-super {p0}, Lcom/android/systemui/statusbar/Clock;->updateSettings()V
@@ -90,7 +92,7 @@
     .local v2, resolver:Landroid/content/ContentResolver;
     const-string v3, "statusbar_clock_position"
 
-    invoke-static {v2, v3, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
@@ -98,24 +100,20 @@
     .local v0, mClockPosition:I
     const-string v3, "statusbar_clock_style"
 
-    const/4 v4, 0x2
-
-    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2, v3, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v1
 
     .line 57
     .local v1, mClockStyle:I
-    const/4 v3, 0x1
-
-    if-ne v0, v3, :cond_0
+    if-ne v0, v5, :cond_0
 
     const/4 v3, 0x3
 
     if-eq v1, v3, :cond_0
 
     .line 58
-    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/CenterClock;->setVisibility(I)V
+    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/LeftClock;->setVisibility(I)V
 
     .line 62
     :goto_0
@@ -125,7 +123,7 @@
     :cond_0
     const/16 v3, 0x8
 
-    invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/CenterClock;->setVisibility(I)V
+    invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/LeftClock;->setVisibility(I)V
 
     goto :goto_0
 .end method

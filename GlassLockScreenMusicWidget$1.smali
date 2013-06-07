@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 128
+    .line 135
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$1;->this$0:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,17 +39,17 @@
     .parameter "msg"
 
     .prologue
-    .line 131
+    .line 138
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 145
+    .line 149
     .end local p0
     :goto_0
     return-void
 
-    .line 133
+    .line 140
     .restart local p0
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$1;->this$0:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
@@ -59,7 +59,7 @@
 
     goto :goto_0
 
-    .line 136
+    .line 143
     :pswitch_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$1;->this$0:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
@@ -76,7 +76,7 @@
 
     goto :goto_0
 
-    .line 139
+    .line 146
     .restart local p0
     :pswitch_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$1;->this$0:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
@@ -110,21 +110,11 @@
 
     goto :goto_0
 
-    .line 142
-    .restart local p0
-    :pswitch_3
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$1;->this$0:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
-
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->handleStopMarquee()V
-
-    goto :goto_0
-
-    .line 131
+    .line 138
     :pswitch_data_0
     .packed-switch 0x12c1
         :pswitch_0
         :pswitch_1
         :pswitch_2
-        :pswitch_3
     .end packed-switch
 .end method

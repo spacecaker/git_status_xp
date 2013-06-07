@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 339
+    .line 346
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$3;->this$0:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,33 +42,33 @@
     .parameter "arg0"
 
     .prologue
-    .line 342
+    .line 349
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$3;->this$0:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     #getter for: Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->access$400(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->access$300(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 343
+    .line 350
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$3;->this$0:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     #getter for: Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->access$400(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->access$300(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     move-result-object v0
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 344
+    .line 351
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$3;->this$0:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     #calls: Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->resetMinTimer()V
-    invoke-static {v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->access$500(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
+    invoke-static {v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->access$400(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
 
-    .line 345
+    .line 352
     return-void
 .end method

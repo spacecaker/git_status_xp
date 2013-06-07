@@ -273,4 +273,26 @@
     <item type="id" name="networkid">false</item>
     <item type="id" name="link_speed">false</item>
     <item type="id" name="scan_list">false</item>
+    <item type="id" name="tabHost">false</item>
+    <item type="id" name="tabsLayout">false</item>
+    <item type="id" name="tabsText">false</item>
+    <item type="id" name="buttonPanel">false</item>
+    <item type="id" name="operation_button">false</item>
+    <item type="id" name="device_sdcard_available">false</item>
+    <item type="id" name="sdcard_available_row">false</item>
+    <item type="id" name="sdcard_total_title">false</item>
+    <item type="id" name="device_sdcard_total">false</item>
+    <item type="id" name="device_internal_memory_total">false</item>
+    <item type="id" name="device_internal_memory_available">false</item>
+    <item type="id" name="device_memory">false</item>
+    <item type="id" name="device_model">false</item>
+    <item type="id" name="device_version">false</item>
+    <item type="id" name="device_cpu">false</item>
+    <item type="id" name="bottom_panel">false</item>
+    <item type="id" name="menu">false</item>
+    <item type="id" name="home">false</item>
+    <item type="id" name="back">false</item>
+    <item type="id" name="search">false</item>
+    <item type="id" name="spasi">false</item>
+    <item type="id" name="powered_id">false</item>
 </resources>

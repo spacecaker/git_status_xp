@@ -37,17 +37,20 @@
     <style name="TextAppearance" parent="@*android:style/TextAppearance" />
     <style name="TextAppearance.info_label" parent="@style/TextAppearance">
         <item name="android:textSize">14.0sp</item>
-        <item name="android:textStyle">normal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#90000000</item>
     </style>
     <style name="TextAppearance.info_small" parent="@style/TextAppearance">
         <item name="android:textSize">12.0sp</item>
         <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#90000000</item>
     </style>
     <style name="TextAppearance.info_value" parent="@style/TextAppearance">
         <item name="android:textSize">14.0sp</item>
         <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#90000000</item>
     </style>
-    <style name="TallTitleBarTheme" parent="@*android:style/Theme.NoTitleBar">
+    <style name="TallTitleBarTheme" parent="@*android:style/Theme.Light.NoTitleBar">
         <item name="android:windowContentOverlay">@null</item>
     </style>
     <style name="Theme.CustomDialog" parent="@*android:style/Theme.Dialog">
@@ -56,7 +59,7 @@
     <style name="WhiteStyle" parent="@*android:style/Theme.Light">
         <item name="android:listViewStyle">@*android:style/Widget.ListView.White</item>
     </style>
-    <style name="WifiProgressCategory" parent="@*android:style/Widget.TextView.ListSeparator">
+    <style name="WifiProgressCategory" parent="@*android:style/Widget.ActionButton">
         <item name="android:textColor">?android:textColorPrimaryInverse</item>
     </style>
     <style name="WifiTheme" parent="@*android:style/Theme.Light.NoTitleBar">
@@ -69,30 +72,8 @@
         <item name="android:listSeparatorTextViewStyle">@style/WifiProgressCategory</item>
         <item name="android:windowSoftInputMode">adjustPan</item>
     </style>
-    <style name="Switch">
-        <item name="android:checkboxStyle">@style/Widget.CompoundButton.CheckBox.Holo.Dark</item>
-    </style>
-    <style name="Widget.CompoundButton.CheckBox.Holo.Dark" parent="@*android:style/Widget.CompoundButton.CheckBox">
-        <item name="android:button">@drawable/space_switch</item>
-    </style>
-    <style name="Holo.Settings" parent="@*android:style/Theme">
-        <item name="android:listViewStyle">@style/Widget.ListView.Holo.Dark</item>
-        <item name="android:listSeparatorTextViewStyle">@style/Widget.TextView.ListSeparator.Holo.Dark</item>
-    </style>
-    <style name="Widget.TextView.ListSeparator.Holo.Dark" parent="@*android:style/Widget.TextView.ListSeparator">
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:background">@drawable/dark_header</item>
-        <item name="android:paddingLeft">8.0px</item>
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">30.0dip</item>
-    </style>
-    <style name="Widget.ListView.Holo.Dark" parent="@*android:style/Widget.ListView">
-        <item name="android:paddingLeft">14.0dip</item>
-        <item name="android:paddingRight">14.0dip</item>
-        <item name="android:listSelector">@drawable/list_selector_holo_dark</item>
-        <item name="android:divider">@drawable/divider_horizontal_dark_opaque</item>
-    </style>
-    <style name="WindowTitleBackground" parent="@*android:style/WindowTitleBackground">
-        <item name="android:background">@drawable/title_bar</item>
+    <style name="Theme" parent="@*android:style/Theme.Light">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 </resources>

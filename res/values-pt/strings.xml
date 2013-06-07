@@ -1346,7 +1346,7 @@ Também apagará músicas, imagens e outros dados do utilizador, pois o cartão 
     <string name="bluetooth_did_record">Record %1$s</string>
     <string name="bluetooth_did_record_primary">Record %1$s (Primary)</string>
     <string name="bluetooth_did_record_invalid">Record %1$s (Invalid)</string>
-    <string name="bt_svc_0x00000001">Reserved</string>
+    <string name="romfeatures_title">Definições Avançadas</string>
     <string name="bt_svc_0x00000002">Serial Port Profile</string>
     <string name="bt_svc_0x00000004">Dial-up Networking Profile</string>
     <string name="bt_svc_0x00000008">Fax Profile</string>
@@ -1421,4 +1421,12 @@ Também apagará músicas, imagens e outros dados do utilizador, pois o cartão 
     <string name="bluetooth_notif_sap_title">Modo SIM remoto</string>
     <string name="bluetooth_notif_sap_message">O Bluetooth está ligado com %1$s</string>
     <string name="bluetooth_dialog_sap_deactivate">Desactivar modo SIM remoto?</string>
+    <string name="settings_ics_system">SISTEMA</string>
+    <string name="settings_ics_radio">WIRELESS &amp; REDE</string>
+    <string name="settings_radio_more">Mais...</string>
+    <string name="settings_ics_device">DISPOSITIVO</string>
+    <string name="settings_ics_personal">PESSOAL</string>
+    <string name="settings_ics_system_cap">SISTEMA</string>
+    <string name="power_usage_summary_text">Bateria</string>
+    <string name="bt_svc_0x00000001">Reserved</string>
 </resources>

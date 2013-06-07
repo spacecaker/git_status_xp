@@ -1344,7 +1344,6 @@ Introduce el PIN para la sincronización con \"%1$s\". (Prueba con 0000 o con 12
     <string name="bluetooth_did_record">Record %1$s</string>
     <string name="bluetooth_did_record_primary">Record %1$s (Primary)</string>
     <string name="bluetooth_did_record_invalid">Record %1$s (Invalid)</string>
-    <string name="bt_svc_0x00000001">Reserved</string>
     <string name="bt_svc_0x00000002">Serial Port Profile</string>
     <string name="bt_svc_0x00000004">Dial-up Networking Profile</string>
     <string name="bt_svc_0x00000008">Fax Profile</string>
@@ -1419,23 +1418,5 @@ Introduce el PIN para la sincronización con \"%1$s\". (Prueba con 0000 o con 12
     <string name="bluetooth_notif_sap_title">Modo SIM remota</string>
     <string name="bluetooth_notif_sap_message">Bluetooth está conectado con %1$s</string>
     <string name="bluetooth_dialog_sap_deactivate">¿Desactivar modo SIM remoto?</string>
-    <string name="location_settings_title">Ubicación y seguridad</string>
-    <string name="settings_ics_system">SISTEMA</string>
-    <string name="settings_ics_radio">WIFI &amp; REDES</string>
-    <string name="settings_radio_more">Más...</string>
-    <string name="settings_ics_device">DISPOSITIVO</string>
-    <string name="settings_ics_personal">PERSONAL</string>
-    <string name="settings_ics_system_cap">SISTEMA</string>
-    <string name="power_usage_summary_text">Bateria</string>
-    <string name="quickpanelsettings">Notificaciones</string>
-    <string name="cattegory1">INTERFAZ</string>
-    <string name="header_add_an_account">Añadir cuenta</string>
-    <string name="data_quick_toggle_title">Redes móviles</string>
-    <string name="customizedkey_settings_title">Barra de estado</string>
-    <string name="launcher_settings_title">Lanzador</string>
-    <string name="settings_ics_accounts">CUENTAS</string>
-    <string name="build_cpu">CPU</string>
-    <string name="build_cpumodel">ARMv6 Procesador Qualcomm MSM7227 800MHz</string>
-    <string name="build_name">Nombre y fecha de compilación</string>
-    <string name="build_creator">Compilado por:</string>
+    <string name="bt_svc_0x00000001">Reserved</string>
 </resources>

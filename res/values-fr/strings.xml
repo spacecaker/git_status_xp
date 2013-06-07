@@ -1346,7 +1346,6 @@ Pour effacer également la musique, les images et autres données utilisateur, l
     <string name="bluetooth_did_record">Record %1$s</string>
     <string name="bluetooth_did_record_primary">Record %1$s (Primary)</string>
     <string name="bluetooth_did_record_invalid">Record %1$s (Invalid)</string>
-    <string name="bt_svc_0x00000001">Reserved</string>
     <string name="bt_svc_0x00000002">Serial Port Profile</string>
     <string name="bt_svc_0x00000004">Dial-up Networking Profile</string>
     <string name="bt_svc_0x00000008">Fax Profile</string>
@@ -1421,4 +1420,5 @@ Pour effacer également la musique, les images et autres données utilisateur, l
     <string name="bluetooth_notif_sap_title">Mode SIM distant</string>
     <string name="bluetooth_notif_sap_message">Le Bluetooth est connecte a %1$s</string>
     <string name="bluetooth_dialog_sap_deactivate">Desactiver le mode SIM distant ?</string>
+    <string name="bt_svc_0x00000001">Reserved</string>
 </resources>

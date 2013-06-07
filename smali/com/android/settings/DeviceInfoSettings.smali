@@ -3,8 +3,16 @@
 .source "DeviceInfoSettings.java"
 
 
+# static fields
+.field private static final KEY_SYSTEM_UPDATE_SETTINGS:Ljava/lang/String; = "system_update_settings"
+
+.field private static final KEY_UPDATE_SETTING:Ljava/lang/String; = "additional_system_update_settings"
+
+.field private static final TAG:Ljava/lang/String; = "DeviceInfoSettings"
+
+
 # instance fields
-.field mHits:[J
+.field private mItemClickListener:Landroid/widget/AdapterView$OnItemClickListener;
 
 
 # direct methods
@@ -12,34 +20,835 @@
     .locals 1
 
     .prologue
-    .line 45
+    .line 49
     invoke-direct {p0}, Landroid/preference/PreferenceActivity;-><init>()V
 
-    .line 58
-    const/4 v0, 0x3
+    .line 62
+    new-instance v0, Lcom/android/settings/DeviceInfoSettings$1;
 
-    new-array v0, v0, [J
+    invoke-direct {v0, p0}, Lcom/android/settings/DeviceInfoSettings$1;-><init>(Lcom/android/settings/DeviceInfoSettings;)V
 
-    iput-object v0, p0, Lcom/android/settings/DeviceInfoSettings;->mHits:[J
+    iput-object v0, p0, Lcom/android/settings/DeviceInfoSettings;->mItemClickListener:Landroid/widget/AdapterView$OnItemClickListener;
 
     return-void
 .end method
 
-.method private getFormattedKernelVersion()Ljava/lang/String;
-    .locals 11
+.method private fillOverview()V
+    .locals 28
 
     .prologue
-    const/4 v8, 0x4
+    .line 75
+    invoke-direct/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getTotalMemory()J
 
-    const-string v6, "\n"
+    move-result-wide v25
 
-    const-string v10, "Unavailable"
+    move-object/from16 v0, p0
+
+    move-wide/from16 v1, v25
+
+    invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->formatSize(J)Ljava/lang/String;
+
+    move-result-object v15
+
+    .line 76
+    .local v15, obj:Ljava/lang/String;
+    const v25, 0x7f0b011d
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/TextView;
+
+    sget-object v25, Landroid/os/Build;->MODEL:Ljava/lang/String;
+
+    move-object v0, v3
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 77
+    const v25, 0x7f0b011e
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/TextView;
+
+    sget-object v25, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;
+
+    move-object v0, v3
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 79
+    const v25, 0x7f0b011f
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/TextView;
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/settings/DeviceInfoSettings;->getCpuInfo()Ljava/lang/String;
+
+    move-result-object v25
+
+    move-object v0, v3
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 80
+    const v25, 0x7f0b011c
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/TextView;
+
+    check-cast v15, Ljava/lang/CharSequence;
+
+    .end local v15           #obj:Ljava/lang/String;
+    check-cast v15, Ljava/lang/CharSequence;
+
+    invoke-virtual {v3, v15}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 82
+    invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
+
+    move-result-object v15
+
+    .line 83
+    .local v15, obj:Ljava/io/File;
+    new-instance v21, Landroid/os/StatFs;
+
+    check-cast v15, Ljava/io/File;
+
+    .end local v15           #obj:Ljava/io/File;
+    check-cast v15, Ljava/io/File;
+
+    invoke-virtual {v15}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v25
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v25
+
+    invoke-direct {v0, v1}, Landroid/os/StatFs;-><init>(Ljava/lang/String;)V
+
+    .line 84
+    .local v21, statfs:Landroid/os/StatFs;
+    invoke-virtual/range {v21 .. v21}, Landroid/os/StatFs;->getBlockSize()I
+
+    move-result v25
+
+    move/from16 v0, v25
+
+    int-to-long v0, v0
+
+    move-wide v7, v0
+
+    .line 85
+    .local v7, l:J
+    invoke-virtual/range {v21 .. v21}, Landroid/os/StatFs;->getAvailableBlocks()I
+
+    move-result v25
+
+    move/from16 v0, v25
+
+    int-to-long v0, v0
+
+    move-wide v11, v0
+
+    .line 86
+    .local v11, l2:J
+    invoke-virtual/range {v21 .. v21}, Landroid/os/StatFs;->getBlockCount()I
+
+    move-result v25
+
+    move/from16 v0, v25
+
+    int-to-long v0, v0
+
+    move-wide v9, v0
+
+    .line 87
+    .local v9, l1:J
+    const v25, 0x7f0b011b
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findViewById(I)Landroid/view/View;
+
+    move-result-object v23
+
+    check-cast v23, Landroid/widget/TextView;
+
+    .line 88
+    .local v23, textview1:Landroid/widget/TextView;
+    const/16 v25, 0x1
+
+    move/from16 v0, v25
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object v4, v0
+
+    .line 89
+    .local v4, aobj1:[Ljava/lang/Object;
+    const/16 v25, 0x0
+
+    mul-long v26, v11, v7
+
+    move-object/from16 v0, p0
+
+    move-wide/from16 v1, v26
+
+    invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->formatSize(J)Ljava/lang/String;
+
+    move-result-object v26
+
+    aput-object v26, v4, v25
+
+    .line 90
+    const v25, 0x7f0805bb
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v25
+
+    move-object v2, v4
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v25
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 91
+    const v25, 0x7f0b011a
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findViewById(I)Landroid/view/View;
+
+    move-result-object v22
+
+    check-cast v22, Landroid/widget/TextView;
+
+    .line 92
+    .local v22, textview:Landroid/widget/TextView;
+    const/16 v25, 0x1
+
+    move/from16 v0, v25
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object v3, v0
+
+    .line 93
+    .local v3, aobj:[Ljava/lang/Object;
+    const/16 v25, 0x0
+
+    mul-long v26, v9, v7
+
+    move-object/from16 v0, p0
+
+    move-wide/from16 v1, v26
+
+    invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->formatSize(J)Ljava/lang/String;
+
+    move-result-object v26
+
+    aput-object v26, v3, v25
+
+    .line 94
+    const v25, 0x7f0805ba
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v25
+
+    move-object v2, v3
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v25
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 95
+    invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
+
+    move-result-object v18
+
+    .line 96
+    .local v18, sdPath:Ljava/io/File;
+    new-instance v20, Landroid/os/StatFs;
+
+    invoke-virtual/range {v18 .. v18}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v25
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v25
+
+    invoke-direct {v0, v1}, Landroid/os/StatFs;-><init>(Ljava/lang/String;)V
+
+    .line 97
+    .local v20, statFs:Landroid/os/StatFs;
+    invoke-virtual/range {v20 .. v20}, Landroid/os/StatFs;->getBlockSize()I
+
+    move-result v25
+
+    move/from16 v0, v25
+
+    int-to-long v0, v0
+
+    move-wide v7, v0
+
+    .line 98
+    invoke-virtual/range {v20 .. v20}, Landroid/os/StatFs;->getBlockCount()I
+
+    move-result v25
+
+    move/from16 v0, v25
+
+    int-to-long v0, v0
+
+    move-wide v9, v0
+
+    .line 99
+    invoke-virtual/range {v20 .. v20}, Landroid/os/StatFs;->getAvailableBlocks()I
+
+    move-result v25
+
+    move/from16 v0, v25
+
+    int-to-long v0, v0
+
+    move-wide v13, v0
+
+    .line 100
+    .local v13, l3:J
+    const v25, 0x7f0b0119
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findViewById(I)Landroid/view/View;
+
+    move-result-object v19
+
+    check-cast v19, Landroid/widget/TextView;
+
+    .line 101
+    .local v19, sdTotal:Landroid/widget/TextView;
+    const v25, 0x7f0b0118
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findViewById(I)Landroid/view/View;
+
+    move-result-object v22
+
+    .end local v22           #textview:Landroid/widget/TextView;
+    check-cast v22, Landroid/widget/TextView;
+
+    .line 102
+    .restart local v22       #textview:Landroid/widget/TextView;
+    const v25, 0x7f0b0117
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findViewById(I)Landroid/view/View;
+
+    move-result-object v24
+
+    .line 103
+    .local v24, view:Landroid/view/View;
+    invoke-static {}, Landroid/os/Environment;->getExternalStorageState()Ljava/lang/String;
+
+    move-result-object v17
+
+    .line 104
+    .local v17, s1:Ljava/lang/String;
+    const-string v25, "mounted"
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v25
+
+    if-nez v25, :cond_1
+
+    .line 105
+    const-string v25, "shared"
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v25
+
+    if-nez v25, :cond_0
+
+    .line 106
+    const v25, 0x7f080233
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
+
+    .line 107
+    const v25, 0x7f0805bc
+
+    move-object/from16 v0, v22
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
+
+    .line 108
+    const/16 v25, 0x8
+
+    invoke-virtual/range {v24 .. v25}, Landroid/view/View;->setVisibility(I)V
+
+    .line 125
+    .end local p0
+    :goto_0
+    return-void
+
+    .line 110
+    .restart local p0
+    :cond_0
+    const v25, 0x7f0805bd
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
+
+    .line 111
+    const v25, 0x7f0805bc
+
+    move-object/from16 v0, v22
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
+
+    .line 112
+    const/16 v25, 0x8
+
+    invoke-virtual/range {v24 .. v25}, Landroid/view/View;->setVisibility(I)V
+
+    goto :goto_0
+
+    .line 115
+    :cond_1
+    const/16 v25, 0x1
+
+    move/from16 v0, v25
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object v6, v0
+
+    .line 116
+    .local v6, aobj3:[Ljava/lang/Object;
+    const/16 v25, 0x0
+
+    mul-long v26, v13, v7
+
+    move-object/from16 v0, p0
+
+    move-wide/from16 v1, v26
+
+    invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->formatSize(J)Ljava/lang/String;
+
+    move-result-object v26
+
+    aput-object v26, v6, v25
+
+    .line 117
+    const v25, 0x7f0805bb
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v25
+
+    move-object v2, v6
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v16
+
+    .line 118
+    .local v16, s:Ljava/lang/String;
+    const/16 v25, 0x1
+
+    move/from16 v0, v25
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object v5, v0
+
+    .line 119
+    .local v5, aobj2:[Ljava/lang/Object;
+    const/16 v25, 0x0
+
+    mul-long v26, v9, v7
+
+    move-object/from16 v0, p0
+
+    move-wide/from16 v1, v26
+
+    invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->formatSize(J)Ljava/lang/String;
+
+    move-result-object v26
+
+    aput-object v26, v5, v25
+
+    .line 120
+    const v25, 0x7f0805ba
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v25
+
+    move-object v2, v5
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v25
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 121
+    const v25, 0x7f0b0116
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findViewById(I)Landroid/view/View;
+
+    move-result-object p0
+
+    .end local p0
+    check-cast p0, Landroid/widget/TextView;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 122
+    const-string v25, ""
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 123
+    const/16 v25, 0x0
+
+    invoke-virtual/range {v24 .. v25}, Landroid/view/View;->setVisibility(I)V
+
+    goto/16 :goto_0
+.end method
+
+.method private formatSize(J)Ljava/lang/String;
+    .locals 1
+    .parameter "l"
+
+    .prologue
+    .line 134
+    invoke-static {p0, p1, p2}, Landroid/text/format/Formatter;->formatFileSize(Landroid/content/Context;J)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private getCpuInfo()Ljava/lang/String;
+    .locals 15
+
+    .prologue
+    const-wide/16 v13, 0x19
+
+    const/high16 v12, 0x447a
+
+    .line 138
+    const-string v3, ""
+
+    .line 141
+    .local v3, ret:Ljava/lang/String;
+    :try_start_0
+    const-string v4, "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq"
+
+    .line 142
+    .local v4, s:Ljava/lang/String;
+    new-instance v0, Ljava/io/BufferedReader;
+
+    new-instance v6, Ljava/io/FileReader;
+
+    invoke-direct {v6, v4}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V
+
+    const/16 v7, 0x2000
+
+    invoke-direct {v0, v6, v7}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V
+
+    .line 144
+    .local v0, bufferedreader:Ljava/io/BufferedReader;
+    invoke-virtual {v0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
+
+    move-result-object v2
+
+    .line 145
+    .local v2, info:Ljava/lang/String;
+    if-nez v2, :cond_1
+
+    .line 146
+    if-eqz v0, :cond_0
+
+    .line 148
+    :try_start_1
+    invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
+
+    .line 153
+    :cond_0
+    :goto_0
+    :try_start_2
+    const-string v6, ""
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+
+    .line 174
+    .end local v0           #bufferedreader:Ljava/io/BufferedReader;
+    .end local v2           #info:Ljava/lang/String;
+    .end local v4           #s:Ljava/lang/String;
+    :goto_1
+    return-object v6
+
+    .line 156
+    .restart local v0       #bufferedreader:Ljava/io/BufferedReader;
+    .restart local v2       #info:Ljava/lang/String;
+    .restart local v4       #s:Ljava/lang/String;
+    :cond_1
+    if-eqz v0, :cond_2
+
+    .line 158
+    :try_start_3
+    invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
+
+    .line 163
+    :cond_2
+    :goto_2
+    const-wide/16 v6, 0xc
+
+    :try_start_4
+    invoke-static {v2}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v8
+
+    const-wide/16 v10, 0x3e8
+
+    div-long/2addr v8, v10
+
+    add-long/2addr v6, v8
+
+    const-wide/16 v8, 0x19
+
+    div-long/2addr v6, v8
+
+    mul-long/2addr v6, v13
+
+    long-to-float v1, v6
+
+    .line 164
+    .local v1, f:F
+    const-string v5, "MHz"
+
+    .line 165
+    .local v5, str:Ljava/lang/String;
+    cmpl-float v6, v1, v12
+
+    if-ltz v6, :cond_3
+
+    .line 166
+    div-float/2addr v1, v12
+
+    .line 167
+    const-string v5, "GHz"
+
+    .line 170
+    :cond_3
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "%.1f"
+
+    const/4 v8, 0x1
+
+    new-array v8, v8, [Ljava/lang/Object;
+
+    const/4 v9, 0x0
+
+    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v10
+
+    aput-object v10, v8, v9
+
+    invoke-static {v7, v8}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
+
+    move-result-object v3
+
+    .end local v0           #bufferedreader:Ljava/io/BufferedReader;
+    .end local v1           #f:F
+    .end local v2           #info:Ljava/lang/String;
+    .end local v4           #s:Ljava/lang/String;
+    .end local v5           #str:Ljava/lang/String;
+    :goto_3
+    move-object v6, v3
+
+    .line 174
+    goto :goto_1
+
+    .line 149
+    .restart local v0       #bufferedreader:Ljava/io/BufferedReader;
+    .restart local v2       #info:Ljava/lang/String;
+    .restart local v4       #s:Ljava/lang/String;
+    :catch_0
+    move-exception v6
+
+    goto :goto_0
+
+    .line 159
+    :catch_1
+    move-exception v6
+
+    goto :goto_2
+
+    .line 171
+    .end local v0           #bufferedreader:Ljava/io/BufferedReader;
+    .end local v2           #info:Ljava/lang/String;
+    .end local v4           #s:Ljava/lang/String;
+    :catch_2
+    move-exception v6
+
+    goto :goto_3
+.end method
+
+.method private getFormattedKernelVersion()Ljava/lang/String;
+    .locals 12
+
+    .prologue
+    const/4 v10, 0x4
+
+    const-string v11, "\n"
 
     const-string v9, "DeviceInfoSettings"
 
-    .line 206
+    const-string v8, "Unavailable"
+
+    .line 178
+    const/4 v0, 0x0
+
+    .line 179
+    .local v0, br:Ljava/io/BufferedReader;
+    const/4 v5, 0x0
+
+    .line 181
+    .local v5, s:Ljava/lang/String;
     :try_start_0
-    new-instance v5, Ljava/io/BufferedReader;
+    new-instance v1, Ljava/io/BufferedReader;
 
     new-instance v6, Ljava/io/FileReader;
 
@@ -49,195 +858,204 @@
 
     const/16 v7, 0x100
 
-    invoke-direct {v5, v6, v7}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V
+    invoke-direct {v1, v6, v7}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V
     :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 208
-    .local v5, reader:Ljava/io/BufferedReader;
+    .line 190
+    .end local v0           #br:Ljava/io/BufferedReader;
+    .local v1, br:Ljava/io/BufferedReader;
     :try_start_1
-    invoke-virtual {v5}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 191
+    invoke-virtual {v1}, Ljava/io/BufferedReader;->close()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    move-result-object v4
-
-    .line 210
-    .local v4, procVersionStr:Ljava/lang/String;
-    :try_start_2
-    invoke-virtual {v5}, Ljava/io/BufferedReader;->close()V
-
-    .line 213
-    const-string v0, "\\w+\\s+\\w+\\s+([^\\s]+)\\s+\\(([^\\s@]+(?:@[^\\s.]+)?)[^)]*\\)\\s+\\((?:[^(]*\\([^)]*\\))?[^)]*\\)\\s+([^\\s]+)\\s+(?:PREEMPT\\s+)?(.+)"
-
-    .line 223
-    .local v0, PROC_VERSION_REGEX:Ljava/lang/String;
+    .line 196
     const-string v6, "\\w+\\s+\\w+\\s+([^\\s]+)\\s+\\(([^\\s@]+(?:@[^\\s.]+)?)[^)]*\\)\\s+\\((?:[^(]*\\([^)]*\\))?[^)]*\\)\\s+([^\\s]+)\\s+(?:PREEMPT\\s+)?(.+)"
 
     invoke-static {v6}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
+    move-result-object v6
+
+    invoke-virtual {v6, v5}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+
     move-result-object v3
 
-    .line 224
-    .local v3, p:Ljava/util/regex/Pattern;
-    invoke-virtual {v3, v4}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
-
-    move-result-object v2
-
-    .line 226
-    .local v2, m:Ljava/util/regex/Matcher;
-    invoke-virtual {v2}, Ljava/util/regex/Matcher;->matches()Z
+    .line 200
+    .local v3, matcher:Ljava/util/regex/Matcher;
+    invoke-virtual {v3}, Ljava/util/regex/Matcher;->matches()Z
 
     move-result v6
 
     if-nez v6, :cond_0
 
-    .line 227
+    .line 201
     const-string v6, "DeviceInfoSettings"
 
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "Regex did not match on /proc/version: "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 228
-    const-string v6, "Unavailable"
-
-    move-object v6, v10
-
-    .line 243
-    .end local v0           #PROC_VERSION_REGEX:Ljava/lang/String;
-    .end local v2           #m:Ljava/util/regex/Matcher;
-    .end local v3           #p:Ljava/util/regex/Pattern;
-    .end local v4           #procVersionStr:Ljava/lang/String;
-    .end local v5           #reader:Ljava/io/BufferedReader;
-    :goto_0
-    return-object v6
-
-    .line 210
-    .restart local v5       #reader:Ljava/io/BufferedReader;
-    :catchall_0
-    move-exception v6
-
-    invoke-virtual {v5}, Ljava/io/BufferedReader;->close()V
-
-    throw v6
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
-
-    .line 238
-    .end local v5           #reader:Ljava/io/BufferedReader;
-    :catch_0
-    move-exception v6
-
-    move-object v1, v6
-
-    .line 239
-    .local v1, e:Ljava/io/IOException;
-    const-string v6, "DeviceInfoSettings"
-
-    const-string v6, "IO Exception when getting kernel version for Device Info screen"
-
-    invoke-static {v9, v6, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 243
-    const-string v6, "Unavailable"
-
-    move-object v6, v10
-
-    goto :goto_0
-
-    .line 229
-    .end local v1           #e:Ljava/io/IOException;
-    .restart local v0       #PROC_VERSION_REGEX:Ljava/lang/String;
-    .restart local v2       #m:Ljava/util/regex/Matcher;
-    .restart local v3       #p:Ljava/util/regex/Pattern;
-    .restart local v4       #procVersionStr:Ljava/lang/String;
-    .restart local v5       #reader:Ljava/io/BufferedReader;
-    :cond_0
-    :try_start_3
-    invoke-virtual {v2}, Ljava/util/regex/Matcher;->groupCount()I
-
-    move-result v6
-
-    if-ge v6, v8, :cond_1
-
-    .line 230
-    const-string v6, "DeviceInfoSettings"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "Regex match on /proc/version only returned "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v2}, Ljava/util/regex/Matcher;->groupCount()I
-
-    move-result v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, " groups"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 232
-    const-string v6, "Unavailable"
-
-    move-object v6, v10
-
-    goto :goto_0
-
-    .line 234
-    :cond_1
     new-instance v6, Ljava/lang/StringBuilder;
 
-    const/4 v7, 0x1
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v7}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    const-string v7, "\n"
+    const-string v7, "Regex did not match on /proc/version: "
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v9, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 205
+    const-string v6, "Unavailable"
+
+    move-object v0, v1
+
+    .end local v1           #br:Ljava/io/BufferedReader;
+    .restart local v0       #br:Ljava/io/BufferedReader;
+    move-object v6, v8
+
+    .line 218
+    .end local v3           #matcher:Ljava/util/regex/Matcher;
+    :goto_0
+    return-object v6
+
+    .line 182
+    :catch_0
+    move-exception v6
+
+    move-object v2, v6
+
+    .line 183
+    .local v2, e:Ljava/lang/Exception;
+    const-string v6, "DeviceInfoSettings"
+
+    const-string v6, "IO Exception when getting kernel version for Device Info screen"
+
+    invoke-static {v9, v6, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 186
+    const-string v6, "Unavailable"
+
+    move-object v6, v8
+
+    goto :goto_0
+
+    .line 192
+    .end local v0           #br:Ljava/io/BufferedReader;
+    .end local v2           #e:Ljava/lang/Exception;
+    .restart local v1       #br:Ljava/io/BufferedReader;
+    :catch_1
+    move-exception v6
+
+    move-object v2, v6
+
+    .line 193
+    .restart local v2       #e:Ljava/lang/Exception;
+    const-string v6, "Unavailable"
+
+    move-object v0, v1
+
+    .end local v1           #br:Ljava/io/BufferedReader;
+    .restart local v0       #br:Ljava/io/BufferedReader;
+    move-object v6, v8
+
+    goto :goto_0
+
+    .line 207
+    .end local v0           #br:Ljava/io/BufferedReader;
+    .end local v2           #e:Ljava/lang/Exception;
+    .restart local v1       #br:Ljava/io/BufferedReader;
+    .restart local v3       #matcher:Ljava/util/regex/Matcher;
+    :cond_0
+    invoke-virtual {v3}, Ljava/util/regex/Matcher;->groupCount()I
+
+    move-result v6
+
+    if-ge v6, v10, :cond_1
+
+    .line 208
+    const-string v6, "DeviceInfoSettings"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "Regex match on /proc/version only returned "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v3}, Ljava/util/regex/Matcher;->groupCount()I
+
+    move-result v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, " groups"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v9, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 213
+    const-string v6, "Unavailable"
+
+    move-object v0, v1
+
+    .end local v1           #br:Ljava/io/BufferedReader;
+    .restart local v0       #br:Ljava/io/BufferedReader;
+    move-object v6, v8
+
+    goto :goto_0
+
+    .line 216
+    .end local v0           #br:Ljava/io/BufferedReader;
+    .restart local v1       #br:Ljava/io/BufferedReader;
+    :cond_1
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const/4 v7, 0x1
+
+    invoke-virtual {v3, v7}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, "\n"
+
+    invoke-virtual {v6, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
     const/4 v7, 0x2
 
-    invoke-virtual {v2, v7}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+    invoke-virtual {v3, v7}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object v7
 
@@ -253,7 +1071,7 @@
 
     const/4 v7, 0x3
 
-    invoke-virtual {v2, v7}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+    invoke-virtual {v3, v7}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object v7
 
@@ -263,13 +1081,11 @@
 
     const-string v7, "\n"
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    const/4 v7, 0x4
-
-    invoke-virtual {v2, v7}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+    invoke-virtual {v3, v10}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object v7
 
@@ -278,35 +1094,102 @@
     move-result-object v6
 
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
-    move-result-object v6
+    move-result-object v4
 
-    goto :goto_0
+    .local v4, ret:Ljava/lang/String;
+    move-object v0, v1
+
+    .end local v1           #br:Ljava/io/BufferedReader;
+    .restart local v0       #br:Ljava/io/BufferedReader;
+    move-object v6, v4
+
+    .line 218
+    goto/16 :goto_0
+.end method
+
+.method private getTotalMemory()J
+    .locals 10
+
+    .prologue
+    const-wide/16 v8, 0x400
+
+    const/4 v5, 0x0
+
+    .line 222
+    const-wide/16 v2, 0x0
+
+    .line 223
+    .local v2, l:J
+    const/4 v4, 0x1
+
+    new-array v1, v4, [Ljava/lang/String;
+
+    .line 224
+    .local v1, as:[Ljava/lang/String;
+    const-string v4, "MemTotal:"
+
+    aput-object v4, v1, v5
+
+    .line 225
+    array-length v4, v1
+
+    new-array v0, v4, [J
+
+    .line 226
+    .local v0, al:[J
+    const-string v4, "/proc/meminfo"
+
+    invoke-static {v4, v1, v0}, Landroid/os/Process;->readProcLines(Ljava/lang/String;[Ljava/lang/String;[J)V
+
+    .line 227
+    aget-wide v4, v0, v5
+
+    const-wide/32 v6, 0x40000
+
+    div-long v2, v4, v6
+
+    .line 228
+    const-wide/16 v4, 0x100
+
+    const-wide/16 v6, 0x1
+
+    add-long/2addr v6, v2
+
+    mul-long/2addr v4, v6
+
+    mul-long/2addr v4, v8
+
+    mul-long v2, v8, v4
+
+    .line 229
+    return-wide v2
 .end method
 
 .method private removePreferenceIfPropertyMissing(Landroid/preference/PreferenceGroup;Ljava/lang/String;Ljava/lang/String;)V
     .locals 4
-    .parameter "preferenceGroup"
-    .parameter "preference"
-    .parameter "property"
+    .parameter "preferencegroup"
+    .parameter "s"
+    .parameter "s1"
 
     .prologue
-    .line 171
+    .line 234
     invoke-static {p3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    const-string v2, ""
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_0
 
-    .line 175
+    .line 246
+    :goto_0
+    return-void
+
+    .line 239
+    :cond_0
     :try_start_0
     invoke-virtual {p0, p2}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
@@ -314,21 +1197,18 @@
 
     invoke-virtual {p1, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
     :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 181
-    :cond_0
-    :goto_0
-    return-void
+    goto :goto_0
 
-    .line 176
+    .line 240
     :catch_0
     move-exception v1
 
     move-object v0, v1
 
-    .line 177
-    .local v0, e:Ljava/lang/RuntimeException;
+    .line 241
+    .local v0, e:Ljava/lang/Exception;
     const-string v1, "DeviceInfoSettings"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -372,11 +1252,11 @@
 
 .method private setStringSummary(Ljava/lang/String;Ljava/lang/String;)V
     .locals 4
-    .parameter "preference"
-    .parameter "value"
+    .parameter "s"
+    .parameter "s1"
 
     .prologue
-    .line 185
+    .line 251
     :try_start_0
     invoke-virtual {p0, p1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
@@ -384,20 +1264,20 @@
 
     invoke-virtual {v1, p2}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
     :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 190
+    .line 256
     :goto_0
     return-void
 
-    .line 186
+    .line 252
     :catch_0
     move-exception v1
 
     move-object v0, v1
 
-    .line 187
-    .local v0, e:Ljava/lang/RuntimeException;
+    .line 253
+    .local v0, e:Ljava/lang/Exception;
     invoke-virtual {p0, p1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
@@ -419,11 +1299,11 @@
 
 .method private setValueSummary(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .parameter "preference"
-    .parameter "property"
+    .parameter "s"
+    .parameter "s1"
 
     .prologue
-    .line 194
+    .line 260
     :try_start_0
     invoke-virtual {p0, p1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
@@ -445,13 +1325,13 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
     :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 200
+    .line 268
     :goto_0
     return-void
 
-    .line 197
+    .line 265
     :catch_0
     move-exception v0
 
@@ -461,432 +1341,168 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 13
-    .parameter "icicle"
+    .locals 8
+    .parameter "bundle"
 
     .prologue
-    const/4 v12, 0x1
+    const/4 v6, 0x0
 
-    const-string v11, "firmware_version"
+    const/4 v5, 0x0
 
-    .line 62
+    const/4 v7, 0x1
+
+    .line 271
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 64
-    const v9, 0x7f04000d
+    .line 272
+    invoke-virtual {p0}, Lcom/android/settings/DeviceInfoSettings;->getWindow()Landroid/view/Window;
 
-    invoke-virtual {p0, v9}, Lcom/android/settings/DeviceInfoSettings;->addPreferencesFromResource(I)V
+    move-result-object v4
 
-    .line 67
-    invoke-virtual {p0}, Lcom/android/settings/DeviceInfoSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v4, v7}, Landroid/view/Window;->setFormat(I)V
 
-    move-result-object v9
+    .line 274
+    const v4, 0x7f04000d
 
-    invoke-virtual {v9}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {p0, v4}, Lcom/android/settings/DeviceInfoSettings;->addPreferencesFromResource(I)V
+
+    .line 278
+    invoke-virtual {p0}, Lcom/android/settings/DeviceInfoSettings;->getListView()Landroid/widget/ListView;
 
     move-result-object v1
 
-    .line 68
-    .local v1, config:Landroid/content/res/Configuration;
-    iget v9, v1, Landroid/content/res/Configuration;->keyboard:I
+    .line 279
+    .local v1, listView:Landroid/widget/ListView;
+    const v4, 0x7f03005c
 
-    const/4 v10, 0x2
+    invoke-static {p0, v4, v5}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    if-ne v9, v10, :cond_1
+    move-result-object v3
 
-    .line 70
-    invoke-virtual {p0}, Lcom/android/settings/DeviceInfoSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 280
+    .local v3, v:Landroid/view/View;
+    invoke-virtual {v1, v3, v5, v6}, Landroid/widget/ListView;->addHeaderView(Landroid/view/View;Ljava/lang/Object;Z)V
 
-    move-result-object v9
+    .line 282
+    const v4, 0x7f03005b
 
-    const-string v10, "default_input_method"
-
-    invoke-static {v9, v10}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 72
-    .local v2, currentIme:Ljava/lang/String;
-    if-eqz v2, :cond_1
-
-    .line 73
-    invoke-static {v2}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
+    invoke-static {p0, v4, v5}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
-    .line 74
-    .local v0, component:Landroid/content/ComponentName;
-    if-eqz v0, :cond_1
+    .line 283
+    .local v0, infoV:Landroid/view/View;
+    invoke-virtual {v1, v0, v5, v6}, Landroid/widget/ListView;->addHeaderView(Landroid/view/View;Ljava/lang/Object;Z)V
 
-    .line 75
-    new-instance v3, Landroid/content/Intent;
+    .line 285
+    iget-object v4, p0, Lcom/android/settings/DeviceInfoSettings;->mItemClickListener:Landroid/widget/AdapterView$OnItemClickListener;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v4}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    .line 301
+    const-string v4, "baseband_version"
 
-    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    const-string v5, "gsm.version.baseband"
 
-    move-result-object v10
+    invoke-direct {p0, v4, v5}, Lcom/android/settings/DeviceInfoSettings;->setValueSummary(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 302
+    const-string v4, "build_number"
 
-    move-result-object v9
+    const-string v5, "ro.build.display.id"
 
-    const-string v10, ".tutorial"
+    invoke-direct {p0, v4, v5}, Lcom/android/settings/DeviceInfoSettings;->setValueSummary(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 304
+    const-string v4, "kernel_version"
 
-    move-result-object v9
+    invoke-virtual {p0, v4}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-direct {v3, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 76
-    .local v3, imeIntent:Landroid/content/Intent;
-    invoke-virtual {p0}, Lcom/android/settings/DeviceInfoSettings;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v6
-
-    .line 77
-    .local v6, pm:Landroid/content/pm/PackageManager;
-    const/4 v9, 0x0
-
-    invoke-virtual {v6, v3, v9}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
-
-    move-result-object v8
-
-    .line 78
-    .local v8, tutorials:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    if-nez v8, :cond_0
-
-    invoke-interface {v8}, Ljava/util/List;->isEmpty()Z
-
-    move-result v9
-
-    if-nez v9, :cond_1
-
-    .line 79
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/DeviceInfoSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v9
-
-    const-string v10, "system_tutorial"
-
-    invoke-virtual {p0, v10}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 85
-    .end local v0           #component:Landroid/content/ComponentName;
-    .end local v2           #currentIme:Ljava/lang/String;
-    .end local v3           #imeIntent:Landroid/content/Intent;
-    .end local v6           #pm:Landroid/content/pm/PackageManager;
-    .end local v8           #tutorials:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    :cond_1
-    const-string v9, "firmware_version"
-
-    sget-object v9, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;
-
-    invoke-direct {p0, v11, v9}, Lcom/android/settings/DeviceInfoSettings;->setStringSummary(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 86
-    const-string v9, "firmware_version"
-
-    invoke-virtual {p0, v11}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v12}, Landroid/preference/Preference;->setEnabled(Z)V
-
-    .line 87
-    const-string v9, "baseband_version"
-
-    const-string v10, "gsm.version.baseband"
-
-    invoke-direct {p0, v9, v10}, Lcom/android/settings/DeviceInfoSettings;->setValueSummary(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 88
-    const-string v9, "device_model"
-
-    sget-object v10, Landroid/os/Build;->MODEL:Ljava/lang/String;
-
-    invoke-direct {p0, v9, v10}, Lcom/android/settings/DeviceInfoSettings;->setStringSummary(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 89
-    const-string v9, "build_number"
-
-    sget-object v10, Landroid/os/Build;->DISPLAY:Ljava/lang/String;
-
-    invoke-direct {p0, v9, v10}, Lcom/android/settings/DeviceInfoSettings;->setStringSummary(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 90
-    const-string v9, "kernel_version"
-
-    invoke-virtual {p0, v9}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v9
+    move-result-object v4
 
     invoke-direct {p0}, Lcom/android/settings/DeviceInfoSettings;->getFormattedKernelVersion()Ljava/lang/String;
 
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
-
-    .line 93
-    invoke-virtual {p0}, Lcom/android/settings/DeviceInfoSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v9
-
-    const-string v10, "safetylegal"
-
-    const-string v11, "ro.url.safetylegal"
-
-    invoke-direct {p0, v9, v10, v11}, Lcom/android/settings/DeviceInfoSettings;->removePreferenceIfPropertyMissing(Landroid/preference/PreferenceGroup;Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 106
-    const-string v9, "container"
-
-    invoke-virtual {p0, v9}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
     move-result-object v5
 
-    check-cast v5, Landroid/preference/PreferenceGroup;
+    invoke-virtual {v4, v5}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 107
-    .local v5, parentPreference:Landroid/preference/PreferenceGroup;
-    const-string v9, "terms"
+    .line 306
+    const-string v4, "mod_version"
 
-    invoke-static {p0, v5, v9, v12}, Lcom/android/settings/Utils;->updatePreferenceToSpecificActivityOrRemove(Landroid/content/Context;Landroid/preference/PreferenceGroup;Ljava/lang/String;I)Z
+    const-string v5, "ro.modversion"
 
-    .line 109
-    const-string v9, "license"
+    invoke-direct {p0, v4, v5}, Lcom/android/settings/DeviceInfoSettings;->setValueSummary(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static {p0, v5, v9, v12}, Lcom/android/settings/Utils;->updatePreferenceToSpecificActivityOrRemove(Landroid/content/Context;Landroid/preference/PreferenceGroup;Ljava/lang/String;I)Z
+    .line 307
+    const-string v4, "modder_id"
 
-    .line 111
-    const-string v9, "copyright"
+    const-string v5, "ro.modder"
 
-    invoke-static {p0, v5, v9, v12}, Lcom/android/settings/Utils;->updatePreferenceToSpecificActivityOrRemove(Landroid/content/Context;Landroid/preference/PreferenceGroup;Ljava/lang/String;I)Z
+    invoke-direct {p0, v4, v5}, Lcom/android/settings/DeviceInfoSettings;->setValueSummary(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 113
-    const-string v9, "team"
-
-    invoke-static {p0, v5, v9, v12}, Lcom/android/settings/Utils;->updatePreferenceToSpecificActivityOrRemove(Landroid/content/Context;Landroid/preference/PreferenceGroup;Ljava/lang/String;I)Z
-
-    .line 117
-    invoke-virtual {p0}, Lcom/android/settings/DeviceInfoSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v5
-
-    .line 121
-    const-string v9, "contributors"
-
-    invoke-static {p0, v5, v9, v12}, Lcom/android/settings/Utils;->updatePreferenceToSpecificActivityOrRemove(Landroid/content/Context;Landroid/preference/PreferenceGroup;Ljava/lang/String;I)Z
-
-    .line 125
-    invoke-virtual {p0}, Lcom/android/settings/DeviceInfoSettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x7f060002
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getBoolean(I)Z
-
-    move-result v4
-
-    .line 128
-    .local v4, mUpdateSettingAvailable:Z
-    if-nez v4, :cond_2
-
-    .line 129
-    invoke-virtual {p0}, Lcom/android/settings/DeviceInfoSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v9
-
-    const-string v10, "additional_system_update_settings"
-
-    invoke-virtual {p0, v10}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 133
-    :cond_2
-    const-string v9, "XEC"
-
-    const-string v10, "ro.csc.sales_code"
-
-    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-ne v9, v12, :cond_3
-
-    .line 135
-    const-string v9, "system_update_settings"
-
-    invoke-virtual {p0, v9}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v7
-
-    .line 136
-    .local v7, removable:Landroid/preference/Preference;
-    if-eqz v7, :cond_3
-
-    .line 137
-    invoke-virtual {v5, v7}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 142
-    .end local v7           #removable:Landroid/preference/Preference;
-    :cond_3
+    .line 338
     return-void
 .end method
 
 .method public onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
-    .locals 6
-    .parameter
-    .parameter
+    .locals 4
+    .parameter "preferenceScreen"
+    .parameter "preference"
 
     .prologue
-    const/4 v4, 0x0
-
-    const/4 v3, 0x1
-
-    .line 146
+    .line 128
     invoke-virtual {p2}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v1, "firmware_version"
+    .line 129
+    .local v0, key:Ljava/lang/String;
+    const-string v1, "DeviceInfoSettings"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    move-result v0
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-eqz v0, :cond_1
+    const-string v3, "key["
 
-    .line 147
-    iget-object v0, p0, Lcom/android/settings/DeviceInfoSettings;->mHits:[J
-
-    iget-object v1, p0, Lcom/android/settings/DeviceInfoSettings;->mHits:[J
-
-    iget-object v2, p0, Lcom/android/settings/DeviceInfoSettings;->mHits:[J
-
-    array-length v2, v2
-
-    sub-int/2addr v2, v3
-
-    invoke-static {v0, v3, v1, v4, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 148
-    iget-object v0, p0, Lcom/android/settings/DeviceInfoSettings;->mHits:[J
-
-    iget-object v1, p0, Lcom/android/settings/DeviceInfoSettings;->mHits:[J
-
-    array-length v1, v1
-
-    sub-int/2addr v1, v3
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v2
-
-    aput-wide v2, v0, v1
-
-    .line 149
-    iget-object v0, p0, Lcom/android/settings/DeviceInfoSettings;->mHits:[J
-
-    aget-wide v0, v0, v4
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v2
-
-    const-wide/16 v4, 0x1f4
-
-    sub-long/2addr v2, v4
-
-    cmp-long v0, v0, v2
-
-    if-ltz v0, :cond_0
-
-    .line 150
-    new-instance v0, Landroid/content/Intent;
-
-    const-string v1, "android.intent.action.MAIN"
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 151
-    const-string v1, "android"
-
-    const-class v2, Lcom/android/internal/app/PlatLogoActivity;
-
-    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 154
-    :try_start_0
-    invoke-virtual {p0, v0}, Lcom/android/settings/DeviceInfoSettings;->startActivity(Landroid/content/Intent;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v2
 
-    .line 166
-    :cond_0
-    :goto_0
+    const-string v3, "]"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 130
     invoke-super {p0, p1, p2}, Landroid/preference/PreferenceActivity;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
+.end method
 
-    .line 160
-    :cond_1
-    invoke-virtual {p2}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
+.method protected onResume()V
+    .locals 0
 
-    move-result-object v0
+    .prologue
+    .line 348
+    invoke-super {p0}, Landroid/preference/PreferenceActivity;->onResume()V
 
-    const-string v1, "system_update_settings"
+    .line 349
+    invoke-direct {p0}, Lcom/android/settings/DeviceInfoSettings;->fillOverview()V
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 161
-    new-instance v0, Landroid/content/Intent;
-
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
-
-    .line 162
-    const-string v1, "android.intent.action.SOFTWARE_UPDATE_SETTING"
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 163
-    invoke-virtual {p0, v0}, Lcom/android/settings/DeviceInfoSettings;->sendBroadcast(Landroid/content/Intent;)V
-
-    goto :goto_0
-
-    .line 155
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
+    .line 350
+    return-void
 .end method

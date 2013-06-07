@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item type="drawable" name="APKTOOL_DUMMY_0029">false</item>
     <item type="drawable" name="APKTOOL_DUMMY_002a">false</item>
     <item type="drawable" name="APKTOOL_DUMMY_002c">false</item>
+    <item type="drawable" name="APKTOOL_DUMMY_0029">false</item>
 </resources>

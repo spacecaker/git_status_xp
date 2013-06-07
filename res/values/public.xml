@@ -7,7 +7,6 @@
     <public type="drawable" name="appwidget_button_right" id="0x7f020005" />
     <public type="drawable" name="filled_box" id="0x7f020017" />
     <public type="drawable" name="flipfont_icon" id="0x7f020018" />
-    <public type="drawable" name="APKTOOL_DUMMY_0029" id="0x7f020029" />
     <public type="drawable" name="APKTOOL_DUMMY_002a" id="0x7f02002a" />
     <public type="drawable" name="APKTOOL_DUMMY_002c" id="0x7f02002c" />
     <public type="drawable" name="ic_power_system" id="0x7f02003c" />
@@ -23,32 +22,29 @@
     <public type="drawable" name="wifi_signal_lock_blue" id="0x7f02009c" />
     <public type="drawable" name="wifi_signal_open" id="0x7f02009d" />
     <public type="drawable" name="wifi_signal_open_blue" id="0x7f02009e" />
-    <public type="drawable" name="btn_check_off" id="0x7f0200aa" />
-    <public type="drawable" name="btn_check_off_disable" id="0x7f0200ab" />
-    <public type="drawable" name="btn_check_off_disable_focused" id="0x7f0200ac" />
-    <public type="drawable" name="btn_check_off_focused" id="0x7f0200ad" />
-    <public type="drawable" name="btn_check_off_pressed" id="0x7f0200ae" />
-    <public type="drawable" name="btn_check_off_selected" id="0x7f0200af" />
-    <public type="drawable" name="btn_check_on" id="0x7f0200b0" />
-    <public type="drawable" name="btn_check_on_disable" id="0x7f0200b1" />
-    <public type="drawable" name="btn_check_on_disable_focused" id="0x7f0200b2" />
-    <public type="drawable" name="btn_check_on_focused" id="0x7f0200b3" />
-    <public type="drawable" name="btn_check_on_pressed" id="0x7f0200b4" />
-    <public type="drawable" name="btn_check_on_selected" id="0x7f0200b5" />
-    <public type="drawable" name="ic_indicator_off" id="0x7f0200bc" />
-    <public type="drawable" name="ic_indicator_on" id="0x7f0200bd" />
-    <public type="drawable" name="list_selector_background_transition_holo_dark" id="0x7f0200c2" />
-    <public type="drawable" name="list_selector_bg" id="0x7f0200c3" />
-    <public type="drawable" name="list_selector_holo_dark" id="0x7f0200c7" />
-    <public type="drawable" name="space_switch" id="0x7f0200c8" />
-    <public type="drawable" name="bot" id="0x7f0200a8" />
-    <public type="drawable" name="bot_press" id="0x7f0200a9" />
-    <public type="drawable" name="ic_bot_back" id="0x7f0200b8" />
-    <public type="drawable" name="ic_bot_back_press" id="0x7f0200b9" />
-    <public type="drawable" name="ic_bot_next" id="0x7f0200ba" />
-    <public type="drawable" name="ic_bot_next_press" id="0x7f0200bb" />
-    <public type="drawable" name="list_selector_bg_normal" id="0x7f0200c4" />
-    <public type="drawable" name="list_selector_bg_pressed" id="0x7f0200c5" />
+    <public type="drawable" name="APKTOOL_DUMMY_0029" id="0x7f0200a3" />
+    <public type="drawable" name="aapreference_category" id="0x7f0200a4" />
+    <public type="drawable" name="app_browser" id="0x7f0200a5" />
+    <public type="drawable" name="app_calculator" id="0x7f0200a6" />
+    <public type="drawable" name="app_camera" id="0x7f0200a7" />
+    <public type="drawable" name="app_contacts" id="0x7f0200a8" />
+    <public type="drawable" name="app_gallery" id="0x7f0200a9" />
+    <public type="drawable" name="app_gmail" id="0x7f0200aa" />
+    <public type="drawable" name="app_gtalk" id="0x7f0200ab" />
+    <public type="drawable" name="app_maps" id="0x7f0200ac" />
+    <public type="drawable" name="app_message" id="0x7f0200ad" />
+    <public type="drawable" name="app_music" id="0x7f0200ae" />
+    <public type="drawable" name="app_phone" id="0x7f0200af" />
+    <public type="drawable" name="app_playstore" id="0x7f0200b0" />
+    <public type="drawable" name="app_search" id="0x7f0200b1" />
+    <public type="drawable" name="app_youtube" id="0x7f0200b2" />
+    <public type="drawable" name="tab_indicator" id="0x7f0200b3" />
+    <public type="drawable" name="tab_press" id="0x7f0200b4" />
+    <public type="drawable" name="tab_selected" id="0x7f0200b5" />
+    <public type="drawable" name="tab_unselected" id="0x7f0200b6" />
+    <public type="drawable" name="tab_focus" id="0x7f0200b7" />
+    <public type="drawable" name="preference_one_item" id="0x7f0200c8" />
+    <public type="drawable" name="indicator_bar_onoff" id="0x7f0200d7" />
     <public type="drawable" name="app_gauge" id="0x7f020000" />
     <public type="drawable" name="app_settings" id="0x7f020001" />
     <public type="drawable" name="appwidget_bg" id="0x7f020002" />
@@ -85,6 +81,7 @@
     <public type="drawable" name="ic_bt_device" id="0x7f020026" />
     <public type="drawable" name="ic_bt_headphones_a2dp" id="0x7f020027" />
     <public type="drawable" name="ic_bt_headset_hfp" id="0x7f020028" />
+    <public type="drawable" name="ic_settings_mods" id="0x7f020029" />
     <public type="drawable" name="ic_bt_laptop" id="0x7f02002b" />
     <public type="drawable" name="ic_bt_printer" id="0x7f02002d" />
     <public type="drawable" name="ic_btn_next" id="0x7f02002e" />
@@ -191,19 +188,38 @@
     <public type="drawable" name="ic_settings_bluetooth2" id="0x7f0200a0" />
     <public type="drawable" name="ic_settings_location" id="0x7f0200a1" />
     <public type="drawable" name="ic_settings_more" id="0x7f0200a2" />
-    <public type="drawable" name="quickpanelicon" id="0x7f0200a3" />
-    <public type="drawable" name="spacethememanager" id="0x7f0200a4" />
-    <public type="drawable" name="pornhub_center" id="0x7f0200a5" />
-    <public type="drawable" name="pornhub_top_dark" id="0x7f0200a6" />
-    <public type="drawable" name="circlelockscreen" id="0x7f0200a7" />
-    <public type="drawable" name="dark_header" id="0x7f0200b6" />
-    <public type="drawable" name="divider_horizontal_dark_opaque" id="0x7f0200b7" />
-    <public type="drawable" name="light_header" id="0x7f0200be" />
-    <public type="drawable" name="list_focused_holo" id="0x7f0200bf" />
-    <public type="drawable" name="list_longpressed_holo" id="0x7f0200c0" />
-    <public type="drawable" name="list_pressed_holo_dark" id="0x7f0200c1" />
-    <public type="drawable" name="list_selector_disabled_holo_dark" id="0x7f0200c6" />
-    <public type="drawable" name="title_bar" id="0x7f0200c9" />
+    <public type="drawable" name="icon_core_cpucontrol" id="0x7f0200b8" />
+    <public type="drawable" name="icon_core_cpustates" id="0x7f0200b9" />
+    <public type="drawable" name="icon_parts_autostarts" id="0x7f0200ba" />
+    <public type="drawable" name="icon_parts_beats" id="0x7f0200bb" />
+    <public type="drawable" name="icon_parts_devtools" id="0x7f0200bc" />
+    <public type="drawable" name="icon_parts_firewall" id="0x7f0200bd" />
+    <public type="drawable" name="icon_parts_lockscreen" id="0x7f0200be" />
+    <public type="drawable" name="icon_parts_quickpaneltoggle" id="0x7f0200bf" />
+    <public type="drawable" name="icon_parts_statusbar" id="0x7f0200c0" />
+    <public type="drawable" name="icon_core_updates" id="0x7f0200c1" />
+    <public type="drawable" name="ic_preference_one_normal" id="0x7f0200c2" />
+    <public type="drawable" name="ic_preference_one_pressed" id="0x7f0200c3" />
+    <public type="drawable" name="ic_sysbar_back" id="0x7f0200c4" />
+    <public type="drawable" name="ic_sysbar_home" id="0x7f0200c5" />
+    <public type="drawable" name="ic_sysbar_menu" id="0x7f0200c6" />
+    <public type="drawable" name="ic_sysbar_recent" id="0x7f0200c7" />
+    <public type="drawable" name="repencis_logo" id="0x7f0200c9" />
+    <public type="drawable" name="ic_data_on" id="0x7f0200ca" />
+    <public type="drawable" name="ic_settings_cmlauncher" id="0x7f0200cb" />
+    <public type="drawable" name="ic_settings_lockscreen" id="0x7f0200cc" />
+    <public type="drawable" name="icon_launcher" id="0x7f0200cd" />
+    <public type="drawable" name="ic_audio_alarm" id="0x7f0200ce" />
+    <public type="drawable" name="ic_audio_media" id="0x7f0200cf" />
+    <public type="drawable" name="ic_audio_notification" id="0x7f0200d0" />
+    <public type="drawable" name="ic_audio_ringer" id="0x7f0200d1" />
+    <public type="drawable" name="ic_audio_vol" id="0x7f0200d2" />
+    <public type="drawable" name="dark_header" id="0x7f0200d3" />
+    <public type="drawable" name="ic_indicator_off" id="0x7f0200d4" />
+    <public type="drawable" name="ic_indicator_on" id="0x7f0200d5" />
+    <public type="drawable" name="ic_settings_backup" id="0x7f0200d6" />
+    <public type="drawable" name="ic_menu_add_2" id="0x7f0200d8" />
+    <public type="drawable" name="bln" id="0x7f0200d9" />
     <public type="layout" name="apn_preference_layout" id="0x7f030000" />
     <public type="layout" name="band_mode" id="0x7f030001" />
     <public type="layout" name="battery_info" id="0x7f030002" />
@@ -290,6 +306,19 @@
     <public type="layout" name="wifi_list_dialog" id="0x7f030053" />
     <public type="layout" name="wifi_security_policy_dialog" id="0x7f030054" />
     <public type="layout" name="wifi_status_test" id="0x7f030055" />
+    <public type="layout" name="preference_category" id="0x7f030056" />
+    <public type="layout" name="speed_container" id="0x7f030057" />
+    <public type="layout" name="tab_content" id="0x7f030058" />
+    <public type="layout" name="tab_indicator" id="0x7f030059" />
+    <public type="layout" name="device_info_settings" id="0x7f03005a" />
+    <public type="layout" name="device_info_settings_system" id="0x7f03005b" />
+    <public type="layout" name="preference_logo" id="0x7f03005c" />
+    <public type="layout" name="bt_checkbox_preferences" id="0x7f03005d" />
+    <public type="layout" name="mg_check" id="0x7f03005e" />
+    <public type="layout" name="mg_icon_bot" id="0x7f03005f" />
+    <public type="layout" name="mg_line" id="0x7f030060" />
+    <public type="layout" name="preference_icon_2" id="0x7f030061" />
+    <public type="layout" name="wifi_checkbox_preferences" id="0x7f030062" />
     <public type="xml" name="accessibility_settings" id="0x7f040000" />
     <public type="xml" name="apn_editor" id="0x7f040001" />
     <public type="xml" name="apn_editor_includedun" id="0x7f040002" />
@@ -340,8 +369,10 @@
     <public type="xml" name="wifi_ap_settings" id="0x7f04002f" />
     <public type="xml" name="wifi_settings" id="0x7f040030" />
     <public type="xml" name="wireless_settings" id="0x7f040031" />
-    <public type="xml" name="screen_display" id="0x7f040032" />
-    <public type="xml" name="screen_display_land" id="0x7f040033" />
+    <public type="xml" name="personal_settings" id="0x7f040032" />
+    <public type="xml" name="program_settings" id="0x7f040033" />
+    <public type="xml" name="screen_display" id="0x7f040034" />
+    <public type="xml" name="screen_display_land" id="0x7f040035" />
     <public type="array" name="timezone_filters" id="0x7f050000" />
     <public type="array" name="date_format_entries" id="0x7f050001" />
     <public type="array" name="date_format_values" id="0x7f050002" />
@@ -401,6 +432,7 @@
     <public type="color" name="red" id="0x7f070001" />
     <public type="color" name="wifi_ap_connected" id="0x7f070002" />
     <public type="color" name="wifi_apdialog" id="0x7f070003" />
+    <public type="color" name="tw_color145" id="0x7f070004" />
     <public type="string" name="additional_system_update" id="0x7f080000" />
     <public type="string" name="additional_system_update_menu" id="0x7f080001" />
     <public type="string" name="yes" id="0x7f080002" />
@@ -1753,7 +1785,7 @@
     <public type="string" name="bluetooth_did_record" id="0x7f080545" />
     <public type="string" name="bluetooth_did_record_primary" id="0x7f080546" />
     <public type="string" name="bluetooth_did_record_invalid" id="0x7f080547" />
-    <public type="string" name="bt_svc_0x00000001" id="0x7f080548" />
+    <public type="string" name="romfeatures_title" id="0x7f080548" />
     <public type="string" name="bt_svc_0x00000002" id="0x7f080549" />
     <public type="string" name="bt_svc_0x00000004" id="0x7f08054a" />
     <public type="string" name="bt_svc_0x00000008" id="0x7f08054b" />
@@ -1836,36 +1868,63 @@
     <public type="string" name="settings_ics_personal" id="0x7f080598" />
     <public type="string" name="settings_ics_system_cap" id="0x7f080599" />
     <public type="string" name="power_usage_summary_text" id="0x7f08059a" />
-    <public type="string" name="quickpanelsettings" id="0x7f08059b" />
-    <public type="string" name="cattegory1" id="0x7f08059c" />
-    <public type="string" name="header_add_an_account" id="0x7f08059d" />
-    <public type="string" name="data_quick_toggle_title" id="0x7f08059e" />
-    <public type="string" name="customizedkey_settings_title" id="0x7f08059f" />
-    <public type="string" name="launcher_settings_title" id="0x7f0805a0" />
-    <public type="string" name="settings_ics_accounts" id="0x7f0805a1" />
-    <public type="string" name="pornwatcher" id="0x7f0805a2" />
-    <public type="string" name="i_am_a_girl" id="0x7f0805a3" />
-    <public type="string" name="build_cpu" id="0x7f0805a4" />
-    <public type="string" name="build_cpumodel" id="0x7f0805a5" />
-    <public type="string" name="screen_display" id="0x7f0805a8" />
-    <public type="string" name="screen_display_summary" id="0x7f0805a9" />
-    <public type="string" name="home_screen" id="0x7f0805aa" />
-    <public type="string" name="wallpaper" id="0x7f0805ab" />
-    <public type="string" name="lock_screen" id="0x7f0805ac" />
-    <public type="string" name="clock_position" id="0x7f0805ad" />
-    <public type="string" name="clock_position_summary" id="0x7f0805ae" />
-    <public type="string" name="weather" id="0x7f0805af" />
-    <public type="string" name="weather_summary" id="0x7f0805b0" />
-    <public type="string" name="circlelockscreenwave" id="0x7f0805b1" />
-    <public type="string" name="data_network_settings_summary" id="0x7f0805b2" />
-    <public type="string" name="display_clock" id="0x7f0805b3" />
-    <public type="string" name="display_clock_summary" id="0x7f0805b4" />
-    <public type="string" name="display_weather" id="0x7f0805b5" />
-    <public type="string" name="display_weather_summary" id="0x7f0805b6" />
-    <public type="string" name="display_weather_settings" id="0x7f0805b7" />
-    <public type="string" name="display_weather_settings_summary" id="0x7f0805b8" />
-    <public type="string" name="build_name" id="0x7f0805a6" />
-    <public type="string" name="build_creator" id="0x7f0805a7" />
+    <public type="string" name="bt_svc_0x00000001" id="0x7f08059b" />
+    <public type="string" name="personal_settings_tab" id="0x7f08059c" />
+    <public type="string" name="settings_ics_actions" id="0x7f08059d" />
+    <public type="string" name="program_settings_tab" id="0x7f08059e" />
+    <public type="string" name="settings_ics_google" id="0x7f08059f" />
+    <public type="string" name="tab_parts_cat_appearance_and_audio" id="0x7f0805a0" />
+    <public type="string" name="dev_title" id="0x7f0805a1" />
+    <public type="string" name="aurora_dev_name" id="0x7f0805a2" />
+    <public type="string" name="tab_core_cpu" id="0x7f0805a3" />
+    <public type="string" name="core_cpucontrol" id="0x7f0805a4" />
+    <public type="string" name="tab_core_tools" id="0x7f0805a5" />
+    <public type="string" name="core_cpustates" id="0x7f0805a6" />
+    <public type="string" name="parts_development" id="0x7f0805a7" />
+    <public type="string" name="parts_quickpaneltoggle" id="0x7f0805a8" />
+    <public type="string" name="parts_statusbar" id="0x7f0805a9" />
+    <public type="string" name="parts_lockscreen" id="0x7f0805aa" />
+    <public type="string" name="tab_parts_cat_system_security" id="0x7f0805ab" />
+    <public type="string" name="parts_autostarts" id="0x7f0805ac" />
+    <public type="string" name="parts_firewall" id="0x7f0805ad" />
+    <public type="string" name="parts_beats" id="0x7f0805ae" />
+    <public type="string" name="tab_tools" id="0x7f0805af" />
+    <public type="string" name="ota_updates" id="0x7f0805b0" />
+    <public type="string" name="tab_updates" id="0x7f0805b1" />
+    <public type="string" name="romversion" id="0x7f0805b2" />
+    <public type="string" name="aurora_romversiom" id="0x7f0805b3" />
+    <public type="string" name="rom_name" id="0x7f0805b4" />
+    <public type="string" name="developer" id="0x7f0805b5" />
+    <public type="string" name="developer_name" id="0x7f0805b6" />
+    <public type="string" name="mod_version_default" id="0x7f0805b7" />
+    <public type="string" name="mod_version" id="0x7f0805b8" />
+    <public type="string" name="modder_id" id="0x7f0805b9" />
+    <public type="string" name="total_size" id="0x7f0805ba" />
+    <public type="string" name="available_size" id="0x7f0805bb" />
+    <public type="string" name="device_sdcard" id="0x7f0805bc" />
+    <public type="string" name="device_overview_sd_shared" id="0x7f0805bd" />
+    <public type="string" name="device_model" id="0x7f0805be" />
+    <public type="string" name="device_version" id="0x7f0805bf" />
+    <public type="string" name="device_cpu" id="0x7f0805c0" />
+    <public type="string" name="device_memory" id="0x7f0805c1" />
+    <public type="string" name="device_internal_memory" id="0x7f0805c2" />
+    <public type="string" name="no_update_info" id="0x7f0805c3" />
+    <public type="string" name="settings_cmlicense_activity_title" id="0x7f0805c4" />
+    <public type="string" name="cell_settings" id="0x7f0805c5" />
+    <public type="string" name="launcher" id="0x7f0805c6" />
+    <public type="string" name="powered" id="0x7f0805c7" />
+    <public type="string" name="powered_by" id="0x7f0805c8" />
+    <public type="string" name="screen_display" id="0x7f0805c9" />
+    <public type="string" name="screen_display_summary" id="0x7f0805ca" />
+    <public type="string" name="home_screen" id="0x7f0805cb" />
+    <public type="string" name="wallpaper" id="0x7f0805cc" />
+    <public type="string" name="lock_screen" id="0x7f0805cd" />
+    <public type="string" name="clock_position" id="0x7f0805ce" />
+    <public type="string" name="clock_position_summary" id="0x7f0805cf" />
+    <public type="string" name="weather" id="0x7f0805d0" />
+    <public type="string" name="weather_summary" id="0x7f0805d1" />
+    <public type="string" name="header_add_an_account" id="0x7f0805d2" />
+    <public type="string" name="bln" id="0x7f0805d3" />
     <public type="dimen" name="vpn_connect_margin_right" id="0x7f090000" />
     <public type="dimen" name="vpn_connect_normal_text_size" id="0x7f090001" />
     <public type="dimen" name="vpn_connect_input_box_label_width" id="0x7f090002" />
@@ -1886,12 +1945,7 @@
     <public type="style" name="WhiteStyle" id="0x7f0a000c" />
     <public type="style" name="WifiProgressCategory" id="0x7f0a000d" />
     <public type="style" name="WifiTheme" id="0x7f0a000e" />
-    <public type="style" name="Switch" id="0x7f0a000f" />
-    <public type="style" name="Widget.CompoundButton.CheckBox.Holo.Dark" id="0x7f0a0010" />
-    <public type="style" name="Holo.Settings" id="0x7f0a0011" />
-    <public type="style" name="Widget.TextView.ListSeparator.Holo.Dark" id="0x7f0a0012" />
-    <public type="style" name="Widget.ListView.Holo.Dark" id="0x7f0a0013" />
-    <public type="style" name="WindowTitleBackground" id="0x7f0a0014" />
+    <public type="style" name="Theme" id="0x7f0a000f" />
     <public type="id" name="band" id="0x7f0b0000" />
     <public type="id" name="status" id="0x7f0b0001" />
     <public type="id" name="power" id="0x7f0b0002" />
@@ -2165,4 +2219,30 @@
     <public type="id" name="networkid" id="0x7f0b010e" />
     <public type="id" name="link_speed" id="0x7f0b010f" />
     <public type="id" name="scan_list" id="0x7f0b0110" />
+    <public type="id" name="tabHost" id="0x7f0b0111" />
+    <public type="id" name="tabsLayout" id="0x7f0b0112" />
+    <public type="id" name="tabsText" id="0x7f0b0113" />
+    <public type="id" name="buttonPanel" id="0x7f0b0114" />
+    <public type="id" name="operation_button" id="0x7f0b0115" />
+    <public type="id" name="device_sdcard_available" id="0x7f0b0116" />
+    <public type="id" name="sdcard_available_row" id="0x7f0b0117" />
+    <public type="id" name="sdcard_total_title" id="0x7f0b0118" />
+    <public type="id" name="device_sdcard_total" id="0x7f0b0119" />
+    <public type="id" name="device_internal_memory_total" id="0x7f0b011a" />
+    <public type="id" name="device_internal_memory_available" id="0x7f0b011b" />
+    <public type="id" name="device_memory" id="0x7f0b011c" />
+    <public type="id" name="device_model" id="0x7f0b011d" />
+    <public type="id" name="device_version" id="0x7f0b011e" />
+    <public type="id" name="device_cpu" id="0x7f0b011f" />
+    <public type="id" name="bottom_panel" id="0x7f0b0120" />
+    <public type="id" name="menu" id="0x7f0b0121" />
+    <public type="id" name="home" id="0x7f0b0122" />
+    <public type="id" name="back" id="0x7f0b0123" />
+    <public type="id" name="search" id="0x7f0b0124" />
+    <public type="id" name="spasi" id="0x7f0b0125" />
+    <public type="id" name="powered_id" id="0x7f0b0126" />
+    <public type="anim" name="slide_in_left" id="0x7f0c0000" />
+    <public type="anim" name="slide_in_right" id="0x7f0c0001" />
+    <public type="anim" name="slide_out_left" id="0x7f0c0002" />
+    <public type="anim" name="slide_out_right" id="0x7f0c0003" />
 </resources>

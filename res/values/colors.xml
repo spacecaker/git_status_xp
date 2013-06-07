@@ -2,4 +2,5 @@
 <resources>
     <color name="black">#ff000000</color>
     <color name="red">#ffff0000</color>
+    <color name="tw_color145">#ff606060</color>
 </resources>

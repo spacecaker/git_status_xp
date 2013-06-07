@@ -1344,7 +1344,6 @@ Za brisanje glazbe, slike i ostalih korisničkih podataka, potrebno je formatira
     <string name="bluetooth_did_record">Record %1$s</string>
     <string name="bluetooth_did_record_primary">Record %1$s (Primary)</string>
     <string name="bluetooth_did_record_invalid">Record %1$s (Invalid)</string>
-    <string name="bt_svc_0x00000001">Reserved</string>
     <string name="bt_svc_0x00000002">Serial Port Profile</string>
     <string name="bt_svc_0x00000004">Dial-up Networking Profile</string>
     <string name="bt_svc_0x00000008">Fax Profile</string>
@@ -1419,4 +1418,5 @@ Za brisanje glazbe, slike i ostalih korisničkih podataka, potrebno je formatira
     <string name="bluetooth_notif_sap_title">Udaljeni SIM način</string>
     <string name="bluetooth_notif_sap_message">Bluetooth spojen sa %1$s</string>
     <string name="bluetooth_dialog_sap_deactivate">Isključiti udaljeni SIM način?</string>
+    <string name="bt_svc_0x00000001">Reserved</string>
 </resources>

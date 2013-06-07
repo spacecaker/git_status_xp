@@ -1345,7 +1345,6 @@ Aby usunąć także muzykę, zdjęcia i inne dane użytkownika, trzeba sformatow
     <string name="bluetooth_did_record">Record %1$s</string>
     <string name="bluetooth_did_record_primary">Record %1$s (Primary)</string>
     <string name="bluetooth_did_record_invalid">Record %1$s (Invalid)</string>
-    <string name="bt_svc_0x00000001">Reserved</string>
     <string name="bt_svc_0x00000002">Serial Port Profile</string>
     <string name="bt_svc_0x00000004">Dial-up Networking Profile</string>
     <string name="bt_svc_0x00000008">Fax Profile</string>
@@ -1420,4 +1419,5 @@ Aby usunąć także muzykę, zdjęcia i inne dane użytkownika, trzeba sformatow
     <string name="bluetooth_notif_sap_title">Dostęp do SIM</string>
     <string name="bluetooth_notif_sap_message">Połączenie Bluetooth z %1$s</string>
     <string name="bluetooth_dialog_sap_deactivate">Wyłączyć dostęp do SIM?</string>
+    <string name="bt_svc_0x00000001">Reserved</string>
 </resources>

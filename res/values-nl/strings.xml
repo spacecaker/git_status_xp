@@ -1346,7 +1346,6 @@ Als u ook muziek, foto's en andere gebruikersgegevens wilt wissen, moet de SD-ka
     <string name="bluetooth_did_record">Record %1$s</string>
     <string name="bluetooth_did_record_primary">Record %1$s (Primary)</string>
     <string name="bluetooth_did_record_invalid">Record %1$s (Invalid)</string>
-    <string name="bt_svc_0x00000001">Reserved</string>
     <string name="bt_svc_0x00000002">Serial Port Profile</string>
     <string name="bt_svc_0x00000004">Dial-up Networking Profile</string>
     <string name="bt_svc_0x00000008">Fax Profile</string>
@@ -1421,4 +1420,5 @@ Als u ook muziek, foto's en andere gebruikersgegevens wilt wissen, moet de SD-ka
     <string name="bluetooth_notif_sap_title">Externe SIM-modus</string>
     <string name="bluetooth_notif_sap_message">Bluetooth is verbonden met %1$s</string>
     <string name="bluetooth_dialog_sap_deactivate">Externe SIM-modus uitschakelen?</string>
+    <string name="bt_svc_0x00000001">Reserved</string>
 </resources>

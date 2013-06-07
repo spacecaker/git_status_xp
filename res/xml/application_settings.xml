@@ -21,7 +21,4 @@
     <PreferenceScreen android:title="@string/development_settings_title" android:summary="@string/development_settings_summary">
         <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.DevelopmentSettings" />
     </PreferenceScreen>
-    <PreferenceScreen android:title="@string/samsung_apps" android:key="key_samsung_apps" android:summary="@string/samsung_apps_summary">
-        <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.UNASettingList" />
-    </PreferenceScreen>
 </PreferenceScreen>

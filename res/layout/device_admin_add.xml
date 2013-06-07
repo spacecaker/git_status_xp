@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical" android:id="@id/active_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="horizontal" android:background="@*android:drawable/timepicker_up_btn" android:layout_width="fill_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="horizontal" android:background="@*android:drawable/ic_maps_indicator_current_position_anim2" android:layout_width="fill_parent" android:layout_height="wrap_content">
         <TextView android:textAppearance="?android:textAppearanceLarge" android:textColor="?android:textColorPrimary" android:gravity="center" android:id="@id/title" android:layout_width="fill_parent" android:layout_height="fill_parent" android:shadowColor="?android:colorBackground" android:shadowRadius="2.0" />
     </LinearLayout>
     <ScrollView android:gravity="top" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">

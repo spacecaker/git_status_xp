@@ -1316,7 +1316,6 @@ Haz clic en Aceptar para instalar el lector de pantalla."</string>
     <string name="bluetooth_did_record">Record %1$s</string>
     <string name="bluetooth_did_record_primary">Record %1$s (Primary)</string>
     <string name="bluetooth_did_record_invalid">Record %1$s (Invalid)</string>
-    <string name="bt_svc_0x00000001">Reserved</string>
     <string name="bt_svc_0x00000002">Serial Port Profile</string>
     <string name="bt_svc_0x00000004">Dial-up Networking Profile</string>
     <string name="bt_svc_0x00000008">Fax Profile</string>
@@ -1391,4 +1390,5 @@ Haz clic en Aceptar para instalar el lector de pantalla."</string>
     <string name="bluetooth_notif_sap_title">Modo SIM remota</string>
     <string name="bluetooth_notif_sap_message">Bluetooth está conectado con %1$s</string>
     <string name="bluetooth_dialog_sap_deactivate">¿Desactivar modo SIM remoto?</string>
+    <string name="bt_svc_0x00000001">Reserved</string>
 </resources>

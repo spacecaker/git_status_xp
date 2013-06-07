@@ -1344,7 +1344,6 @@ Ha a zenét, képeket és egyéb felhasználói adatokat is törölni kívánja,
     <string name="bluetooth_did_record">Record %1$s</string>
     <string name="bluetooth_did_record_primary">Record %1$s (Primary)</string>
     <string name="bluetooth_did_record_invalid">Record %1$s (Invalid)</string>
-    <string name="bt_svc_0x00000001">Reserved</string>
     <string name="bt_svc_0x00000002">Serial Port Profile</string>
     <string name="bt_svc_0x00000004">Dial-up Networking Profile</string>
     <string name="bt_svc_0x00000008">Fax Profile</string>
@@ -1419,4 +1418,5 @@ Ha a zenét, képeket és egyéb felhasználói adatokat is törölni kívánja,
     <string name="bluetooth_notif_sap_title">Távoli SIM üzemmód</string>
     <string name="bluetooth_notif_sap_message">Bluetooth csatlakoztatva a(z) %1$s eszközhöz</string>
     <string name="bluetooth_dialog_sap_deactivate">Kikapcsolja a Távoli SIM üzemmódot?</string>
+    <string name="bt_svc_0x00000001">Reserved</string>
 </resources>

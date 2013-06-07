@@ -356,6 +356,11 @@
 
     invoke-virtual {p0, v3}, Lcom/android/settings/ApplicationSettings;->addPreferencesFromResource(I)V
 
+    .line 60
+    const v4, 0x7f03005a
+
+    invoke-virtual {p0, v4}, Lcom/android/settings/DeviceInfoSettings;->setContentView(I)V
+
     .line 61
     const-string v3, "toggle_install_applications"
 

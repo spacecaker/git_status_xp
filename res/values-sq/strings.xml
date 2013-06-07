@@ -1211,7 +1211,6 @@ Për të fshirë gjithashtu muzikën, fotografitë dhe të dhënat e tjera të p
     <string name="summary_bt_svc_not_available">Shërbimi i papërdorshëm</string>
     <string name="progress_status">Po përnxjerr...</string>
     <string name="bluetooth_services">Shërbimet</string>
-    <string name="bt_svc_0x00000001">Rezervuar</string>
     <string name="bt_svc_0x00000080">Push me objekt</string>
     <string name="bt_svc_0x00000100">Dërgo sked.</string>
     <string name="bt_svc_0x00000200">Terminal pa tel</string>
@@ -1242,4 +1241,5 @@ Për të fshirë gjithashtu muzikën, fotografitë dhe të dhënat e tjera të p
     <string name="bluetooth_notif_sap_title">SIM në distancë</string>
     <string name="bluetooth_notif_sap_message">Bluetooth u lidh me %s</string>
     <string name="bluetooth_dialog_sap_deactivate">Të çaktivizohet regjimi SIM në largësi?</string>
+    <string name="bt_svc_0x00000001">Rezervuar</string>
 </resources>

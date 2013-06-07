@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/settinglayout" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/scrolllayout" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="14.599976sp" android:textStyle="bold" android:textColor="@touchwiz:color/tw_color001" android:textColorHint="@touchwiz:color/tw_color002" android:gravity="center_vertical" android:id="@id/subTitle1" android:background="@*android:drawable/dark_header" android:paddingLeft="6.0dip" android:focusable="true" android:layout_width="fill_parent" android:layout_height="25.299988dip" android:text="@string/update_notification" android:shadowDx="-1.0" android:shadowDy="-2.0" android:shadowRadius="1.0" />
+    </LinearLayout>
+</LinearLayout>

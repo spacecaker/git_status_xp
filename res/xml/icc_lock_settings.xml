@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen android:title="@string/icc_lock_settings"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
-    <CheckBoxPreference android:title="@string/icc_pin_toggle" android:key="icc_toggle" android:summaryOn="@string/icc_lock_on" android:summaryOff="@string/icc_lock_off" />
-    <com.android.settings.EditPinPreference android:title="@string/icc_pin_change" android:key="icc_pin" android:dialogTitle="@string/icc_change_pin" android:dialogMessage="@string/icc_enter_old" android:positiveButtonText="@string/icc_enter_ok" android:negativeButtonText="@string/icc_enter_cancel" />
-</PreferenceScreen>

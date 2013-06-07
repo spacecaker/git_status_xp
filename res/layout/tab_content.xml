@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TabHost android:id="@id/tabHost" android:background="#fff1f1f1" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TabWidget android:id="@*android:id/tabs" android:layout_width="fill_parent" android:layout_height="wrap_content"
-      xmlns:android="http://schemas.android.com/apk/res/android" />
-    <FrameLayout android:id="@*android:id/tabcontent" android:paddingTop="41.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" />
-</TabHost>

@@ -136,7 +136,6 @@
     <string name="short_format_month">%b</string>
     <string name="full_wday_month_day_no_year">EEEE, d MMMM</string>
     <string name="abbrev_wday_month_day_year">E, d MMM yyyy</string>
-    <string name="mid_month_day_mid_wday_no_year">E. d MMM.</string>
     <string name="byteShort">B</string>
     <string name="elapsed_time_short_format_mm_ss">%1$02d:%2$02d</string>
     <string name="elapsed_time_short_format_h_mm_ss">%1$d:%2$02d:%3$02d</string>

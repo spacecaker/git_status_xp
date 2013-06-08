@@ -24,18 +24,18 @@
     <string name="month_long_october">listopada</string>
     <string name="month_long_november">studenoga</string>
     <string name="month_long_december">prosinca</string>
-    <string name="month_medium_january">sij</string>
-    <string name="month_medium_february">vel</string>
-    <string name="month_medium_march">ožu</string>
-    <string name="month_medium_april">tra</string>
-    <string name="month_medium_may">svi</string>
-    <string name="month_medium_june">lip</string>
-    <string name="month_medium_july">srp</string>
-    <string name="month_medium_august">kol</string>
-    <string name="month_medium_september">ruj</string>
-    <string name="month_medium_october">lis</string>
-    <string name="month_medium_november">stu</string>
-    <string name="month_medium_december">pro</string>
+    <string name="month_medium_january">01</string>
+    <string name="month_medium_february">02</string>
+    <string name="month_medium_march">03</string>
+    <string name="month_medium_april">04</string>
+    <string name="month_medium_may">05</string>
+    <string name="month_medium_june">06</string>
+    <string name="month_medium_july">07</string>
+    <string name="month_medium_august">08</string>
+    <string name="month_medium_september">09</string>
+    <string name="month_medium_october">10</string>
+    <string name="month_medium_november">11</string>
+    <string name="month_medium_december">12</string>
     <string name="month_shortest_january">1.</string>
     <string name="month_shortest_february">2.</string>
     <string name="month_shortest_march">3.</string>
@@ -88,16 +88,16 @@
     <string name="twenty_four_hour_time_format">H:mm</string>
     <string name="numeric_date" formatted="false">%-e.%-m.%Y.</string>
     <string name="numeric_date_format">d.M.yyyy.</string>
-    <string name="numeric_date_template" formatted="false">%s.%s.%s.</string>
+    <string name="numeric_date_template" formatted="false">%s.%s.%s</string>
     <string name="month_day_year" formatted="false">%-e. %B %Y.</string>
     <string name="time_of_day" formatted="false">%H:%M:%S</string>
     <string name="date_and_time" formatted="false">%H:%M:%S %-e.%b.%Y.</string>
     <string name="date_time">%2$s %1$s</string>
     <string name="time_date">%1$s %3$s</string>
-    <string name="abbrev_month_day_year" formatted="false">%-e.%b.%Y.</string>
+    <string name="abbrev_month_day_year" formatted="false">%-e.%b.%Y</string>
     <string name="month_day" formatted="false">%-e. %B</string>
     <string name="month">%-B</string>
-    <string name="month_year" formatted="false">%B %Y.</string>
+    <string name="month_year" formatted="false">%B %Y</string>
     <string name="abbrev_month_day" formatted="false">%-e.%b.</string>
     <string name="abbrev_month">%-b.</string>
     <string name="abbrev_month_year" formatted="false">%b.%Y.</string>
@@ -135,6 +135,5 @@
     <string name="same_year_wday1_mdy1_wday2_mdy2">%1$s, %3$s.%2$s. - %6$s, %8$s.%7$s.%9$s.</string>
     <string name="short_format_month">%b</string>
     <string name="full_wday_month_day_no_year">EEEE, d. MMMM</string>
-    <string name="abbrev_wday_month_day_year">EEE, d.MMM.yyyy.</string>
-    <string name="mid_month_day_mid_wday_no_year">E. d MMM.</string>
+    <string name="abbrev_wday_month_day_year">EEE, d.MMM.yyyy</string>
 </resources>

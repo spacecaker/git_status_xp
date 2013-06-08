@@ -9,7 +9,7 @@
     <string-array name="imProtocols">
         <item>AIM</item>
         <item>Windows Live</item>
-        <item>Yahoo!</item>
+        <item>Yahoo</item>
         <item>Skype</item>
         <item>QQ</item>
         <item>Google Talk</item>
@@ -22,14 +22,14 @@
         <item>Saincheap</item>
     </string-array>
     <string-array name="phoneTypes">
-        <item>Baile</item>
-        <item>Fón Póca</item>
-        <item>Obair</item>
-        <item>Facs Oibre</item>
-        <item>Facs Baile</item>
-        <item>Glaoire</item>
-        <item>Eile</item>
-        <item>Saincheap</item>
+        <item>Home</item>
+        <item>Mobile</item>
+        <item>Work</item>
+        <item>Work Fax</item>
+        <item>Home Fax</item>
+        <item>Pager</item>
+        <item>Other</item>
+        <item>Custom</item>
     </string-array>
     <string-array name="postalAddressTypes">
         <item>Baile</item>

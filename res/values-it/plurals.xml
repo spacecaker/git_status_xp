@@ -40,7 +40,7 @@
         <item quantity="one">1 sec fa</item>
     </plurals>
     <plurals name="abbrev_num_minutes_ago">
-        <item quantity="other">%d min. fa</item>
+        <item quantity="other">%1$d min fa</item>
         <item quantity="one">1 min fa</item>
     </plurals>
     <plurals name="abbrev_num_hours_ago">
@@ -56,7 +56,7 @@
         <item quantity="one">tra 1 sec</item>
     </plurals>
     <plurals name="abbrev_in_num_minutes">
-        <item quantity="other">Tra %d min</item>
+        <item quantity="other">tra %1$d min</item>
         <item quantity="one">tra 1 min</item>
     </plurals>
     <plurals name="abbrev_in_num_hours">

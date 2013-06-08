@@ -9,7 +9,7 @@
     <string-array name="imProtocols">
         <item>AIM</item>
         <item>Windows Live</item>
-        <item>Yahoo!</item>
+        <item>Yahoo</item>
         <item>Skype</item>
         <item>QQ</item>
         <item>Google Talk</item>
@@ -25,11 +25,11 @@
         <item>Hjem</item>
         <item>Mobil</item>
         <item>Arbejde</item>
-        <item>Fax arbejde</item>
-        <item>Fax hjem</item>
+        <item>Arbejdsfax</item>
+        <item>Hjemmefax</item>
         <item>Personsøger</item>
-        <item>Anden</item>
-        <item>Brugerdefineret</item>
+        <item>Andet</item>
+        <item>Tilpasset</item>
     </string-array>
     <string-array name="postalAddressTypes">
         <item>Hjem</item>

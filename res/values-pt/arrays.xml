@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="emailAddressTypes">
-        <item>Residencial</item>
-        <item>Trabalho</item>
-        <item>Outros</item>
-        <item>Personalizado</item>
+        <item>Pessoal</item>
+        <item>Empresa</item>
+        <item>Outro</item>
+        <item>Personalizar</item>
     </string-array>
     <string-array name="imProtocols">
         <item>AIM</item>
@@ -17,9 +17,9 @@
         <item>Jabber</item>
     </string-array>
     <string-array name="organizationTypes">
-        <item>Trabalho</item>
-        <item>Outros</item>
-        <item>Personalizado</item>
+        <item>Empresa</item>
+        <item>Outro</item>
+        <item>Personalizar</item>
     </string-array>
     <string-array name="phoneTypes">
         <item>Residencial</item>
@@ -32,15 +32,21 @@
         <item>Personalizado</item>
     </string-array>
     <string-array name="postalAddressTypes">
-        <item>Residencial</item>
-        <item>Trabalho</item>
-        <item>Outros</item>
-        <item>Personalizado</item>
+        <item>Pessoal</item>
+        <item>Empresa</item>
+        <item>Outro</item>
+        <item>Personalizar</item>
     </string-array>
     <string-array name="imAddressTypes">
-        <item>Residencial</item>
-        <item>Trabalho</item>
-        <item>Outros</item>
-        <item>Personalizado</item>
+        <item>Pessoal</item>
+        <item>Empresa</item>
+        <item>Outro</item>
+        <item>Personalizar</item>
+    </string-array>
+    <string-array name="zzzzz_tw_cursor_handle_search_list">
+        <item>Google</item>
+        <item>Google Tradutor</item>
+        <item>Wikipedia</item>
+        <item>Dicionário</item>
     </string-array>
 </resources>

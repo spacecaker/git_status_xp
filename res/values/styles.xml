@@ -77,7 +77,7 @@
         <item name="windowNoTitle">false</item>
         <item name="windowIsFloating">false</item>
         <item name="windowContentOverlay">@drawable/title_bar_shadow</item>
-        <item name="windowTitleSize">50.0dip</item>
+        <item name="windowTitleSize">25.0dip</item>
         <item name="windowTitleStyle">@style/WindowTitle</item>
         <item name="windowTitleBackgroundStyle">@style/WindowTitleBackground</item>
         <item name="alertDialogStyle">@style/AlertDialog</item>
@@ -169,14 +169,14 @@
         <item name="textSelectHandleRight">@drawable/text_select_handle_right</item>
         <item name="textSelectHandle">@drawable/text_select_handle_middle</item>
         <item name="textSelectHandleWindowStyle">@style/Widget.TextSelectHandle</item>
-        <item name="textColorSecondaryList">@color/zzz_tw_secondary_list_text_dark</item>
         <item name="textColorSearchUrl">@color/search_url_text</item>
         <item name="searchWidgetCorpusItemBackground">@color/search_widget_corpus_item_background</item>
-        <item name="textAppearanceSmallList">@style/TextAppearance.SmallList</item>
         <item name="searchResultListItemHeight">58.0dip</item>
         <item name="gestureOverlayViewStyle">@style/Widget.GestureOverlayView</item>
         <item name="horizontalScrollViewStyle">@style/Widget.HorizontalScrollView</item>
         <item name="keyboardViewStyle">@style/Widget.KeyboardView</item>
+        <item name="textColorSecondaryList">@color/zzz_tw_secondary_list_text_dark</item>
+        <item name="textAppearanceSmallList">@style/TextAppearance.SmallList</item>
     </style>
     <style name="Theme.NoTitleBar" parent="@style/Theme">
         <item name="windowNoTitle">true</item>
@@ -199,7 +199,7 @@
     <style name="Theme.Dialog" parent="@style/Theme">
         <item name="textAppearance">@style/TextAppearance</item>
         <item name="textAppearanceInverse">@style/TextAppearance.Inverse</item>
-        <item name="textColorPrimary">@color/primary_text_dark</item>
+        <item name="textColorPrimary">@color/primary_text_dark_holo</item>
         <item name="textColorPrimaryDisableOnly">@color/primary_text_dark_disable_only</item>
         <item name="textColorSecondary">@color/secondary_text_dark</item>
         <item name="textColorPrimaryInverse">@color/primary_text_light</item>
@@ -357,21 +357,21 @@
         <item name="minHeight">16.0dip</item>
     </style>
     <style name="Widget.ProgressBar.Horizontal" parent="@style/Widget.ProgressBar">
-        <item name="maxHeight">5.0dip</item>
+        <item name="maxHeight">20.0dip</item>
         <item name="indeterminateOnly">false</item>
         <item name="indeterminateDrawable">@drawable/progress_indeterminate_horizontal</item>
-        <item name="progressDrawable">@drawable/progress_horizontal</item>
-        <item name="minHeight">5.0dip</item>
+        <item name="progressDrawable">@drawable/progress_horizontal_holo_dark</item>
+        <item name="minHeight">20.0dip</item>
     </style>
     <style name="Widget.SeekBar" parent="@style/Widget">
         <item name="focusable">true</item>
-        <item name="maxHeight">8.0dip</item>
+        <item name="maxHeight">20.0dip</item>
         <item name="indeterminateOnly">false</item>
-        <item name="indeterminateDrawable">@drawable/progress_horizontal</item>
-        <item name="progressDrawable">@drawable/progress_horizontal</item>
-        <item name="minHeight">7.0dip</item>
+        <item name="indeterminateDrawable">@drawable/progress_horizontal_holo_dark</item>
+        <item name="progressDrawable">@drawable/progress_horizontal_holo_dark</item>
+        <item name="minHeight">20.0dip</item>
         <item name="thumb">@drawable/seek_thumb</item>
-        <item name="thumbOffset">12.0dip</item>
+        <item name="thumbOffset">8.0dip</item>
     </style>
     <style name="Widget.RatingBar" parent="@style/Widget">
         <item name="maxHeight">57.0dip</item>
@@ -427,6 +427,9 @@
         <item name="dropDownVerticalOffset">-6.0dip</item>
     </style>
     <style name="Widget.Spinner" parent="@style/Widget">
+        <item name="textSize">16.0sp</item>
+        <item name="textStyle">normal</item>
+        <item name="textColor">#ff000000</item>
         <item name="background">@drawable/btn_dropdown</item>
         <item name="clickable">true</item>
     </style>
@@ -444,6 +447,7 @@
         <item name="paddingRight">6.0dip</item>
     </style>
     <style name="Widget.DropDownItem.Spinner" parent="@style/Widget.DropDownItem">
+        <item name="textColor">@color/white</item>
         <item name="checkMark">@drawable/btn_radio</item>
     </style>
     <style name="Widget.ScrollView" parent="@style/Widget">
@@ -541,8 +545,8 @@
         <item name="textColor">?textColorPrimary</item>
     </style>
     <style name="TextAppearance.Large.Inverse" parent="@style/TextAppearance.Large">
-        <item name="textColor">#ffffffff</item>
-        <item name="textColorHint">#ff000000</item>
+        <item name="textColor">?textColorPrimary</item>
+        <item name="textColorHint">?textColorHintInverse</item>
     </style>
     <style name="TextAppearance.Medium" parent="@style/TextAppearance">
         <item name="textSize">18.0sp</item>
@@ -595,14 +599,14 @@
         <item name="textColor">?textColorPrimaryInverse</item>
     </style>
     <style name="TextAppearance.Widget.DropDownItem" parent="@style/TextAppearance.Widget">
-        <item name="textColor">@color/primary_text_light_disable_only</item>
+        <item name="textColor">@color/white</item>
     </style>
     <style name="TextAppearance.Widget.TextView.SpinnerItem" parent="@style/TextAppearance.Widget.TextView">
-        <item name="textColor">@color/primary_text_light_disable_only</item>
+        <item name="textColor">@color/white</item>
     </style>
     <style name="TextAppearance.WindowTitle" parent="@style/TextAppearance">
         <item name="textSize">15.0sp</item>
-        <item name="textStyle">bold</item>
+        <item name="textStyle">normal</item>
         <item name="textColor">#ffffffff</item>
     </style>
     <style name="Theme.InputMethod" parent="@style/Theme.Panel">
@@ -711,12 +715,12 @@
         <item name="textStyle">bold</item>
     </style>
     <style name="TextAppearance.StatusBar.EventContent" parent="@style/TextAppearance.StatusBar">
-        <item name="textColor">#ff000000</item>
+        <item name="textColor">#ffffffff</item>
     </style>
     <style name="TextAppearance.StatusBar.EventContent.Title" parent="@style/TextAppearance.StatusBar.EventContent">
         <item name="textSize">16.0sp</item>
         <item name="textStyle">bold</item>
-        <item name="textColor">?textColorPrimaryInverse</item>
+        <item name="textColor">#ffffffff</item>
     </style>
     <style name="WindowTitleBackground">
         <item name="background">@drawable/title_bar</item>
@@ -724,7 +728,7 @@
     <style name="WindowTitle">
         <item name="textAppearance">@style/TextAppearance.WindowTitle</item>
         <item name="singleLine">true</item>
-        <item name="shadowColor">#ff636363</item>
+        <item name="shadowColor">#cc000000</item>
         <item name="shadowDx">1.0</item>
         <item name="shadowDy">1.0</item>
         <item name="shadowRadius">0.2</item>
@@ -739,12 +743,12 @@
         <item name="topDark">@drawable/popup_top_dark</item>
         <item name="centerDark">@drawable/popup_center_dark</item>
         <item name="bottomDark">@drawable/popup_bottom_dark</item>
-        <item name="fullBright">@drawable/popup_full_bright</item>
+        <item name="fullBright">@drawable/popup_full_dark</item>
         <item name="topBright">@drawable/popup_top_bright</item>
-        <item name="centerBright">@drawable/popup_center_bright</item>
-        <item name="bottomBright">@drawable/popup_bottom_bright</item>
+        <item name="centerBright">@drawable/popup_center_dark</item>
+        <item name="bottomBright">@drawable/popup_bottom_dark</item>
         <item name="bottomMedium">@drawable/popup_bottom_medium</item>
-        <item name="centerMedium">@drawable/popup_center_medium</item>
+        <item name="centerMedium">@drawable/popup_center_dark</item>
     </style>
     <style name="Animation.StatusBar" parent="@style/Animation">
         <item name="windowEnterAnimation">@anim/status_bar_enter</item>
@@ -851,9 +855,9 @@
         <item name="isIndicator">true</item>
     </style>
     <style name="Widget.TextView.ListSeparator" parent="@style/Widget.TextView">
-        <item name="textSize">15.0sp</item>
-        <item name="textStyle">bold</item>
-        <item name="textColor">?textColorPrimary</item>
+        <item name="textSize">16.0sp</item>
+        <item name="textStyle">normal</item>
+        <item name="textColor">#cceeeeee</item>
         <item name="gravity">center_vertical</item>
         <item name="background">@drawable/dark_header_dither</item>
         <item name="paddingLeft">5.0sp</item>
@@ -861,12 +865,12 @@
         <item name="layout_height">25.0dip</item>
     </style>
     <style name="Widget.TextView.ListSeparator.White" parent="@style/Widget.TextView.ListSeparator">
-        <item name="textColor">?textColorPrimaryInverse</item>
+        <item name="textColor">#cceeeeee</item>
         <item name="background">@drawable/light_header_dither</item>
     </style>
     <style name="Widget.TextView.ListSeparator.SamsungSettings" parent="@style/Widget.TextView.ListSeparator">
-        <item name="textStyle">bold</item>
-        <item name="textColor">#ffd6d6d6</item>
+        <item name="textStyle">normal</item>
+        <item name="textColor">#cceeeeee</item>
         <item name="background">@drawable/zzz_dark_header_dither</item>
     </style>
     <style name="Widget.ExpandableListView.White" parent="@style/Widget.ExpandableListView">
@@ -918,11 +922,6 @@
     <style name="Widget.QuickContactBadgeSmall.WindowLarge" parent="@style/Widget.QuickContactBadgeSmall">
         <item name="quickContactWindowSize">modeLarge</item>
     </style>
-    <style name="TextAppearance.SmallList" parent="@style/TextAppearance">
-        <item name="textSize">14.0sp</item>
-        <item name="textStyle">normal</item>
-        <item name="textColor">?textColorSecondaryList</item>
-    </style>
     <style name="TextAppearance.Theme.Dialog.AppError" parent="@style/TextAppearance.Theme.Dialog">
         <item name="textColor">#ffffc0c0</item>
     </style>
@@ -937,11 +936,6 @@
     <style name="TextAppearance.SlidingTabActive" parent="@attr/textAppearanceMedium">
         <item name="textSize">28.0sp</item>
         <item name="textColor">@color/sliding_tab_text_color_active</item>
-    </style>
-    <style name="TextAppearance.SlidingTabIconText" parent="@style/TextAppearance">
-        <item name="textSize">18.0sp</item>
-        <item name="textStyle">normal</item>
-        <item name="textColor">#ffebebeb</item>
     </style>
     <style name="TextAppearance.SearchResult" parent="@style/TextAppearance">
         <item name="textStyle">normal</item>
@@ -988,12 +982,6 @@
         <item name="paddingLeft">15.0dip</item>
         <item name="paddingRight">15.0dip</item>
     </style>
-    <style name="Theme.SamsungSettings" parent="@style/Theme">
-        <item name="colorBackground">@color/Samsung_Settings_bg_color</item>
-        <item name="windowBackground">@color/Samsung_Settings_bg_color</item>
-        <item name="listSeparatorTextViewStyle">@style/Widget.TextView.ListSeparator.SamsungSettings</item>
-        <item name="listDivider">@drawable/zzz_divider_horizontal_dark</item>
-    </style>
     <style name="Widget.TextSelectHandle" parent="@style/Widget">
         <item name="popupAnimationStyle">@style/Animation.TextSelectHandle</item>
     </style>
@@ -1001,6 +989,14 @@
         <item name="windowEnterAnimation">@anim/fade_in</item>
         <item name="windowExitAnimation">@anim/fade_out</item>
     </style>
+    <style name="Theme.SamsungSettings" parent="@style/Theme">
+        <item name="colorBackground">@color/Samsung_Settings_bg_color</item>
+        <item name="windowBackground">@color/Samsung_Settings_bg_color</item>
+        <item name="listSeparatorTextViewStyle">@style/Widget.TextView.ListSeparator.SamsungSettings</item>
+        <item name="listDivider">@drawable/zzz_divider_horizontal_dark</item>
+    </style>
+    <style name="ActiveWallpaperSettings" />
+    <style name="PreviewWallpaperSettings" />
     <style name="Theme.Light.Translucent" parent="@style/Theme.Light">
         <item name="windowBackground">@color/transparent</item>
         <item name="windowIsTranslucent">true</item>
@@ -1011,8 +1007,6 @@
         <item name="windowNoTitle">true</item>
         <item name="windowContentOverlay">@null</item>
     </style>
-    <style name="ActiveWallpaperSettings" />
-    <style name="PreviewWallpaperSettings" />
     <style name="Theme.Dialog.Alert" parent="@style/Theme.Dialog">
         <item name="windowBackground">@color/transparent</item>
         <item name="windowIsFloating">true</item>
@@ -1069,5 +1063,15 @@
         <item name="windowAnimationStyle">@style/Animation.InputMethod</item>
         <item name="background">@null</item>
         <item name="backgroundDimEnabled">false</item>
+    </style>
+    <style name="TextAppearance.SmallList" parent="@style/TextAppearance">
+        <item name="textSize">14.0sp</item>
+        <item name="textStyle">normal</item>
+        <item name="textColor">?textColorSecondaryList</item>
+    </style>
+    <style name="Widget.Button.TransparentLS" parent="@style/Widget.Button">
+        <item name="textAppearance">?textAppearanceSmall</item>
+        <item name="textColor">@color/white</item>
+        <item name="background">#00000000</item>
     </style>
 </resources>

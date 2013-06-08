@@ -9,7 +9,7 @@
     <string-array name="imProtocols">
         <item>AIM</item>
         <item>Windows Live</item>
-        <item>Yahoo!</item>
+        <item>Yahoo</item>
         <item>Skype</item>
         <item>QQ</item>
         <item>Google Talk</item>
@@ -22,14 +22,14 @@
         <item>Particularizat</item>
     </string-array>
     <string-array name="phoneTypes">
-        <item>Acasă</item>
+        <item>Domiciliu</item>
         <item>Mobil</item>
         <item>Serviciu</item>
-        <item>Fax birou</item>
+        <item>Fax serviciu</item>
         <item>Fax domiciliu</item>
         <item>Pager</item>
-        <item>Alte</item>
-        <item>Particularizat</item>
+        <item>Altele</item>
+        <item>Personalizat</item>
     </string-array>
     <string-array name="postalAddressTypes">
         <item>Acasă</item>

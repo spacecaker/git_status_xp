@@ -9,7 +9,7 @@
     <string-array name="imProtocols">
         <item>AIM</item>
         <item>Windows Live</item>
-        <item>Yahoo!</item>
+        <item>Yahoo</item>
         <item>Skype</item>
         <item>QQ</item>
         <item>Google Talk</item>
@@ -22,13 +22,13 @@
         <item>Vlastné</item>
     </string-array>
     <string-array name="phoneTypes">
-        <item>Domov</item>
-        <item>Mobilné</item>
+        <item>Domovská stránka</item>
+        <item>Mobil</item>
         <item>Práca</item>
         <item>Fax do práce</item>
         <item>Fax domov</item>
         <item>Pager</item>
-        <item>Ďalšie</item>
+        <item>Iné</item>
         <item>Vlastné</item>
     </string-array>
     <string-array name="postalAddressTypes">

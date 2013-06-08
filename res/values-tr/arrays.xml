@@ -9,7 +9,7 @@
     <string-array name="imProtocols">
         <item>AIM</item>
         <item>Windows Live</item>
-        <item>Yahoo!</item>
+        <item>Yahoo</item>
         <item>Skype</item>
         <item>QQ</item>
         <item>Google Talk</item>
@@ -23,10 +23,10 @@
     </string-array>
     <string-array name="phoneTypes">
         <item>Ev</item>
-        <item>Cep Telefonu</item>
+        <item>Mobil</item>
         <item>İş</item>
-        <item>İş Faksı</item>
-        <item>Ev faksı</item>
+        <item>İş Faks</item>
+        <item>Ev Faks</item>
         <item>Çağrı cihazı</item>
         <item>Diğer</item>
         <item>Özel</item>

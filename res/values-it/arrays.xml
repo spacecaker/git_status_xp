@@ -9,7 +9,7 @@
     <string-array name="imProtocols">
         <item>AIM</item>
         <item>Windows Live</item>
-        <item>Yahoo!</item>
+        <item>Yahoo</item>
         <item>Skype</item>
         <item>QQ</item>
         <item>Google Talk</item>
@@ -24,9 +24,9 @@
     <string-array name="phoneTypes">
         <item>Casa</item>
         <item>Cellulare</item>
-        <item>Ufficio</item>
-        <item>Fax Ufficio</item>
-        <item>Fax Casa</item>
+        <item>Lavoro</item>
+        <item>Fax lavoro</item>
+        <item>Fax casa</item>
         <item>Cercapersone</item>
         <item>Altro</item>
         <item>Personalizzato</item>

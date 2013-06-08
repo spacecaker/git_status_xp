@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="config_shortAnimTime">150</integer>
-    <integer name="config_mediumAnimTime">300</integer>
-    <integer name="config_longAnimTime">400</integer>
+    <integer name="config_shortAnimTime">200</integer>
+    <integer name="config_mediumAnimTime">400</integer>
+    <integer name="config_longAnimTime">500</integer>
     <integer name="config_radioScanningTimeout">0</integer>
-    <integer name="config_lidOpenRotation">90</integer>
+    <integer name="config_lidOpenRotation">360</integer>
     <integer name="config_deskDockRotation">-1</integer>
     <integer name="config_carDockRotation">-1</integer>
     <integer name="config_deskDockKeepsScreenOn">1</integer>
     <integer name="config_carDockKeepsScreenOn">1</integer>
     <integer name="config_lidKeyboardAccessibility">1</integer>
     <integer name="config_lidNavigationAccessibility">0</integer>
-    <integer name="config_lowBatteryWarningLevel">15</integer>
+    <integer name="config_lowBatteryWarningLevel">10</integer>
     <integer name="config_lowBatteryCloseWarningLevel">20</integer>
     <integer name="config_defaultNotificationLedOn">500</integer>
     <integer name="config_defaultNotificationLedOff">2000</integer>
@@ -21,4 +21,6 @@
     <integer name="config_datause_threshold_bytes">0</integer>
     <integer name="config_datause_throttle_kbitsps">300</integer>
     <integer name="config_datause_notification_type">2</integer>
+    <integer name="config_activityShortDur">150</integer>
+    <integer name="config_activityDefaultDur">220</integer>
 </resources>

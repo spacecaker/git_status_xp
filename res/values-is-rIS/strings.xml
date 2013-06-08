@@ -537,7 +537,6 @@
     <string name="classDataAsync">fyrir alla ósamstillta gagnaþjónustu</string>
     <string name="dlg_ics_security_policy">Öryggisreglur takmarka samnýtingu á netinu</string>
     <string name="limited_service">Aðeins neyðarhringingar</string>
-    <string name="lockscreen_simcard_puk_blocked">SIM-kortið er varið með PUK-númeri</string>
     <string name="mmiError_unknown">Óþekkt</string>
     <string name="serviceModeAll">Allt</string>
     <string name="serviceisDisabled">Þjónustan er óvirk</string>
@@ -651,6 +650,7 @@
     <string name="lockscreen_glogin_too_many_attempts">Of margar tilraunir til að teikna mynstur</string>
     <string name="lockscreen_glogin_instructions">Skráðu þig inn með Google reikningi til að opna</string>
     <string name="lockscreen_glogin_username_hint">Notandanafn (netfang)</string>
+    <string name="lockscreen_simcard_puk_blocked">SIM-kortið er varið með PUK-númeri</string>
     <string name="lockscreen_glogin_password_hint">Aðgangsorð</string>
     <string name="lockscreen_glogin_submit_button">Innskrá</string>
     <string name="lockscreen_glogin_invalid_input">Rangt notandanafn eða lykilorð</string>
@@ -887,10 +887,6 @@ Rafhlaða er of heit eða of köld"</string>
     <string name="zzz_fullcharge_battery_string">"Rafhlaða fullhlaðin.
 Aftengið hleðslutækið"</string>
     <string name="zzz_low_battery_string">Það er lítil hleðsla á rafhlöðunni. Endurhladdu símann til að halda áfram að nota hann</string>
-    <string name="zzz_pcwlock_locked">Sími læstur</string>
-    <string name="zzz_pcwlock_owner">Phone owner</string>
-    <string name="zzz_pcwlock_call">Símtal</string>
-    <string name="zzz_pcwlock_unlock">Taka úr lás</string>
     <string name="lockscreen_new_password">Nýtt aðgangsorð</string>
     <string name="lockscreen_confirm_password">Staðfesta lykilorð</string>
     <string name="save">Vista</string>

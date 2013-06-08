@@ -76,8 +76,8 @@
     <string name="day_of_week_shortest_thursday">ч</string>
     <string name="day_of_week_shortest_friday">п</string>
     <string name="day_of_week_shortest_saturday">с</string>
-    <string name="am">AM</string>
-    <string name="pm">PM</string>
+    <string name="am">пр. об.</string>
+    <string name="pm">сл. об.</string>
     <string name="yesterday">Вчера</string>
     <string name="today">Днес</string>
     <string name="tomorrow">Утре</string>

@@ -465,6 +465,8 @@
     <string name="permdesc_vibrate">Tillater programmet å kontrollere vibratoren</string>
     <string name="permlab_flashlight">Kontroller lommelykt</string>
     <string name="permdesc_flashlight">Tillater programmet å kontrollere lommelykt</string>
+    <string name="permlab_accessUsb">Tilgang til USB-enheter</string>
+    <string name="permdesc_accessUsb">Allows the application to access USB devices</string>
     <string name="permlab_hardware_test">test maskinvare</string>
     <string name="permdesc_hardware_test">Tillater programmet å kontrollere forskjellig periferiutstyr med formål om maskinvaretesting</string>
     <string name="permlab_callPhone">direkteanrop telefonnumre</string>
@@ -647,7 +649,9 @@
     <string name="callControlSSModification">Send endret SS ved SIM-kort</string>
     <string name="simRefresh">Oppdaterer SIM-kortdata...</string>
     <string name="simReset">SIM-data er endret. Telefonen nullstilles automatisk</string>
+    <string name="pleaseWait">Vennligst vent</string>
     <string name="sending">Sender...</string>
+    <string name="stk_launch_browser_message">Starte nettleser?</string>
     <string name="unsupportedMmiCode">Koden støttes ikke</string>
     <string name="pinpuk_attempts">Forsøk gjenstår:</string>
     <string name="serviceModeAllConditional">betinget</string>
@@ -756,7 +760,7 @@
     <string name="lockscreen_pattern_correct">Riktig!</string>
     <string name="lockscreen_pattern_wrong">Beklager, prøv på nytt</string>
     <string name="lockscreen_recover_password">Passordgjenoppretting</string>
-    <string name="lockscreen_plugged_in">Lader</string>
+    <string name="lockscreen_plugged_in">Lader (%1$d%%)</string>
     <string name="lockscreen_charged">Oppladet</string>
     <string name="lockscreen_battery_short">%1$d%%</string>
     <string name="lockscreen_low_battery">Sett i laderen</string>
@@ -766,6 +770,7 @@
     <string name="emergency_calls_only">Kun nødanrop</string>
     <string name="lockscreen_sim_error_message_short">Ugyldig SIM-kort</string>
     <string name="lockscreen_sim_error_message">Ugyldig SIM-kort</string>
+    <string name="lockscreen_network_locked_message">Nettverk låst</string>
     <string name="lockscreen_sim_network_locked_message">Telefonen er låst for nettverks-SIM-kort</string>
     <string name="lockscreen_sim_network_subset_locked_message">Telefonen er SIM-kortlåst for nettverksdelsett</string>
     <string name="lockscreen_sim_service_provider_locked_message">Telefonen er låst for tjenesteleverandør SIM-kort</string>
@@ -1067,7 +1072,7 @@ Please try again in %2$d seconds"</string>
     <string name="battery_low_subtitle">Batterinivået er lavt:</string>
     <string name="battery_low_title">Koble til lader</string>
     <string name="battery_low_why">Batteribruk</string>
-    <string name="battery_status_charging">Laster...</string>
+    <string name="battery_status_charging">Lader...</string>
     <string name="battery_status_text_percent_format">%1$d%%</string>
     <string name="zzz_battery_title_string">Varsling</string>
     <string name="zzz_discharge_battery_string">Lading stanset midlertidig. Batteritemperatur for høy eller for lav</string>
@@ -1075,9 +1080,9 @@ Please try again in %2$d seconds"</string>
     <string name="zzz_fullcharge_battery_string">"Batteriet er fulladet.
 Trekk ut kontakten til laderen"</string>
     <string name="zzz_low_battery_string">Lavt batterinivå. Lad opp telefonen snart for å fortsette bruken</string>
-    <string name="zzz_global_action_toggle_data_mode">Datanettverksmodus</string>
-    <string name="zzz_global_action_data_mode_on_status">Tilkobling til internett er på</string>
-    <string name="zzz_global_action_data_mode_off_status">Tilkobling til internett er av</string>
+    <string name="global_action_toggle_data_mode">Datanettverksmodus</string>
+    <string name="global_action_data_mode_on_status">Tilkobling til internett er på</string>
+    <string name="global_action_data_mode_off_status">Tilkobling til internett er av</string>
     <string name="lockscreen_new_password">Nytt passord</string>
     <string name="lockscreen_confirm_password">Bekreft passord</string>
     <string name="save">Lagre</string>
@@ -1093,7 +1098,11 @@ Trekk ut kontakten til laderen"</string>
     <string name="wipe_data_security_policy">Alle data vil bli fjernet i tråd med sikkerhetspolicyen</string>
     <string name="password_last_try">Hvis du angir feil passord på nytt, tilbakestilles passordet og sendes til deg på e-post til din registrerte e-postadresse</string>
     <string name="password_last_try_no_recovery">Hvis du angir feil passord igjen, fjernes alle data</string>
-    <string name="lockscreen_unlock_guide_text">Dra over skjermen for å låse opp</string>
+    <string name="volume_warning_message">Høy lydstyrke kan skade hørselen din hvis du lytter til det over lengre perioder</string>
+    <string name="lockscreen_charging_no_percent">Lader</string>
+    <string name="zzz_global_action_airplane_mode_on">Offlinemodus på</string>
+    <string name="zzz_global_action_airplane_mode_off">Offlinemodus av</string>
+    <string name="lockscreen_unlock_guide_text">Stryk på skjermen for å låse opp</string>
     <string name="lockscreen_weather_unable_display_weather_data">Kan ikke vise værdata</string>
     <string name="zzz_tts_lockscreen_time">Den er %1$d:%2$d</string>
     <string name="zzz_tts_lockscreen_time_am">Klokken er %1$d:%2$d</string>
@@ -1107,9 +1116,7 @@ Trekk ut kontakten til laderen"</string>
     <string name="zzz_tts_temp_celsius">Celsius</string>
     <string name="zzz_tts_temp_fahrenheit">Fahrenheit</string>
     <string name="zzz_tts_temperature">Grader</string>
-    <string name="fmapp_name">FM-radio</string>
+    <string name="fmapp_name">FMRadio</string>
     <string name="zzz_skt_usim_not_used">PUK-kode feil %d ganger. USIM-kort sperret. Kjøp nytt USIM-kort</string>
     <string name="zzz_tts_lockscreen_time_24H">Den er %1$d:%2$d</string>
-    <string name="permlab_accessUsb">Tilgang til USB-enheter</string>
-    <string name="permdesc_accessUsb">Allows the application to access USB devices</string>
 </resources>

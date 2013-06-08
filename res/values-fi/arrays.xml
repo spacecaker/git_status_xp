@@ -9,7 +9,7 @@
     <string-array name="imProtocols">
         <item>AIM</item>
         <item>Windows Live</item>
-        <item>Yahoo!</item>
+        <item>Yahoo</item>
         <item>Skype</item>
         <item>QQ</item>
         <item>Google Talk</item>
@@ -22,14 +22,14 @@
         <item>Mukautettu</item>
     </string-array>
     <string-array name="phoneTypes">
-        <item>Koti</item>
-        <item>Matkapuhelin</item>
+        <item>Puhelinnumero (koti)</item>
+        <item>Mobiili</item>
         <item>Työ</item>
-        <item>Työfaksi</item>
-        <item>Kotifaksi</item>
+        <item>Faksi (työ)</item>
+        <item>Faksi (koti)</item>
         <item>Hakulaite</item>
         <item>Muu</item>
-        <item>Mukautettu</item>
+        <item>Muokattu</item>
     </string-array>
     <string-array name="postalAddressTypes">
         <item>Koti</item>

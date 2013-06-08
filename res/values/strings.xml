@@ -170,7 +170,7 @@
     <string name="full_wday_month_day_no_year">EEEE, MMMM d</string>
     <string name="abbrev_wday_month_day_year">EEE, MMM d, yyyy</string>
     <string name="mid_month_day_end_wday_no_year">E. MMM. d</string>
-    <string name="mid_month_day_mid_wday_no_year">yyyy MMMM d, EEEE</string>
+    <string name="mid_month_day_mid_wday_no_year">E. d MMM.</string>
     <item type="string" name="APKTOOL_DUMMY_00ab">false</item>
     <string name="common_name_prefixes" />
     <string name="common_name_suffixes" />
@@ -298,26 +298,6 @@
     <string name="global_actions_airplane_mode_on_status">Flight mode is on</string>
     <string name="global_actions_airplane_mode_off_status">Flight mode is off</string>
     <string name="safeMode">Safe mode</string>
-    <string name="permgrouplab_mdm">MDM permissions</string>
-    <string name="permgroupdesc_mdm">Allow applications to consume MDM services.</string>
-    <string name="permlab_mdmApplications">MDM application permissions</string>
-    <string name="permdesc_mdmApplications">Allow applications to consume MDM application services.</string>
-    <string name="permlab_mdmBluetooth">MDM bluetooth permissions</string>
-    <string name="permdesc_mdmBluetooth">Allow applications to consume MDM bluetooth services.</string>
-    <string name="permlab_mdmDeviceInventory">MDM device inventory permissions</string>
-    <string name="permdesc_mdmDeviceInventory">Allow applications to consume MDM device inventory services.</string>
-    <string name="permlab_mdmExchangeAccount">MDM exchange account permissions</string>
-    <string name="permdesc_mdmExchangeAccount">Allow applications to consume MDM exchange account services.</string>
-    <string name="permlab_mdmRoaming">MDM Roaming permissions</string>
-    <string name="permdesc_mdmRoaming">Allow applications to consume MDM Roaming services.</string>
-    <string name="permlab_mdmWifi">MDM WiFi permissions</string>
-    <string name="permdesc_mdmWifi">Allow applications to consume MDM WiFi services.</string>
-    <string name="permlab_mdmSecurity">MDM Security permissions</string>
-    <string name="permdesc_mdmSecurity">Allow applications to consume MDM Security services.</string>
-    <string name="permlab_mdmHWControl">MDM Hardware Control permissions</string>
-    <string name="permdesc_mdmHWControl">Allow applications to consume MDM Hardware Control services.</string>
-    <string name="camera_restrict">Security policy restricts use of Camera</string>
-    <string name="microphone_restrict">Security policy restricts use of microphone</string>
     <string name="android_system_label">Android System</string>
     <string name="permgrouplab_costMoney">Services that cost you money</string>
     <string name="permgroupdesc_costMoney">Allow applications to do things that can cost you money.</string>
@@ -509,6 +489,8 @@
     <string name="permdesc_vibrate">Allows the application to control the vibrator.</string>
     <string name="permlab_flashlight">control flashlight</string>
     <string name="permdesc_flashlight">Allows the application to control the flashlight.</string>
+    <string name="permlab_accessUsb">access USB devices</string>
+    <string name="permdesc_accessUsb">Allows the application to access USB devices.</string>
     <string name="permlab_manageUsb">manage preferences and permissions for USB devices</string>
     <string name="permdesc_manageUsb">Allows the application to manage preferences and permissions for USB devices.</string>
     <string name="permlab_hardware_test">test hardware</string>
@@ -591,8 +573,6 @@
     <string name="permdesc_obex">Allows an application to access the OBEX service functions.</string>
     <string name="permlab_bluetooth_printer">access bluetooth printers</string>
     <string name="permdesc_bluetooth_printer">Allows an application to access the Bluetooth printer service functions.</string>
-    <string name="bluetooth_hid_too_many_dev">You can only connect up to %d HID devices.</string>
-    <string name="bluetooth_hid_info_corrupted">HID device information corrupted. Please unpair and then pair this device again.</string>
     <string name="permlab_disableKeyguard">disable keylock</string>
     <string name="permdesc_disableKeyguard">Allows an application to disable the keylock and any associated password security. A legitimate example of this is the phone disabling the keylock when receiving an incoming phone call, then re-enabling the keylock when the call is finished.</string>
     <string name="permlab_readSyncSettings">read sync settings</string>
@@ -699,6 +679,7 @@
     <string name="callControlSSModification">Send modified SS by SIM</string>
     <string name="simRefresh">Refreshing SIM data ...</string>
     <string name="simReset">SIM data has changed. Phone will reset automatically</string>
+    <string name="pleaseWait">Please wait</string>
     <string name="sending">Sending...</string>
     <string name="stk_launch_browser_message">Launch Browser?</string>
     <string name="unsupportedMmiCode">Code not supported</string>
@@ -736,7 +717,6 @@ Attempts Remaining :"</string>
     <string name="classDataAsync">for All Data Asynchronous services</string>
     <string name="dlg_ics_security_policy">Security policy restricts use of Internet sharing</string>
     <string name="limited_service">Emergency calls only</string>
-    <string name="lockscreen_simcard_puk_blocked">SIM card is PUK-blocked</string>
     <string name="mmiError_unknown">Unknown</string>
     <string name="serviceModeAll">All</string>
     <string name="serviceisDisabled">Service is disabled</string>
@@ -798,11 +778,6 @@ Attempts Remaining :"</string>
     <string name="contact_status_update_attribution">via %1$s</string>
     <string name="contact_status_update_attribution_with_date">%1$s via %2$s</string>
     <string name="keyguard_password_enter_pin_code">Enter PIN code</string>
-    <string name="keyguard_password_enter_puk_code">Enter PUK code</string>
-    <string name="keyguard_password_enter_new_pin_code">Enter new PIN code</string>
-    <string name="keyguard_password_reenter_new_pin_code">Reenter new PIN code</string>
-    <string name="keyguard_password_wrong_puk_code">Incorrect PUK code!</string>
-    <string name="keyguard_sim_permanently_locked">This SIM card is permanently locked. Please see the User Guide or contact Customer Care.</string>
     <string name="keyguard_password_enter_password_code">Enter password to unlock</string>
     <string name="keyguard_password_wrong_pin_code">Incorrect PIN code!</string>
     <string name="keyguard_label_text">To unlock, press Menu then 0.</string>
@@ -864,6 +839,7 @@ Please try again in %d seconds."</string>
     <string name="lockscreen_glogin_too_many_attempts">Too many pattern attempts!</string>
     <string name="lockscreen_glogin_instructions">To unlock, sign in with your Google account</string>
     <string name="lockscreen_glogin_username_hint">Username (email)</string>
+    <string name="lockscreen_simcard_puk_blocked">SIM card is PUK-blocked</string>
     <string name="lockscreen_glogin_password_hint">Password</string>
     <string name="lockscreen_glogin_submit_button">Sign in</string>
     <string name="lockscreen_glogin_invalid_input">Invalid username or password.</string>
@@ -980,7 +956,7 @@ Select OK to continue, or Cancel to stay on the current page."</string>
     <string name="sendText">Select an action for text</string>
     <string name="volume_ringtone">Ringer volume</string>
     <string name="volume_music">Media volume</string>
-    <string name="volume_fm">FM radio volume</string>
+    <string name="volume_fm">FM volume</string>
     <string name="volume_music_hint_playing_through_bluetooth">Playing through Bluetooth</string>
     <string name="volume_music_hint_silent_ringtone_selected">Silent ringtone selected</string>
     <string name="volume_call">In-call volume</string>
@@ -1008,14 +984,14 @@ Select OK to continue, or Cancel to stay on the current page."</string>
     <string name="perms_show_all"><b>Show all</b></string>
     <string name="usb_storage_activity_title">USB Mass Storage</string>
     <string name="usb_storage_title">USB connected</string>
-    <string name="usb_storage_message">You have connected your phone to your computer via USB. Select the button below if you want to copy files between your computer and your Android‘s SD card.</string>
+    <string name="usb_storage_message">You have connected your phone to your computer via USB. Touch the button below if you want to copy files between your computer and your Android‘s SD card.</string>
     <string name="usb_storage_button_mount">Connect storage to PC</string>
     <string name="usb_storage_error_message">There is a problem using your SD card for USB mass storage.</string>
     <string name="usb_storage_notification_title">USB connected</string>
     <string name="usb_storage_notification_message">Select to copy files to/from your computer.</string>
     <string name="usb_storage_stop_notification_title">Turn off USB storage</string>
     <string name="usb_storage_stop_notification_message">Select to turn off USB storage.</string>
-    <string name="usb_storage_stop_title">USB storage in use</string>
+    <string name="usb_storage_stop_title">Storage in use</string>
     <string name="usb_storage_stop_message">Before turning off USB storage, make sure you have unmounted (“ejected”) your Android‘s SD card from your computer.</string>
     <string name="usb_storage_stop_button_mount">Disconnect storage from PC</string>
     <string name="usb_storage_stop_error_message">There was a problem turning off USB storage. Check to make sure you have unmounted the USB host, then try again.</string>
@@ -1033,7 +1009,6 @@ Select OK to continue, or Cancel to stay on the current page."</string>
     <string name="fast_scroll_alphabet">" ABCDEFGHIJKLMNOPQRSTUVWXYZ"</string>
     <string name="fast_scroll_numeric_alphabet">" 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"</string>
     <string name="candidates_style"><u>candidates</u></string>
-    <string name="restricts_use_of_external_sd_card_msg">Security policy restricts use of external SD card</string>
     <string name="ext_media_checking_notification_title">Preparing SD card</string>
     <string name="ext_media_checking_notification_message">Checking for errors.</string>
     <string name="ext_media_nofs_notification_title">Blank SD card</string>
@@ -1104,11 +1079,6 @@ for account %s"</string>
     <string name="media_removed">SD card has been removed.</string>
     <string name="media_shared">SD card is currently in use by a computer.</string>
     <string name="media_unknown_state">External media in unknown state.</string>
-    <string name="gpsNotifTicker">Location request from %s</string>
-    <string name="gpsNotifTitle">Location request</string>
-    <string name="gpsNotifMessage">Requested by %1$s (%2$s)</string>
-    <string name="gpsVerifYes">Yes</string>
-    <string name="gpsVerifNo">No</string>
     <string name="low_internal_storage_view_text_data">Internal phone storage is getting low</string>
     <string name="low_internal_storage_view_text_data_alert_title">Memory full</string>
     <string name="low_internal_storage_view_text_data_alert_message1">Internal phone storage space is nearly full</string>
@@ -1147,15 +1117,9 @@ Please try again in %d seconds."</string>
     <string name="zzz_fullcharge_battery_string">"Battery fully charged.
 Unplug charger"</string>
     <string name="zzz_low_battery_string">Battery low. Recharge phone soon to keep using</string>
-    <string name="zzz_pcwlock_locked">Phone locked</string>
-    <string name="zzz_pcwlock_owner">Phone owner</string>
-    <string name="zzz_pcwlock_call">Call</string>
-    <string name="zzz_pcwlock_unlock">Unlock</string>
-    <string name="zzz_pcwlock_enter_pin">Enter PIN to unlock</string>
-    <string name="zzz_pcwlock_pin_does_not_match">PIN does not match</string>
-    <string name="zzz_global_action_toggle_data_mode">Data network mode</string>
-    <string name="zzz_global_action_data_mode_on_status">Data network mode activated</string>
-    <string name="zzz_global_action_data_mode_off_status">Data network mode deactivated</string>
+    <string name="global_action_toggle_data_mode">Data network mode</string>
+    <string name="global_action_data_mode_on_status">Data network mode activated</string>
+    <string name="global_action_data_mode_off_status">Data network mode deactivated</string>
     <string name="lockscreen_new_password">New password</string>
     <string name="lockscreen_confirm_password">Confirm password</string>
     <string name="save">Save</string>
@@ -1171,28 +1135,13 @@ Unplug charger"</string>
     <string name="wipe_data_security_policy">All data will be wiped in line with security policy</string>
     <string name="password_last_try">If incorrect password entered again, the password will be reset and emailed to your registered email address</string>
     <string name="password_last_try_no_recovery">If incorrect password entered again, all data will be wiped</string>
+    <string name="volume_warning_message">Loud music may harm your hearing if you listen to it for a long time</string>
     <string name="zzz_kepad_cancel">Cancel</string>
     <string name="lockscreen_charging_no_percent">Charging</string>
-    <string name="sec_encryptservice_stat_title_ongoing_enc_first_storage">Encrypting USB storage...</string>
-    <string name="sec_encryptservice_stat_title_ongoing_enc_second_storage">Encrypting SD card...</string>
-    <string name="sec_encryptservice_stat_title_ongoing_dec_first_storage">Decrypting USB storage...</string>
-    <string name="sec_encryptservice_stat_title_ongoing_dec_second_storage">Decrypting SD card...</string>
-    <string name="sec_encryptservice_stat_title_notifications_enc">Data encryption</string>
-    <string name="sec_encryptservice_stat_title_notifications_dec">Data decryption</string>
-    <string name="sec_encryptservice_stat_description_notifications_enc">Data encrypted</string>
-    <string name="sec_encryptservice_stat_description_notifications_dec">Data decrypted</string>
-    <string name="lockscreen_encrypting_device_memory">Encrypting system storage...</string>
-    <string name="lockscreen_decrypting_device_memory">Decrypting system storage...</string>
-    <string name="lockscreen_data_encrypted">System storage encrypted</string>
-    <string name="lockscreen_data_decrypted">System storage decrypted</string>
-    <string name="lockscreen_device_encryption_failed">Failed to encrypt data</string>
-    <string name="lockscreen_device_decryption_failed">Failed to decrypt data</string>
-    <string name="lockscreen_starting">Starting...</string>
-    <string name="lockscreen_one_missed_call_count">1 missed call</string>
-    <string name="lockscreen_one_unread_message_count">1 unread message</string>
-    <string name="lockscreen_n_missed_calls_count">%1$d missed calls</string>
-    <string name="lockscreen_n_unread_messages_count">%1$d unread messages</string>
-    <string name="lockscreen_unlock_guide_text">Swipe screen to unlock</string>
+    <string name="simServiceTitle">SIM service</string>
+    <string name="zzz_global_action_airplane_mode_on">Flight mode on</string>
+    <string name="zzz_global_action_airplane_mode_off">Flight mode off</string>
+    <string name="lockscreen_unlock_guide_text" />
     <string name="lockscreen_weather_unable_display_weather_data">Unable to display weather data</string>
     <string name="zzz_tts_lockscreen_time">It is %1$d : %2$d</string>
     <string name="zzz_tts_lockscreen_time_am">It is %1$d : %2$d AM</string>
@@ -1207,12 +1156,65 @@ Unplug charger"</string>
     <string name="zzz_tts_temp_fahrenheit">Fahrenheit</string>
     <string name="zzz_tts_temperature">Degree</string>
     <string name="fmapp_name">FMRadio</string>
+    <string name="SetupCallDefault">Accept Call?</string>
+    <string name="stkAppName">SIM Toolkit</string>
     <string name="zzz_skt_usim_disable_title">USIM card Disabled</string>
     <string name="zzz_skt_usim_not_used">"PUK is entered incorrectly more USIM card can not be used.
 Buy a new USIM card, please."</string>
     <string name="zzz_skt_usim_crash">"Invalid USIM card
 Buy a proper USIM card, please."</string>
     <string name="zzz_tts_lockscreen_time_24H">It is %1$d %2$d</string>
+    <item type="string" name="APKTOOL_DUMMY_0495">false</item>
+    <item type="string" name="APKTOOL_DUMMY_0496">false</item>
+    <item type="string" name="APKTOOL_DUMMY_0497">false</item>
+    <item type="string" name="APKTOOL_DUMMY_0498">false</item>
+    <item type="string" name="APKTOOL_DUMMY_0499">false</item>
+    <item type="string" name="APKTOOL_DUMMY_049a">false</item>
+    <item type="string" name="APKTOOL_DUMMY_049b">false</item>
+    <item type="string" name="APKTOOL_DUMMY_049c">false</item>
+    <item type="string" name="APKTOOL_DUMMY_049d">false</item>
+    <item type="string" name="APKTOOL_DUMMY_049e">false</item>
+    <item type="string" name="APKTOOL_DUMMY_049f">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04a0">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04a1">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04a2">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04a3">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04a4">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04a5">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04a6">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04a7">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04a8">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04a9">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04aa">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04ab">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04ac">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04ad">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04ae">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04af">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04b0">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04b1">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04b2">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04b3">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04b4">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04b5">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04b6">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04b7">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04b8">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04b9">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04ba">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04bb">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04bc">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04bd">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04be">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04bf">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04c0">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04c1">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04c2">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04c3">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04c4">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04c5">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04c6">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04c7">false</item>
     <item type="string" name="APKTOOL_DUMMY_04c8">false</item>
     <item type="string" name="APKTOOL_DUMMY_04c9">false</item>
     <item type="string" name="APKTOOL_DUMMY_04ca">false</item>
@@ -1230,9 +1232,66 @@ Buy a proper USIM card, please."</string>
     <item type="string" name="APKTOOL_DUMMY_04d6">false</item>
     <item type="string" name="APKTOOL_DUMMY_04d7">false</item>
     <item type="string" name="APKTOOL_DUMMY_04d8">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04d9">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04da">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04db">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04dc">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04dd">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04de">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04df">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04e0">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04e1">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04e2">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04e3">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04e4">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04e5">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04e6">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04e7">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04e8">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04e9">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04ea">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04eb">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04ec">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04ed">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04ee">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04ef">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04f0">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04f1">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04f2">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04f3">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04f4">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04f5">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04f6">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04f7">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04f8">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04f9">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04fa">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04fb">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04fc">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04fd">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04fe">false</item>
+    <item type="string" name="APKTOOL_DUMMY_04ff">false</item>
+    <item type="string" name="APKTOOL_DUMMY_0500">false</item>
+    <item type="string" name="APKTOOL_DUMMY_0501">false</item>
+    <item type="string" name="APKTOOL_DUMMY_0502">false</item>
+    <item type="string" name="APKTOOL_DUMMY_0503">false</item>
+    <item type="string" name="APKTOOL_DUMMY_0504">false</item>
+    <item type="string" name="APKTOOL_DUMMY_0505">false</item>
+    <item type="string" name="APKTOOL_DUMMY_0506">false</item>
+    <item type="string" name="APKTOOL_DUMMY_0507">false</item>
+    <item type="string" name="APKTOOL_DUMMY_0508">false</item>
+    <item type="string" name="APKTOOL_DUMMY_0509">false</item>
+    <item type="string" name="APKTOOL_DUMMY_050a">false</item>
+    <item type="string" name="APKTOOL_DUMMY_050b">false</item>
+    <item type="string" name="APKTOOL_DUMMY_050c">false</item>
+    <item type="string" name="APKTOOL_DUMMY_050d">false</item>
     <string name="ltn_restricts_use_of_external_sd_card_msg">Security policy restricts use of external SD card</string>
     <string name="ltn_service_not_available">Service not available</string>
     <string name="reboot_recovery">Recovery</string>
     <string name="reboot_download">Download</string>
-    <string name="reboot">Reboot</string>
+    <string name="global_action_reboot">Reboot</string>
+    <string name="reboot_normal">Reboot</string>
+    <string name="reboot_hot_reboot">Hot reboot</string>
+    <string name="reboot_dialog">Reboot options</string>
+    <string name="reboot_dialog_accept">Reboot</string>
 </resources>

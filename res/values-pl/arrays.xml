@@ -9,7 +9,7 @@
     <string-array name="imProtocols">
         <item>AIM</item>
         <item>Windows Live</item>
-        <item>Yahoo!</item>
+        <item>Yahoo</item>
         <item>Skype</item>
         <item>QQ</item>
         <item>Google Talk</item>
@@ -22,14 +22,14 @@
         <item>Niestand.</item>
     </string-array>
     <string-array name="phoneTypes">
-        <item>Stacjonarny</item>
-        <item>Komórkowy</item>
+        <item>Dom</item>
+        <item>Komórka</item>
         <item>Praca</item>
-        <item>Faks służbowy</item>
-        <item>Faks prywatny</item>
+        <item>Faks w pracy</item>
+        <item>Faks domowy</item>
         <item>Pager</item>
-        <item>Inne</item>
-        <item>Niestand.</item>
+        <item>Inny</item>
+        <item>Niestandardowy</item>
     </string-array>
     <string-array name="postalAddressTypes">
         <item>Stacjonarny</item>

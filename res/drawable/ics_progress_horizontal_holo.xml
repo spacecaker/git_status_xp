@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@id/background" android:drawable="@drawable/selected_day_background" />
+    <item android:id="@id/background" android:drawable="@drawable/ics_progress_bg" />
     <item android:id="@id/secondaryProgress">
-        <scale android:drawable="@drawable/selected_day_background" android:scaleWidth="100%" />
+        <scale android:drawable="@drawable/ics_progress_bg" android:scaleWidth="100%" />
     </item>
     <item android:id="@id/progress">
-        <scale android:drawable="@drawable/input_method_fullscreen_background" android:scaleWidth="100%" />
+        <scale android:drawable="@drawable/ics_progress" android:scaleWidth="100%" />
     </item>
 </layer-list>

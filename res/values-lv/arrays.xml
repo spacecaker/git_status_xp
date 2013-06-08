@@ -9,7 +9,7 @@
     <string-array name="imProtocols">
         <item>AIM</item>
         <item>Windows Live</item>
-        <item>Yahoo!</item>
+        <item>Yahoo</item>
         <item>Skype</item>
         <item>QQ</item>
         <item>Google Talk</item>
@@ -24,12 +24,12 @@
     <string-array name="phoneTypes">
         <item>Mājas</item>
         <item>Mobilais</item>
-        <item>Darba</item>
-        <item>Darba fakss</item>
-        <item>Mājas fakss</item>
-        <item>Peidžera numurs</item>
+        <item>Darbā</item>
+        <item>Faksa numurs darbā</item>
+        <item>Faksa numurs mājās</item>
+        <item>Peidžers</item>
         <item>Cits</item>
-        <item>Pielāgot</item>
+        <item>Pielāgots</item>
     </string-array>
     <string-array name="postalAddressTypes">
         <item>Mājas</item>

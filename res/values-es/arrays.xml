@@ -22,9 +22,9 @@
         <item>Personalizar</item>
     </string-array>
     <string-array name="phoneTypes">
-        <item>Inicio</item>
+        <item>Casa</item>
         <item>Móvil</item>
-        <item>Profesional</item>
+        <item>Trabajo</item>
         <item>Fax del trabajo</item>
         <item>Fax de casa</item>
         <item>Buscapersonas</item>

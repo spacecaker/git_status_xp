@@ -36,12 +36,12 @@
         <item quantity="one">tomorrow</item>
     </plurals>
     <plurals name="abbrev_num_seconds_ago">
-        <item quantity="other">%d soic ó shin</item>
-        <item quantity="one">1 shoic ó shin</item>
+        <item quantity="other">%1$d secs ago</item>
+        <item quantity="one">1 sec ago</item>
     </plurals>
     <plurals name="abbrev_num_minutes_ago">
-        <item quantity="other">%d nóim ó shin</item>
-        <item quantity="one">1 nóim ó shin</item>
+        <item quantity="other">%1$d mins ago</item>
+        <item quantity="one">1 min ago</item>
     </plurals>
     <plurals name="abbrev_num_hours_ago">
         <item quantity="other">%1$d hours ago</item>
@@ -56,8 +56,8 @@
         <item quantity="one">in 1 sec</item>
     </plurals>
     <plurals name="abbrev_in_num_minutes">
-        <item quantity="other">I gceann %d nóim</item>
-        <item quantity="one">i gceann 1 nóim</item>
+        <item quantity="other">in %1$d mins</item>
+        <item quantity="one">in 1 min</item>
     </plurals>
     <plurals name="abbrev_in_num_hours">
         <item quantity="other">in %1$d hours</item>

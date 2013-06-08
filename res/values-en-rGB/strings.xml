@@ -158,7 +158,6 @@
     <string name="short_format_month">%b</string>
     <string name="full_wday_month_day_no_year">EEEE, d MMMM</string>
     <string name="abbrev_wday_month_day_year">E, d MMM yyyy</string>
-    <string name="mid_month_day_mid_wday_no_year">E. d MMM.</string>
     <string name="byteShort">B</string>
     <string name="kilobyteShort">KB</string>
     <string name="megabyteShort">MB</string>
@@ -466,6 +465,8 @@
     <string name="permdesc_vibrate">Allows the application to control the vibrator.</string>
     <string name="permlab_flashlight">control flashlight</string>
     <string name="permdesc_flashlight">Allows the application to control the flashlight.</string>
+    <string name="permlab_accessUsb">access USB devices</string>
+    <string name="permdesc_accessUsb">Allows the application to access USB devices.</string>
     <string name="permlab_hardware_test">test hardware</string>
     <string name="permdesc_hardware_test">Allows the application to control various peripherals for the purpose of hardware testing.</string>
     <string name="permlab_callPhone">directly call phone numbers</string>
@@ -888,12 +889,4 @@ for account %s"</string>
     <string name="media_removed">SD card has been removed.</string>
     <string name="media_shared">SD card is currently in use by a computer.</string>
     <string name="media_unknown_state">External media in unknown state.</string>
-    <string name="zzz_pcwlock_locked">Phone locked</string>
-    <string name="zzz_pcwlock_owner">Phone owner</string>
-    <string name="zzz_pcwlock_call">Call</string>
-    <string name="zzz_pcwlock_unlock">Unlock</string>
-    <string name="zzz_pcwlock_enter_pin">Enter PIN to unlock</string>
-    <string name="zzz_pcwlock_pin_does_not_match">PIN does not match</string>
-    <string name="permlab_accessUsb">access USB devices</string>
-    <string name="permdesc_accessUsb">Allows the application to access USB devices.</string>
 </resources>

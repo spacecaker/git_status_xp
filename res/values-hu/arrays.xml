@@ -9,10 +9,10 @@
     <string-array name="imProtocols">
         <item>AIM</item>
         <item>Windows Live</item>
-        <item>Yahoo!</item>
+        <item>Yahoo</item>
         <item>Skype</item>
         <item>QQ</item>
-        <item>Google Talk</item>
+        <item>Google Csevegő</item>
         <item>ICQ</item>
         <item>Jabber</item>
     </string-array>
@@ -29,7 +29,7 @@
         <item>Otthoni fax</item>
         <item>Személyhívó</item>
         <item>Egyéb</item>
-        <item>Egyedi</item>
+        <item>Egyéni</item>
     </string-array>
     <string-array name="postalAddressTypes">
         <item>Otthoni</item>

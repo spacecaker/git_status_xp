@@ -403,8 +403,6 @@
         <enum name="KEYCODE_OTHER_LANG1" value="111" />
         <enum name="KEYCODE_OTHER_LANG2" value="112" />
         <enum name="KEYCODE_PERIOD2" value="113" />
-        <enum name="KEYCODE_CUST1" value="114" />
-        <enum name="KEYCODE_CUST2" value="115" />
     </attr>
     <attr name="fullDark" format="reference|color" />
     <attr name="topDark" format="reference|color" />
@@ -1200,12 +1198,9 @@
         <enum name="hdpi" value="240" />
         <enum name="xhdpi" value="320" />
     </attr>
-    <attr name="emailShortcutAvailable" format="boolean" />
     <attr name="textColorPrimaryAutoComplete" format="reference|color" />
-    <attr name="textColorSecondaryList" format="reference|color" />
     <attr name="textColorSearchUrl" format="reference|color" />
     <attr name="searchWidgetCorpusItemBackground" format="reference|color" />
-    <attr name="textAppearanceSmallList" format="reference" />
     <attr name="searchResultListItemHeight" format="dimension" />
     <attr name="gestureOverlayViewStyle" format="reference" />
     <attr name="horizontalScrollViewStyle" format="reference" />
@@ -1226,4 +1221,6 @@
     <attr name="aspect" format="string" />
     <attr name="neverEncrypt" format="boolean" />
     <attr name="cantSaveState" format="boolean" />
+    <attr name="textColorSecondaryList" format="reference|color" />
+    <attr name="textAppearanceSmallList" format="reference" />
 </resources>

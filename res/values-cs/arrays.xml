@@ -25,10 +25,10 @@
         <item>Domů</item>
         <item>Mobil</item>
         <item>Práce</item>
-        <item>Fax do práce</item>
+        <item>Pracovní fax</item>
         <item>Fax domů</item>
         <item>Pager</item>
-        <item>Další</item>
+        <item>Ostatní</item>
         <item>Vlastní</item>
     </string-array>
     <string-array name="postalAddressTypes">

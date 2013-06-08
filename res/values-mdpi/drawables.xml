@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item type="drawable" name="timepicker_down_pressed">false</item>
-    <item type="drawable" name="timepicker_down_selected">false</item>
-    <item type="drawable" name="timepicker_up_pressed">false</item>
-    <item type="drawable" name="timepicker_up_selected">false</item>
-</resources>

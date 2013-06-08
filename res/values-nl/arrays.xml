@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="emailAddressTypes">
-        <item>Privé</item>
+        <item>Thuis</item>
         <item>Zakelijk</item>
         <item>Overige</item>
         <item>Aangepast</item>
@@ -9,7 +9,7 @@
     <string-array name="imProtocols">
         <item>AIM</item>
         <item>Windows Live</item>
-        <item>Yahoo!</item>
+        <item>Yahoo</item>
         <item>Skype</item>
         <item>QQ</item>
         <item>Google Talk</item>
@@ -22,23 +22,23 @@
         <item>Aangepast</item>
     </string-array>
     <string-array name="phoneTypes">
-        <item>Privé</item>
+        <item>Thuis</item>
         <item>Mobiel</item>
-        <item>Zakelijk</item>
+        <item>Werk</item>
         <item>Fax werk</item>
-        <item>Fax privé</item>
-        <item>Pieper</item>
-        <item>Overige</item>
+        <item>Fax thuis</item>
+        <item>Semafoon</item>
+        <item>Overig</item>
         <item>Aangepast</item>
     </string-array>
     <string-array name="postalAddressTypes">
-        <item>Privé</item>
+        <item>Thuis</item>
         <item>Zakelijk</item>
         <item>Overige</item>
         <item>Aangepast</item>
     </string-array>
     <string-array name="imAddressTypes">
-        <item>Privé</item>
+        <item>Thuis</item>
         <item>Zakelijk</item>
         <item>Overige</item>
         <item>Aangepast</item>

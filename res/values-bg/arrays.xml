@@ -9,7 +9,7 @@
     <string-array name="imProtocols">
         <item>AIM</item>
         <item>Windows Live</item>
-        <item>Yahoo!</item>
+        <item>Yahoo</item>
         <item>Skype</item>
         <item>QQ</item>
         <item>Google Talk</item>
@@ -22,13 +22,13 @@
         <item>По избор</item>
     </string-array>
     <string-array name="phoneTypes">
-        <item>Дом</item>
+        <item>Домашен</item>
         <item>Мобилен</item>
         <item>Служебен</item>
         <item>Служебен факс</item>
         <item>Домашен факс</item>
         <item>Пейджър</item>
-        <item>Друго</item>
+        <item>Друг</item>
         <item>По избор</item>
     </string-array>
     <string-array name="postalAddressTypes">

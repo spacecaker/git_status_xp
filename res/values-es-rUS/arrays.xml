@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="emailAddressTypes">
-        <item>Privado</item>
+        <item>Casa</item>
         <item>Trabajo</item>
-        <item>Otro</item>
-        <item>Personalizar</item>
+        <item>Otros</item>
+        <item>Personalización</item>
     </string-array>
     <string-array name="imProtocols">
         <item>AIM</item>
         <item>Windows Live</item>
-        <item>Yahoo!</item>
+        <item>Yahoo</item>
         <item>Skype</item>
         <item>QQ</item>
         <item>Google Talk</item>
@@ -18,35 +18,29 @@
     </string-array>
     <string-array name="organizationTypes">
         <item>Trabajo</item>
-        <item>Otro</item>
-        <item>Personalizar</item>
+        <item>Otros</item>
+        <item>Personalización</item>
     </string-array>
     <string-array name="phoneTypes">
-        <item>Privado</item>
-        <item>Móvil</item>
+        <item>Casa</item>
+        <item>Celular</item>
         <item>Trabajo</item>
-        <item>Trabajo Fax</item>
-        <item>Fax - Privado</item>
+        <item>Fax laboral</item>
+        <item>Fax residencial</item>
         <item>Localizador</item>
-        <item>Otro</item>
-        <item>Personalizar</item>
+        <item>Otros</item>
+        <item>Personalización</item>
     </string-array>
     <string-array name="postalAddressTypes">
-        <item>Privado</item>
+        <item>Casa</item>
         <item>Trabajo</item>
-        <item>Otro</item>
-        <item>Personalizar</item>
+        <item>Otros</item>
+        <item>Personalización</item>
     </string-array>
     <string-array name="imAddressTypes">
-        <item>Privado</item>
+        <item>Casa</item>
         <item>Trabajo</item>
-        <item>Otro</item>
-        <item>Personalizar</item>
-    </string-array>
-    <string-array name="zzzzz_tw_cursor_handle_search_list">
-        <item>Google</item>
-        <item>Traducir en Google</item>
-        <item>Wikipedia</item>
-        <item>Diccionario</item>
+        <item>Otros</item>
+        <item>Personalización</item>
     </string-array>
 </resources>

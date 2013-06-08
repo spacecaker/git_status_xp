@@ -26,7 +26,7 @@
     <string name="month_long_standalone_february">Februar</string>
     <string name="month_long_standalone_march">Mart</string>
     <string name="month_long_standalone_april">April</string>
-    <string name="month_long_standalone_may">Maj</string>
+    <string name="month_long_standalone_may">Мај</string>
     <string name="month_long_standalone_june">Jun</string>
     <string name="month_long_standalone_july">Jul</string>
     <string name="month_long_standalone_august">Avgust</string>
@@ -38,7 +38,7 @@
     <string name="month_long_february">Februar</string>
     <string name="month_long_march">Mart</string>
     <string name="month_long_april">April</string>
-    <string name="month_long_may">Maj</string>
+    <string name="month_long_may">Мај</string>
     <string name="month_long_june">Jun</string>
     <string name="month_long_july">Jul</string>
     <string name="month_long_august">Avgust</string>
@@ -50,7 +50,7 @@
     <string name="month_medium_february">Feb</string>
     <string name="month_medium_march">Mar</string>
     <string name="month_medium_april">Apr</string>
-    <string name="month_medium_may">Maj</string>
+    <string name="month_medium_may">Мај</string>
     <string name="month_medium_june">Jun</string>
     <string name="month_medium_july">Jul</string>
     <string name="month_medium_august">Avg</string>
@@ -103,17 +103,17 @@
     <string name="yesterday">juče</string>
     <string name="today">danas</string>
     <string name="tomorrow">sutra</string>
-    <string name="hour_minute_24" formatted="false">%H:%M</string>
+    <string name="hour_minute_24" formatted="false">%H.%M</string>
     <string name="hour_minute_ampm" formatted="false">%-l:%M %p</string>
     <string name="hour_minute_cap_ampm" formatted="false">%-l:%M %p</string>
     <string name="twelve_hour_time_format">h:mm a</string>
-    <string name="twenty_four_hour_time_format">HH:mm</string>
+    <string name="twenty_four_hour_time_format">HH.mm</string>
     <string name="numeric_date" formatted="false">%-e.%-m.%Y.</string>
     <string name="numeric_date_format">d.M.yyyy.</string>
     <string name="numeric_date_template" formatted="false">%s.%s.%s.</string>
     <string name="month_day_year" formatted="false">%d. %B %Y.</string>
-    <string name="time_of_day" formatted="false">%H:%M:%S</string>
-    <string name="date_and_time" formatted="false">%H:%M:%S %d.%m.%Y.</string>
+    <string name="time_of_day" formatted="false">%H.%M.%S</string>
+    <string name="date_and_time" formatted="false">%H.%M.%S %d.%m.%Y.</string>
     <string name="date_time">%2$s %1$s</string>
     <string name="time_date">%1$s %3$s</string>
     <string name="abbrev_month_day_year" formatted="false">%d.%m.%Y.</string>
@@ -161,7 +161,6 @@
     <string name="byteShort">B</string>
     <string name="kilobyteShort">KB</string>
     <string name="megabyteShort">MB</string>
-    <string name="gigabyteShort">GB</string>
     <string name="terabyteShort">TB</string>
     <string name="petabyteShort">PB</string>
     <string name="fileSizeSuffix">%1$s%2$s</string>
@@ -176,7 +175,7 @@
     <string name="passwordIncorrect">Pogrešna šifra</string>
     <string name="mmiComplete">MMI dovršen</string>
     <string name="badPin">Neispravan stari PIN kod</string>
-    <string name="badPuk">Pogrešan PUK kod</string>
+    <string name="badPuk">Neispravan PUK kod!</string>
     <string name="mismatchPin">Uneti PIN kodovi se ne slažu. Pokušaj ponovo</string>
     <string name="invalidPin">Unesi PIN sa 4 do 8 cifara</string>
     <string name="needPuk">SIM kartica je zaključana PUK kodom. Unesi PUK radi otključavanja</string>
@@ -233,7 +232,6 @@
     <string name="roamingTextSearching">Pretraga usluge...</string>
     <string name="cfTemplateNotForwarded">{0}: Nije prosleđen</string>
     <string name="cfTemplateForwarded">{0}: {1}</string>
-    <string name="cfTemplateForwardedTime">{0}: {1} након {2} секунде(и)</string>
     <string name="cfTemplateRegistered">{0}: Nije prosleđen</string>
     <string name="cfTemplateRegisteredTime">{0}: Nije prosleđen</string>
     <string name="fcComplete">Kod funkcije dovršen</string>
@@ -275,29 +273,9 @@
     <string name="global_action_silent_mode_on_status">Zvuk je isključen</string>
     <string name="global_action_silent_mode_off_status">Zvuk je uključen</string>
     <string name="global_actions_toggle_airplane_mode">Profil letenja</string>
-    <string name="global_actions_airplane_mode_on_status">Uključen režim za avion</string>
-    <string name="global_actions_airplane_mode_off_status">Isključen režim za avion</string>
+    <string name="global_actions_airplane_mode_on_status">Avionski režim uključen</string>
+    <string name="global_actions_airplane_mode_off_status">Avionski režim isključen</string>
     <string name="safeMode">Bezbedan režim</string>
-    <string name="permgrouplab_mdm">MDM permissions</string>
-    <string name="permgroupdesc_mdm">Dozvoljava aplikaciji da koristi MDM usluge</string>
-    <string name="permlab_mdmApplications">MDM dozvola za aplikaciju</string>
-    <string name="permdesc_mdmApplications">Dozvoljava aplikaciji da koristi MDM usluge za aplikacije</string>
-    <string name="permlab_mdmBluetooth">MDM dozvola za Bluetooth</string>
-    <string name="permdesc_mdmBluetooth">Dozvoljava aplikaciji da koristi MDM usluge za Bluetooth</string>
-    <string name="permlab_mdmDeviceInventory">MDM dozvola za inventar uređaja</string>
-    <string name="permdesc_mdmDeviceInventory">Dozvoljava aplikaciji da koristi MDM usluge za inventar uređaja</string>
-    <string name="permlab_mdmExchangeAccount">MDM dozvola za razmenu naloga</string>
-    <string name="permdesc_mdmExchangeAccount">Dozvoljava aplikaciji da koristi MDM usluge za razmenu naloga</string>
-    <string name="permlab_mdmRoaming">MDM dozvola za roming</string>
-    <string name="permdesc_mdmRoaming">Dozvoljava aplikaciji da koristi MDM usluge za roming</string>
-    <string name="permlab_mdmWifi">MDM WiFi permissions</string>
-    <string name="permdesc_mdmWifi">Dozvoljava aplikaciji da koristi MDM usluge za Wi-Fi</string>
-    <string name="permlab_mdmSecurity">MDM dozvola za bezbednost</string>
-    <string name="permdesc_mdmSecurity">Dozvoljava aplikaciji da koristi MDM usluge za bezbednost</string>
-    <string name="permlab_mdmHWControl">MDM dozvola za kontrolu hardvera</string>
-    <string name="permdesc_mdmHWControl">Dozvoljava aplikaciji da koristi MDM usluge za kontrolu hardvera</string>
-    <string name="camera_restrict">Politika bezbednosti ograničava upotrebu kamere</string>
-    <string name="microphone_restrict">Politika bezbednosti ograničava upotrebu mikrofona</string>
     <string name="android_system_label">Sistem Android</string>
     <string name="permgrouplab_costMoney">Usluge koje se naplaćuju</string>
     <string name="permgroupdesc_costMoney">Dozvoljava aplikaciji da radi stvari koje troše novac</string>
@@ -324,7 +302,7 @@
     <string name="permlab_statusBar">onemogući ili izmeni statusnu liniju</string>
     <string name="permdesc_statusBar">Dozvoljava aplikaciji da onemogući statusnu liniju ili dodaje i uklanja sistemske ikone</string>
     <string name="permlab_statusBarService">Statusna linija</string>
-    <string name="permdesc_statusBarService">Dozvoljava aplikaciji da pruža obaveštenja preko statusne trake</string>
+    <string name="permdesc_statusBarService">Омогућава апликацији да функционише као статусна трака</string>
     <string name="permlab_expandStatusBar">proširi/skupi statusnu liniju</string>
     <string name="permdesc_expandStatusBar">Dozvoljava aplikaciji da širi i skuplja statusnu liniju</string>
     <string name="permlab_processOutgoingCalls">presretni odlazne pozive</string>
@@ -475,20 +453,20 @@
     <string name="permdesc_mount_format_filesystems">Dozvoljava aplikaciji da formatira spoljnu memoriju</string>
     <string name="permlab_asec_access">Pristupi informacijama na SD kartici</string>
     <string name="permdesc_asec_access">Dozvoljava aplikaciji da pristupa informacijama iz bezbedne memorije</string>
-    <string name="permlab_asec_create">прављење интерне меморије</string>
+    <string name="permlab_asec_create">Kreiraj unutrašnju mem.</string>
     <string name="permdesc_asec_create">Dozvoljava aplikaciji da kreira bezbednu memoriju</string>
     <string name="permlab_asec_destroy">Obriši bezbednu memoriju</string>
-    <string name="permdesc_asec_destroy">Dozvoljava aplikaciji da obriše stavke sa unutrašnje memorije</string>
+    <string name="permdesc_asec_destroy">Омогућава апликацији да уништи интерну меморију</string>
     <string name="permlab_asec_mount_unmount">Uključi i isključi SD karticu</string>
     <string name="permdesc_asec_mount_unmount">Dozvoljava aplikaciji da uključi i isključi bezbednu memoriju</string>
-    <string name="permlab_asec_rename">преименовање интерне меморије</string>
+    <string name="permlab_asec_rename">Preimenuj unutrašnju mem.</string>
     <string name="permdesc_asec_rename">Dozvoljava aplikaciji da preimenuje bezbednu memoriju</string>
     <string name="permlab_vibrate">kontroliši vibracioni uređaj</string>
     <string name="permdesc_vibrate">Dozvoljava aplikaciji da kontroliše vibracioni uređaj</string>
     <string name="permlab_flashlight">kontrola blica</string>
     <string name="permdesc_flashlight">Dozvoljava aplikaciji da kontroliše blic</string>
-    <string name="permlab_manageUsb">Upravljaj podešavanjima i dozvolama za USB uređaje</string>
-    <string name="permdesc_manageUsb">Dozvoljava aplikaciji da upravlja podešavanjima i dozvolama za USB uređaje</string>
+    <string name="permlab_accessUsb">Pristupi USB uređajima</string>
+    <string name="permdesc_accessUsb">Омогућава апликацији приступ USB уређајима</string>
     <string name="permlab_hardware_test">testiraj hardver</string>
     <string name="permdesc_hardware_test">Dozvoljava aplikaciji da kontroliše razne periferne uređaje za potrebe testiranja hardvera</string>
     <string name="permlab_callPhone">direktno pozivaj telefonske brojeve</string>
@@ -513,7 +491,7 @@
     <string name="permdesc_devicePower">Dozvoljava aplikaciji da uključi ili isključi telefon</string>
     <string name="permlab_factoryTest">pokreni u režimu fabričkog testiranja</string>
     <string name="permdesc_factoryTest">Pokreni kao proizvođački test niskog nivoa koji omogućava potpun pristup hardveru uređaja. To je moguće samo kada uređaj radi u proizvođačkom režimu testiranja</string>
-    <string name="permlab_setWallpaper">Podesi tapet</string>
+    <string name="permlab_setWallpaper">podesi tapet</string>
     <string name="permdesc_setWallpaper">Dozvoljava aplikaciji da podesi sistemski tapet</string>
     <string name="permlab_setWallpaperHints">saveti za podešavanje veličine tapeta</string>
     <string name="permdesc_setWallpaperHints">Dozvoljava aplikaciji da podesi pomoći koje su veličine sistemskog tapeta</string>
@@ -551,26 +529,20 @@
     <string name="permdesc_changeWifiState">Dozvoljava aplikaciji da se priključi i otkači sa Wi-Fi pristupnih tačaka i da menja konfigurisane Wi-Fi mreže</string>
     <string name="permlab_changeWifiMulticastState">Dozvoli multikast Wi-Fi prijem</string>
     <string name="permdesc_changeWifiMulticastState">Dozvoljava aplikaciji da prima pakete koji nisu direktno poslati ovom uređaju. Tako se mogu otkriti usluge koje se pružaju u blizini. Koristi više energije nego običan režim rada</string>
-    <string name="permlab_accessWimaxState">Prikaži WiMAX status</string>
-    <string name="permdesc_accessWimaxState">Омогућава апликацији преглед информација о WiMAX статусу.</string>
-    <string name="permlab_changeWimaxState">Promeni WiMAX status</string>
-    <string name="permdesc_changeWimaxState">Dozvoljava aplikaciji da se uključi na i isključi sa WiMAX mreže</string>
     <string name="permlab_bluetoothAdmin">administriranje Bluetooth veze</string>
     <string name="permdesc_bluetoothAdmin">Dozvoljava aplikaciji da konfiguriše lokalni Bluetooth uređaj i da otkriva i uparuje udaljene uređaje</string>
     <string name="permlab_bluetooth">kreiraj Bluetooth veze</string>
     <string name="permdesc_bluetooth">Dozvoljava aplikaciji da vidi konfiguraciju lokalnog Bluetooth telefona i da poziva uparene uređaje i prihvata pozive od njih</string>
     <string name="permlab_nfc">Kontroliši NFC</string>
-    <string name="permdesc_nfc">Dozvoljava aplikaciji da komunicira sa oznakama za komunikaciju sa susednim poljem (NFC), karticama i čitačima</string>
+    <string name="permdesc_nfc">Омогућава апликацији да комуницира са ознакама, картицама и читачима комуникације у ужем пољу (Near Field Communication – NFC)</string>
     <string name="permlab_fm_receiver">Pokreni FM prijemnik</string>
-    <string name="permdesc_fm_receiver">Dozvoljava aplikaciji da pristupa funkcijama FM prijemnika</string>
+    <string name="permdesc_fm_receiver">Allows an application to access the FM receiver functions</string>
     <string name="permlab_fm_transmitter">access FM transmitter</string>
-    <string name="permdesc_fm_transmitter">Dozvoljava aplikaciji da pristupa funkcijama FM predajnika</string>
+    <string name="permdesc_fm_transmitter">Allows an application to access the FM transmitter functions</string>
     <string name="permlab_obex">Pristupi Obex usluzi</string>
     <string name="permdesc_obex">Dozvoljava aplikaciji da pristupa funkcijama OBEX usluge</string>
     <string name="permlab_bluetooth_printer">Pristupi Bluetooth štampačima</string>
     <string name="permdesc_bluetooth_printer">Dozvoljava aplikaciji da pristupa funkcijama Bluetooth štampača</string>
-    <string name="bluetooth_hid_too_many_dev">Povezan je maksimalan broj HID uređaja (%d)</string>
-    <string name="bluetooth_hid_info_corrupted">Informacije o HID uređaju su neispravne. Rasparite, a zatim ponovo uparite ovaj uređaj</string>
     <string name="permlab_disableKeyguard">onemogući zaključavanje tastature</string>
     <string name="permdesc_disableKeyguard">Dozvoljava aplikaciji da onemogući zaključavanje tastature i sve slične načine obezbeđivanja pomoću šifre. Jedan od primera bi bio kada uređaj onemogući zaključavanje tastature pri prijemu telefonskog poziva i zatim ga ponovo omogući nakon završetka razgovora</string>
     <string name="permlab_readSyncSettings">pročitaj podešavanja sinhronizacije</string>
@@ -592,7 +564,7 @@
     <string name="permlab_cache_filesystem">Pristupi keš memoriji</string>
     <string name="permdesc_cache_filesystem">Dozvoljava aplikaciji da čita i piše u keš memoriju</string>
     <string name="permlab_use_sip">Uputi/primi Internet pozive</string>
-    <string name="permdesc_use_sip">Dozvoljava aplikaciji da koristi SIP uslugu kako bi se obavljali/primali Internet pozivi</string>
+    <string name="permdesc_use_sip">Омогућава апликацији да користи SIP услугу за упућивање/пријем Интернет позива</string>
     <string name="policylab_limitPassword">Podesi pravila za šifre</string>
     <string name="policydesc_limitPassword">Ograničava koji se tipovi šifri koriste</string>
     <string name="policylab_watchLogin">Prati pokušaje prijavljivanja</string>
@@ -669,7 +641,7 @@
     <string name="managed_roaming_dialog_cancel_button">Ne</string>
     <string name="managed_roaming_dialog_content">Nađena mreža sa ograničenom uslugom. Da li želiš da započneš pretragu mreže?</string>
     <string name="managed_roaming_dialog_ok_button">Da</string>
-    <string name="authentication_reject">SIM kartica nije dozvoljena</string>
+    <string name="authentication_reject">Neispravna SIM kartica</string>
     <string name="imsi_unknown_hlr">SIM neobezbeđen MM#2</string>
     <string name="illegal_me">Telefon nedozvoljen MM#6</string>
     <string name="illegal_ms">SIM nedozvoljen MM#3</string>
@@ -677,6 +649,7 @@
     <string name="callControlSSModification">Pošalji SS koji je izmenio SIM</string>
     <string name="simRefresh">Osvežavanje podataka na SIM kartici...</string>
     <string name="simReset">Podaci o SIM-u promenjeni. Telefon će se automatski resetovati</string>
+    <string name="pleaseWait">Molim sačekajte</string>
     <string name="sending">Slanje...</string>
     <string name="stk_launch_browser_message">Pokreni pretraživač?</string>
     <string name="unsupportedMmiCode">Kod nije podržan</string>
@@ -763,7 +736,6 @@
     <string name="imProtocolGoogleTalk">Google Talk</string>
     <string name="imProtocolIcq">ICQ</string>
     <string name="imProtocolJabber">Jabber</string>
-    <string name="imProtocolNetMeeting">NetMeeting</string>
     <string name="orgTypeWork">Posao</string>
     <string name="orgTypeOther">Ostalo</string>
     <string name="orgTypeCustom">Prilagođeno</string>
@@ -774,13 +746,8 @@
     <string name="contact_status_update_attribution">Putem %s</string>
     <string name="contact_status_update_attribution_with_date">%1$s putem %2$s</string>
     <string name="keyguard_password_enter_pin_code">Unesi PIN kod</string>
-    <string name="keyguard_password_enter_puk_code">Enter PUK code</string>
-    <string name="keyguard_password_enter_new_pin_code">Enter new PIN code</string>
-    <string name="keyguard_password_reenter_new_pin_code">Reenter new PIN code</string>
-    <string name="keyguard_password_wrong_puk_code">Incorrect PUK code!</string>
-    <string name="keyguard_sim_permanently_locked">This SIM card is permanently locked. Please see the User Guide or contact Customer Care.</string>
     <string name="keyguard_password_enter_password_code">Za otključavanje ekrana unesi šifru</string>
-    <string name="keyguard_password_wrong_pin_code">Neispravan PIN kod</string>
+    <string name="keyguard_password_wrong_pin_code">Neispravan PIN!</string>
     <string name="keyguard_label_text">Za otključavanje pritisni Meni pa 0</string>
     <string name="emergency_call_dialog_number_for_display">Broj za hitne pozive</string>
     <string name="lockscreen_carrier_default">(Nema usluge)</string>
@@ -793,9 +760,9 @@
     <string name="lockscreen_pattern_correct">Tačno!</string>
     <string name="lockscreen_pattern_wrong">Probaj ponovo</string>
     <string name="lockscreen_recover_password">Oporavak šifre</string>
-    <string name="lockscreen_plugged_in">Punjenje (%d%%)...</string>
+    <string name="lockscreen_plugged_in">Пуњење (%1$d%%)</string>
     <string name="lockscreen_charged">Napunjena</string>
-    <string name="lockscreen_battery_short">%d%%</string>
+    <string name="lockscreen_battery_short">%1$d%%</string>
     <string name="lockscreen_low_battery">Priključi punjač</string>
     <string name="lockscreen_missing_sim_message_short">Nema SIM kartice</string>
     <string name="lockscreen_missing_sim_message">SIM kartica nije u telefonu</string>
@@ -828,11 +795,13 @@
     <string name="lockscreen_ruim_puk_locked_message">Telefon zaključan RUIM karticom</string>
     <string name="lockscreen_ruim_puk_locked_instructions">Pogledaj korisničko uputstvo ili kontaktiraj korisničku službu</string>
     <string name="lockscreen_ruim_locked_message">RUIM kartica zaključana</string>
-    <string name="lockscreen_too_many_failed_attempts_dialog_message" formatted="false">"%d пута сте нетачно унели шаблон за откључавање. 
+    <string name="lockscreen_too_many_failed_attempts_dialog_message">"%1$d пута сте нетачно унели шаблон за откључавање. 
 
-Покушајте поново за %d секунде(и)."</string>
-    <string name="lockscreen_failed_attempts_almost_glogin">Oblik za otključavanje je neispravno nacrtan %1$d puta. Nakon još %2$d neuspešnih pokušaja biće zatraženo otključavanje uređaja prijavom na Google. Probaj opet za %3$d sekundi</string>
-    <string name="lockscreen_too_many_failed_attempts_countdown">Probaj opet za %d sekundi</string>
+Покушајте поново за %2$d секунде(и)"</string>
+    <string name="lockscreen_failed_attempts_almost_glogin">"%1$d пута сте нетачно унели шаблон за откључавање. Након још %2$d неуспешна(их) покушаја, од вас ће бити затражено да откључате телефон помоћу података за пријављивање на Google.
+
+ Покушајте поново за %3$d секунде(и)"</string>
+    <string name="lockscreen_too_many_failed_attempts_countdown">Probaj opet za %1$d sekundi</string>
     <string name="lockscreen_forgot_pattern_button_text">Zaboravi oblik?</string>
     <string name="lockscreen_glogin_forgot_pattern">Otključavanje naloga</string>
     <string name="lockscreen_glogin_too_many_attempts">Previše pokušaja crtanja oblika!</string>
@@ -848,12 +817,11 @@
     <string name="password_keyboard_label_symbol_key">\?123</string>
     <string name="password_keyboard_label_alpha_key">ABC</string>
     <string name="password_keyboard_label_alt_key">ALT</string>
-    <string name="hour_ampm" formatted="false">%-l%P</string>
-    <string name="hour_cap_ampm" formatted="false">%-l%p</string>
     <string name="factorytest_failed">Fabrički test neuspešan</string>
     <string name="factorytest_not_system">Akcija FACTORY_TEST je podržana samo za pakete instalirane u /system/app</string>
     <string name="factorytest_no_action">Nema paketa koji obezbeđuje akciju FACTORY_TEST</string>
     <string name="factorytest_reboot">Restartuj</string>
+    <string name="web_user_agent">Mozilla/5.0 (Linux; U; Android %s) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1</string>
     <string name="js_dialog_title">Na strani %s stoji:</string>
     <string name="js_dialog_title_default">JavaScript</string>
     <string name="js_dialog_before_unload">"Želiš da odeš sa ove strane?
@@ -868,7 +836,7 @@
     <string name="permlab_writeHistoryBookmarks">piši istoriju i obeleživače pretraživača</string>
     <string name="permdesc_writeHistoryBookmarks">Dozvoljava aplikaciji da menja web istoriju i obeleživače sačuvane u telefonu. Ako se dozvoli, zlonamerne aplikacije mogu da brišu ili menjaju takve podatke</string>
     <string name="permlab_setAlarm">подешавање аларма у будилнику</string>
-    <string name="permdesc_setAlarm">Dozvoljava aplikaciji da podesi alarm na instaliranim aplikacijama za alarmni sat. Neke aplikacije za alarmni sat možda neće primeniti ovu funkciju</string>
+    <string name="permdesc_setAlarm">Дозвољава да апликација подеси аларм у инсталираној апликацији будилника. Неке апликације будилника можда не примењују ову функцију</string>
     <string name="permlab_writeGeolocationPermissions">Izmeni dozvole za geolociranje na Internetu</string>
     <string name="permdesc_writeGeolocationPermissions">Dozvoljava aplikaciji da menja dozvole za geolociranje na Internetu. Ako se omogući, zlonamerne aplikacije mogu da šalju informacije o lokaciji na nasumično izabrane sajtove</string>
     <string name="save_password_message">Da li želiš da pretraživač zapamti ovu šifru?</string>
@@ -924,32 +892,31 @@
     <string name="alwaysUse">Koristi se podrazumevano za ovu akciju</string>
     <string name="clearDefaultHintMsg">Obriši podrazumevane vrednosti u meniju Podešavanja početne strane > Aplikacije > Organizuj aplikacije</string>
     <string name="chooseActivity">Izaberi akciju</string>
-    <string name="chooseUsbActivity">Izaberi aplikaciju za USB uređaj</string>
     <string name="noApplications">Ovu akciju ne može da obavi nijedna aplikacija</string>
     <string name="aerr_title">Žao nam je!</string>
-    <string name="aerr_application">Апликација %1$s (процес %2$s) је неочекивано заустављена. Покушајте поново.</string>
+    <string name="aerr_application">Апликација %1$s (процес %2$s) је неочекивано заустављена. Покушајте поново</string>
     <string name="aerr_process">Proces %s se iznenada isključio. Probaj opet</string>
     <string name="anr_title">Žao nam je!</string>
     <string name="anr_activity_application">Aktivnost %1$s (u aplikaciji %2$s) se ne odaziva</string>
-    <string name="anr_activity_process">Aktivnost %1$s (u procesu %2$s) se ne odaziva</string>
-    <string name="anr_application_process">Aplikacija %1$s (u procesu %2$s) se ne odaziva</string>
+    <string name="anr_activity_process">Нема одзива активности %1$s (у процесу %2$s)</string>
+    <string name="anr_application_process">Нема одзива апликације %1$s (у процесу %2$s)</string>
     <string name="anr_process">Proces %s se ne odaziva</string>
     <string name="force_close">Zatvori prisilno</string>
     <string name="report">Izveštaj</string>
     <string name="wait">Sačekaj</string>
     <string name="launch_warning_title">Aplikacija preusmerena</string>
-    <string name="launch_warning_replace">Апликација %s је сада покренута.</string>
-    <string name="launch_warning_original">%s je pokrenuto prvo</string>
-    <string name="smv_application">Апликација %1$s (процес %2$s) је прекршила самонаметнуте StrictMode смернице.</string>
-    <string name="smv_process">%s je prekršio svoju StrictMode politiku</string>
-    <string name="heavy_weight_notification">Апликација %s је покренута</string>
+    <string name="launch_warning_replace">Апликација %1$s је сада покренута</string>
+    <string name="launch_warning_original">Првобитно је покренута апликација %1$s</string>
+    <string name="smv_application">Апликација %1$s (процес %2$s) је прекршила самонаметнуте StrictMode смернице</string>
+    <string name="smv_process">Процес %1$s је прекршио самонаметнуте StrictMode смернице</string>
+    <string name="heavy_weight_notification">Апликација %1$s је покренута</string>
     <string name="heavy_weight_notification_detail">Kucni za prelazak na aplikaciju</string>
     <string name="heavy_weight_switcher_title">Promeni aplikacije?</string>
-    <string name="heavy_weight_switcher_text">Ne može se pokrenuti nova aplikacija dok je neka druga aktivna</string>
+    <string name="heavy_weight_switcher_text">Већ је покренута друга апликација која мора бити заустављена да бисте могли да покренете нову</string>
     <string name="old_app_action">Vrati se na %s</string>
-    <string name="old_app_description">Не покрећи нову апликацију.</string>
+    <string name="old_app_description">Не покрећи нову апликацију</string>
     <string name="new_app_action">Pokreni %s</string>
-    <string name="new_app_description">Napusti aplikaciju bez čuvanja</string>
+    <string name="new_app_description">Заустави стару апликацију без чувања</string>
     <string name="sendText">Izaberi akciju za tekst</string>
     <string name="volume_ringtone">Jačina zvuka zvona</string>
     <string name="volume_music">Jačina zvuka medija</string>
@@ -966,18 +933,19 @@
     <string name="ringtone_silent">Nečujno</string>
     <string name="ringtone_picker_title">Tonovi zvona</string>
     <string name="ringtone_unknown">Nepoznat ton zvona</string>
+    <string name="wifi_tether_configure_ssid_default">AndroidAP</string>
     <string name="select_character">Ubaci karakter</string>
     <string name="sms_control_default_app_name">Nepoznata aplikacija</string>
     <string name="sms_control_title">Slanje SMS poruka</string>
-    <string name="sms_control_message">Šalje se veliki broj SMS poruka. Izaberi OK za nastavak ili Otkaži za prekid slanja</string>
+    <string name="sms_control_message">Šalje se veliki broj SMS poruka. Izaberi „OK” za nastavak ili „Otkaži” za prekid slanja</string>
     <string name="sms_control_yes">OK</string>
     <string name="sms_control_no">Poništi</string>
     <string name="date_time_set">Podesi</string>
     <string name="default_permission_group">Podrazumevano</string>
     <string name="permissions_format">%1$s, %2$s</string>
     <string name="no_permissions">Nisu potrebne dozvole</string>
-    <string name="perms_hide"><b>Sakrij</b></string>
-    <string name="perms_show_all"><b>Prikaži sve</b></string>
+    <string name="perms_hide"><b>Сакриј</b></string>
+    <string name="perms_show_all"><b>Прикажи све</b></string>
     <string name="usb_storage_activity_title">USB masovna memorija</string>
     <string name="usb_storage_title">USB priključen</string>
     <string name="usb_storage_message">Telefon priključen na računar putem USB-a. Kucni na donje dugme radi kopiranja fajlova sa računara na SD karticu</string>
@@ -989,7 +957,7 @@
     <string name="usb_storage_stop_notification_message">Izaberi za otkačivanje USB memorije</string>
     <string name="usb_storage_stop_title">USB memorija u upotrebi</string>
     <string name="usb_storage_stop_message">Pre otkačivanja USB memorije se sa računara mora otkačiti Android SD kartica</string>
-    <string name="usb_storage_stop_button_mount">Otkači USB memoriju</string>
+    <string name="usb_storage_stop_button_mount">Isključi USB memoriju</string>
     <string name="usb_storage_stop_error_message">Nemoguće otkačiti USB memoriju. Isključi USB pa probaj ponovo</string>
     <string name="dlg_confirm_kill_storage_users_title">Priključi USB memoriju</string>
     <string name="dlg_confirm_kill_storage_users_text">Priključivanje USB memorije će zaustaviti neke korišćene aplikacije. One neće biti dostupne do isključivanja USB memorije</string>
@@ -1004,8 +972,7 @@
     <string name="select_input_method">Izaberi način unosa</string>
     <string name="fast_scroll_alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="fast_scroll_numeric_alphabet">0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
-    <string name="candidates_style"><u>Kandidati</u></string>
-    <string name="restricts_use_of_external_sd_card_msg">Politika bezbednosti ograničava upotrebu SD kartice</string>
+    <string name="candidates_style"><u>кандидати</u></string>
     <string name="ext_media_checking_notification_title">Priprema SD kartice...</string>
     <string name="ext_media_checking_notification_message">Traženje grešaka</string>
     <string name="ext_media_nofs_notification_title">Prazna SD kartica</string>
@@ -1041,7 +1008,6 @@
     <string name="grant_permissions_header_text">Zahtev za pristup</string>
     <string name="allow">Dozvoli</string>
     <string name="deny">Odbaci</string>
-    <string name="permission_request_notification_title">Dozvola zatražena</string>
     <string name="permission_request_notification_with_subtitle">"Zatražena dozvola 
 za nalog %s"</string>
     <string name="input_method_binding_label">Način unošenja teksta</string>
@@ -1071,17 +1037,12 @@ za nalog %s"</string>
     <string name="format_error">Formatiranje SD kartice nije uspelo</string>
     <string name="media_bad_removal">SD kartica uklonjena pre nego što je isključena</string>
     <string name="media_checking">Provera SD kartice...</string>
-    <string name="media_removed">SD картица је уклоњена.</string>
+    <string name="media_removed">SD картица је уклоњена</string>
     <string name="media_shared">SD karticu trenutno koristi računar</string>
     <string name="media_unknown_state">Spoljni medij je u nepoznatom stanju</string>
-    <string name="gpsNotifTicker">Zahtev za lokaciju od %s</string>
-    <string name="gpsNotifTitle">Upozorenje na zahtev za lokaciju</string>
-    <string name="gpsNotifMessage">Zatražio/la %1$s (%2$s)</string>
-    <string name="gpsVerifYes">Da</string>
-    <string name="gpsVerifNo">Ne</string>
-    <string name="low_internal_storage_view_text_data">Internal phone storage is getting low</string>
+    <string name="low_internal_storage_view_text_data">Unutrašnja memorija telefona je dosta popunjena</string>
     <string name="low_internal_storage_view_text_data_alert_title">Memorija puna</string>
-    <string name="low_internal_storage_view_text_data_alert_message1">Nema dovoljno mesta na sistemskoj memoriji</string>
+    <string name="low_internal_storage_view_text_data_alert_message1">Unutrašnja memorija telefona je skoro puna</string>
     <string name="low_internal_storage_view_text_data_alert_message2">Obriši/deinstaliraj neke aplikacije ili podatke, pa probaj opet</string>
     <string name="low_internal_storage_view_text_dbdata">Skladišni prostor za bazu je skoro pun</string>
     <string name="low_internal_storage_view_text_dbdata_alert_title">Memorija puna</string>
@@ -1094,36 +1055,30 @@ za nalog %s"</string>
     <string name="zzzzz_tw_cursor_handle_choosertitle_sharevia">Podeli putem</string>
     <string name="job_manager">Menadžer zadataka</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message_with_password_unlock_screen">Šifra neispravno uneta %1$d puta. Probaj ponovo za %2$d sekundi</string>
-    <string name="enterPuk">Za otključavanje SIM kartice unesi PUK</string>
+    <string name="enterPuk">Unesi PUK radi otključavanja SIM kartice:</string>
     <string name="enterNewPin">Unesi novi PIN kod SIM kartice za deblokiranje PUK-a</string>
     <string name="verifyNewPin">Unesi novi PIN kod SIM kartice radi potvrde</string>
     <string name="verifyFailed">PIN kod SIM kartice se ne podudara. Probaj kasnije</string>
     <string name="invalidPuk">Unesi PUK sa 8 cifara</string>
-    <string name="zzz_once_keyguard_password_attempt_count_pin_code">%d pokušaj ostao</string>
-    <string name="zzz_once_keyguard_password_attempt_count_puk_code">%d pokušaj ostao</string>
-    <string name="keyguard_password_attempt_count_pin_code">%d pokušaja ostalo</string>
-    <string name="keyguard_password_attempt_count_puk_code">%d pokušaja ostalo</string>
-    <string name="battery_low_percent_format">Preostalo %d%% ili manje</string>
+    <string name="zzz_once_keyguard_password_attempt_count_pin_code">%1$d pokušaj ostao</string>
+    <string name="zzz_once_keyguard_password_attempt_count_puk_code">%1$d pokušaj ostao</string>
+    <string name="keyguard_password_attempt_count_pin_code">%1$d pokušaja ostalo</string>
+    <string name="keyguard_password_attempt_count_puk_code">%1$d pokušaja ostalo</string>
+    <string name="battery_low_percent_format">Preostalo %1$d%% ili manje</string>
     <string name="battery_low_subtitle">Baterija je skoro ispražnjena:</string>
     <string name="battery_low_title">Priključi punjač</string>
     <string name="battery_low_why">Upotreba baterije</string>
     <string name="battery_status_charging">Punjenje u toku...</string>
-    <string name="battery_status_text_percent_format">%d%%</string>
+    <string name="battery_status_text_percent_format">%1$d%%</string>
     <string name="zzz_battery_title_string">Upozorenje</string>
     <string name="zzz_discharge_battery_string">Punjenje pauzirano. Temperatura baterije previsoka ili preniska</string>
     <string name="zzz_empty_battery_string">Baterija potpuno prazna. Za nastavak rada odmah priključi telefon u struju</string>
     <string name="zzz_fullcharge_battery_string">"Baterija skroz napunjena.
 Otkači punjač"</string>
     <string name="zzz_low_battery_string">Baterija skoro prazna. Za nastavak rada treba napuniti bateriju</string>
-    <string name="zzz_pcwlock_locked">Telefon zaključan</string>
-    <string name="zzz_pcwlock_owner">Vlasnik telefona</string>
-    <string name="zzz_pcwlock_call">Poziv</string>
-    <string name="zzz_pcwlock_unlock">Otključaj</string>
-    <string name="zzz_pcwlock_enter_pin">Za otključavanje unesi PIN</string>
-    <string name="zzz_pcwlock_pin_does_not_match">PIN se ne podudara</string>
-    <string name="zzz_global_action_toggle_data_mode">Režim podataka</string>
-    <string name="zzz_global_action_data_mode_on_status">Režim podataka uključen</string>
-    <string name="zzz_global_action_data_mode_off_status">Režim podataka isključen</string>
+    <string name="global_action_toggle_data_mode">Režim podataka</string>
+    <string name="global_action_data_mode_on_status">Režim podataka uključen</string>
+    <string name="global_action_data_mode_off_status">Režim podataka isključen</string>
     <string name="lockscreen_new_password">Nova šifra</string>
     <string name="lockscreen_confirm_password">Potvrdi šifru</string>
     <string name="save">Sačuvaj</string>
@@ -1139,28 +1094,11 @@ Otkači punjač"</string>
     <string name="wipe_data_security_policy">Svi podaci će biti obrisani saglasno politici bezbednosti</string>
     <string name="password_last_try">Ako ponovo uneseš netačnu šifru, šifra će biti poništena i poslata e-poštom na registrovanu adresu e-pošte</string>
     <string name="password_last_try_no_recovery">Ako opet uneseš neispravnu šifru, biće obrisani svi podaci</string>
-    <string name="zzz_kepad_cancel">Otkaži</string>
+    <string name="volume_warning_message">Velika jačina zvuka može da ošteti sluh ukoliko tako slušate duže vreme</string>
     <string name="lockscreen_charging_no_percent">Punjenje u toku</string>
-    <string name="sec_encryptservice_stat_title_ongoing_enc_first_storage">Šifrovanje USB memorije...</string>
-    <string name="sec_encryptservice_stat_title_ongoing_enc_second_storage">Šifrovanje SD kartice...</string>
-    <string name="sec_encryptservice_stat_title_ongoing_dec_first_storage">Dešifrovanje USB memorije...</string>
-    <string name="sec_encryptservice_stat_title_ongoing_dec_second_storage">Dešifrovanje SD kartice...</string>
-    <string name="sec_encryptservice_stat_title_notifications_enc">Šifrovanje podataka</string>
-    <string name="sec_encryptservice_stat_title_notifications_dec">Dešifrovanje podataka</string>
-    <string name="sec_encryptservice_stat_description_notifications_enc">Podaci šifrovani</string>
-    <string name="sec_encryptservice_stat_description_notifications_dec">Podaci dešifrovani</string>
-    <string name="lockscreen_encrypting_device_memory">Šifrovanje sistemske memorije...</string>
-    <string name="lockscreen_decrypting_device_memory">Dešifrovanje sistemske memorije...</string>
-    <string name="lockscreen_data_encrypted">Sistemska memorija je šifrovana</string>
-    <string name="lockscreen_data_decrypted">Sistemska memorija je dešifrovana</string>
-    <string name="lockscreen_device_encryption_failed">Neuspešno šifrovanje podataka</string>
-    <string name="lockscreen_device_decryption_failed">Neuspešno dešifrovanje podataka</string>
-    <string name="lockscreen_starting">Pokretanje...</string>
-    <string name="lockscreen_one_missed_call_count">1 propušten poziv</string>
-    <string name="lockscreen_one_unread_message_count">1 nepročitana poruka</string>
-    <string name="lockscreen_n_missed_calls_count">%d propuštenih poziva</string>
-    <string name="lockscreen_n_unread_messages_count">Nepročitanih poruka: %d</string>
-    <string name="lockscreen_unlock_guide_text">Prevuci prstom po ekranu radi otključavanja</string>
+    <string name="zzz_global_action_airplane_mode_on">Uključen režim za avion</string>
+    <string name="zzz_global_action_airplane_mode_off">Isključen režim za avion</string>
+    <string name="lockscreen_unlock_guide_text">Za otključavanje prevuci prstom preko ekrana</string>
     <string name="lockscreen_weather_unable_display_weather_data">Nije moguće prikazati podatke o vremenskim prilikama</string>
     <string name="zzz_tts_lockscreen_time">Sada je %1$d:%2$d</string>
     <string name="zzz_tts_lockscreen_time_am">Sad je %1$d:%2$d AM</string>
@@ -1174,7 +1112,7 @@ Otkači punjač"</string>
     <string name="zzz_tts_temp_celsius">Celzijus</string>
     <string name="zzz_tts_temp_fahrenheit">Farenhajt</string>
     <string name="zzz_tts_temperature">Stepeni</string>
-    <string name="fmapp_name">FM radio</string>
+    <string name="fmapp_name">FMRadio</string>
     <string name="zzz_skt_usim_not_used">PUK neispravno unet %d puta. USIM kartica je blokirana. Kupi novu USIM karticu</string>
     <string name="zzz_tts_lockscreen_time_24H">Sada je %1$d:%2$d</string>
 </resources>

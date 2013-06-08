@@ -9,7 +9,7 @@
     <string-array name="imProtocols">
         <item>AIM</item>
         <item>Windows Live</item>
-        <item>Yahoo!</item>
+        <item>Yahoo</item>
         <item>Skype</item>
         <item>QQ</item>
         <item>Google Talk</item>
@@ -22,12 +22,12 @@
         <item>Prilagođeno</item>
     </string-array>
     <string-array name="phoneTypes">
-        <item>Kuća</item>
-        <item>Mobitel</item>
+        <item>Početna</item>
+        <item>Mobilni</item>
         <item>Posao</item>
-        <item>Posao Fax</item>
-        <item>Kuća Fax</item>
-        <item>Pager</item>
+        <item>Službeni faks</item>
+        <item>Faks kod kuće</item>
+        <item>Dojavljivač</item>
         <item>Ostalo</item>
         <item>Prilagođeno</item>
     </string-array>

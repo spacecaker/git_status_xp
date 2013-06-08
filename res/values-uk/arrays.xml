@@ -9,7 +9,7 @@
     <string-array name="imProtocols">
         <item>AIM</item>
         <item>Windows Live</item>
-        <item>Yahoo!</item>
+        <item>Yahoo</item>
         <item>Skype</item>
         <item>QQ</item>
         <item>Google Talk</item>
@@ -22,14 +22,14 @@
         <item>Особливий</item>
     </string-array>
     <string-array name="phoneTypes">
-        <item>Домашній</item>
+        <item>Дом</item>
         <item>Мобільний</item>
-        <item>Робота</item>
-        <item>Робочий факс</item>
-        <item>Домашній факс</item>
+        <item>Роб</item>
+        <item>Роб. факс</item>
+        <item>Дом. факс</item>
         <item>Пейджер</item>
-        <item>Інші</item>
-        <item>Особливий</item>
+        <item>Інше</item>
+        <item>Спеціал</item>
     </string-array>
     <string-array name="postalAddressTypes">
         <item>Домашній</item>

@@ -4,24 +4,6 @@
 
 
 # static fields
-.field private static final MUSICHUB_FF_DOWN_ACTION:Ljava/lang/String; = "com.samsung.music.musicservicecommand.ff.down"
-
-.field private static final MUSICHUB_FF_UP_ACTION:Ljava/lang/String; = "com.samsung.music.musicservicecommand.ff.up"
-
-.field private static final MUSICHUB_MEDIA_INFO:Ljava/lang/String; = "com.samsung.music.musicservicecommand.mediainfo"
-
-.field private static final MUSICHUB_NEXT:Ljava/lang/String; = "com.samsung.music.musicservicecommand.next"
-
-.field private static final MUSICHUB_ON:I = 0x2
-
-.field private static final MUSICHUB_PREVIOUS:Ljava/lang/String; = "com.samsung.music.musicservicecommand.previous"
-
-.field private static final MUSICHUB_REW_DOWN_ACTION:Ljava/lang/String; = "com.samsung.music.musicservicecommand.rew.down"
-
-.field private static final MUSICHUB_REW_UP_ACTION:Ljava/lang/String; = "com.samsung.music.musicservicecommand.rew.up"
-
-.field private static final MUSICHUB_TOGGLEPAUSE:Ljava/lang/String; = "com.samsung.music.musicservicecommand.togglepause"
-
 .field private static final MUSICPLAYER_CHECK_PLAY_STATUS:Ljava/lang/String; = "com.android.music.musicservicecommand.checkplaystatus"
 
 .field private static final MUSICPLAYER_FF_DOWN_ACTION:Ljava/lang/String; = "com.android.music.musicservicecommand.ff.down"
@@ -48,15 +30,13 @@
 
 
 # instance fields
+.field private final AWAKE_POKE_MILLIS:I
+
 .field private final DEBUG:Z
 
 .field private final MSG_MEDIA_UPDATE:I
 
 .field private final SHINK_ANIMATION_START:I
-
-.field private final STOP_MARQUEE:I
-
-.field private final STOP_MARQUEE_DELAY:I
 
 .field private final STREAMING_MEDIA_UPDATE:I
 
@@ -110,9 +90,9 @@
 
 .field private mPauseButton:Landroid/widget/ImageButton;
 
-.field private mREWLongPressed:Z
+.field private mPowerManager:Landroid/os/PowerManager;
 
-.field private mScreenOn:Z
+.field private mREWLongPressed:Z
 
 .field private mServiceNumber:I
 
@@ -139,103 +119,106 @@
 
     const/4 v3, 0x0
 
-    .line 155
+    .line 144
     invoke-direct {p0, p1}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;)V
 
-    .line 57
+    .line 56
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->DEBUG:Z
 
-    .line 84
+    .line 75
     iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMainLayout:Landroid/widget/RelativeLayout;
 
-    .line 93
+    .line 84
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isMaxLayout:Z
 
-    .line 99
-    iput-boolean v3, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mScreenOn:Z
-
-    .line 100
+    .line 88
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mIsMoving:Z
 
-    .line 101
+    .line 89
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mVisibleLayout:Z
 
-    .line 102
+    .line 90
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mIsPlaying:Z
 
-    .line 103
+    .line 91
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mWasShowed:Z
 
-    .line 105
+    .line 92
     iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentTitle:Ljava/lang/String;
 
-    .line 106
+    .line 93
     iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentArtist:Ljava/lang/String;
 
-    .line 107
+    .line 94
     iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentAlbumID:Ljava/lang/String;
 
-    .line 113
+    .line 99
     const/16 v2, 0x12c1
 
     iput v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->SHINK_ANIMATION_START:I
 
-    .line 114
+    .line 100
     const/16 v2, 0x12c2
 
     iput v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->MSG_MEDIA_UPDATE:I
 
-    .line 115
+    .line 101
     const/16 v2, 0x12c3
 
     iput v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->STREAMING_MEDIA_UPDATE:I
 
-    .line 116
-    const/16 v2, 0x12c4
+    .line 107
+    const v2, 0xea60
 
-    iput v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->STOP_MARQUEE:I
+    iput v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->AWAKE_POKE_MILLIS:I
 
-    .line 118
-    const/16 v2, 0x3e8
-
-    iput v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->STOP_MARQUEE_DELAY:I
-
-    .line 124
+    .line 112
     iput v3, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mServiceNumber:I
 
-    .line 128
+    .line 116
     new-instance v2, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$1;
 
     invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$1;-><init>(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHandler:Landroid/os/Handler;
 
-    .line 157
+    .line 146
     iput-object p2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
-    .line 158
+    .line 147
     iput-object p3, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
-    .line 159
+    .line 148
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mContentResolver:Landroid/content/ContentResolver;
 
-    .line 161
+    .line 150
+    const-string v2, "power"
+
+    invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/os/PowerManager;
+
+    iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mPowerManager:Landroid/os/PowerManager;
+
+    .line 152
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v1
 
-    .line 162
+    .line 153
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v2, 0x1090080
+    const v2, 0x10900b9
 
     invoke-virtual {v1, v2, p0, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    .line 164
-    const v2, 0x1020282
+    .line 155
+    const v2, 0x1020293
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
 
@@ -245,59 +228,44 @@
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMainLayout:Landroid/widget/RelativeLayout;
 
-    .line 166
+    .line 157
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 167
+    .line 158
     .local v0, filter:Landroid/content/IntentFilter;
     const-string v2, "com.android.music.musicservicecommand.mediainfo"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 168
-    const-string v2, "com.samsung.music.musicservicecommand.mediainfo"
-
-    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 169
-    const-string v2, "android.intent.action.SCREEN_OFF"
-
-    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 170
-    const-string v2, "android.intent.action.SCREEN_ON"
-
-    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 172
+    .line 159
     new-instance v2, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$2;
 
     invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$2;-><init>(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 246
+    .line 193
     iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 248
+    .line 195
     invoke-virtual {p0, v4}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setFocusable(Z)V
 
-    .line 249
+    .line 196
     invoke-virtual {p0, v4}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setFocusableInTouchMode(Z)V
 
-    .line 250
+    .line 197
     const/high16 v2, 0x4
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setDescendantFocusability(I)V
 
-    .line 253
+    .line 200
     invoke-direct {p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->init()V
 
-    .line 254
+    .line 201
     return-void
 .end method
 
@@ -312,31 +280,18 @@
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;I)V
-    .locals 0
+.method static synthetic access$100(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Landroid/os/Handler;
+    .locals 1
     .parameter "x0"
-    .parameter "x1"
 
     .prologue
     .line 53
-    invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setMaxLayout(I)V
+    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHandler:Landroid/os/Handler;
 
-    return-void
+    return-object v0
 .end method
 
-.method static synthetic access$102(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 53
-    iput-boolean p1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mScreenOn:Z
-
-    return p1
-.end method
-
-.method static synthetic access$1100(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Z
+.method static synthetic access$1000(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Z
     .locals 1
     .parameter "x0"
 
@@ -347,7 +302,7 @@
     return v0
 .end method
 
-.method static synthetic access$1102(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;Z)Z
+.method static synthetic access$1002(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -359,7 +314,7 @@
     return p1
 .end method
 
-.method static synthetic access$1200(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
+.method static synthetic access$1100(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
     .locals 0
     .parameter "x0"
 
@@ -370,7 +325,7 @@
     return-void
 .end method
 
-.method static synthetic access$1300(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Landroid/widget/ImageButton;
+.method static synthetic access$1200(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Landroid/widget/ImageButton;
     .locals 1
     .parameter "x0"
 
@@ -381,7 +336,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1400(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
+.method static synthetic access$1300(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
     .locals 0
     .parameter "x0"
 
@@ -392,7 +347,7 @@
     return-void
 .end method
 
-.method static synthetic access$1500(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Z
+.method static synthetic access$1400(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Z
     .locals 1
     .parameter "x0"
 
@@ -403,7 +358,7 @@
     return v0
 .end method
 
-.method static synthetic access$1502(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;Z)Z
+.method static synthetic access$1402(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -415,7 +370,7 @@
     return p1
 .end method
 
-.method static synthetic access$1600(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Landroid/widget/ImageButton;
+.method static synthetic access$1500(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Landroid/widget/ImageButton;
     .locals 1
     .parameter "x0"
 
@@ -449,18 +404,7 @@
     return p1
 .end method
 
-.method static synthetic access$300(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Landroid/os/Handler;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 53
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHandler:Landroid/os/Handler;
-
-    return-object v0
-.end method
-
-.method static synthetic access$400(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
+.method static synthetic access$300(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
     .locals 1
     .parameter "x0"
 
@@ -471,7 +415,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$500(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
+.method static synthetic access$400(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
     .locals 0
     .parameter "x0"
 
@@ -482,7 +426,7 @@
     return-void
 .end method
 
-.method static synthetic access$600(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)I
+.method static synthetic access$500(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)I
     .locals 1
     .parameter "x0"
 
@@ -493,7 +437,7 @@
     return v0
 .end method
 
-.method static synthetic access$700(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Landroid/widget/TextView;
+.method static synthetic access$600(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Landroid/widget/TextView;
     .locals 1
     .parameter "x0"
 
@@ -504,7 +448,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$800(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Z
+.method static synthetic access$700(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)Z
     .locals 1
     .parameter "x0"
 
@@ -515,7 +459,7 @@
     return v0
 .end method
 
-.method static synthetic access$900(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;III)V
+.method static synthetic access$800(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;III)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -529,23 +473,46 @@
     return-void
 .end method
 
+.method static synthetic access$900(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;I)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 53
+    invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setMaxLayout(I)V
+
+    return-void
+.end method
+
 .method private addMinTimer()V
     .locals 4
 
     .prologue
-    .line 1009
+    .line 983
     const-string v1, "GlassLockScreenMusicWidget"
 
     const-string v2, "addMinTimer()"
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1010
+    .line 984
+    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHandler:Landroid/os/Handler;
+
+    if-nez v1, :cond_1
+
+    .line 989
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 985
+    :cond_1
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isMaxLayout:Z
 
     if-eqz v1, :cond_0
 
-    .line 1011
+    .line 986
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHandler:Landroid/os/Handler;
 
     const/16 v2, 0x12c1
@@ -554,7 +521,7 @@
 
     move-result-object v0
 
-    .line 1012
+    .line 987
     .local v0, msg:Landroid/os/Message;
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHandler:Landroid/os/Handler;
 
@@ -562,244 +529,263 @@
 
     invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 1014
-    .end local v0           #msg:Landroid/os/Message;
-    :cond_0
-    return-void
+    goto :goto_0
 .end method
 
 .method private init()V
-    .locals 5
+    .locals 7
 
     .prologue
-    const/4 v3, 0x1
+    const/4 v5, 0x1
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    const/4 v1, -0x1
+    const/4 v3, -0x1
 
-    const-string v4, "GlassLockScreenMusicWidget"
+    const-string v6, "GlassLockScreenMusicWidget"
 
-    .line 321
-    const-string v0, "GlassLockScreenMusicWidget"
+    .line 279
+    const-string v2, "GlassLockScreenMusicWidget"
 
-    const-string v0, "Controller Initiation Running!!"
+    const-string v2, "Controller Initiation Running!!"
 
-    invoke-static {v4, v0}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 324
-    const v0, 0x1020287
+    .line 282
+    const v2, 0x1020298
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Landroid/widget/TextView;
+    check-cast v2, Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
+    iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
 
-    .line 325
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
+    .line 283
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setMarqueeRepeatLimit(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setMarqueeRepeatLimit(I)V
 
-    .line 326
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
+    .line 284
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setSelected(Z)V
+    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setSelected(Z)V
 
-    .line 328
-    const v0, 0x102028c
+    .line 286
+    const v2, 0x102029d
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Landroid/widget/TextView;
+    check-cast v2, Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
+    iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
 
-    .line 329
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
+    .line 287
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setMarqueeRepeatLimit(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setMarqueeRepeatLimit(I)V
 
-    .line 330
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
+    .line 288
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setSelected(Z)V
+    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setSelected(Z)V
 
-    .line 332
-    const v0, 0x1020283
+    .line 290
+    const v2, 0x1020294
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Landroid/widget/FrameLayout;
+    check-cast v2, Landroid/widget/FrameLayout;
 
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMaxMusicController:Landroid/widget/FrameLayout;
+    iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMaxMusicController:Landroid/widget/FrameLayout;
 
-    .line 333
-    const v0, 0x1020285
+    .line 291
+    const v2, 0x1020296
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Landroid/widget/LinearLayout;
+    check-cast v2, Landroid/widget/LinearLayout;
 
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBoxInMaxMusicController:Landroid/widget/LinearLayout;
+    iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBoxInMaxMusicController:Landroid/widget/LinearLayout;
 
-    .line 334
-    const v0, 0x1020284
+    .line 292
+    const v2, 0x1020295
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Landroid/widget/LinearLayout;
+    check-cast v2, Landroid/widget/LinearLayout;
 
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMinMusicControllerHandle:Landroid/widget/LinearLayout;
+    iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMinMusicControllerHandle:Landroid/widget/LinearLayout;
 
-    .line 335
-    const v0, 0x1020286
+    .line 293
+    const v2, 0x1020297
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Landroid/widget/ImageView;
+    check-cast v2, Landroid/widget/ImageView;
 
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtWithImage:Landroid/widget/ImageView;
+    iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtWithImage:Landroid/widget/ImageView;
 
-    .line 338
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMainLayout:Landroid/widget/RelativeLayout;
+    .line 296
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMainLayout:Landroid/widget/RelativeLayout;
 
-    invoke-virtual {v0, v2}, Landroid/widget/RelativeLayout;->setSoundEffectsEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/widget/RelativeLayout;->setSoundEffectsEnabled(Z)V
 
-    .line 339
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMainLayout:Landroid/widget/RelativeLayout;
+    .line 297
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMainLayout:Landroid/widget/RelativeLayout;
 
-    new-instance v1, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$3;
+    new-instance v3, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$3;
 
-    invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$3;-><init>(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
+    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$3;-><init>(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v3}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 348
-    new-instance v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$4;
+    .line 306
+    new-instance v2, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$4;
 
-    invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$4;-><init>(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
+    invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$4;-><init>(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
 
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mTouchListener:Landroid/view/View$OnTouchListener;
+    iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mTouchListener:Landroid/view/View$OnTouchListener;
 
-    .line 442
-    const v0, 0x102028b
+    .line 422
+    const v2, 0x102029c
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Landroid/widget/ImageButton;
+    check-cast v2, Landroid/widget/ImageButton;
 
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mNextButton:Landroid/widget/ImageButton;
+    iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mNextButton:Landroid/widget/ImageButton;
 
-    .line 443
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mNextButton:Landroid/widget/ImageButton;
+    .line 423
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mNextButton:Landroid/widget/ImageButton;
 
-    new-instance v1, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$5;
+    new-instance v3, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$5;
 
-    invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$5;-><init>(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
+    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$5;-><init>(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageButton;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
-    .line 463
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mNextButton:Landroid/widget/ImageButton;
+    .line 441
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mNextButton:Landroid/widget/ImageButton;
 
-    new-instance v1, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$6;
+    new-instance v3, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$6;
 
-    invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$6;-><init>(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
+    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$6;-><init>(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageButton;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 527
-    const v0, 0x1020289
-
-    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/ImageButton;
-
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBeforeButton:Landroid/widget/ImageButton;
-
-    .line 528
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBeforeButton:Landroid/widget/ImageButton;
-
+    .line 494
     new-instance v1, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$7;
 
     invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$7;-><init>(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+    .line 523
+    .local v1, nextKeyListener:Landroid/view/View$OnKeyListener;
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mNextButton:Landroid/widget/ImageButton;
 
-    .line 548
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBeforeButton:Landroid/widget/ImageButton;
+    invoke-virtual {v2, v1}, Landroid/widget/ImageButton;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    new-instance v1, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$8;
+    .line 525
+    const v2, 0x102029a
 
-    invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$8;-><init>(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
+    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    move-result-object v2
 
-    .line 615
-    const v0, 0x102028a
+    check-cast v2, Landroid/widget/ImageButton;
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
+    iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBeforeButton:Landroid/widget/ImageButton;
 
-    move-result-object v0
+    .line 526
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBeforeButton:Landroid/widget/ImageButton;
 
-    check-cast v0, Landroid/widget/ImageButton;
+    new-instance v3, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$8;
 
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mPauseButton:Landroid/widget/ImageButton;
+    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$8;-><init>(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
 
-    .line 616
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mPauseButton:Landroid/widget/ImageButton;
+    invoke-virtual {v2, v3}, Landroid/widget/ImageButton;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
-    new-instance v1, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$9;
+    .line 544
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBeforeButton:Landroid/widget/ImageButton;
 
-    invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$9;-><init>(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
+    new-instance v3, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$9;
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$9;-><init>(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
 
-    .line 633
-    const-string v0, "GlassLockScreenMusicWidget"
+    invoke-virtual {v2, v3}, Landroid/widget/ImageButton;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    const-string v0, "at init() send broadcast"
+    .line 597
+    new-instance v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$10;
 
-    invoke-static {v4, v0}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$10;-><init>(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
 
-    .line 634
-    new-instance v0, Landroid/content/Intent;
+    .line 626
+    .local v0, beforeKeyListener:Landroid/view/View$OnKeyListener;
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBeforeButton:Landroid/widget/ImageButton;
 
-    const-string v1, "com.android.music.musicservicecommand.checkplaystatus"
+    invoke-virtual {v2, v0}, Landroid/widget/ImageButton;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    .line 628
+    const v2, 0x102029b
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->sendBroadcastAfterBooting(Landroid/content/Intent;)V
+    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->findViewById(I)Landroid/view/View;
 
-    .line 635
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/ImageButton;
+
+    iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mPauseButton:Landroid/widget/ImageButton;
+
+    .line 629
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mPauseButton:Landroid/widget/ImageButton;
+
+    new-instance v3, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$11;
+
+    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget$11;-><init>(Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 644
+    const-string v2, "GlassLockScreenMusicWidget"
+
+    const-string v2, "at init() send broadcast"
+
+    invoke-static {v6, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 645
+    new-instance v2, Landroid/content/Intent;
+
+    const-string v3, "com.android.music.musicservicecommand.checkplaystatus"
+
+    invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->sendBroadcastAfterBooting(Landroid/content/Intent;)V
+
+    .line 646
     invoke-direct {p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->resetMinTimer()V
 
-    .line 636
-    const/16 v0, 0x8
+    .line 647
+    const/16 v2, 0x8
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setVisibility(I)V
+    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setVisibility(I)V
 
-    .line 637
-    iput-boolean v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mVisibleLayout:Z
+    .line 648
+    iput-boolean v4, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mVisibleLayout:Z
 
-    .line 638
+    .line 649
     return-void
 .end method
 
@@ -809,14 +795,25 @@
     .prologue
     const/16 v2, 0x12c1
 
-    .line 1003
+    .line 975
     const-string v0, "GlassLockScreenMusicWidget"
 
     const-string v1, "removeMinTimer()"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1004
+    .line 976
+    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHandler:Landroid/os/Handler;
+
+    if-nez v0, :cond_1
+
+    .line 979
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 977
+    :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->hasMessages(I)Z
@@ -825,34 +822,32 @@
 
     if-eqz v0, :cond_0
 
-    .line 1005
+    .line 978
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 1006
-    :cond_0
-    return-void
+    goto :goto_0
 .end method
 
 .method private resetMinTimer()V
     .locals 2
 
     .prologue
-    .line 1017
+    .line 993
     const-string v0, "GlassLockScreenMusicWidget"
 
     const-string v1, "resetMinTimer()"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1018
+    .line 994
     invoke-direct {p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->removeMinTimer()V
 
-    .line 1019
+    .line 995
     invoke-direct {p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->addMinTimer()V
 
-    .line 1020
+    .line 996
     return-void
 .end method
 
@@ -867,52 +862,52 @@
 
     const/4 v2, 0x0
 
-    .line 937
+    .line 907
     const-string v0, "GlassLockScreenMusicWidget"
 
     const-string v1, "setMaxLayout()"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 939
+    .line 909
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mIsMoving:Z
 
     if-eqz v0, :cond_0
 
-    .line 966
+    .line 936
     :goto_0
     return-void
 
-    .line 943
+    .line 913
     :cond_0
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isMaxLayout:Z
 
-    .line 946
+    .line 916
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMinMusicControllerHandle:Landroid/widget/LinearLayout;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 948
+    .line 918
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBoxInMaxMusicController:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setEnabled(Z)V
 
-    .line 949
+    .line 919
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBoxInMaxMusicController:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 952
+    .line 922
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isTopLayout:Z
 
     if-eqz v0, :cond_1
 
-    .line 953
+    .line 923
     invoke-direct {p0, p1, v2, v4}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->startTranslateAnimation(III)V
 
-    .line 959
+    .line 929
     :goto_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
 
@@ -920,27 +915,27 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 960
+    .line 930
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 961
+    .line 931
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setSelected(Z)V
 
-    .line 962
+    .line 932
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMainLayout:Landroid/widget/RelativeLayout;
 
     invoke-virtual {v0}, Landroid/widget/RelativeLayout;->invalidate()V
 
-    .line 965
+    .line 935
     invoke-direct {p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->resetMinTimer()V
 
     goto :goto_0
 
-    .line 955
+    .line 925
     :cond_1
     invoke-direct {p0, p1, v2, v4}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->startTranslateAnimation(III)V
 
@@ -955,56 +950,56 @@
 
     const/4 v2, 0x0
 
-    .line 969
+    .line 940
     const-string v0, "GlassLockScreenMusicWidget"
 
     const-string v1, "setMinLayout()"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 971
+    .line 942
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mIsMoving:Z
 
     if-eqz v0, :cond_0
 
-    .line 999
+    .line 970
     :goto_0
     return-void
 
-    .line 975
+    .line 946
     :cond_0
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isMaxLayout:Z
 
-    .line 978
+    .line 949
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMinMusicControllerHandle:Landroid/widget/LinearLayout;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mTouchListener:Landroid/view/View$OnTouchListener;
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 980
+    .line 951
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBoxInMaxMusicController:Landroid/widget/LinearLayout;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 981
+    .line 952
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBoxInMaxMusicController:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setEnabled(Z)V
 
-    .line 982
+    .line 953
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBoxInMaxMusicController:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setPressed(Z)V
 
-    .line 986
+    .line 956
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMaxMusicController:Landroid/widget/FrameLayout;
 
     if-eqz v0, :cond_1
 
-    .line 987
+    .line 957
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMaxMusicController:Landroid/widget/FrameLayout;
 
     invoke-virtual {v0}, Landroid/widget/FrameLayout;->getHeight()I
@@ -1021,20 +1016,20 @@
 
     iput v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHeightDifference:I
 
-    .line 990
+    .line 961
     :cond_1
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isTopLayout:Z
 
     if-eqz v0, :cond_2
 
-    .line 991
+    .line 962
     iget v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHeightDifference:I
 
     neg-int v0, v0
 
     invoke-direct {p0, v2, v0, v3}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->startTranslateAnimation(III)V
 
-    .line 996
+    .line 967
     :goto_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
 
@@ -1042,12 +1037,12 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 997
+    .line 968
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 998
+    .line 969
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
 
     const/4 v1, 0x1
@@ -1056,7 +1051,7 @@
 
     goto :goto_0
 
-    .line 993
+    .line 964
     :cond_2
     iget v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHeightDifference:I
 
@@ -1074,23 +1069,23 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 925
+    .line 894
     const-string v1, "GlassLockScreenMusicWidget"
 
     const-string v2, "startTranslateAnimation()"
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 926
+    .line 895
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mIsMoving:Z
 
     if-eqz v1, :cond_0
 
-    .line 934
+    .line 903
     :goto_0
     return-void
 
-    .line 929
+    .line 898
     :cond_0
     new-instance v0, Landroid/view/animation/TranslateAnimation;
 
@@ -1100,25 +1095,25 @@
 
     invoke-direct {v0, v3, v3, v1, v2}, Landroid/view/animation/TranslateAnimation;-><init>(FFFF)V
 
-    .line 930
+    .line 899
     .local v0, animation:Landroid/view/animation/Animation;
     int-to-long v1, p3
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/Animation;->setDuration(J)V
 
-    .line 931
+    .line 900
     new-instance v1, Landroid/view/animation/DecelerateInterpolator;
 
     invoke-direct {v1}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
 
     invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    .line 932
+    .line 901
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setFillAfter(Z)V
 
-    .line 933
+    .line 902
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMaxMusicController:Landroid/widget/FrameLayout;
 
     invoke-virtual {v1, v0}, Landroid/widget/FrameLayout;->startAnimation(Landroid/view/animation/Animation;)V
@@ -1129,34 +1124,19 @@
 
 # virtual methods
 .method public cleanUp()V
-    .locals 4
+    .locals 3
 
     .prologue
-    const/4 v3, 0x0
-
     const/4 v2, 0x0
 
-    .line 642
+    .line 701
     const-string v0, "GlassLockScreenMusicWidget"
 
     const-string v1, "cleanUp()"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 643
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setSelected(Z)V
-
-    .line 644
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setSelected(Z)V
-
-    .line 645
-    invoke-virtual {p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->stopMarguee()V
-
-    .line 647
+    .line 703
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1165,19 +1145,19 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 648
+    .line 704
     iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 649
+    .line 705
     iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
-    .line 650
+    .line 706
     iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
-    .line 652
+    .line 708
     iput-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHandler:Landroid/os/Handler;
 
-    .line 653
+    .line 709
     return-void
 .end method
 
@@ -1192,57 +1172,57 @@
 
     const/4 v4, 0x1
 
-    .line 259
+    .line 206
     const-string v2, "GlassLockScreenMusicWidget"
 
     const-string v3, "handleMediaUpdate !!"
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 260
+    .line 207
     if-nez p3, :cond_0
 
-    .line 283
+    .line 231
     :goto_0
     return-void
 
-    .line 262
+    .line 210
     :cond_0
     if-ne p1, v4, :cond_2
 
     move v0, v4
 
-    .line 263
+    .line 211
     .local v0, bIsPlaying:Z
     :goto_1
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mIsPlaying:Z
 
-    .line 264
+    .line 212
     if-ne p2, v4, :cond_3
 
     move v1, v4
 
-    .line 266
+    .line 214
     .local v1, bIsStop:Z
     :goto_2
     if-eqz v0, :cond_1
 
-    .line 267
+    .line 215
     invoke-virtual {p0, v5}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setVisibility(I)V
 
-    .line 268
+    .line 216
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mVisibleLayout:Z
 
-    .line 271
+    .line 219
     :cond_1
     if-eqz v1, :cond_4
 
-    .line 272
+    .line 220
     const/16 v2, 0x8
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setVisibility(I)V
 
-    .line 273
+    .line 221
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mVisibleLayout:Z
 
     goto :goto_0
@@ -1252,39 +1232,39 @@
     :cond_2
     move v0, v5
 
-    .line 262
+    .line 210
     goto :goto_1
 
     .restart local v0       #bIsPlaying:Z
     :cond_3
     move v1, v5
 
-    .line 264
+    .line 212
     goto :goto_2
 
-    .line 277
+    .line 225
     .restart local v1       #bIsStop:Z
     :cond_4
     if-eqz v0, :cond_5
 
-    .line 278
+    .line 226
     iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mPauseButton:Landroid/widget/ImageButton;
 
-    const v3, 0x1080402
+    const v3, 0x10803f3
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageButton;->setBackgroundResource(I)V
 
-    .line 282
+    .line 230
     :goto_3
     invoke-virtual {p0, p3}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->updateMediaPlayer(Landroid/net/Uri;)V
 
     goto :goto_0
 
-    .line 280
+    .line 228
     :cond_5
     iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mPauseButton:Landroid/widget/ImageButton;
 
-    const v3, 0x1080403
+    const v3, 0x10803f4
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageButton;->setBackgroundResource(I)V
 
@@ -1292,7 +1272,7 @@
 .end method
 
 .method protected handleMediaUpdate(IILjava/lang/String;Ljava/lang/String;)V
-    .locals 7
+    .locals 6
     .parameter "isPlaying"
     .parameter "hostType"
     .parameter "title"
@@ -1303,68 +1283,66 @@
 
     const/4 v4, 0x0
 
-    const-string v6, "TAG"
-
-    .line 285
+    .line 235
     const-string v2, "GlassLockScreenMusicWidget"
 
     const-string v3, "handleMediaUpdate 11!!"
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 287
+    .line 237
     if-eqz p3, :cond_0
 
     if-nez p4, :cond_1
 
-    .line 316
+    .line 273
     :cond_0
     :goto_0
     return-void
 
-    .line 290
+    .line 240
     :cond_1
     iput-object p3, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentTitle:Ljava/lang/String;
 
-    .line 291
+    .line 241
     iput-object p4, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentArtist:Ljava/lang/String;
 
-    .line 293
+    .line 243
     if-ne p1, v5, :cond_3
 
     move v0, v5
 
-    .line 294
+    .line 244
     .local v0, bIsPlaying:Z
     :goto_1
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mIsPlaying:Z
 
-    .line 295
+    .line 245
     if-nez p2, :cond_4
 
     move v1, v5
 
-    .line 297
+    .line 256
     .local v1, bIsStop:Z
     :goto_2
     if-eqz v0, :cond_2
 
-    .line 298
+    .line 257
     invoke-virtual {p0, v4}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setVisibility(I)V
 
-    .line 299
+    .line 258
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mVisibleLayout:Z
 
-    .line 302
+    .line 261
     :cond_2
     if-eqz v1, :cond_5
 
-    .line 303
+    .line 262
     const/16 v2, 0x8
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setVisibility(I)V
 
-    .line 304
+    .line 263
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mVisibleLayout:Z
 
     goto :goto_0
@@ -1374,103 +1352,50 @@
     :cond_3
     move v0, v4
 
-    .line 293
+    .line 243
     goto :goto_1
 
     .restart local v0       #bIsPlaying:Z
     :cond_4
     move v1, v4
 
-    .line 295
+    .line 245
     goto :goto_2
 
-    .line 308
+    .line 267
     .restart local v1       #bIsStop:Z
     :cond_5
     if-eqz v0, :cond_6
 
-    .line 309
-    const-string v2, "TAG"
-
-    const-string v2, "pause"
-
-    invoke-static {v6, v2}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 310
+    .line 268
     iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mPauseButton:Landroid/widget/ImageButton;
 
-    const v3, 0x1080402
+    const v3, 0x10803f3
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageButton;->setBackgroundResource(I)V
 
-    .line 315
+    .line 272
     :goto_3
     invoke-virtual {p0, p3, p4}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->updateMediaPlayer(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 312
+    .line 270
     :cond_6
-    const-string v2, "TAG"
-
-    const-string v2, "play"
-
-    invoke-static {v6, v2}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 313
     iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mPauseButton:Landroid/widget/ImageButton;
 
-    const v3, 0x1080403
+    const v3, 0x10803f4
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageButton;->setBackgroundResource(I)V
 
     goto :goto_3
 .end method
 
-.method public handleStopMarquee()V
-    .locals 3
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 731
-    const-string v0, "GlassLockScreenMusicWidget"
-
-    const-string v1, "handleStopMarquee()"
-
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 732
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
-
-    if-eqz v0, :cond_0
-
-    .line 733
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setSelected(Z)V
-
-    .line 734
-    :cond_0
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
-
-    if-eqz v0, :cond_1
-
-    .line 735
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setSelected(Z)V
-
-    .line 736
-    :cond_1
-    return-void
-.end method
-
 .method public isControllerShowing()Z
     .locals 1
 
     .prologue
-    .line 1062
+    .line 1041
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mVisibleLayout:Z
 
     return v0
@@ -1480,7 +1405,7 @@
     .locals 1
 
     .prologue
-    .line 1058
+    .line 1037
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mIsPlaying:Z
 
     return v0
@@ -1494,17 +1419,17 @@
     .prologue
     const-string v1, "GlassLockScreenMusicWidget"
 
-    .line 656
+    .line 652
     invoke-super {p0, p1, p2}, Landroid/widget/RelativeLayout;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
-    .line 658
+    .line 655
     const-string v0, "GlassLockScreenMusicWidget"
 
     const-string v0, "onKeyDown at GlasslockScreenMusic()"
 
     invoke-static {v1, v0}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 659
+    .line 656
     const/4 v0, 0x3
 
     if-ne p1, v0, :cond_0
@@ -1515,30 +1440,30 @@
 
     if-nez v0, :cond_0
 
-    .line 660
+    .line 657
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->startControllerAnimation()V
 
-    .line 661
+    .line 659
     const-string v0, "GlassLockScreenMusicWidget"
 
     const-string v0, "startControllerAnimation()"
 
     invoke-static {v1, v0}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 663
+    .line 661
     :cond_0
     const/16 v0, 0x18
 
     if-ne p1, v0, :cond_1
 
-    .line 664
+    .line 663
     const-string v0, "GlassLockScreenMusicWidget"
 
     const-string v0, "KEYCODE_VOLUME_UP()"
 
     invoke-static {v1, v0}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 667
+    .line 666
     :cond_1
     const/16 v0, 0x19
 
@@ -1564,238 +1489,149 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 674
+    .line 691
     const-string v0, "GlassLockScreenMusicWidget"
 
     const-string v1, "onPause()"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 676
+    .line 693
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mBoxInMaxMusicController:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setEnabled(Z)V
 
-    .line 677
+    .line 695
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setSelected(Z)V
 
-    .line 678
+    .line 696
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setSelected(Z)V
 
-    .line 679
-    invoke-virtual {p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->stopMarguee()V
-
-    .line 680
+    .line 697
     return-void
 .end method
 
 .method public onResume()V
-    .locals 6
+    .locals 3
 
     .prologue
-    const/4 v5, 0x0
+    const-string v2, "GlassLockScreenMusicWidget"
 
-    const/4 v3, 0x1
+    .line 675
+    const-string v0, "GlassLockScreenMusicWidget"
 
-    const-string v4, "GlassLockScreenMusicWidget"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    .line 683
-    const-string v1, "GlassLockScreenMusicWidget"
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string v1, "onResume() isTopLayout="
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "onResume() isTopLayout="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-boolean v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isTopLayout:Z
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ", isMaxLayout="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-boolean v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isMaxLayout:Z
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v4, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 684
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMaxMusicController:Landroid/widget/FrameLayout;
-
-    invoke-virtual {v1}, Landroid/widget/FrameLayout;->getHeight()I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMinMusicControllerHandle:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v2}, Landroid/widget/LinearLayout;->getHeight()I
-
-    move-result v2
-
-    sub-int/2addr v1, v2
-
-    iput v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHeightDifference:I
-
-    .line 685
-    const-string v1, "GlassLockScreenMusicWidget"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "mHeightDifference = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHeightDifference:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v4, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 688
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setSelected(Z)V
-
-    .line 689
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setSelected(Z)V
-
-    .line 690
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentTitle:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, " / "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentArtist:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 692
-    .local v0, newTitleText:Ljava/lang/CharSequence;
-    const-string v1, "GlassLockScreenMusicWidget"
-
-    const-string v1, "onResume()show"
-
-    invoke-static {v4, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 694
-    iput-boolean v3, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mScreenOn:Z
-
-    .line 696
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 697
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 698
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMainLayout:Landroid/widget/RelativeLayout;
-
-    invoke-virtual {v1}, Landroid/widget/RelativeLayout;->invalidate()V
-
-    .line 699
-    iget-boolean v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isMaxLayout:Z
-
-    if-eqz v1, :cond_0
-
-    .line 700
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setSelected(Z)V
-
-    .line 705
-    :goto_0
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v2, "com.android.music.musicservicecommand.checkplaystatus"
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->sendBroadcastAfterBooting(Landroid/content/Intent;)V
-
-    .line 707
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isTopLayout:Z
 
-    if-eqz v1, :cond_1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    .line 708
+    move-result-object v0
+
+    const-string v1, ", isMaxLayout="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isMaxLayout:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v2, v0}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 676
+    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMaxMusicController:Landroid/widget/FrameLayout;
+
+    invoke-virtual {v0}, Landroid/widget/FrameLayout;->getHeight()I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMinMusicControllerHandle:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1}, Landroid/widget/LinearLayout;->getHeight()I
+
+    move-result v1
+
+    sub-int/2addr v0, v1
+
+    iput v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHeightDifference:I
+
+    .line 678
+    const-string v0, "GlassLockScreenMusicWidget"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "mHeightDifference = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
     iget v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHeightDifference:I
 
-    neg-int v1, v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-direct {p0, v1}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setMaxLayout(I)V
+    move-result-object v0
 
-    .line 712
-    :goto_1
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v2, v0}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 680
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "com.android.music.musicservicecommand.checkplaystatus"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->sendBroadcastAfterBooting(Landroid/content/Intent;)V
+
+    .line 682
+    iget-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isTopLayout:Z
+
+    if-eqz v0, :cond_0
+
+    .line 683
+    iget v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHeightDifference:I
+
+    neg-int v0, v0
+
+    invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setMaxLayout(I)V
+
+    .line 687
+    :goto_0
     return-void
 
-    .line 702
+    .line 685
     :cond_0
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
+    iget v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHeightDifference:I
 
-    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setSelected(Z)V
+    invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setMaxLayout(I)V
 
     goto :goto_0
-
-    .line 710
-    :cond_1
-    iget v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHeightDifference:I
-
-    invoke-direct {p0, v1}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setMaxLayout(I)V
-
-    goto :goto_1
 .end method
 
 .method public sendBroadcastAfterBooting(Landroid/content/Intent;)V
@@ -1803,16 +1639,16 @@
     .parameter "intent"
 
     .prologue
-    .line 1066
+    .line 1045
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     if-nez v0, :cond_0
 
-    .line 1073
+    .line 1053
     :goto_0
     return-void
 
-    .line 1068
+    .line 1047
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
@@ -1822,7 +1658,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 1069
+    .line 1048
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1831,7 +1667,7 @@
 
     goto :goto_0
 
-    .line 1071
+    .line 1051
     :cond_1
     const-string v0, "GlassLockScreenMusicWidget"
 
@@ -1848,16 +1684,16 @@
     .parameter "intent"
 
     .prologue
-    .line 1076
+    .line 1056
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     if-nez v0, :cond_0
 
-    .line 1083
+    .line 1064
     :goto_0
     return-void
 
-    .line 1078
+    .line 1058
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
@@ -1867,7 +1703,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 1079
+    .line 1059
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1876,7 +1712,7 @@
 
     goto :goto_0
 
-    .line 1081
+    .line 1062
     :cond_1
     const-string v0, "GlassLockScreenMusicWidget"
 
@@ -1893,19 +1729,19 @@
     .prologue
     const/16 v3, 0x50
 
-    .line 752
+    .line 726
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isTopLayout:Z
 
-    .line 753
+    .line 727
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMaxMusicController:Landroid/widget/FrameLayout;
 
-    const v2, 0x1080398
+    const v2, 0x108037a
 
     invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->setBackgroundResource(I)V
 
-    .line 754
+    .line 728
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMinMusicControllerHandle:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -1914,16 +1750,16 @@
 
     check-cast v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 755
+    .line 730
     .local v0, lp:Landroid/widget/FrameLayout$LayoutParams;
     iput v3, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
-    .line 756
+    .line 731
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMinMusicControllerHandle:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 758
+    .line 733
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -1933,16 +1769,16 @@
     .end local v0           #lp:Landroid/widget/FrameLayout$LayoutParams;
     check-cast v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 759
+    .line 734
     .restart local v0       #lp:Landroid/widget/FrameLayout$LayoutParams;
     iput v3, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
-    .line 760
+    .line 735
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 761
+    .line 736
     return-void
 .end method
 
@@ -1956,7 +1792,7 @@
 
     const/4 v3, 0x0
 
-    .line 1037
+    .line 1015
     const-string v0, "GlassLockScreenMusicWidget"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1991,7 +1827,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1038
+    .line 1017
     if-nez p1, :cond_2
 
     move v0, v4
@@ -1999,30 +1835,30 @@
     :goto_0
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mIsMoving:Z
 
-    .line 1039
+    .line 1018
     if-eqz p1, :cond_3
 
-    .line 1040
+    .line 1019
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mWasShowed:Z
 
     if-eqz v0, :cond_1
 
-    .line 1041
+    .line 1020
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mVisibleLayout:Z
 
     if-nez v0, :cond_0
 
-    .line 1042
+    .line 1021
     invoke-virtual {p0, v3}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setVisibility(I)V
 
-    .line 1043
+    .line 1022
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mVisibleLayout:Z
 
-    .line 1045
+    .line 1024
     :cond_0
     invoke-direct {p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->addMinTimer()V
 
-    .line 1055
+    .line 1034
     :cond_1
     :goto_1
     return-void
@@ -2030,57 +1866,31 @@
     :cond_2
     move v0, v3
 
-    .line 1038
+    .line 1017
     goto :goto_0
 
-    .line 1048
+    .line 1027
     :cond_3
     iput-boolean p2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mWasShowed:Z
 
-    .line 1049
+    .line 1028
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mVisibleLayout:Z
 
     if-eqz v0, :cond_4
 
-    .line 1050
+    .line 1029
     const/16 v0, 0x8
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setVisibility(I)V
 
-    .line 1051
+    .line 1030
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mVisibleLayout:Z
 
-    .line 1053
+    .line 1032
     :cond_4
     invoke-direct {p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->removeMinTimer()V
 
     goto :goto_1
-.end method
-
-.method public setScreenOff()V
-    .locals 1
-
-    .prologue
-    .line 719
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mScreenOn:Z
-
-    .line 720
-    return-void
-.end method
-
-.method public setScreenOn()V
-    .locals 1
-
-    .prologue
-    .line 715
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mScreenOn:Z
-
-    .line 716
-    return-void
 .end method
 
 .method public setTopLayout()V
@@ -2089,19 +1899,19 @@
     .prologue
     const/16 v3, 0x30
 
-    .line 739
+    .line 712
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isTopLayout:Z
 
-    .line 740
+    .line 713
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMaxMusicController:Landroid/widget/FrameLayout;
 
-    const v2, 0x1080399
+    const v2, 0x108037b
 
     invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->setBackgroundResource(I)V
 
-    .line 742
+    .line 715
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMinMusicControllerHandle:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -2110,16 +1920,16 @@
 
     check-cast v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 743
+    .line 717
     .local v0, lp:Landroid/widget/FrameLayout$LayoutParams;
     iput v3, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
-    .line 744
+    .line 718
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMinMusicControllerHandle:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 746
+    .line 720
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -2129,16 +1939,16 @@
     .end local v0           #lp:Landroid/widget/FrameLayout$LayoutParams;
     check-cast v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 747
+    .line 721
     .restart local v0       #lp:Landroid/widget/FrameLayout$LayoutParams;
     iput v3, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
-    .line 748
+    .line 722
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 749
+    .line 723
     return-void
 .end method
 
@@ -2146,35 +1956,35 @@
     .locals 2
 
     .prologue
-    .line 1023
+    .line 1000
     const-string v0, "GlassLockScreenMusicWidget"
 
     const-string v1, "startControllerAnimation()"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1024
+    .line 1001
     invoke-direct {p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->removeMinTimer()V
 
-    .line 1025
+    .line 1002
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isMaxLayout:Z
 
     if-eqz v0, :cond_0
 
-    .line 1026
+    .line 1003
     invoke-direct {p0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setMinLayout()V
 
-    .line 1034
+    .line 1011
     :goto_0
     return-void
 
-    .line 1028
+    .line 1005
     :cond_0
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isTopLayout:Z
 
     if-eqz v0, :cond_1
 
-    .line 1029
+    .line 1006
     iget v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHeightDifference:I
 
     neg-int v0, v0
@@ -2183,7 +1993,7 @@
 
     goto :goto_0
 
-    .line 1031
+    .line 1008
     :cond_1
     iget v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHeightDifference:I
 
@@ -2192,746 +2002,774 @@
     goto :goto_0
 .end method
 
-.method public stopMarguee()V
-    .locals 4
-
-    .prologue
-    const/16 v3, 0x12c4
-
-    .line 723
-    const-string v1, "GlassLockScreenMusicWidget"
-
-    const-string v2, "stopMarguee()"
-
-    invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 724
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v1, v3}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 725
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v1, v3}, Landroid/os/Handler;->removeMessages(I)V
-
-    .line 726
-    :cond_0
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v1, v3}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v0
-
-    .line 727
-    .local v0, msg:Landroid/os/Message;
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mHandler:Landroid/os/Handler;
-
-    const-wide/16 v2, 0x3e8
-
-    invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
-
-    .line 728
-    return-void
-.end method
-
 .method public updateMediaPlayer(Landroid/net/Uri;)V
-    .locals 13
+    .locals 17
     .parameter "mediaUri"
 
     .prologue
-    .line 765
-    const-string v0, "GlassLockScreenMusicWidget"
+    .line 740
+    move-object/from16 v0, p0
 
-    const-string v1, "updateMediaPlayer()"
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mPowerManager:Landroid/os/PowerManager;
 
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-object v2, v0
 
-    .line 766
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMediaUri:Landroid/net/Uri;
+    invoke-virtual {v2}, Landroid/os/PowerManager;->isScreenOn()Z
 
-    invoke-virtual {p1, v0}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    move-result v14
 
-    move-result v0
+    .line 742
+    .local v14, mScreenOn:Z
+    const-string v2, "GlassLockScreenMusicWidget"
 
-    if-eqz v0, :cond_1
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    .line 767
-    const-string v0, "GlassLockScreenMusicWidget"
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "mediaUri is same return"
+    const-string v4, "mScreenOn = "
 
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 891
+    move-result-object v3
+
+    invoke-virtual {v3, v14}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 743
+    if-nez v14, :cond_1
+
+    .line 744
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
+
+    move-object v2, v0
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setSelected(Z)V
+
+    .line 745
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
+
+    move-object v2, v0
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setSelected(Z)V
+
+    .line 865
     :cond_0
     :goto_0
     return-void
 
-    .line 770
+    .line 748
     :cond_1
-    iput-object p1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMediaUri:Landroid/net/Uri;
+    move-object/from16 v0, p0
 
-    .line 772
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mContentResolver:Landroid/content/ContentResolver;
+    iget-boolean v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isMaxLayout:Z
 
-    const/4 v2, 0x0
+    move v2, v0
 
-    const/4 v3, 0x0
+    if-eqz v2, :cond_2
+
+    .line 749
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
+
+    move-object v2, v0
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setSelected(Z)V
+
+    .line 754
+    :goto_1
+    const-string v2, "GlassLockScreenMusicWidget"
+
+    const-string v3, "updateMediaPlayer()"
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 756
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMediaUri:Landroid/net/Uri;
+
+    move-object v2, v0
+
+    move-object/from16 v0, p1
+
+    move-object v1, v2
+
+    invoke-virtual {v0, v1}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    .line 758
+    const-string v2, "GlassLockScreenMusicWidget"
+
+    const-string v3, "mediaUri is same return"
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 751
+    :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
+
+    move-object v2, v0
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setSelected(Z)V
+
+    goto :goto_1
+
+    .line 762
+    :cond_3
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMediaUri:Landroid/net/Uri;
+
+    .line 763
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mContentResolver:Landroid/content/ContentResolver;
+
+    move-object v2, v0
 
     const/4 v4, 0x0
 
     const/4 v5, 0x0
 
-    move-object v1, p1
+    const/4 v6, 0x0
 
-    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+    const/4 v7, 0x0
 
-    move-result-object v10
+    move-object/from16 v3, p1
 
-    .line 775
-    .local v10, mCursor:Landroid/database/Cursor;
-    if-eqz v10, :cond_7
-
-    .line 776
-    invoke-interface {v10}, Landroid/database/Cursor;->getCount()I
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    .line 777
-    invoke-interface {v10}, Landroid/database/Cursor;->moveToFirst()Z
-
-    .line 779
-    :try_start_0
-    const-string v0, "title"
-
-    invoke-interface {v10, v0}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
-
-    move-result v0
-
-    invoke-interface {v10, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentTitle:Ljava/lang/String;
-
-    .line 781
-    const-string v0, "artist"
-
-    invoke-interface {v10, v0}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
-
-    move-result v0
-
-    invoke-interface {v10, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentArtist:Ljava/lang/String;
-
-    .line 783
-    const-string v0, "album_id"
-
-    invoke-interface {v10, v0}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
-
-    move-result v0
-
-    invoke-interface {v10, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentAlbumID:Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 794
-    :goto_1
-    invoke-interface {v10}, Landroid/database/Cursor;->close()V
-
-    .line 796
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentTitle:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, " / "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentArtist:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    .line 799
-    .local v12, newTitleText:Ljava/lang/CharSequence;
-    iget-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mScreenOn:Z
-
-    if-nez v0, :cond_4
-
-    .line 801
-    const-string v0, "GlassLockScreenMusicWidget"
-
-    const-string v1, "updateMediaPlayer() hide"
-
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 805
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v12}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 806
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v12}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 807
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMainLayout:Landroid/widget/RelativeLayout;
-
-    invoke-virtual {v0}, Landroid/widget/RelativeLayout;->invalidate()V
-
-    .line 808
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setSelected(Z)V
-
-    .line 809
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setSelected(Z)V
-
-    .line 822
-    :goto_2
-    const-string v0, "GlassLockScreenMusicWidget"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "updateMediaPlayer() newTitleText="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 825
-    invoke-interface {v10}, Landroid/database/Cursor;->getCount()I
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    .line 827
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "content://media/external/audio/albumart/"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentAlbumID:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v6
-
-    .line 829
-    .local v6, currentAlbumArtURI:Landroid/net/Uri;
-    const/4 v11, 0x0
-
-    .line 830
-    .local v11, mInputStream:Ljava/io/InputStream;
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtBitmap:Landroid/graphics/Bitmap;
-
-    .line 831
-    new-instance v9, Landroid/graphics/BitmapFactory$Options;
-
-    invoke-direct {v9}, Landroid/graphics/BitmapFactory$Options;-><init>()V
-
-    .line 832
-    .local v9, mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
-    const/4 v0, 0x1
-
-    iput v0, v9, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
-
-    .line 833
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtWithImage:Landroid/widget/ImageView;
-
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getWidth()I
-
-    move-result v0
-
-    iput v0, v9, Landroid/graphics/BitmapFactory$Options;->outWidth:I
-
-    .line 834
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtWithImage:Landroid/widget/ImageView;
-
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getHeight()I
-
-    move-result v0
-
-    iput v0, v9, Landroid/graphics/BitmapFactory$Options;->outHeight:I
-
-    .line 836
-    :try_start_1
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mContentResolver:Landroid/content/ContentResolver;
-
-    invoke-virtual {v0, v6}, Landroid/content/ContentResolver;->openInputStream(Landroid/net/Uri;)Ljava/io/InputStream;
-    :try_end_1
-    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+    invoke-virtual/range {v2 .. v7}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v11
 
-    .line 841
+    .line 766
+    .local v11, mCursor:Landroid/database/Cursor;
+    if-eqz v11, :cond_7
+
+    .line 767
+    invoke-interface {v11}, Landroid/database/Cursor;->getCount()I
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    .line 768
+    invoke-interface {v11}, Landroid/database/Cursor;->moveToFirst()Z
+
+    .line 770
+    :try_start_0
+    const-string v2, "title"
+
+    invoke-interface {v11, v2}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-interface {v11, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    move-object v0, v2
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentTitle:Ljava/lang/String;
+
+    .line 772
+    const-string v2, "artist"
+
+    invoke-interface {v11, v2}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-interface {v11, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    move-object v0, v2
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentArtist:Ljava/lang/String;
+
+    .line 774
+    const-string v2, "album_id"
+
+    invoke-interface {v11, v2}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-interface {v11, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    move-object v0, v2
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentAlbumID:Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 801
+    :goto_2
+    invoke-interface {v11}, Landroid/database/Cursor;->close()V
+
+    .line 803
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentTitle:Ljava/lang/String;
+
+    move-object v3, v0
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, " / "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentArtist:Ljava/lang/String;
+
+    move-object v3, v0
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    .line 804
+    .local v15, newTitleText:Ljava/lang/CharSequence;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
+
+    move-object v2, v0
+
+    invoke-virtual {v2, v15}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 805
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
+
+    move-object v2, v0
+
+    invoke-virtual {v2, v15}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 809
+    invoke-interface {v11}, Landroid/database/Cursor;->getCount()I
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    .line 811
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "content://media/external/audio/albumart/"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentAlbumID:Ljava/lang/String;
+
+    move-object v3, v0
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v8
+
+    .line 813
+    .local v8, currentAlbumArtURI:Landroid/net/Uri;
+    const/4 v13, 0x0
+
+    .line 814
+    .local v13, mInputStream:Ljava/io/InputStream;
+    const/4 v2, 0x0
+
+    move-object v0, v2
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtBitmap:Landroid/graphics/Bitmap;
+
+    .line 815
+    new-instance v10, Landroid/graphics/BitmapFactory$Options;
+
+    invoke-direct {v10}, Landroid/graphics/BitmapFactory$Options;-><init>()V
+
+    .line 816
+    .local v10, mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
+    const/4 v2, 0x1
+
+    iput v2, v10, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
+
+    .line 817
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtWithImage:Landroid/widget/ImageView;
+
+    move-object v2, v0
+
+    invoke-virtual {v2}, Landroid/widget/ImageView;->getWidth()I
+
+    move-result v2
+
+    iput v2, v10, Landroid/graphics/BitmapFactory$Options;->outWidth:I
+
+    .line 818
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtWithImage:Landroid/widget/ImageView;
+
+    move-object v2, v0
+
+    invoke-virtual {v2}, Landroid/widget/ImageView;->getHeight()I
+
+    move-result v2
+
+    iput v2, v10, Landroid/graphics/BitmapFactory$Options;->outHeight:I
+
+    .line 820
+    :try_start_1
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mContentResolver:Landroid/content/ContentResolver;
+
+    move-object v2, v0
+
+    invoke-virtual {v2, v8}, Landroid/content/ContentResolver;->openInputStream(Landroid/net/Uri;)Ljava/io/InputStream;
+    :try_end_1
+    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_2
+
+    move-result-object v13
+
+    .line 828
     :goto_3
-    if-eqz v11, :cond_2
+    if-eqz v13, :cond_4
 
-    .line 842
-    const/4 v0, 0x0
+    .line 829
+    const/4 v2, 0x0
 
-    invoke-static {v11, v0, v9}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
+    invoke-static {v13, v2, v10}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtBitmap:Landroid/graphics/Bitmap;
+    move-object v0, v2
 
-    .line 845
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtBitmap:Landroid/graphics/Bitmap;
+
+    .line 832
     :try_start_2
-    invoke-virtual {v11}, Ljava/io/InputStream;->close()V
+    invoke-virtual {v13}, Ljava/io/InputStream;->close()V
     :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_3
 
-    .line 853
-    .end local v6           #currentAlbumArtURI:Landroid/net/Uri;
-    .end local v9           #mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
-    .end local v11           #mInputStream:Ljava/io/InputStream;
-    :cond_2
+    .line 841
+    .end local v8           #currentAlbumArtURI:Landroid/net/Uri;
+    .end local v10           #mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
+    .end local v13           #mInputStream:Ljava/io/InputStream;
+    :cond_4
     :goto_4
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtBitmap:Landroid/graphics/Bitmap;
+    move-object/from16 v0, p0
 
-    if-eqz v0, :cond_6
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtBitmap:Landroid/graphics/Bitmap;
 
-    .line 855
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtWithImage:Landroid/widget/ImageView;
+    move-object v2, v0
 
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtBitmap:Landroid/graphics/Bitmap;
+    if-eqz v2, :cond_6
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+    .line 843
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtWithImage:Landroid/widget/ImageView;
+
+    move-object v2, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtBitmap:Landroid/graphics/Bitmap;
+
+    move-object v3, v0
+
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
     goto/16 :goto_0
 
-    .line 785
-    .end local v12           #newTitleText:Ljava/lang/CharSequence;
+    .line 783
+    .end local v15           #newTitleText:Ljava/lang/CharSequence;
     :catch_0
-    move-exception v0
+    move-exception v2
 
-    move-object v8, v0
+    move-object v9, v2
+
+    .line 784
+    .local v9, e:Ljava/lang/IllegalArgumentException;
+    invoke-virtual {v9}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
 
     .line 786
-    .local v8, e:Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v8}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    const-string v2, "GlassLockScreenMusicWidget"
 
-    .line 787
-    const-string v0, "GlassLockScreenMusicWidget"
+    const-string v3, "Can\'t get String from Cursor"
 
-    const-string v1, "Can\'t get String from Cursor"
-
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_1
-
-    .line 790
-    .end local v8           #e:Ljava/lang/IllegalArgumentException;
-    :cond_3
-    const-string v0, "Unknown"
-
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentTitle:Ljava/lang/String;
-
-    .line 791
-    const-string v0, "Unknown"
-
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentArtist:Ljava/lang/String;
-
-    .line 792
-    const-string v0, "0"
-
-    iput-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentAlbumID:Ljava/lang/String;
-
-    goto/16 :goto_1
-
-    .line 812
-    .restart local v12       #newTitleText:Ljava/lang/CharSequence;
-    :cond_4
-    const-string v0, "GlassLockScreenMusicWidget"
-
-    const-string v1, "updateMediaPlayer() show"
-
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 813
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v12}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 814
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v12}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 815
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMainLayout:Landroid/widget/RelativeLayout;
-
-    invoke-virtual {v0}, Landroid/widget/RelativeLayout;->invalidate()V
-
-    .line 816
-    iget-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isMaxLayout:Z
-
-    if-eqz v0, :cond_5
-
-    .line 817
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setSelected(Z)V
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_2
 
-    .line 819
+    .line 796
+    .end local v9           #e:Ljava/lang/IllegalArgumentException;
     :cond_5
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
+    const-string v2, "Unknown"
 
-    const/4 v1, 0x1
+    move-object v0, v2
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setSelected(Z)V
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentTitle:Ljava/lang/String;
+
+    .line 797
+    const-string v2, "Unknown"
+
+    move-object v0, v2
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentArtist:Ljava/lang/String;
+
+    .line 798
+    const-string v2, "0"
+
+    move-object v0, v2
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentAlbumID:Ljava/lang/String;
 
     goto/16 :goto_2
 
-    .line 837
-    .restart local v6       #currentAlbumArtURI:Landroid/net/Uri;
-    .restart local v9       #mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
-    .restart local v11       #mInputStream:Ljava/io/InputStream;
+    .line 821
+    .restart local v8       #currentAlbumArtURI:Landroid/net/Uri;
+    .restart local v10       #mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
+    .restart local v13       #mInputStream:Ljava/io/InputStream;
+    .restart local v15       #newTitleText:Ljava/lang/CharSequence;
     :catch_1
-    move-exception v0
+    move-exception v2
 
-    move-object v8, v0
+    move-object v9, v2
 
-    .line 839
-    .local v8, e:Ljava/io/FileNotFoundException;
-    const-string v0, "GlassLockScreenMusicWidget"
+    .line 823
+    .local v9, e:Ljava/io/FileNotFoundException;
+    const-string v2, "GlassLockScreenMusicWidget"
 
-    const-string v1, "Album Art doesn\'t exit."
+    const-string v3, "Album Art doesn\'t exit."
 
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_3
 
-    .line 846
-    .end local v8           #e:Ljava/io/FileNotFoundException;
+    .line 824
+    .end local v9           #e:Ljava/io/FileNotFoundException;
     :catch_2
-    move-exception v8
+    move-exception v2
 
-    .line 847
-    .local v8, e:Ljava/lang/Exception;
-    const-string v0, "GlassLockScreenMusicWidget"
+    move-object v9, v2
 
-    const-string v1, "mInputStream.close() Failed!"
+    .line 825
+    .local v9, e:Ljava/lang/IllegalArgumentException;
+    invoke-virtual {v9}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
 
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    .line 826
+    const-string v2, "GlassLockScreenMusicWidget"
+
+    const-string v3, "Maybe unknown url."
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_3
+
+    .line 833
+    .end local v9           #e:Ljava/lang/IllegalArgumentException;
+    :catch_3
+    move-exception v9
+
+    .line 835
+    .local v9, e:Ljava/lang/Exception;
+    const-string v2, "GlassLockScreenMusicWidget"
+
+    const-string v3, "mInputStream.close() Failed!"
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_4
 
-    .line 856
-    .end local v6           #currentAlbumArtURI:Landroid/net/Uri;
-    .end local v8           #e:Ljava/lang/Exception;
-    .end local v9           #mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
-    .end local v11           #mInputStream:Ljava/io/InputStream;
+    .line 844
+    .end local v8           #currentAlbumArtURI:Landroid/net/Uri;
+    .end local v9           #e:Ljava/lang/Exception;
+    .end local v10           #mBitmapOptions:Landroid/graphics/BitmapFactory$Options;
+    .end local v13           #mInputStream:Ljava/io/InputStream;
     :cond_6
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtBitmap:Landroid/graphics/Bitmap;
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_0
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtBitmap:Landroid/graphics/Bitmap;
+
+    move-object v2, v0
+
+    if-nez v2, :cond_0
+
+    .line 846
+    const/16 v2, 0x8
+
+    new-array v12, v2, [I
+
+    fill-array-data v12, :array_0
+
+    .line 856
+    .local v12, mDefaultAlbumAriId:[I
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentAlbumID:Ljava/lang/String;
+
+    move-object v2, v0
+
+    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v2
+
+    array-length v3, v12
+
+    rem-int/2addr v2, v3
+
+    aget v16, v12, v2
 
     .line 858
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->currentAlbumID:Ljava/lang/String;
+    .local v16, randomAlbumArtId:I
+    move-object/from16 v0, p0
 
-    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    iget-object v0, v0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtWithImage:Landroid/widget/ImageView;
 
-    move-result v0
+    move-object v2, v0
 
-    rem-int/lit8 v7, v0, 0x5
+    move-object v0, v2
 
-    .line 859
-    .local v7, defaultimageNum:I
-    packed-switch v7, :pswitch_data_0
-
-    .line 881
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtWithImage:Landroid/widget/ImageView;
-
-    const v1, 0x108039c
+    move/from16 v1, v16
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
     goto/16 :goto_0
 
-    .line 861
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtWithImage:Landroid/widget/ImageView;
-
-    const v1, 0x108039c
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    goto/16 :goto_0
-
-    .line 865
-    :pswitch_1
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtWithImage:Landroid/widget/ImageView;
-
-    const v1, 0x108039d
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    goto/16 :goto_0
-
-    .line 869
-    :pswitch_2
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtWithImage:Landroid/widget/ImageView;
-
-    const v1, 0x108039e
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    goto/16 :goto_0
-
-    .line 873
-    :pswitch_3
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtWithImage:Landroid/widget/ImageView;
-
-    const v1, 0x108039f
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    goto/16 :goto_0
-
-    .line 877
-    :pswitch_4
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtWithImage:Landroid/widget/ImageView;
-
-    const v1, 0x10803a0
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    goto/16 :goto_0
-
-    .line 888
-    .end local v7           #defaultimageNum:I
-    .end local v12           #newTitleText:Ljava/lang/CharSequence;
+    .line 862
+    .end local v12           #mDefaultAlbumAriId:[I
+    .end local v15           #newTitleText:Ljava/lang/CharSequence;
+    .end local v16           #randomAlbumArtId:I
     :cond_7
-    const/16 v0, 0x8
+    const/16 v2, 0x8
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setVisibility(I)V
+    move-object/from16 v0, p0
 
-    .line 889
-    const/4 v0, 0x0
+    move v1, v2
 
-    iput-boolean v0, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mVisibleLayout:Z
+    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setVisibility(I)V
+
+    .line 863
+    const/4 v2, 0x0
+
+    move v0, v2
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mVisibleLayout:Z
 
     goto/16 :goto_0
 
-    .line 859
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_0
-        :pswitch_1
-        :pswitch_2
-        :pswitch_3
-        :pswitch_4
-    .end packed-switch
+    .line 846
+    :array_0
+    .array-data 0x4
+        0x7et 0x3t 0x8t 0x1t
+        0x7ft 0x3t 0x8t 0x1t
+        0x80t 0x3t 0x8t 0x1t
+        0x81t 0x3t 0x8t 0x1t
+        0x82t 0x3t 0x8t 0x1t
+        0x83t 0x3t 0x8t 0x1t
+        0x84t 0x3t 0x8t 0x1t
+        0x85t 0x3t 0x8t 0x1t
+    .end array-data
 .end method
 
 .method public updateMediaPlayer(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 6
+    .locals 7
     .parameter "title"
     .parameter "artist"
 
     .prologue
-    const/4 v4, 0x1
+    const/4 v6, 0x1
+
+    const/4 v5, 0x0
+
+    .line 869
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mPowerManager:Landroid/os/PowerManager;
+
+    invoke-virtual {v2}, Landroid/os/PowerManager;->isScreenOn()Z
+
+    move-result v0
+
+    .line 871
+    .local v0, mScreenOn:Z
+    const-string v2, "GlassLockScreenMusicWidget"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "mScreenOn = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 872
+    if-nez v0, :cond_0
+
+    .line 873
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
+
+    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setSelected(Z)V
+
+    .line 874
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
+
+    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setSelected(Z)V
+
+    .line 889
+    :goto_0
+    return-void
+
+    .line 877
+    :cond_0
+    iget-boolean v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isMaxLayout:Z
+
+    if-eqz v2, :cond_1
+
+    .line 878
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
+
+    invoke-virtual {v2, v6}, Landroid/widget/TextView;->setSelected(Z)V
+
+    .line 883
+    :goto_1
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, " / "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 884
+    .local v1, newTitleText:Ljava/lang/CharSequence;
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
+
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 885
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
+
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 888
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtWithImage:Landroid/widget/ImageView;
 
     const/4 v3, 0x0
 
-    const-string v5, "GlassLockScreenMusicWidget"
-
-    .line 896
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setSelected(Z)V
-
-    .line 897
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setSelected(Z)V
-
-    .line 898
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, " / "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 901
-    .local v0, newTitleText:Ljava/lang/CharSequence;
-    iget-boolean v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mScreenOn:Z
-
-    if-nez v1, :cond_0
-
-    .line 902
-    const-string v1, "GlassLockScreenMusicWidget"
-
-    const-string v1, "updateMediaPlayer()hide"
-
-    invoke-static {v5, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 903
-    const-string v0, ""
-
-    .line 904
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 905
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 906
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMainLayout:Landroid/widget/RelativeLayout;
-
-    invoke-virtual {v1}, Landroid/widget/RelativeLayout;->invalidate()V
-
-    .line 907
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setSelected(Z)V
-
-    .line 908
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setSelected(Z)V
-
-    .line 920
-    :goto_0
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mAlbumArtWithImage:Landroid/widget/ImageView;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
-
-    .line 921
-    return-void
-
-    .line 910
-    :cond_0
-    const-string v1, "GlassLockScreenMusicWidget"
-
-    const-string v1, "updateMediaPlayer()show"
-
-    invoke-static {v5, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 911
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 912
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 913
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMainLayout:Landroid/widget/RelativeLayout;
-
-    invoke-virtual {v1}, Landroid/widget/RelativeLayout;->invalidate()V
-
-    .line 914
-    iget-boolean v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->isMaxLayout:Z
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMax:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setSelected(Z)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
     goto :goto_0
 
-    .line 915
+    .line 880
+    .end local v1           #newTitleText:Ljava/lang/CharSequence;
     :cond_1
-    iget-object v1, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->mMusicInfoTextInMin:Landroid/widget/TextView;
 
-    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setSelected(Z)V
+    invoke-virtual {v2, v6}, Landroid/widget/TextView;->setSelected(Z)V
 
-    goto :goto_0
+    goto :goto_1
 .end method

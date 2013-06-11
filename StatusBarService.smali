@@ -18,8 +18,6 @@
 
 
 # instance fields
-.field l1:Landroid/widget/LinearLayout;
-
 .field mAbsPos:[I
 
 .field mAnimAccel:F
@@ -36,19 +34,9 @@
 
 .field mBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
-.field mBatteryBut:Landroid/view/View;
-
-.field private mBatteryButListener:Landroid/view/View$OnClickListener;
-
-.field mBrightnessBut:Landroid/view/View;
-
-.field private mBrightnessButListener:Landroid/view/View$OnClickListener;
-
 .field private mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
 .field private mCallOnGoingView:Lcom/android/systemui/statusbar/CallOnGoingView;
-
-.field mCenterClock:Landroid/widget/LinearLayout;
 
 .field mClearButton:Landroid/widget/TextView;
 
@@ -120,39 +108,15 @@
 
 .field mPixelFormat:I
 
-.field mPlaneBut:Landroid/view/View;
-
-.field private mPlaneButListener:Landroid/view/View$OnClickListener;
-
 .field mPositionTmp:[I
 
 .field mPreviousFocusValue:I
 
-.field mProfBut:Landroid/view/View;
-
-.field private mProfButListener:Landroid/view/View$OnClickListener;
-
 .field mQueueLock:Ljava/lang/Object;
-
-.field mRunBut:Landroid/view/View;
-
-.field private mRunButListener:Landroid/view/View$OnClickListener;
-
-.field mSaveBut:Landroid/view/View;
-
-.field private mSaveButListener:Landroid/view/View$OnClickListener;
 
 .field mScrollView:Landroid/widget/ScrollView;
 
-.field mSettingsBut:Landroid/view/View;
-
-.field private mSettingsButListener:Landroid/view/View$OnClickListener;
-
 .field mStartTracing:Ljava/lang/Runnable;
-
-.field mStatBut:Landroid/view/View;
-
-.field private mStatButListener:Landroid/view/View$OnClickListener;
 
 .field mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
 
@@ -165,12 +129,6 @@
 .field private mTickerView:Landroid/view/View;
 
 .field private mTicking:Z
-
-.field mTorchBut:Landroid/view/View;
-
-.field private mTorchButListener:Landroid/view/View$OnClickListener;
-
-.field mTouchDispatcher:Lcom/android/systemui/statusbar/ItemTouchDispatcher;
 
 .field mTracking:Z
 
@@ -253,103 +211,40 @@
     .line 183
     iput-boolean v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mFocusBlocked:Z
 
-    .line 769
+    .line 779
     new-instance v0, Lcom/android/systemui/statusbar/StatusBarService$1;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarService$1;-><init>(Lcom/android/systemui/statusbar/StatusBarService;)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mFocusChangeListener:Landroid/view/View$OnFocusChangeListener;
 
-    .line 1535
+    .line 1545
     new-instance v0, Lcom/android/systemui/statusbar/StatusBarService$3;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarService$3;-><init>(Lcom/android/systemui/statusbar/StatusBarService;)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mClearButtonListener:Landroid/view/View$OnClickListener;
 
-    .line 1546
+    .line 1556
     new-instance v0, Lcom/android/systemui/statusbar/StatusBarService$4;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarService$4;-><init>(Lcom/android/systemui/statusbar/StatusBarService;)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 1592
+    .line 1602
     new-instance v0, Lcom/android/systemui/statusbar/StatusBarService$5;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarService$5;-><init>(Lcom/android/systemui/statusbar/StatusBarService;)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStartTracing:Ljava/lang/Runnable;
 
-    .line 1602
+    .line 1612
     new-instance v0, Lcom/android/systemui/statusbar/StatusBarService$6;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarService$6;-><init>(Lcom/android/systemui/statusbar/StatusBarService;)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStopTracing:Ljava/lang/Runnable;
-
-    .line 1703
-    new-instance v0, Lcom/android/systemui/statusbar/StatusBarService$8;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarService$8;-><init>(Lcom/android/systemui/statusbar/StatusBarService;)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mSettingsButListener:Landroid/view/View$OnClickListener;
-
-    .line 1703
-    new-instance v0, Lcom/android/systemui/statusbar/StatusBarService$9;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarService$9;-><init>(Lcom/android/systemui/statusbar/StatusBarService;)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mBrightnessButListener:Landroid/view/View$OnClickListener;
-
-    .line 1703
-    new-instance v0, Lcom/android/systemui/statusbar/StatusBarService$10;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarService$10;-><init>(Lcom/android/systemui/statusbar/StatusBarService;)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mBatteryButListener:Landroid/view/View$OnClickListener;
-
-    .line 1703
-    new-instance v0, Lcom/android/systemui/statusbar/StatusBarService$11;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarService$11;-><init>(Lcom/android/systemui/statusbar/StatusBarService;)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mProfButListener:Landroid/view/View$OnClickListener;
-
-    .line 1703
-    new-instance v0, Lcom/android/systemui/statusbar/StatusBarService$12;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarService$12;-><init>(Lcom/android/systemui/statusbar/StatusBarService;)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mRunButListener:Landroid/view/View$OnClickListener;
-
-    .line 1703
-    new-instance v0, Lcom/android/systemui/statusbar/StatusBarService$13;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarService$13;-><init>(Lcom/android/systemui/statusbar/StatusBarService;)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mPlaneButListener:Landroid/view/View$OnClickListener;
-
-    .line 1703
-    new-instance v0, Lcom/android/systemui/statusbar/StatusBarService$14;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarService$14;-><init>(Lcom/android/systemui/statusbar/StatusBarService;)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatButListener:Landroid/view/View$OnClickListener;
-
-    .line 1703
-    new-instance v0, Lcom/android/systemui/statusbar/StatusBarService$15;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarService$15;-><init>(Lcom/android/systemui/statusbar/StatusBarService;)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mSaveButListener:Landroid/view/View$OnClickListener;
-
-    .line 1703
-    new-instance v0, Lcom/android/systemui/statusbar/StatusBarService$16;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarService$16;-><init>(Lcom/android/systemui/statusbar/StatusBarService;)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTorchButListener:Landroid/view/View$OnClickListener;
 
     return-void
 .end method
@@ -399,14 +294,14 @@
     .parameter "viewIndex"
 
     .prologue
-    .line 556
+    .line 560
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mLatest:Lcom/android/systemui/statusbar/NotificationData;
 
     invoke-virtual {v2}, Lcom/android/systemui/statusbar/NotificationData;->size()I
 
     move-result v0
 
-    .line 557
+    .line 561
     .local v0, latestSize:I
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mOngoing:Lcom/android/systemui/statusbar/NotificationData;
 
@@ -414,11 +309,11 @@
 
     move-result v1
 
-    .line 559
+    .line 563
     .local v1, ongoingSize:I
     if-eqz p1, :cond_0
 
-    .line 560
+    .line 564
     add-int v2, v0, v1
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/StatusBarService;->mMiniConData:Lcom/android/systemui/statusbar/NotificationData;
@@ -431,22 +326,22 @@
 
     add-int/2addr v2, v3
 
-    .line 564
+    .line 568
     :goto_0
     return v2
 
-    .line 561
+    .line 565
     :cond_0
     if-eqz p2, :cond_1
 
-    .line 562
+    .line 566
     sub-int v2, v1, p3
 
     add-int/2addr v2, v0
 
     goto :goto_0
 
-    .line 564
+    .line 568
     :cond_1
     sub-int v2, v0, p3
 
@@ -459,19 +354,19 @@
     .parameter "listener"
 
     .prologue
-    .line 1227
+    .line 1237
     invoke-static {p0, p1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
     move-result-object v0
 
-    .line 1228
+    .line 1238
     .local v0, anim:Landroid/view/animation/Animation;
     if-eqz p2, :cond_0
 
-    .line 1229
+    .line 1239
     invoke-virtual {v0, p2}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 1231
+    .line 1241
     :cond_0
     return-object v0
 .end method
@@ -484,29 +379,29 @@
 
     const/4 v3, 0x1
 
-    .line 779
+    .line 789
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedVisible:Z
 
     if-eqz v0, :cond_1
 
-    .line 796
+    .line 806
     :cond_0
     :goto_0
     return-void
 
-    .line 782
+    .line 792
     :cond_1
     iput-boolean v3, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedVisible:Z
 
-    .line 783
+    .line 793
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/StatusBarService;->visibilityChanged(Z)V
 
-    .line 785
+    .line 795
     const/16 v0, -0x2710
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/StatusBarService;->updateExpandedViewPos(I)V
 
-    .line 786
+    .line 796
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedParams:Landroid/view/WindowManager$LayoutParams;
 
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
@@ -515,7 +410,7 @@
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 787
+    .line 797
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedParams:Landroid/view/WindowManager$LayoutParams;
 
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
@@ -526,7 +421,7 @@
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 788
+    .line 798
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedDialog:Landroid/app/Dialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
@@ -537,614 +432,456 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 789
+    .line 799
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
 
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/ExpandedView;->requestFocus(I)Z
 
-    .line 790
+    .line 800
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingView:Lcom/android/systemui/statusbar/TrackingView;
 
     invoke-virtual {v0, v4}, Lcom/android/systemui/statusbar/TrackingView;->setVisibility(I)V
 
-    .line 791
+    .line 801
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
 
     invoke-virtual {v0, v4}, Lcom/android/systemui/statusbar/ExpandedView;->setVisibility(I)V
 
-    .line 100
-    iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
-
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/StatusBarView;->setVisibility(I)V
-
-    .line 793
+    .line 803
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTicking:Z
 
     if-nez v0, :cond_0
+
+    .line 804
+    const/high16 v0, 0x10a
+
+    invoke-virtual {p0, v3, v0}, Lcom/android/systemui/statusbar/StatusBarService;->setDateViewVisibility(ZI)V
 
     goto :goto_0
 .end method
 
 .method private makeStatusBarView(Landroid/content/Context;)V
-    .locals 14
+    .locals 13
     .parameter "context"
 
     .prologue
-    const/4 v13, 0x0
+    const/4 v12, 0x0
 
-    const v12, 0x7f09001c
+    const v11, 0x7f09001c
 
-    const/16 v11, 0x8
+    const/16 v10, 0x8
 
-    const/4 v10, 0x0
+    const/4 v9, 0x0
 
-    .line 270
+    .line 280
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v5
-
-    .line 272
-    .local v5, res:Landroid/content/res/Resources;
-    new-instance v6, Lcom/android/systemui/statusbar/ItemTouchDispatcher;
-
-    invoke-direct {v6, p0}, Lcom/android/systemui/statusbar/ItemTouchDispatcher;-><init>(Landroid/content/Context;)V
-
-    iput-object v6, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTouchDispatcher:Lcom/android/systemui/statusbar/ItemTouchDispatcher;
-
-    const v8, 0x1050005
-
-    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v8
-
-    iput v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mIconSize:I
-
-    .line 274
-    const v8, 0x7f030006
-
-    invoke-static {p1, v8, v10}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/statusbar/ExpandedView;
-
-    .line 276
-    .local v2, expanded:Lcom/android/systemui/statusbar/ExpandedView;
-    iput-object p0, v2, Lcom/android/systemui/statusbar/ExpandedView;->mService:Lcom/android/systemui/statusbar/StatusBarService;
-
-    .line 278
-    iget-object v6, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTouchDispatcher:Lcom/android/systemui/statusbar/ItemTouchDispatcher;
-
-    iput-object v6, v2, Lcom/android/systemui/statusbar/ExpandedView;->mTouchDispatcher:Lcom/android/systemui/statusbar/ItemTouchDispatcher;
-
-    const v8, 0x7f030004
-
-    invoke-static {p1, v8, v10}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v6
-
-    check-cast v6, Lcom/android/systemui/statusbar/StatusBarView;
-
-    .line 279
-    .local v6, sb:Lcom/android/systemui/statusbar/StatusBarView;
-    iput-object p0, v6, Lcom/android/systemui/statusbar/StatusBarView;->mService:Lcom/android/systemui/statusbar/StatusBarService;
-
-    .line 282
-    const/4 v8, -0x3
-
-    iput v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mPixelFormat:I
-
-    .line 283
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/StatusBarView;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    .line 284
-    .local v0, bg:Landroid/graphics/drawable/Drawable;
-    if-eqz v0, :cond_0
-
-    .line 285
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getOpacity()I
-
-    move-result v8
-
-    iput v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mPixelFormat:I
-
-    .line 288
-    :cond_0
-    iput-object v6, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
-
-    .line 289
-    const v8, 0x7f090015
-
-    invoke-virtual {v6, v8}, Lcom/android/systemui/statusbar/StatusBarView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/widget/LinearLayout;
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusIcons:Landroid/widget/LinearLayout;
-
-    .line 290
-    const v8, 0x7f090014
-
-    invoke-virtual {v6, v8}, Lcom/android/systemui/statusbar/StatusBarView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Lcom/android/systemui/statusbar/IconMerger;
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mNotificationIcons:Lcom/android/systemui/statusbar/IconMerger;
-
-    .line 291
-    const v8, 0x7f090013
-
-    invoke-virtual {v6, v8}, Lcom/android/systemui/statusbar/StatusBarView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/widget/LinearLayout;
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mIcons:Landroid/widget/LinearLayout;
-
-    .line 292
-    const v8, 0x7f090016
-
-    invoke-virtual {v6, v8}, Lcom/android/systemui/statusbar/StatusBarView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTickerView:Landroid/view/View;
-
-    .line 293
-    const v8, 0x7f090019
-
-    invoke-virtual {v6, v8}, Lcom/android/systemui/statusbar/StatusBarView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Lcom/android/systemui/statusbar/DateView;
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDateView:Lcom/android/systemui/statusbar/DateView;
-
-    .line 295
-    new-instance v8, Lcom/android/systemui/statusbar/StatusBarService$ExpandedDialog;
-
-    invoke-direct {v8, p0, p1}, Lcom/android/systemui/statusbar/StatusBarService$ExpandedDialog;-><init>(Lcom/android/systemui/statusbar/StatusBarService;Landroid/content/Context;)V
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedDialog:Landroid/app/Dialog;
-
-    .line 296
-    iput-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
-
-    .line 297
-    invoke-virtual {v2, v12}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedContents:Landroid/view/View;
-
-    .line 298
-    const v8, 0x7f09001f
-
-    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/widget/TextView;
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mOngoingTitle:Landroid/widget/TextView;
-
-    .line 299
-    const v8, 0x7f090020
-
-    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/widget/LinearLayout;
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mOngoingItems:Landroid/widget/LinearLayout;
-
-    .line 300
-    const v8, 0x7f090021
-
-    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/widget/TextView;
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mLatestTitle:Landroid/widget/TextView;
-
-    .line 301
-    const v8, 0x7f090022
-
-    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/widget/LinearLayout;
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mLatestItems:Landroid/widget/LinearLayout;
-
-    .line 302
-    const v8, 0x7f09001e
-
-    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/widget/TextView;
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mNoNotificationsTitle:Landroid/widget/TextView;
-
-    .line 303
-    const v8, 0x7f09001d
-
-    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/widget/TextView;
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mClearButton:Landroid/widget/TextView;
-
-    .line 304
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mClearButton:Landroid/widget/TextView;
-
-    iget-object v9, p0, Lcom/android/systemui/statusbar/StatusBarService;->mClearButtonListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v8, v9}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 305
-    const v8, 0x7f090001
-
-    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/widget/ScrollView;
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mScrollView:Landroid/widget/ScrollView;
-
-    .line 306
-    invoke-virtual {v2, v12}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mNotificationLinearLayout:Landroid/view/View;
-
-    .line 308
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
-
-    invoke-virtual {v8, v11}, Lcom/android/systemui/statusbar/ExpandedView;->setVisibility(I)V
-
-    .line 309
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mOngoingTitle:Landroid/widget/TextView;
-
-    invoke-virtual {v8, v11}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 310
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mLatestTitle:Landroid/widget/TextView;
-
-    invoke-virtual {v8, v11}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 312
-    new-instance v8, Lcom/android/systemui/statusbar/StatusBarService$MyTicker;
-
-    invoke-direct {v8, p0, p1, v6}, Lcom/android/systemui/statusbar/StatusBarService$MyTicker;-><init>(Lcom/android/systemui/statusbar/StatusBarService;Landroid/content/Context;Lcom/android/systemui/statusbar/StatusBarView;)V
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTicker:Lcom/android/systemui/statusbar/Ticker;
-
-    .line 314
-    const v8, 0x7f090018
-
-    invoke-virtual {v6, v8}, Lcom/android/systemui/statusbar/StatusBarView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v7
-
-    check-cast v7, Lcom/android/systemui/statusbar/TickerView;
-
-    .line 315
-    .local v7, tickerView:Lcom/android/systemui/statusbar/TickerView;
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTicker:Lcom/android/systemui/statusbar/Ticker;
-
-    iput-object v8, v7, Lcom/android/systemui/statusbar/TickerView;->mTicker:Lcom/android/systemui/statusbar/Ticker;
-
-    .line 317
-    const v8, 0x7f030009
-
-    invoke-static {p1, v8, v10}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Lcom/android/systemui/statusbar/TrackingView;
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingView:Lcom/android/systemui/statusbar/TrackingView;
-
-    .line 318
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingView:Lcom/android/systemui/statusbar/TrackingView;
-
-    iput-object p0, v8, Lcom/android/systemui/statusbar/TrackingView;->mService:Lcom/android/systemui/statusbar/StatusBarService;
-
-    .line 319
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingView:Lcom/android/systemui/statusbar/TrackingView;
-
-    const v9, 0x7f090025
-
-    invoke-virtual {v8, v9}, Lcom/android/systemui/statusbar/TrackingView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Lcom/android/systemui/statusbar/CloseDragHandle;
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCloseView:Lcom/android/systemui/statusbar/CloseDragHandle;
-
-    .line 320
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCloseView:Lcom/android/systemui/statusbar/CloseDragHandle;
-
-    iput-object p0, v8, Lcom/android/systemui/statusbar/CloseDragHandle;->mService:Lcom/android/systemui/statusbar/StatusBarService;
-
-    .line 322
-    const/high16 v8, 0x7f06
-
-    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v8
-
-    iput v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mEdgeBorder:I
-
-    .line 323
-    const v8, 0x7f090032
-
-    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mSettingsBut:Landroid/view/View;
-
-    .line 324
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mSettingsBut:Landroid/view/View;
-
-    iget-object v9, p0, Lcom/android/systemui/statusbar/StatusBarService;->mSettingsButListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v8, v9}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 323
-    const v8, 0x7f090039
-
-    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mBrightnessBut:Landroid/view/View;
-
-    .line 324
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mBrightnessBut:Landroid/view/View;
-
-    iget-object v9, p0, Lcom/android/systemui/statusbar/StatusBarService;->mBrightnessButListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v8, v9}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 323
-    const v8, 0x7f09003a
-
-    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mBatteryBut:Landroid/view/View;
-
-    .line 324
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mBatteryBut:Landroid/view/View;
-
-    iget-object v9, p0, Lcom/android/systemui/statusbar/StatusBarService;->mBatteryButListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v8, v9}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 323
-    const v8, 0x7f09003b
-
-    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mProfBut:Landroid/view/View;
-
-    .line 324
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mProfBut:Landroid/view/View;
-
-    iget-object v9, p0, Lcom/android/systemui/statusbar/StatusBarService;->mProfButListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v8, v9}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 323
-    const v8, 0x7f09003c
-
-    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mRunBut:Landroid/view/View;
-
-    .line 324
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mRunBut:Landroid/view/View;
-
-    iget-object v9, p0, Lcom/android/systemui/statusbar/StatusBarService;->mRunButListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v8, v9}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 323
-    const v8, 0x7f09003d
-
-    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mPlaneBut:Landroid/view/View;
-
-    .line 324
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mPlaneBut:Landroid/view/View;
-
-    iget-object v9, p0, Lcom/android/systemui/statusbar/StatusBarService;->mPlaneButListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v8, v9}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 323
-    const v8, 0x7f09003e
-
-    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatBut:Landroid/view/View;
-
-    .line 324
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatBut:Landroid/view/View;
-
-    iget-object v9, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatButListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v8, v9}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 323
-    const v8, 0x7f090040
-
-    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mSaveBut:Landroid/view/View;
-
-    .line 324
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mSaveBut:Landroid/view/View;
-
-    iget-object v9, p0, Lcom/android/systemui/statusbar/StatusBarService;->mSaveButListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v8, v9}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 323
-    const v8, 0x7f090041
-
-    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTorchBut:Landroid/view/View;
-
-    .line 324
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTorchBut:Landroid/view/View;
-
-    iget-object v9, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTorchButListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v8, v9}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 325
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/StatusBarService;->setAreThereNotifications()V
-
-    .line 326
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDateView:Lcom/android/systemui/statusbar/DateView;
-
-    const/4 v9, 0x4
-
-    invoke-virtual {v8, v9}, Lcom/android/systemui/statusbar/DateView;->setVisibility(I)V
-
-    .line 329
-    new-instance v3, Landroid/content/IntentFilter;
-
-    invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
-
-    .line 330
-    .local v3, filter:Landroid/content/IntentFilter;
-    const-string v8, "android.intent.action.CONFIGURATION_CHANGED"
-
-    invoke-virtual {v3, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 331
-    const-string v8, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
-
-    invoke-virtual {v3, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 332
-    const-string v8, "android.intent.action.SCREEN_OFF"
-
-    invoke-virtual {v3, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 333
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
-
-    invoke-virtual {p1, v8, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    .line 337
-    const/4 v4, 0x0
-
-    .line 344
-    const v8, 0x3030003
-
-    invoke-static {p1, v8, v10}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v4
 
-    check-cast v4, Lcom/lidroid/systemui/quickpanel/PowerWidget;
+    .line 282
+    .local v4, res:Landroid/content/res/Resources;
+    const v7, 0x1050005
 
-    .line 348
-    .local v4, qsv:Lcom/lidroid/systemui/quickpanel/PowerWidget;
-    const/4 v9, 0x1
+    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    invoke-virtual {v4}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->setupWidget()V
+    move-result v7
 
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
+    iput v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mIconSize:I
 
-    invoke-virtual {v8, v4, v9}, Lcom/android/systemui/statusbar/ExpandedView;->addView(Landroid/view/View;I)V
+    .line 284
+    const v7, 0x7f030006
+
+    invoke-static {p1, v7, v9}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/statusbar/ExpandedView;
+
+    .line 286
+    .local v1, expanded:Lcom/android/systemui/statusbar/ExpandedView;
+    iput-object p0, v1, Lcom/android/systemui/statusbar/ExpandedView;->mService:Lcom/android/systemui/statusbar/StatusBarService;
+
+    .line 288
+    const v7, 0x7f030004
+
+    invoke-static {p1, v7, v9}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/systemui/statusbar/StatusBarView;
+
+    .line 289
+    .local v5, sb:Lcom/android/systemui/statusbar/StatusBarView;
+    iput-object p0, v5, Lcom/android/systemui/statusbar/StatusBarView;->mService:Lcom/android/systemui/statusbar/StatusBarService;
+
+    .line 292
+    const/4 v7, -0x3
+
+    iput v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mPixelFormat:I
+
+    .line 293
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/StatusBarView;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    .line 294
+    .local v0, bg:Landroid/graphics/drawable/Drawable;
+    if-eqz v0, :cond_0
+
+    .line 295
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getOpacity()I
+
+    move-result v7
+
+    iput v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mPixelFormat:I
+
+    .line 298
+    :cond_0
+    iput-object v5, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
+
+    .line 299
+    const v7, 0x7f090015
+
+    invoke-virtual {v5, v7}, Lcom/android/systemui/statusbar/StatusBarView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/LinearLayout;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusIcons:Landroid/widget/LinearLayout;
+
+    .line 300
+    const v7, 0x7f090014
+
+    invoke-virtual {v5, v7}, Lcom/android/systemui/statusbar/StatusBarView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/android/systemui/statusbar/IconMerger;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mNotificationIcons:Lcom/android/systemui/statusbar/IconMerger;
+
+    .line 301
+    const v7, 0x7f090013
+
+    invoke-virtual {v5, v7}, Lcom/android/systemui/statusbar/StatusBarView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/LinearLayout;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mIcons:Landroid/widget/LinearLayout;
+
+    .line 302
+    const v7, 0x7f090016
+
+    invoke-virtual {v5, v7}, Lcom/android/systemui/statusbar/StatusBarView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTickerView:Landroid/view/View;
+
+    .line 303
+    const v7, 0x7f090019
+
+    invoke-virtual {v5, v7}, Lcom/android/systemui/statusbar/StatusBarView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/android/systemui/statusbar/DateView;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDateView:Lcom/android/systemui/statusbar/DateView;
+
+    .line 305
+    new-instance v7, Lcom/android/systemui/statusbar/StatusBarService$ExpandedDialog;
+
+    invoke-direct {v7, p0, p1}, Lcom/android/systemui/statusbar/StatusBarService$ExpandedDialog;-><init>(Lcom/android/systemui/statusbar/StatusBarService;Landroid/content/Context;)V
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedDialog:Landroid/app/Dialog;
+
+    .line 306
+    iput-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
+
+    .line 307
+    invoke-virtual {v1, v11}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedContents:Landroid/view/View;
+
+    .line 308
+    const v7, 0x7f09001f
+
+    invoke-virtual {v1, v7}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/TextView;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mOngoingTitle:Landroid/widget/TextView;
+
+    .line 309
+    const v7, 0x7f090020
+
+    invoke-virtual {v1, v7}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/LinearLayout;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mOngoingItems:Landroid/widget/LinearLayout;
+
+    .line 310
+    const v7, 0x7f090021
+
+    invoke-virtual {v1, v7}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/TextView;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mLatestTitle:Landroid/widget/TextView;
+
+    .line 311
+    const v7, 0x7f090022
+
+    invoke-virtual {v1, v7}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/LinearLayout;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mLatestItems:Landroid/widget/LinearLayout;
+
+    .line 312
+    const v7, 0x7f09001e
+
+    invoke-virtual {v1, v7}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/TextView;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mNoNotificationsTitle:Landroid/widget/TextView;
+
+    .line 313
+    const v7, 0x7f09001d
+
+    invoke-virtual {v1, v7}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/TextView;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mClearButton:Landroid/widget/TextView;
+
+    .line 314
+    iget-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mClearButton:Landroid/widget/TextView;
+
+    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mClearButtonListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v7, v8}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 315
+    const v7, 0x7f090001
+
+    invoke-virtual {v1, v7}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/ScrollView;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mScrollView:Landroid/widget/ScrollView;
+
+    .line 316
+    invoke-virtual {v1, v11}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mNotificationLinearLayout:Landroid/view/View;
+
+    .line 318
+    iget-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
+
+    invoke-virtual {v7, v10}, Lcom/android/systemui/statusbar/ExpandedView;->setVisibility(I)V
+
+    .line 319
+    iget-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mOngoingTitle:Landroid/widget/TextView;
+
+    invoke-virtual {v7, v10}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 320
+    iget-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mLatestTitle:Landroid/widget/TextView;
+
+    invoke-virtual {v7, v10}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 322
+    new-instance v7, Lcom/android/systemui/statusbar/StatusBarService$MyTicker;
+
+    invoke-direct {v7, p0, p1, v5}, Lcom/android/systemui/statusbar/StatusBarService$MyTicker;-><init>(Lcom/android/systemui/statusbar/StatusBarService;Landroid/content/Context;Lcom/android/systemui/statusbar/StatusBarView;)V
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTicker:Lcom/android/systemui/statusbar/Ticker;
+
+    .line 324
+    const v7, 0x7f090018
+
+    invoke-virtual {v5, v7}, Lcom/android/systemui/statusbar/StatusBarView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/systemui/statusbar/TickerView;
+
+    .line 325
+    .local v6, tickerView:Lcom/android/systemui/statusbar/TickerView;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTicker:Lcom/android/systemui/statusbar/Ticker;
+
+    iput-object v7, v6, Lcom/android/systemui/statusbar/TickerView;->mTicker:Lcom/android/systemui/statusbar/Ticker;
+
+    .line 327
+    const v7, 0x7f030009
+
+    invoke-static {p1, v7, v9}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/android/systemui/statusbar/TrackingView;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingView:Lcom/android/systemui/statusbar/TrackingView;
+
+    .line 328
+    iget-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingView:Lcom/android/systemui/statusbar/TrackingView;
+
+    iput-object p0, v7, Lcom/android/systemui/statusbar/TrackingView;->mService:Lcom/android/systemui/statusbar/StatusBarService;
+
+    .line 329
+    iget-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingView:Lcom/android/systemui/statusbar/TrackingView;
+
+    const v8, 0x7f090025
+
+    invoke-virtual {v7, v8}, Lcom/android/systemui/statusbar/TrackingView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/android/systemui/statusbar/CloseDragHandle;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCloseView:Lcom/android/systemui/statusbar/CloseDragHandle;
+
+    .line 330
+    iget-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCloseView:Lcom/android/systemui/statusbar/CloseDragHandle;
+
+    iput-object p0, v7, Lcom/android/systemui/statusbar/CloseDragHandle;->mService:Lcom/android/systemui/statusbar/StatusBarService;
+
+    .line 332
+    const/high16 v7, 0x7f06
+
+    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v7
+
+    iput v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mEdgeBorder:I
+
+    .line 335
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/StatusBarService;->setAreThereNotifications()V
+
+    .line 336
+    iget-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDateView:Lcom/android/systemui/statusbar/DateView;
+
+    const/4 v8, 0x4
+
+    invoke-virtual {v7, v8}, Lcom/android/systemui/statusbar/DateView;->setVisibility(I)V
+
+    .line 339
+    new-instance v2, Landroid/content/IntentFilter;
+
+    invoke-direct {v2}, Landroid/content/IntentFilter;-><init>()V
+
+    .line 340
+    .local v2, filter:Landroid/content/IntentFilter;
+    const-string v7, "android.intent.action.CONFIGURATION_CHANGED"
+
+    invoke-virtual {v2, v7}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 341
+    const-string v7, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
+
+    invoke-virtual {v2, v7}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 342
+    const-string v7, "android.intent.action.SCREEN_OFF"
+
+    invoke-virtual {v2, v7}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 343
+    iget-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {p1, v7, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    .line 346
+    const/4 v3, 0x0
+
+    .line 350
+    const v7, 0x3030003
+
+    invoke-static {p1, v7, v9}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/lidroid/systemui/quickpanel/PowerWidget;
 
     .line 352
-    new-instance v8, Landroid/widget/LinearLayout;
+    .local v3, qsv:Lcom/lidroid/systemui/quickpanel/PowerWidget;
+    invoke-virtual {v3}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->setupWidget()V
 
-    invoke-direct {v8, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+    iget-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
 
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mMiniCon:Landroid/widget/LinearLayout;
+    invoke-virtual {v7, v3, v12}, Lcom/android/systemui/statusbar/ExpandedView;->addView(Landroid/view/View;I)V
 
-    .line 353
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mMiniCon:Landroid/widget/LinearLayout;
+    .line 356
+    new-instance v7, Landroid/widget/LinearLayout;
 
-    const/4 v9, 0x1
+    invoke-direct {v7, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v8, v9}, Landroid/widget/LinearLayout;->setOrientation(I)V
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mMiniCon:Landroid/widget/LinearLayout;
 
-    .line 354
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
+    .line 357
+    iget-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mMiniCon:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v8, v12}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
+    const/4 v8, 0x1
 
-    move-result-object v8
-
-    check-cast v8, Landroid/widget/LinearLayout;
-
-    iget-object v9, p0, Lcom/android/systemui/statusbar/StatusBarService;->mMiniCon:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v8, v9, v13}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;I)V
+    invoke-virtual {v7, v8}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
     .line 358
-    const v8, 0x7f030005
+    iget-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
 
-    invoke-static {p1, v8, v10}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v7, v11}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
 
-    move-result-object v8
+    move-result-object v7
 
-    check-cast v8, Lcom/android/systemui/statusbar/CallOnGoingView;
+    check-cast v7, Landroid/widget/LinearLayout;
 
-    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCallOnGoingView:Lcom/android/systemui/statusbar/CallOnGoingView;
+    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mMiniCon:Landroid/widget/LinearLayout;
 
-    .line 359
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCallOnGoingView:Lcom/android/systemui/statusbar/CallOnGoingView;
+    invoke-virtual {v7, v8, v12}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;I)V
 
-    iput-object p0, v8, Lcom/android/systemui/statusbar/CallOnGoingView;->mService:Lcom/android/systemui/statusbar/StatusBarService;
+    .line 362
+    const v7, 0x7f030005
 
-    .line 361
+    invoke-static {p1, v7, v9}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/android/systemui/statusbar/CallOnGoingView;
+
+    iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCallOnGoingView:Lcom/android/systemui/statusbar/CallOnGoingView;
+
+    .line 363
+    iget-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCallOnGoingView:Lcom/android/systemui/statusbar/CallOnGoingView;
+
+    iput-object p0, v7, Lcom/android/systemui/statusbar/CallOnGoingView;->mService:Lcom/android/systemui/statusbar/StatusBarService;
+
+    .line 365
     return-void
 .end method
 
@@ -1156,14 +893,14 @@
 
     const/4 v4, 0x0
 
-    .line 696
+    .line 706
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mOngoing:Lcom/android/systemui/statusbar/NotificationData;
 
     invoke-virtual {v2}, Lcom/android/systemui/statusbar/NotificationData;->hasVisibleItems()Z
 
     move-result v1
 
-    .line 697
+    .line 707
     .local v1, ongoing:Z
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mLatest:Lcom/android/systemui/statusbar/NotificationData;
 
@@ -1171,7 +908,7 @@
 
     move-result v0
 
-    .line 700
+    .line 710
     .local v0, latest:Z
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mLatest:Lcom/android/systemui/statusbar/NotificationData;
 
@@ -1181,12 +918,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 701
+    .line 711
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mClearButton:Landroid/widget/TextView;
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 706
+    .line 716
     :goto_0
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mOngoingTitle:Landroid/widget/TextView;
 
@@ -1197,7 +934,7 @@
     :goto_1
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 707
+    .line 717
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mLatestTitle:Landroid/widget/TextView;
 
     if-eqz v0, :cond_3
@@ -1207,22 +944,22 @@
     :goto_2
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 709
+    .line 719
     if-nez v1, :cond_0
 
     if-eqz v0, :cond_4
 
-    .line 710
+    .line 720
     :cond_0
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mNoNotificationsTitle:Landroid/widget/TextView;
 
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 714
+    .line 724
     :goto_3
     return-void
 
-    .line 703
+    .line 713
     :cond_1
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mClearButton:Landroid/widget/TextView;
 
@@ -1235,16 +972,16 @@
     :cond_2
     move v3, v5
 
-    .line 706
+    .line 716
     goto :goto_1
 
     :cond_3
     move v3, v5
 
-    .line 707
+    .line 717
     goto :goto_2
 
-    .line 712
+    .line 722
     :cond_4
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mNoNotificationsTitle:Landroid/widget/TextView;
 
@@ -1258,7 +995,7 @@
     .parameter "n"
 
     .prologue
-    .line 1159
+    .line 1169
     iget-object v0, p1, Lcom/android/internal/statusbar/StatusBarNotification;->notification:Landroid/app/Notification;
 
     iget-object v0, v0, Landroid/app/Notification;->tickerText:Ljava/lang/CharSequence;
@@ -1273,19 +1010,19 @@
 
     if-eqz v0, :cond_0
 
-    .line 1160
+    .line 1170
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisabled:I
 
     and-int/lit8 v0, v0, 0xa
 
     if-nez v0, :cond_0
 
-    .line 1162
+    .line 1172
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTicker:Lcom/android/systemui/statusbar/Ticker;
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/Ticker;->addEntry(Lcom/android/internal/statusbar/StatusBarNotification;)V
 
-    .line 1165
+    .line 1175
     :cond_0
     return-void
 .end method
@@ -1300,16 +1037,16 @@
     .parameter "icon"
 
     .prologue
-    .line 394
+    .line 398
     new-instance v0, Lcom/android/systemui/statusbar/StatusBarIconView;
 
     invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/StatusBarIconView;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 395
+    .line 399
     .local v0, view:Lcom/android/systemui/statusbar/StatusBarIconView;
     invoke-virtual {v0, p4}, Lcom/android/systemui/statusbar/StatusBarIconView;->set(Lcom/android/internal/statusbar/StatusBarIcon;)Z
 
-    .line 396
+    .line 400
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusIcons:Landroid/widget/LinearLayout;
 
     new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
@@ -1322,7 +1059,7 @@
 
     invoke-virtual {v1, v0, p3, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
-    .line 397
+    .line 401
     return-void
 .end method
 
@@ -1332,10 +1069,10 @@
     .parameter "notification"
 
     .prologue
-    .line 417
+    .line 421
     const/4 v1, 0x1
 
-    .line 418
+    .line 422
     .local v1, shouldTick:Z
     iget-object v2, p2, Lcom/android/internal/statusbar/StatusBarNotification;->notification:Landroid/app/Notification;
 
@@ -1343,17 +1080,17 @@
 
     if-eqz v2, :cond_0
 
-    .line 419
+    .line 423
     const/4 v1, 0x0
 
-    .line 420
+    .line 424
     const-string v2, "StatusBarService"
 
     const-string v3, "Notification has fullScreenIntent; sending fullScreenIntent"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 422
+    .line 426
     :try_start_0
     iget-object v2, p2, Lcom/android/internal/statusbar/StatusBarNotification;->notification:Landroid/app/Notification;
 
@@ -1363,40 +1100,40 @@
     :try_end_0
     .catch Landroid/app/PendingIntent$CanceledException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 427
+    .line 431
     :cond_0
     :goto_0
     invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/StatusBarService;->addNotificationViews(Landroid/os/IBinder;Lcom/android/internal/statusbar/StatusBarNotification;)Lcom/android/systemui/statusbar/StatusBarIconView;
 
     move-result-object v0
 
-    .line 428
+    .line 432
     .local v0, iconView:Lcom/android/systemui/statusbar/StatusBarIconView;
     if-nez v0, :cond_1
 
-    .line 437
+    .line 441
     :goto_1
     return-void
 
-    .line 430
+    .line 434
     :cond_1
     if-eqz v1, :cond_2
 
-    .line 431
+    .line 435
     invoke-direct {p0, p2}, Lcom/android/systemui/statusbar/StatusBarService;->tick(Lcom/android/internal/statusbar/StatusBarNotification;)V
 
-    .line 435
+    .line 439
     :cond_2
     invoke-direct {p0}, Lcom/android/systemui/statusbar/StatusBarService;->setAreThereNotifications()V
 
-    .line 436
+    .line 440
     const/16 v2, -0x2710
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/StatusBarService;->updateExpandedViewPos(I)V
 
     goto :goto_1
 
-    .line 423
+    .line 427
     .end local v0           #iconView:Lcom/android/systemui/statusbar/StatusBarIconView;
     :catch_0
     move-exception v2
@@ -1410,37 +1147,37 @@
     .parameter
 
     .prologue
-    .line 613
+    .line 617
     invoke-virtual {p2}, Lcom/android/internal/statusbar/StatusBarNotification;->isOngoing()Z
 
     move-result v7
 
-    .line 616
+    .line 620
     invoke-virtual {p2}, Lcom/android/internal/statusbar/StatusBarNotification;->isMiniCon()Z
 
     move-result v8
 
-    .line 617
+    .line 621
     if-eqz v8, :cond_0
 
-    .line 618
+    .line 622
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mMiniConData:Lcom/android/systemui/statusbar/NotificationData;
 
-    .line 619
+    .line 623
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mMiniCon:Landroid/widget/LinearLayout;
 
     move-object v9, v1
 
-    .line 630
+    .line 634
     :goto_0
     invoke-virtual {p0, p2, v9}, Lcom/android/systemui/statusbar/StatusBarService;->makeNotificationView(Lcom/android/internal/statusbar/StatusBarNotification;Landroid/view/ViewGroup;)[Landroid/view/View;
 
     move-result-object v1
 
-    .line 631
+    .line 635
     if-nez v1, :cond_2
 
-    .line 632
+    .line 636
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1461,55 +1198,55 @@
 
     invoke-virtual {p0, p1, p2, v0}, Lcom/android/systemui/statusbar/StatusBarService;->handleNotificationError(Landroid/os/IBinder;Lcom/android/internal/statusbar/StatusBarNotification;Ljava/lang/String;)V
 
-    .line 634
+    .line 638
     const/4 v0, 0x0
 
-    .line 664
+    .line 668
     :goto_1
     return-object v0
 
-    .line 622
+    .line 626
     :cond_0
     if-eqz v7, :cond_1
 
-    .line 623
+    .line 627
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mOngoing:Lcom/android/systemui/statusbar/NotificationData;
 
-    .line 624
+    .line 628
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mOngoingItems:Landroid/widget/LinearLayout;
 
     move-object v9, v1
 
     goto :goto_0
 
-    .line 626
+    .line 630
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mLatest:Lcom/android/systemui/statusbar/NotificationData;
 
-    .line 627
+    .line 631
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mLatestItems:Landroid/widget/LinearLayout;
 
     move-object v9, v1
 
     goto :goto_0
 
-    .line 636
+    .line 640
     :cond_2
     const/4 v2, 0x0
 
     aget-object v3, v1, v2
 
-    .line 637
+    .line 641
     const/4 v2, 0x1
 
     aget-object v4, v1, v2
 
-    .line 638
+    .line 642
     const/4 v2, 0x2
 
     aget-object v5, v1, v2
 
-    .line 640
+    .line 644
     new-instance v6, Lcom/android/systemui/statusbar/StatusBarIconView;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1544,7 +1281,7 @@
 
     invoke-direct {v6, p0, v1}, Lcom/android/systemui/statusbar/StatusBarIconView;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 642
+    .line 646
     new-instance v1, Lcom/android/internal/statusbar/StatusBarIcon;
 
     iget-object v2, p2, Lcom/android/internal/statusbar/StatusBarNotification;->pkg:Ljava/lang/String;
@@ -1563,14 +1300,14 @@
 
     invoke-direct {v1, v2, v10, v11, v12}, Lcom/android/internal/statusbar/StatusBarIcon;-><init>(Ljava/lang/String;III)V
 
-    .line 644
+    .line 648
     invoke-virtual {v6, v1}, Lcom/android/systemui/statusbar/StatusBarIconView;->set(Lcom/android/internal/statusbar/StatusBarIcon;)Z
 
     move-result v2
 
     if-nez v2, :cond_3
 
-    .line 645
+    .line 649
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1591,7 +1328,7 @@
 
     invoke-virtual {p0, p1, p2, v0}, Lcom/android/systemui/statusbar/StatusBarService;->handleNotificationError(Landroid/os/IBinder;Lcom/android/internal/statusbar/StatusBarNotification;Ljava/lang/String;)V
 
-    .line 646
+    .line 650
     const/4 v0, 0x0
 
     goto :goto_1
@@ -1601,23 +1338,23 @@
 
     move-object v2, p2
 
-    .line 649
+    .line 653
     invoke-virtual/range {v0 .. v6}, Lcom/android/systemui/statusbar/NotificationData;->add(Landroid/os/IBinder;Lcom/android/internal/statusbar/StatusBarNotification;Landroid/view/View;Landroid/view/View;Landroid/view/View;Lcom/android/systemui/statusbar/StatusBarIconView;)I
 
     move-result v0
 
-    .line 651
+    .line 655
     if-eqz v8, :cond_4
 
-    .line 654
+    .line 658
     check-cast v4, Landroid/view/ViewGroup;
 
     invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    .line 655
+    .line 659
     invoke-virtual {v9, v5, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;I)V
 
-    .line 656
+    .line 660
     const-string v1, "StatusBarService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1644,23 +1381,23 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 661
+    .line 665
     :goto_2
     invoke-direct {p0, v8, v7, v0}, Lcom/android/systemui/statusbar/StatusBarService;->chooseIconIndex(ZZI)I
 
     move-result v0
 
-    .line 663
+    .line 667
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mNotificationIcons:Lcom/android/systemui/statusbar/IconMerger;
 
     invoke-virtual {v1, v6, v0}, Lcom/android/systemui/statusbar/IconMerger;->addView(Lcom/android/systemui/statusbar/StatusBarIconView;I)V
 
     move-object v0, v6
 
-    .line 664
+    .line 668
     goto/16 :goto_1
 
-    .line 658
+    .line 662
     :cond_4
     invoke-virtual {v9, v3, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;I)V
 
@@ -1671,12 +1408,12 @@
     .locals 8
 
     .prologue
-    .line 364
+    .line 368
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    .line 365
+    .line 369
     .local v6, res:Landroid/content/res/Resources;
     const v1, 0x1050004
 
@@ -1684,11 +1421,11 @@
 
     move-result v2
 
-    .line 367
+    .line 371
     .local v2, height:I
     iget-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
 
-    .line 368
+    .line 372
     .local v7, view:Lcom/android/systemui/statusbar/StatusBarView;
     new-instance v0, Landroid/view/WindowManager$LayoutParams;
 
@@ -1702,37 +1439,37 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
 
-    .line 375
+    .line 379
     .local v0, lp:Landroid/view/WindowManager$LayoutParams;
     const/16 v1, 0x37
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    .line 376
+    .line 380
     const-string v1, "StatusBar"
 
     invoke-virtual {v0, v1}, Landroid/view/WindowManager$LayoutParams;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 377
+    .line 381
     const v1, 0x103006d
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
-    .line 384
+    .line 388
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
 
     const/16 v3, 0x8
 
     invoke-virtual {v1, v3}, Lcom/android/systemui/statusbar/StatusBarView;->setVisibility(I)V
 
-    .line 386
+    .line 390
     invoke-static {}, Landroid/view/WindowManagerImpl;->getDefault()Landroid/view/WindowManagerImpl;
 
     move-result-object v1
 
     invoke-virtual {v1, v7, v0}, Landroid/view/WindowManagerImpl;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 387
+    .line 391
     return-void
 .end method
 
@@ -1742,43 +1479,43 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 821
+    .line 831
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedVisible:Z
 
     if-nez v0, :cond_0
 
-    .line 836
+    .line 846
     :goto_0
     return-void
 
-    .line 826
+    .line 836
     :cond_0
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimating:Z
 
     if-eqz v0, :cond_1
 
-    .line 827
+    .line 837
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimY:F
 
     float-to-int v0, v0
 
-    .line 833
+    .line 843
     :goto_1
     iput-boolean v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpanded:Z
 
-    .line 834
+    .line 844
     const/4 v1, 0x0
 
     invoke-virtual {p0, v0, v1}, Lcom/android/systemui/statusbar/StatusBarService;->prepareTracking(IZ)V
 
-    .line 835
+    .line 845
     const/high16 v1, -0x3b06
 
     invoke-virtual {p0, v0, v1, v2}, Lcom/android/systemui/statusbar/StatusBarService;->performFling(IFZ)V
 
     goto :goto_0
 
-    .line 829
+    .line 839
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisplay:Landroid/view/Display;
 
@@ -1799,28 +1536,28 @@
 
     const/4 v1, 0x0
 
-    .line 800
+    .line 810
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisabled:I
 
     and-int/lit8 v0, v0, 0x1
 
     if-eqz v0, :cond_1
 
-    .line 809
+    .line 819
     :cond_0
     :goto_0
     return-void
 
-    .line 803
+    .line 813
     :cond_1
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpanded:Z
 
     if-nez v0, :cond_0
 
-    .line 807
+    .line 817
     invoke-virtual {p0, v1, v2}, Lcom/android/systemui/statusbar/StatusBarService;->prepareTracking(IZ)V
 
-    .line 808
+    .line 818
     const/high16 v0, 0x44fa
 
     invoke-virtual {p0, v1, v0, v2}, Lcom/android/systemui/statusbar/StatusBarService;->performFling(IFZ)V
@@ -1833,55 +1570,55 @@
     .parameter
 
     .prologue
-    .line 721
+    .line 731
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisabled:I
 
-    .line 722
+    .line 732
     xor-int/2addr v0, p1
 
-    .line 723
+    .line 733
     iput p1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisabled:I
 
-    .line 725
+    .line 735
     and-int/lit8 v1, v0, 0x1
 
     if-eqz v1, :cond_0
 
-    .line 726
+    .line 736
     and-int/lit8 v1, p1, 0x1
 
     if-eqz v1, :cond_0
 
-    .line 728
+    .line 738
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->animateCollapse()V
 
-    .line 731
+    .line 741
     :cond_0
     and-int/lit8 v1, v0, 0x2
 
     if-eqz v1, :cond_4
 
-    .line 732
+    .line 742
     and-int/lit8 v0, p1, 0x2
 
     if-eqz v0, :cond_3
 
-    .line 734
+    .line 744
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTicking:Z
 
     if-eqz v0, :cond_2
 
-    .line 735
+    .line 745
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTicker:Lcom/android/systemui/statusbar/Ticker;
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/Ticker;->halt()V
 
-    .line 751
+    .line 761
     :cond_1
     :goto_0
     return-void
 
-    .line 737
+    .line 747
     :cond_2
     const/4 v0, 0x0
 
@@ -1891,13 +1628,13 @@
 
     goto :goto_0
 
-    .line 741
+    .line 751
     :cond_3
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedVisible:Z
 
     if-nez v0, :cond_1
 
-    .line 742
+    .line 752
     const/4 v0, 0x1
 
     const/high16 v1, 0x10a
@@ -1906,13 +1643,13 @@
 
     goto :goto_0
 
-    .line 745
+    .line 755
     :cond_4
     and-int/lit8 v0, v0, 0x8
 
     if-eqz v0, :cond_1
 
-    .line 746
+    .line 756
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTicking:Z
 
     if-eqz v0, :cond_1
@@ -1921,7 +1658,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 748
+    .line 758
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTicker:Lcom/android/systemui/statusbar/Ticker;
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/Ticker;->halt()V
@@ -1935,15 +1672,15 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 884
+    .line 894
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimating:Z
 
     if-eqz v0, :cond_0
 
-    .line 887
+    .line 897
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->incrementAnim()V
 
-    .line 889
+    .line 899
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimY:F
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisplay:Landroid/view/Display;
@@ -1962,23 +1699,23 @@
 
     if-ltz v0, :cond_1
 
-    .line 891
+    .line 901
     iput-boolean v3, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimating:Z
 
-    .line 892
+    .line 902
     const/16 v0, -0x2711
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/StatusBarService;->updateExpandedViewPos(I)V
 
-    .line 893
+    .line 903
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->performExpand()V
 
-    .line 907
+    .line 917
     :cond_0
     :goto_0
     return-void
 
-    .line 895
+    .line 905
     :cond_1
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimY:F
 
@@ -1988,26 +1725,24 @@
 
     move-result v1
 
-    const/4 v1, 0x0
-
     int-to-float v1, v1
 
     cmpg-float v0, v0, v1
 
     if-gez v0, :cond_2
 
-    .line 897
+    .line 907
     iput-boolean v3, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimating:Z
 
-    .line 898
+    .line 908
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/StatusBarService;->updateExpandedViewPos(I)V
 
-    .line 899
+    .line 909
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->performCollapse()V
 
     goto :goto_0
 
-    .line 902
+    .line 912
     :cond_2
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimY:F
 
@@ -2015,7 +1750,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/StatusBarService;->updateExpandedViewPos(I)V
 
-    .line 903
+    .line 913
     iget-wide v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCurAnimationTime:J
 
     const-wide/16 v2, 0x10
@@ -2024,7 +1759,7 @@
 
     iput-wide v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCurAnimationTime:J
 
-    .line 904
+    .line 914
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mHandler:Lcom/android/systemui/statusbar/StatusBarService$H;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mHandler:Lcom/android/systemui/statusbar/StatusBarService$H;
@@ -2046,7 +1781,7 @@
     .locals 5
 
     .prologue
-    .line 929
+    .line 939
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCloseView:Lcom/android/systemui/statusbar/CloseDragHandle;
 
     invoke-virtual {v1}, Lcom/android/systemui/statusbar/CloseDragHandle;->getHeight()I
@@ -2059,11 +1794,9 @@
 
     move-result v2
 
-    const/4 v2, 0x0
-
     add-int v0, v1, v2
 
-    .line 930
+    .line 940
     .local v0, h:I
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimatingReveal:Z
 
@@ -2081,10 +1814,10 @@
 
     if-gez v1, :cond_0
 
-    .line 931
+    .line 941
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->incrementAnim()V
 
-    .line 932
+    .line 942
     iget v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimY:F
 
     int-to-float v2, v0
@@ -2093,24 +1826,24 @@
 
     if-ltz v1, :cond_1
 
-    .line 933
+    .line 943
     int-to-float v1, v0
 
     iput v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimY:F
 
-    .line 934
+    .line 944
     iget v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimY:F
 
     float-to-int v1, v1
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/StatusBarService;->updateExpandedViewPos(I)V
 
-    .line 942
+    .line 952
     :cond_0
     :goto_0
     return-void
 
-    .line 936
+    .line 946
     :cond_1
     iget v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimY:F
 
@@ -2118,7 +1851,7 @@
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/StatusBarService;->updateExpandedViewPos(I)V
 
-    .line 937
+    .line 947
     iget-wide v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCurAnimationTime:J
 
     const-wide/16 v3, 0x10
@@ -2127,7 +1860,7 @@
 
     iput-wide v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCurAnimationTime:J
 
-    .line 938
+    .line 948
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mHandler:Lcom/android/systemui/statusbar/StatusBarService$H;
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mHandler:Lcom/android/systemui/statusbar/StatusBarService$H;
@@ -2154,7 +1887,7 @@
     .prologue
     const-string v0, "  mDisplayHeight="
 
-    .line 1240
+    .line 1250
     const-string v0, "android.permission.DUMP"
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/StatusBarService;->checkCallingOrSelfPermission(Ljava/lang/String;)I
@@ -2163,7 +1896,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1242
+    .line 1252
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2202,23 +1935,23 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1290
+    .line 1300
     :goto_0
     return-void
 
-    .line 1248
+    .line 1258
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mQueueLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 1249
+    .line 1259
     :try_start_0
     const-string v1, "Current Status Bar state:"
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1250
+    .line 1260
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2253,7 +1986,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1252
+    .line 1262
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2276,7 +2009,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1253
+    .line 1263
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2299,7 +2032,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1254
+    .line 1264
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2358,7 +2091,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1257
+    .line 1267
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2393,7 +2126,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1259
+    .line 1269
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2440,7 +2173,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1262
+    .line 1272
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2463,7 +2196,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1263
+    .line 1273
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2486,7 +2219,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1264
+    .line 1274
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2513,7 +2246,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1265
+    .line 1275
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2536,7 +2269,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1266
+    .line 1276
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2559,7 +2292,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1267
+    .line 1277
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2586,7 +2319,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1268
+    .line 1278
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2613,7 +2346,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1269
+    .line 1279
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2640,7 +2373,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1270
+    .line 1280
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2667,7 +2400,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1271
+    .line 1281
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2694,7 +2427,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1272
+    .line 1282
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2721,7 +2454,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1273
+    .line 1283
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2748,7 +2481,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1274
+    .line 1284
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2775,7 +2508,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1275
+    .line 1285
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2834,7 +2567,7 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1277
+    .line 1287
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2861,12 +2594,12 @@
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1278
+    .line 1288
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1282
+    .line 1292
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mHandler:Lcom/android/systemui/statusbar/StatusBarService$H;
 
     new-instance v1, Lcom/android/systemui/statusbar/StatusBarService$2;
@@ -2877,7 +2610,7 @@
 
     goto/16 :goto_0
 
-    .line 1278
+    .line 1288
     :catchall_0
     move-exception v1
 
@@ -2893,22 +2626,12 @@
     .locals 2
 
     .prologue
-    .line 1470
+    .line 1480
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisplay:Landroid/view/Display;
 
     invoke-virtual {v0}, Landroid/view/Display;->getHeight()I
 
     move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/StatusBarView;->getHeight()I
-
-    move-result v1
-
-    const/4 v1, 0x0
-
-    sub-int/2addr v0, v1
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCloseView:Lcom/android/systemui/statusbar/CloseDragHandle;
 
@@ -2928,10 +2651,10 @@
     .parameter "message"
 
     .prologue
-    .line 1174
+    .line 1184
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/StatusBarService;->removeNotification(Landroid/os/IBinder;)V
 
-    .line 1176
+    .line 1186
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
@@ -2951,11 +2674,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1180
+    .line 1190
     :goto_0
     return-void
 
-    .line 1177
+    .line 1187
     :catch_0
     move-exception v0
 
@@ -2966,14 +2689,14 @@
     .locals 2
 
     .prologue
-    .line 1618
+    .line 1628
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCallOnGoingView:Lcom/android/systemui/statusbar/CallOnGoingView;
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/StatusBarView;->removeView(Landroid/view/View;)V
 
-    .line 1619
+    .line 1629
     return-void
 .end method
 
@@ -2981,12 +2704,12 @@
     .locals 7
 
     .prologue
-    .line 916
+    .line 926
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
-    .line 917
+    .line 927
     iget-wide v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimLastTime:J
 
     sub-long v2, v0, v2
@@ -2997,16 +2720,16 @@
 
     div-float/2addr v2, v3
 
-    .line 918
+    .line 928
     iget v3, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimY:F
 
-    .line 919
+    .line 929
     iget v4, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimVel:F
 
-    .line 920
+    .line 930
     iget v5, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimAccel:F
 
-    .line 921
+    .line 931
     mul-float v6, v4, v2
 
     add-float/2addr v3, v6
@@ -3023,17 +2746,17 @@
 
     iput v3, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimY:F
 
-    .line 922
+    .line 932
     mul-float/2addr v2, v5
 
     add-float/2addr v2, v4
 
     iput v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimVel:F
 
-    .line 923
+    .line 933
     iput-wide v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimLastTime:J
 
-    .line 926
+    .line 936
     return-void
 .end method
 
@@ -3050,7 +2773,7 @@
 
     const/4 v7, 0x0
 
-    .line 1039
+    .line 1049
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisabled:I
 
     and-int/lit8 v0, v0, 0x1
@@ -3059,11 +2782,11 @@
 
     move v0, v7
 
-    .line 1103
+    .line 1113
     :goto_0
     return v0
 
-    .line 1043
+    .line 1053
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
 
@@ -3071,34 +2794,34 @@
 
     move-result v0
 
-    .line 1044
+    .line 1054
     mul-int/lit8 v1, v0, 0x2
 
-    .line 1045
+    .line 1055
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v2
 
     if-nez v2, :cond_6
 
-    .line 1046
+    .line 1056
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
 
     move-result v2
 
     float-to-int v2, v2
 
-    .line 1049
+    .line 1059
     iget-boolean v3, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpanded:Z
 
     if-nez v3, :cond_4
 
-    .line 1050
+    .line 1060
     sub-int/2addr v0, v2
 
     iput v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mViewDelta:I
 
-    .line 1055
+    .line 1065
     :goto_1
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpanded:Z
 
@@ -3121,7 +2844,7 @@
 
     if-le v2, v0, :cond_3
 
-    .line 1061
+    .line 1071
     :cond_2
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
 
@@ -3129,10 +2852,10 @@
 
     float-to-int v0, v0
 
-    .line 1062
+    .line 1072
     iget v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mEdgeBorder:I
 
-    .line 1063
+    .line 1073
     if-lt v0, v1, :cond_3
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisplay:Landroid/view/Display;
@@ -3145,7 +2868,7 @@
 
     if-ge v0, v1, :cond_3
 
-    .line 1064
+    .line 1074
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpanded:Z
 
     if-nez v0, :cond_5
@@ -3155,7 +2878,7 @@
     :goto_2
     invoke-virtual {p0, v2, v0}, Lcom/android/systemui/statusbar/StatusBarService;->prepareTracking(IZ)V
 
-    .line 1065
+    .line 1075
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {v0, p1}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
@@ -3164,10 +2887,10 @@
     :goto_3
     move v0, v7
 
-    .line 1103
+    .line 1113
     goto :goto_0
 
-    .line 1052
+    .line 1062
     :cond_4
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingView:Lcom/android/systemui/statusbar/TrackingView;
 
@@ -3175,7 +2898,7 @@
 
     invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/TrackingView;->getLocationOnScreen([I)V
 
-    .line 1053
+    .line 1063
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAbsPos:[I
 
     aget v0, v0, v4
@@ -3197,21 +2920,21 @@
     :cond_5
     move v0, v7
 
-    .line 1064
+    .line 1074
     goto :goto_2
 
-    .line 1068
+    .line 1078
     :cond_6
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTracking:Z
 
     if-eqz v1, :cond_3
 
-    .line 1069
+    .line 1079
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {v1, p1}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
 
-    .line 1070
+    .line 1080
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCloseView:Lcom/android/systemui/statusbar/CloseDragHandle;
 
     invoke-virtual {v1}, Lcom/android/systemui/statusbar/CloseDragHandle;->getHeight()I
@@ -3220,7 +2943,7 @@
 
     add-int/2addr v0, v1
 
-    .line 1071
+    .line 1081
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v1
@@ -3229,25 +2952,25 @@
 
     if-ne v1, v2, :cond_8
 
-    .line 1072
+    .line 1082
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
 
     move-result v1
 
     float-to-int v1, v1
 
-    .line 1073
+    .line 1083
     iget-boolean v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimatingReveal:Z
 
     if-eqz v2, :cond_7
 
     if-lt v1, v0, :cond_3
 
-    .line 1076
+    .line 1086
     :cond_7
     iput-boolean v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimatingReveal:Z
 
-    .line 1077
+    .line 1087
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mViewDelta:I
 
     add-int/2addr v0, v1
@@ -3256,7 +2979,7 @@
 
     goto :goto_3
 
-    .line 1079
+    .line 1089
     :cond_8
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -3264,28 +2987,28 @@
 
     if-ne v0, v4, :cond_3
 
-    .line 1080
+    .line 1090
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     const/16 v1, 0x3e8
 
     invoke-virtual {v0, v1}, Landroid/view/VelocityTracker;->computeCurrentVelocity(I)V
 
-    .line 1083
+    .line 1093
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {v0}, Landroid/view/VelocityTracker;->getYVelocity()F
 
     move-result v0
 
-    .line 1084
+    .line 1094
     cmpg-float v1, v0, v3
 
     if-gez v1, :cond_c
 
     move v1, v4
 
-    .line 1086
+    .line 1096
     :goto_4
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mVelocityTracker:Landroid/view/VelocityTracker;
 
@@ -3293,15 +3016,15 @@
 
     move-result v2
 
-    .line 1087
+    .line 1097
     cmpg-float v3, v2, v3
 
     if-gez v3, :cond_9
 
-    .line 1088
+    .line 1098
     neg-float v2, v2
 
-    .line 1090
+    .line 1100
     :cond_9
     cmpl-float v3, v2, v5
 
@@ -3309,7 +3032,7 @@
 
     move v2, v5
 
-    .line 1094
+    .line 1104
     :cond_a
     float-to-double v3, v0
 
@@ -3321,13 +3044,13 @@
 
     double-to-float v0, v2
 
-    .line 1095
+    .line 1105
     if-eqz v1, :cond_b
 
-    .line 1096
+    .line 1106
     neg-float v0, v0
 
-    .line 1099
+    .line 1109
     :cond_b
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
 
@@ -3342,7 +3065,7 @@
     :cond_c
     move v1, v7
 
-    .line 1084
+    .line 1094
     goto :goto_4
 .end method
 
@@ -3352,10 +3075,6 @@
     .parameter "parent"
 
     .prologue
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
     .line 574
     move-object/from16 v0, p1
 
@@ -3376,6 +3095,8 @@
     if-nez v17, :cond_0
 
     .line 577
+    const/4 v4, 0x0
+
     .line 611
     :goto_0
     return-object v4
@@ -3398,6 +3119,8 @@
     .local v15, inflater:Landroid/view/LayoutInflater;
     const v4, 0x7f030008
 
+    const/4 v5, 0x0
+
     move-object v0, v15
 
     move v1, v4
@@ -3412,6 +3135,7 @@
 
     check-cast v18, Lcom/android/systemui/statusbar/LatestItemContainer;
 
+    .line 722
     .local v18, row:Lcom/android/systemui/statusbar/LatestItemContainer;
     move-object/from16 v0, v16
 
@@ -3433,15 +3157,10 @@
 
     if-nez v4, :cond_1
 
-    move-object/from16 v0, p0
+    .line 723
+    new-instance v4, Lcom/android/systemui/statusbar/StatusBarService$7;
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/StatusBarService;->mTouchDispatcher:Lcom/android/systemui/statusbar/ItemTouchDispatcher;
-
-    move-object v4, v0
-
-    new-instance v5, Lcom/android/systemui/statusbar/StatusBarService$7;
-
-    move-object v0, v5
+    move-object v0, v4
 
     move-object/from16 v1, p0
 
@@ -3453,10 +3172,9 @@
 
     move-object v1, v4
 
-    move-object v2, v5
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/LatestItemContainer;->setOnSwipeCallback(Ljava/lang/Runnable;)V
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/LatestItemContainer;->setOnSwipeCallback(Lcom/android/systemui/statusbar/ItemTouchDispatcher;Ljava/lang/Runnable;)V
-
+    .line 735
     :cond_1
     const v4, 0x7f090024
 
@@ -3665,37 +3383,67 @@
     goto/16 :goto_0
 .end method
 
+.method public musicButton(Landroid/view/View;)V
+    .locals 3
+    .parameter "v"
+
+    .prologue
+    .line 1717
+    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v2, "android.intent.action.MUSIC_PLAYER"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const/high16 v2, 0x1000
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->animateCollapse()V
+
+    .line 1720
+    return-void
+.end method
+
 .method onBarViewAttached()V
     .locals 6
 
     .prologue
     const/4 v1, -0x1
 
-    .line 1299
+    .line 1309
     const/4 v0, -0x3
 
-    .line 1300
+    .line 1310
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingView:Lcom/android/systemui/statusbar/TrackingView;
 
     invoke-virtual {v2}, Lcom/android/systemui/statusbar/TrackingView;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
-    .line 1301
+    .line 1311
     if-eqz v2, :cond_0
 
-    .line 1302
+    .line 1312
     invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getOpacity()I
 
     move-result v0
 
     move v5, v0
 
-    .line 1305
+    .line 1315
     :goto_0
     new-instance v0, Landroid/view/WindowManager$LayoutParams;
 
-    const/16 v3, 0x7de
+    const/16 v3, 0x7d3
 
     const v4, 0x20300
 
@@ -3703,25 +3451,25 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
 
-    .line 1314
+    .line 1324
     const/16 v1, 0x37
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    .line 1315
+    .line 1325
     const-string v1, "TrackingView"
 
     invoke-virtual {v0, v1}, Landroid/view/WindowManager$LayoutParams;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 1316
+    .line 1326
     iget v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingPosition:I
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    .line 1317
+    .line 1327
     iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingParams:Landroid/view/WindowManager$LayoutParams;
 
-    .line 1319
+    .line 1329
     invoke-static {}, Landroid/view/WindowManagerImpl;->getDefault()Landroid/view/WindowManagerImpl;
 
     move-result-object v1
@@ -3730,7 +3478,7 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/view/WindowManagerImpl;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1320
+    .line 1330
     return-void
 
     :cond_0
@@ -3744,7 +3492,7 @@
     .parameter "intent"
 
     .prologue
-    .line 263
+    .line 273
     const/4 v0, 0x0
 
     return-object v0
@@ -3754,7 +3502,7 @@
     .locals 10
 
     .prologue
-    .line 208
+    .line 218
     const-string v7, "window"
 
     invoke-virtual {p0, v7}, Lcom/android/systemui/statusbar/StatusBarService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -3769,27 +3517,27 @@
 
     iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisplay:Landroid/view/Display;
 
-    .line 209
+    .line 219
     invoke-direct {p0, p0}, Lcom/android/systemui/statusbar/StatusBarService;->makeStatusBarView(Landroid/content/Context;)V
 
-    .line 212
+    .line 222
     new-instance v3, Lcom/android/internal/statusbar/StatusBarIconList;
 
     invoke-direct {v3}, Lcom/android/internal/statusbar/StatusBarIconList;-><init>()V
 
-    .line 213
+    .line 223
     .local v3, iconList:Lcom/android/internal/statusbar/StatusBarIconList;
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
-    .line 214
+    .line 224
     .local v4, notificationKeys:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/IBinder;>;"
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
-    .line 215
+    .line 225
     .local v5, notifications:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/statusbar/StatusBarNotification;>;"
     new-instance v7, Lcom/android/systemui/statusbar/CommandQueue;
 
@@ -3797,7 +3545,7 @@
 
     iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
-    .line 216
+    .line 226
     const-string v7, "statusbar"
 
     invoke-static {v7}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -3810,7 +3558,7 @@
 
     iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
-    .line 219
+    .line 229
     :try_start_0
     iget-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
@@ -3820,17 +3568,17 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 225
+    .line 235
     :goto_0
     invoke-virtual {v3}, Lcom/android/internal/statusbar/StatusBarIconList;->size()I
 
     move-result v0
 
-    .line 226
+    .line 236
     .local v0, N:I
     const/4 v6, 0x0
 
-    .line 227
+    .line 237
     .local v6, viewIndex:I
     const/4 v1, 0x0
 
@@ -3838,52 +3586,52 @@
     :goto_1
     if-ge v1, v0, :cond_1
 
-    .line 228
+    .line 238
     invoke-virtual {v3, v1}, Lcom/android/internal/statusbar/StatusBarIconList;->getIcon(I)Lcom/android/internal/statusbar/StatusBarIcon;
 
     move-result-object v2
 
-    .line 229
+    .line 239
     .local v2, icon:Lcom/android/internal/statusbar/StatusBarIcon;
     if-eqz v2, :cond_0
 
-    .line 230
+    .line 240
     invoke-virtual {v3, v1}, Lcom/android/internal/statusbar/StatusBarIconList;->getSlot(I)Ljava/lang/String;
 
     move-result-object v7
 
     invoke-virtual {p0, v7, v1, v6, v2}, Lcom/android/systemui/statusbar/StatusBarService;->addIcon(Ljava/lang/String;IILcom/android/internal/statusbar/StatusBarIcon;)V
 
-    .line 231
+    .line 241
     add-int/lit8 v6, v6, 0x1
 
-    .line 227
+    .line 237
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 236
+    .line 246
     .end local v2           #icon:Lcom/android/internal/statusbar/StatusBarIcon;
     :cond_1
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    .line 237
+    .line 247
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
     move-result v7
 
     if-ne v0, v7, :cond_2
 
-    .line 238
+    .line 248
     const/4 v1, 0x0
 
     :goto_2
     if-ge v1, v0, :cond_3
 
-    .line 239
+    .line 249
     invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v7
@@ -3898,12 +3646,12 @@
 
     invoke-virtual {p0, v7, v8}, Lcom/android/systemui/statusbar/StatusBarService;->addNotification(Landroid/os/IBinder;Lcom/android/internal/statusbar/StatusBarNotification;)V
 
-    .line 238
+    .line 248
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 
-    .line 242
+    .line 252
     :cond_2
     const-string v7, "StatusBarService"
 
@@ -3941,21 +3689,21 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 247
+    .line 257
     :cond_3
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->addStatusBarView()V
 
-    .line 250
+    .line 260
     new-instance v7, Lcom/android/systemui/statusbar/policy/StatusBarPolicy;
 
     invoke-direct {v7, p0}, Lcom/android/systemui/statusbar/policy/StatusBarPolicy;-><init>(Landroid/content/Context;)V
 
     iput-object v7, p0, Lcom/android/systemui/statusbar/StatusBarService;->mIconPolicy:Lcom/android/systemui/statusbar/policy/StatusBarPolicy;
 
-    .line 251
+    .line 261
     return-void
 
-    .line 220
+    .line 230
     .end local v0           #N:I
     .end local v1           #i:I
     .end local v6           #viewIndex:I
@@ -3969,7 +3717,7 @@
     .locals 0
 
     .prologue
-    .line 256
+    .line 266
     return-void
 .end method
 
@@ -3981,17 +3729,17 @@
 
     const/4 v4, -0x1
 
-    .line 1328
+    .line 1338
     const/4 v0, -0x3
 
-    .line 1330
+    .line 1340
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisplay:Landroid/view/Display;
 
     invoke-virtual {v1}, Landroid/view/Display;->getHeight()I
 
     move-result v1
 
-    .line 1331
+    .line 1341
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedDialog:Landroid/app/Dialog;
 
     invoke-virtual {v2}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
@@ -4002,50 +3750,50 @@
 
     move-result-object v2
 
-    .line 1332
+    .line 1342
     iput v4, v2, Landroid/view/WindowManager$LayoutParams;->width:I
 
-    .line 1333
+    .line 1343
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->getExpandedHeight()I
 
     move-result v3
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->height:I
 
-    .line 1334
+    .line 1344
     iput v5, v2, Landroid/view/WindowManager$LayoutParams;->x:I
 
-    .line 1335
+    .line 1345
     neg-int v1, v1
 
     iput v1, v2, Landroid/view/WindowManager$LayoutParams;->y:I
 
     iput v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingPosition:I
 
-    .line 1336
-    const/16 v1, 0x7de
+    .line 1346
+    const/16 v1, 0x7d3
 
     iput v1, v2, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    .line 1337
+    .line 1347
     const/16 v1, 0x1328
 
     iput v1, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 1342
+    .line 1352
     iput v0, v2, Landroid/view/WindowManager$LayoutParams;->format:I
 
-    .line 1343
+    .line 1353
     const/16 v1, 0x37
 
     iput v1, v2, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    .line 1344
+    .line 1354
     const-string v1, "StatusBarExpanded"
 
     invoke-virtual {v2, v1}, Landroid/view/WindowManager$LayoutParams;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 1345
+    .line 1355
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedDialog:Landroid/app/Dialog;
 
     invoke-virtual {v1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
@@ -4054,7 +3802,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 1346
+    .line 1356
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedDialog:Landroid/app/Dialog;
 
     invoke-virtual {v1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
@@ -4063,10 +3811,10 @@
 
     invoke-virtual {v1, v0}, Landroid/view/Window;->setFormat(I)V
 
-    .line 1347
+    .line 1357
     iput-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedParams:Landroid/view/WindowManager$LayoutParams;
 
-    .line 1349
+    .line 1359
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedDialog:Landroid/app/Dialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
@@ -4077,7 +3825,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->requestFeature(I)Z
 
-    .line 1350
+    .line 1360
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedDialog:Landroid/app/Dialog;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
@@ -4088,7 +3836,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/Dialog;->setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1353
+    .line 1363
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedDialog:Landroid/app/Dialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
@@ -4099,12 +3847,12 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 1354
+    .line 1364
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedDialog:Landroid/app/Dialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 1355
+    .line 1365
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/ExpandedView;->getParent()Landroid/view/ViewParent;
@@ -4113,12 +3861,12 @@
 
     check-cast v0, Landroid/widget/FrameLayout;
 
-    .line 1362
+    .line 1372
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
 
     invoke-virtual {v0, v5}, Lcom/android/systemui/statusbar/StatusBarView;->setVisibility(I)V
 
-    .line 1363
+    .line 1373
     return-void
 .end method
 
@@ -4130,24 +3878,24 @@
 
     const/4 v3, 0x0
 
-    .line 859
+    .line 869
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedVisible:Z
 
     if-nez v0, :cond_1
 
-    .line 881
+    .line 891
     :cond_0
     :goto_0
     return-void
 
-    .line 862
+    .line 872
     :cond_1
     iput-boolean v3, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedVisible:Z
 
-    .line 863
+    .line 873
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/StatusBarService;->visibilityChanged(Z)V
 
-    .line 864
+    .line 874
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedParams:Landroid/view/WindowManager$LayoutParams;
 
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
@@ -4156,7 +3904,7 @@
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 865
+    .line 875
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedParams:Landroid/view/WindowManager$LayoutParams;
 
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
@@ -4167,7 +3915,7 @@
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 866
+    .line 876
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedDialog:Landroid/app/Dialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
@@ -4178,38 +3926,31 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 867
+    .line 877
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingView:Lcom/android/systemui/statusbar/TrackingView;
 
     invoke-virtual {v0, v4}, Lcom/android/systemui/statusbar/TrackingView;->setVisibility(I)V
 
-    .line 868
+    .line 878
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
 
     invoke-virtual {v0, v4}, Lcom/android/systemui/statusbar/ExpandedView;->setVisibility(I)V
 
-    .line 100
-    iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/StatusBarView;->setVisibility(I)V
-
-    .line 870
+    .line 880
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisabled:I
 
     and-int/lit8 v0, v0, 0x2
 
     if-nez v0, :cond_2
 
-    .line 871
+    .line 881
     const/4 v0, 0x1
 
     const/high16 v1, 0x10a
 
     invoke-virtual {p0, v0, v1}, Lcom/android/systemui/statusbar/StatusBarService;->setNotificationIconVisibility(ZI)V
 
-    .line 873
+    .line 883
     :cond_2
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDateView:Lcom/android/systemui/statusbar/DateView;
 
@@ -4219,18 +3960,18 @@
 
     if-nez v0, :cond_3
 
-    .line 874
+    .line 884
     const v0, 0x10a0001
 
     invoke-virtual {p0, v3, v0}, Lcom/android/systemui/statusbar/StatusBarService;->setDateViewVisibility(ZI)V
 
-    .line 877
+    .line 887
     :cond_3
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpanded:Z
 
     if-eqz v0, :cond_0
 
-    .line 880
+    .line 890
     iput-boolean v3, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpanded:Z
 
     goto :goto_0
@@ -4240,33 +3981,33 @@
     .locals 1
 
     .prologue
-    .line 840
+    .line 850
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisabled:I
 
     and-int/lit8 v0, v0, 0x1
 
     if-eqz v0, :cond_1
 
-    .line 852
+    .line 862
     :cond_0
     :goto_0
     return-void
 
-    .line 843
+    .line 853
     :cond_1
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpanded:Z
 
     if-nez v0, :cond_0
 
-    .line 847
+    .line 857
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpanded:Z
 
-    .line 848
+    .line 858
     invoke-direct {p0}, Lcom/android/systemui/statusbar/StatusBarService;->makeExpandedVisible()V
 
-    .line 849
+    .line 859
     const/16 v0, -0x2711
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/StatusBarService;->updateExpandedViewPos(I)V
@@ -4291,12 +4032,12 @@
 
     const/4 v3, 0x0
 
-    .line 974
+    .line 984
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimatingReveal:Z
 
-    .line 975
+    .line 985
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisplay:Landroid/view/Display;
 
     invoke-virtual {v0}, Landroid/view/Display;->getHeight()I
@@ -4307,20 +4048,20 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisplayHeight:F
 
-    .line 977
+    .line 987
     int-to-float v0, p1
 
     iput v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimY:F
 
-    .line 978
+    .line 988
     iput p2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimVel:F
 
-    .line 982
+    .line 992
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpanded:Z
 
     if-eqz v0, :cond_3
 
-    .line 983
+    .line 993
     if-nez p3, :cond_2
 
     cmpl-float v0, p2, v1
@@ -4343,55 +4084,55 @@
 
     if-lez v0, :cond_2
 
-    .line 988
+    .line 998
     :cond_0
     iput v6, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimAccel:F
 
-    .line 989
+    .line 999
     cmpg-float v0, p2, v3
 
     if-gez v0, :cond_1
 
-    .line 990
+    .line 1000
     iput v3, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimVel:F
 
-    .line 1023
+    .line 1033
     :cond_1
     :goto_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
-    .line 1024
+    .line 1034
     iput-wide v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimLastTime:J
 
-    .line 1025
+    .line 1035
     const-wide/16 v2, 0x10
 
     add-long/2addr v0, v2
 
     iput-wide v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCurAnimationTime:J
 
-    .line 1026
+    .line 1036
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimating:Z
 
-    .line 1027
+    .line 1037
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mHandler:Lcom/android/systemui/statusbar/StatusBarService$H;
 
     const/16 v1, 0x3e8
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/StatusBarService$H;->removeMessages(I)V
 
-    .line 1028
+    .line 1038
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mHandler:Lcom/android/systemui/statusbar/StatusBarService$H;
 
     const/16 v1, 0x3e9
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/StatusBarService$H;->removeMessages(I)V
 
-    .line 1029
+    .line 1039
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mHandler:Lcom/android/systemui/statusbar/StatusBarService$H;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mHandler:Lcom/android/systemui/statusbar/StatusBarService$H;
@@ -4406,27 +4147,27 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/systemui/statusbar/StatusBarService$H;->sendMessageAtTime(Landroid/os/Message;J)Z
 
-    .line 1030
+    .line 1040
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->stopTracking()V
 
-    .line 1031
+    .line 1041
     return-void
 
-    .line 995
+    .line 1005
     :cond_2
     iput v5, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimAccel:F
 
-    .line 996
+    .line 1006
     cmpl-float v0, p2, v3
 
     if-lez v0, :cond_1
 
-    .line 997
+    .line 1007
     iput v3, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimVel:F
 
     goto :goto_0
 
-    .line 1001
+    .line 1011
     :cond_3
     if-nez p3, :cond_4
 
@@ -4450,30 +4191,30 @@
 
     if-lez v0, :cond_5
 
-    .line 1006
+    .line 1016
     :cond_4
     iput v6, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimAccel:F
 
-    .line 1007
+    .line 1017
     cmpg-float v0, p2, v3
 
     if-gez v0, :cond_1
 
-    .line 1008
+    .line 1018
     iput v3, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimVel:F
 
     goto :goto_0
 
-    .line 1014
+    .line 1024
     :cond_5
     iput v5, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimAccel:F
 
-    .line 1015
+    .line 1025
     cmpl-float v0, p2, v3
 
     if-lez v0, :cond_1
 
-    .line 1016
+    .line 1026
     iput v3, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimVel:F
 
     goto :goto_0
@@ -4491,84 +4232,82 @@
 
     const/4 v4, 0x1
 
-    .line 945
+    .line 955
     iput-boolean v4, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTracking:Z
 
-    .line 946
+    .line 956
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    .line 947
+    .line 957
     if-eqz p2, :cond_0
 
-    .line 948
+    .line 958
     const/high16 v0, 0x44fa
 
     iput v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimAccel:F
 
-    .line 949
+    .line 959
     const/high16 v0, 0x4348
 
     iput v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimVel:F
 
-    .line 950
+    .line 960
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/StatusBarView;->getHeight()I
 
     move-result v0
 
-    const/4 v0, 0x0
-
     int-to-float v0, v0
 
     iput v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimY:F
 
-    .line 951
+    .line 961
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimY:F
 
     float-to-int v0, v0
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/StatusBarService;->updateExpandedViewPos(I)V
 
-    .line 952
+    .line 962
     iput-boolean v4, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimating:Z
 
-    .line 953
+    .line 963
     iput-boolean v4, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimatingReveal:Z
 
-    .line 954
+    .line 964
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mHandler:Lcom/android/systemui/statusbar/StatusBarService$H;
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/StatusBarService$H;->removeMessages(I)V
 
-    .line 955
+    .line 965
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mHandler:Lcom/android/systemui/statusbar/StatusBarService$H;
 
     invoke-virtual {v0, v5}, Lcom/android/systemui/statusbar/StatusBarService$H;->removeMessages(I)V
 
-    .line 956
+    .line 966
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
-    .line 957
+    .line 967
     iput-wide v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimLastTime:J
 
-    .line 958
+    .line 968
     const-wide/16 v2, 0x10
 
     add-long/2addr v0, v2
 
     iput-wide v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCurAnimationTime:J
 
-    .line 959
+    .line 969
     iput-boolean v4, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimating:Z
 
-    .line 960
+    .line 970
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mHandler:Lcom/android/systemui/statusbar/StatusBarService$H;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mHandler:Lcom/android/systemui/statusbar/StatusBarService$H;
@@ -4581,30 +4320,30 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/systemui/statusbar/StatusBarService$H;->sendMessageAtTime(Landroid/os/Message;J)Z
 
-    .line 962
+    .line 972
     invoke-direct {p0}, Lcom/android/systemui/statusbar/StatusBarService;->makeExpandedVisible()V
 
-    .line 971
+    .line 981
     :goto_0
     return-void
 
-    .line 965
+    .line 975
     :cond_0
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimating:Z
 
     if-eqz v0, :cond_1
 
-    .line 966
+    .line 976
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mAnimating:Z
 
-    .line 967
+    .line 977
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mHandler:Lcom/android/systemui/statusbar/StatusBarService$H;
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/StatusBarService$H;->removeMessages(I)V
 
-    .line 969
+    .line 979
     :cond_1
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mViewDelta:I
 
@@ -4622,12 +4361,12 @@
     .parameter "viewIndex"
 
     .prologue
-    .line 413
+    .line 417
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusIcons:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, p3}, Landroid/widget/LinearLayout;->removeViewAt(I)V
 
-    .line 414
+    .line 418
     return-void
 .end method
 
@@ -4636,24 +4375,24 @@
     .parameter "key"
 
     .prologue
-    .line 540
+    .line 544
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/StatusBarService;->removeNotificationViews(Landroid/os/IBinder;)Lcom/android/internal/statusbar/StatusBarNotification;
 
     move-result-object v0
 
-    .line 542
+    .line 546
     .local v0, old:Lcom/android/internal/statusbar/StatusBarNotification;
     if-eqz v0, :cond_0
 
-    .line 549
+    .line 553
     invoke-direct {p0}, Lcom/android/systemui/statusbar/StatusBarService;->setAreThereNotifications()V
 
-    .line 550
+    .line 554
     const/16 v1, -0x2710
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/StatusBarService;->updateExpandedViewPos(I)V
 
-    .line 552
+    .line 556
     :cond_0
     return-void
 .end method
@@ -4665,37 +4404,58 @@
     .prologue
     const-string v3, "StatusBarService"
 
-    .line 668
+    .line 673
+    iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/ExpandedView;->getDescendantFocusability()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mPreviousFocusValue:I
+
+    .line 674
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mFocusBlocked:Z
+
+    .line 675
+    iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
+
+    const/high16 v1, 0x6
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/ExpandedView;->setDescendantFocusability(I)V
+
+    .line 677
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mOngoing:Lcom/android/systemui/statusbar/NotificationData;
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/NotificationData;->remove(Landroid/os/IBinder;)Lcom/android/systemui/statusbar/NotificationData$Entry;
 
     move-result-object v0
 
-    .line 669
+    .line 679
     if-nez v0, :cond_0
 
-    .line 670
+    .line 680
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mLatest:Lcom/android/systemui/statusbar/NotificationData;
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/NotificationData;->remove(Landroid/os/IBinder;)Lcom/android/systemui/statusbar/NotificationData$Entry;
 
     move-result-object v0
 
-    .line 671
+    .line 681
     if-nez v0, :cond_0
 
-    .line 673
+    .line 683
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mMiniConData:Lcom/android/systemui/statusbar/NotificationData;
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/NotificationData;->remove(Landroid/os/IBinder;)Lcom/android/systemui/statusbar/NotificationData$Entry;
 
     move-result-object v0
 
-    .line 674
+    .line 684
     if-nez v0, :cond_0
 
-    .line 675
+    .line 685
     const-string v0, "StatusBarService"
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -4718,14 +4478,14 @@
 
     invoke-static {v3, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 676
+    .line 686
     const/4 v0, 0x0
 
-    .line 692
+    .line 702
     :goto_0
     return-object v0
 
-    .line 682
+    .line 692
     :cond_0
     iget-object v1, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->notification:Lcom/android/internal/statusbar/StatusBarNotification;
 
@@ -4735,7 +4495,7 @@
 
     if-nez v1, :cond_1
 
-    .line 683
+    .line 693
     iget-object v1, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->row:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -4748,7 +4508,7 @@
 
     invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    .line 690
+    .line 700
     :goto_1
     iget-object v1, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->icon:Lcom/android/systemui/statusbar/StatusBarIconView;
 
@@ -4762,12 +4522,12 @@
 
     invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    .line 692
+    .line 702
     iget-object v0, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->notification:Lcom/android/internal/statusbar/StatusBarNotification;
 
     goto :goto_0
 
-    .line 685
+    .line 695
     :cond_1
     iget-object v1, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->expanded:Landroid/view/View;
 
@@ -4781,7 +4541,7 @@
 
     invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    .line 686
+    .line 696
     const-string v1, "StatusBarService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -4819,12 +4579,12 @@
     .parameter "anim"
 
     .prologue
-    .line 1366
+    .line 1376
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDateView:Lcom/android/systemui/statusbar/DateView;
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/DateView;->setUpdates(Z)V
 
-    .line 1367
+    .line 1377
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDateView:Lcom/android/systemui/statusbar/DateView;
 
     if-eqz p1, :cond_0
@@ -4834,7 +4594,7 @@
     :goto_0
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/DateView;->setVisibility(I)V
 
-    .line 1368
+    .line 1378
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDateView:Lcom/android/systemui/statusbar/DateView;
 
     const/4 v1, 0x0
@@ -4845,10 +4605,10 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/DateView;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 1369
+    .line 1379
     return-void
 
-    .line 1367
+    .line 1377
     :cond_0
     const/4 v1, 0x4
 
@@ -4861,14 +4621,14 @@
     .parameter "anim"
 
     .prologue
-    .line 1372
+    .line 1382
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mNotificationIcons:Lcom/android/systemui/statusbar/IconMerger;
 
     invoke-virtual {v2}, Lcom/android/systemui/statusbar/IconMerger;->getVisibility()I
 
     move-result v0
 
-    .line 1373
+    .line 1383
     .local v0, old:I
     if-eqz p1, :cond_1
 
@@ -4876,17 +4636,17 @@
 
     move v1, v2
 
-    .line 1374
+    .line 1384
     .local v1, v:I
     :goto_0
     if-eq v0, v1, :cond_0
 
-    .line 1375
+    .line 1385
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mNotificationIcons:Lcom/android/systemui/statusbar/IconMerger;
 
     invoke-virtual {v2, v1}, Lcom/android/systemui/statusbar/IconMerger;->setVisibility(I)V
 
-    .line 1376
+    .line 1386
     iget-object v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mNotificationIcons:Lcom/android/systemui/statusbar/IconMerger;
 
     const/4 v3, 0x0
@@ -4897,11 +4657,11 @@
 
     invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/IconMerger;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 1378
+    .line 1388
     :cond_0
     return-void
 
-    .line 1373
+    .line 1383
     .end local v1           #v:I
     :cond_1
     const/4 v2, 0x4
@@ -4911,11 +4671,41 @@
     goto :goto_0
 .end method
 
+.method public settingsButton(Landroid/view/View;)V
+    .locals 3
+    .parameter "v"
+
+    .prologue
+    .line 1717
+    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v2, "android.settings.SETTINGS"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const/high16 v2, 0x1000
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->animateCollapse()V
+
+    .line 1720
+    return-void
+.end method
+
 .method public showCallOnGoingView()V
     .locals 2
 
     .prologue
-    .line 1612
+    .line 1622
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCallOnGoingView:Lcom/android/systemui/statusbar/CallOnGoingView;
@@ -4928,14 +4718,14 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 1613
+    .line 1623
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCallOnGoingView:Lcom/android/systemui/statusbar/CallOnGoingView;
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/StatusBarView;->addView(Landroid/view/View;)V
 
-    .line 1615
+    .line 1625
     :cond_0
     return-void
 .end method
@@ -4944,22 +4734,22 @@
     .locals 1
 
     .prologue
-    .line 910
+    .line 920
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTracking:Z
 
-    .line 911
+    .line 921
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {v0}, Landroid/view/VelocityTracker;->recycle()V
 
-    .line 912
+    .line 922
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    .line 913
+    .line 923
     return-void
 .end method
 
@@ -4967,12 +4757,12 @@
     .locals 2
 
     .prologue
-    .line 1474
+    .line 1484
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
 
     if-eqz v0, :cond_0
 
-    .line 1475
+    .line 1485
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedParams:Landroid/view/WindowManager$LayoutParams;
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->getExpandedHeight()I
@@ -4981,7 +4771,7 @@
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
-    .line 1476
+    .line 1486
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedDialog:Landroid/app/Dialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
@@ -4992,7 +4782,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 1478
+    .line 1488
     :cond_0
     return-void
 .end method
@@ -5006,14 +4796,10 @@
 
     const/4 v11, 0x1
 
-    .line 1388
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
+    .line 1398
+    const/4 v3, 0x0
 
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/StatusBarView;->getHeight()I
-
-    move-result v3
-
-    .line 1389
+    .line 1399
     .local v3, h:I
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisplay:Landroid/view/Display;
 
@@ -5021,35 +4807,35 @@
 
     move-result v2
 
-    .line 1393
+    .line 1403
     .local v2, disph:I
     iget-boolean v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedVisible:Z
 
     if-nez v8, :cond_2
 
-    .line 1394
+    .line 1404
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingView:Lcom/android/systemui/statusbar/TrackingView;
 
     if-eqz v8, :cond_0
 
-    .line 1395
+    .line 1405
     neg-int v8, v2
 
     iput v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingPosition:I
 
-    .line 1396
+    .line 1406
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingParams:Landroid/view/WindowManager$LayoutParams;
 
     if-eqz v8, :cond_0
 
-    .line 1397
+    .line 1407
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingParams:Landroid/view/WindowManager$LayoutParams;
 
     iget v9, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingPosition:I
 
     iput v9, v8, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    .line 1398
+    .line 1408
     invoke-static {}, Landroid/view/WindowManagerImpl;->getDefault()Landroid/view/WindowManagerImpl;
 
     move-result-object v8
@@ -5060,20 +4846,20 @@
 
     invoke-virtual {v8, v9, v10}, Landroid/view/WindowManagerImpl;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1401
+    .line 1411
     :cond_0
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedParams:Landroid/view/WindowManager$LayoutParams;
 
     if-eqz v8, :cond_1
 
-    .line 1402
+    .line 1412
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedParams:Landroid/view/WindowManager$LayoutParams;
 
     neg-int v9, v2
 
     iput v9, v8, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    .line 1403
+    .line 1413
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedDialog:Landroid/app/Dialog;
 
     invoke-virtual {v8}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
@@ -5084,21 +4870,21 @@
 
     invoke-virtual {v8, v9}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 1467
+    .line 1477
     :cond_1
     :goto_0
     return-void
 
-    .line 1410
+    .line 1420
     :cond_2
     const/16 v8, -0x2711
 
     if-ne p1, v8, :cond_6
 
-    .line 1411
+    .line 1421
     move v6, v3
 
-    .line 1424
+    .line 1434
     .local v6, pos:I
     :goto_1
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingParams:Landroid/view/WindowManager$LayoutParams;
@@ -5107,14 +4893,14 @@
 
     iput v6, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingPosition:I
 
-    .line 1425
+    .line 1435
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingParams:Landroid/view/WindowManager$LayoutParams;
 
     sub-int v9, v2, v3
 
     iput v9, v8, Landroid/view/WindowManager$LayoutParams;->height:I
 
-    .line 1426
+    .line 1436
     invoke-static {}, Landroid/view/WindowManagerImpl;->getDefault()Landroid/view/WindowManagerImpl;
 
     move-result-object v8
@@ -5125,24 +4911,24 @@
 
     invoke-virtual {v8, v9, v10}, Landroid/view/WindowManagerImpl;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1428
+    .line 1438
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedParams:Landroid/view/WindowManager$LayoutParams;
 
     if-eqz v8, :cond_1
 
-    .line 1429
+    .line 1439
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCloseView:Lcom/android/systemui/statusbar/CloseDragHandle;
 
     iget-object v9, p0, Lcom/android/systemui/statusbar/StatusBarService;->mPositionTmp:[I
 
     invoke-virtual {v8, v9}, Lcom/android/systemui/statusbar/CloseDragHandle;->getLocationInWindow([I)V
 
-    .line 1430
+    .line 1440
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mPositionTmp:[I
 
     aget v0, v8, v11
 
-    .line 1432
+    .line 1442
     .local v0, closePos:I
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedContents:Landroid/view/View;
 
@@ -5150,7 +4936,7 @@
 
     invoke-virtual {v8, v9}, Landroid/view/View;->getLocationInWindow([I)V
 
-    .line 1433
+    .line 1443
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mPositionTmp:[I
 
     aget v8, v8, v11
@@ -5163,11 +4949,11 @@
 
     add-int v1, v8, v9
 
-    .line 1435
+    .line 1445
     .local v1, contentsBottom:I
     if-eq p1, v12, :cond_1
 
-    .line 1436
+    .line 1446
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedParams:Landroid/view/WindowManager$LayoutParams;
 
     iget-object v9, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingView:Lcom/android/systemui/statusbar/TrackingView;
@@ -5190,10 +4976,10 @@
 
     iput v9, v8, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    .line 1438
+    .line 1448
     move v4, v3
 
-    .line 1439
+    .line 1449
     .local v4, max:I
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedParams:Landroid/view/WindowManager$LayoutParams;
 
@@ -5201,16 +4987,16 @@
 
     if-le v8, v4, :cond_3
 
-    .line 1440
+    .line 1450
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedParams:Landroid/view/WindowManager$LayoutParams;
 
     iput v4, v8, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    .line 1442
+    .line 1452
     :cond_3
     iget v5, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingPosition:I
 
-    .line 1443
+    .line 1453
     .local v5, min:I
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedParams:Landroid/view/WindowManager$LayoutParams;
 
@@ -5218,12 +5004,12 @@
 
     if-ge v8, v5, :cond_4
 
-    .line 1444
+    .line 1454
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedParams:Landroid/view/WindowManager$LayoutParams;
 
     iput v5, v8, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    .line 1447
+    .line 1457
     :cond_4
     iget v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingPosition:I
 
@@ -5239,19 +5025,19 @@
 
     move v7, v11
 
-    .line 1448
+    .line 1458
     .local v7, visible:Z
     :goto_2
     if-nez v7, :cond_5
 
-    .line 1451
+    .line 1461
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedParams:Landroid/view/WindowManager$LayoutParams;
 
     neg-int v9, v2
 
     iput v9, v8, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    .line 1453
+    .line 1463
     :cond_5
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedDialog:Landroid/app/Dialog;
 
@@ -5263,12 +5049,12 @@
 
     invoke-virtual {v8, v9}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 1456
+    .line 1466
     invoke-virtual {p0, v7}, Lcom/android/systemui/statusbar/StatusBarService;->visibilityChanged(Z)V
 
     goto/16 :goto_0
 
-    .line 1413
+    .line 1423
     .end local v0           #closePos:I
     .end local v1           #contentsBottom:I
     .end local v4           #max:I
@@ -5278,21 +5064,21 @@
     :cond_6
     if-ne p1, v12, :cond_7
 
-    .line 1414
+    .line 1424
     iget v6, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingPosition:I
 
     .restart local v6       #pos:I
     goto/16 :goto_1
 
-    .line 1417
+    .line 1427
     .end local v6           #pos:I
     :cond_7
     if-gt p1, v2, :cond_8
 
-    .line 1418
+    .line 1428
     move v6, p1
 
-    .line 1422
+    .line 1432
     .restart local v6       #pos:I
     :goto_3
     sub-int v8, v2, v3
@@ -5301,7 +5087,7 @@
 
     goto/16 :goto_1
 
-    .line 1420
+    .line 1430
     .end local v6           #pos:I
     :cond_8
     move v6, v2
@@ -5309,7 +5095,7 @@
     .restart local v6       #pos:I
     goto :goto_3
 
-    .line 1447
+    .line 1457
     .restart local v0       #closePos:I
     .restart local v1       #contentsBottom:I
     .restart local v4       #max:I
@@ -5331,7 +5117,7 @@
     .parameter "icon"
 
     .prologue
-    .line 405
+    .line 409
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusIcons:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1, p3}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
@@ -5340,11 +5126,11 @@
 
     check-cast v0, Lcom/android/systemui/statusbar/StatusBarIconView;
 
-    .line 406
+    .line 410
     .local v0, view:Lcom/android/systemui/statusbar/StatusBarIconView;
     invoke-virtual {v0, p5}, Lcom/android/systemui/statusbar/StatusBarIconView;->set(Lcom/android/internal/statusbar/StatusBarIcon;)Z
 
-    .line 407
+    .line 411
     return-void
 .end method
 
@@ -5354,7 +5140,7 @@
     .parameter "notification"
 
     .prologue
-    .line 441
+    .line 445
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/StatusBarService;->mOngoing:Lcom/android/systemui/statusbar/NotificationData;
@@ -5369,18 +5155,18 @@
 
     move-result v15
 
-    .line 442
+    .line 446
     .local v15, oldIndex:I
     if-ltz v15, :cond_1
 
-    .line 443
+    .line 447
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/StatusBarService;->mOngoing:Lcom/android/systemui/statusbar/NotificationData;
 
     move-object/from16 v16, v0
 
-    .line 459
+    .line 463
     .local v16, oldList:Lcom/android/systemui/statusbar/NotificationData;
     :goto_0
     move-object/from16 v0, v16
@@ -5391,7 +5177,7 @@
 
     move-result-object v14
 
-    .line 460
+    .line 464
     .local v14, oldEntry:Lcom/android/systemui/statusbar/NotificationData$Entry;
     move-object v0, v14
 
@@ -5399,7 +5185,7 @@
 
     move-object/from16 v17, v0
 
-    .line 461
+    .line 465
     .local v17, oldNotification:Lcom/android/internal/statusbar/StatusBarNotification;
     move-object/from16 v0, v17
 
@@ -5409,7 +5195,7 @@
 
     iget-object v13, v4, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
 
-    .line 463
+    .line 467
     .local v13, oldContentView:Landroid/widget/RemoteViews;
     move-object/from16 v0, p2
 
@@ -5419,7 +5205,7 @@
 
     iget-object v10, v4, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
 
-    .line 477
+    .line 481
     .local v10, contentView:Landroid/widget/RemoteViews;
     move-object/from16 v0, p2
 
@@ -5495,14 +5281,14 @@
 
     if-ne v4, v5, :cond_7
 
-    .line 486
+    .line 490
     move-object/from16 v0, p2
 
     move-object v1, v14
 
     iput-object v0, v1, Lcom/android/systemui/statusbar/NotificationData$Entry;->notification:Lcom/android/internal/statusbar/StatusBarNotification;
 
-    .line 490
+    .line 494
     :try_start_0
     invoke-virtual/range {p2 .. p2}, Lcom/android/internal/statusbar/StatusBarNotification;->isMiniCon()Z
 
@@ -5510,7 +5296,7 @@
 
     if-nez v4, :cond_4
 
-    .line 491
+    .line 495
     iget-object v4, v14, Lcom/android/systemui/statusbar/NotificationData$Entry;->content:Landroid/view/View;
 
     move-object v0, v10
@@ -5521,7 +5307,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/RemoteViews;->reapply(Landroid/content/Context;Landroid/view/View;)V
 
-    .line 500
+    .line 504
     :goto_1
     move-object/from16 v0, p2
 
@@ -5531,11 +5317,11 @@
 
     iget-object v6, v4, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
 
-    .line 501
+    .line 505
     .local v6, contentIntent:Landroid/app/PendingIntent;
     if-eqz v6, :cond_0
 
-    .line 502
+    .line 506
     iget-object v11, v14, Lcom/android/systemui/statusbar/NotificationData$Entry;->content:Landroid/view/View;
 
     new-instance v4, Lcom/android/systemui/statusbar/StatusBarService$Launcher;
@@ -5564,7 +5350,7 @@
 
     invoke-virtual {v11, v4}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 506
+    .line 510
     :cond_0
     new-instance v12, Lcom/android/internal/statusbar/StatusBarIcon;
 
@@ -5601,7 +5387,7 @@
 
     invoke-direct {v12, v4, v5, v6, v7}, Lcom/android/internal/statusbar/StatusBarIcon;-><init>(Ljava/lang/String;III)V
 
-    .line 509
+    .line 513
     .local v12, ic:Lcom/android/internal/statusbar/StatusBarIcon;
     iget-object v4, v14, Lcom/android/systemui/statusbar/NotificationData$Entry;->icon:Lcom/android/systemui/statusbar/StatusBarIconView;
 
@@ -5611,7 +5397,7 @@
 
     if-nez v4, :cond_5
 
-    .line 510
+    .line 514
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -5642,7 +5428,7 @@
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 536
+    .line 540
     .end local v10           #contentView:Landroid/widget/RemoteViews;
     .end local v12           #ic:Lcom/android/internal/statusbar/StatusBarIcon;
     .end local v13           #oldContentView:Landroid/widget/RemoteViews;
@@ -5652,7 +5438,7 @@
     :goto_2
     return-void
 
-    .line 445
+    .line 449
     :cond_1
     move-object/from16 v0, p0
 
@@ -5668,10 +5454,10 @@
 
     move-result v15
 
-    .line 447
+    .line 451
     if-ltz v15, :cond_2
 
-    .line 448
+    .line 452
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/StatusBarService;->mLatest:Lcom/android/systemui/statusbar/NotificationData;
@@ -5681,7 +5467,7 @@
     .restart local v16       #oldList:Lcom/android/systemui/statusbar/NotificationData;
     goto/16 :goto_0
 
-    .line 450
+    .line 454
     .end local v16           #oldList:Lcom/android/systemui/statusbar/NotificationData;
     :cond_2
     move-object/from16 v0, p0
@@ -5698,10 +5484,10 @@
 
     move-result v15
 
-    .line 451
+    .line 455
     if-gez v15, :cond_3
 
-    .line 452
+    .line 456
     const-string v4, "StatusBarService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -5730,7 +5516,7 @@
 
     goto :goto_2
 
-    .line 455
+    .line 459
     :cond_3
     move-object/from16 v0, p0
 
@@ -5741,7 +5527,7 @@
     .restart local v16       #oldList:Lcom/android/systemui/statusbar/NotificationData;
     goto/16 :goto_0
 
-    .line 495
+    .line 499
     .restart local v10       #contentView:Landroid/widget/RemoteViews;
     .restart local v13       #oldContentView:Landroid/widget/RemoteViews;
     .restart local v14       #oldEntry:Lcom/android/systemui/statusbar/NotificationData$Entry;
@@ -5758,7 +5544,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/RemoteViews;->reapply(Landroid/content/Context;Landroid/view/View;)V
 
-    .line 496
+    .line 500
     const-string v4, "StatusBarService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -5793,13 +5579,13 @@
 
     goto/16 :goto_1
 
-    .line 514
+    .line 518
     :catch_0
     move-exception v4
 
     move-object v11, v4
 
-    .line 516
+    .line 520
     .local v11, e:Ljava/lang/RuntimeException;
     const-string v4, "StatusBarService"
 
@@ -5827,13 +5613,13 @@
 
     invoke-static {v4, v5, v11}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 517
+    .line 521
     invoke-virtual/range {p0 .. p1}, Lcom/android/systemui/statusbar/StatusBarService;->removeNotificationViews(Landroid/os/IBinder;)Lcom/android/internal/statusbar/StatusBarNotification;
 
-    .line 518
+    .line 522
     invoke-virtual/range {p0 .. p2}, Lcom/android/systemui/statusbar/StatusBarService;->addNotificationViews(Landroid/os/IBinder;Lcom/android/internal/statusbar/StatusBarNotification;)Lcom/android/systemui/statusbar/StatusBarIconView;
 
-    .line 527
+    .line 531
     .end local v11           #e:Ljava/lang/RuntimeException;
     :cond_5
     :goto_3
@@ -5867,18 +5653,18 @@
 
     if-nez v4, :cond_6
 
-    .line 530
+    .line 534
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
 
     invoke-direct {v0, v1}, Lcom/android/systemui/statusbar/StatusBarService;->tick(Lcom/android/internal/statusbar/StatusBarNotification;)V
 
-    .line 534
+    .line 538
     :cond_6
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/StatusBarService;->setAreThereNotifications()V
 
-    .line 535
+    .line 539
     const/16 v4, -0x2710
 
     move-object/from16 v0, p0
@@ -5889,11 +5675,11 @@
 
     goto/16 :goto_2
 
-    .line 522
+    .line 526
     :cond_7
     invoke-virtual/range {p0 .. p1}, Lcom/android/systemui/statusbar/StatusBarService;->removeNotificationViews(Landroid/os/IBinder;)Lcom/android/internal/statusbar/StatusBarNotification;
 
-    .line 523
+    .line 527
     invoke-virtual/range {p0 .. p2}, Lcom/android/systemui/statusbar/StatusBarService;->addNotificationViews(Landroid/os/IBinder;Lcom/android/internal/statusbar/StatusBarNotification;)Lcom/android/systemui/statusbar/StatusBarIconView;
 
     goto :goto_3
@@ -5903,12 +5689,12 @@
     .locals 3
 
     .prologue
-    .line 1567
+    .line 1577
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 1569
+    .line 1579
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mClearButton:Landroid/widget/TextView;
 
     const v2, 0x7f070001
@@ -5919,7 +5705,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1570
+    .line 1580
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mOngoingTitle:Landroid/widget/TextView;
 
     const v2, 0x7f070003
@@ -5930,7 +5716,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1571
+    .line 1581
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mLatestTitle:Landroid/widget/TextView;
 
     const v2, 0x7f070004
@@ -5941,7 +5727,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1572
+    .line 1582
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mNoNotificationsTitle:Landroid/widget/TextView;
 
     const v2, 0x7f070002
@@ -5952,7 +5738,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1574
+    .line 1584
     const/high16 v1, 0x7f06
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -5961,7 +5747,7 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mEdgeBorder:I
 
-    .line 1577
+    .line 1587
     return-void
 .end method
 
@@ -5969,7 +5755,7 @@
     .locals 2
 
     .prologue
-    .line 1588
+    .line 1598
     const-string v0, "vibrator"
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/StatusBarService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -5978,12 +5764,12 @@
 
     check-cast p0, Landroid/os/Vibrator;
 
-    .line 1589
+    .line 1599
     const-wide/16 v0, 0xfa
 
     invoke-virtual {p0, v0, v1}, Landroid/os/Vibrator;->vibrate(J)V
 
-    .line 1590
+    .line 1600
     return-void
 .end method
 
@@ -5994,7 +5780,7 @@
     .prologue
     const-string v2, ","
 
-    .line 1235
+    .line 1245
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -6101,15 +5887,15 @@
     .parameter "visible"
 
     .prologue
-    .line 1488
+    .line 1498
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mPanelSlightlyVisible:Z
 
     if-eq v0, p1, :cond_0
 
-    .line 1489
+    .line 1499
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mPanelSlightlyVisible:Z
 
-    .line 1491
+    .line 1501
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
@@ -6117,12 +5903,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1496
+    .line 1506
     :cond_0
     :goto_0
     return-void
 
-    .line 1492
+    .line 1502
     :catch_0
     move-exception v0
 

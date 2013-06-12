@@ -2891,14 +2891,6 @@
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/StatusBarView;->getHeight()I
-
-    move-result v1
-
-    sub-int/2addr v0, v1
-
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCloseView:Lcom/android/systemui/statusbar/CloseDragHandle;
 
     invoke-virtual {v1}, Lcom/android/systemui/statusbar/CloseDragHandle;->getHeight()I
@@ -3684,7 +3676,7 @@
     :goto_0
     new-instance v0, Landroid/view/WindowManager$LayoutParams;
 
-    const/16 v3, 0x7de
+    const/16 v3, 0x7d3
 
     const v4, 0x20300
 
@@ -4012,7 +4004,7 @@
     iput v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingPosition:I
 
     .line 1336
-    const/16 v1, 0x7de
+    const/16 v1, 0x7d3
 
     iput v1, v2, Landroid/view/WindowManager$LayoutParams;->type:I
 
@@ -4986,13 +4978,6 @@
 
     const/4 v11, 0x1
 
-    .line 1388
-    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
-
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/StatusBarView;->getHeight()I
-
-    move-result v3
-
     .line 1389
     .local v3, h:I
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisplay:Landroid/view/Display;
@@ -5071,6 +5056,8 @@
 
     .line 1410
     :cond_2
+	const/4 v3, 0x0
+	
     const/16 v8, -0x2711
 
     if-ne p1, v8, :cond_6

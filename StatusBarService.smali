@@ -250,9 +250,6 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mMiniConData:Lcom/android/systemui/statusbar/NotificationData;
 
-    .line 183
-    iput-boolean v2, p0, Lcom/android/systemui/statusbar/StatusBarService;->mFocusBlocked:Z
-
     .line 769
     new-instance v0, Lcom/android/systemui/statusbar/StatusBarService$1;
 
@@ -554,17 +551,15 @@
 
     invoke-virtual {v0, v4}, Lcom/android/systemui/statusbar/ExpandedView;->setVisibility(I)V
 
-    .line 100
-    iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
-
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/StatusBarView;->setVisibility(I)V
-
     .line 793
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTicking:Z
 
     if-nez v0, :cond_0
+
+    .line 794
+    const/high16 v0, 0x10a
+
+    invoke-virtual {p0, v3, v0}, Lcom/android/systemui/statusbar/StatusBarService;->setDateViewVisibility(ZI)V
 
     goto :goto_0
 .end method
@@ -1988,8 +1983,6 @@
 
     move-result v1
 
-    const/4 v1, 0x0
-
     int-to-float v1, v1
 
     cmpg-float v0, v0, v1
@@ -2058,8 +2051,6 @@
     invoke-virtual {v2}, Lcom/android/systemui/statusbar/StatusBarView;->getHeight()I
 
     move-result v2
-
-    const/4 v2, 0x0
 
     add-int v0, v1, v2
 
@@ -2905,8 +2896,6 @@
     invoke-virtual {v1}, Lcom/android/systemui/statusbar/StatusBarView;->getHeight()I
 
     move-result v1
-
-    const/4 v1, 0x0
 
     sub-int/2addr v0, v1
 
@@ -4188,13 +4177,6 @@
 
     invoke-virtual {v0, v4}, Lcom/android/systemui/statusbar/ExpandedView;->setVisibility(I)V
 
-    .line 100
-    iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/StatusBarView;->setVisibility(I)V
-
     .line 870
     iget v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisabled:I
 
@@ -4520,8 +4502,6 @@
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/StatusBarView;->getHeight()I
 
     move-result v0
-
-    const/4 v0, 0x0
 
     int-to-float v0, v0
 

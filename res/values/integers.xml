@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="default_TitleText_Size">26</integer>
+    <integer name="default_Grid_Num_Colums">2</integer>
+    <integer name="default_Grid_Max_No_Per_Page">6</integer>
+    <integer name="default_Grid_Button_TextSize">16</integer>
+    <integer name="default_Grid_Layout_Without_ScrollBar">1</integer>
+    <integer name="default_settinglist_rows">3</integer>
+    <integer name="default_slider_number_of_gauge">9</integer>
+    <integer name="default_progress_text_size">18</integer>
+    <integer name="defualt_twstopmotionpreview_num_imageviews">3</integer>
+</resources>

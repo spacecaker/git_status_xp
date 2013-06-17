@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_horizontal" android:id="@id/button_bar" android:background="@drawable/menu_bg" android:layout_width="fill_parent" android:layout_height="66.0dip" android:layout_alignParentBottom="true"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:camera="http://schemas.android.com/apk/res/com.sec.android.app.camera">
+    <com.sec.android.app.camera.EvenlySpacedLayout android:layout_width="fill_parent" android:layout_height="fill_parent" camera:orientation="horizontal" camera:keepEndSpace="false">
+        <LinearLayout android:id="@id/btn_share" style="@style/ReviewControlGroup">
+            <ImageView android:layout_marginTop="5.0dip" android:src="@drawable/btn_ic_review_share" style="@style/ReviewControlIcon" />
+            <TextView android:textSize="17.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:text="@string/camera_share" style="@style/ReviewControlText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/btn_play" style="@style/ReviewControlGroup">
+            <ImageView android:layout_marginTop="5.0dip" android:src="@drawable/btn_ic_review_play" style="@style/ReviewControlIcon" />
+            <TextView android:textSize="17.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:text="@string/video_play" style="@style/ReviewControlText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/btn_set_as" style="@style/ReviewControlGroup">
+            <ImageView android:layout_marginTop="5.0dip" android:src="@drawable/btn_ic_review_set_as" style="@style/ReviewControlIcon" />
+            <TextView android:textSize="17.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:text="@string/camera_set" style="@style/ReviewControlText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/btn_set_as_dim" style="@style/ReviewControlGroup">
+            <ImageView android:layout_marginTop="5.0dip" android:src="@drawable/btn_ic_review_set_as_dim" style="@style/ReviewControlIcon" />
+            <TextView android:textSize="17.0sp" android:textStyle="bold" android:textColor="#ff555555" android:text="@string/camera_set" style="@style/ReviewControlText" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/btn_delete" style="@style/ReviewControlGroup">
+            <ImageView android:layout_marginTop="5.0dip" android:src="@drawable/btn_ic_review_delete" style="@style/ReviewControlIcon" />
+            <TextView android:textSize="17.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:text="@string/camera_toss" style="@style/ReviewControlText" />
+        </LinearLayout>
+    </com.sec.android.app.camera.EvenlySpacedLayout>
+</RelativeLayout>

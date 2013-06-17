@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="drawable" name="tw30_mode_indoor_nomal">false</item>
+    <item type="drawable" name="tw30_scene_none_nomal">false</item>
+</resources>

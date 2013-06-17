@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/actionshotlayout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/actionShotCapturelayout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ProgressBar android:id="@id/actionShotCaptureProgress" android:layout_width="345.0dip" android:layout_height="7.3299866dip" android:layout_marginTop="286.0dip" android:progressDrawable="@drawable/tw_progress_horizontal" android:layout_centerHorizontal="true" style="@style/TwHorizontalProgressBar" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/actionShotPostCaptureLayout" android:background="@drawable/tw30_camera_shootingmode_popup_bg" android:visibility="invisible" android:layout_width="293.32812dip" android:layout_height="161.32999dip" android:layout_marginTop="56.0dip" android:layout_centerHorizontal="true">
+        <TextView android:textSize="18.0sp" android:gravity="center_horizontal" android:id="@id/actionShotPostProgressText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="38.0dip" android:text="@string/processing_msg" />
+        <ProgressBar android:id="@id/actionShotPostProgress" android:layout_width="232.0dip" android:layout_height="6.669983dip" android:layout_marginTop="122.66998dip" android:progressDrawable="@drawable/tw_progress_horizontal" android:layout_centerHorizontal="true" style="@style/TwHorizontalProgressBar" />
+    </RelativeLayout>
+</RelativeLayout>

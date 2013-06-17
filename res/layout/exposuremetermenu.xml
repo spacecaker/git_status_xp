@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sec.android.app.camera.widget.TwGridView android:orientation="vertical" android:id="@id/ExposuremeterMenu" android:fitsSystemWindows="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:stackFromBottom="false" custom:TitleText="@string/Title_Metering" custom:TitleText_Y="32.669983dip" custom:GridView_Style="3" custom:Grid_Num_Colums="1" custom:Grid_Layout_X="170.0dip" custom:Grid_Layout_Y="76.66998dip" custom:Grid_Layout_Width="173.32999dip" custom:Grid_Layout_Height="196.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:custom="http://schemas.android.com/apk/res/com.sec.android.app.camera" />

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/CameraBaseIndicatorLayout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:custom="http://schemas.android.com/apk/res/com.sec.android.app.camera">
+    <com.sec.android.app.camera.widget.TwGuidelineView android:id="@id/guideline" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.sec.android.app.camera.widget.TwIndicatorBattery android:id="@id/battery_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="396.0dip" android:layout_marginTop="3.0dip" android:layout_below="@id/CameraBaseIndicatorLayout" />
+    <com.sec.android.app.camera.widget.TwIndicatorsRemainCount android:id="@id/remaincount_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="351.0dip" android:layout_marginTop="34.0dip" android:layout_below="@id/CameraBaseIndicatorLayout" />
+    <com.sec.android.app.camera.widget.TwIndicatorFocus android:id="@id/focus_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="136.66998dip" android:layout_below="@id/CameraBaseIndicatorLayout" android:layout_centerHorizontal="true" />
+    <com.sec.android.app.camera.widget.TwIndicatorStorage android:id="@id/storage_indicator_camera" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="396.0dip" android:layout_marginTop="28.0dip" android:layout_below="@id/CameraBaseIndicatorLayout" />
+    <ImageView android:id="@id/lock_indicator" android:background="@drawable/tw30_camera_lock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="326.0dip" android:layout_marginTop="28.0dip" android:layout_below="@id/CameraBaseIndicatorLayout" />
+    <TextView android:textSize="18.0sp" android:textColor="#ffffffff" android:gravity="center_horizontal" android:id="@id/textMessage_indicator" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="293.32812dip" android:layout_marginBottom="4.0dip" android:text="@string/SmileShot_message" android:shadowColor="#ff000000" android:shadowDx="1.0" android:shadowDy="1.0" android:shadowRadius="2.0" android:layout_alignParentBottom="true" />
+    <RelativeLayout android:id="@id/LaunchImageTextWrapperLyout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_above="@id/LaunchImage" android:layout_centerInParent="true">
+        <ImageView android:id="@id/LaunchImage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/camera_camera_mode" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="21.5sp" android:id="@id/LaunchIconTextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/camera_label" android:shadowColor="#ff000000" android:shadowDx="1.0" android:shadowDy="1.0" android:shadowRadius="1.0" android:layout_below="@id/LaunchImage" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <com.sec.android.app.camera.widget.TwTouchFocusRectView android:id="@id/touchFocusRectView" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</RelativeLayout>

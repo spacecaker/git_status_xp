@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/VintageModeButtonLayout" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:custom="http://schemas.android.com/apk/res/com.sec.android.app.camera">
+    <com.sec.android.app.camera.widget.TwImageButton android:id="@id/VintageModeButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="66.66998dip" android:layout_marginTop="240.0dip" custom:twimagebutton_image_n="@drawable/tw30_lomo_shot_button_normal" custom:twimagebutton_image_p="@drawable/tw30_lomo_shot_button_normal_press" />
+    <TextView android:textSize="14.0sp" android:textStyle="normal" android:textColor="#ffffffff" android:gravity="center" android:id="@id/VintageModeText" android:layout_width="70.66998dip" android:layout_height="20.0dip" android:layout_marginLeft="66.66998dip" android:layout_marginTop="290.66406dip" android:shadowColor="#ff000000" android:shadowDx="1.0" android:shadowDy="1.0" android:shadowRadius="2.0" />
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/HelptextPopupLayout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/HelptextPopup" android:background="@drawable/tw30_camera_shootingmode_helptext_bg" android:layout_width="346.66406dip" android:layout_height="50.0dip" android:layout_marginLeft="68.0dip" android:layout_marginTop="213.32999dip">
+        <TextView android:textSize="16.0sp" android:gravity="center_vertical" android:id="@id/Helptext" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="16.0dip" android:layout_marginRight="16.0dip" />
+    </RelativeLayout>
+</RelativeLayout>

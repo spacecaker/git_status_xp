@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sec.android.app.camera.widget.TwGridView android:orientation="vertical" android:id="@id/ShutterSound" android:fitsSystemWindows="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:stackFromBottom="false" custom:TitleText="@string/Title_ShutterSound" custom:TitleText_Y="56.0dip" custom:GridView_Style="2" custom:Grid_Layout_X="95.32999dip" custom:Grid_Layout_Y="100.0dip" custom:Grid_Layout_Width="350.0dip" custom:Grid_Layout_Height="133.32999dip" custom:Grid_Save_Button_X="429.0dip" custom:Grid_Save_Button_Y="262.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:custom="http://schemas.android.com/apk/res/com.sec.android.app.camera" />

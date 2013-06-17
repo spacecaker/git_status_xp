@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/CameraIndicatorLayout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:custom="http://schemas.android.com/apk/res/com.sec.android.app.camera">
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="58.0dip" android:layout_marginTop="2.0dip">
+        <com.sec.android.app.camera.widget.TwIndicatorResolution android:id="@id/resolution_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <com.sec.android.app.camera.widget.TwIndicatorISO android:id="@id/iso_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <com.sec.android.app.camera.widget.TwIndicatorWhiteBalance android:id="@id/wb_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <com.sec.android.app.camera.widget.TwIndicatorMetering android:id="@id/metering_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <com.sec.android.app.camera.widget.TwIndicatorTimer android:id="@id/timer_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <com.sec.android.app.camera.widget.TwIndicatorAntiShake android:id="@id/antishake_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <com.sec.android.app.camera.widget.TwIndicatorFocusmode android:id="@id/foucsmode_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <com.sec.android.app.camera.widget.TwIndicatorGPS android:id="@id/gps_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>

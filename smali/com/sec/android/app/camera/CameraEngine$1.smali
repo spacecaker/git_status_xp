@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 742
+    .line 785
     iput-object p1, p0, Lcom/sec/android/app/camera/CameraEngine$1;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,14 +45,14 @@
 
     const-string v10, "_id"
 
-    .line 744
+    .line 787
     const-string v0, "CameraEngine"
 
     const-string v1, "searchForInitialLastContentUri - mSearchingLastContentUriThread is running"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 747
+    .line 790
     const/4 v0, 0x2
 
     new-array v2, v0, [Ljava/lang/String;
@@ -67,15 +67,41 @@
 
     aput-object v0, v2, v9
 
-    .line 749
+    .line 792
     .local v2, projection:[Ljava/lang/String;
-    const-string v3, "bucket_display_name=\'Camera\'"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    .line 751
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "_data LIKE \'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, "/%DCIM/Camera/%\'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 795
     .local v3, selection:Ljava/lang/String;
     const-string v5, "datetaken DESC"
 
-    .line 753
+    .line 797
     .local v5, sortOrder:Ljava/lang/String;
     invoke-static {}, Lcom/sec/android/app/camera/CameraEngine;->access$1300()Landroid/content/ContentResolver;
 
@@ -89,36 +115,36 @@
 
     move-result-object v6
 
-    .line 757
+    .line 801
     .local v6, cursor:Landroid/database/Cursor;
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$1;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->clearLastContentUri()V
 
-    .line 759
+    .line 803
     if-eqz v6, :cond_1
 
-    .line 760
+    .line 804
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 761
+    .line 805
     const-string v0, "_id"
 
     invoke-interface {v6, v10}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v7
 
-    .line 762
+    .line 806
     .local v7, imageId:I
     invoke-interface {v6, v7}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v8
 
-    .line 763
+    .line 807
     .local v8, imageIdName:Ljava/lang/String;
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$1;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
@@ -156,27 +182,27 @@
 
     iput-object v1, v0, Lcom/sec/android/app/camera/CameraEngine;->mLastContentUri:Landroid/net/Uri;
 
-    .line 768
+    .line 812
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$1;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine;->mUriSearchingHandler:Lcom/sec/android/app/camera/CameraEngine$UriSearchingHandler;
 
     if-eqz v0, :cond_0
 
-    .line 769
+    .line 813
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$1;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine;->mUriSearchingHandler:Lcom/sec/android/app/camera/CameraEngine$UriSearchingHandler;
 
     invoke-virtual {v0, v9}, Lcom/sec/android/app/camera/CameraEngine$UriSearchingHandler;->sendEmptyMessage(I)Z
 
-    .line 773
+    .line 817
     .end local v7           #imageId:I
     .end local v8           #imageIdName:Ljava/lang/String;
     :cond_0
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 775
+    .line 819
     :cond_1
     return-void
 .end method

@@ -80,10 +80,10 @@
     .line 65
     :array_0
     .array-data 0x4
-        0x29t 0x0t 0x7t 0x7ft
-        0x2at 0x0t 0x7t 0x7ft
-        0x2bt 0x0t 0x7t 0x7ft
-        0x2ct 0x0t 0x7t 0x7ft
+        0x2dt 0x0t 0x7t 0x7ft
+        0xb9t 0x0t 0x7t 0x7ft
+        0xb7t 0x0t 0x7t 0x7ft
+        0xb8t 0x0t 0x7t 0x7ft
     .end array-data
 .end method
 
@@ -177,9 +177,9 @@
 
     iget-object v4, p0, Lcom/sec/android/app/camera/VintageShotView;->mVintageMoedButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
-    const v5, 0x7f020250
+    const v5, 0x7f02026c
 
-    const v6, 0x7f020251
+    const v6, 0x7f02026d
 
     move-object v1, p0
 
@@ -196,9 +196,9 @@
 
     iget-object v4, p0, Lcom/sec/android/app/camera/VintageShotView;->mVintageMoedButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
-    const v5, 0x7f020253
+    const v5, 0x7f02026f
 
-    const v6, 0x7f020254
+    const v6, 0x7f020270
 
     move-object v1, p0
 
@@ -215,9 +215,9 @@
 
     iget-object v4, p0, Lcom/sec/android/app/camera/VintageShotView;->mVintageMoedButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
-    const v5, 0x7f02024c
+    const v5, 0x7f020268
 
-    const v6, 0x7f02024d
+    const v6, 0x7f020269
 
     move-object v1, p0
 
@@ -234,9 +234,9 @@
 
     iget-object v4, p0, Lcom/sec/android/app/camera/VintageShotView;->mVintageMoedButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
-    const v5, 0x7f02024e
+    const v5, 0x7f02026a
 
-    const v6, 0x7f02024f
+    const v6, 0x7f02026b
 
     move-object v1, p0
 
@@ -346,7 +346,7 @@
     :pswitch_0
     iget-object v1, p0, Lcom/sec/android/app/camera/VintageShotView;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
-    const v2, 0x7f03003e
+    const v2, 0x7f03003f
 
     iget-object v3, p0, Lcom/sec/android/app/camera/VintageShotView;->mBaseView:Landroid/view/ViewGroup;
 

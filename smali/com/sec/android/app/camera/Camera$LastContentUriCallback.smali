@@ -49,19 +49,19 @@
     .end annotation
 
     .prologue
-    .line 2564
+    .line 2712
     .local p3, rectList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/graphics/RectF;>;"
     iput-object p1, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2565
+    .line 2713
     iput-object p2, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->mKeyValue:Ljava/lang/String;
 
-    .line 2566
+    .line 2714
     iput-object p3, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->mRectList:Ljava/util/ArrayList;
 
-    .line 2567
+    .line 2715
     return-void
 .end method
 
@@ -75,13 +75,13 @@
 
     const/4 v8, 0x1
 
-    const-string v5, "Camera"
+    const-string v6, "Camera"
 
     const-string v11, "true"
 
     const-string v10, "com.sec.android.app.camera"
 
-    .line 2570
+    .line 2718
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
     #getter for: Lcom/sec/android/app/camera/Camera;->mCameraEngine:Lcom/sec/android/app/camera/CameraEngine;
@@ -91,32 +91,59 @@
 
     if-nez v4, :cond_1
 
-    .line 2571
+    .line 2719
     const-string v4, "Camera"
 
     const-string v4, "onCompleted: mCameraEnine is null"
 
-    invoke-static {v5, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2664
+    .line 2819
     :cond_0
     :goto_0
     return-void
 
-    .line 2574
+    .line 2722
     :cond_1
     const-string v4, "Camera"
 
-    const-string v4, "Camera getLastContentUri: "
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-static {v5, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 2576
+    const-string v5, "Camera getLastContentUri: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
+
+    #getter for: Lcom/sec/android/app/camera/Camera;->mCameraEngine:Lcom/sec/android/app/camera/CameraEngine;
+    invoke-static {v5}, Lcom/sec/android/app/camera/Camera;->access$400(Lcom/sec/android/app/camera/Camera;)Lcom/sec/android/app/camera/CameraEngine;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/sec/android/app/camera/CameraEngine;->getLastContentUri()Landroid/net/Uri;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v6, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 2725
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
     invoke-virtual {v4, v8}, Lcom/sec/android/app/camera/Camera;->setIsLaunchGallery(Z)V
 
-    .line 2578
+    .line 2727
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
     new-instance v5, Landroid/content/Intent;
@@ -138,20 +165,10 @@
 
     invoke-virtual {v4, v5}, Lcom/sec/android/app/camera/Camera;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 2580
-    iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->mKeyValue:Ljava/lang/String;
+    .line 2730
+    const-string v4, "quickview"
 
-    const-string v5, "quickview"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_2
-
-    iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->mKeyValue:Ljava/lang/String;
-
-    const-string v5, "reviewon"
+    iget-object v5, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->mKeyValue:Ljava/lang/String;
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -159,9 +176,19 @@
 
     if-nez v4, :cond_2
 
-    iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->mKeyValue:Ljava/lang/String;
+    const-string v4, "reviewon"
 
-    const-string v5, "blinkdetection"
+    iget-object v5, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->mKeyValue:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
+    const-string v4, "blinkdetection"
+
+    iget-object v5, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->mKeyValue:Ljava/lang/String;
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -169,18 +196,18 @@
 
     if-eqz v4, :cond_5
 
-    .line 2581
+    .line 2733
     :cond_2
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->mRectList:Ljava/util/ArrayList;
 
     if-eqz v4, :cond_3
 
-    .line 2582
+    .line 2734
     new-instance v2, Landroid/content/Intent;
 
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
-    .line 2583
+    .line 2735
     .local v2, intent:Landroid/content/Intent;
     const-string v4, "com.sec.android.app.camera"
 
@@ -188,7 +215,7 @@
 
     invoke-virtual {v2, v10, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 2585
+    .line 2738
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
     #getter for: Lcom/sec/android/app/camera/Camera;->mCameraEngine:Lcom/sec/android/app/camera/CameraEngine;
@@ -202,35 +229,35 @@
 
     invoke-virtual {v2, v4}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
-    .line 2586
+    .line 2739
     const-string v4, "blink-rect"
 
     iget-object v5, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->mRectList:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v4, v5}, Landroid/content/Intent;->putParcelableArrayListExtra(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;
 
-    .line 2588
+    .line 2741
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
     const/16 v5, 0x7d3
 
     invoke-virtual {v4, v2, v5}, Lcom/sec/android/app/camera/Camera;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 2591
+    .line 2744
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
     invoke-virtual {v4, v9, v9}, Lcom/sec/android/app/camera/Camera;->overridePendingTransition(II)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    .line 2608
+    .line 2760
     .end local v2           #intent:Landroid/content/Intent;
     :cond_3
     new-instance v2, Landroid/content/Intent;
 
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
-    .line 2609
+    .line 2761
     .restart local v2       #intent:Landroid/content/Intent;
     const-string v4, "com.sec.android.app.camera"
 
@@ -238,7 +265,7 @@
 
     invoke-virtual {v2, v10, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 2611
+    .line 2764
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
     #getter for: Lcom/sec/android/app/camera/Camera;->mCameraEngine:Lcom/sec/android/app/camera/CameraEngine;
@@ -252,7 +279,7 @@
 
     if-eqz v4, :cond_4
 
-    .line 2612
+    .line 2765
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
     #getter for: Lcom/sec/android/app/camera/Camera;->mCameraEngine:Lcom/sec/android/app/camera/CameraEngine;
@@ -266,35 +293,35 @@
 
     invoke-virtual {v2, v4}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
-    .line 2616
+    .line 2769
     :goto_1
     const-string v4, "android.intent.extra.fullScreen"
 
     invoke-virtual {v2, v4, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 2617
+    .line 2770
     const-string v4, "android.intent.extra.showActionIcons"
 
     invoke-virtual {v2, v4, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 2618
+    .line 2771
     const-string v4, "com.sec.android.app.camera.ReviewMode"
 
     invoke-virtual {v2, v4, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 2620
+    .line 2774
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
     invoke-virtual {v4, v2}, Lcom/sec/android/app/camera/Camera;->startActivity(Landroid/content/Intent;)V
 
-    .line 2623
+    .line 2777
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
     invoke-virtual {v4, v9, v9}, Lcom/sec/android/app/camera/Camera;->overridePendingTransition(II)V
 
     goto/16 :goto_0
 
-    .line 2614
+    .line 2767
     :cond_4
     sget-object v4, Landroid/provider/MediaStore$Images$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
@@ -302,12 +329,12 @@
 
     goto :goto_1
 
-    .line 2625
+    .line 2779
     .end local v2           #intent:Landroid/content/Intent;
     :cond_5
-    iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->mKeyValue:Ljava/lang/String;
+    const-string v4, "from_app"
 
-    const-string v5, "from_app"
+    iget-object v5, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->mKeyValue:Ljava/lang/String;
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -315,18 +342,18 @@
 
     if-eqz v4, :cond_0
 
-    .line 2626
+    .line 2780
     new-instance v3, Landroid/os/Bundle;
 
     invoke-direct {v3}, Landroid/os/Bundle;-><init>()V
 
-    .line 2627
+    .line 2781
     .local v3, newExtras:Landroid/os/Bundle;
     const-string v4, "fromApp"
 
     invoke-virtual {v3, v4, v8}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 2629
+    .line 2783
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
     #getter for: Lcom/sec/android/app/camera/Camera;->mCropValue:Ljava/lang/String;
@@ -336,15 +363,15 @@
 
     if-eqz v4, :cond_6
 
-    .line 2630
-    iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
+    .line 2784
+    const-string v4, "circle"
+
+    iget-object v5, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
     #getter for: Lcom/sec/android/app/camera/Camera;->mCropValue:Ljava/lang/String;
-    invoke-static {v4}, Lcom/sec/android/app/camera/Camera;->access$800(Lcom/sec/android/app/camera/Camera;)Ljava/lang/String;
+    invoke-static {v5}, Lcom/sec/android/app/camera/Camera;->access$800(Lcom/sec/android/app/camera/Camera;)Ljava/lang/String;
 
-    move-result-object v4
-
-    const-string v5, "circle"
+    move-result-object v5
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -352,28 +379,28 @@
 
     if-eqz v4, :cond_8
 
-    .line 2631
+    .line 2785
     const-string v4, "circleCrop"
 
     const-string v5, "true"
 
     invoke-virtual {v3, v4, v11}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2644
+    .line 2798
     :cond_6
     :goto_2
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->mRectList:Ljava/util/ArrayList;
 
     if-eqz v4, :cond_7
 
-    .line 2645
+    .line 2799
     const-string v4, "blink-rect"
 
     iget-object v5, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->mRectList:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v4, v5}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    .line 2648
+    .line 2802
     :cond_7
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
@@ -384,7 +411,7 @@
 
     if-eqz v4, :cond_9
 
-    .line 2649
+    .line 2803
     const-string v4, "output"
 
     iget-object v5, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
@@ -396,13 +423,13 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 2656
+    .line 2810
     :goto_3
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 2657
+    .line 2811
     .local v0, cropIntent:Landroid/content/Intent;
     const-string v4, "com.sec.android.app.camera"
 
@@ -410,7 +437,7 @@
 
     invoke-virtual {v0, v10, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 2659
+    .line 2814
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
     #getter for: Lcom/sec/android/app/camera/Camera;->mCameraEngine:Lcom/sec/android/app/camera/CameraEngine;
@@ -424,10 +451,10 @@
 
     invoke-virtual {v0, v4}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
-    .line 2660
+    .line 2815
     invoke-virtual {v0, v3}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
-    .line 2662
+    .line 2817
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
     const/16 v5, 0x7d1
@@ -436,9 +463,11 @@
 
     goto/16 :goto_0
 
-    .line 2632
+    .line 2786
     .end local v0           #cropIntent:Landroid/content/Intent;
     :cond_8
+    const-string v4, "true"
+
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
     #getter for: Lcom/sec/android/app/camera/Camera;->mCropValue:Ljava/lang/String;
@@ -446,28 +475,26 @@
 
     move-result-object v4
 
-    const-string v5, "true"
-
-    invoke-virtual {v4, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v11, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
     if-eqz v4, :cond_6
 
-    .line 2633
+    .line 2787
     iget-object v4, p0, Lcom/sec/android/app/camera/Camera$LastContentUriCallback;->this$0:Lcom/sec/android/app/camera/Camera;
 
     invoke-virtual {v4}, Lcom/sec/android/app/camera/Camera;->getIntent()Landroid/content/Intent;
 
     move-result-object v2
 
-    .line 2634
+    .line 2788
     .restart local v2       #intent:Landroid/content/Intent;
     invoke-virtual {v2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 2636
+    .line 2790
     .local v1, extras:Landroid/os/Bundle;
     const-string v4, "rectCrop"
 
@@ -475,7 +502,7 @@
 
     invoke-virtual {v3, v4, v11}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2637
+    .line 2791
     const-string v4, "aspectX"
 
     const-string v5, "aspectX"
@@ -486,7 +513,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 2638
+    .line 2792
     const-string v4, "aspectY"
 
     const-string v5, "aspectY"
@@ -497,7 +524,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 2639
+    .line 2793
     const-string v4, "outputX"
 
     const-string v5, "outputX"
@@ -508,7 +535,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 2640
+    .line 2794
     const-string v4, "outputY"
 
     const-string v5, "outputY"
@@ -521,7 +548,7 @@
 
     goto/16 :goto_2
 
-    .line 2650
+    .line 2804
     .end local v1           #extras:Landroid/os/Bundle;
     .end local v2           #intent:Landroid/content/Intent;
     :cond_9
@@ -534,14 +561,14 @@
 
     if-eqz v4, :cond_a
 
-    .line 2651
+    .line 2805
     const-string v4, "return-uri"
 
     invoke-virtual {v3, v4, v8}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     goto :goto_3
 
-    .line 2653
+    .line 2807
     :cond_a
     const-string v4, "return-data"
 

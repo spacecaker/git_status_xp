@@ -68,7 +68,7 @@
     .locals 2
 
     .prologue
-    .line 79
+    .line 81
     invoke-static {}, Landroid/view/ViewConfiguration;->getZoomControlsTimeout()J
 
     move-result-wide v0
@@ -87,42 +87,42 @@
     .prologue
     const/4 v1, 0x2
 
-    .line 204
+    .line 206
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 87
+    .line 89
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mAutoDismissControls:Z
 
-    .line 98
+    .line 100
     new-array v0, v1, [I
 
     iput-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerViewRawLocation:[I
 
-    .line 105
+    .line 107
     new-array v0, v1, [I
 
     iput-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainerRawLocation:[I
 
-    .line 117
+    .line 119
     new-array v0, v1, [I
 
     iput-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mTouchTargetWindowLocation:[I
 
-    .line 132
+    .line 134
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mTempRect:Landroid/graphics/Rect;
 
-    .line 133
+    .line 135
     new-array v0, v1, [I
 
     iput-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mTempIntArray:[I
 
-    .line 145
+    .line 147
     new-instance v0, Landroid/content/IntentFilter;
 
     const-string v1, "android.intent.action.CONFIGURATION_CHANGED"
@@ -131,28 +131,28 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mConfigurationChangedFilter:Landroid/content/IntentFilter;
 
-    .line 151
+    .line 153
     new-instance v0, Lcom/sec/android/app/camera/ZoomButtonsController$1;
 
     invoke-direct {v0, p0}, Lcom/sec/android/app/camera/ZoomButtonsController$1;-><init>(Lcom/sec/android/app/camera/ZoomButtonsController;)V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mConfigurationChangedReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 171
+    .line 173
     new-instance v0, Lcom/sec/android/app/camera/ZoomButtonsController$2;
 
     invoke-direct {v0, p0}, Lcom/sec/android/app/camera/ZoomButtonsController$2;-><init>(Lcom/sec/android/app/camera/ZoomButtonsController;)V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mHandler:Landroid/os/Handler;
 
-    .line 205
+    .line 207
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContext:Landroid/content/Context;
 
-    .line 206
+    .line 208
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContext:Landroid/content/Context;
 
     const-string v1, "window"
@@ -165,10 +165,10 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mWindowManager:Landroid/view/WindowManager;
 
-    .line 207
+    .line 209
     iput-object p1, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
-    .line 209
+    .line 211
     const/high16 v0, 0x41a0
 
     iget-object v1, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContext:Landroid/content/Context;
@@ -189,7 +189,7 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mTouchPaddingScaledSq:I
 
-    .line 211
+    .line 213
     iget v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mTouchPaddingScaledSq:I
 
     iget v1, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mTouchPaddingScaledSq:I
@@ -198,14 +198,14 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mTouchPaddingScaledSq:I
 
-    .line 213
+    .line 215
     invoke-direct {p0}, Lcom/sec/android/app/camera/ZoomButtonsController;->createContainer()Landroid/widget/FrameLayout;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainer:Landroid/widget/FrameLayout;
 
-    .line 214
+    .line 216
     return-void
 .end method
 
@@ -214,7 +214,7 @@
     .parameter "x0"
 
     .prologue
-    .line 75
+    .line 77
     iget-boolean v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mIsVisible:Z
 
     return v0
@@ -225,7 +225,7 @@
     .parameter "x0"
 
     .prologue
-    .line 75
+    .line 77
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mHandler:Landroid/os/Handler;
 
     return-object v0
@@ -236,7 +236,7 @@
     .parameter "x0"
 
     .prologue
-    .line 75
+    .line 77
     invoke-direct {p0}, Lcom/sec/android/app/camera/ZoomButtonsController;->onPostConfigurationChanged()V
 
     return-void
@@ -247,7 +247,7 @@
     .parameter "x0"
 
     .prologue
-    .line 75
+    .line 77
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
     return-object v0
@@ -257,7 +257,7 @@
     .locals 1
 
     .prologue
-    .line 75
+    .line 77
     sget v0, Lcom/sec/android/app/camera/ZoomButtonsController;->ZOOM_CONTROLS_TIMEOUT:I
 
     return v0
@@ -269,7 +269,7 @@
     .parameter "x1"
 
     .prologue
-    .line 75
+    .line 77
     invoke-direct {p0, p1}, Lcom/sec/android/app/camera/ZoomButtonsController;->dismissControlsDelayed(I)V
 
     return-void
@@ -280,7 +280,7 @@
     .parameter "x0"
 
     .prologue
-    .line 75
+    .line 77
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mCallback:Lcom/sec/android/app/camera/ZoomButtonsController$OnZoomListener;
 
     return-object v0
@@ -291,7 +291,7 @@
     .parameter "x0"
 
     .prologue
-    .line 75
+    .line 77
     invoke-direct {p0}, Lcom/sec/android/app/camera/ZoomButtonsController;->refreshPositioningVariables()V
 
     return-void
@@ -303,7 +303,7 @@
     .parameter "x1"
 
     .prologue
-    .line 75
+    .line 77
     invoke-direct {p0, p1}, Lcom/sec/android/app/camera/ZoomButtonsController;->onContainerKey(Landroid/view/KeyEvent;)Z
 
     move-result v0
@@ -317,60 +317,60 @@
     .prologue
     const/4 v4, -0x2
 
-    .line 252
+    .line 254
     new-instance v2, Landroid/view/WindowManager$LayoutParams;
 
     invoke-direct {v2, v4, v4}, Landroid/view/WindowManager$LayoutParams;-><init>(II)V
 
-    .line 254
+    .line 256
     .local v2, lp:Landroid/view/WindowManager$LayoutParams;
     const/16 v3, 0x33
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    .line 255
+    .line 257
     const v3, 0x20218
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 259
+    .line 261
     iput v4, v2, Landroid/view/WindowManager$LayoutParams;->height:I
 
-    .line 260
+    .line 262
     const/4 v3, -0x1
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->width:I
 
-    .line 261
+    .line 263
     const/16 v3, 0x3e8
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    .line 262
+    .line 264
     const/4 v3, -0x3
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->format:I
 
-    .line 264
+    .line 266
     iput-object v2, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainerLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
-    .line 266
+    .line 268
     new-instance v0, Lcom/sec/android/app/camera/ZoomButtonsController$Container;
 
     iget-object v3, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContext:Landroid/content/Context;
 
     invoke-direct {v0, p0, v3}, Lcom/sec/android/app/camera/ZoomButtonsController$Container;-><init>(Lcom/sec/android/app/camera/ZoomButtonsController;Landroid/content/Context;)V
 
-    .line 267
+    .line 269
     .local v0, container:Landroid/widget/FrameLayout;
     invoke-virtual {v0, v2}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 268
+    .line 270
     const/4 v3, 0x1
 
     invoke-virtual {v0, v3}, Landroid/widget/FrameLayout;->setMeasureAllChildren(Z)V
 
-    .line 270
+    .line 272
     iget-object v3, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContext:Landroid/content/Context;
 
     const-string v4, "layout_inflater"
@@ -381,13 +381,13 @@
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    .line 272
+    .line 274
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v3, 0x7f030041
+    const v3, 0x7f030042
 
     invoke-virtual {v1, v3, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    .line 274
+    .line 276
     const v3, 0x7f0a00fa
 
     invoke-virtual {v0, v3}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
@@ -398,7 +398,7 @@
 
     iput-object v3, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mControls:Lcom/sec/android/app/camera/ZoomControls;
 
-    .line 275
+    .line 277
     iget-object v3, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mControls:Lcom/sec/android/app/camera/ZoomControls;
 
     new-instance v4, Lcom/sec/android/app/camera/ZoomButtonsController$3;
@@ -407,7 +407,7 @@
 
     invoke-virtual {v3, v4}, Lcom/sec/android/app/camera/ZoomControls;->setOnZoomInClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 281
+    .line 283
     iget-object v3, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mControls:Lcom/sec/android/app/camera/ZoomControls;
 
     new-instance v4, Lcom/sec/android/app/camera/ZoomButtonsController$4;
@@ -416,7 +416,7 @@
 
     invoke-virtual {v3, v4}, Lcom/sec/android/app/camera/ZoomControls;->setOnZoomOutClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 288
+    .line 290
     return-object v0
 .end method
 
@@ -427,24 +427,24 @@
     .prologue
     const/4 v3, 0x3
 
-    .line 449
+    .line 451
     iget-boolean v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mAutoDismissControls:Z
 
     if-eqz v0, :cond_0
 
-    .line 450
+    .line 452
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v3}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 451
+    .line 453
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mHandler:Landroid/os/Handler;
 
     int-to-long v1, p1
 
     invoke-virtual {v0, v3, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 453
+    .line 455
     :cond_0
     return-void
 .end method
@@ -457,7 +457,7 @@
     .prologue
     const/4 v12, 0x1
 
-    .line 653
+    .line 667
     iget-object v10, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainerRawLocation:[I
 
     const/4 v11, 0x0
@@ -466,7 +466,7 @@
 
     sub-int v3, p1, v10
 
-    .line 654
+    .line 668
     .local v3, containerCoordsX:I
     iget-object v10, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainerRawLocation:[I
 
@@ -474,19 +474,19 @@
 
     sub-int v4, p2, v10
 
-    .line 655
+    .line 669
     .local v4, containerCoordsY:I
     iget-object v8, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mTempRect:Landroid/graphics/Rect;
 
-    .line 657
+    .line 671
     .local v8, frame:Landroid/graphics/Rect;
     const/4 v1, 0x0
 
-    .line 658
+    .line 672
     .local v1, closestChild:Landroid/view/View;
     const v2, 0x7fffffff
 
-    .line 660
+    .line 674
     .local v2, closestChildDistanceSq:I
     iget-object v10, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainer:Landroid/widget/FrameLayout;
 
@@ -500,14 +500,14 @@
     :goto_0
     if-ltz v9, :cond_5
 
-    .line 661
+    .line 675
     iget-object v10, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainer:Landroid/widget/FrameLayout;
 
     invoke-virtual {v10, v9}, Landroid/widget/FrameLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 662
+    .line 676
     .local v0, child:Landroid/view/View;
     invoke-virtual {v0}, Landroid/view/View;->getVisibility()I
 
@@ -515,18 +515,18 @@
 
     if-eqz v10, :cond_1
 
-    .line 660
+    .line 674
     :cond_0
     :goto_1
     add-int/lit8 v9, v9, -0x1
 
     goto :goto_0
 
-    .line 666
+    .line 680
     :cond_1
     invoke-virtual {v0, v8}, Landroid/view/View;->getHitRect(Landroid/graphics/Rect;)V
 
-    .line 667
+    .line 681
     invoke-virtual {v8, v3, v4}, Landroid/graphics/Rect;->contains(II)Z
 
     move-result v10
@@ -535,12 +535,12 @@
 
     move-object v10, v0
 
-    .line 694
+    .line 708
     .end local v0           #child:Landroid/view/View;
     :goto_2
     return-object v10
 
-    .line 672
+    .line 686
     .restart local v0       #child:Landroid/view/View;
     :cond_2
     iget v10, v8, Landroid/graphics/Rect;->left:I
@@ -551,10 +551,10 @@
 
     if-gt v3, v10, :cond_3
 
-    .line 673
+    .line 687
     const/4 v6, 0x0
 
-    .line 679
+    .line 693
     .local v6, distanceX:I
     :goto_3
     iget v10, v8, Landroid/graphics/Rect;->top:I
@@ -565,10 +565,10 @@
 
     if-gt v4, v10, :cond_4
 
-    .line 680
+    .line 694
     const/4 v7, 0x0
 
-    .line 685
+    .line 699
     .local v7, distanceY:I
     :goto_4
     mul-int v10, v6, v6
@@ -577,7 +577,7 @@
 
     add-int v5, v10, v11
 
-    .line 687
+    .line 701
     .local v5, distanceSq:I
     iget v10, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mTouchPaddingScaledSq:I
 
@@ -585,15 +585,15 @@
 
     if-ge v5, v2, :cond_0
 
-    .line 689
+    .line 703
     move-object v1, v0
 
-    .line 690
+    .line 704
     move v2, v5
 
     goto :goto_1
 
-    .line 675
+    .line 689
     .end local v5           #distanceSq:I
     .end local v6           #distanceX:I
     .end local v7           #distanceY:I
@@ -621,7 +621,7 @@
     .restart local v6       #distanceX:I
     goto :goto_3
 
-    .line 682
+    .line 696
     :cond_4
     iget v10, v8, Landroid/graphics/Rect;->top:I
 
@@ -652,7 +652,7 @@
     :cond_5
     move-object v10, v1
 
-    .line 694
+    .line 708
     goto :goto_2
 .end method
 
@@ -662,36 +662,36 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 554
+    .line 568
     iget-object v2, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getRootView()Landroid/view/View;
 
     move-result-object v1
 
-    .line 555
+    .line 569
     .local v1, rootViewOfOwner:Landroid/view/View;
     if-nez v1, :cond_0
 
     move-object v2, v3
 
-    .line 563
+    .line 577
     :goto_0
     return-object v2
 
-    .line 559
+    .line 573
     :cond_0
     invoke-virtual {v1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
 
-    .line 560
+    .line 574
     .local v0, parentOfRootView:Landroid/view/ViewParent;
     instance-of v2, v0, Landroid/view/ViewRoot;
 
     if-eqz v2, :cond_1
 
-    .line 561
+    .line 575
     check-cast v0, Landroid/view/ViewRoot;
 
     .end local v0           #parentOfRootView:Landroid/view/ViewParent;
@@ -703,7 +703,7 @@
     :cond_1
     move-object v2, v3
 
-    .line 563
+    .line 577
     goto :goto_0
 .end method
 
@@ -712,22 +712,22 @@
     .parameter "keyCode"
 
     .prologue
-    .line 538
+    .line 552
     sparse-switch p1, :sswitch_data_0
 
-    .line 549
+    .line 563
     const/4 v0, 0x0
 
     :goto_0
     return v0
 
-    .line 547
+    .line 561
     :sswitch_0
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 538
+    .line 552
     nop
 
     :sswitch_data_0
@@ -752,12 +752,12 @@
 
     const/4 v4, 0x1
 
-    .line 499
+    .line 513
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
     move-result v1
 
-    .line 500
+    .line 514
     .local v1, keyCode:I
     invoke-direct {p0, v1}, Lcom/sec/android/app/camera/ZoomButtonsController;->isInterestingKey(I)Z
 
@@ -765,7 +765,7 @@
 
     if-eqz v3, :cond_5
 
-    .line 502
+    .line 516
     const/4 v3, 0x4
 
     if-eq v1, v3, :cond_0
@@ -774,7 +774,7 @@
 
     if-ne v1, v3, :cond_3
 
-    .line 503
+    .line 517
     :cond_0
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
@@ -788,34 +788,34 @@
 
     if-nez v3, :cond_2
 
-    .line 505
+    .line 519
     iget-object v3, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
     if-eqz v3, :cond_1
 
-    .line 506
+    .line 520
     iget-object v3, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
     invoke-virtual {v3}, Landroid/view/View;->getKeyDispatcherState()Landroid/view/KeyEvent$DispatcherState;
 
     move-result-object v0
 
-    .line 507
+    .line 521
     .local v0, ds:Landroid/view/KeyEvent$DispatcherState;
     if-eqz v0, :cond_1
 
-    .line 508
+    .line 522
     invoke-virtual {v0, p1, p0}, Landroid/view/KeyEvent$DispatcherState;->startTracking(Landroid/view/KeyEvent;Ljava/lang/Object;)V
 
     .end local v0           #ds:Landroid/view/KeyEvent$DispatcherState;
     :cond_1
     move v3, v4
 
-    .line 533
+    .line 547
     :goto_0
     return v3
 
-    .line 512
+    .line 526
     :cond_2
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
@@ -835,15 +835,15 @@
 
     if-nez v3, :cond_4
 
-    .line 514
+    .line 528
     invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/ZoomButtonsController;->setVisible(Z)V
 
     move v3, v4
 
-    .line 515
+    .line 529
     goto :goto_0
 
-    .line 519
+    .line 533
     :cond_3
     sget v3, Lcom/sec/android/app/camera/ZoomButtonsController;->ZOOM_CONTROLS_TIMEOUT:I
 
@@ -852,26 +852,26 @@
     :cond_4
     move v3, v5
 
-    .line 523
+    .line 537
     goto :goto_0
 
-    .line 527
+    .line 541
     :cond_5
     invoke-direct {p0}, Lcom/sec/android/app/camera/ZoomButtonsController;->getOwnerViewRoot()Landroid/view/ViewRoot;
 
     move-result-object v2
 
-    .line 528
+    .line 542
     .local v2, viewRoot:Landroid/view/ViewRoot;
     if-eqz v2, :cond_6
 
-    .line 529
+    .line 543
     invoke-virtual {v2, p1}, Landroid/view/ViewRoot;->dispatchKey(Landroid/view/KeyEvent;)V
 
     :cond_6
     move v3, v4
 
-    .line 533
+    .line 547
     goto :goto_0
 .end method
 
@@ -879,15 +879,15 @@
     .locals 1
 
     .prologue
-    .line 698
+    .line 712
     sget v0, Lcom/sec/android/app/camera/ZoomButtonsController;->ZOOM_CONTROLS_TIMEOUT:I
 
     invoke-direct {p0, v0}, Lcom/sec/android/app/camera/ZoomButtonsController;->dismissControlsDelayed(I)V
 
-    .line 699
+    .line 713
     invoke-direct {p0}, Lcom/sec/android/app/camera/ZoomButtonsController;->refreshPositioningVariables()V
 
-    .line 700
+    .line 714
     return-void
 .end method
 
@@ -899,7 +899,7 @@
 
     const/4 v7, 0x0
 
-    .line 457
+    .line 459
     iget-object v5, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
     invoke-virtual {v5}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
@@ -908,12 +908,12 @@
 
     if-nez v5, :cond_1
 
-    .line 495
+    .line 509
     :cond_0
     :goto_0
     return-void
 
-    .line 460
+    .line 462
     :cond_1
     iget-object v5, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mWindowManager:Landroid/view/WindowManager;
 
@@ -925,11 +925,11 @@
 
     move-result v1
 
-    .line 461
+    .line 465
     .local v1, orientation:I
     if-nez v1, :cond_2
 
-    .line 462
+    .line 466
     iget-object v5, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
     new-instance v6, Lcom/sec/android/app/camera/ZoomButtonsController$6;
@@ -942,7 +942,7 @@
 
     goto :goto_0
 
-    .line 471
+    .line 485
     :cond_2
     iget-object v5, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
@@ -950,7 +950,7 @@
 
     move-result v2
 
-    .line 472
+    .line 486
     .local v2, ownerHeight:I
     iget-object v5, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
@@ -958,7 +958,7 @@
 
     move-result v4
 
-    .line 474
+    .line 488
     .local v4, ownerWidth:I
     iget-object v5, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainer:Landroid/widget/FrameLayout;
 
@@ -968,18 +968,18 @@
 
     sub-int v0, v2, v5
 
-    .line 477
+    .line 491
     .local v0, containerOwnerYOffset:I
     const/4 v0, 0x0
 
-    .line 480
+    .line 494
     iget-object v5, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
     iget-object v6, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerViewRawLocation:[I
 
     invoke-virtual {v5, v6}, Landroid/view/View;->getLocationOnScreen([I)V
 
-    .line 481
+    .line 495
     iget-object v5, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainerRawLocation:[I
 
     iget-object v6, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerViewRawLocation:[I
@@ -988,7 +988,7 @@
 
     aput v6, v5, v7
 
-    .line 482
+    .line 496
     iget-object v5, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainerRawLocation:[I
 
     iget-object v6, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerViewRawLocation:[I
@@ -999,28 +999,28 @@
 
     aput v6, v5, v8
 
-    .line 484
+    .line 498
     iget-object v3, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mTempIntArray:[I
 
-    .line 485
+    .line 499
     .local v3, ownerViewWindowLoc:[I
     iget-object v5, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
     invoke-virtual {v5, v3}, Landroid/view/View;->getLocationInWindow([I)V
 
-    .line 488
+    .line 502
     iget-object v5, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainerLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
     aget v6, v3, v7
 
     iput v6, v5, Landroid/view/WindowManager$LayoutParams;->x:I
 
-    .line 489
+    .line 503
     iget-object v5, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainerLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
     iput v4, v5, Landroid/view/WindowManager$LayoutParams;->width:I
 
-    .line 490
+    .line 504
     iget-object v5, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainerLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
     aget v6, v3, v8
@@ -1029,12 +1029,12 @@
 
     iput v6, v5, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    .line 491
+    .line 505
     iget-boolean v5, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mIsVisible:Z
 
     if-eqz v5, :cond_0
 
-    .line 492
+    .line 506
     iget-object v5, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mWindowManager:Landroid/view/WindowManager;
 
     iget-object v6, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainer:Landroid/widget/FrameLayout;
@@ -1051,18 +1051,18 @@
     .parameter "view"
 
     .prologue
-    .line 638
+    .line 652
     iput-object p1, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mTouchTargetView:Landroid/view/View;
 
-    .line 639
+    .line 653
     if-eqz p1, :cond_0
 
-    .line 640
+    .line 654
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mTouchTargetWindowLocation:[I
 
     invoke-virtual {p1, v0}, Landroid/view/View;->getLocationInWindow([I)V
 
-    .line 642
+    .line 656
     :cond_0
     return-void
 .end method
@@ -1073,7 +1073,7 @@
     .locals 1
 
     .prologue
-    .line 244
+    .line 246
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mControls:Lcom/sec/android/app/camera/ZoomControls;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ZoomControls;->getIsZoomInEnabled()Z
@@ -1087,7 +1087,7 @@
     .locals 1
 
     .prologue
-    .line 248
+    .line 250
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mControls:Lcom/sec/android/app/camera/ZoomControls;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ZoomControls;->getIsZoomOutEnabled()Z
@@ -1101,7 +1101,7 @@
     .locals 1
 
     .prologue
-    .line 344
+    .line 346
     iget-boolean v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mIsVisible:Z
 
     return v0
@@ -1113,12 +1113,12 @@
     .parameter "event"
 
     .prologue
-    .line 572
+    .line 586
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    .line 574
+    .line 588
     .local v0, action:I
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getPointerCount()I
 
@@ -1128,20 +1128,20 @@
 
     if-le v8, v9, :cond_0
 
-    .line 576
+    .line 590
     const/4 v8, 0x0
 
-    .line 633
+    .line 647
     :goto_0
     return v8
 
-    .line 579
+    .line 593
     :cond_0
     iget-boolean v8, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mReleaseTouchListenerOnUp:Z
 
     if-eqz v8, :cond_3
 
-    .line 581
+    .line 595
     const/4 v8, 0x1
 
     if-eq v0, v8, :cond_1
@@ -1150,7 +1150,7 @@
 
     if-ne v0, v8, :cond_2
 
-    .line 582
+    .line 596
     :cond_1
     iget-object v8, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
@@ -1158,41 +1158,41 @@
 
     invoke-virtual {v8, v9}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 583
+    .line 597
     const/4 v8, 0x0
 
     invoke-direct {p0, v8}, Lcom/sec/android/app/camera/ZoomButtonsController;->setTouchTargetView(Landroid/view/View;)V
 
-    .line 584
+    .line 598
     const/4 v8, 0x0
 
     iput-boolean v8, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mReleaseTouchListenerOnUp:Z
 
-    .line 588
+    .line 602
     :cond_2
     const/4 v8, 0x1
 
     goto :goto_0
 
-    .line 591
+    .line 605
     :cond_3
     sget v8, Lcom/sec/android/app/camera/ZoomButtonsController;->ZOOM_CONTROLS_TIMEOUT:I
 
     invoke-direct {p0, v8}, Lcom/sec/android/app/camera/ZoomButtonsController;->dismissControlsDelayed(I)V
 
-    .line 593
+    .line 607
     iget-object v5, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mTouchTargetView:Landroid/view/View;
 
-    .line 595
+    .line 609
     .local v5, targetView:Landroid/view/View;
     packed-switch v0, :pswitch_data_0
 
-    .line 607
+    .line 621
     :goto_1
     :pswitch_0
     if-eqz v5, :cond_6
 
-    .line 609
+    .line 623
     iget-object v8, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainerRawLocation:[I
 
     const/4 v9, 0x0
@@ -1207,7 +1207,7 @@
 
     add-int v6, v8, v9
 
-    .line 610
+    .line 624
     .local v6, targetViewRawX:I
     iget-object v8, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainerRawLocation:[I
 
@@ -1223,13 +1223,13 @@
 
     add-int v7, v8, v9
 
-    .line 612
+    .line 626
     .local v7, targetViewRawY:I
     invoke-static {p2}, Landroid/view/MotionEvent;->obtain(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
 
     move-result-object v1
 
-    .line 615
+    .line 629
     .local v1, containerEvent:Landroid/view/MotionEvent;
     iget-object v8, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerViewRawLocation:[I
 
@@ -1253,18 +1253,18 @@
 
     invoke-virtual {v1, v8, v9}, Landroid/view/MotionEvent;->offsetLocation(FF)V
 
-    .line 620
+    .line 634
     invoke-virtual {v1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v2
 
-    .line 621
+    .line 635
     .local v2, containerX:F
     invoke-virtual {v1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v3
 
-    .line 622
+    .line 636
     .local v3, containerY:F
     const/4 v8, 0x0
 
@@ -1278,14 +1278,14 @@
 
     if-lez v8, :cond_4
 
-    .line 623
+    .line 637
     neg-float v8, v2
 
     const/4 v9, 0x0
 
     invoke-virtual {v1, v8, v9}, Landroid/view/MotionEvent;->offsetLocation(FF)V
 
-    .line 625
+    .line 639
     :cond_4
     const/4 v8, 0x0
 
@@ -1299,29 +1299,29 @@
 
     if-lez v8, :cond_5
 
-    .line 626
+    .line 640
     const/4 v8, 0x0
 
     neg-float v9, v3
 
     invoke-virtual {v1, v8, v9}, Landroid/view/MotionEvent;->offsetLocation(FF)V
 
-    .line 628
+    .line 642
     :cond_5
     invoke-virtual {v5, v1}, Landroid/view/View;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v4
 
-    .line 629
+    .line 643
     .local v4, retValue:Z
     invoke-virtual {v1}, Landroid/view/MotionEvent;->recycle()V
 
     move v8, v4
 
-    .line 630
+    .line 644
     goto/16 :goto_0
 
-    .line 597
+    .line 611
     .end local v1           #containerEvent:Landroid/view/MotionEvent;
     .end local v2           #containerX:F
     .end local v3           #containerY:F
@@ -1345,12 +1345,12 @@
 
     move-result-object v5
 
-    .line 598
+    .line 612
     invoke-direct {p0, v5}, Lcom/sec/android/app/camera/ZoomButtonsController;->setTouchTargetView(Landroid/view/View;)V
 
     goto :goto_1
 
-    .line 603
+    .line 617
     :pswitch_2
     const/4 v8, 0x0
 
@@ -1358,13 +1358,13 @@
 
     goto :goto_1
 
-    .line 633
+    .line 647
     :cond_6
     const/4 v8, 0x0
 
     goto/16 :goto_0
 
-    .line 595
+    .line 609
     nop
 
     :pswitch_data_0
@@ -1381,16 +1381,16 @@
     .parameter "autoDismiss"
 
     .prologue
-    .line 334
+    .line 336
     iget-boolean v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mAutoDismissControls:Z
 
     if-ne v0, p1, :cond_0
 
-    .line 336
+    .line 338
     :goto_0
     return-void
 
-    .line 335
+    .line 337
     :cond_0
     iput-boolean p1, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mAutoDismissControls:Z
 
@@ -1402,10 +1402,10 @@
     .parameter "listener"
 
     .prologue
-    .line 297
+    .line 299
     iput-object p1, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mCallback:Lcom/sec/android/app/camera/ZoomButtonsController$OnZoomListener;
 
-    .line 298
+    .line 300
     return-void
 .end method
 
@@ -1418,10 +1418,10 @@
 
     const/4 v3, 0x0
 
-    .line 354
+    .line 356
     if-eqz p1, :cond_2
 
-    .line 355
+    .line 357
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
@@ -1430,7 +1430,7 @@
 
     if-nez v0, :cond_1
 
-    .line 361
+    .line 363
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->hasMessages(I)Z
@@ -1439,42 +1439,42 @@
 
     if-nez v0, :cond_0
 
-    .line 362
+    .line 364
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 424
+    .line 426
     :cond_0
     :goto_0
     return-void
 
-    .line 367
+    .line 369
     :cond_1
     sget v0, Lcom/sec/android/app/camera/ZoomButtonsController;->ZOOM_CONTROLS_TIMEOUT:I
 
     invoke-direct {p0, v0}, Lcom/sec/android/app/camera/ZoomButtonsController;->dismissControlsDelayed(I)V
 
-    .line 370
+    .line 372
     :cond_2
     iget-boolean v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mIsVisible:Z
 
     if-eq v0, p1, :cond_0
 
-    .line 373
+    .line 375
     iput-boolean p1, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mIsVisible:Z
 
-    .line 375
+    .line 377
     if-eqz p1, :cond_5
 
-    .line 376
+    .line 378
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainerLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
     iget-object v0, v0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
     if-nez v0, :cond_3
 
-    .line 377
+    .line 379
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainerLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerView:Landroid/view/View;
@@ -1485,7 +1485,7 @@
 
     iput-object v1, v0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    .line 380
+    .line 382
     :cond_3
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mWindowManager:Landroid/view/WindowManager;
 
@@ -1495,19 +1495,19 @@
 
     invoke-interface {v0, v1, v2}, Landroid/view/WindowManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 382
+    .line 384
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mPostedVisibleInitializer:Ljava/lang/Runnable;
 
     if-nez v0, :cond_4
 
-    .line 383
+    .line 385
     new-instance v0, Lcom/sec/android/app/camera/ZoomButtonsController$5;
 
     invoke-direct {v0, p0}, Lcom/sec/android/app/camera/ZoomButtonsController$5;-><init>(Lcom/sec/android/app/camera/ZoomButtonsController;)V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mPostedVisibleInitializer:Ljava/lang/Runnable;
 
-    .line 394
+    .line 396
     :cond_4
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mHandler:Landroid/os/Handler;
 
@@ -1515,7 +1515,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 397
+    .line 399
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mConfigurationChangedReceiver:Landroid/content/BroadcastReceiver;
@@ -1524,28 +1524,28 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 400
+    .line 402
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 401
+    .line 403
     iput-boolean v3, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mReleaseTouchListenerOnUp:Z
 
     goto :goto_0
 
-    .line 405
+    .line 407
     :cond_5
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mTouchTargetView:Landroid/view/View;
 
     if-eqz v0, :cond_6
 
-    .line 408
+    .line 410
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mReleaseTouchListenerOnUp:Z
 
-    .line 414
+    .line 416
     :goto_1
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContext:Landroid/content/Context;
 
@@ -1553,33 +1553,33 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 416
+    .line 418
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mWindowManager:Landroid/view/WindowManager;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mContainer:Landroid/widget/FrameLayout;
 
     invoke-interface {v0, v1}, Landroid/view/WindowManager;->removeView(Landroid/view/View;)V
 
-    .line 417
+    .line 419
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mPostedVisibleInitializer:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 419
+    .line 421
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mCallback:Lcom/sec/android/app/camera/ZoomButtonsController$OnZoomListener;
 
     if-eqz v0, :cond_0
 
-    .line 420
+    .line 422
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mCallback:Lcom/sec/android/app/camera/ZoomButtonsController$OnZoomListener;
 
     invoke-interface {v0, v3}, Lcom/sec/android/app/camera/ZoomButtonsController$OnZoomListener;->onVisibilityChanged(Z)V
 
     goto :goto_0
 
-    .line 410
+    .line 412
     :cond_6
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
@@ -1595,12 +1595,12 @@
     .parameter "enabled"
 
     .prologue
-    .line 222
+    .line 224
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mControls:Lcom/sec/android/app/camera/ZoomControls;
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/ZoomControls;->setIsZoomInEnabled(Z)V
 
-    .line 223
+    .line 225
     return-void
 .end method
 
@@ -1609,12 +1609,12 @@
     .parameter "enabled"
 
     .prologue
-    .line 231
+    .line 233
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mControls:Lcom/sec/android/app/camera/ZoomControls;
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/ZoomControls;->setIsZoomOutEnabled(Z)V
 
-    .line 232
+    .line 234
     return-void
 .end method
 
@@ -1623,11 +1623,11 @@
     .parameter "speed"
 
     .prologue
-    .line 240
+    .line 242
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController;->mControls:Lcom/sec/android/app/camera/ZoomControls;
 
     invoke-virtual {v0, p1, p2}, Lcom/sec/android/app/camera/ZoomControls;->setZoomSpeed(J)V
 
-    .line 241
+    .line 243
     return-void
 .end method

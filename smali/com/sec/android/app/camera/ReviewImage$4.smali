@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 299
+    .line 300
     iput-object p1, p0, Lcom/sec/android/app/camera/ReviewImage$4;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,15 +42,15 @@
     .parameter "visible"
 
     .prologue
-    .line 301
+    .line 302
     if-eqz p1, :cond_0
 
-    .line 302
+    .line 303
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$4;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ReviewImage;->updateZoomButtonsEnabled()V
 
-    .line 304
+    .line 305
     :cond_0
     return-void
 .end method
@@ -60,10 +60,10 @@
     .parameter "zoomIn"
 
     .prologue
-    .line 307
+    .line 308
     if-eqz p1, :cond_0
 
-    .line 308
+    .line 309
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$4;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     #getter for: Lcom/sec/android/app/camera/ReviewImage;->mImageView:Lcom/sec/android/app/camera/ImageViewTouch2;
@@ -73,7 +73,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ImageViewTouch2;->zoomIn()V
 
-    .line 312
+    .line 313
     :goto_0
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$4;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
@@ -86,15 +86,15 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/ZoomButtonsController;->setVisible(Z)V
 
-    .line 313
+    .line 314
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$4;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ReviewImage;->updateZoomButtonsEnabled()V
 
-    .line 314
+    .line 315
     return-void
 
-    .line 310
+    .line 311
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$4;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 

@@ -117,6 +117,7 @@
     <attr name="settinglist_scroller_x" format="dimension" />
     <attr name="settinglist_scroller_y" format="dimension" />
     <attr name="settinglist_item_titletext_margin_left" format="dimension" />
+    <attr name="settinglist_item_titletext_margin_right" format="dimension" />
     <attr name="settinglist_item_titletext_margin_top" format="dimension" />
     <attr name="settinglist_item_normal_button_width" format="dimension" />
     <attr name="settinglist_item_normal_button_height" format="dimension" />
@@ -133,6 +134,9 @@
     <attr name="settinglist_item_buttontext_color" format="color" />
     <attr name="settinglist_item_buttontext_highlight_color" format="color" />
     <attr name="settinglist_item_helptext_color" format="color" />
+    <attr name="settinglist_item_normal_button_text_margin_left" format="dimension" />
+    <attr name="settinglist_item_normal_button_text_margin_right" format="dimension" />
+    <attr name="settinglist_item_normal_button_text_padding_bottom" format="dimension" />
     <attr name="TitleText" format="string" />
     <attr name="TitleText_Color" format="color" />
     <attr name="TitleText_Size" format="integer" />
@@ -165,6 +169,7 @@
     <attr name="Grid_image_text" format="integer" />
     <attr name="Grid_Button_X" format="dimension" />
     <attr name="Grid_Button_Y" format="dimension" />
+    <attr name="Grid_Text_Line_Spacing" format="dimension" />
     <attr name="indicator_storage_flash" format="integer" />
     <attr name="indicator_storage_phone" format="integer" />
     <attr name="slider_bar_image" format="integer" />
@@ -198,6 +203,7 @@
     <attr name="twsidemenupopuptext_leftimage_bg" format="integer" />
     <attr name="twsidemenupopuptext_rightimage_bg" format="integer" />
     <attr name="twsidemenupopuptext_layout_height" format="dimension" />
+    <attr name="twsidemenupopuptext_font_size" format="dimension" />
     <attr name="twsidemenu_top_bg" format="integer" />
     <attr name="twsidemenu_mid_bg" format="integer" />
     <attr name="twsidemenu_bottom_bg" format="integer" />
@@ -206,4 +212,6 @@
         <enum name="vertical" value="1" />
     </attr>
     <attr name="keepEndSpace" format="boolean" />
+    <attr name="extendWidth" format="dimension" />
+    <attr name="extendHeight" format="dimension" />
 </resources>

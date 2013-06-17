@@ -63,7 +63,7 @@
 
     .line 52
     .local v0, attr:Landroid/content/res/TypedArray;
-    const v1, 0x7f02011b
+    const v1, 0x7f020137
 
     invoke-virtual {v0, v3, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -72,7 +72,7 @@
     invoke-virtual {p0, v3, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorFocus;->addImageId(II)V
 
     .line 55
-    const v1, 0x7f0201de
+    const v1, 0x7f0201fa
 
     invoke-virtual {v0, v4, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -81,7 +81,7 @@
     invoke-virtual {p0, v4, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorFocus;->addImageId(II)V
 
     .line 57
-    const v1, 0x7f02011a
+    const v1, 0x7f020136
 
     invoke-virtual {v0, v5, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 

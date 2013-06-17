@@ -29,20 +29,20 @@
     .parameter "settingsValue"
 
     .prologue
-    .line 87
+    .line 86
     iput-object p1, p0, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->this$0:Lcom/sec/android/app/camera/MenuDimController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 85
+    .line 84
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->mReferenceCount:I
 
-    .line 88
+    .line 87
     iput p2, p0, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->mSettingValue:I
 
-    .line 89
+    .line 88
     return-void
 .end method
 
@@ -52,12 +52,12 @@
     .locals 3
 
     .prologue
-    .line 105
+    .line 104
     iget v0, p0, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->mReferenceCount:I
 
     if-lez v0, :cond_0
 
-    .line 106
+    .line 105
     iget v0, p0, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->mReferenceCount:I
 
     const/4 v1, 0x1
@@ -66,7 +66,7 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->mReferenceCount:I
 
-    .line 108
+    .line 107
     :cond_0
     const-string v0, "MenuDimController"
 
@@ -92,7 +92,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 109
+    .line 108
     return-void
 .end method
 
@@ -100,7 +100,7 @@
     .locals 1
 
     .prologue
-    .line 96
+    .line 95
     iget v0, p0, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->mReferenceCount:I
 
     return v0
@@ -110,7 +110,7 @@
     .locals 1
 
     .prologue
-    .line 92
+    .line 91
     iget v0, p0, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->mSettingValue:I
 
     return v0
@@ -120,14 +120,14 @@
     .locals 3
 
     .prologue
-    .line 100
+    .line 99
     iget v0, p0, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->mReferenceCount:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->mReferenceCount:I
 
-    .line 101
+    .line 100
     const-string v0, "MenuDimController"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -152,6 +152,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 102
+    .line 101
     return-void
 .end method

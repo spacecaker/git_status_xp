@@ -260,6 +260,32 @@
     goto :goto_0
 .end method
 
+.method public dimButton(IZ)V
+    .locals 2
+    .parameter "menuid"
+    .parameter "dim"
+
+    .prologue
+    .line 168
+    iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwSideMenu;->mButtons:Ljava/util/HashMap;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    .end local p0
+    check-cast p0, Lcom/sec/android/app/camera/widget/TwSelectButton;
+
+    invoke-virtual {p0, p2}, Lcom/sec/android/app/camera/widget/TwSelectButton;->setDimmed(Z)V
+
+    .line 169
+    return-void
+.end method
+
 .method public getSideMenuButton(I)Lcom/sec/android/app/camera/widget/TwImageButton;
     .locals 2
     .parameter "menu"

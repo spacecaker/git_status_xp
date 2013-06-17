@@ -30,15 +30,15 @@
     .parameter "loc"
 
     .prologue
-    .line 597
+    .line 630
     iput-object p1, p0, Lcom/sec/android/app/camera/CameraEngine$JpegPictureCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 598
+    .line 631
     iput-object p2, p0, Lcom/sec/android/app/camera/CameraEngine$JpegPictureCallback;->mLocation:Landroid/location/Location;
 
-    .line 599
+    .line 632
     return-void
 .end method
 
@@ -50,14 +50,14 @@
     .parameter "camera"
 
     .prologue
-    .line 603
+    .line 636
     const-string v0, "CameraEngine"
 
     const-string v1, "JpegPictureCallback.onPictureTaken"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 605
+    .line 638
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$JpegPictureCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine;->mCurrentState:Lcom/sec/android/app/camera/AbstractCeState;
@@ -70,7 +70,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 608
+    .line 641
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$JpegPictureCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     #getter for: Lcom/sec/android/app/camera/CameraEngine;->mShootingModeManager:Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager;
@@ -83,11 +83,11 @@
     #calls: Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager;->startSavePicture([BLcom/sec/android/seccamera/SecCamera;Landroid/location/Location;)V
     invoke-static {v0, p1, p2, v1}, Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager;->access$800(Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager;[BLcom/sec/android/seccamera/SecCamera;Landroid/location/Location;)V
 
-    .line 638
+    .line 671
     :goto_0
     return-void
 
-    .line 613
+    .line 646
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$JpegPictureCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
@@ -105,7 +105,7 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 614
+    .line 647
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$JpegPictureCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -122,7 +122,7 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 615
+    .line 648
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$JpegPictureCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -133,7 +133,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/Camera;->setIsLaunchGallery(Z)V
 
-    .line 619
+    .line 652
     :cond_1
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$JpegPictureCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
@@ -149,19 +149,19 @@
 
     if-nez v0, :cond_3
 
-    .line 621
+    .line 654
     invoke-static {}, Lcom/sec/android/app/camera/CameraEngine;->access$900()Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    .line 622
+    .line 655
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$JpegPictureCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->stopObjectTracking()V
 
-    .line 623
+    .line 656
     :cond_2
     invoke-static {}, Lcom/sec/android/app/camera/CameraEngine;->access$1000()Z
 
@@ -169,17 +169,17 @@
 
     if-eqz v0, :cond_3
 
-    .line 624
+    .line 657
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$JpegPictureCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->forSetOrgFocus()V
 
-    .line 625
+    .line 658
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$JpegPictureCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->stopTouchAutoFocus()V
 
-    .line 636
+    .line 669
     :cond_3
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$JpegPictureCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
@@ -192,7 +192,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager;->setLocation(Landroid/location/Location;)V
 
-    .line 637
+    .line 670
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$JpegPictureCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     #getter for: Lcom/sec/android/app/camera/CameraEngine;->mShootingModeManager:Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager;

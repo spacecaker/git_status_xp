@@ -5,35 +5,33 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 6
+    .locals 5
 
     .prologue
-    const/16 v5, 0x8
+    const/16 v4, 0x8
 
-    const/4 v4, 0x1
-
-    .line 22
+    .line 28
     invoke-direct {p0}, Lcom/sec/android/app/camera/MenuResourceBase;-><init>()V
 
-    .line 23
-    const v1, 0x7f070098
-
-    iput v1, p0, Lcom/sec/android/app/camera/MenuResourceBase;->mTextTitle:I
-
-    .line 25
+    .line 29
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 27
+    .line 30
     .local v0, code:Ljava/lang/String;
+    const v1, 0x7f0700b2
+
+    iput v1, p0, Lcom/sec/android/app/camera/MenuResourceBase;->mTextTitle:I
+
+    .line 32
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceBase;->mMenuResource:Ljava/util/ArrayList;
 
     new-instance v2, Lcom/sec/android/app/camera/MenuResourceBundle;
 
-    new-array v3, v5, [I
+    new-array v3, v4, [I
 
     fill-array-data v3, :array_0
 
@@ -41,12 +39,12 @@
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 30
+    .line 36
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceBase;->mMenuResource:Ljava/util/ArrayList;
 
     new-instance v2, Lcom/sec/android/app/camera/MenuResourceBundle;
 
-    new-array v3, v5, [I
+    new-array v3, v4, [I
 
     fill-array-data v3, :array_1
 
@@ -54,12 +52,12 @@
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 33
+    .line 40
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceBase;->mMenuResource:Ljava/util/ArrayList;
 
     new-instance v2, Lcom/sec/android/app/camera/MenuResourceBundle;
 
-    new-array v3, v5, [I
+    new-array v3, v4, [I
 
     fill-array-data v3, :array_2
 
@@ -67,83 +65,28 @@
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 37
-    const-string v1, "TEL"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eq v1, v4, :cond_0
-
-    const-string v1, "TLP"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eq v1, v4, :cond_0
-
-    const-string v1, "XSA"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eq v1, v4, :cond_0
-
+    .line 45
     const-string v1, "OPS"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eq v1, v4, :cond_0
+    const/4 v2, 0x1
 
-    const-string v1, "VAU"
+    if-ne v1, v2, :cond_0
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eq v1, v4, :cond_0
-
-    const-string v1, "HUT"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eq v1, v4, :cond_0
-
-    const-string v1, "OPP"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eq v1, v4, :cond_0
-
-    const-string v1, "BST"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-ne v1, v4, :cond_1
-
-    .line 44
-    :cond_0
+    .line 52
     :goto_0
     return-void
 
-    .line 40
-    :cond_1
+    .line 47
+    :cond_0
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceBase;->mMenuResource:Ljava/util/ArrayList;
 
     new-instance v2, Lcom/sec/android/app/camera/MenuResourceBundle;
 
-    new-array v3, v5, [I
+    new-array v3, v4, [I
 
     fill-array-data v3, :array_3
 
@@ -153,54 +96,54 @@
 
     goto :goto_0
 
-    .line 27
+    .line 32
     nop
 
     :array_0
     .array-data 0x4
-        0x8t 0x2t 0x2t 0x7ft
-        0x9t 0x2t 0x2t 0x7ft
-        0x7t 0x2t 0x2t 0x7ft
-        0x64t 0x0t 0x7t 0x7ft
+        0x24t 0x2t 0x2t 0x7ft
+        0x25t 0x2t 0x2t 0x7ft
+        0x23t 0x2t 0x2t 0x7ft
+        0x70t 0x0t 0x7t 0x7ft
         0x1t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
     .end array-data
 
-    .line 30
+    .line 36
     :array_1
     .array-data 0x4
-        0xbt 0x2t 0x2t 0x7ft
-        0xct 0x2t 0x2t 0x7ft
-        0xat 0x2t 0x2t 0x7ft
-        0x63t 0x0t 0x7t 0x7ft
+        0x27t 0x2t 0x2t 0x7ft
+        0x28t 0x2t 0x2t 0x7ft
+        0x26t 0x2t 0x2t 0x7ft
+        0x71t 0x0t 0x7t 0x7ft
         0x2t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
     .end array-data
 
-    .line 33
+    .line 40
     :array_2
     .array-data 0x4
-        0xet 0x2t 0x2t 0x7ft
-        0xft 0x2t 0x2t 0x7ft
-        0xdt 0x2t 0x2t 0x7ft
-        0x62t 0x0t 0x7t 0x7ft
+        0x2at 0x2t 0x2t 0x7ft
+        0x2bt 0x2t 0x2t 0x7ft
+        0x29t 0x2t 0x2t 0x7ft
+        0x72t 0x0t 0x7t 0x7ft
         0x3t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
     .end array-data
 
-    .line 40
+    .line 47
     :array_3
     .array-data 0x4
-        0x5t 0x2t 0x2t 0x7ft
-        0x6t 0x2t 0x2t 0x7ft
-        0x4t 0x2t 0x2t 0x7ft
-        0x89t 0x0t 0x7t 0x7ft
+        0x21t 0x2t 0x2t 0x7ft
+        0x22t 0x2t 0x2t 0x7ft
+        0x20t 0x2t 0x2t 0x7ft
+        0x31t 0x0t 0x7t 0x7ft
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t

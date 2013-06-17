@@ -11,10 +11,10 @@
     .parameter "id"
 
     .prologue
-    .line 30
+    .line 29
     invoke-direct {p0, p1, p2, p3}, Lcom/sec/android/app/camera/AbstractCeState;-><init>(Lcom/sec/android/app/camera/CameraEngine;Lcom/sec/android/app/camera/CeRequestQueue;I)V
 
-    .line 32
+    .line 31
     return-void
 .end method
 
@@ -25,7 +25,7 @@
     .parameter "msg"
 
     .prologue
-    .line 144
+    .line 143
     const-string v0, "CeStatePreviewing"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -50,16 +50,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 145
+    .line 144
     iget v0, p1, Landroid/os/Message;->what:I
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 171
+    .line 170
     :goto_0
     return-void
 
-    .line 148
+    .line 147
     :sswitch_0
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
@@ -69,7 +69,7 @@
 
     goto :goto_0
 
-    .line 151
+    .line 150
     :sswitch_1
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -79,7 +79,7 @@
 
     goto :goto_0
 
-    .line 154
+    .line 153
     :sswitch_2
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
@@ -89,7 +89,7 @@
 
     goto :goto_0
 
-    .line 157
+    .line 156
     :sswitch_3
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
@@ -99,7 +99,7 @@
 
     goto :goto_0
 
-    .line 160
+    .line 159
     :sswitch_4
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
@@ -109,7 +109,7 @@
 
     goto :goto_0
 
-    .line 163
+    .line 162
     :sswitch_5
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
@@ -119,7 +119,7 @@
 
     goto :goto_0
 
-    .line 168
+    .line 167
     :sswitch_6
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
@@ -129,7 +129,7 @@
 
     goto :goto_0
 
-    .line 145
+    .line 144
     :sswitch_data_0
     .sparse-switch
         0x2 -> :sswitch_0
@@ -154,7 +154,7 @@
 
     const-string v4, "CeStatePreviewing"
 
-    .line 42
+    .line 41
     const-string v0, "CeStatePreviewing"
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -181,35 +181,35 @@
 
     invoke-static {v4, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 43
+    .line 42
     invoke-virtual {p1}, Lcom/sec/android/app/camera/CeRequest;->getRequest()I
 
     move-result v0
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 137
+    .line 136
     const-string v0, "CeStatePreviewing"
 
     const-string v0, "invalid request id for current state"
 
     invoke-static {v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 138
+    .line 137
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CeRequestQueue;->completeRequest()V
 
-    .line 140
+    .line 139
     const/4 v0, 0x0
 
     .end local p0
     :goto_0
     return v0
 
-    .line 45
+    .line 44
     .restart local p0
     :sswitch_0
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
@@ -218,7 +218,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doStopPreviewSync()V
 
-    .line 46
+    .line 45
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -227,10 +227,10 @@
 
     move v0, v2
 
-    .line 47
+    .line 46
     goto :goto_0
 
-    .line 49
+    .line 48
     :sswitch_1
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -238,14 +238,14 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doStopPreviewSync()V
 
-    .line 50
+    .line 49
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doStopEngineSync()V
 
-    .line 51
+    .line 50
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -254,10 +254,10 @@
 
     move v0, v2
 
-    .line 52
+    .line 51
     goto :goto_0
 
-    .line 54
+    .line 53
     :sswitch_2
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -267,10 +267,10 @@
 
     move v0, v2
 
-    .line 55
+    .line 54
     goto :goto_0
 
-    .line 57
+    .line 56
     :sswitch_3
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -282,7 +282,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraEngine;->doChangeParameterSync(Ljava/lang/Object;)V
 
-    .line 58
+    .line 57
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -291,10 +291,10 @@
 
     move v0, v2
 
-    .line 59
+    .line 58
     goto :goto_0
 
-    .line 61
+    .line 60
     :sswitch_4
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -315,10 +315,10 @@
 
     move v0, v2
 
-    .line 63
+    .line 62
     goto :goto_0
 
-    .line 65
+    .line 64
     .restart local p0
     :sswitch_5
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
@@ -327,7 +327,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doSetAllParamsSync()V
 
-    .line 66
+    .line 65
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -336,10 +336,10 @@
 
     move v0, v2
 
-    .line 67
+    .line 66
     goto :goto_0
 
-    .line 69
+    .line 68
     :sswitch_6
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -347,7 +347,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doStartSmileDetectionSync()V
 
-    .line 70
+    .line 69
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -356,10 +356,10 @@
 
     move v0, v2
 
-    .line 71
+    .line 70
     goto :goto_0
 
-    .line 73
+    .line 72
     :sswitch_7
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -367,7 +367,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doStopSmileDetectionSync()V
 
-    .line 74
+    .line 73
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -376,10 +376,10 @@
 
     move v0, v2
 
-    .line 75
+    .line 74
     goto/16 :goto_0
 
-    .line 77
+    .line 76
     :sswitch_8
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -400,10 +400,10 @@
 
     move v0, v2
 
-    .line 78
+    .line 77
     goto/16 :goto_0
 
-    .line 80
+    .line 79
     .restart local p0
     :sswitch_9
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
@@ -412,7 +412,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doStartContinuousSync()V
 
-    .line 81
+    .line 80
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -421,10 +421,10 @@
 
     move v0, v2
 
-    .line 82
+    .line 81
     goto/16 :goto_0
 
-    .line 84
+    .line 83
     :sswitch_a
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -432,7 +432,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doStopContinuousSync()V
 
-    .line 85
+    .line 84
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -441,10 +441,10 @@
 
     move v0, v2
 
-    .line 86
+    .line 85
     goto/16 :goto_0
 
-    .line 88
+    .line 87
     :sswitch_b
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -454,10 +454,10 @@
 
     move v0, v2
 
-    .line 89
+    .line 88
     goto/16 :goto_0
 
-    .line 91
+    .line 90
     :sswitch_c
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -465,7 +465,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doStopPanoramaSync()V
 
-    .line 92
+    .line 91
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -474,10 +474,10 @@
 
     move v0, v2
 
-    .line 93
+    .line 92
     goto/16 :goto_0
 
-    .line 95
+    .line 94
     :sswitch_d
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -485,7 +485,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doStartActionShotSync()V
 
-    .line 96
+    .line 95
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -494,10 +494,10 @@
 
     move v0, v2
 
-    .line 97
+    .line 96
     goto/16 :goto_0
 
-    .line 99
+    .line 98
     :sswitch_e
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -505,7 +505,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doStopActionShotSync()V
 
-    .line 100
+    .line 99
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -514,10 +514,10 @@
 
     move v0, v2
 
-    .line 101
+    .line 100
     goto/16 :goto_0
 
-    .line 103
+    .line 102
     :sswitch_f
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -525,7 +525,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doShowReviewScreenSync()V
 
-    .line 104
+    .line 103
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -534,10 +534,10 @@
 
     move v0, v2
 
-    .line 105
+    .line 104
     goto/16 :goto_0
 
-    .line 107
+    .line 106
     :sswitch_10
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -545,7 +545,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doHideReviewScreenSync()V
 
-    .line 108
+    .line 107
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -554,10 +554,10 @@
 
     move v0, v2
 
-    .line 109
+    .line 108
     goto/16 :goto_0
 
-    .line 111
+    .line 110
     :sswitch_11
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -565,7 +565,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doProcessBackSync()V
 
-    .line 112
+    .line 111
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -574,10 +574,10 @@
 
     move v0, v2
 
-    .line 113
+    .line 112
     goto/16 :goto_0
 
-    .line 115
+    .line 114
     :sswitch_12
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -587,7 +587,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraEngine;->changeEngineState(I)V
 
-    .line 116
+    .line 115
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -596,10 +596,10 @@
 
     move v0, v2
 
-    .line 117
+    .line 116
     goto/16 :goto_0
 
-    .line 121
+    .line 120
     :sswitch_13
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -609,7 +609,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->doStartVideoRecordingSync()V
 
-    .line 122
+    .line 121
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
     move-result-object v0
@@ -618,7 +618,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraEngine;->changeEngineState(I)V
 
-    .line 123
+    .line 122
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -627,10 +627,10 @@
 
     move v0, v2
 
-    .line 124
+    .line 123
     goto/16 :goto_0
 
-    .line 126
+    .line 125
     :sswitch_14
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -640,14 +640,14 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->doStopVideoRecordingSync()V
 
-    .line 127
+    .line 126
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
     move-result-object v0
 
     invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraEngine;->changeEngineState(I)V
 
-    .line 128
+    .line 127
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -656,10 +656,10 @@
 
     move v0, v2
 
-    .line 129
+    .line 128
     goto/16 :goto_0
 
-    .line 131
+    .line 130
     :sswitch_15
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -669,14 +669,14 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->doCancelVideoRecordingSync()V
 
-    .line 132
+    .line 131
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
     move-result-object v0
 
     invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraEngine;->changeEngineState(I)V
 
-    .line 133
+    .line 132
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStatePreviewing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -685,10 +685,10 @@
 
     move v0, v2
 
-    .line 134
+    .line 133
     goto/16 :goto_0
 
-    .line 43
+    .line 42
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1

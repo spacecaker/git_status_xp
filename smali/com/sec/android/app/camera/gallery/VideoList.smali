@@ -6,6 +6,10 @@
 # static fields
 .field private static final VIDEO_PROJECTION:[Ljava/lang/String;
 
+.field private static final WHERE_CLAUSE:Ljava/lang/String;
+
+.field private static final WHERE_CLAUSE_WITH_BUCKET_ID:Ljava/lang/String;
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -66,6 +70,72 @@
     aput-object v2, v0, v1
 
     sput-object v0, Lcom/sec/android/app/camera/gallery/VideoList;->VIDEO_PROJECTION:[Ljava/lang/String;
+
+    .line 104
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "_data LIKE \'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, "/%DCIM/Camera/%\'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/sec/android/app/camera/gallery/VideoList;->WHERE_CLAUSE:Ljava/lang/String;
+
+    .line 107
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    sget-object v1, Lcom/sec/android/app/camera/gallery/VideoList;->WHERE_CLAUSE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, " AND "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, "bucket_id"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, " = ?"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/sec/android/app/camera/gallery/VideoList;->WHERE_CLAUSE_WITH_BUCKET_ID:Ljava/lang/String;
 
     return-void
 .end method
@@ -283,13 +353,13 @@
 
     if-nez v0, :cond_0
 
-    const-string v0, "bucket_display_name=\'Camera\'"
+    sget-object v0, Lcom/sec/android/app/camera/gallery/VideoList;->WHERE_CLAUSE:Ljava/lang/String;
 
     :goto_0
     return-object v0
 
     :cond_0
-    const-string v0, "bucket_display_name=\'Camera\' AND bucket_id = ?"
+    sget-object v0, Lcom/sec/android/app/camera/gallery/VideoList;->WHERE_CLAUSE_WITH_BUCKET_ID:Ljava/lang/String;
 
     goto :goto_0
 .end method

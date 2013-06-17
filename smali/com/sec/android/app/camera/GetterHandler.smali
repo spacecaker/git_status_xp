@@ -8,7 +8,7 @@
     .locals 0
 
     .prologue
-    .line 289
+    .line 293
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
@@ -21,17 +21,17 @@
     .parameter "message"
 
     .prologue
-    .line 294
+    .line 298
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 299
+    .line 303
     .end local p0
     :goto_0
     return-void
 
-    .line 296
+    .line 300
     .restart local p0
     :pswitch_0
     iget-object p0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -43,7 +43,7 @@
 
     goto :goto_0
 
-    .line 294
+    .line 298
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -56,35 +56,35 @@
     .parameter "delay"
 
     .prologue
-    .line 306
+    .line 310
     if-nez p1, :cond_0
 
-    .line 307
+    .line 311
     new-instance v1, Ljava/lang/NullPointerException;
 
     invoke-direct {v1}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v1
 
-    .line 309
+    .line 313
     :cond_0
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 310
+    .line 314
     .local v0, message:Landroid/os/Message;
     const/4 v1, 0x1
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 311
+    .line 315
     iput-object p1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 312
+    .line 316
     invoke-virtual {p0, v0, p2, p3}, Lcom/sec/android/app/camera/GetterHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 313
+    .line 317
     return-void
 .end method
 
@@ -93,12 +93,12 @@
     .parameter "callback"
 
     .prologue
-    .line 302
+    .line 306
     const-wide/16 v0, 0x0
 
     invoke-virtual {p0, p1, v0, v1}, Lcom/sec/android/app/camera/GetterHandler;->postDelayedGetterCallback(Ljava/lang/Runnable;J)V
 
-    .line 303
+    .line 307
     return-void
 .end method
 
@@ -106,11 +106,11 @@
     .locals 1
 
     .prologue
-    .line 316
+    .line 320
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/GetterHandler;->removeMessages(I)V
 
-    .line 317
+    .line 321
     return-void
 .end method

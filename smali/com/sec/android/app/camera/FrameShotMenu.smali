@@ -32,7 +32,7 @@
     .parameter "zOrder"
 
     .prologue
-    .line 43
+    .line 42
     move-object v0, p0
 
     move-object v1, p1
@@ -49,10 +49,10 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/sec/android/app/camera/MenuBase;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
-    .line 45
+    .line 44
     invoke-direct {p0, p5}, Lcom/sec/android/app/camera/FrameShotMenu;->init(Lcom/sec/android/app/camera/FrameShotSelectionResourceData;)V
 
-    .line 46
+    .line 45
     return-void
 .end method
 
@@ -61,7 +61,7 @@
     .parameter "resourceData"
 
     .prologue
-    .line 49
+    .line 48
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -74,10 +74,10 @@
 
     iput v1, p0, Lcom/sec/android/app/camera/FrameShotMenu;->mSelectedFrame:I
 
-    .line 50
+    .line 49
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const v2, 0x7f0a00a3
+    const v2, 0x7f0a00a2
 
     invoke-virtual {v1, v2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
 
@@ -85,16 +85,16 @@
 
     check-cast v0, Lcom/sec/android/app/camera/widget/TwGridView;
 
-    .line 52
+    .line 51
     .local v0, mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
     iget v1, p0, Lcom/sec/android/app/camera/FrameShotMenu;->mSelectedFrame:I
 
     invoke-virtual {v0, p1, v1}, Lcom/sec/android/app/camera/widget/TwGridView;->initializeView(Lcom/sec/android/app/camera/MenuResourceBase;I)V
 
-    .line 53
+    .line 52
     invoke-virtual {v0, p0}, Lcom/sec/android/app/camera/widget/TwGridView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 54
+    .line 53
     return-void
 .end method
 
@@ -105,16 +105,16 @@
     .parameter "v"
 
     .prologue
-    .line 58
+    .line 57
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
 
-    const v1, 0x7f0a00a4
+    const v1, 0x7f0a00a3
 
     if-eq v0, v1, :cond_0
 
-    .line 59
+    .line 58
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
@@ -127,12 +127,12 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/FrameShotMenu;->mSelectedFrame:I
 
-    .line 60
+    .line 59
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->processBack()V
 
-    .line 61
+    .line 60
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -142,6 +142,11 @@
     iget v1, p0, Lcom/sec/android/app/camera/FrameShotMenu;->mSelectedFrame:I
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraSettings;->setFrame(I)V
+
+    .line 61
+    iget-object v0, p0, Lcom/sec/android/app/camera/FrameShotMenu;->mOnFrameShotMenuChangedListener:Lcom/sec/android/app/camera/FrameShotMenu$OnFrameShotMenuChangedListener;
+
+    if-eqz v0, :cond_0
 
     .line 62
     iget-object v1, p0, Lcom/sec/android/app/camera/FrameShotMenu;->mOnFrameShotMenuChangedListener:Lcom/sec/android/app/camera/FrameShotMenu$OnFrameShotMenuChangedListener;
@@ -162,11 +167,16 @@
 
     invoke-interface {v1, v0}, Lcom/sec/android/app/camera/FrameShotMenu$OnFrameShotMenuChangedListener;->onFrameShotMenuChanged(I)V
 
-    .line 64
+    .line 63
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/sec/android/app/camera/FrameShotMenu;->mOnFrameShotMenuChangedListener:Lcom/sec/android/app/camera/FrameShotMenu$OnFrameShotMenuChangedListener;
+
+    .line 66
     :cond_0
     invoke-super {p0, p1}, Lcom/sec/android/app/camera/MenuBase;->onClick(Landroid/view/View;)V
 
-    .line 65
+    .line 67
     return-void
 .end method
 
@@ -180,18 +190,18 @@
 
     const/4 v1, 0x1
 
-    .line 72
+    .line 74
     const/16 v0, 0x1a
 
     if-ne p1, v0, :cond_0
 
     move v0, v2
 
-    .line 91
+    .line 93
     :goto_0
     return v0
 
-    .line 76
+    .line 78
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -207,10 +217,10 @@
 
     move v0, v1
 
-    .line 77
+    .line 79
     goto :goto_0
 
-    .line 80
+    .line 82
     :cond_1
     const/16 v0, 0x18
 
@@ -231,10 +241,10 @@
     :cond_2
     move v0, v1
 
-    .line 82
+    .line 84
     goto :goto_0
 
-    .line 85
+    .line 87
     :cond_3
     const/16 v0, 0x1b
 
@@ -251,13 +261,13 @@
     :cond_4
     move v0, v1
 
-    .line 88
+    .line 90
     goto :goto_0
 
     :cond_5
     move v0, v2
 
-    .line 91
+    .line 93
     goto :goto_0
 .end method
 
@@ -271,18 +281,18 @@
 
     const/4 v1, 0x1
 
-    .line 95
+    .line 97
     const/16 v0, 0x1a
 
     if-ne p1, v0, :cond_0
 
     move v0, v2
 
-    .line 114
+    .line 116
     :goto_0
     return v0
 
-    .line 99
+    .line 101
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -298,10 +308,10 @@
 
     move v0, v1
 
-    .line 100
+    .line 102
     goto :goto_0
 
-    .line 103
+    .line 105
     :cond_1
     const/16 v0, 0x18
 
@@ -322,10 +332,10 @@
     :cond_2
     move v0, v1
 
-    .line 105
+    .line 107
     goto :goto_0
 
-    .line 108
+    .line 110
     :cond_3
     const/16 v0, 0x1b
 
@@ -342,13 +352,13 @@
     :cond_4
     move v0, v1
 
-    .line 111
+    .line 113
     goto :goto_0
 
     :cond_5
     move v0, v2
 
-    .line 114
+    .line 116
     goto :goto_0
 .end method
 
@@ -357,9 +367,9 @@
     .parameter "l"
 
     .prologue
-    .line 68
+    .line 70
     iput-object p1, p0, Lcom/sec/android/app/camera/FrameShotMenu;->mOnFrameShotMenuChangedListener:Lcom/sec/android/app/camera/FrameShotMenu$OnFrameShotMenuChangedListener;
 
-    .line 69
+    .line 71
     return-void
 .end method

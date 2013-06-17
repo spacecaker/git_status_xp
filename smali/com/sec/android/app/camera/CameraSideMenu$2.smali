@@ -48,7 +48,7 @@
 
     if-nez v2, :cond_0
 
-    .line 120
+    .line 124
     :goto_0
     return-void
 
@@ -101,9 +101,29 @@
     .line 101
     iget-object v2, p0, Lcom/sec/android/app/camera/CameraSideMenu$2;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
-    invoke-virtual {v2}, Lcom/sec/android/app/camera/CameraSideMenu;->showShutterButton()V
+    #getter for: Lcom/sec/android/app/camera/CameraSideMenu;->mRightSideMenu:Lcom/sec/android/app/camera/widget/TwSideMenu;
+    invoke-static {v2}, Lcom/sec/android/app/camera/CameraSideMenu;->access$200(Lcom/sec/android/app/camera/CameraSideMenu;)Lcom/sec/android/app/camera/widget/TwSideMenu;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/sec/android/app/camera/widget/TwSideMenu;->resetPressedButtons()V
 
     .line 102
+    iget-object v2, p0, Lcom/sec/android/app/camera/CameraSideMenu$2;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
+
+    #getter for: Lcom/sec/android/app/camera/CameraSideMenu;->mLeftSideMenu:Lcom/sec/android/app/camera/widget/TwSideMenu;
+    invoke-static {v2}, Lcom/sec/android/app/camera/CameraSideMenu;->access$000(Lcom/sec/android/app/camera/CameraSideMenu;)Lcom/sec/android/app/camera/widget/TwSideMenu;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/sec/android/app/camera/widget/TwSideMenu;->resetPressedButtons()V
+
+    .line 103
+    iget-object v2, p0, Lcom/sec/android/app/camera/CameraSideMenu$2;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
+
+    invoke-virtual {v2}, Lcom/sec/android/app/camera/CameraSideMenu;->showShutterButton()V
+
+    .line 104
     iget-object v2, p0, Lcom/sec/android/app/camera/CameraSideMenu$2;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
     iget-object v2, v2, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -112,7 +132,7 @@
 
     goto :goto_0
 
-    .line 105
+    .line 107
     :cond_1
     iget v2, v0, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
 
@@ -127,7 +147,7 @@
 
     iput v2, v0, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
 
-    .line 106
+    .line 108
     iget-object v2, p0, Lcom/sec/android/app/camera/CameraSideMenu$2;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
     #getter for: Lcom/sec/android/app/camera/CameraSideMenu;->mLeftSideMenu:Lcom/sec/android/app/camera/widget/TwSideMenu;
@@ -137,7 +157,7 @@
 
     invoke-virtual {v2, v0}, Lcom/sec/android/app/camera/widget/TwSideMenu;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 107
+    .line 109
     iget v2, v1, Landroid/widget/RelativeLayout$LayoutParams;->rightMargin:I
 
     iget-object v3, p0, Lcom/sec/android/app/camera/CameraSideMenu$2;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
@@ -151,7 +171,7 @@
 
     iput v2, v1, Landroid/widget/RelativeLayout$LayoutParams;->rightMargin:I
 
-    .line 108
+    .line 110
     iget-object v2, p0, Lcom/sec/android/app/camera/CameraSideMenu$2;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
     #getter for: Lcom/sec/android/app/camera/CameraSideMenu;->mRightSideMenu:Lcom/sec/android/app/camera/widget/TwSideMenu;
@@ -161,12 +181,12 @@
 
     invoke-virtual {v2, v1}, Lcom/sec/android/app/camera/widget/TwSideMenu;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 110
+    .line 112
     iget v2, v0, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
 
     if-gez v2, :cond_2
 
-    .line 111
+    .line 113
     iget-object v2, p0, Lcom/sec/android/app/camera/CameraSideMenu$2;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
     #getter for: Lcom/sec/android/app/camera/CameraSideMenu;->mLeftSideMenu:Lcom/sec/android/app/camera/widget/TwSideMenu;
@@ -176,7 +196,7 @@
 
     invoke-virtual {v2, v0}, Lcom/sec/android/app/camera/widget/TwSideMenu;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 112
+    .line 114
     iget-object v2, p0, Lcom/sec/android/app/camera/CameraSideMenu$2;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
     #getter for: Lcom/sec/android/app/camera/CameraSideMenu;->mRightSideMenu:Lcom/sec/android/app/camera/widget/TwSideMenu;
@@ -186,7 +206,7 @@
 
     invoke-virtual {v2, v1}, Lcom/sec/android/app/camera/widget/TwSideMenu;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 113
+    .line 115
     iget-object v2, p0, Lcom/sec/android/app/camera/CameraSideMenu$2;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
     iget-object v2, v2, Lcom/sec/android/app/camera/CameraSideMenu;->mAnimHandler:Landroid/os/Handler;
@@ -206,7 +226,7 @@
 
     invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 114
+    .line 116
     iget-object v2, p0, Lcom/sec/android/app/camera/CameraSideMenu$2;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
     const/4 v3, 0x1
@@ -216,19 +236,39 @@
 
     goto/16 :goto_0
 
-    .line 116
+    .line 118
     :cond_2
     iget-object v2, p0, Lcom/sec/android/app/camera/CameraSideMenu$2;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
     #calls: Lcom/sec/android/app/camera/CameraSideMenu;->stopShowAnimation()V
     invoke-static {v2}, Lcom/sec/android/app/camera/CameraSideMenu;->access$600(Lcom/sec/android/app/camera/CameraSideMenu;)V
 
-    .line 117
+    .line 119
+    iget-object v2, p0, Lcom/sec/android/app/camera/CameraSideMenu$2;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
+
+    #getter for: Lcom/sec/android/app/camera/CameraSideMenu;->mRightSideMenu:Lcom/sec/android/app/camera/widget/TwSideMenu;
+    invoke-static {v2}, Lcom/sec/android/app/camera/CameraSideMenu;->access$200(Lcom/sec/android/app/camera/CameraSideMenu;)Lcom/sec/android/app/camera/widget/TwSideMenu;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/sec/android/app/camera/widget/TwSideMenu;->resetPressedButtons()V
+
+    .line 120
+    iget-object v2, p0, Lcom/sec/android/app/camera/CameraSideMenu$2;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
+
+    #getter for: Lcom/sec/android/app/camera/CameraSideMenu;->mLeftSideMenu:Lcom/sec/android/app/camera/widget/TwSideMenu;
+    invoke-static {v2}, Lcom/sec/android/app/camera/CameraSideMenu;->access$000(Lcom/sec/android/app/camera/CameraSideMenu;)Lcom/sec/android/app/camera/widget/TwSideMenu;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/sec/android/app/camera/widget/TwSideMenu;->resetPressedButtons()V
+
+    .line 121
     iget-object v2, p0, Lcom/sec/android/app/camera/CameraSideMenu$2;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
     invoke-virtual {v2}, Lcom/sec/android/app/camera/CameraSideMenu;->showShutterButton()V
 
-    .line 118
+    .line 122
     iget-object v2, p0, Lcom/sec/android/app/camera/CameraSideMenu$2;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
     iget-object v2, v2, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;

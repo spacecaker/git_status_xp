@@ -34,20 +34,20 @@
     .parameter "provider"
 
     .prologue
-    .line 1854
+    .line 1928
     iput-object p1, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1851
+    .line 1925
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->mValid:Z
 
-    .line 1855
+    .line 1929
     iput-object p2, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->mProvider:Ljava/lang/String;
 
-    .line 1856
+    .line 1930
     new-instance v0, Landroid/location/Location;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->mProvider:Ljava/lang/String;
@@ -56,7 +56,7 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->mLastLocation:Landroid/location/Location;
 
-    .line 1857
+    .line 1931
     return-void
 .end method
 
@@ -66,7 +66,7 @@
     .locals 1
 
     .prologue
-    .line 1939
+    .line 2009
     iget-boolean v0, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->mValid:Z
 
     if-eqz v0, :cond_0
@@ -91,28 +91,28 @@
 
     const/4 v2, 0x1
 
-    .line 1863
+    .line 1937
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     #getter for: Lcom/sec/android/app/camera/CameraEngine;->mWaitGpsLocation:Z
-    invoke-static {v0}, Lcom/sec/android/app/camera/CameraEngine;->access$1600(Lcom/sec/android/app/camera/CameraEngine;)Z
+    invoke-static {v0}, Lcom/sec/android/app/camera/CameraEngine;->access$1800(Lcom/sec/android/app/camera/CameraEngine;)Z
 
     move-result v0
 
     if-ne v0, v2, :cond_1
 
-    .line 1869
+    .line 1939
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     #calls: Lcom/sec/android/app/camera/CameraEngine;->stopReceivingLocationUpdates()V
-    invoke-static {v0}, Lcom/sec/android/app/camera/CameraEngine;->access$1700(Lcom/sec/android/app/camera/CameraEngine;)V
+    invoke-static {v0}, Lcom/sec/android/app/camera/CameraEngine;->access$1900(Lcom/sec/android/app/camera/CameraEngine;)V
 
-    .line 1892
+    .line 1962
     :cond_0
     :goto_0
     return-void
 
-    .line 1872
+    .line 1942
     :cond_1
     invoke-virtual {p1}, Landroid/location/Location;->getLatitude()D
 
@@ -147,7 +147,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1880
+    .line 1950
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -182,7 +182,7 @@
 
     if-eqz v0, :cond_4
 
-    .line 1886
+    .line 1956
     :cond_3
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
@@ -194,22 +194,22 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/Camera;->setConnectingStateGPS(I)V
 
-    .line 1889
+    .line 1959
     :cond_4
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->mLastLocation:Landroid/location/Location;
 
     invoke-virtual {v0, p1}, Landroid/location/Location;->set(Landroid/location/Location;)V
 
-    .line 1890
+    .line 1960
     iput-boolean v2, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->mValid:Z
 
-    .line 1891
+    .line 1961
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     const/4 v1, 0x0
 
     #setter for: Lcom/sec/android/app/camera/CameraEngine;->mIsGpsTimeOut:Z
-    invoke-static {v0, v1}, Lcom/sec/android/app/camera/CameraEngine;->access$1802(Lcom/sec/android/app/camera/CameraEngine;Z)Z
+    invoke-static {v0, v1}, Lcom/sec/android/app/camera/CameraEngine;->access$1702(Lcom/sec/android/app/camera/CameraEngine;Z)Z
 
     goto :goto_0
 .end method
@@ -219,12 +219,12 @@
     .parameter "provider"
 
     .prologue
-    .line 1898
+    .line 1968
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->mValid:Z
 
-    .line 1899
+    .line 1969
     return-void
 .end method
 
@@ -233,7 +233,7 @@
     .parameter "provider"
 
     .prologue
-    .line 1895
+    .line 1965
     return-void
 .end method
 
@@ -250,7 +250,7 @@
 
     const-string v5, "gps"
 
-    .line 1902
+    .line 1972
     const-string v0, "CameraEngine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -279,7 +279,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1903
+    .line 1973
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -296,24 +296,24 @@
 
     if-nez v0, :cond_1
 
-    .line 1936
+    .line 2006
     .end local p0
     :cond_0
     :goto_0
     return-void
 
-    .line 1907
+    .line 1977
     .restart local p0
     :cond_1
     packed-switch p2, :pswitch_data_0
 
     goto :goto_0
 
-    .line 1909
+    .line 1979
     :pswitch_0
     iput-boolean v4, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->mValid:Z
 
-    .line 1910
+    .line 1980
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -336,7 +336,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1912
+    .line 1982
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object p0, v0, Lcom/sec/android/app/camera/CameraEngine;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -348,12 +348,12 @@
 
     goto :goto_0
 
-    .line 1918
+    .line 1988
     .restart local p0
     :pswitch_1
     iput-boolean v4, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->mValid:Z
 
-    .line 1919
+    .line 1989
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -376,7 +376,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1921
+    .line 1991
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object p0, v0, Lcom/sec/android/app/camera/CameraEngine;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -388,12 +388,12 @@
 
     goto :goto_0
 
-    .line 1927
+    .line 1997
     .restart local p0
     :pswitch_2
     iput-boolean v3, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->mValid:Z
 
-    .line 1928
+    .line 1998
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -416,7 +416,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1930
+    .line 2000
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$LocationListener;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object p0, v0, Lcom/sec/android/app/camera/CameraEngine;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -430,7 +430,7 @@
 
     goto :goto_0
 
-    .line 1907
+    .line 1977
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

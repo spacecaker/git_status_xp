@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 95
+    .line 96
     iput-object p1, p0, Lcom/sec/android/app/camera/CamcorderRecordingMenu$2;->this$0:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,12 +41,12 @@
     .locals 1
 
     .prologue
-    .line 97
+    .line 98
     iget-object v0, p0, Lcom/sec/android/app/camera/CamcorderRecordingMenu$2;->this$0:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
 
     #calls: Lcom/sec/android/app/camera/CamcorderRecordingMenu;->startPauseAnim()V
     invoke-static {v0}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->access$000(Lcom/sec/android/app/camera/CamcorderRecordingMenu;)V
 
-    .line 98
+    .line 99
     return-void
 .end method

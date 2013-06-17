@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 171
+    .line 173
     iput-object p1, p0, Lcom/sec/android/app/camera/ZoomButtonsController$2;->this$0:Lcom/sec/android/app/camera/ZoomButtonsController;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,16 +39,16 @@
     .parameter "msg"
 
     .prologue
-    .line 174
+    .line 176
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 195
+    .line 197
     :goto_0
     return-void
 
-    .line 176
+    .line 178
     :pswitch_0
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController$2;->this$0:Lcom/sec/android/app/camera/ZoomButtonsController;
 
@@ -57,7 +57,7 @@
 
     goto :goto_0
 
-    .line 180
+    .line 182
     :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController$2;->this$0:Lcom/sec/android/app/camera/ZoomButtonsController;
 
@@ -67,7 +67,7 @@
 
     goto :goto_0
 
-    .line 184
+    .line 186
     :pswitch_2
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController$2;->this$0:Lcom/sec/android/app/camera/ZoomButtonsController;
 
@@ -82,7 +82,7 @@
 
     if-nez v0, :cond_0
 
-    .line 186
+    .line 188
     const-string v0, "ZoomButtonsController"
 
     const-string v1, "Cannot make the zoom controller visible if the owner view is not attached to a window."
@@ -91,7 +91,7 @@
 
     goto :goto_0
 
-    .line 190
+    .line 192
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController$2;->this$0:Lcom/sec/android/app/camera/ZoomButtonsController;
 
@@ -101,7 +101,7 @@
 
     goto :goto_0
 
-    .line 174
+    .line 176
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_0

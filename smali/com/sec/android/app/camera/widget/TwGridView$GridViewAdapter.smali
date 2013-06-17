@@ -27,12 +27,12 @@
     .parameter
 
     .prologue
-    .line 516
+    .line 569
     iput-object p1, p0, Lcom/sec/android/app/camera/widget/TwGridView$GridViewAdapter;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 517
+    .line 570
     return-void
 .end method
 
@@ -42,7 +42,7 @@
     .locals 1
 
     .prologue
-    .line 520
+    .line 573
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwGridView$GridViewAdapter;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
     #getter for: Lcom/sec/android/app/camera/widget/TwGridView;->mMenuBase:Lcom/sec/android/app/camera/MenuResourceBase;
@@ -62,7 +62,7 @@
     .parameter "position"
 
     .prologue
-    .line 528
+    .line 581
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwGridView$GridViewAdapter;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
     #getter for: Lcom/sec/android/app/camera/widget/TwGridView;->mMenuBase:Lcom/sec/android/app/camera/MenuResourceBase;
@@ -82,20 +82,20 @@
     .parameter "position"
 
     .prologue
-    .line 532
+    .line 585
     int-to-long v0, p1
 
     return-wide v0
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 10
+    .locals 11
     .parameter "position"
     .parameter "convertView"
     .parameter "parent"
 
     .prologue
-    .line 538
+    .line 591
     new-instance v0, Lcom/sec/android/app/camera/widget/TwImageButton;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$GridViewAdapter;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
@@ -121,7 +121,7 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/sec/android/app/camera/widget/TwImageButton;-><init>(Landroid/content/Context;II)V
 
-    .line 540
+    .line 593
     .local v0, item:Lcom/sec/android/app/camera/widget/TwImageButton;
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$GridViewAdapter;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
@@ -134,7 +134,7 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 541
+    .line 594
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$GridViewAdapter;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
     #getter for: Lcom/sec/android/app/camera/widget/TwGridView;->mGridButtonData:Lcom/sec/android/app/camera/widget/TwGridView$GridButtonData;
@@ -213,11 +213,20 @@
 
     sub-int/2addr v7, v8
 
-    invoke-virtual/range {v0 .. v7}, Lcom/sec/android/app/camera/widget/TwImageButton;->addTextLayout(IIIIIII)V
+    iget-object v8, p0, Lcom/sec/android/app/camera/widget/TwGridView$GridViewAdapter;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
-    .line 549
+    #getter for: Lcom/sec/android/app/camera/widget/TwGridView;->mGridButtonData:Lcom/sec/android/app/camera/widget/TwGridView$GridButtonData;
+    invoke-static {v8}, Lcom/sec/android/app/camera/widget/TwGridView;->access$600(Lcom/sec/android/app/camera/widget/TwGridView;)Lcom/sec/android/app/camera/widget/TwGridView$GridButtonData;
+
+    move-result-object v8
+
+    iget v8, v8, Lcom/sec/android/app/camera/widget/TwGridView$GridButtonData;->mGridTextLineSpacing:I
+
+    invoke-virtual/range {v0 .. v8}, Lcom/sec/android/app/camera/widget/TwImageButton;->addTextLayout(IIIIIIII)V
+
+    .line 603
     :cond_0
-    new-instance v9, Landroid/widget/AbsListView$LayoutParams;
+    new-instance v10, Landroid/widget/AbsListView$LayoutParams;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$GridViewAdapter;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
@@ -237,13 +246,13 @@
 
     iget v2, v2, Lcom/sec/android/app/camera/widget/TwGridView$GridButtonData;->mGridButtonHeight:I
 
-    invoke-direct {v9, v1, v2}, Landroid/widget/AbsListView$LayoutParams;-><init>(II)V
+    invoke-direct {v10, v1, v2}, Landroid/widget/AbsListView$LayoutParams;-><init>(II)V
 
-    .line 551
-    .local v9, buttonLayoutParams:Landroid/widget/AbsListView$LayoutParams;
-    invoke-virtual {v0, v9}, Lcom/sec/android/app/camera/widget/TwImageButton;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    .line 605
+    .local v10, buttonLayoutParams:Landroid/widget/AbsListView$LayoutParams;
+    invoke-virtual {v0, v10}, Lcom/sec/android/app/camera/widget/TwImageButton;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 552
+    .line 606
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$GridViewAdapter;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
     #getter for: Lcom/sec/android/app/camera/widget/TwGridView;->mGridButtonData:Lcom/sec/android/app/camera/widget/TwGridView$GridButtonData;
@@ -273,14 +282,14 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/sec/android/app/camera/widget/TwImageButton;->setBackgroundResources(III)V
 
-    .line 554
+    .line 608
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$GridViewAdapter;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
     iget-object v1, v1, Lcom/sec/android/app/camera/widget/TwGridView;->mGridButtonListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 556
+    .line 610
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$GridViewAdapter;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
     #getter for: Lcom/sec/android/app/camera/widget/TwGridView;->mMenuBase:Lcom/sec/android/app/camera/MenuResourceBase;
@@ -290,34 +299,34 @@
 
     invoke-virtual {v1, p1}, Lcom/sec/android/app/camera/MenuResourceBase;->getItem(I)Lcom/sec/android/app/camera/MenuResourceBundle;
 
-    move-result-object v8
+    move-result-object v9
 
-    .line 557
-    .local v8, bundle:Lcom/sec/android/app/camera/MenuResourceBundle;
+    .line 611
+    .local v9, bundle:Lcom/sec/android/app/camera/MenuResourceBundle;
     const/4 v1, 0x0
 
-    invoke-virtual {v8, v1}, Lcom/sec/android/app/camera/MenuResourceBundle;->getResourceID(I)I
+    invoke-virtual {v9, v1}, Lcom/sec/android/app/camera/MenuResourceBundle;->getResourceID(I)I
 
     move-result v1
 
     const/4 v2, 0x1
 
-    invoke-virtual {v8, v2}, Lcom/sec/android/app/camera/MenuResourceBundle;->getResourceID(I)I
+    invoke-virtual {v9, v2}, Lcom/sec/android/app/camera/MenuResourceBundle;->getResourceID(I)I
 
     move-result v2
 
     const/4 v3, 0x2
 
-    invoke-virtual {v8, v3}, Lcom/sec/android/app/camera/MenuResourceBundle;->getResourceID(I)I
+    invoke-virtual {v9, v3}, Lcom/sec/android/app/camera/MenuResourceBundle;->getResourceID(I)I
 
     move-result v3
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/sec/android/app/camera/widget/TwImageButton;->setImageResources(III)V
 
-    .line 560
+    .line 614
     invoke-virtual {v0}, Lcom/sec/android/app/camera/widget/TwImageButton;->refreshButtonImage()V
 
-    .line 562
+    .line 616
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$GridViewAdapter;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
     #getter for: Lcom/sec/android/app/camera/widget/TwGridView;->mImageText:I
@@ -329,7 +338,7 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 563
+    .line 617
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$GridViewAdapter;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
     invoke-virtual {v1}, Lcom/sec/android/app/camera/widget/TwGridView;->getResources()Landroid/content/res/Resources;
@@ -338,7 +347,7 @@
 
     const/4 v2, 0x3
 
-    invoke-virtual {v8, v2}, Lcom/sec/android/app/camera/MenuResourceBundle;->getResourceID(I)I
+    invoke-virtual {v9, v2}, Lcom/sec/android/app/camera/MenuResourceBundle;->getResourceID(I)I
 
     move-result v2
 
@@ -348,11 +357,11 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwImageButton;->setText(Ljava/lang/String;)V
 
-    .line 565
+    .line 619
     :cond_1
     const/4 v1, 0x4
 
-    invoke-virtual {v8, v1}, Lcom/sec/android/app/camera/MenuResourceBundle;->getResourceID(I)I
+    invoke-virtual {v9, v1}, Lcom/sec/android/app/camera/MenuResourceBundle;->getResourceID(I)I
 
     move-result v1
 
@@ -362,10 +371,10 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwImageButton;->setTag(Ljava/lang/Object;)V
 
-    .line 567
+    .line 621
     invoke-virtual {v0, p0}, Lcom/sec/android/app/camera/widget/TwImageButton;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 569
+    .line 623
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$GridViewAdapter;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
     #getter for: Lcom/sec/android/app/camera/widget/TwGridView;->mFocusID:I
@@ -375,16 +384,16 @@
 
     const/4 v2, 0x4
 
-    invoke-virtual {v8, v2}, Lcom/sec/android/app/camera/MenuResourceBundle;->getResourceID(I)I
+    invoke-virtual {v9, v2}, Lcom/sec/android/app/camera/MenuResourceBundle;->getResourceID(I)I
 
     move-result v2
 
     if-ne v1, v2, :cond_2
 
-    .line 570
+    .line 624
     invoke-virtual {v0}, Lcom/sec/android/app/camera/widget/TwImageButton;->setPressed()V
 
-    .line 573
+    .line 627
     :cond_2
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$GridViewAdapter;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
@@ -395,10 +404,10 @@
 
     if-nez v1, :cond_3
 
-    .line 574
+    .line 628
     invoke-virtual {v0}, Lcom/sec/android/app/camera/widget/TwImageButton;->SetClickSoundDisabled()V
 
-    .line 577
+    .line 631
     :cond_3
     return-object v0
 .end method
@@ -407,7 +416,7 @@
     .locals 1
 
     .prologue
-    .line 524
+    .line 577
     const/4 v0, 0x1
 
     return v0
@@ -419,19 +428,19 @@
     .parameter "event"
 
     .prologue
-    .line 582
+    .line 636
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwGridView$GridViewAdapter;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/widget/TwGridView;->removeView(Landroid/view/View;)V
 
-    .line 583
+    .line 637
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 593
+    .line 647
     .end local p0
     .end local p1
     :goto_0
@@ -440,7 +449,7 @@
 
     return v0
 
-    .line 585
+    .line 639
     .restart local p0
     .restart local p1
     :pswitch_1
@@ -464,7 +473,7 @@
 
     goto :goto_0
 
-    .line 590
+    .line 644
     .restart local p0
     .restart local p1
     :pswitch_2
@@ -481,7 +490,7 @@
 
     goto :goto_0
 
-    .line 583
+    .line 637
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1

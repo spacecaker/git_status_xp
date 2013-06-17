@@ -36,24 +36,24 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 44
+    .line 43
     invoke-direct/range {p0 .. p6}, Lcom/sec/android/app/camera/MenuBase;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
-    .line 40
+    .line 39
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mIsDetecting:Z
 
-    .line 46
+    .line 45
     invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/SmileShotView;->setCaptureEnabled(Z)V
 
-    .line 47
+    .line 46
     invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/SmileShotView;->setTouchHandled(Z)V
 
-    .line 48
+    .line 47
     invoke-direct {p0}, Lcom/sec/android/app/camera/SmileShotView;->init()V
 
-    .line 49
+    .line 48
     return-void
 .end method
 
@@ -61,7 +61,7 @@
     .locals 4
 
     .prologue
-    .line 52
+    .line 51
     iget-object v1, p0, Lcom/sec/android/app/camera/SmileShotView;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
     const v2, 0x7f03000f
@@ -76,7 +76,7 @@
 
     iput-object v1, p0, Lcom/sec/android/app/camera/SmileShotView;->mSideMenu:Lcom/sec/android/app/camera/CameraSideMenu;
 
-    .line 53
+    .line 52
     iget-object v1, p0, Lcom/sec/android/app/camera/SmileShotView;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
     const v2, 0x7f03000a
@@ -91,7 +91,7 @@
 
     iput-object v1, p0, Lcom/sec/android/app/camera/SmileShotView;->mCameraBaseIndicator:Lcom/sec/android/app/camera/CameraBaseIndicators;
 
-    .line 55
+    .line 54
     iget-object v1, p0, Lcom/sec/android/app/camera/SmileShotView;->mBaseView:Landroid/view/ViewGroup;
 
     const v2, 0x7f0a00d4
@@ -104,7 +104,7 @@
 
     iput-object v1, p0, Lcom/sec/android/app/camera/SmileShotView;->mIndicatorView:Landroid/view/ViewGroup;
 
-    .line 58
+    .line 57
     iget-object v1, p0, Lcom/sec/android/app/camera/SmileShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     const v2, 0x7f0a00d5
@@ -115,7 +115,7 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 59
+    .line 58
     .local v0, blinkView:Landroid/widget/ImageView;
     invoke-virtual {v0}, Landroid/widget/ImageView;->getBackground()Landroid/graphics/drawable/Drawable;
 
@@ -126,7 +126,7 @@
 
     invoke-virtual {p0}, Landroid/graphics/drawable/AnimationDrawable;->start()V
 
-    .line 66
+    .line 65
     return-void
 .end method
 
@@ -136,15 +136,15 @@
     .locals 1
 
     .prologue
-    .line 124
+    .line 122
     iget-object v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mCameraBaseIndicator:Lcom/sec/android/app/camera/CameraBaseIndicators;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraBaseIndicators;->hideTextMessage()V
 
-    .line 125
+    .line 123
     invoke-super {p0}, Lcom/sec/android/app/camera/MenuBase;->hideMenu()V
 
-    .line 126
+    .line 124
     return-void
 .end method
 
@@ -152,7 +152,7 @@
     .locals 1
 
     .prologue
-    .line 69
+    .line 68
     iget-boolean v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mIsDetecting:Z
 
     return v0
@@ -162,30 +162,30 @@
     .locals 1
 
     .prologue
-    .line 130
+    .line 128
     iget-boolean v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mIsDetecting:Z
 
     if-eqz v0, :cond_1
 
-    .line 131
+    .line 129
     iget-object v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mOnSmileDetectingStoppedListener:Lcom/sec/android/app/camera/SmileShotView$OnSmileDetectingStoppedListener;
 
     if-eqz v0, :cond_0
 
-    .line 132
+    .line 130
     iget-object v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mOnSmileDetectingStoppedListener:Lcom/sec/android/app/camera/SmileShotView$OnSmileDetectingStoppedListener;
 
     invoke-interface {v0}, Lcom/sec/android/app/camera/SmileShotView$OnSmileDetectingStoppedListener;->onSmileDetectingStopped()V
 
-    .line 138
+    .line 136
     :cond_0
     :goto_0
     invoke-super {p0}, Lcom/sec/android/app/camera/MenuBase;->onBack()V
 
-    .line 139
+    .line 137
     return-void
 
-    .line 135
+    .line 133
     :cond_1
     iget-object v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -199,17 +199,17 @@
     .parameter "v"
 
     .prologue
-    .line 105
+    .line 104
     iget-object v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mOnSmileDetectingStoppedListener:Lcom/sec/android/app/camera/SmileShotView$OnSmileDetectingStoppedListener;
 
     if-eqz v0, :cond_0
 
-    .line 106
+    .line 105
     iget-object v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mOnSmileDetectingStoppedListener:Lcom/sec/android/app/camera/SmileShotView$OnSmileDetectingStoppedListener;
 
     invoke-interface {v0}, Lcom/sec/android/app/camera/SmileShotView$OnSmileDetectingStoppedListener;->onSmileDetectingStopped()V
 
-    .line 108
+    .line 107
     :cond_0
     return-void
 .end method
@@ -218,7 +218,7 @@
     .locals 0
 
     .prologue
-    .line 142
+    .line 140
     iget-object p0, p0, Lcom/sec/android/app/camera/SmileShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     .end local p0
@@ -226,7 +226,7 @@
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camera;->onSmileDetectingStopped()V
 
-    .line 143
+    .line 141
     return-void
 .end method
 
@@ -234,30 +234,30 @@
     .locals 2
 
     .prologue
-    .line 115
+    .line 114
     iget-boolean v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mIsDetecting:Z
 
     if-nez v0, :cond_0
 
-    .line 116
+    .line 115
     iget-object v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mIndicatorView:Landroid/view/ViewGroup;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    .line 117
+    .line 116
     iget-object v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mCameraBaseIndicator:Lcom/sec/android/app/camera/CameraBaseIndicators;
 
-    const v1, 0x7f0700d2
+    const v1, 0x7f07008d
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraBaseIndicators;->setTextMessage(I)V
 
-    .line 120
+    .line 118
     :cond_0
     invoke-super {p0}, Lcom/sec/android/app/camera/MenuBase;->onShow()V
 
-    .line 121
+    .line 119
     return-void
 .end method
 
@@ -266,10 +266,10 @@
     .parameter "l"
 
     .prologue
-    .line 111
+    .line 110
     iput-object p1, p0, Lcom/sec/android/app/camera/SmileShotView;->mOnSmileDetectingStoppedListener:Lcom/sec/android/app/camera/SmileShotView$OnSmileDetectingStoppedListener;
 
-    .line 112
+    .line 111
     return-void
 .end method
 
@@ -279,42 +279,42 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 73
+    .line 72
     invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/SmileShotView;->setTouchHandled(Z)V
 
-    .line 74
+    .line 73
     iget-object v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mSideMenu:Lcom/sec/android/app/camera/CameraSideMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSideMenu;->hideMenu()V
 
-    .line 75
+    .line 74
     iget-object v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mCameraBaseIndicator:Lcom/sec/android/app/camera/CameraBaseIndicators;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraBaseIndicators;->restoreMenu()V
 
-    .line 76
+    .line 75
     iget-object v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mCameraBaseIndicator:Lcom/sec/android/app/camera/CameraBaseIndicators;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraBaseIndicators;->hideTextMessage()V
 
-    .line 78
+    .line 77
     iget-object v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mIndicatorView:Landroid/view/ViewGroup;
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    .line 80
+    .line 79
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mIsDetecting:Z
 
-    .line 81
+    .line 80
     iget-object v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     check-cast v0, Lcom/sec/android/app/camera/Camera;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/Camera;->showShutterButton()V
 
-    .line 82
+    .line 81
     iget-object p0, p0, Lcom/sec/android/app/camera/SmileShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     .end local p0
@@ -322,7 +322,7 @@
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camera;->hideTrayButton()V
 
-    .line 83
+    .line 82
     return-void
 .end method
 
@@ -332,35 +332,35 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 86
+    .line 85
     invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/SmileShotView;->setTouchHandled(Z)V
 
-    .line 87
+    .line 86
     iget-object v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mSideMenu:Lcom/sec/android/app/camera/CameraSideMenu;
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraSideMenu;->setAnimationEnabled(Z)V
 
-    .line 88
+    .line 87
     iget-object v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mSideMenu:Lcom/sec/android/app/camera/CameraSideMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSideMenu;->restoreMenu()V
 
-    .line 89
+    .line 88
     invoke-virtual {p0}, Lcom/sec/android/app/camera/SmileShotView;->showMenu()V
 
-    .line 91
+    .line 90
     iget-object v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mIndicatorView:Landroid/view/ViewGroup;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    .line 93
+    .line 92
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mIsDetecting:Z
 
-    .line 94
+    .line 93
     return-void
 .end method
 
@@ -370,29 +370,29 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 97
+    .line 96
     iget-boolean v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mIsDetecting:Z
 
     if-eq v0, v2, :cond_0
 
-    .line 102
+    .line 101
     :goto_0
     return-void
 
-    .line 99
+    .line 98
     :cond_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mIsDetecting:Z
 
-    .line 100
+    .line 99
     iget-object v0, p0, Lcom/sec/android/app/camera/SmileShotView;->mIndicatorView:Landroid/view/ViewGroup;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    .line 101
+    .line 100
     invoke-virtual {p0, v2}, Lcom/sec/android/app/camera/SmileShotView;->setTouchHandled(Z)V
 
     goto :goto_0

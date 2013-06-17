@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 515
+    .line 516
     iput-object p1, p0, Lcom/sec/android/app/camera/CameraEngine$ErrorCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,45 +38,45 @@
 
 # virtual methods
 .method public onError(ILcom/sec/android/seccamera/SecCamera;)V
-    .locals 5
+    .locals 4
     .parameter "error"
     .parameter "camera"
 
     .prologue
-    const-string v4, "\nErrorCallback.onError ("
-
     const-string v3, ")"
 
-    .line 520
+    const-string v2, "CameraEngine"
+
+    .line 528
     const-string v0, "CameraEngine"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "ErrorCallback.onError ("
+    const-string v1, "ErrorCallback.onError ("
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, ")"
+    const-string v1, ")"
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 522
+    .line 530
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$ErrorCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine;->mCurrentState:Lcom/sec/android/app/camera/AbstractCeState;
@@ -89,7 +89,7 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 525
+    .line 533
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$ErrorCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     #getter for: Lcom/sec/android/app/camera/CameraEngine;->mCameraDevice:Lcom/sec/android/seccamera/SecCamera;
@@ -99,7 +99,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 526
+    .line 534
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$ErrorCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     #getter for: Lcom/sec/android/app/camera/CameraEngine;->mCameraDevice:Lcom/sec/android/seccamera/SecCamera;
@@ -109,7 +109,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/seccamera/SecCamera;->release()V
 
-    .line 527
+    .line 535
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$ErrorCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     const/4 v1, 0x0
@@ -117,16 +117,16 @@
     #setter for: Lcom/sec/android/app/camera/CameraEngine;->mCameraDevice:Lcom/sec/android/seccamera/SecCamera;
     invoke-static {v0, v1}, Lcom/sec/android/app/camera/CameraEngine;->access$502(Lcom/sec/android/app/camera/CameraEngine;Lcom/sec/android/seccamera/SecCamera;)Lcom/sec/android/seccamera/SecCamera;
 
-    .line 544
+    .line 576
     :cond_0
     :goto_0
     return-void
 
-    .line 532
+    .line 541
     :cond_1
     packed-switch p1, :pswitch_data_0
 
-    .line 540
+    .line 574
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$ErrorCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -137,7 +137,7 @@
 
     const-string v2, "\nErrorCallback.onError ("
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -159,50 +159,66 @@
 
     goto :goto_0
 
-    .line 534
+    .line 547
     :pswitch_0
+    const-string v0, "CameraEngine"
+
+    const-string v0, "!!!Camera retry!!! - start!!!"
+
+    invoke-static {v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 548
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$ErrorCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doStopPreviewSync()V
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doStopEngineSync()V
 
-    .line 535
+    .line 549
+    iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$ErrorCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
+
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doStartEngineAsync()V
+
+    .line 550
+    iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$ErrorCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
+
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->waitForEngineStartingThread()V
+
+    .line 551
+    iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$ErrorCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
+
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doStartPreviewAsync()V
+
+    .line 552
+    iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$ErrorCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
+
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->waitForStartPreviewThreadComplete()V
+
+    .line 554
+    const-string v0, "CameraEngine"
+
+    const-string v0, "!!!Camera retry!!! before return"
+
+    invoke-static {v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 561
+    :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$ErrorCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string v1, "\nCamera module have a bad connection"
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "\nErrorCallback.onError ("
-
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ")"
-
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->handleNoFrameError(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->OpenHardwareFailed(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 532
+    .line 541
     nop
 
     :pswitch_data_0
-    .packed-switch 0x1
+    .packed-switch 0x3ea
         :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

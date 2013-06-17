@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 349
+    .line 350
     iput-object p1, p0, Lcom/sec/android/app/camera/ReviewImage$MyGestureListener;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     invoke-direct {p0}, Landroid/view/GestureDetector$SimpleOnGestureListener;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 349
+    .line 350
     invoke-direct {p0, p1}, Lcom/sec/android/app/camera/ReviewImage$MyGestureListener;-><init>(Lcom/sec/android/app/camera/ReviewImage;)V
 
     return-void
@@ -51,7 +51,7 @@
     .parameter "e"
 
     .prologue
-    .line 375
+    .line 376
     iget-object v1, p0, Lcom/sec/android/app/camera/ReviewImage$MyGestureListener;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     #getter for: Lcom/sec/android/app/camera/ReviewImage;->mImageView:Lcom/sec/android/app/camera/ImageViewTouch2;
@@ -59,7 +59,7 @@
 
     move-result-object v0
 
-    .line 377
+    .line 378
     .local v0, imageView:Lcom/sec/android/app/camera/ImageViewTouch2;
     iget-object v1, p0, Lcom/sec/android/app/camera/ReviewImage$MyGestureListener;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
@@ -87,14 +87,14 @@
 
     if-nez v1, :cond_0
 
-    .line 378
+    .line 379
     const/4 v1, 0x0
 
-    .line 388
+    .line 389
     :goto_0
     return v1
 
-    .line 382
+    .line 383
     :cond_0
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ImageViewTouch2;->getScale()F
 
@@ -106,7 +106,7 @@
 
     if-lez v1, :cond_1
 
-    .line 383
+    .line 384
     iget-object v1, p0, Lcom/sec/android/app/camera/ReviewImage$MyGestureListener;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     #getter for: Lcom/sec/android/app/camera/ReviewImage;->mImageView:Lcom/sec/android/app/camera/ImageViewTouch2;
@@ -118,18 +118,18 @@
 
     invoke-virtual {v1, v2}, Lcom/sec/android/app/camera/ImageViewTouch2;->zoomTo(F)V
 
-    .line 387
+    .line 388
     :goto_1
     iget-object v1, p0, Lcom/sec/android/app/camera/ReviewImage$MyGestureListener;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     invoke-virtual {v1}, Lcom/sec/android/app/camera/ReviewImage;->updateZoomButtonsEnabled()V
 
-    .line 388
+    .line 389
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 385
+    .line 386
     :cond_1
     iget-object v1, p0, Lcom/sec/android/app/camera/ReviewImage$MyGestureListener;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
@@ -161,7 +161,7 @@
     .parameter "distanceY"
 
     .prologue
-    .line 355
+    .line 356
     iget-object v1, p0, Lcom/sec/android/app/camera/ReviewImage$MyGestureListener;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     #getter for: Lcom/sec/android/app/camera/ReviewImage;->mImageView:Lcom/sec/android/app/camera/ImageViewTouch2;
@@ -169,7 +169,7 @@
 
     move-result-object v0
 
-    .line 356
+    .line 357
     .local v0, imageView:Lcom/sec/android/app/camera/ImageViewTouch2;
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ImageViewTouch2;->getScale()F
 
@@ -181,14 +181,14 @@
 
     if-lez v1, :cond_0
 
-    .line 357
+    .line 358
     neg-float v1, p3
 
     neg-float v2, p4
 
     invoke-virtual {v0, v1, v2}, Lcom/sec/android/app/camera/ImageViewTouch2;->postTranslateCenter(FF)V
 
-    .line 359
+    .line 360
     :cond_0
     const/4 v1, 0x1
 
@@ -200,7 +200,7 @@
     .parameter "e"
 
     .prologue
-    .line 364
+    .line 365
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$MyGestureListener;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     #getter for: Lcom/sec/android/app/camera/ReviewImage;->mControlBar:Landroid/view/View;
@@ -214,7 +214,7 @@
 
     if-nez v0, :cond_0
 
-    .line 365
+    .line 366
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$MyGestureListener;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     #getter for: Lcom/sec/android/app/camera/ReviewImage;->mDismissOnScreenControlRunner:Ljava/lang/Runnable;
@@ -224,20 +224,20 @@
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 370
+    .line 371
     :goto_0
     const/4 v0, 0x1
 
     return v0
 
-    .line 367
+    .line 368
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$MyGestureListener;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     #calls: Lcom/sec/android/app/camera/ReviewImage;->showOnScreenControls()V
     invoke-static {v0}, Lcom/sec/android/app/camera/ReviewImage;->access$100(Lcom/sec/android/app/camera/ReviewImage;)V
 
-    .line 368
+    .line 369
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$MyGestureListener;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     #calls: Lcom/sec/android/app/camera/ReviewImage;->scheduleDismissOnScreenControls()V

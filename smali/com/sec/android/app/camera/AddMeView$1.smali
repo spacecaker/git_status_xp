@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 151
+    .line 152
     iput-object p1, p0, Lcom/sec/android/app/camera/AddMeView$1;->this$0:Lcom/sec/android/app/camera/AddMeView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 153
+    .line 154
     iget-object v0, p0, Lcom/sec/android/app/camera/AddMeView$1;->this$0:Lcom/sec/android/app/camera/AddMeView;
 
     const/4 v1, 0x0
@@ -49,7 +49,7 @@
     #setter for: Lcom/sec/android/app/camera/AddMeView;->mbHideViewRect:Z
     invoke-static {v0, v1}, Lcom/sec/android/app/camera/AddMeView;->access$002(Lcom/sec/android/app/camera/AddMeView;Z)Z
 
-    .line 154
+    .line 155
     iget-object v0, p0, Lcom/sec/android/app/camera/AddMeView$1;->this$0:Lcom/sec/android/app/camera/AddMeView;
 
     #getter for: Lcom/sec/android/app/camera/AddMeView;->mViewAddMeRect:Lcom/sec/android/app/camera/AddMeView$ViewAddMeRect;
@@ -59,6 +59,6 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AddMeView$ViewAddMeRect;->invalidate()V
 
-    .line 155
+    .line 156
     return-void
 .end method

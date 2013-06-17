@@ -31,7 +31,7 @@
     .parameter "zOrder"
 
     .prologue
-    .line 43
+    .line 42
     move-object v0, p0
 
     move-object v1, p1
@@ -48,10 +48,10 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/sec/android/app/camera/MenuBase;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
-    .line 45
+    .line 44
     invoke-direct {p0, p5}, Lcom/sec/android/app/camera/StorageMenu;->init(Lcom/sec/android/app/camera/StorageResourceData;)V
 
-    .line 46
+    .line 45
     return-void
 .end method
 
@@ -60,7 +60,7 @@
     .parameter "resourceData"
 
     .prologue
-    .line 49
+    .line 48
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -73,7 +73,7 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/StorageMenu;->mSelectedStorage:I
 
-    .line 50
+    .line 49
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     const v1, 0x7f0a00db
@@ -86,19 +86,19 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/StorageMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
-    .line 51
+    .line 50
     iget-object v0, p0, Lcom/sec/android/app/camera/StorageMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     iget v1, p0, Lcom/sec/android/app/camera/StorageMenu;->mSelectedStorage:I
 
     invoke-virtual {v0, p1, v1}, Lcom/sec/android/app/camera/widget/TwGridView;->initializeView(Lcom/sec/android/app/camera/MenuResourceBase;I)V
 
-    .line 52
+    .line 51
     iget-object v0, p0, Lcom/sec/android/app/camera/StorageMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     invoke-virtual {v0, p0}, Lcom/sec/android/app/camera/widget/TwGridView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 53
+    .line 52
     return-void
 .end method
 
@@ -133,16 +133,16 @@
     .parameter "v"
 
     .prologue
-    .line 57
+    .line 56
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
 
-    const v1, 0x7f0a00a4
+    const v1, 0x7f0a00a3
 
     if-eq v0, v1, :cond_0
 
-    .line 58
+    .line 57
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
@@ -155,17 +155,22 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/StorageMenu;->mSelectedStorage:I
 
-    .line 59
+    .line 58
     iget-object v0, p0, Lcom/sec/android/app/camera/StorageMenu;->mOnStorageChangedListener:Lcom/sec/android/app/camera/StorageMenu$OnStorageChangedListener;
 
     if-eqz v0, :cond_0
 
-    .line 60
+    .line 59
     iget-object v0, p0, Lcom/sec/android/app/camera/StorageMenu;->mOnStorageChangedListener:Lcom/sec/android/app/camera/StorageMenu$OnStorageChangedListener;
 
     iget v1, p0, Lcom/sec/android/app/camera/StorageMenu;->mSelectedStorage:I
 
     invoke-interface {v0, v1}, Lcom/sec/android/app/camera/StorageMenu$OnStorageChangedListener;->onStorageChanged(I)V
+
+    .line 60
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/sec/android/app/camera/StorageMenu;->mOnStorageChangedListener:Lcom/sec/android/app/camera/StorageMenu$OnStorageChangedListener;
 
     .line 63
     :cond_0

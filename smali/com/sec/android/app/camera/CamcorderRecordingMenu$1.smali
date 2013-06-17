@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 87
+    .line 88
     iput-object p1, p0, Lcom/sec/android/app/camera/CamcorderRecordingMenu$1;->this$0:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,19 +39,19 @@
     .parameter "msg"
 
     .prologue
-    .line 89
+    .line 90
     iget v0, p1, Landroid/os/Message;->what:I
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 90
+    .line 91
     iget-object v0, p0, Lcom/sec/android/app/camera/CamcorderRecordingMenu$1;->this$0:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->stepSecond()V
 
-    .line 92
+    .line 93
     :cond_0
     return-void
 .end method

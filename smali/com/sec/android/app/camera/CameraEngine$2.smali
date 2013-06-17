@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 980
+    .line 1030
     iput-object p1, p0, Lcom/sec/android/app/camera/CameraEngine$2;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 982
+    .line 1032
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$2;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/CameraEngine$2;->this$0:Lcom/sec/android/app/camera/CameraEngine;
@@ -50,9 +50,10 @@
 
     move-result v1
 
-    iput v1, v0, Lcom/sec/android/app/camera/CameraEngine;->mOrientationOnTake:I
+    #setter for: Lcom/sec/android/app/camera/CameraEngine;->mOrientationOnTake:I
+    invoke-static {v0, v1}, Lcom/sec/android/app/camera/CameraEngine;->access$1402(Lcom/sec/android/app/camera/CameraEngine;I)I
 
-    .line 983
+    .line 1033
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$2;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     #getter for: Lcom/sec/android/app/camera/CameraEngine;->mCameraDevice:Lcom/sec/android/seccamera/SecCamera;
@@ -64,7 +65,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/seccamera/SecCamera;->startPanorama(Z)V
 
-    .line 984
+    .line 1034
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$2;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine;->mStateMessageHandler:Lcom/sec/android/app/camera/CameraEngine$StateMessageHandler;
@@ -73,6 +74,6 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraEngine$StateMessageHandler;->sendEmptyMessage(I)Z
 
-    .line 986
+    .line 1036
     return-void
 .end method

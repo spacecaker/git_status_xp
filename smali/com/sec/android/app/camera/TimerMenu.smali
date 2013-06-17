@@ -31,7 +31,7 @@
     .parameter "zOrder"
 
     .prologue
-    .line 43
+    .line 42
     move-object v0, p0
 
     move-object v1, p1
@@ -48,10 +48,10 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/sec/android/app/camera/MenuBase;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
-    .line 45
+    .line 44
     invoke-direct {p0, p5}, Lcom/sec/android/app/camera/TimerMenu;->init(Lcom/sec/android/app/camera/TimerResourceData;)V
 
-    .line 46
+    .line 45
     return-void
 .end method
 
@@ -60,10 +60,10 @@
     .parameter "resourceData"
 
     .prologue
-    .line 50
+    .line 49
     invoke-direct {p0}, Lcom/sec/android/app/camera/TimerMenu;->initTimerValue()V
 
-    .line 51
+    .line 50
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     const v1, 0x7f0a00dc
@@ -76,19 +76,19 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/TimerMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
-    .line 52
+    .line 51
     iget-object v0, p0, Lcom/sec/android/app/camera/TimerMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     iget v1, p0, Lcom/sec/android/app/camera/TimerMenu;->mSelectedTimer:I
 
     invoke-virtual {v0, p1, v1}, Lcom/sec/android/app/camera/widget/TwGridView;->initializeView(Lcom/sec/android/app/camera/MenuResourceBase;I)V
 
-    .line 53
+    .line 52
     iget-object v0, p0, Lcom/sec/android/app/camera/TimerMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     invoke-virtual {v0, p0}, Lcom/sec/android/app/camera/widget/TwGridView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 54
+    .line 53
     return-void
 .end method
 
@@ -174,16 +174,16 @@
     .parameter "v"
 
     .prologue
-    .line 58
+    .line 57
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
 
-    const v1, 0x7f0a00a4
+    const v1, 0x7f0a00a3
 
     if-eq v0, v1, :cond_0
 
-    .line 59
+    .line 58
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
@@ -196,17 +196,22 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/TimerMenu;->mSelectedTimer:I
 
-    .line 60
+    .line 59
     iget-object v0, p0, Lcom/sec/android/app/camera/TimerMenu;->mOnTimerChangedListener:Lcom/sec/android/app/camera/TimerMenu$OnTimerChangedListener;
 
     if-eqz v0, :cond_0
 
-    .line 61
+    .line 60
     iget-object v0, p0, Lcom/sec/android/app/camera/TimerMenu;->mOnTimerChangedListener:Lcom/sec/android/app/camera/TimerMenu$OnTimerChangedListener;
 
     iget v1, p0, Lcom/sec/android/app/camera/TimerMenu;->mSelectedTimer:I
 
     invoke-interface {v0, v1}, Lcom/sec/android/app/camera/TimerMenu$OnTimerChangedListener;->onTimerChanged(I)V
+
+    .line 61
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/sec/android/app/camera/TimerMenu;->mOnTimerChangedListener:Lcom/sec/android/app/camera/TimerMenu$OnTimerChangedListener;
 
     .line 64
     :cond_0

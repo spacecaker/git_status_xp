@@ -660,7 +660,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f06005d
+    const v1, 0x7f060063
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -679,7 +679,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f06005e
+    const v1, 0x7f060064
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -700,7 +700,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f06005f
+    const v2, 0x7f060065
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -721,7 +721,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f060067
+    const v2, 0x7f06006d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -740,7 +740,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f060060
+    const v1, 0x7f060066
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -780,7 +780,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f060065
+    const v2, 0x7f06006b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -801,7 +801,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f060062
+    const v2, 0x7f060068
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -822,7 +822,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f060063
+    const v2, 0x7f060069
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -843,7 +843,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f060064
+    const v2, 0x7f06006a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -864,7 +864,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f060066
+    const v2, 0x7f06006c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -885,7 +885,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f060069
+    const v2, 0x7f06006f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -904,7 +904,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f060068
+    const v1, 0x7f06006e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -958,7 +958,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f060061
+    const v2, 0x7f060067
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -979,7 +979,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f06006a
+    const v2, 0x7f060070
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1000,7 +1000,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f06006b
+    const v2, 0x7f060071
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1133,11 +1133,11 @@
 
     iget v3, p0, Lcom/sec/android/app/camera/widget/TwStopMotionPreview;->mLeftArrowLeftMargin:I
 
-    const v4, 0x7f0201c8
+    const v4, 0x7f0201e4
 
     const/16 v5, 0x66
 
-    const v6, 0x7f0201c7
+    const v6, 0x7f0201e3
 
     invoke-virtual/range {v0 .. v6}, Lcom/sec/android/app/camera/widget/TwLayoutButton;->setButtonParams(IIIIII)V
 
@@ -1184,11 +1184,11 @@
 
     iget v3, p0, Lcom/sec/android/app/camera/widget/TwStopMotionPreview;->mLeftArrowLeftMargin:I
 
-    const v4, 0x7f0201ca
+    const v4, 0x7f0201e6
 
     const/16 v5, 0x67
 
-    const v6, 0x7f0201c9
+    const v6, 0x7f0201e5
 
     invoke-virtual/range {v0 .. v6}, Lcom/sec/android/app/camera/widget/TwLayoutButton;->setButtonParams(IIIIII)V
 

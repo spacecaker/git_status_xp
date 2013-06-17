@@ -23,7 +23,7 @@
     .parameter "zOrder"
 
     .prologue
-    .line 40
+    .line 39
     move-object v0, p0
 
     move-object v1, p1
@@ -40,10 +40,10 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/sec/android/app/camera/MenuBase;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
-    .line 42
+    .line 41
     invoke-direct {p0, p5}, Lcom/sec/android/app/camera/FocusModeContinuousMenu;->init(Lcom/sec/android/app/camera/FocusModeContinuousResourceData;)V
 
-    .line 43
+    .line 42
     return-void
 .end method
 
@@ -52,7 +52,7 @@
     .parameter "resourceData"
 
     .prologue
-    .line 46
+    .line 45
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -65,10 +65,10 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/FocusModeContinuousMenu;->mSelectedFocusMode:I
 
-    .line 47
+    .line 46
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const v1, 0x7f0a00a1
+    const v1, 0x7f0a00a0
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
 
@@ -78,19 +78,19 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/FocusModeContinuousMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
-    .line 48
+    .line 47
     iget-object v0, p0, Lcom/sec/android/app/camera/FocusModeContinuousMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     iget v1, p0, Lcom/sec/android/app/camera/FocusModeContinuousMenu;->mSelectedFocusMode:I
 
     invoke-virtual {v0, p1, v1}, Lcom/sec/android/app/camera/widget/TwGridView;->initializeView(Lcom/sec/android/app/camera/MenuResourceBase;I)V
 
-    .line 49
+    .line 48
     iget-object v0, p0, Lcom/sec/android/app/camera/FocusModeContinuousMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     invoke-virtual {v0, p0}, Lcom/sec/android/app/camera/widget/TwGridView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 50
+    .line 49
     return-void
 .end method
 
@@ -125,16 +125,16 @@
     .parameter "v"
 
     .prologue
-    .line 53
+    .line 52
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
 
-    const v1, 0x7f0a00a4
+    const v1, 0x7f0a00a3
 
     if-eq v0, v1, :cond_0
 
-    .line 54
+    .line 53
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
@@ -147,17 +147,22 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/FocusModeContinuousMenu;->mSelectedFocusMode:I
 
-    .line 55
+    .line 54
     iget-object v0, p0, Lcom/sec/android/app/camera/FocusModeContinuousMenu;->mOnFocusModeChangedListener:Lcom/sec/android/app/camera/FocusModeMenu$OnFocusModeChangedListener;
 
     if-eqz v0, :cond_0
 
-    .line 56
+    .line 55
     iget-object v0, p0, Lcom/sec/android/app/camera/FocusModeContinuousMenu;->mOnFocusModeChangedListener:Lcom/sec/android/app/camera/FocusModeMenu$OnFocusModeChangedListener;
 
     iget v1, p0, Lcom/sec/android/app/camera/FocusModeContinuousMenu;->mSelectedFocusMode:I
 
     invoke-interface {v0, v1}, Lcom/sec/android/app/camera/FocusModeMenu$OnFocusModeChangedListener;->onFocusModeChanged(I)V
+
+    .line 56
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/sec/android/app/camera/FocusModeContinuousMenu;->mOnFocusModeChangedListener:Lcom/sec/android/app/camera/FocusModeMenu$OnFocusModeChangedListener;
 
     .line 59
     :cond_0

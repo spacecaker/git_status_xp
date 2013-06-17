@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 97
+    .line 98
     iput-object p1, p0, Lcom/sec/android/app/camera/ReviewImage$1;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,12 +41,12 @@
     .locals 1
 
     .prologue
-    .line 99
+    .line 100
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$1;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     #calls: Lcom/sec/android/app/camera/ReviewImage;->hideOnScreenControls()V
     invoke-static {v0}, Lcom/sec/android/app/camera/ReviewImage;->access$000(Lcom/sec/android/app/camera/ReviewImage;)V
 
-    .line 100
+    .line 101
     return-void
 .end method

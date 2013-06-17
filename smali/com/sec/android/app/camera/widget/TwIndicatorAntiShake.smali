@@ -61,7 +61,7 @@
 
     .line 47
     .local v0, attr:Landroid/content/res/TypedArray;
-    const v1, 0x7f02013c
+    const v1, 0x7f020158
 
     invoke-virtual {v0, v3, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -70,7 +70,7 @@
     invoke-virtual {p0, v3, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorAntiShake;->addImageId(II)V
 
     .line 50
-    const v1, 0x7f02013a
+    const v1, 0x7f020156
 
     invoke-virtual {v0, v4, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 

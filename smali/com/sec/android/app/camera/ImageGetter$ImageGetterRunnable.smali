@@ -138,7 +138,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 225
+    .line 229
     :cond_0
     :goto_1
     return-void
@@ -413,7 +413,7 @@
 
     move-result v13
 
-    .line 206
+    .line 209
     .local v13, sizeToUse:I
     const/high16 v0, 0x10
 
@@ -425,11 +425,11 @@
 
     move-result-object v6
 
-    .line 209
+    .line 213
     .restart local v6       #b:Landroid/graphics/Bitmap;
     if-eqz v6, :cond_6
 
-    .line 210
+    .line 214
     iget-object v0, p0, Lcom/sec/android/app/camera/ImageGetter$ImageGetterRunnable;->this$0:Lcom/sec/android/app/camera/ImageGetter;
 
     #getter for: Lcom/sec/android/app/camera/ImageGetter;->mCancel:Z
@@ -439,12 +439,12 @@
 
     if-eqz v0, :cond_8
 
-    .line 211
+    .line 215
     invoke-virtual {v6}, Landroid/graphics/Bitmap;->recycle()V
 
     goto/16 :goto_1
 
-    .line 215
+    .line 219
     :cond_8
     new-instance v4, Lcom/sec/android/app/camera/RotateBitmap;
 
@@ -454,7 +454,7 @@
 
     invoke-direct {v4, v6, v0}, Lcom/sec/android/app/camera/RotateBitmap;-><init>(Landroid/graphics/Bitmap;I)V
 
-    .line 218
+    .line 222
     .local v4, rb:Lcom/sec/android/app/camera/RotateBitmap;
     iget-object v0, p0, Lcom/sec/android/app/camera/ImageGetter$ImageGetterRunnable;->this$0:Lcom/sec/android/app/camera/ImageGetter;
 
@@ -478,7 +478,7 @@
 
     move-result-object v7
 
-    .line 220
+    .line 224
     .restart local v7       #cb:Ljava/lang/Runnable;
     iget-object v0, p0, Lcom/sec/android/app/camera/ImageGetter$ImageGetterRunnable;->this$0:Lcom/sec/android/app/camera/ImageGetter;
 
@@ -491,7 +491,7 @@
 
     goto :goto_4
 
-    .line 224
+    .line 228
     .end local v2           #offset:I
     .end local v4           #rb:Lcom/sec/android/app/camera/RotateBitmap;
     .end local v6           #b:Landroid/graphics/Bitmap;

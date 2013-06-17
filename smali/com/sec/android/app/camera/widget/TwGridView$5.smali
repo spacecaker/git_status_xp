@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 656
+    .line 691
     iput-object p1, p0, Lcom/sec/android/app/camera/widget/TwGridView$5;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,70 +38,112 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
-    .parameter "v"
+    .locals 3
+    .parameter "view"
 
     .prologue
-    .line 658
-    iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwGridView$5;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
+    .line 693
+    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
-    #getter for: Lcom/sec/android/app/camera/widget/TwGridView;->mClickPass:Z
-    invoke-static {v0}, Lcom/sec/android/app/camera/widget/TwGridView;->access$1400(Lcom/sec/android/app/camera/widget/TwGridView;)Z
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Integer;
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    const/4 v1, 0x1
+    .line 694
+    .local v0, tag:I
+    iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$5;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
+
+    #getter for: Lcom/sec/android/app/camera/widget/TwGridView;->mSelectID:I
+    invoke-static {v1}, Lcom/sec/android/app/camera/widget/TwGridView;->access$900(Lcom/sec/android/app/camera/widget/TwGridView;)I
+
+    move-result v1
 
     if-ne v0, v1, :cond_0
 
-    .line 660
-    iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwGridView$5;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
+    .line 695
+    iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$5;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
-    const/4 v1, 0x0
+    #getter for: Lcom/sec/android/app/camera/widget/TwGridView;->mSaveButton:Landroid/widget/ImageButton;
+    invoke-static {v1}, Lcom/sec/android/app/camera/widget/TwGridView;->access$1000(Lcom/sec/android/app/camera/widget/TwGridView;)Landroid/widget/ImageButton;
 
-    #setter for: Lcom/sec/android/app/camera/widget/TwGridView;->mClickPass:Z
-    invoke-static {v0, v1}, Lcom/sec/android/app/camera/widget/TwGridView;->access$1402(Lcom/sec/android/app/camera/widget/TwGridView;Z)Z
+    move-result-object v1
 
-    .line 671
-    :goto_0
-    return-void
+    if-eqz v1, :cond_0
 
-    .line 663
+    .line 696
+    iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$5;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
+
+    #getter for: Lcom/sec/android/app/camera/widget/TwGridView;->mSaveButton:Landroid/widget/ImageButton;
+    invoke-static {v1}, Lcom/sec/android/app/camera/widget/TwGridView;->access$1000(Lcom/sec/android/app/camera/widget/TwGridView;)Landroid/widget/ImageButton;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/ImageButton;->performClick()Z
+
+    .line 699
     :cond_0
-    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
+    iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$5;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
-    move-result-object v0
+    #setter for: Lcom/sec/android/app/camera/widget/TwGridView;->mSelectID:I
+    invoke-static {v1, v0}, Lcom/sec/android/app/camera/widget/TwGridView;->access$902(Lcom/sec/android/app/camera/widget/TwGridView;I)I
 
-    check-cast v0, Ljava/lang/Integer;
+    .line 700
+    iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$5;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    #setter for: Lcom/sec/android/app/camera/widget/TwGridView;->mFocusID:I
+    invoke-static {v1, v0}, Lcom/sec/android/app/camera/widget/TwGridView;->access$702(Lcom/sec/android/app/camera/widget/TwGridView;I)I
 
-    move-result v0
+    .line 701
+    iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$5;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
-    packed-switch v0, :pswitch_data_0
+    #getter for: Lcom/sec/android/app/camera/widget/TwGridView;->mOnClickListener:Landroid/view/View$OnClickListener;
+    invoke-static {v1}, Lcom/sec/android/app/camera/widget/TwGridView;->access$1100(Lcom/sec/android/app/camera/widget/TwGridView;)Landroid/view/View$OnClickListener;
 
-    goto :goto_0
+    move-result-object v1
 
-    .line 668
-    :pswitch_0
-    iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwGridView$5;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
+    if-eqz v1, :cond_1
 
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/widget/TwGridView;->processScrollUp()V
+    .line 702
+    iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$5;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
-    goto :goto_0
+    #getter for: Lcom/sec/android/app/camera/widget/TwGridView;->mOnClickListener:Landroid/view/View$OnClickListener;
+    invoke-static {v1}, Lcom/sec/android/app/camera/widget/TwGridView;->access$1100(Lcom/sec/android/app/camera/widget/TwGridView;)Landroid/view/View$OnClickListener;
 
-    .line 665
-    :pswitch_1
-    iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwGridView$5;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
+    move-result-object v1
 
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/widget/TwGridView;->processScrollDown()V
+    invoke-interface {v1, p1}, Landroid/view/View$OnClickListener;->onClick(Landroid/view/View;)V
 
-    goto :goto_0
+    .line 704
+    :cond_1
+    iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$5;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
-    .line 663
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
+    #getter for: Lcom/sec/android/app/camera/widget/TwGridView;->mGridStyle:I
+    invoke-static {v1}, Lcom/sec/android/app/camera/widget/TwGridView;->access$1200(Lcom/sec/android/app/camera/widget/TwGridView;)I
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    if-ne v1, v2, :cond_2
+
+    .line 705
+    iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwGridView$5;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
+
+    iget-object v2, p0, Lcom/sec/android/app/camera/widget/TwGridView$5;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
+
+    #getter for: Lcom/sec/android/app/camera/widget/TwGridView;->mSelectID:I
+    invoke-static {v2}, Lcom/sec/android/app/camera/widget/TwGridView;->access$900(Lcom/sec/android/app/camera/widget/TwGridView;)I
+
+    move-result v2
+
+    #calls: Lcom/sec/android/app/camera/widget/TwGridView;->updateDescriptionPanel(I)V
+    invoke-static {v1, v2}, Lcom/sec/android/app/camera/widget/TwGridView;->access$1300(Lcom/sec/android/app/camera/widget/TwGridView;I)V
+
+    .line 707
+    :cond_2
+    return-void
 .end method

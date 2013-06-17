@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 124
+    .line 128
     iput-object p1, p0, Lcom/sec/android/app/camera/CameraSideMenu$3;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 126
+    .line 130
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraSideMenu$3;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraSideMenu;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -50,33 +50,33 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/Camera;->hideFocusText()V
 
-    .line 127
+    .line 131
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraSideMenu$3;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraSideMenu;->setAnimationEnabled(Z)V
 
-    .line 128
+    .line 132
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraSideMenu$3;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraSideMenu;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->hideSideMenu()V
 
-    .line 129
+    .line 133
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraSideMenu$3;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraSideMenu;->setAnimationEnabled(Z)V
 
-    .line 130
+    .line 134
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraSideMenu$3;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSideMenu;->stopHideMenuTimer()V
 
-    .line 131
+    .line 135
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraSideMenu$3;->this$0:Lcom/sec/android/app/camera/CameraSideMenu;
 
     iget-object p0, v0, Lcom/sec/android/app/camera/CameraSideMenu;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -86,6 +86,6 @@
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camera;->showFocusText()V
 
-    .line 132
+    .line 136
     return-void
 .end method

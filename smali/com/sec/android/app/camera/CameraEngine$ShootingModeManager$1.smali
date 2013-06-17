@@ -33,7 +33,7 @@
     .parameter
 
     .prologue
-    .line 2353
+    .line 2426
     iput-object p1, p0, Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager$1;->this$1:Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager;
 
     iput-object p2, p0, Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager$1;->val$jpegData:[B
@@ -51,7 +51,7 @@
     .locals 3
 
     .prologue
-    .line 2355
+    .line 2428
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager$1;->this$1:Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager$1;->val$jpegData:[B
@@ -59,9 +59,9 @@
     iget-object v2, p0, Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager$1;->val$location:Landroid/location/Location;
 
     #calls: Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager;->storeImage([BLandroid/location/Location;)Z
-    invoke-static {v0, v1, v2}, Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager;->access$2000(Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager;[BLandroid/location/Location;)Z
+    invoke-static {v0, v1, v2}, Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager;->access$2200(Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager;[BLandroid/location/Location;)Z
 
-    .line 2356
+    .line 2429
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager$1;->this$1:Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine$ShootingModeManager;->this$0:Lcom/sec/android/app/camera/CameraEngine;
@@ -72,6 +72,6 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraEngine$StateMessageHandler;->sendEmptyMessage(I)Z
 
-    .line 2362
+    .line 2435
     return-void
 .end method

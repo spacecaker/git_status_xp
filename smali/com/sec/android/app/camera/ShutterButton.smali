@@ -47,26 +47,26 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 65
+    .line 64
     invoke-direct/range {p0 .. p6}, Lcom/sec/android/app/camera/MenuBase;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
-    .line 67
+    .line 66
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->buttonSetList:Ljava/util/List;
 
-    .line 69
+    .line 68
     invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/ShutterButton;->setCaptureEnabled(Z)V
 
-    .line 70
+    .line 69
     invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/ShutterButton;->setTouchHandled(Z)V
 
-    .line 71
+    .line 70
     invoke-direct {p0}, Lcom/sec/android/app/camera/ShutterButton;->init()V
 
-    .line 73
+    .line 72
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -75,7 +75,7 @@
 
     invoke-virtual {v0, p0}, Lcom/sec/android/app/camera/CameraSettings;->registerCameraSettingsChangedObserver(Lcom/sec/android/app/camera/CameraSettings$OnCameraSettingsChangedObserver;)V
 
-    .line 74
+    .line 73
     return-void
 .end method
 
@@ -83,7 +83,7 @@
     .locals 2
 
     .prologue
-    .line 79
+    .line 78
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     const v1, 0x7f0a00d1
@@ -96,17 +96,17 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mShutterButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
-    .line 80
+    .line 79
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mShutterButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     invoke-virtual {v0, p0}, Lcom/sec/android/app/camera/widget/TwImageButton;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 81
+    .line 80
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mShutterButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/widget/TwImageButton;->SetClickSoundDisabled()V
 
-    .line 92
+    .line 91
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     const v1, 0x7f0a00d0
@@ -119,12 +119,12 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 93
+    .line 92
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mTrayButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
-    .line 96
+    .line 95
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     iget v1, p0, Lcom/sec/android/app/camera/MenuBase;->mBaseViewId:I
@@ -137,13 +137,13 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 98
+    .line 97
     invoke-direct {p0}, Lcom/sec/android/app/camera/ShutterButton;->populateButtonSet()V
 
-    .line 99
+    .line 98
     invoke-virtual {p0}, Lcom/sec/android/app/camera/ShutterButton;->initializeButtons()V
 
-    .line 100
+    .line 99
     return-void
 .end method
 
@@ -151,16 +151,16 @@
     .locals 8
 
     .prologue
-    .line 160
+    .line 159
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mShutterButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     if-nez v0, :cond_0
 
-    .line 171
+    .line 170
     :goto_0
     return-void
 
-    .line 163
+    .line 162
     :cond_0
     iget-object v7, p0, Lcom/sec/android/app/camera/ShutterButton;->buttonSetList:Ljava/util/List;
 
@@ -170,11 +170,11 @@
 
     iget-object v3, p0, Lcom/sec/android/app/camera/ShutterButton;->mShutterButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
-    const v4, 0x7f0201bf
+    const v4, 0x7f0201db
 
-    const v5, 0x7f0201c0
+    const v5, 0x7f0201dc
 
-    const v6, 0x7f0201be
+    const v6, 0x7f0201da
 
     move-object v1, p0
 
@@ -182,7 +182,7 @@
 
     invoke-interface {v7, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 167
+    .line 166
     iget-object v7, p0, Lcom/sec/android/app/camera/ShutterButton;->buttonSetList:Ljava/util/List;
 
     new-instance v0, Lcom/sec/android/app/camera/ShutterButton$ButtonSet;
@@ -191,11 +191,11 @@
 
     iget-object v3, p0, Lcom/sec/android/app/camera/ShutterButton;->mShutterButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
-    const v4, 0x7f0201b0
+    const v4, 0x7f0201cc
 
-    const v5, 0x7f0201b1
+    const v5, 0x7f0201cd
 
-    const v6, 0x7f0201af
+    const v6, 0x7f0201cb
 
     move-object v1, p0
 
@@ -212,19 +212,19 @@
     .locals 2
 
     .prologue
-    .line 211
+    .line 210
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mTrayButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     if-eqz v0, :cond_0
 
-    .line 212
+    .line 211
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mTrayButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwImageButton;->setVisibility(I)V
 
-    .line 213
+    .line 212
     :cond_0
     return-void
 .end method
@@ -233,7 +233,7 @@
     .locals 1
 
     .prologue
-    .line 103
+    .line 102
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -246,16 +246,16 @@
 
     if-nez v0, :cond_0
 
-    .line 104
+    .line 103
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/ShutterButton;->updateButton(I)V
 
-    .line 108
+    .line 107
     :goto_0
     return-void
 
-    .line 106
+    .line 105
     :cond_0
     const/4 v0, 0x1
 
@@ -270,53 +270,53 @@
     .parameter "modeid"
 
     .prologue
-    .line 190
+    .line 189
     packed-switch p1, :pswitch_data_0
 
-    .line 203
+    .line 202
     :cond_0
     :goto_0
     return-void
 
-    .line 192
+    .line 191
     :pswitch_0
     const/4 v0, 0x1
 
     if-ne p2, v0, :cond_2
 
-    .line 193
+    .line 192
     invoke-virtual {p0}, Lcom/sec/android/app/camera/ShutterButton;->setButtonLocked()V
 
-    .line 194
+    .line 193
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mShutterButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     if-eqz v0, :cond_1
 
-    .line 195
+    .line 194
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mShutterButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/widget/TwImageButton;->refreshButtonImage()V
 
-    .line 196
+    .line 195
     :cond_1
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mTrayButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     if-eqz v0, :cond_0
 
-    .line 197
+    .line 196
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mTrayButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/widget/TwImageButton;->refreshButtonImage()V
 
     goto :goto_0
 
-    .line 199
+    .line 198
     :cond_2
     invoke-virtual {p0}, Lcom/sec/android/app/camera/ShutterButton;->setButtonUnlocked()V
 
     goto :goto_0
 
-    .line 190
+    .line 189
     nop
 
     :pswitch_data_0
@@ -330,7 +330,7 @@
     .parameter "arg0"
 
     .prologue
-    .line 111
+    .line 110
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -343,11 +343,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 118
+    .line 117
     :goto_0
     return-void
 
-    .line 114
+    .line 113
     :cond_0
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -357,12 +357,12 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 115
+    .line 114
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->hideSideMenu()V
 
-    .line 117
+    .line 116
     :cond_1
     invoke-super {p0, p1}, Lcom/sec/android/app/camera/MenuBase;->onClick(Landroid/view/View;)V
 
@@ -381,20 +381,20 @@
 
     const/4 v1, 0x1
 
-    .line 121
+    .line 120
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 141
+    .line 140
     :cond_0
     :goto_0
     :pswitch_0
     return v1
 
-    .line 123
+    .line 122
     :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -408,10 +408,10 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 124
+    .line 123
     iput-boolean v1, p0, Lcom/sec/android/app/camera/ShutterButton;->mContinousProgressing:Z
 
-    .line 126
+    .line 125
     :cond_1
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -419,7 +419,7 @@
 
     goto :goto_0
 
-    .line 129
+    .line 128
     :pswitch_2
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -427,30 +427,30 @@
 
     goto :goto_0
 
-    .line 132
+    .line 131
     :pswitch_3
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0, p2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
-    .line 133
+    .line 132
     iget-boolean v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mContinousProgressing:Z
 
     if-eqz v0, :cond_0
 
-    .line 134
+    .line 133
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0, v2, v3}, Lcom/sec/android/app/camera/AbstractCameraActivity;->onKeyUp(ILandroid/view/KeyEvent;)Z
 
-    .line 135
+    .line 134
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mContinousProgressing:Z
 
     goto :goto_0
 
-    .line 121
+    .line 120
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -466,28 +466,28 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 174
+    .line 173
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mShutterButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     if-eqz v0, :cond_0
 
-    .line 175
+    .line 174
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mShutterButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwImageButton;->setDisabled(Z)V
 
-    .line 177
+    .line 176
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mTrayButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     if-eqz v0, :cond_1
 
-    .line 178
+    .line 177
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mTrayButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwImageButton;->setDisabled(Z)V
 
-    .line 179
+    .line 178
     :cond_1
     return-void
 .end method
@@ -498,29 +498,42 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 182
+    .line 181
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mShutterButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     if-eqz v0, :cond_0
 
-    .line 183
+    .line 182
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mShutterButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwImageButton;->setDisabled(Z)V
 
-    .line 185
+    .line 184
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mTrayButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     if-eqz v0, :cond_1
 
-    .line 186
+    .line 185
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mTrayButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwImageButton;->setDisabled(Z)V
 
-    .line 187
+    .line 186
     :cond_1
+    return-void
+.end method
+
+.method public setSutterButtonSoundOff()V
+    .locals 1
+
+    .prologue
+    .line 215
+    iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mShutterButton:Lcom/sec/android/app/camera/widget/TwImageButton;
+
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/widget/TwImageButton;->SetClickSoundDisabled()V
+
+    .line 216
     return-void
 .end method
 
@@ -528,19 +541,19 @@
     .locals 2
 
     .prologue
-    .line 206
+    .line 205
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mTrayButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     if-eqz v0, :cond_0
 
-    .line 207
+    .line 206
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterButton;->mTrayButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwImageButton;->setVisibility(I)V
 
-    .line 208
+    .line 207
     :cond_0
     return-void
 .end method
@@ -550,14 +563,14 @@
     .parameter "mode"
 
     .prologue
-    .line 145
+    .line 144
     iget-object v2, p0, Lcom/sec/android/app/camera/ShutterButton;->buttonSetList:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    .line 147
+    .line 146
     .local v1, iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/sec/android/app/camera/ShutterButton$ButtonSet;>;"
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -566,46 +579,46 @@
 
     if-eqz v2, :cond_1
 
-    .line 148
+    .line 147
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/sec/android/app/camera/ShutterButton$ButtonSet;
 
-    .line 149
+    .line 148
     .local v0, buttonSet:Lcom/sec/android/app/camera/ShutterButton$ButtonSet;
     iget v2, v0, Lcom/sec/android/app/camera/ShutterButton$ButtonSet;->mMode:I
 
     if-ne v2, p1, :cond_0
 
-    .line 150
+    .line 149
     iget-object v2, v0, Lcom/sec/android/app/camera/ShutterButton$ButtonSet;->mButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     iget v3, v0, Lcom/sec/android/app/camera/ShutterButton$ButtonSet;->mNormalBackgroundId:I
 
     invoke-virtual {v2, v3}, Lcom/sec/android/app/camera/widget/TwImageButton;->setNormalImage(I)V
 
-    .line 151
+    .line 150
     iget-object v2, v0, Lcom/sec/android/app/camera/ShutterButton$ButtonSet;->mButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     iget v3, v0, Lcom/sec/android/app/camera/ShutterButton$ButtonSet;->mClickedBackgroundId:I
 
     invoke-virtual {v2, v3}, Lcom/sec/android/app/camera/widget/TwImageButton;->setPressedImage(I)V
 
-    .line 152
+    .line 151
     iget-object v2, v0, Lcom/sec/android/app/camera/ShutterButton$ButtonSet;->mButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     iget v3, v0, Lcom/sec/android/app/camera/ShutterButton$ButtonSet;->mDimmedBackgroundId:I
 
     invoke-virtual {v2, v3}, Lcom/sec/android/app/camera/widget/TwImageButton;->setDimmedImage(I)V
 
-    .line 153
+    .line 152
     iget-object v2, v0, Lcom/sec/android/app/camera/ShutterButton$ButtonSet;->mButton:Lcom/sec/android/app/camera/widget/TwImageButton;
 
     invoke-virtual {v2}, Lcom/sec/android/app/camera/widget/TwImageButton;->refreshButtonImage()V
 
-    .line 157
+    .line 156
     .end local v0           #buttonSet:Lcom/sec/android/app/camera/ShutterButton$ButtonSet;
     :cond_1
     return-void

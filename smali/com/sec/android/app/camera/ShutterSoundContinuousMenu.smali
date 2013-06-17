@@ -23,7 +23,7 @@
     .parameter "zOrder"
 
     .prologue
-    .line 40
+    .line 39
     move-object v0, p0
 
     move-object v1, p1
@@ -40,10 +40,10 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/sec/android/app/camera/MenuBase;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
-    .line 42
+    .line 41
     invoke-direct {p0, p5}, Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;->init(Lcom/sec/android/app/camera/ShutterSoundContinuousResourceData;)V
 
-    .line 43
+    .line 42
     return-void
 .end method
 
@@ -52,7 +52,7 @@
     .parameter "resourceData"
 
     .prologue
-    .line 46
+    .line 45
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -65,7 +65,7 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;->mSelectedShutterSound:I
 
-    .line 47
+    .line 46
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     const v1, 0x7f0a00d3
@@ -78,24 +78,24 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
-    .line 48
+    .line 47
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     iget v1, p0, Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;->mSelectedShutterSound:I
 
     invoke-virtual {v0, p1, v1}, Lcom/sec/android/app/camera/widget/TwGridView;->initializeView(Lcom/sec/android/app/camera/MenuResourceBase;I)V
 
-    .line 49
+    .line 48
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     invoke-virtual {v0, p0}, Lcom/sec/android/app/camera/widget/TwGridView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 50
+    .line 49
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/widget/TwGridView;->setClickSoundDisabled()V
 
-    .line 51
+    .line 50
     return-void
 .end method
 
@@ -108,19 +108,19 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 88
+    .line 89
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     if-ne v0, v1, :cond_0
 
-    .line 90
+    .line 91
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->processBack()V
 
-    .line 93
+    .line 94
     :cond_0
     return v1
 .end method
@@ -130,7 +130,7 @@
     .parameter "v"
 
     .prologue
-    .line 54
+    .line 53
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
@@ -182,18 +182,23 @@
     .line 73
     return-void
 
-    .line 56
+    .line 55
     :sswitch_0
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;->mOnShutterSoundChangedListener:Lcom/sec/android/app/camera/ShutterSoundMenu$OnShutterSoundChangedListener;
 
     if-eqz v0, :cond_0
 
-    .line 57
+    .line 56
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;->mOnShutterSoundChangedListener:Lcom/sec/android/app/camera/ShutterSoundMenu$OnShutterSoundChangedListener;
 
     iget v1, p0, Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;->mSelectedShutterSound:I
 
     invoke-interface {v0, v1}, Lcom/sec/android/app/camera/ShutterSoundMenu$OnShutterSoundChangedListener;->onShutterSoundChanged(I)V
+
+    .line 57
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;->mOnShutterSoundChangedListener:Lcom/sec/android/app/camera/ShutterSoundMenu$OnShutterSoundChangedListener;
 
     goto :goto_0
 
@@ -219,10 +224,12 @@
 
     goto :goto_0
 
-    .line 54
+    .line 53
+    nop
+
     :sswitch_data_0
     .sparse-switch
-        0x7f0a00a4 -> :sswitch_1
+        0x7f0a00a3 -> :sswitch_1
         0x7f0a00ca -> :sswitch_0
     .end sparse-switch
 .end method
@@ -233,7 +240,7 @@
     .parameter "event"
 
     .prologue
-    .line 97
+    .line 98
     const/16 v0, 0x1b
 
     if-eq p1, v0, :cond_0
@@ -246,11 +253,11 @@
 
     if-ne p1, v0, :cond_1
 
-    .line 100
+    .line 101
     :cond_0
     const/4 v0, 0x1
 
-    .line 103
+    .line 104
     :goto_0
     return v0
 
@@ -266,7 +273,7 @@
     .parameter "event"
 
     .prologue
-    .line 107
+    .line 108
     const/16 v0, 0x1b
 
     if-eq p1, v0, :cond_0
@@ -279,11 +286,11 @@
 
     if-ne p1, v0, :cond_1
 
-    .line 110
+    .line 111
     :cond_0
     const/4 v0, 0x1
 
-    .line 113
+    .line 114
     :goto_0
     return v0
 
@@ -297,7 +304,7 @@
     .locals 2
 
     .prologue
-    .line 80
+    .line 81
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -310,23 +317,23 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;->mSelectedShutterSound:I
 
-    .line 81
+    .line 82
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     if-eqz v0, :cond_0
 
-    .line 82
+    .line 83
     iget-object v0, p0, Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     iget v1, p0, Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;->mSelectedShutterSound:I
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwGridView;->setCurrentSelectedItem(I)V
 
-    .line 84
+    .line 85
     :cond_0
     invoke-super {p0}, Lcom/sec/android/app/camera/MenuBase;->onShow()V
 
-    .line 85
+    .line 86
     return-void
 .end method
 
@@ -335,9 +342,9 @@
     .parameter "l"
 
     .prologue
-    .line 76
+    .line 77
     iput-object p1, p0, Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;->mOnShutterSoundChangedListener:Lcom/sec/android/app/camera/ShutterSoundMenu$OnShutterSoundChangedListener;
 
-    .line 77
+    .line 78
     return-void
 .end method

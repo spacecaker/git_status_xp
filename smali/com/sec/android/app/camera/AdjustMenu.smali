@@ -886,10 +886,10 @@
     .parameter "value"
 
     .prologue
-    .line 413
+    .line 420
     invoke-virtual {p1, p2}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    .line 414
+    .line 421
     return-void
 .end method
 
@@ -899,23 +899,7 @@
     .parameter "mValue"
 
     .prologue
-    .line 349
-    iget-object v9, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
-
-    invoke-virtual {v9}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x7f060017
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v9
-
-    float-to-int v6, v9
-
-    .line 350
-    .local v6, thumbTrans:I
+    .line 356
     iget-object v9, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v9}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getResources()Landroid/content/res/Resources;
@@ -928,10 +912,10 @@
 
     move-result v9
 
-    float-to-int v5, v9
+    float-to-int v6, v9
 
-    .line 351
-    .local v5, thumbBody:I
+    .line 357
+    .local v6, thumbTrans:I
     iget-object v9, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v9}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getResources()Landroid/content/res/Resources;
@@ -944,9 +928,25 @@
 
     move-result v9
 
+    float-to-int v5, v9
+
+    .line 358
+    .local v5, thumbBody:I
+    iget-object v9, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+
+    invoke-virtual {v9}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v9
+
+    const v10, 0x7f06001a
+
+    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v9
+
     float-to-int v7, v9
 
-    .line 353
+    .line 360
     .local v7, tooltipTrans:I
     invoke-virtual {p1}, Landroid/widget/SeekBar;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -954,7 +954,7 @@
 
     check-cast v3, Landroid/widget/RelativeLayout$LayoutParams;
 
-    .line 354
+    .line 361
     .local v3, rp:Landroid/widget/RelativeLayout$LayoutParams;
     iget v9, v3, Landroid/widget/RelativeLayout$LayoutParams;->width:I
 
@@ -974,11 +974,11 @@
 
     div-float v4, v9, v10
 
-    .line 355
+    .line 362
     .local v4, strips:F
     add-int/lit8 v2, p2, 0x2
 
-    .line 356
+    .line 363
     .local v2, offset:I
     iget v9, v3, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
 
@@ -992,7 +992,7 @@
 
     add-int v0, v9, v10
 
-    .line 357
+    .line 364
     .local v0, leftMargin:I
     iget-object v9, p0, Lcom/sec/android/app/camera/AdjustMenu;->popTextLayout:Landroid/widget/LinearLayout;
 
@@ -1002,7 +1002,7 @@
 
     check-cast v1, Landroid/widget/RelativeLayout$LayoutParams;
 
-    .line 358
+    .line 365
     .local v1, lp:Landroid/widget/RelativeLayout$LayoutParams;
     iget-object v9, p0, Lcom/sec/android/app/camera/AdjustMenu;->popTextLayout:Landroid/widget/LinearLayout;
 
@@ -1018,7 +1018,7 @@
 
     iput v9, v1, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
 
-    .line 359
+    .line 366
     iget v9, v3, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I
 
     iget-object v10, p0, Lcom/sec/android/app/camera/AdjustMenu;->popTextLayout:Landroid/widget/LinearLayout;
@@ -1033,12 +1033,12 @@
 
     iput v9, v1, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I
 
-    .line 360
+    .line 367
     iget-object v9, p0, Lcom/sec/android/app/camera/AdjustMenu;->popTextLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {v9, v1}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 361
+    .line 368
     iget-object v9, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     const v10, 0x7f0a0023
@@ -1049,29 +1049,15 @@
 
     check-cast v8, Landroid/widget/TextView;
 
-    .line 362
+    .line 369
     .local v8, tv:Landroid/widget/TextView;
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, ""
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {p2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v9
 
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 363
+    .line 370
     return-void
 .end method
 
@@ -1117,11 +1103,11 @@
     .local v0, leftMargin:I
     iget v3, v1, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I
 
-    .line 341
+    .line 348
     .local v3, topMargin:I
     const/4 v1, 0x0
 
-    .line 342
+    .line 349
     invoke-virtual {p2}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v1
@@ -1129,35 +1115,21 @@
     .end local v1           #rp:Landroid/widget/RelativeLayout$LayoutParams;
     check-cast v1, Landroid/widget/RelativeLayout$LayoutParams;
 
-    .line 343
+    .line 350
     .restart local v1       #rp:Landroid/widget/RelativeLayout$LayoutParams;
     invoke-virtual {v1, v0, v3, v6, v6}, Landroid/widget/RelativeLayout$LayoutParams;->setMargins(IIII)V
 
-    .line 344
+    .line 351
     invoke-virtual {p2, v1}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 345
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, ""
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 352
+    invoke-static {p3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v4
 
     invoke-virtual {p2, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 346
+    .line 353
     return-void
 .end method
 
@@ -1170,19 +1142,19 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 417
+    .line 424
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     if-ne v0, v1, :cond_0
 
-    .line 419
+    .line 426
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->processBack()V
 
-    .line 422
+    .line 429
     :cond_0
     return v1
 .end method
@@ -1191,26 +1163,26 @@
     .locals 2
 
     .prologue
-    .line 378
+    .line 385
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastValue:I
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mTempContrastValue:I
 
     if-eq v0, v1, :cond_0
 
-    .line 379
+    .line 386
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastValue:I
 
     iput v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mTempContrastValue:I
 
-    .line 380
+    .line 387
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastValue:I
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->changeContrastPreview(I)V
 
-    .line 382
+    .line 389
     :cond_0
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationValue:I
 
@@ -1218,19 +1190,19 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 383
+    .line 390
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationValue:I
 
     iput v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mTempSaturationValue:I
 
-    .line 384
+    .line 391
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationValue:I
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->changeSaturationPreview(I)V
 
-    .line 386
+    .line 393
     :cond_1
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessValue:I
 
@@ -1238,19 +1210,19 @@
 
     if-eq v0, v1, :cond_2
 
-    .line 387
+    .line 394
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessValue:I
 
     iput v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mTempSharpnessValue:I
 
-    .line 388
+    .line 395
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessValue:I
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->changeSharpnessPreview(I)V
 
-    .line 390
+    .line 397
     :cond_2
     return-void
 .end method
@@ -1262,22 +1234,22 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 269
+    .line 270
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 332
+    .line 333
     :goto_0
     :pswitch_0
     invoke-super {p0, p1}, Lcom/sec/android/app/camera/MenuBase;->onClick(Landroid/view/View;)V
 
-    .line 333
+    .line 334
     return-void
 
-    .line 271
+    .line 272
     :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastSeekBarListener:Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
@@ -1289,7 +1261,7 @@
 
     invoke-interface {v0, v1, v2, v3}, Landroid/widget/SeekBar$OnSeekBarChangeListener;->onProgressChanged(Landroid/widget/SeekBar;IZ)V
 
-    .line 272
+    .line 273
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastSeekBar:Landroid/widget/SeekBar;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mTempContrastValue:I
@@ -1298,7 +1270,7 @@
 
     goto :goto_0
 
-    .line 275
+    .line 276
     :pswitch_2
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastSeekBarListener:Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
@@ -1310,7 +1282,7 @@
 
     invoke-interface {v0, v1, v2, v3}, Landroid/widget/SeekBar$OnSeekBarChangeListener;->onProgressChanged(Landroid/widget/SeekBar;IZ)V
 
-    .line 276
+    .line 277
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastSeekBar:Landroid/widget/SeekBar;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mTempContrastValue:I
@@ -1319,7 +1291,7 @@
 
     goto :goto_0
 
-    .line 279
+    .line 280
     :pswitch_3
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationSeekBarListener:Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
@@ -1331,7 +1303,7 @@
 
     invoke-interface {v0, v1, v2, v3}, Landroid/widget/SeekBar$OnSeekBarChangeListener;->onProgressChanged(Landroid/widget/SeekBar;IZ)V
 
-    .line 280
+    .line 281
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationSeekBar:Landroid/widget/SeekBar;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mTempSaturationValue:I
@@ -1340,7 +1312,7 @@
 
     goto :goto_0
 
-    .line 283
+    .line 284
     :pswitch_4
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationSeekBarListener:Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
@@ -1352,7 +1324,7 @@
 
     invoke-interface {v0, v1, v2, v3}, Landroid/widget/SeekBar$OnSeekBarChangeListener;->onProgressChanged(Landroid/widget/SeekBar;IZ)V
 
-    .line 284
+    .line 285
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationSeekBar:Landroid/widget/SeekBar;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mTempSaturationValue:I
@@ -1361,7 +1333,7 @@
 
     goto :goto_0
 
-    .line 287
+    .line 288
     :pswitch_5
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessSeekBarListener:Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
@@ -1373,7 +1345,7 @@
 
     invoke-interface {v0, v1, v2, v3}, Landroid/widget/SeekBar$OnSeekBarChangeListener;->onProgressChanged(Landroid/widget/SeekBar;IZ)V
 
-    .line 288
+    .line 289
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessSeekBar:Landroid/widget/SeekBar;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mTempSharpnessValue:I
@@ -1382,7 +1354,7 @@
 
     goto :goto_0
 
-    .line 291
+    .line 292
     :pswitch_6
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessSeekBarListener:Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
@@ -1394,7 +1366,7 @@
 
     invoke-interface {v0, v1, v2, v3}, Landroid/widget/SeekBar$OnSeekBarChangeListener;->onProgressChanged(Landroid/widget/SeekBar;IZ)V
 
-    .line 292
+    .line 293
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessSeekBar:Landroid/widget/SeekBar;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mTempSharpnessValue:I
@@ -1403,7 +1375,7 @@
 
     goto :goto_0
 
-    .line 295
+    .line 296
     :pswitch_7
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastValue:I
 
@@ -1411,24 +1383,24 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 296
+    .line 297
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mTempContrastValue:I
 
     iput v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastValue:I
 
-    .line 297
+    .line 298
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mOnContrastChangedListener:Lcom/sec/android/app/camera/AdjustMenu$OnContrastChangedListener;
 
     if-eqz v0, :cond_0
 
-    .line 298
+    .line 299
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mOnContrastChangedListener:Lcom/sec/android/app/camera/AdjustMenu$OnContrastChangedListener;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastValue:I
 
     invoke-interface {v0, v1}, Lcom/sec/android/app/camera/AdjustMenu$OnContrastChangedListener;->onContrastChanged(I)V
 
-    .line 301
+    .line 302
     :cond_0
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationValue:I
 
@@ -1436,24 +1408,24 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 302
+    .line 303
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mTempSaturationValue:I
 
     iput v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationValue:I
 
-    .line 303
+    .line 304
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mOnSaturationChangedListener:Lcom/sec/android/app/camera/AdjustMenu$OnSaturationChangedListener;
 
     if-eqz v0, :cond_1
 
-    .line 304
+    .line 305
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mOnSaturationChangedListener:Lcom/sec/android/app/camera/AdjustMenu$OnSaturationChangedListener;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationValue:I
 
     invoke-interface {v0, v1}, Lcom/sec/android/app/camera/AdjustMenu$OnSaturationChangedListener;->onSaturationChanged(I)V
 
-    .line 307
+    .line 308
     :cond_1
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessValue:I
 
@@ -1461,24 +1433,24 @@
 
     if-eq v0, v1, :cond_2
 
-    .line 308
+    .line 309
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mTempSharpnessValue:I
 
     iput v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessValue:I
 
-    .line 309
+    .line 310
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mOnSharpnessChangedListener:Lcom/sec/android/app/camera/AdjustMenu$OnSharpnessChangedListener;
 
     if-eqz v0, :cond_2
 
-    .line 310
+    .line 311
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mOnSharpnessChangedListener:Lcom/sec/android/app/camera/AdjustMenu$OnSharpnessChangedListener;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessValue:I
 
     invoke-interface {v0, v1}, Lcom/sec/android/app/camera/AdjustMenu$OnSharpnessChangedListener;->onSharpnessChanged(I)V
 
-    .line 314
+    .line 315
     :cond_2
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -1486,7 +1458,7 @@
 
     goto/16 :goto_0
 
-    .line 317
+    .line 318
     :pswitch_8
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastValue:I
 
@@ -1494,19 +1466,19 @@
 
     if-eq v0, v1, :cond_3
 
-    .line 318
+    .line 319
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastValue:I
 
     iput v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mTempContrastValue:I
 
-    .line 319
+    .line 320
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastValue:I
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->changeContrastPreview(I)V
 
-    .line 321
+    .line 322
     :cond_3
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationValue:I
 
@@ -1514,19 +1486,19 @@
 
     if-eq v0, v1, :cond_4
 
-    .line 322
+    .line 323
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationValue:I
 
     iput v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mTempSaturationValue:I
 
-    .line 323
+    .line 324
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationValue:I
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->changeSaturationPreview(I)V
 
-    .line 325
+    .line 326
     :cond_4
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessValue:I
 
@@ -1534,19 +1506,19 @@
 
     if-eq v0, v1, :cond_5
 
-    .line 326
+    .line 327
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessValue:I
 
     iput v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mTempSharpnessValue:I
 
-    .line 327
+    .line 328
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessValue:I
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->changeSharpnessPreview(I)V
 
-    .line 329
+    .line 330
     :cond_5
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -1554,7 +1526,7 @@
 
     goto/16 :goto_0
 
-    .line 269
+    .line 270
     nop
 
     :pswitch_data_0
@@ -1585,22 +1557,22 @@
     .parameter "event"
 
     .prologue
-    .line 229
+    .line 230
     sparse-switch p2, :sswitch_data_0
 
-    .line 240
+    .line 241
     const/4 v0, 0x0
 
     :goto_0
     return v0
 
-    .line 238
+    .line 239
     :sswitch_0
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 229
+    .line 230
     nop
 
     :sswitch_data_0
@@ -1626,18 +1598,18 @@
 
     const/4 v1, 0x1
 
-    .line 426
+    .line 433
     const/16 v0, 0x1a
 
     if-ne p1, v0, :cond_0
 
     move v0, v2
 
-    .line 456
+    .line 463
     :goto_0
     return v0
 
-    .line 430
+    .line 437
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -1653,10 +1625,10 @@
 
     move v0, v1
 
-    .line 431
+    .line 438
     goto :goto_0
 
-    .line 434
+    .line 441
     :cond_1
     const/16 v0, 0x18
 
@@ -1677,10 +1649,10 @@
     :cond_2
     move v0, v1
 
-    .line 436
+    .line 443
     goto :goto_0
 
-    .line 439
+    .line 446
     :cond_3
     const/16 v0, 0x1b
 
@@ -1697,10 +1669,10 @@
     :cond_4
     move v0, v1
 
-    .line 441
+    .line 448
     goto :goto_0
 
-    .line 444
+    .line 451
     :cond_5
     const/4 v0, 0x4
 
@@ -1710,7 +1682,7 @@
 
     if-ne p1, v0, :cond_9
 
-    .line 445
+    .line 452
     :cond_6
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastValue:I
 
@@ -1718,14 +1690,14 @@
 
     if-eq v0, v1, :cond_7
 
-    .line 446
+    .line 453
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastValue:I
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->changeContrastPreview(I)V
 
-    .line 448
+    .line 455
     :cond_7
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationValue:I
 
@@ -1733,14 +1705,14 @@
 
     if-eq v0, v1, :cond_8
 
-    .line 449
+    .line 456
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationValue:I
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->changeSaturationPreview(I)V
 
-    .line 451
+    .line 458
     :cond_8
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessValue:I
 
@@ -1748,7 +1720,7 @@
 
     if-eq v0, v1, :cond_9
 
-    .line 452
+    .line 459
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessValue:I
@@ -1758,7 +1730,7 @@
     :cond_9
     move v0, v2
 
-    .line 456
+    .line 463
     goto :goto_0
 .end method
 
@@ -1772,18 +1744,18 @@
 
     const/4 v1, 0x1
 
-    .line 460
+    .line 467
     const/16 v0, 0x1a
 
     if-ne p1, v0, :cond_0
 
     move v0, v2
 
-    .line 490
+    .line 497
     :goto_0
     return v0
 
-    .line 464
+    .line 471
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -1799,10 +1771,10 @@
 
     move v0, v1
 
-    .line 465
+    .line 472
     goto :goto_0
 
-    .line 468
+    .line 475
     :cond_1
     const/16 v0, 0x18
 
@@ -1823,10 +1795,10 @@
     :cond_2
     move v0, v1
 
-    .line 470
+    .line 477
     goto :goto_0
 
-    .line 473
+    .line 480
     :cond_3
     const/16 v0, 0x1b
 
@@ -1843,10 +1815,10 @@
     :cond_4
     move v0, v1
 
-    .line 475
+    .line 482
     goto :goto_0
 
-    .line 478
+    .line 485
     :cond_5
     const/4 v0, 0x4
 
@@ -1856,7 +1828,7 @@
 
     if-ne p1, v0, :cond_9
 
-    .line 479
+    .line 486
     :cond_6
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastValue:I
 
@@ -1864,14 +1836,14 @@
 
     if-eq v0, v1, :cond_7
 
-    .line 480
+    .line 487
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastValue:I
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->changeContrastPreview(I)V
 
-    .line 482
+    .line 489
     :cond_7
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationValue:I
 
@@ -1879,14 +1851,14 @@
 
     if-eq v0, v1, :cond_8
 
-    .line 483
+    .line 490
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationValue:I
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->changeSaturationPreview(I)V
 
-    .line 485
+    .line 492
     :cond_8
     iget v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessValue:I
 
@@ -1894,7 +1866,7 @@
 
     if-eq v0, v1, :cond_9
 
-    .line 486
+    .line 493
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessValue:I
@@ -1904,7 +1876,7 @@
     :cond_9
     move v0, v2
 
-    .line 490
+    .line 497
     goto :goto_0
 .end method
 
@@ -1915,10 +1887,10 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 244
+    .line 245
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/AdjustMenu;->setLongTouch(Z)V
 
-    .line 245
+    .line 246
     return v0
 .end method
 
@@ -1928,7 +1900,7 @@
     .prologue
     const/4 v3, 0x2
 
-    .line 393
+    .line 400
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -1941,7 +1913,7 @@
 
     if-nez v0, :cond_0
 
-    .line 394
+    .line 401
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -1954,7 +1926,7 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastValue:I
 
-    .line 395
+    .line 402
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -1967,7 +1939,7 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationValue:I
 
-    .line 396
+    .line 403
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -1980,7 +1952,7 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessValue:I
 
-    .line 402
+    .line 409
     :goto_0
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastSeekBar:Landroid/widget/SeekBar;
 
@@ -1988,21 +1960,21 @@
 
     invoke-direct {p0, v0, v1}, Lcom/sec/android/app/camera/AdjustMenu;->setSeekBarValue(Landroid/widget/SeekBar;I)V
 
-    .line 403
+    .line 410
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationSeekBar:Landroid/widget/SeekBar;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationValue:I
 
     invoke-direct {p0, v0, v1}, Lcom/sec/android/app/camera/AdjustMenu;->setSeekBarValue(Landroid/widget/SeekBar;I)V
 
-    .line 404
+    .line 411
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessSeekBar:Landroid/widget/SeekBar;
 
     iget v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessValue:I
 
     invoke-direct {p0, v0, v1}, Lcom/sec/android/app/camera/AdjustMenu;->setSeekBarValue(Landroid/widget/SeekBar;I)V
 
-    .line 406
+    .line 413
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastSeekBar:Landroid/widget/SeekBar;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastTextview:Landroid/widget/TextView;
@@ -2013,7 +1985,7 @@
 
     invoke-direct {p0, v0, v1, v2}, Lcom/sec/android/app/camera/AdjustMenu;->updateProgressTextLayout(Landroid/widget/SeekBar;Landroid/widget/TextView;I)V
 
-    .line 407
+    .line 414
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationSeekBar:Landroid/widget/SeekBar;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationTextview:Landroid/widget/TextView;
@@ -2024,7 +1996,7 @@
 
     invoke-direct {p0, v0, v1, v2}, Lcom/sec/android/app/camera/AdjustMenu;->updateProgressTextLayout(Landroid/widget/SeekBar;Landroid/widget/TextView;I)V
 
-    .line 408
+    .line 415
     iget-object v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessSeekBar:Landroid/widget/SeekBar;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSharpnessTextview:Landroid/widget/TextView;
@@ -2035,13 +2007,13 @@
 
     invoke-direct {p0, v0, v1, v2}, Lcom/sec/android/app/camera/AdjustMenu;->updateProgressTextLayout(Landroid/widget/SeekBar;Landroid/widget/TextView;I)V
 
-    .line 409
+    .line 416
     invoke-super {p0}, Lcom/sec/android/app/camera/MenuBase;->onShow()V
 
-    .line 410
+    .line 417
     return-void
 
-    .line 398
+    .line 405
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -2055,7 +2027,7 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mContrastValue:I
 
-    .line 399
+    .line 406
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -2068,7 +2040,7 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mSaturationValue:I
 
-    .line 400
+    .line 407
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -2092,30 +2064,30 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 253
+    .line 254
     iget-boolean v0, p0, Lcom/sec/android/app/camera/AdjustMenu;->mLongtouch:Z
 
     if-nez v0, :cond_1
 
-    .line 254
+    .line 255
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 255
+    .line 256
     invoke-virtual {p0, p1}, Lcom/sec/android/app/camera/AdjustMenu;->onClick(Landroid/view/View;)V
 
-    .line 256
+    .line 257
     invoke-virtual {p1, v2}, Landroid/view/View;->playSoundEffect(I)V
 
-    .line 265
+    .line 266
     :cond_0
     :goto_0
     return v2
 
-    .line 259
+    .line 260
     :cond_1
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
@@ -2125,12 +2097,12 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 260
+    .line 261
     invoke-virtual {p0, v2}, Lcom/sec/android/app/camera/AdjustMenu;->setLongTouch(Z)V
 
     goto :goto_0
 
-    .line 261
+    .line 262
     :cond_2
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
@@ -2140,7 +2112,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 262
+    .line 263
     invoke-virtual {p0, p1}, Lcom/sec/android/app/camera/AdjustMenu;->onClick(Landroid/view/View;)V
 
     goto :goto_0
@@ -2151,10 +2123,10 @@
     .parameter "longTouch"
 
     .prologue
-    .line 249
+    .line 250
     iput-boolean p1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mLongtouch:Z
 
-    .line 250
+    .line 251
     return-void
 .end method
 
@@ -2163,10 +2135,10 @@
     .parameter "l"
 
     .prologue
-    .line 366
+    .line 373
     iput-object p1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mOnContrastChangedListener:Lcom/sec/android/app/camera/AdjustMenu$OnContrastChangedListener;
 
-    .line 367
+    .line 374
     return-void
 .end method
 
@@ -2175,10 +2147,10 @@
     .parameter "l"
 
     .prologue
-    .line 370
+    .line 377
     iput-object p1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mOnSaturationChangedListener:Lcom/sec/android/app/camera/AdjustMenu$OnSaturationChangedListener;
 
-    .line 371
+    .line 378
     return-void
 .end method
 
@@ -2187,9 +2159,9 @@
     .parameter "l"
 
     .prologue
-    .line 374
+    .line 381
     iput-object p1, p0, Lcom/sec/android/app/camera/AdjustMenu;->mOnSharpnessChangedListener:Lcom/sec/android/app/camera/AdjustMenu$OnSharpnessChangedListener;
 
-    .line 375
+    .line 382
     return-void
 .end method

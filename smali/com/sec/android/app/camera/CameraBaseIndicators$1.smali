@@ -116,21 +116,7 @@
 
     const/4 v1, 0x6
 
-    if-eq v0, v1, :cond_0
-
-    iget-object v0, p0, Lcom/sec/android/app/camera/CameraBaseIndicators$1;->this$0:Lcom/sec/android/app/camera/CameraBaseIndicators;
-
-    iget-object v0, v0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
-
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getFocusMode()I
-
-    move-result v0
-
-    if-nez v0, :cond_2
+    if-ne v0, v1, :cond_2
 
     .line 66
     :cond_0

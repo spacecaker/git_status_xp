@@ -31,7 +31,7 @@
     .parameter "zOrder"
 
     .prologue
-    .line 45
+    .line 44
     move-object v0, p0
 
     move-object v1, p1
@@ -48,10 +48,10 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/sec/android/app/camera/MenuBase;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
-    .line 47
+    .line 46
     invoke-direct {p0, p5}, Lcom/sec/android/app/camera/WhiteBalanceMenu;->init(Lcom/sec/android/app/camera/WhiteBalanceResourceData;)V
 
-    .line 48
+    .line 47
     return-void
 .end method
 
@@ -60,7 +60,7 @@
     .parameter "resourceData"
 
     .prologue
-    .line 51
+    .line 50
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -73,7 +73,7 @@
 
     if-nez v0, :cond_0
 
-    .line 52
+    .line 51
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -86,7 +86,7 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/WhiteBalanceMenu;->mSelectedWB:I
 
-    .line 55
+    .line 54
     :goto_0
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -100,22 +100,22 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/WhiteBalanceMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
-    .line 56
+    .line 55
     iget-object v0, p0, Lcom/sec/android/app/camera/WhiteBalanceMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     iget v1, p0, Lcom/sec/android/app/camera/WhiteBalanceMenu;->mSelectedWB:I
 
     invoke-virtual {v0, p1, v1}, Lcom/sec/android/app/camera/widget/TwGridView;->initializeView(Lcom/sec/android/app/camera/MenuResourceBase;I)V
 
-    .line 57
+    .line 56
     iget-object v0, p0, Lcom/sec/android/app/camera/WhiteBalanceMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     invoke-virtual {v0, p0}, Lcom/sec/android/app/camera/widget/TwGridView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 58
+    .line 57
     return-void
 
-    .line 54
+    .line 53
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -283,7 +283,7 @@
     .prologue
     const-string v1, "Camera"
 
-    .line 62
+    .line 61
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
@@ -325,7 +325,7 @@
     .line 79
     return-void
 
-    .line 64
+    .line 63
     :sswitch_0
     const-string v0, "Camera"
 
@@ -333,17 +333,22 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 65
+    .line 64
     iget-object v0, p0, Lcom/sec/android/app/camera/WhiteBalanceMenu;->mOnWhiteBalanceChangedListener:Lcom/sec/android/app/camera/WhiteBalanceMenu$OnWhiteBalanceChangedListener;
 
     if-eqz v0, :cond_0
 
-    .line 66
+    .line 65
     iget-object v0, p0, Lcom/sec/android/app/camera/WhiteBalanceMenu;->mOnWhiteBalanceChangedListener:Lcom/sec/android/app/camera/WhiteBalanceMenu$OnWhiteBalanceChangedListener;
 
     iget v1, p0, Lcom/sec/android/app/camera/WhiteBalanceMenu;->mSelectedWB:I
 
     invoke-interface {v0, v1}, Lcom/sec/android/app/camera/WhiteBalanceMenu$OnWhiteBalanceChangedListener;->onWhiteBalanceChanged(I)V
+
+    .line 66
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/sec/android/app/camera/WhiteBalanceMenu;->mOnWhiteBalanceChangedListener:Lcom/sec/android/app/camera/WhiteBalanceMenu$OnWhiteBalanceChangedListener;
 
     goto :goto_0
 
@@ -353,10 +358,12 @@
 
     goto :goto_0
 
-    .line 62
+    .line 61
+    nop
+
     :sswitch_data_0
     .sparse-switch
-        0x7f0a00a4 -> :sswitch_1
+        0x7f0a00a3 -> :sswitch_1
         0x7f0a00ca -> :sswitch_0
     .end sparse-switch
 .end method

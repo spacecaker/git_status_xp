@@ -157,13 +157,13 @@
     <item type="id" name="EVTextLayout1">false</item>
     <item type="id" name="EVPopupTextView">false</item>
     <item type="id" name="FlashMode">false</item>
-    <item type="id" name="FlashMode2">false</item>
     <item type="id" name="FocusMode">false</item>
     <item type="id" name="FocusModeContinuous">false</item>
     <item type="id" name="FrameLayout">false</item>
     <item type="id" name="FrameShotSelectionMenu">false</item>
     <item type="id" name="GridBackButton">false</item>
     <item type="id" name="GridScroller">false</item>
+    <item type="id" name="GridScrollerBic">false</item>
     <item type="id" name="HelptextPopupLayout">false</item>
     <item type="id" name="HelptextPopup">false</item>
     <item type="id" name="Helptext">false</item>

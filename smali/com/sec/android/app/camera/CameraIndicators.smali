@@ -51,177 +51,132 @@
 .end method
 
 .method private init()V
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 56
-    iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+    .line 58
+    iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    invoke-virtual {v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
+    const v1, 0x7f0a0030
+
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 58
-    .local v0, camSettings:Lcom/sec/android/app/camera/CameraSettings;
-    iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+    check-cast v0, Lcom/sec/android/app/camera/widget/TwIndicatorResolution;
 
-    const v2, 0x7f0a0030
-
-    invoke-virtual {v1, v2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/sec/android/app/camera/widget/TwIndicatorResolution;
-
-    iput-object v1, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorResolution:Lcom/sec/android/app/camera/widget/TwIndicatorResolution;
+    iput-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorResolution:Lcom/sec/android/app/camera/widget/TwIndicatorResolution;
 
     .line 59
-    iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+    iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const v2, 0x7f0a004d
+    const v1, 0x7f0a004d
 
-    invoke-virtual {v1, v2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/sec/android/app/camera/widget/TwIndicatorISO;
+    check-cast v0, Lcom/sec/android/app/camera/widget/TwIndicatorISO;
 
-    iput-object v1, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorISO:Lcom/sec/android/app/camera/widget/TwIndicatorISO;
+    iput-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorISO:Lcom/sec/android/app/camera/widget/TwIndicatorISO;
 
     .line 60
-    iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+    iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const v2, 0x7f0a0031
+    const v1, 0x7f0a0031
 
-    invoke-virtual {v1, v2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/sec/android/app/camera/widget/TwIndicatorWhiteBalance;
+    check-cast v0, Lcom/sec/android/app/camera/widget/TwIndicatorWhiteBalance;
 
-    iput-object v1, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorWhiteBalance:Lcom/sec/android/app/camera/widget/TwIndicatorWhiteBalance;
+    iput-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorWhiteBalance:Lcom/sec/android/app/camera/widget/TwIndicatorWhiteBalance;
 
     .line 61
-    iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+    iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const v2, 0x7f0a004e
+    const v1, 0x7f0a004e
 
-    invoke-virtual {v1, v2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/sec/android/app/camera/widget/TwIndicatorMetering;
+    check-cast v0, Lcom/sec/android/app/camera/widget/TwIndicatorMetering;
 
-    iput-object v1, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorMetering:Lcom/sec/android/app/camera/widget/TwIndicatorMetering;
+    iput-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorMetering:Lcom/sec/android/app/camera/widget/TwIndicatorMetering;
 
     .line 62
-    iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+    iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const v2, 0x7f0a0032
+    const v1, 0x7f0a0032
 
-    invoke-virtual {v1, v2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/sec/android/app/camera/widget/TwIndicatorTimer;
+    check-cast v0, Lcom/sec/android/app/camera/widget/TwIndicatorTimer;
 
-    iput-object v1, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorTimer:Lcom/sec/android/app/camera/widget/TwIndicatorTimer;
+    iput-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorTimer:Lcom/sec/android/app/camera/widget/TwIndicatorTimer;
 
     .line 63
-    iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+    iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const v2, 0x7f0a004f
+    const v1, 0x7f0a004f
 
-    invoke-virtual {v1, v2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/sec/android/app/camera/widget/TwIndicatorAntiShake;
+    check-cast v0, Lcom/sec/android/app/camera/widget/TwIndicatorAntiShake;
 
-    iput-object v1, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorAntiShake:Lcom/sec/android/app/camera/widget/TwIndicatorAntiShake;
+    iput-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorAntiShake:Lcom/sec/android/app/camera/widget/TwIndicatorAntiShake;
 
     .line 64
-    iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+    iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const v2, 0x7f0a0051
+    const v1, 0x7f0a0051
 
-    invoke-virtual {v1, v2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/sec/android/app/camera/widget/TwIndicatorGPS;
+    check-cast v0, Lcom/sec/android/app/camera/widget/TwIndicatorGPS;
 
-    iput-object v1, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorGPS:Lcom/sec/android/app/camera/widget/TwIndicatorGPS;
+    iput-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorGPS:Lcom/sec/android/app/camera/widget/TwIndicatorGPS;
 
     .line 65
-    iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+    iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const v2, 0x7f0a0050
+    const v1, 0x7f0a0050
 
-    invoke-virtual {v1, v2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/sec/android/app/camera/widget/TwIndicatorFocusmode;
+    check-cast v0, Lcom/sec/android/app/camera/widget/TwIndicatorFocusmode;
 
-    iput-object v1, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorFocusmode:Lcom/sec/android/app/camera/widget/TwIndicatorFocusmode;
+    iput-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorFocusmode:Lcom/sec/android/app/camera/widget/TwIndicatorFocusmode;
 
     .line 67
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCameraResolution()I
+    iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    move-result v1
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
-    invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeResolution(I)V
+    move-result-object v0
 
-    .line 68
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getISO()I
-
-    move-result v1
-
-    invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeISO(I)V
-
-    .line 69
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCameraWB()I
-
-    move-result v1
-
-    invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeWhiteBalance(I)V
-
-    .line 70
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getExposuremeter()I
-
-    move-result v1
-
-    invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeMetering(I)V
-
-    .line 71
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCameraTimer()I
-
-    move-result v1
-
-    invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeTimer(I)V
-
-    .line 76
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getFocusMode()I
-
-    move-result v1
-
-    invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeFocusmode(I)V
-
-    .line 78
     invoke-virtual {v0, p0}, Lcom/sec/android/app/camera/CameraSettings;->registerCameraSettingsChangedObserver(Lcom/sec/android/app/camera/CameraSettings$OnCameraSettingsChangedObserver;)V
 
-    .line 79
+    .line 68
+    iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
+
+    move-result-object v0
+
     invoke-virtual {v0, p0}, Lcom/sec/android/app/camera/CameraSettings;->registerCameraSettingsUIChangedObserver(Lcom/sec/android/app/camera/CameraSettings$OnCameraSettingsChangedObserver;)V
 
-    .line 80
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getGps()I
-
-    move-result v1
-
-    invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeGPS(I)V
-
-    .line 81
+    .line 70
     return-void
 .end method
 
@@ -232,21 +187,21 @@
     .parameter "modeid"
 
     .prologue
-    .line 269
+    .line 273
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorFocusmode:Lcom/sec/android/app/camera/widget/TwIndicatorFocusmode;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorFocusmode;->setVisibility(I)V
 
-    .line 270
+    .line 274
     packed-switch p1, :pswitch_data_0
 
-    .line 282
+    .line 286
     :goto_0
     return-void
 
-    .line 273
+    .line 277
     :pswitch_0
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorFocusmode:Lcom/sec/android/app/camera/widget/TwIndicatorFocusmode;
 
@@ -256,7 +211,7 @@
 
     goto :goto_0
 
-    .line 276
+    .line 280
     :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorFocusmode:Lcom/sec/android/app/camera/widget/TwIndicatorFocusmode;
 
@@ -266,7 +221,7 @@
 
     goto :goto_0
 
-    .line 279
+    .line 283
     :pswitch_2
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorFocusmode:Lcom/sec/android/app/camera/widget/TwIndicatorFocusmode;
 
@@ -276,7 +231,7 @@
 
     goto :goto_0
 
-    .line 270
+    .line 274
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -291,21 +246,21 @@
     .parameter "modeid"
 
     .prologue
-    .line 285
+    .line 289
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorGPS:Lcom/sec/android/app/camera/widget/TwIndicatorGPS;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorGPS;->setVisibility(I)V
 
-    .line 286
+    .line 290
     packed-switch p1, :pswitch_data_0
 
-    .line 294
+    .line 298
     :goto_0
     return-void
 
-    .line 288
+    .line 292
     :pswitch_0
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorGPS:Lcom/sec/android/app/camera/widget/TwIndicatorGPS;
 
@@ -315,7 +270,7 @@
 
     goto :goto_0
 
-    .line 291
+    .line 295
     :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorGPS:Lcom/sec/android/app/camera/widget/TwIndicatorGPS;
 
@@ -325,7 +280,7 @@
 
     goto :goto_0
 
-    .line 286
+    .line 290
     nop
 
     :pswitch_data_0
@@ -342,21 +297,21 @@
     .prologue
     const/16 v2, 0x8
 
-    .line 189
+    .line 193
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorISO:Lcom/sec/android/app/camera/widget/TwIndicatorISO;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorISO;->setVisibility(I)V
 
-    .line 190
+    .line 194
     packed-switch p1, :pswitch_data_0
 
-    .line 222
+    .line 226
     :goto_0
     return-void
 
-    .line 192
+    .line 196
     :pswitch_0
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorISO:Lcom/sec/android/app/camera/widget/TwIndicatorISO;
 
@@ -364,7 +319,7 @@
 
     goto :goto_0
 
-    .line 195
+    .line 199
     :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorISO:Lcom/sec/android/app/camera/widget/TwIndicatorISO;
 
@@ -372,7 +327,7 @@
 
     goto :goto_0
 
-    .line 198
+    .line 202
     :pswitch_2
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorISO:Lcom/sec/android/app/camera/widget/TwIndicatorISO;
 
@@ -382,7 +337,7 @@
 
     goto :goto_0
 
-    .line 201
+    .line 205
     :pswitch_3
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorISO:Lcom/sec/android/app/camera/widget/TwIndicatorISO;
 
@@ -392,7 +347,7 @@
 
     goto :goto_0
 
-    .line 204
+    .line 208
     :pswitch_4
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorISO:Lcom/sec/android/app/camera/widget/TwIndicatorISO;
 
@@ -402,7 +357,7 @@
 
     goto :goto_0
 
-    .line 207
+    .line 211
     :pswitch_5
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorISO:Lcom/sec/android/app/camera/widget/TwIndicatorISO;
 
@@ -412,7 +367,7 @@
 
     goto :goto_0
 
-    .line 210
+    .line 214
     :pswitch_6
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorISO:Lcom/sec/android/app/camera/widget/TwIndicatorISO;
 
@@ -422,7 +377,7 @@
 
     goto :goto_0
 
-    .line 213
+    .line 217
     :pswitch_7
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorISO:Lcom/sec/android/app/camera/widget/TwIndicatorISO;
 
@@ -432,7 +387,7 @@
 
     goto :goto_0
 
-    .line 216
+    .line 220
     :pswitch_8
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorISO:Lcom/sec/android/app/camera/widget/TwIndicatorISO;
 
@@ -442,7 +397,7 @@
 
     goto :goto_0
 
-    .line 219
+    .line 223
     :pswitch_9
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorISO:Lcom/sec/android/app/camera/widget/TwIndicatorISO;
 
@@ -450,7 +405,7 @@
 
     goto :goto_0
 
-    .line 190
+    .line 194
     nop
 
     :pswitch_data_0
@@ -473,14 +428,14 @@
     .parameter "modeid"
 
     .prologue
-    .line 225
+    .line 229
     packed-switch p1, :pswitch_data_0
 
-    .line 236
+    .line 240
     :goto_0
     return-void
 
-    .line 227
+    .line 231
     :pswitch_0
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorMetering:Lcom/sec/android/app/camera/widget/TwIndicatorMetering;
 
@@ -490,7 +445,7 @@
 
     goto :goto_0
 
-    .line 230
+    .line 234
     :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorMetering:Lcom/sec/android/app/camera/widget/TwIndicatorMetering;
 
@@ -500,7 +455,7 @@
 
     goto :goto_0
 
-    .line 233
+    .line 237
     :pswitch_2
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorMetering:Lcom/sec/android/app/camera/widget/TwIndicatorMetering;
 
@@ -510,7 +465,7 @@
 
     goto :goto_0
 
-    .line 225
+    .line 229
     nop
 
     :pswitch_data_0
@@ -526,15 +481,15 @@
     .parameter "modeid"
 
     .prologue
-    .line 130
+    .line 134
     packed-switch p1, :pswitch_data_0
 
-    .line 165
+    .line 169
     :goto_0
     :pswitch_0
     return-void
 
-    .line 132
+    .line 136
     :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorResolution:Lcom/sec/android/app/camera/widget/TwIndicatorResolution;
 
@@ -544,7 +499,7 @@
 
     goto :goto_0
 
-    .line 135
+    .line 139
     :pswitch_2
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorResolution:Lcom/sec/android/app/camera/widget/TwIndicatorResolution;
 
@@ -554,7 +509,7 @@
 
     goto :goto_0
 
-    .line 138
+    .line 142
     :pswitch_3
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorResolution:Lcom/sec/android/app/camera/widget/TwIndicatorResolution;
 
@@ -564,7 +519,7 @@
 
     goto :goto_0
 
-    .line 141
+    .line 145
     :pswitch_4
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorResolution:Lcom/sec/android/app/camera/widget/TwIndicatorResolution;
 
@@ -574,7 +529,7 @@
 
     goto :goto_0
 
-    .line 144
+    .line 148
     :pswitch_5
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorResolution:Lcom/sec/android/app/camera/widget/TwIndicatorResolution;
 
@@ -584,7 +539,7 @@
 
     goto :goto_0
 
-    .line 147
+    .line 151
     :pswitch_6
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorResolution:Lcom/sec/android/app/camera/widget/TwIndicatorResolution;
 
@@ -594,7 +549,7 @@
 
     goto :goto_0
 
-    .line 150
+    .line 154
     :pswitch_7
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorResolution:Lcom/sec/android/app/camera/widget/TwIndicatorResolution;
 
@@ -604,7 +559,7 @@
 
     goto :goto_0
 
-    .line 153
+    .line 157
     :pswitch_8
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorResolution:Lcom/sec/android/app/camera/widget/TwIndicatorResolution;
 
@@ -614,7 +569,7 @@
 
     goto :goto_0
 
-    .line 156
+    .line 160
     :pswitch_9
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorResolution:Lcom/sec/android/app/camera/widget/TwIndicatorResolution;
 
@@ -624,7 +579,7 @@
 
     goto :goto_0
 
-    .line 159
+    .line 163
     :pswitch_a
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorResolution:Lcom/sec/android/app/camera/widget/TwIndicatorResolution;
 
@@ -634,7 +589,7 @@
 
     goto :goto_0
 
-    .line 162
+    .line 166
     :pswitch_b
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorResolution:Lcom/sec/android/app/camera/widget/TwIndicatorResolution;
 
@@ -644,7 +599,7 @@
 
     goto :goto_0
 
-    .line 130
+    .line 134
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -654,10 +609,10 @@
         :pswitch_5
         :pswitch_6
         :pswitch_7
-        :pswitch_9
+        :pswitch_0
         :pswitch_8
         :pswitch_0
-        :pswitch_0
+        :pswitch_9
         :pswitch_a
         :pswitch_b
     .end packed-switch
@@ -668,21 +623,21 @@
     .parameter "modeid"
 
     .prologue
-    .line 239
+    .line 243
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorTimer:Lcom/sec/android/app/camera/widget/TwIndicatorTimer;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorTimer;->setVisibility(I)V
 
-    .line 240
+    .line 244
     packed-switch p1, :pswitch_data_0
 
-    .line 254
+    .line 258
     :goto_0
     return-void
 
-    .line 242
+    .line 246
     :pswitch_0
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorTimer:Lcom/sec/android/app/camera/widget/TwIndicatorTimer;
 
@@ -692,7 +647,7 @@
 
     goto :goto_0
 
-    .line 245
+    .line 249
     :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorTimer:Lcom/sec/android/app/camera/widget/TwIndicatorTimer;
 
@@ -702,7 +657,7 @@
 
     goto :goto_0
 
-    .line 248
+    .line 252
     :pswitch_2
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorTimer:Lcom/sec/android/app/camera/widget/TwIndicatorTimer;
 
@@ -712,7 +667,7 @@
 
     goto :goto_0
 
-    .line 251
+    .line 255
     :pswitch_3
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorTimer:Lcom/sec/android/app/camera/widget/TwIndicatorTimer;
 
@@ -722,7 +677,7 @@
 
     goto :goto_0
 
-    .line 240
+    .line 244
     nop
 
     :pswitch_data_0
@@ -739,21 +694,21 @@
     .parameter "modeid"
 
     .prologue
-    .line 168
+    .line 172
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorWhiteBalance:Lcom/sec/android/app/camera/widget/TwIndicatorWhiteBalance;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorWhiteBalance;->setVisibility(I)V
 
-    .line 169
+    .line 173
     packed-switch p1, :pswitch_data_0
 
-    .line 186
+    .line 190
     :goto_0
     return-void
 
-    .line 171
+    .line 175
     :pswitch_0
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorWhiteBalance:Lcom/sec/android/app/camera/widget/TwIndicatorWhiteBalance;
 
@@ -763,7 +718,7 @@
 
     goto :goto_0
 
-    .line 174
+    .line 178
     :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorWhiteBalance:Lcom/sec/android/app/camera/widget/TwIndicatorWhiteBalance;
 
@@ -773,7 +728,7 @@
 
     goto :goto_0
 
-    .line 177
+    .line 181
     :pswitch_2
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorWhiteBalance:Lcom/sec/android/app/camera/widget/TwIndicatorWhiteBalance;
 
@@ -783,7 +738,7 @@
 
     goto :goto_0
 
-    .line 180
+    .line 184
     :pswitch_3
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorWhiteBalance:Lcom/sec/android/app/camera/widget/TwIndicatorWhiteBalance;
 
@@ -793,7 +748,7 @@
 
     goto :goto_0
 
-    .line 183
+    .line 187
     :pswitch_4
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorWhiteBalance:Lcom/sec/android/app/camera/widget/TwIndicatorWhiteBalance;
 
@@ -803,7 +758,7 @@
 
     goto :goto_0
 
-    .line 169
+    .line 173
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -814,106 +769,146 @@
     .end packed-switch
 .end method
 
+.method public initIndicators()V
+    .locals 2
+
+    .prologue
+    .line 73
+    iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+
+    invoke-virtual {v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
+
+    move-result-object v0
+
+    .line 75
+    .local v0, camSettings:Lcom/sec/android/app/camera/CameraSettings;
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCameraResolution()I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeResolution(I)V
+
+    .line 76
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getISO()I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeISO(I)V
+
+    .line 77
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCameraWB()I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeWhiteBalance(I)V
+
+    .line 78
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getExposuremeter()I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeMetering(I)V
+
+    .line 79
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCameraTimer()I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeTimer(I)V
+
+    .line 84
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getFocusMode()I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeFocusmode(I)V
+
+    .line 88
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getGps()I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeGPS(I)V
+
+    .line 89
+    return-void
+.end method
+
 .method public onBack()V
     .locals 1
 
     .prologue
-    .line 84
+    .line 92
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorGPS:Lcom/sec/android/app/camera/widget/TwIndicatorGPS;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/widget/TwIndicatorGPS;->clear()V
 
-    .line 85
+    .line 93
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->processBack()V
 
-    .line 86
+    .line 94
     return-void
 .end method
 
 .method public onCameraSettingsChanged(II)V
-    .locals 2
+    .locals 0
     .parameter "menuid"
     .parameter "modeid"
 
     .prologue
-    .line 93
+    .line 101
     packed-switch p1, :pswitch_data_0
 
-    .line 127
+    .line 131
     :goto_0
     :pswitch_0
     return-void
 
-    .line 95
+    .line 103
     :pswitch_1
-    iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
-
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getShootingMode()I
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_0
-
-    .line 96
-    const/16 v0, 0xc
-
-    invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeResolution(I)V
-
-    goto :goto_0
-
-    .line 98
-    :cond_0
     invoke-virtual {p0, p2}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeResolution(I)V
 
     goto :goto_0
 
-    .line 102
+    .line 106
     :pswitch_2
     invoke-virtual {p0, p2}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeWhiteBalance(I)V
 
     goto :goto_0
 
-    .line 105
+    .line 109
     :pswitch_3
     invoke-virtual {p0, p2}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeISO(I)V
 
     goto :goto_0
 
-    .line 108
+    .line 112
     :pswitch_4
     invoke-virtual {p0, p2}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeMetering(I)V
 
     goto :goto_0
 
-    .line 111
+    .line 115
     :pswitch_5
     invoke-virtual {p0, p2}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeTimer(I)V
 
     goto :goto_0
 
-    .line 120
+    .line 124
     :pswitch_6
     invoke-virtual {p0, p2}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeFocusmode(I)V
 
     goto :goto_0
 
-    .line 124
+    .line 128
     :pswitch_7
     invoke-virtual {p0, p2}, Lcom/sec/android/app/camera/CameraIndicators;->ChangeGPS(I)V
 
     goto :goto_0
 
-    .line 93
-    nop
-
+    .line 101
     :pswitch_data_0
     .packed-switch 0x4
         :pswitch_1
@@ -942,7 +937,7 @@
     .parameter "event"
 
     .prologue
-    .line 319
+    .line 323
     const/16 v0, 0x1b
 
     if-eq p1, v0, :cond_0
@@ -955,11 +950,11 @@
 
     if-ne p1, v0, :cond_1
 
-    .line 322
+    .line 326
     :cond_0
     const/4 v0, 0x1
 
-    .line 325
+    .line 329
     :goto_0
     return v0
 
@@ -975,7 +970,7 @@
     .parameter "event"
 
     .prologue
-    .line 329
+    .line 333
     const/16 v0, 0x1b
 
     if-eq p1, v0, :cond_0
@@ -988,11 +983,11 @@
 
     if-ne p1, v0, :cond_1
 
-    .line 332
+    .line 336
     :cond_0
     const/4 v0, 0x1
 
-    .line 335
+    .line 339
     :goto_0
     return v0
 
@@ -1006,12 +1001,12 @@
     .locals 1
 
     .prologue
-    .line 89
+    .line 97
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorGPS:Lcom/sec/android/app/camera/widget/TwIndicatorGPS;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/widget/TwIndicatorGPS;->pause()V
 
-    .line 90
+    .line 98
     return-void
 .end method
 
@@ -1022,7 +1017,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 297
+    .line 301
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -1035,35 +1030,35 @@
 
     if-nez v0, :cond_0
 
-    .line 298
+    .line 302
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorGPS:Lcom/sec/android/app/camera/widget/TwIndicatorGPS;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorGPS;->setVisibility(I)V
 
-    .line 316
+    .line 320
     :goto_0
     return-void
 
-    .line 302
+    .line 306
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorGPS:Lcom/sec/android/app/camera/widget/TwIndicatorGPS;
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorGPS;->setVisibility(I)V
 
-    .line 304
+    .line 308
     packed-switch p1, :pswitch_data_0
 
     goto :goto_0
 
-    .line 306
+    .line 310
     :pswitch_0
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorGPS:Lcom/sec/android/app/camera/widget/TwIndicatorGPS;
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorGPS;->setGPS(I)V
 
-    .line 308
+    .line 312
     :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorGPS:Lcom/sec/android/app/camera/widget/TwIndicatorGPS;
 
@@ -1073,7 +1068,7 @@
 
     goto :goto_0
 
-    .line 311
+    .line 315
     :pswitch_2
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraIndicators;->mIndicatorGPS:Lcom/sec/android/app/camera/widget/TwIndicatorGPS;
 
@@ -1083,7 +1078,7 @@
 
     goto :goto_0
 
-    .line 304
+    .line 308
     nop
 
     :pswitch_data_0

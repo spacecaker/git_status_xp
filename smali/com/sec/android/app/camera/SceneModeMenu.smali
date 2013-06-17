@@ -34,7 +34,7 @@
     .parameter "zOrder"
 
     .prologue
-    .line 44
+    .line 43
     move-object v0, p0
 
     move-object v1, p1
@@ -51,10 +51,10 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/sec/android/app/camera/MenuBase;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
-    .line 46
+    .line 45
     invoke-direct {p0, p5}, Lcom/sec/android/app/camera/SceneModeMenu;->init(Lcom/sec/android/app/camera/SceneModeResourceData;)V
 
-    .line 47
+    .line 46
     return-void
 .end method
 
@@ -63,7 +63,7 @@
     .parameter "resourceData"
 
     .prologue
-    .line 50
+    .line 49
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -76,7 +76,7 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/SceneModeMenu;->mSelectedSceneMode:I
 
-    .line 51
+    .line 50
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     const v1, 0x7f0a00cb
@@ -89,19 +89,19 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/SceneModeMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
-    .line 52
+    .line 51
     iget-object v0, p0, Lcom/sec/android/app/camera/SceneModeMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     iget v1, p0, Lcom/sec/android/app/camera/SceneModeMenu;->mSelectedSceneMode:I
 
     invoke-virtual {v0, p1, v1}, Lcom/sec/android/app/camera/widget/TwGridView;->initializeView(Lcom/sec/android/app/camera/MenuResourceBase;I)V
 
-    .line 53
+    .line 52
     iget-object v0, p0, Lcom/sec/android/app/camera/SceneModeMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     invoke-virtual {v0, p0}, Lcom/sec/android/app/camera/widget/TwGridView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 54
+    .line 53
     return-void
 .end method
 
@@ -109,7 +109,7 @@
     .locals 2
 
     .prologue
-    .line 92
+    .line 91
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -122,19 +122,19 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/SceneModeMenu;->mSelectedSceneMode:I
 
-    .line 93
+    .line 92
     iget-object v0, p0, Lcom/sec/android/app/camera/SceneModeMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     if-eqz v0, :cond_0
 
-    .line 94
+    .line 93
     iget-object v0, p0, Lcom/sec/android/app/camera/SceneModeMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     iget v1, p0, Lcom/sec/android/app/camera/SceneModeMenu;->mSelectedSceneMode:I
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwGridView;->setCurrentSelectedItem(I)V
 
-    .line 96
+    .line 95
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -142,7 +142,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->changeSceneModePreview(I)V
 
-    .line 97
+    .line 96
     return-void
 .end method
 
@@ -155,19 +155,19 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 115
+    .line 114
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     if-ne v0, v1, :cond_0
 
-    .line 117
+    .line 116
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->processBack()V
 
-    .line 120
+    .line 119
     :cond_0
     return v1
 .end method
@@ -176,15 +176,15 @@
     .locals 1
 
     .prologue
-    .line 110
+    .line 109
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->onInflatedMenuHidden()V
 
-    .line 111
+    .line 110
     invoke-super {p0}, Lcom/sec/android/app/camera/MenuBase;->onBack()V
 
-    .line 112
+    .line 111
     return-void
 .end method
 
@@ -193,16 +193,16 @@
     .parameter "v"
 
     .prologue
-    .line 77
+    .line 76
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
 
-    const v1, 0x7f0a00a4
+    const v1, 0x7f0a00a3
 
     if-eq v0, v1, :cond_0
 
-    .line 78
+    .line 77
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
@@ -215,28 +215,28 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/SceneModeMenu;->mSelectedSceneMode:I
 
-    .line 79
+    .line 78
     iget-object v0, p0, Lcom/sec/android/app/camera/SceneModeMenu;->mOnSceneModeChangedListener:Lcom/sec/android/app/camera/SceneModeMenu$OnSceneModeChangedListener;
 
     if-eqz v0, :cond_0
 
-    .line 80
+    .line 79
     iget-object v0, p0, Lcom/sec/android/app/camera/SceneModeMenu;->mOnSceneModeChangedListener:Lcom/sec/android/app/camera/SceneModeMenu$OnSceneModeChangedListener;
 
     iget v1, p0, Lcom/sec/android/app/camera/SceneModeMenu;->mSelectedSceneMode:I
 
     invoke-interface {v0, v1}, Lcom/sec/android/app/camera/SceneModeMenu$OnSceneModeChangedListener;->onSceneModeChanged(I)V
 
-    .line 81
+    .line 80
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/sec/android/app/camera/SceneModeMenu;->mOnSceneModeChangedListener:Lcom/sec/android/app/camera/SceneModeMenu$OnSceneModeChangedListener;
 
-    .line 84
+    .line 83
     :cond_0
     invoke-super {p0, p1}, Lcom/sec/android/app/camera/MenuBase;->onClick(Landroid/view/View;)V
 
-    .line 85
+    .line 84
     return-void
 .end method
 
@@ -244,13 +244,13 @@
     .locals 0
 
     .prologue
-    .line 100
+    .line 99
     invoke-direct {p0}, Lcom/sec/android/app/camera/SceneModeMenu;->setSavedSceneMode()V
 
-    .line 101
+    .line 100
     invoke-super {p0}, Lcom/sec/android/app/camera/MenuBase;->onHide()V
 
-    .line 102
+    .line 101
     return-void
 .end method
 
@@ -264,23 +264,23 @@
 
     const/4 v1, 0x1
 
-    .line 124
+    .line 123
     const/16 v0, 0x1a
 
     if-ne p1, v0, :cond_0
 
-    .line 125
+    .line 124
     iget-object v0, p0, Lcom/sec/android/app/camera/SceneModeMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwGridView;->setClickPass(Z)V
 
     move v0, v2
 
-    .line 143
+    .line 142
     :goto_0
     return v0
 
-    .line 129
+    .line 128
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -296,10 +296,10 @@
 
     move v0, v1
 
-    .line 130
+    .line 129
     goto :goto_0
 
-    .line 133
+    .line 132
     :cond_1
     const/16 v0, 0x18
 
@@ -320,10 +320,10 @@
     :cond_2
     move v0, v1
 
-    .line 135
+    .line 134
     goto :goto_0
 
-    .line 138
+    .line 137
     :cond_3
     const/16 v0, 0x1b
 
@@ -340,13 +340,13 @@
     :cond_4
     move v0, v1
 
-    .line 140
+    .line 139
     goto :goto_0
 
     :cond_5
     move v0, v2
 
-    .line 143
+    .line 142
     goto :goto_0
 .end method
 
@@ -360,18 +360,18 @@
 
     const/4 v1, 0x1
 
-    .line 147
+    .line 146
     const/16 v0, 0x1a
 
     if-ne p1, v0, :cond_0
 
     move v0, v2
 
-    .line 165
+    .line 164
     :goto_0
     return v0
 
-    .line 151
+    .line 150
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -387,10 +387,10 @@
 
     move v0, v1
 
-    .line 152
+    .line 151
     goto :goto_0
 
-    .line 155
+    .line 154
     :cond_1
     const/16 v0, 0x18
 
@@ -411,10 +411,10 @@
     :cond_2
     move v0, v1
 
-    .line 157
+    .line 156
     goto :goto_0
 
-    .line 160
+    .line 159
     :cond_3
     const/16 v0, 0x1b
 
@@ -431,13 +431,13 @@
     :cond_4
     move v0, v1
 
-    .line 162
+    .line 161
     goto :goto_0
 
     :cond_5
     move v0, v2
 
-    .line 165
+    .line 164
     goto :goto_0
 .end method
 
@@ -445,13 +445,13 @@
     .locals 0
 
     .prologue
-    .line 105
+    .line 104
     invoke-direct {p0}, Lcom/sec/android/app/camera/SceneModeMenu;->setSavedSceneMode()V
 
-    .line 106
+    .line 105
     invoke-super {p0}, Lcom/sec/android/app/camera/MenuBase;->onShow()V
 
-    .line 107
+    .line 106
     return-void
 .end method
 
@@ -460,9 +460,9 @@
     .parameter "l"
 
     .prologue
-    .line 88
+    .line 87
     iput-object p1, p0, Lcom/sec/android/app/camera/SceneModeMenu;->mOnSceneModeChangedListener:Lcom/sec/android/app/camera/SceneModeMenu$OnSceneModeChangedListener;
 
-    .line 89
+    .line 88
     return-void
 .end method

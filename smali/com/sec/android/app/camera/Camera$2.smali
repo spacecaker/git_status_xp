@@ -3,7 +3,7 @@
 .source "Camera.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnKeyListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1610
+    .line 1676
     iput-object p1, p0, Lcom/sec/android/app/camera/Camera$2;->this$0:Lcom/sec/android/app/camera/Camera;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,38 +37,23 @@
 
 
 # virtual methods
-.method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
-    .locals 3
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 2
     .parameter "dialog"
-    .parameter "keyCode"
-    .parameter "event"
+    .parameter "which"
 
     .prologue
-    const/4 v2, 0x0
-
-    .line 1612
-    const/4 v0, 0x4
-
-    if-ne p2, v0, :cond_0
-
-    invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_0
-
-    .line 1613
+    .line 1679
     iget-object v0, p0, Lcom/sec/android/app/camera/Camera$2;->this$0:Lcom/sec/android/app/camera/Camera;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/Camera;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Lcom/sec/android/app/camera/CameraSettings;->setGps(I)V
+    const/4 v1, 0x0
 
-    .line 1615
-    :cond_0
-    return v2
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraSettings;->setGps(I)V
+
+    .line 1681
+    return-void
 .end method

@@ -3,12 +3,12 @@
 .source "Camera.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/sec/android/app/camera/Camera;->IsGpsEnableInSettings()V
+    value = Lcom/sec/android/app/camera/Camera;->onStopMotionPreviewEditingFinished([BZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,15 +20,25 @@
 # instance fields
 .field final synthetic this$0:Lcom/sec/android/app/camera/Camera;
 
+.field final synthetic val$chkAppendFrameComplete:Z
+
+.field final synthetic val$jpegData:[B
+
 
 # direct methods
-.method constructor <init>(Lcom/sec/android/app/camera/Camera;)V
+.method constructor <init>(Lcom/sec/android/app/camera/Camera;[BZ)V
     .locals 0
+    .parameter
+    .parameter
     .parameter
 
     .prologue
-    .line 1597
+    .line 2206
     iput-object p1, p0, Lcom/sec/android/app/camera/Camera$4;->this$0:Lcom/sec/android/app/camera/Camera;
+
+    iput-object p2, p0, Lcom/sec/android/app/camera/Camera$4;->val$jpegData:[B
+
+    iput-boolean p3, p0, Lcom/sec/android/app/camera/Camera$4;->val$chkAppendFrameComplete:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,23 +47,24 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
-    .parameter "dialog"
-    .parameter "which"
+.method public run()V
+    .locals 3
 
     .prologue
-    .line 1600
+    .line 2208
     iget-object v0, p0, Lcom/sec/android/app/camera/Camera$4;->this$0:Lcom/sec/android/app/camera/Camera;
 
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/Camera;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
+    #getter for: Lcom/sec/android/app/camera/Camera;->mCameraEngine:Lcom/sec/android/app/camera/CameraEngine;
+    invoke-static {v0}, Lcom/sec/android/app/camera/Camera;->access$400(Lcom/sec/android/app/camera/Camera;)Lcom/sec/android/app/camera/CameraEngine;
 
     move-result-object v0
 
-    const/4 v1, 0x1
+    iget-object v1, p0, Lcom/sec/android/app/camera/Camera$4;->val$jpegData:[B
 
-    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraSettings;->setGps(I)V
+    iget-boolean v2, p0, Lcom/sec/android/app/camera/Camera$4;->val$chkAppendFrameComplete:Z
 
-    .line 1602
+    invoke-virtual {v0, v1, v2}, Lcom/sec/android/app/camera/CameraEngine;->appendStopMotionFrame([BZ)V
+
+    .line 2210
     return-void
 .end method

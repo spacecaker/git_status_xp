@@ -260,22 +260,29 @@
     .locals 2
 
     .prologue
-    .line 294
+    .line 298
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mImageButton:Landroid/widget/ImageButton;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setSoundEffectsEnabled(Z)V
 
-    .line 295
+    .line 299
     return-void
 .end method
 
 .method public SetClickSoundEnabled()V
-    .locals 0
+    .locals 2
 
     .prologue
-    .line 300
+    .line 304
+    iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mImageButton:Landroid/widget/ImageButton;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setSoundEffectsEnabled(Z)V
+
+    .line 305
     return-void
 .end method
 
@@ -287,7 +294,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 252
+    .line 256
     if-ltz p1, :cond_0
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwImageButton;->getWidth()I
@@ -299,11 +306,11 @@
     :cond_0
     move v0, v1
 
-    .line 258
+    .line 262
     :goto_0
     return v0
 
-    .line 255
+    .line 259
     :cond_1
     if-ltz p2, :cond_2
 
@@ -316,18 +323,18 @@
     :cond_2
     move v0, v1
 
-    .line 256
+    .line 260
     goto :goto_0
 
-    .line 258
+    .line 262
     :cond_3
     const/4 v0, 0x1
 
     goto :goto_0
 .end method
 
-.method public addTextLayout(IIIIIII)V
-    .locals 3
+.method public addTextLayout(IIIIIIII)V
+    .locals 5
     .parameter "xAxis"
     .parameter "yAxis"
     .parameter "xRightMargin"
@@ -335,8 +342,11 @@
     .parameter "fontSize"
     .parameter "width"
     .parameter "height"
+    .parameter "lineSpacing"
 
     .prologue
+    const/4 v4, 0x0
+
     .line 199
     new-instance v0, Landroid/widget/RelativeLayout$LayoutParams;
 
@@ -344,9 +354,7 @@
 
     .line 200
     .local v0, rp:Landroid/widget/RelativeLayout$LayoutParams;
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, p1, p2, p3, v1}, Landroid/widget/RelativeLayout$LayoutParams;->setMargins(IIII)V
+    invoke-virtual {v0, p1, p2, p3, v4}, Landroid/widget/RelativeLayout$LayoutParams;->setMargins(IIII)V
 
     .line 201
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mButtonText:Landroid/widget/TextView;
@@ -368,11 +376,31 @@
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
     .line 204
+    if-nez p8, :cond_0
+
+    .line 205
+    iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mButtonText:Landroid/widget/TextView;
+
+    const/4 v2, 0x0
+
+    const v3, 0x3f4ccccd
+
+    invoke-virtual {v1, v2, v3}, Landroid/widget/TextView;->setLineSpacing(FF)V
+
+    .line 206
+    iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mButtonText:Landroid/widget/TextView;
+
+    const/4 v2, 0x2
+
+    invoke-virtual {v1, v4, v4, v4, v2}, Landroid/widget/TextView;->setPadding(IIII)V
+
+    .line 208
+    :cond_0
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mButtonText:Landroid/widget/TextView;
 
     invoke-virtual {p0, v1, v0}, Lcom/sec/android/app/camera/widget/TwImageButton;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 205
+    .line 209
     return-void
 .end method
 
@@ -512,22 +540,22 @@
     .parameter "v"
 
     .prologue
-    .line 284
+    .line 288
     iget-boolean v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mDimmed:Z
 
     if-nez v0, :cond_0
 
-    .line 285
+    .line 289
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mOnClickListener:Landroid/view/View$OnClickListener;
 
     if-eqz v0, :cond_0
 
-    .line 286
+    .line 290
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mOnClickListener:Landroid/view/View$OnClickListener;
 
     invoke-interface {v0, p0}, Landroid/view/View$OnClickListener;->onClick(Landroid/view/View;)V
 
-    .line 289
+    .line 293
     :cond_0
     return-void
 .end method
@@ -542,18 +570,18 @@
 
     const/4 v4, 0x1
 
-    .line 311
+    .line 316
     iget-boolean v2, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mDisabled:Z
 
     if-eqz v2, :cond_0
 
     move v2, v4
 
-    .line 354
+    .line 359
     :goto_0
     return v2
 
-    .line 315
+    .line 320
     :cond_0
     iget-boolean v2, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mDimmed:Z
 
@@ -561,16 +589,16 @@
 
     move v2, v4
 
-    .line 316
+    .line 321
     goto :goto_0
 
-    .line 319
+    .line 324
     :cond_1
     iget-object v2, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
     if-eqz v2, :cond_2
 
-    .line 320
+    .line 325
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
     move-result v2
@@ -589,23 +617,23 @@
 
     if-eqz v2, :cond_2
 
-    .line 321
+    .line 326
     iget-object v2, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
     invoke-interface {v2, p0, p2}, Landroid/view/View$OnTouchListener;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
 
     move-result v1
 
-    .line 322
+    .line 327
     .local v1, res:Z
     if-nez v1, :cond_2
 
     move v2, v1
 
-    .line 323
+    .line 328
     goto :goto_0
 
-    .line 327
+    .line 332
     .end local v1           #res:Z
     :cond_2
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
@@ -619,40 +647,40 @@
     :pswitch_0
     move v2, v5
 
-    .line 354
+    .line 359
     goto :goto_0
 
-    .line 329
+    .line 334
     :pswitch_1
     iget v2, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPressedImage:I
 
     invoke-virtual {p0, v2}, Lcom/sec/android/app/camera/widget/TwImageButton;->setButtonImage(I)V
 
-    .line 330
+    .line 335
     iget v2, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPressedBackground:I
 
     invoke-virtual {p0, v2}, Lcom/sec/android/app/camera/widget/TwImageButton;->setBackgroundResource(I)V
 
-    .line 331
+    .line 336
     invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/widget/TwImageButton;->showToolTip(Z)V
 
     goto :goto_1
 
-    .line 334
+    .line 339
     :pswitch_2
     iget v2, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mNormalImage:I
 
     invoke-virtual {p0, v2}, Lcom/sec/android/app/camera/widget/TwImageButton;->setButtonImage(I)V
 
-    .line 335
+    .line 340
     iget v2, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mNormalBackground:I
 
     invoke-virtual {p0, v2}, Lcom/sec/android/app/camera/widget/TwImageButton;->setBackgroundResource(I)V
 
-    .line 336
+    .line 341
     invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/widget/TwImageButton;->showToolTip(Z)V
 
-    .line 338
+    .line 343
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
     move-result v2
@@ -671,23 +699,23 @@
 
     if-nez v2, :cond_3
 
-    .line 340
+    .line 345
     iget-object v2, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
     if-eqz v2, :cond_3
 
-    .line 341
+    .line 346
     invoke-static {p2}, Landroid/view/MotionEvent;->obtain(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
 
     move-result-object v0
 
-    .line 342
+    .line 347
     .local v0, ev:Landroid/view/MotionEvent;
     const/4 v2, 0x3
 
     invoke-virtual {v0, v2}, Landroid/view/MotionEvent;->setAction(I)V
 
-    .line 343
+    .line 348
     iget-object v2, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
     invoke-interface {v2, p0, v0}, Landroid/view/View$OnTouchListener;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
@@ -696,14 +724,14 @@
 
     goto :goto_0
 
-    .line 348
+    .line 353
     .end local v0           #ev:Landroid/view/MotionEvent;
     :pswitch_3
     iget-object v2, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
     if-eqz v2, :cond_3
 
-    .line 349
+    .line 354
     iget-object v2, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
     invoke-interface {v2, p0, p2}, Landroid/view/View$OnTouchListener;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
@@ -712,7 +740,7 @@
 
     goto :goto_0
 
-    .line 327
+    .line 332
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -726,7 +754,7 @@
     .locals 2
 
     .prologue
-    .line 268
+    .line 272
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mNormalImage:I
 
     if-eqz v0, :cond_0
@@ -735,35 +763,35 @@
 
     if-eqz v0, :cond_0
 
-    .line 269
+    .line 273
     iget-boolean v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mDimmed:Z
 
     if-eqz v0, :cond_1
 
-    .line 270
+    .line 274
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mImageButton:Landroid/widget/ImageButton;
 
     iget v1, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mDimmedImage:I
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setBackgroundResource(I)V
 
-    .line 276
+    .line 280
     :cond_0
     :goto_0
     iget-boolean v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mDimmed:Z
 
     if-eqz v0, :cond_2
 
-    .line 277
+    .line 281
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mDimmedBackground:I
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/widget/TwImageButton;->setBackgroundResource(I)V
 
-    .line 281
+    .line 285
     :goto_1
     return-void
 
-    .line 272
+    .line 276
     :cond_1
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mImageButton:Landroid/widget/ImageButton;
 
@@ -773,7 +801,7 @@
 
     goto :goto_0
 
-    .line 279
+    .line 283
     :cond_2
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mNormalBackground:I
 
@@ -806,16 +834,16 @@
     .parameter "dimmedBackground"
 
     .prologue
-    .line 240
+    .line 244
     iput p1, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mNormalBackground:I
 
-    .line 241
+    .line 245
     iput p2, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPressedBackground:I
 
-    .line 242
+    .line 246
     iput p3, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mDimmedBackground:I
 
-    .line 243
+    .line 247
     return-void
 .end method
 
@@ -824,17 +852,17 @@
     .parameter "resId"
 
     .prologue
-    .line 364
+    .line 369
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mImageButton:Landroid/widget/ImageButton;
 
     if-eqz v0, :cond_0
 
-    .line 365
+    .line 370
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mImageButton:Landroid/widget/ImageButton;
 
     invoke-virtual {v0, p1}, Landroid/widget/ImageButton;->setBackgroundResource(I)V
 
-    .line 367
+    .line 372
     :cond_0
     return-void
 .end method
@@ -902,10 +930,10 @@
     .parameter "dimmedImage"
 
     .prologue
-    .line 224
+    .line 228
     iput p1, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mDimmedImage:I
 
-    .line 225
+    .line 229
     return-void
 .end method
 
@@ -943,16 +971,16 @@
     .parameter "dimmedImage"
 
     .prologue
-    .line 246
+    .line 250
     iput p1, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mNormalImage:I
 
-    .line 247
+    .line 251
     iput p2, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPressedImage:I
 
-    .line 248
+    .line 252
     iput p3, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mDimmedImage:I
 
-    .line 249
+    .line 253
     return-void
 .end method
 
@@ -961,10 +989,10 @@
     .parameter "normalBackground"
 
     .prologue
-    .line 228
+    .line 232
     iput p1, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mNormalBackground:I
 
-    .line 229
+    .line 233
     return-void
 .end method
 
@@ -973,10 +1001,10 @@
     .parameter "normalImage"
 
     .prologue
-    .line 216
+    .line 220
     iput p1, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mNormalImage:I
 
-    .line 217
+    .line 221
     return-void
 .end method
 
@@ -985,10 +1013,10 @@
     .parameter "l"
 
     .prologue
-    .line 303
+    .line 308
     iput-object p1, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mOnClickListener:Landroid/view/View$OnClickListener;
 
-    .line 304
+    .line 309
     return-void
 .end method
 
@@ -997,10 +1025,10 @@
     .parameter "l"
 
     .prologue
-    .line 307
+    .line 312
     iput-object p1, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
-    .line 308
+    .line 313
     return-void
 .end method
 
@@ -1008,22 +1036,22 @@
     .locals 1
 
     .prologue
-    .line 262
+    .line 266
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPressedImage:I
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/widget/TwImageButton;->setButtonImage(I)V
 
-    .line 263
+    .line 267
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPressedBackground:I
 
     if-eqz v0, :cond_0
 
-    .line 264
+    .line 268
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPressedBackground:I
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/widget/TwImageButton;->setBackgroundResource(I)V
 
-    .line 265
+    .line 269
     :cond_0
     return-void
 .end method
@@ -1033,10 +1061,10 @@
     .parameter "pressedBackground"
 
     .prologue
-    .line 232
+    .line 236
     iput p1, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPressedBackground:I
 
-    .line 233
+    .line 237
     return-void
 .end method
 
@@ -1045,10 +1073,10 @@
     .parameter "pressedImage"
 
     .prologue
-    .line 220
+    .line 224
     iput p1, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPressedImage:I
 
-    .line 221
+    .line 225
     return-void
 .end method
 
@@ -1077,12 +1105,12 @@
     .parameter "bShow"
 
     .prologue
-    .line 358
+    .line 363
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPopupTextLayout:Landroid/widget/LinearLayout;
 
     if-eqz v0, :cond_0
 
-    .line 359
+    .line 364
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPopupTextLayout:Landroid/widget/LinearLayout;
 
     if-eqz p1, :cond_1
@@ -1092,11 +1120,11 @@
     :goto_0
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 361
+    .line 366
     :cond_0
     return-void
 
-    .line 359
+    .line 364
     :cond_1
     const/4 v1, 0x4
 

@@ -492,7 +492,7 @@
     .line 146
     .local v0, bHideFocus:Z
     :goto_1
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     .line 147
     iget-object v1, p0, Lcom/sec/android/app/camera/CameraBaseIndicators;->mIndicatorFocus:Lcom/sec/android/app/camera/widget/TwIndicatorFocus;
@@ -524,57 +524,36 @@
     .restart local v0       #bHideFocus:Z
     goto :goto_1
 
-    .line 140
-    .end local v0           #bHideFocus:Z
-    :cond_2
-    iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
-
-    invoke-virtual {v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/sec/android/app/camera/CameraSettings;->getFocusMode()I
-
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    .line 141
-    const/4 v0, 0x1
-
-    .restart local v0       #bHideFocus:Z
-    goto :goto_1
-
     .line 143
     .end local v0           #bHideFocus:Z
-    :cond_3
+    :cond_2
     const/4 v0, 0x0
 
     .restart local v0       #bHideFocus:Z
     goto :goto_1
 
     .line 149
-    :cond_4
+    :cond_3
     iget-object v1, p0, Lcom/sec/android/app/camera/CameraBaseIndicators;->mIndicatorFocus:Lcom/sec/android/app/camera/widget/TwIndicatorFocus;
 
     invoke-virtual {v1, v3}, Lcom/sec/android/app/camera/widget/TwIndicatorFocus;->setVisibility(I)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     .line 153
     .end local v0           #bHideFocus:Z
     :sswitch_3
-    if-ne p2, v4, :cond_5
+    if-ne p2, v4, :cond_4
 
     .line 154
     iget-object v1, p0, Lcom/sec/android/app/camera/CameraBaseIndicators;->mIndicatorLock:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     .line 156
-    :cond_5
+    :cond_4
     iget-object v1, p0, Lcom/sec/android/app/camera/CameraBaseIndicators;->mIndicatorLock:Landroid/widget/ImageView;
 
     const/4 v2, 0x4

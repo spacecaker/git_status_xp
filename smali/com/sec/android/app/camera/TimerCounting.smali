@@ -94,7 +94,7 @@
     .line 52
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
-    const v1, 0x7f030033
+    const v1, 0x7f030034
 
     iget-object v2, p0, Lcom/sec/android/app/camera/MenuBase;->mBaseView:Landroid/view/ViewGroup;
 
@@ -551,23 +551,9 @@
     :goto_1
     iget-object v0, p0, Lcom/sec/android/app/camera/TimerCounting;->mTimerCountNum:Landroid/widget/TextView;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    iget v1, p0, Lcom/sec/android/app/camera/TimerCounting;->mTimerValue:I
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget v2, p0, Lcom/sec/android/app/camera/TimerCounting;->mTimerValue:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ""
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v1
 

@@ -65,7 +65,7 @@
 
     .line 49
     .local v0, attr:Landroid/content/res/TypedArray;
-    const v1, 0x7f020158
+    const v1, 0x7f020174
 
     invoke-virtual {v0, v3, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -74,7 +74,7 @@
     invoke-virtual {p0, v3, v1}, Lcom/sec/android/app/camera/widget/TwImageNumber;->addImageId(II)V
 
     .line 52
-    const v1, 0x7f020159
+    const v1, 0x7f020175
 
     invoke-virtual {v0, v4, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -83,7 +83,7 @@
     invoke-virtual {p0, v4, v1}, Lcom/sec/android/app/camera/widget/TwImageNumber;->addImageId(II)V
 
     .line 55
-    const v1, 0x7f02015a
+    const v1, 0x7f020176
 
     invoke-virtual {v0, v5, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -92,7 +92,7 @@
     invoke-virtual {p0, v5, v1}, Lcom/sec/android/app/camera/widget/TwImageNumber;->addImageId(II)V
 
     .line 58
-    const v1, 0x7f02015b
+    const v1, 0x7f020177
 
     invoke-virtual {v0, v6, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -101,7 +101,7 @@
     invoke-virtual {p0, v6, v1}, Lcom/sec/android/app/camera/widget/TwImageNumber;->addImageId(II)V
 
     .line 62
-    const v1, 0x7f02015c
+    const v1, 0x7f020178
 
     invoke-virtual {v0, v7, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -114,7 +114,7 @@
 
     const/4 v2, 0x5
 
-    const v3, 0x7f02015d
+    const v3, 0x7f020179
 
     invoke-virtual {v0, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -127,7 +127,7 @@
 
     const/4 v2, 0x6
 
-    const v3, 0x7f02015e
+    const v3, 0x7f02017a
 
     invoke-virtual {v0, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -140,7 +140,7 @@
 
     const/4 v2, 0x7
 
-    const v3, 0x7f02015f
+    const v3, 0x7f02017b
 
     invoke-virtual {v0, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -153,7 +153,7 @@
 
     const/16 v2, 0x8
 
-    const v3, 0x7f020160
+    const v3, 0x7f02017c
 
     invoke-virtual {v0, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -166,7 +166,7 @@
 
     const/16 v2, 0x9
 
-    const v3, 0x7f020161
+    const v3, 0x7f02017d
 
     invoke-virtual {v0, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 

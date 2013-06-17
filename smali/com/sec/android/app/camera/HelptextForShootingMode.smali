@@ -322,7 +322,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/camera/HelptextForShootingMode;->mHelptext:Landroid/widget/TextView;
 
-    const v1, 0x7f0700cc
+    const v1, 0x7f070005
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -332,7 +332,7 @@
     :pswitch_2
     iget-object v0, p0, Lcom/sec/android/app/camera/HelptextForShootingMode;->mHelptext:Landroid/widget/TextView;
 
-    const v1, 0x7f0700cd
+    const v1, 0x7f070004
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -342,7 +342,7 @@
     :pswitch_3
     iget-object v0, p0, Lcom/sec/android/app/camera/HelptextForShootingMode;->mHelptext:Landroid/widget/TextView;
 
-    const v1, 0x7f0700ce
+    const v1, 0x7f07008e
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -352,7 +352,7 @@
     :pswitch_4
     iget-object v0, p0, Lcom/sec/android/app/camera/HelptextForShootingMode;->mHelptext:Landroid/widget/TextView;
 
-    const v1, 0x7f0700cf
+    const v1, 0x7f070009
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

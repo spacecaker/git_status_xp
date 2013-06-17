@@ -11,10 +11,10 @@
     .parameter "id"
 
     .prologue
-    .line 29
+    .line 28
     invoke-direct {p0, p1, p2, p3}, Lcom/sec/android/app/camera/AbstractCeState;-><init>(Lcom/sec/android/app/camera/CameraEngine;Lcom/sec/android/app/camera/CeRequestQueue;I)V
 
-    .line 31
+    .line 30
     return-void
 .end method
 
@@ -25,7 +25,7 @@
     .parameter "msg"
 
     .prologue
-    .line 67
+    .line 66
     const-string v0, "CeStateIdle"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -50,16 +50,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 68
+    .line 67
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 76
+    .line 75
     :goto_0
     return-void
 
-    .line 70
+    .line 69
     :pswitch_0
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStateIdle;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
@@ -69,7 +69,7 @@
 
     goto :goto_0
 
-    .line 73
+    .line 72
     :pswitch_1
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStateIdle;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -79,7 +79,7 @@
 
     goto :goto_0
 
-    .line 68
+    .line 67
     :pswitch_data_0
     .packed-switch 0x7
         :pswitch_1
@@ -98,7 +98,7 @@
 
     const-string v4, "CeStateIdle"
 
-    .line 41
+    .line 40
     const-string v0, "CeStateIdle"
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -125,21 +125,21 @@
 
     invoke-static {v4, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 42
+    .line 41
     invoke-virtual {p1}, Lcom/sec/android/app/camera/CeRequest;->getRequest()I
 
     move-result v0
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 59
+    .line 58
     const-string v0, "CeStateIdle"
 
     const-string v0, "invalid request id for current state"
 
     invoke-static {v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 60
+    .line 59
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStateIdle;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -148,12 +148,12 @@
 
     move v0, v3
 
-    .line 63
+    .line 62
     .end local p0
     :goto_0
     return v0
 
-    .line 44
+    .line 43
     .restart local p0
     :sswitch_0
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStateIdle;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
@@ -164,10 +164,10 @@
 
     move v0, v2
 
-    .line 45
+    .line 44
     goto :goto_0
 
-    .line 47
+    .line 46
     :sswitch_1
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStateIdle;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -188,10 +188,10 @@
 
     move v0, v2
 
-    .line 48
+    .line 47
     goto :goto_0
 
-    .line 50
+    .line 49
     .restart local p0
     :sswitch_2
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStateIdle;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
@@ -215,7 +215,7 @@
     :goto_1
     invoke-virtual {v1, v0}, Lcom/sec/android/app/camera/CameraEngine;->doSwitchCameraSync(Z)V
 
-    .line 51
+    .line 50
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStateIdle;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -224,16 +224,16 @@
 
     move v0, v2
 
-    .line 52
+    .line 51
     goto :goto_0
 
     :cond_0
     move v0, v3
 
-    .line 50
+    .line 49
     goto :goto_1
 
-    .line 54
+    .line 53
     :sswitch_3
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStateIdle;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -241,7 +241,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doProcessBackSync()V
 
-    .line 55
+    .line 54
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStateIdle;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -250,10 +250,10 @@
 
     move v0, v2
 
-    .line 56
+    .line 55
     goto :goto_0
 
-    .line 42
+    .line 41
     :sswitch_data_0
     .sparse-switch
         0x0 -> :sswitch_0

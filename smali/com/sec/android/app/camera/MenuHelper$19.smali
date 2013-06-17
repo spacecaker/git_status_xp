@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 924
+    .line 912
     iput-object p1, p0, Lcom/sec/android/app/camera/MenuHelper$19;->val$action:Ljava/lang/Runnable;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,28 +43,27 @@
     .parameter "which"
 
     .prologue
-    .line 926
+    .line 914
     packed-switch p2, :pswitch_data_0
 
-    .line 931
+    .line 918
     :cond_0
     :goto_0
     return-void
 
-    .line 928
+    .line 916
     :pswitch_0
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuHelper$19;->val$action:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_0
 
-    .line 929
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuHelper$19;->val$action:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
     goto :goto_0
 
-    .line 926
+    .line 914
     :pswitch_data_0
     .packed-switch -0x1
         :pswitch_0

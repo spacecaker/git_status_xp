@@ -1240,7 +1240,7 @@
 
     if-eqz v5, :cond_c
 
-    const v5, 0x7f0700de
+    const v5, 0x7f070115
 
     move/from16 v19, v5
 
@@ -1296,7 +1296,7 @@
     .end local v19           #msdId:I
     .restart local v6       #croppedImage:Landroid/graphics/Bitmap;
     :cond_c
-    const v5, 0x7f07000e
+    const v5, 0x7f07010c
 
     move/from16 v19, v5
 
@@ -1917,7 +1917,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f070004
+    const v2, 0x7f070114
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

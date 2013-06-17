@@ -35,6 +35,8 @@
 
 .field public mGridButtonWidth:I
 
+.field public mGridTextLineSpacing:I
+
 .field final synthetic this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
 
@@ -44,10 +46,11 @@
     .parameter
 
     .prologue
-    .line 139
+    .line 155
     iput-object p1, p0, Lcom/sec/android/app/camera/widget/TwGridView$GridButtonData;->this$0:Lcom/sec/android/app/camera/widget/TwGridView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 156
     return-void
 .end method

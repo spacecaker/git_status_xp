@@ -65,9 +65,9 @@
     .locals 6
 
     .prologue
-    const/16 v5, 0xa
+    const/4 v5, 0x5
 
-    const/4 v4, 0x5
+    const/4 v4, 0x4
 
     const/4 v3, 0x7
 
@@ -75,15 +75,15 @@
 
     const/4 v1, 0x2
 
-    .line 7587
-    new-array v0, v1, [I
+    .line 6931
+    new-array v0, v4, [I
 
     fill-array-data v0, :array_0
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->EvenlySpacedLayout:[I
 
-    .line 7685
-    const/16 v0, 0x1b
+    .line 7063
+    const/16 v0, 0x1c
 
     new-array v0, v0, [I
 
@@ -91,14 +91,14 @@
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwGridView:[I
 
-    .line 8130
-    new-array v0, v4, [I
+    .line 7524
+    new-array v0, v5, [I
 
     fill-array-data v0, :array_2
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwGridViewTitle:[I
 
-    .line 8253
+    .line 7647
     const/16 v0, 0x12
 
     new-array v0, v0, [I
@@ -107,21 +107,21 @@
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwImageButton:[I
 
-    .line 8546
+    .line 7940
     new-array v0, v1, [I
 
     fill-array-data v0, :array_4
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwIndicatorAntiShake:[I
 
-    .line 8599
+    .line 7993
     new-array v0, v3, [I
 
     fill-array-data v0, :array_5
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwIndicatorBattery:[I
 
-    .line 8727
+    .line 8121
     const/16 v0, 0x9
 
     new-array v0, v0, [I
@@ -130,42 +130,44 @@
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwIndicatorFocus:[I
 
-    .line 8870
+    .line 8264
     new-array v0, v1, [I
 
     fill-array-data v0, :array_7
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwIndicatorFocusmode:[I
 
-    .line 8919
-    new-array v0, v4, [I
+    .line 8313
+    new-array v0, v5, [I
 
     fill-array-data v0, :array_8
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwIndicatorGPS:[I
 
-    .line 9015
+    .line 8409
     new-array v0, v3, [I
 
     fill-array-data v0, :array_9
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwIndicatorISO:[I
 
-    .line 9131
+    .line 8525
     new-array v0, v2, [I
 
     fill-array-data v0, :array_a
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwIndicatorMetering:[I
 
-    .line 9204
-    new-array v0, v5, [I
+    .line 8598
+    const/16 v0, 0xa
+
+    new-array v0, v0, [I
 
     fill-array-data v0, :array_b
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwIndicatorRemainCount:[I
 
-    .line 9389
+    .line 8783
     const/16 v0, 0x10
 
     new-array v0, v0, [I
@@ -174,28 +176,28 @@
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwIndicatorResolution:[I
 
-    .line 9631
+    .line 9025
     new-array v0, v1, [I
 
     fill-array-data v0, :array_d
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwIndicatorStorage:[I
 
-    .line 9676
+    .line 9070
     new-array v0, v2, [I
 
     fill-array-data v0, :array_e
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwIndicatorTimer:[I
 
-    .line 9743
+    .line 9137
     new-array v0, v3, [I
 
     fill-array-data v0, :array_f
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwIndicatorWhiteBalance:[I
 
-    .line 9891
+    .line 9285
     const/16 v0, 0x13
 
     new-array v0, v0, [I
@@ -204,8 +206,8 @@
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwScroller:[I
 
-    .line 10248
-    const/16 v0, 0x19
+    .line 9650
+    const/16 v0, 0x1d
 
     new-array v0, v0, [I
 
@@ -213,28 +215,30 @@
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwSettingList:[I
 
-    .line 10661
+    .line 10128
     new-array v0, v2, [I
 
     fill-array-data v0, :array_12
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwSideMenu:[I
 
-    .line 10720
-    new-array v0, v2, [I
+    .line 10189
+    new-array v0, v4, [I
 
     fill-array-data v0, :array_13
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwSideMenuPopupTextLayout:[I
 
-    .line 10795
-    new-array v0, v5, [I
+    .line 10280
+    const/16 v0, 0xa
+
+    new-array v0, v0, [I
 
     fill-array-data v0, :array_14
 
     sput-object v0, Lcom/sec/android/app/camera/R$styleable;->TwSlider:[I
 
-    .line 10998
+    .line 10483
     const/16 v0, 0x12
 
     new-array v0, v0, [I
@@ -245,22 +249,18 @@
 
     return-void
 
-    .line 7587
-    nop
-
+    .line 6931
     :array_0
     .array-data 0x4
-        0xc9t 0x0t 0x1t 0x7ft
-        0xcat 0x0t 0x1t 0x7ft
+        0xcft 0x0t 0x1t 0x7ft
+        0xd0t 0x0t 0x1t 0x7ft
+        0xd1t 0x0t 0x1t 0x7ft
+        0xd2t 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 7685
+    .line 7063
     :array_1
     .array-data 0x4
-        0x8at 0x0t 0x1t 0x7ft
-        0x8bt 0x0t 0x1t 0x7ft
-        0x8ct 0x0t 0x1t 0x7ft
-        0x8dt 0x0t 0x1t 0x7ft
         0x8et 0x0t 0x1t 0x7ft
         0x8ft 0x0t 0x1t 0x7ft
         0x90t 0x0t 0x1t 0x7ft
@@ -284,19 +284,24 @@
         0xa2t 0x0t 0x1t 0x7ft
         0xa3t 0x0t 0x1t 0x7ft
         0xa4t 0x0t 0x1t 0x7ft
+        0xa5t 0x0t 0x1t 0x7ft
+        0xa6t 0x0t 0x1t 0x7ft
+        0xa7t 0x0t 0x1t 0x7ft
+        0xa8t 0x0t 0x1t 0x7ft
+        0xa9t 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 8130
+    .line 7524
     :array_2
     .array-data 0x4
-        0x85t 0x0t 0x1t 0x7ft
-        0x86t 0x0t 0x1t 0x7ft
-        0x87t 0x0t 0x1t 0x7ft
-        0x88t 0x0t 0x1t 0x7ft
         0x89t 0x0t 0x1t 0x7ft
+        0x8at 0x0t 0x1t 0x7ft
+        0x8bt 0x0t 0x1t 0x7ft
+        0x8ct 0x0t 0x1t 0x7ft
+        0x8dt 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 8253
+    .line 7647
     :array_3
     .array-data 0x4
         0x0t 0x0t 0x1t 0x7ft
@@ -319,14 +324,14 @@
         0x11t 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 8546
+    .line 7940
     :array_4
     .array-data 0x4
         0x68t 0x0t 0x1t 0x7ft
         0x69t 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 8599
+    .line 7993
     :array_5
     .array-data 0x4
         0x25t 0x0t 0x1t 0x7ft
@@ -338,7 +343,7 @@
         0x2bt 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 8727
+    .line 8121
     :array_6
     .array-data 0x4
         0x5ft 0x0t 0x1t 0x7ft
@@ -352,14 +357,14 @@
         0x67t 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 8870
+    .line 8264
     :array_7
     .array-data 0x4
         0x6at 0x0t 0x1t 0x7ft
         0x6bt 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 8919
+    .line 8313
     :array_8
     .array-data 0x4
         0x4at 0x0t 0x1t 0x7ft
@@ -369,7 +374,7 @@
         0x4et 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 9015
+    .line 8409
     :array_9
     .array-data 0x4
         0x2ct 0x0t 0x1t 0x7ft
@@ -381,7 +386,7 @@
         0x32t 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 9131
+    .line 8525
     :array_a
     .array-data 0x4
         0x4ft 0x0t 0x1t 0x7ft
@@ -389,7 +394,7 @@
         0x51t 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 9204
+    .line 8598
     :array_b
     .array-data 0x4
         0x55t 0x0t 0x1t 0x7ft
@@ -404,7 +409,7 @@
         0x5et 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 9389
+    .line 8783
     :array_c
     .array-data 0x4
         0x33t 0x0t 0x1t 0x7ft
@@ -425,14 +430,14 @@
         0x42t 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 9631
+    .line 9025
     :array_d
     .array-data 0x4
-        0xa5t 0x0t 0x1t 0x7ft
-        0xa6t 0x0t 0x1t 0x7ft
+        0xaat 0x0t 0x1t 0x7ft
+        0xabt 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 9676
+    .line 9070
     :array_e
     .array-data 0x4
         0x52t 0x0t 0x1t 0x7ft
@@ -440,7 +445,7 @@
         0x54t 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 9743
+    .line 9137
     :array_f
     .array-data 0x4
         0x43t 0x0t 0x1t 0x7ft
@@ -452,7 +457,7 @@
         0x49t 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 9891
+    .line 9285
     :array_10
     .array-data 0x4
         0x12t 0x0t 0x1t 0x7ft
@@ -476,7 +481,7 @@
         0x24t 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 10248
+    .line 9650
     :array_11
     .array-data 0x4
         0x6ct 0x0t 0x1t 0x7ft
@@ -504,47 +509,47 @@
         0x82t 0x0t 0x1t 0x7ft
         0x83t 0x0t 0x1t 0x7ft
         0x84t 0x0t 0x1t 0x7ft
+        0x85t 0x0t 0x1t 0x7ft
+        0x86t 0x0t 0x1t 0x7ft
+        0x87t 0x0t 0x1t 0x7ft
+        0x88t 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 10661
+    .line 10128
     :array_12
     .array-data 0x4
-        0xc6t 0x0t 0x1t 0x7ft
-        0xc7t 0x0t 0x1t 0x7ft
-        0xc8t 0x0t 0x1t 0x7ft
+        0xcct 0x0t 0x1t 0x7ft
+        0xcdt 0x0t 0x1t 0x7ft
+        0xcet 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 10720
+    .line 10189
     :array_13
     .array-data 0x4
-        0xc3t 0x0t 0x1t 0x7ft
-        0xc4t 0x0t 0x1t 0x7ft
-        0xc5t 0x0t 0x1t 0x7ft
+        0xc8t 0x0t 0x1t 0x7ft
+        0xc9t 0x0t 0x1t 0x7ft
+        0xcat 0x0t 0x1t 0x7ft
+        0xcbt 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 10795
+    .line 10280
     :array_14
     .array-data 0x4
-        0xa7t 0x0t 0x1t 0x7ft
-        0xa8t 0x0t 0x1t 0x7ft
-        0xa9t 0x0t 0x1t 0x7ft
-        0xaat 0x0t 0x1t 0x7ft
-        0xabt 0x0t 0x1t 0x7ft
         0xact 0x0t 0x1t 0x7ft
         0xadt 0x0t 0x1t 0x7ft
         0xaet 0x0t 0x1t 0x7ft
         0xaft 0x0t 0x1t 0x7ft
         0xb0t 0x0t 0x1t 0x7ft
-    .end array-data
-
-    .line 10998
-    :array_15
-    .array-data 0x4
         0xb1t 0x0t 0x1t 0x7ft
         0xb2t 0x0t 0x1t 0x7ft
         0xb3t 0x0t 0x1t 0x7ft
         0xb4t 0x0t 0x1t 0x7ft
         0xb5t 0x0t 0x1t 0x7ft
+    .end array-data
+
+    .line 10483
+    :array_15
+    .array-data 0x4
         0xb6t 0x0t 0x1t 0x7ft
         0xb7t 0x0t 0x1t 0x7ft
         0xb8t 0x0t 0x1t 0x7ft
@@ -558,6 +563,11 @@
         0xc0t 0x0t 0x1t 0x7ft
         0xc1t 0x0t 0x1t 0x7ft
         0xc2t 0x0t 0x1t 0x7ft
+        0xc3t 0x0t 0x1t 0x7ft
+        0xc4t 0x0t 0x1t 0x7ft
+        0xc5t 0x0t 0x1t 0x7ft
+        0xc6t 0x0t 0x1t 0x7ft
+        0xc7t 0x0t 0x1t 0x7ft
     .end array-data
 .end method
 
@@ -565,7 +575,7 @@
     .locals 0
 
     .prologue
-    .line 7574
+    .line 6914
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

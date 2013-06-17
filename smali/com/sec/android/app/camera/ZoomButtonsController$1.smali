@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 151
+    .line 153
     iput-object p1, p0, Lcom/sec/android/app/camera/ZoomButtonsController$1;->this$0:Lcom/sec/android/app/camera/ZoomButtonsController;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,7 +42,7 @@
     .prologue
     const/4 v1, 0x2
 
-    .line 154
+    .line 156
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController$1;->this$0:Lcom/sec/android/app/camera/ZoomButtonsController;
 
     #getter for: Lcom/sec/android/app/camera/ZoomButtonsController;->mIsVisible:Z
@@ -52,11 +52,11 @@
 
     if-nez v0, :cond_0
 
-    .line 158
+    .line 160
     :goto_0
     return-void
 
-    .line 156
+    .line 158
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController$1;->this$0:Lcom/sec/android/app/camera/ZoomButtonsController;
 
@@ -67,7 +67,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 157
+    .line 159
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController$1;->this$0:Lcom/sec/android/app/camera/ZoomButtonsController;
 
     #getter for: Lcom/sec/android/app/camera/ZoomButtonsController;->mHandler:Landroid/os/Handler;

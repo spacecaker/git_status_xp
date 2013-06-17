@@ -16,21 +16,21 @@
     .parameter "param"
 
     .prologue
-    .line 78
+    .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 76
+    .line 75
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/sec/android/app/camera/CeRequest;->mParam:Ljava/lang/Object;
 
-    .line 79
+    .line 78
     iput p1, p0, Lcom/sec/android/app/camera/CeRequest;->mRequest:I
 
-    .line 80
+    .line 79
     iput-object p2, p0, Lcom/sec/android/app/camera/CeRequest;->mParam:Ljava/lang/Object;
 
-    .line 81
+    .line 80
     return-void
 .end method
 
@@ -41,7 +41,7 @@
     .parameter "o"
 
     .prologue
-    .line 97
+    .line 96
     check-cast p1, Lcom/sec/android/app/camera/CeRequest;
 
     .end local p1
@@ -66,7 +66,7 @@
     .locals 1
 
     .prologue
-    .line 92
+    .line 91
     iget-object v0, p0, Lcom/sec/android/app/camera/CeRequest;->mParam:Ljava/lang/Object;
 
     return-object v0
@@ -76,7 +76,7 @@
     .locals 1
 
     .prologue
-    .line 88
+    .line 87
     iget v0, p0, Lcom/sec/android/app/camera/CeRequest;->mRequest:I
 
     return v0

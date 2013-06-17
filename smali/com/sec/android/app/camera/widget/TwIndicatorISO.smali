@@ -67,7 +67,7 @@
 
     .line 55
     .local v0, attr:Landroid/content/res/TypedArray;
-    const v1, 0x7f020152
+    const v1, 0x7f02016e
 
     invoke-virtual {v0, v3, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -76,7 +76,7 @@
     invoke-virtual {p0, v3, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorISO;->addImageId(II)V
 
     .line 58
-    const v1, 0x7f02014b
+    const v1, 0x7f020167
 
     invoke-virtual {v0, v5, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -85,7 +85,7 @@
     invoke-virtual {p0, v5, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorISO;->addImageId(II)V
 
     .line 61
-    const v1, 0x7f02014d
+    const v1, 0x7f020169
 
     invoke-virtual {v0, v6, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -94,7 +94,7 @@
     invoke-virtual {p0, v6, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorISO;->addImageId(II)V
 
     .line 64
-    const v1, 0x7f02014f
+    const v1, 0x7f02016b
 
     invoke-virtual {v0, v7, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -103,7 +103,7 @@
     invoke-virtual {p0, v7, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorISO;->addImageId(II)V
 
     .line 67
-    const v1, 0x7f020151
+    const v1, 0x7f02016d
 
     invoke-virtual {v0, v4, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -114,7 +114,7 @@
     .line 70
     const/4 v1, 0x5
 
-    const v2, 0x7f020151
+    const v2, 0x7f02016d
 
     invoke-virtual {v0, v4, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -127,7 +127,7 @@
 
     const/4 v2, 0x5
 
-    const v3, 0x7f02014c
+    const v3, 0x7f020168
 
     invoke-virtual {v0, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -140,7 +140,7 @@
 
     const/4 v2, 0x6
 
-    const v3, 0x7f02014e
+    const v3, 0x7f02016a
 
     invoke-virtual {v0, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -151,7 +151,7 @@
     .line 79
     const/16 v1, 0x8
 
-    const v2, 0x7f02014e
+    const v2, 0x7f02016a
 
     invoke-virtual {v0, v4, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 

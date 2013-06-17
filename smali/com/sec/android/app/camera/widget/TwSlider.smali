@@ -11,14 +11,6 @@
 .end annotation
 
 
-# static fields
-.field public static mResolutionMax:Z
-
-.field public static mUsePlusMinus:Z
-
-.field public static mZoomReset:Z
-
-
 # instance fields
 .field protected mFocusSliderBarImageResourceId:I
 
@@ -61,31 +53,13 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    .prologue
-    const/4 v0, 0x0
-
-    .line 58
-    sput-boolean v0, Lcom/sec/android/app/camera/widget/TwSlider;->mResolutionMax:Z
-
-    .line 59
-    sput-boolean v0, Lcom/sec/android/app/camera/widget/TwSlider;->mUsePlusMinus:Z
-
-    .line 60
-    sput-boolean v0, Lcom/sec/android/app/camera/widget/TwSlider;->mZoomReset:Z
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
     .parameter "context"
     .parameter "attrs"
 
     .prologue
-    .line 73
+    .line 70
     invoke-direct {p0, p1, p2}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 43
@@ -100,15 +74,15 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mFocusSliderPosition:I
 
-    .line 65
+    .line 62
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderValueChangedListener:Lcom/sec/android/app/camera/widget/TwSlider$OnSliderValueChangedListener;
 
-    .line 74
+    .line 71
     invoke-virtual {p0, p2}, Lcom/sec/android/app/camera/widget/TwSlider;->init(Landroid/util/AttributeSet;)V
 
-    .line 75
+    .line 72
     return-void
 .end method
 
@@ -119,7 +93,7 @@
     .parameter "defStyle"
 
     .prologue
-    .line 68
+    .line 65
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 43
@@ -134,15 +108,15 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mFocusSliderPosition:I
 
-    .line 65
+    .line 62
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderValueChangedListener:Lcom/sec/android/app/camera/widget/TwSlider$OnSliderValueChangedListener;
 
-    .line 69
+    .line 66
     invoke-virtual {p0, p2}, Lcom/sec/android/app/camera/widget/TwSlider;->init(Landroid/util/AttributeSet;)V
 
-    .line 70
+    .line 67
     return-void
 .end method
 
@@ -151,7 +125,7 @@
     .parameter "attrs"
 
     .prologue
-    .line 82
+    .line 79
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSlider;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -162,11 +136,11 @@
 
     move-result-object v0
 
-    .line 84
+    .line 81
     .local v0, attr:Landroid/content/res/TypedArray;
     const/4 v1, 0x0
 
-    const v2, 0x7f0200f9
+    const v2, 0x7f020115
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -174,10 +148,10 @@
 
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderBarImageResourceId:I
 
-    .line 86
+    .line 83
     const/4 v1, 0x1
 
-    const v2, 0x7f0200fa
+    const v2, 0x7f020116
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -185,7 +159,7 @@
 
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mFocusSliderBarImageResourceId:I
 
-    .line 89
+    .line 86
     const/4 v1, 0x2
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSlider;->getResources()Landroid/content/res/Resources;
@@ -204,14 +178,14 @@
 
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mNumberOfGauge:I
 
-    .line 92
+    .line 89
     const/4 v1, 0x3
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSlider;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f06002d
+    const v3, 0x7f060033
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -225,7 +199,7 @@
 
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderLayoutWidth:I
 
-    .line 95
+    .line 92
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSlider;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -242,7 +216,7 @@
 
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderBarImageWidth:I
 
-    .line 98
+    .line 95
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSlider;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -259,14 +233,14 @@
 
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mFocusSliderBarWidth:I
 
-    .line 101
+    .line 98
     const/4 v1, 0x4
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSlider;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f06002e
+    const v3, 0x7f060034
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -280,14 +254,14 @@
 
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderBarMarginTop:I
 
-    .line 105
+    .line 102
     const/4 v1, 0x5
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSlider;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f06002f
+    const v3, 0x7f060035
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -301,12 +275,12 @@
 
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mFocusSliderBarMarginTop:I
 
-    .line 109
+    .line 106
     iget v1, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderBarImageWidth:I
 
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderImageWidth:I
 
-    .line 110
+    .line 107
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSlider;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -323,12 +297,12 @@
 
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderImageHeight:I
 
-    .line 112
+    .line 109
     iget v1, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mFocusSliderBarWidth:I
 
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderFocusImageWidth:I
 
-    .line 113
+    .line 110
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSlider;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -345,10 +319,10 @@
 
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderFocusImageHeight:I
 
-    .line 116
+    .line 113
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 117
+    .line 114
     return-void
 .end method
 
@@ -356,7 +330,7 @@
     .locals 6
 
     .prologue
-    .line 120
+    .line 117
     iget v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderLayoutWidth:I
 
     int-to-float v4, v4
@@ -369,7 +343,7 @@
 
     div-float v3, v4, v5
 
-    .line 121
+    .line 118
     .local v3, width:F
     const/4 v1, 0x1
 
@@ -379,7 +353,7 @@
 
     if-gt v1, v4, :cond_0
 
-    .line 122
+    .line 119
     new-instance v0, Lcom/sec/android/app/camera/widget/TwSlider$1;
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSlider;->getContext()Landroid/content/Context;
@@ -388,16 +362,16 @@
 
     invoke-direct {v0, p0, v4}, Lcom/sec/android/app/camera/widget/TwSlider$1;-><init>(Lcom/sec/android/app/camera/widget/TwSlider;Landroid/content/Context;)V
 
-    .line 153
+    .line 150
     .local v0, imageView:Landroid/widget/ImageView;
     iget v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderBarImageResourceId:I
 
     invoke-virtual {v0, v4}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
-    .line 154
+    .line 151
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setId(I)V
 
-    .line 156
+    .line 153
     new-instance v2, Landroid/widget/RelativeLayout$LayoutParams;
 
     iget v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderImageWidth:I
@@ -406,7 +380,7 @@
 
     invoke-direct {v2, v4, v5}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
 
-    .line 159
+    .line 156
     .local v2, lp:Landroid/widget/RelativeLayout$LayoutParams;
     int-to-float v4, v1
 
@@ -416,25 +390,25 @@
 
     iput v4, v2, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
 
-    .line 160
+    .line 157
     iget v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderBarMarginTop:I
 
     iput v4, v2, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I
 
-    .line 161
+    .line 158
     invoke-virtual {p0, v0, v2}, Lcom/sec/android/app/camera/widget/TwSlider;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 162
+    .line 159
     iget-object v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderGuages:Ljava/util/List;
 
     invoke-interface {v4, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 121
+    .line 118
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 164
+    .line 161
     .end local v0           #imageView:Landroid/widget/ImageView;
     .end local v2           #lp:Landroid/widget/RelativeLayout$LayoutParams;
     :cond_0
@@ -447,18 +421,8 @@
     .locals 1
 
     .prologue
-    .line 222
+    .line 194
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mFocusSliderPosition:I
-
-    return v0
-.end method
-
-.method public getMaxResolution()Z
-    .locals 1
-
-    .prologue
-    .line 171
-    sget-boolean v0, Lcom/sec/android/app/camera/widget/TwSlider;->mResolutionMax:Z
 
     return v0
 .end method
@@ -468,13 +432,13 @@
     .parameter "attrs"
 
     .prologue
-    .line 78
+    .line 75
     invoke-direct {p0, p1}, Lcom/sec/android/app/camera/widget/TwSlider;->initAttrs(Landroid/util/AttributeSet;)V
 
-    .line 79
+    .line 76
     invoke-direct {p0}, Lcom/sec/android/app/camera/widget/TwSlider;->initSliderLayout()V
 
-    .line 80
+    .line 77
     return-void
 .end method
 
@@ -483,7 +447,7 @@
     .parameter "arg0"
 
     .prologue
-    .line 230
+    .line 202
     invoke-super {p0, p1}, Landroid/widget/RelativeLayout;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
@@ -491,36 +455,12 @@
     return v0
 .end method
 
-.method public setMaxResolution(Z)V
-    .locals 0
-    .parameter "Value"
-
-    .prologue
-    .line 167
-    sput-boolean p1, Lcom/sec/android/app/camera/widget/TwSlider;->mResolutionMax:Z
-
-    .line 168
-    return-void
-.end method
-
-.method public setPlusMinusUse(Z)V
-    .locals 0
-    .parameter "Use"
-
-    .prologue
-    .line 175
-    sput-boolean p1, Lcom/sec/android/app/camera/widget/TwSlider;->mUsePlusMinus:Z
-
-    .line 176
-    return-void
-.end method
-
 .method public setSliderFocus(I)V
     .locals 7
     .parameter "position"
 
     .prologue
-    .line 183
+    .line 164
     if-ltz p1, :cond_0
 
     iget v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mNumberOfGauge:I
@@ -531,20 +471,20 @@
 
     if-le p1, v4, :cond_1
 
-    .line 219
+    .line 191
     :cond_0
     :goto_0
     return-void
 
-    .line 186
+    .line 167
     :cond_1
     iget v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mFocusSliderPosition:I
 
     const/4 v5, -0x1
 
-    if-eq v4, v5, :cond_4
+    if-eq v4, v5, :cond_2
 
-    .line 187
+    .line 168
     iget-object v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderGuages:Ljava/util/List;
 
     iget v5, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mFocusSliderPosition:I
@@ -555,7 +495,7 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 188
+    .line 169
     .local v0, currentImageView:Landroid/widget/ImageView;
     invoke-virtual {v0}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -563,15 +503,8 @@
 
     check-cast v1, Landroid/widget/RelativeLayout$LayoutParams;
 
-    .line 189
+    .line 170
     .local v1, currentlp:Landroid/widget/RelativeLayout$LayoutParams;
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSlider;->getMaxResolution()Z
-
-    move-result v4
-
-    if-nez v4, :cond_3
-
-    .line 190
     iget v4, v1, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
 
     iget v5, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mFocusSliderBarWidth:I
@@ -584,72 +517,36 @@
 
     iput v4, v1, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
 
-    .line 191
-    if-nez p1, :cond_2
-
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSlider;->getCurrentSliderPosition()I
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    sget-boolean v4, Lcom/sec/android/app/camera/widget/TwSlider;->mUsePlusMinus:Z
-
-    if-nez v4, :cond_2
-
-    sget-boolean v4, Lcom/sec/android/app/camera/widget/TwSlider;->mZoomReset:Z
-
-    if-nez v4, :cond_2
-
-    .line 192
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSlider;->getCurrentSliderPosition()I
-
-    move-result p1
-
-    .line 194
-    :cond_2
-    const/4 v4, 0x0
-
-    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/widget/TwSlider;->setPlusMinusUse(Z)V
-
-    .line 196
-    :cond_3
+    .line 171
     iget v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderBarMarginTop:I
 
     iput v4, v1, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I
 
-    .line 197
+    .line 172
     iget v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderImageWidth:I
 
     iput v4, v1, Landroid/widget/RelativeLayout$LayoutParams;->width:I
 
-    .line 198
+    .line 173
     iget v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderImageHeight:I
 
     iput v4, v1, Landroid/widget/RelativeLayout$LayoutParams;->height:I
 
-    .line 199
+    .line 174
     iget v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderBarImageResourceId:I
 
     invoke-virtual {v0, v4}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
-    .line 200
+    .line 175
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 202
+    .line 177
     .end local v0           #currentImageView:Landroid/widget/ImageView;
     .end local v1           #currentlp:Landroid/widget/RelativeLayout$LayoutParams;
-    :cond_4
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSlider;->getMaxResolution()Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    .line 205
+    :cond_2
     iput p1, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mFocusSliderPosition:I
 
-    .line 206
+    .line 178
     iget-object v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderGuages:Ljava/util/List;
 
     iget v5, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mFocusSliderPosition:I
@@ -660,7 +557,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    .line 208
+    .line 180
     .local v2, imageView:Landroid/widget/ImageView;
     invoke-virtual {v2}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -668,7 +565,7 @@
 
     check-cast v3, Landroid/widget/RelativeLayout$LayoutParams;
 
-    .line 209
+    .line 181
     .local v3, lp:Landroid/widget/RelativeLayout$LayoutParams;
     iget v4, v3, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
 
@@ -682,52 +579,40 @@
 
     iput v4, v3, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
 
-    .line 210
+    .line 182
     iget v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mFocusSliderBarMarginTop:I
 
     iput v4, v3, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I
 
-    .line 211
+    .line 183
     iget v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderFocusImageHeight:I
 
     iput v4, v3, Landroid/widget/RelativeLayout$LayoutParams;->height:I
 
-    .line 212
+    .line 184
     iget v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderFocusImageWidth:I
 
     iput v4, v3, Landroid/widget/RelativeLayout$LayoutParams;->width:I
 
-    .line 213
+    .line 185
     iget v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mFocusSliderBarImageResourceId:I
 
     invoke-virtual {v2, v4}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
-    .line 214
+    .line 186
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 216
+    .line 188
     iget-object v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderValueChangedListener:Lcom/sec/android/app/camera/widget/TwSlider$OnSliderValueChangedListener;
 
     if-eqz v4, :cond_0
 
-    .line 217
+    .line 189
     iget-object v4, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mSliderValueChangedListener:Lcom/sec/android/app/camera/widget/TwSlider$OnSliderValueChangedListener;
 
     iget v5, p0, Lcom/sec/android/app/camera/widget/TwSlider;->mFocusSliderPosition:I
 
     invoke-interface {v4, v5}, Lcom/sec/android/app/camera/widget/TwSlider$OnSliderValueChangedListener;->onSliderValueChanged(I)V
 
-    goto/16 :goto_0
-.end method
-
-.method public setZoomLevelReset(Z)V
-    .locals 0
-    .parameter "reset"
-
-    .prologue
-    .line 179
-    sput-boolean p1, Lcom/sec/android/app/camera/widget/TwSlider;->mZoomReset:Z
-
-    .line 180
-    return-void
+    goto :goto_0
 .end method

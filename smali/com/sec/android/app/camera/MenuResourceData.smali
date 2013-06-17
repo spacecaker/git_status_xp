@@ -72,11 +72,7 @@
 
 .field private mFlashModeMenu:Lcom/sec/android/app/camera/FlashModeMenu;
 
-.field private mFlashModeMenu2:Lcom/sec/android/app/camera/FlashModeMenu;
-
 .field private mFlashModeResourceData:Lcom/sec/android/app/camera/FlashModeResourceData;
-
-.field private mFlashModeResourceData2:Lcom/sec/android/app/camera/FlashModeResourceData;
 
 .field private mFocusModeContinuousMenu:Lcom/sec/android/app/camera/FocusModeContinuousMenu;
 
@@ -175,256 +171,250 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 155
+    .line 151
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 27
+    .line 26
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraBaseIndicators:Lcom/sec/android/app/camera/CameraBaseIndicators;
 
-    .line 28
+    .line 27
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderBaseIndicators:Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
-    .line 30
+    .line 29
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraSideMenu:Lcom/sec/android/app/camera/CameraSideMenu;
 
-    .line 31
+    .line 30
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
-    .line 33
+    .line 32
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
-    .line 35
+    .line 34
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraIndicators:Lcom/sec/android/app/camera/CameraIndicators;
 
-    .line 36
+    .line 35
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderIndicators:Lcom/sec/android/app/camera/CamcorderIndicators;
 
-    .line 38
+    .line 37
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraSettingsMenu:Lcom/sec/android/app/camera/CameraSettingsMenu;
 
-    .line 39
+    .line 38
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderSettingsMenu:Lcom/sec/android/app/camera/CamcorderSettingsMenu;
 
-    .line 41
+    .line 40
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mExposureValueMenu:Lcom/sec/android/app/camera/ExposureValueMenu;
 
-    .line 43
+    .line 42
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mZoomMenu:Lcom/sec/android/app/camera/ZoomMenu;
 
-    .line 45
+    .line 44
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShootingModeMenu:Lcom/sec/android/app/camera/ShootingModeMenu;
 
-    .line 46
+    .line 45
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShootingModeResourceData:Lcom/sec/android/app/camera/ShootingModeResourceData;
 
-    .line 48
+    .line 47
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mRecordingModeMenu:Lcom/sec/android/app/camera/RecordingModeMenu;
 
-    .line 49
+    .line 48
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mRecordingModeResourceData:Lcom/sec/android/app/camera/RecordingModeResourceData;
 
-    .line 51
+    .line 50
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mSceneModeMenu:Lcom/sec/android/app/camera/SceneModeMenu;
 
-    .line 52
+    .line 51
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mSceneModeResourceData:Lcom/sec/android/app/camera/SceneModeResourceData;
 
-    .line 55
+    .line 54
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeMenu:Lcom/sec/android/app/camera/FlashModeMenu;
 
-    .line 56
-    iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeMenu2:Lcom/sec/android/app/camera/FlashModeMenu;
-
-    .line 58
+    .line 55
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeResourceData:Lcom/sec/android/app/camera/FlashModeResourceData;
 
-    .line 59
-    iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeResourceData2:Lcom/sec/android/app/camera/FlashModeResourceData;
-
-    .line 61
+    .line 57
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeMenu:Lcom/sec/android/app/camera/FocusModeMenu;
 
-    .line 62
+    .line 58
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeResourceData:Lcom/sec/android/app/camera/FocusModeResourceData;
 
-    .line 64
+    .line 60
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeContinuousMenu:Lcom/sec/android/app/camera/FocusModeContinuousMenu;
 
-    .line 65
+    .line 61
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeContinuousResourceData:Lcom/sec/android/app/camera/FocusModeContinuousResourceData;
 
-    .line 67
+    .line 63
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mTimerMenu:Lcom/sec/android/app/camera/TimerMenu;
 
-    .line 68
+    .line 64
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mTimerResourceData:Lcom/sec/android/app/camera/TimerResourceData;
 
-    .line 70
+    .line 66
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraResolutionMenu:Lcom/sec/android/app/camera/CameraResolutionMenu;
 
-    .line 71
+    .line 67
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraResolutionResourceData:Lcom/sec/android/app/camera/CameraResolutionResourceData;
 
-    .line 72
+    .line 68
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderResolutionMenu:Lcom/sec/android/app/camera/CamcorderResolutionMenu;
 
-    .line 73
+    .line 69
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderResolutionResourceData:Lcom/sec/android/app/camera/CamcorderResolutionResourceData;
 
-    .line 75
+    .line 71
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mEffectMenu:Lcom/sec/android/app/camera/EffectMenu;
 
-    .line 76
+    .line 72
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mEffectResourceData:Lcom/sec/android/app/camera/EffectResourceData;
 
-    .line 78
+    .line 74
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraQualityMenu:Lcom/sec/android/app/camera/CameraQualityMenu;
 
-    .line 79
+    .line 75
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraQualityResourceData:Lcom/sec/android/app/camera/CameraQualityResourceData;
 
-    .line 80
+    .line 76
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderQualityMenu:Lcom/sec/android/app/camera/CamcorderQualityMenu;
 
-    .line 81
+    .line 77
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderQualityResourceData:Lcom/sec/android/app/camera/CamcorderQualityResourceData;
 
-    .line 83
+    .line 79
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mISOMenu:Lcom/sec/android/app/camera/ISOMenu;
 
-    .line 84
+    .line 80
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mISOResourceData:Lcom/sec/android/app/camera/ISOResourceData;
 
-    .line 86
+    .line 82
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mExposuremeterMenu:Lcom/sec/android/app/camera/ExposuremeterMenu;
 
-    .line 87
+    .line 83
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mExposuremeterResourceData:Lcom/sec/android/app/camera/ExposuremeterResourceData;
 
-    .line 89
+    .line 85
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mWhiteBalanceMenu:Lcom/sec/android/app/camera/WhiteBalanceMenu;
 
-    .line 90
+    .line 86
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mWhiteBalanceResourceData:Lcom/sec/android/app/camera/WhiteBalanceResourceData;
 
-    .line 92
+    .line 88
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mReviewMenu:Lcom/sec/android/app/camera/ReviewMenu;
 
-    .line 93
+    .line 89
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mReviewResourceData:Lcom/sec/android/app/camera/ReviewResourceData;
 
-    .line 95
+    .line 91
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraAdjustMenu:Lcom/sec/android/app/camera/AdjustMenu;
 
-    .line 97
+    .line 93
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundMenu:Lcom/sec/android/app/camera/ShutterSoundMenu;
 
-    .line 98
+    .line 94
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundResourceData:Lcom/sec/android/app/camera/ShutterSoundResourceData;
 
-    .line 100
+    .line 96
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundContinuousMenu:Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;
 
-    .line 101
+    .line 97
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundContinuousResourceData:Lcom/sec/android/app/camera/ShutterSoundContinuousResourceData;
 
-    .line 103
+    .line 99
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mStorageMenu:Lcom/sec/android/app/camera/StorageMenu;
 
-    .line 104
+    .line 100
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mStorageResourceData:Lcom/sec/android/app/camera/StorageResourceData;
 
-    .line 106
+    .line 102
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    .line 107
+    .line 103
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mPanoramaView:Lcom/sec/android/app/camera/Panoramax1View;
 
-    .line 109
+    .line 105
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameShotMenu:Lcom/sec/android/app/camera/FrameShotMenu;
 
-    .line 110
+    .line 106
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameShotSelectionResourceData:Lcom/sec/android/app/camera/FrameShotSelectionResourceData;
 
-    .line 112
+    .line 108
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicShotMenu:Lcom/sec/android/app/camera/MosaicShotMenu;
 
-    .line 113
+    .line 109
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicShotSelectionResourceData:Lcom/sec/android/app/camera/MosaicShotSelectionResourceData;
 
-    .line 115
+    .line 111
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mContinuousView:Lcom/sec/android/app/camera/ContinuousShotView;
 
-    .line 117
+    .line 113
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mTimerCounting:Lcom/sec/android/app/camera/TimerCounting;
 
-    .line 119
+    .line 115
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mSmileShotView:Lcom/sec/android/app/camera/SmileShotView;
 
-    .line 121
+    .line 117
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraSettingsMenuResourceData:Lcom/sec/android/app/camera/CameraSettingsMenuResourceData;
 
-    .line 122
+    .line 118
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderSettingsMenuResourceData:Lcom/sec/android/app/camera/CamcorderSettingsMenuResourceData;
 
-    .line 124
+    .line 120
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameCaptureMenu:Lcom/sec/android/app/camera/FrameCaptureMenu;
 
-    .line 125
+    .line 121
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameCaptureResourceData:Lcom/sec/android/app/camera/FrameCaptureResourceData;
 
-    .line 127
+    .line 123
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicCaptureMenu:Lcom/sec/android/app/camera/MosaicCaptureMenu;
 
-    .line 128
+    .line 124
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicCaptureResourceData:Lcom/sec/android/app/camera/MosaicCaptureResourceData;
 
-    .line 130
+    .line 126
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderRecordingMenu:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
 
-    .line 132
+    .line 128
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mStopMotionPreview:Lcom/sec/android/app/camera/StopMotionPreview;
 
-    .line 134
+    .line 130
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActionShotView:Lcom/sec/android/app/camera/ActionShotView;
 
-    .line 136
+    .line 132
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mAddMeView:Lcom/sec/android/app/camera/AddMeView;
 
-    .line 138
+    .line 134
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mPostView:Lcom/sec/android/app/camera/PostView;
 
-    .line 140
+    .line 136
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mEmptyView:Lcom/sec/android/app/camera/EmptyView;
 
-    .line 142
+    .line 138
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mHelptextForShootingMode:Lcom/sec/android/app/camera/HelptextForShootingMode;
 
-    .line 144
+    .line 140
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mVintageShotView:Lcom/sec/android/app/camera/VintageShotView;
 
-    .line 146
+    .line 142
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mVintageShotSelectionMenu:Lcom/sec/android/app/camera/VintageShotSelectionMenu;
 
-    .line 147
+    .line 143
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mVintageShotSelectionResourceData:Lcom/sec/android/app/camera/VintageShotSelectionResourceData;
 
-    .line 149
+    .line 145
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCartoonShotView:Lcom/sec/android/app/camera/CartoonShotView;
 
-    .line 151
+    .line 147
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mSelfShotView:Lcom/sec/android/app/camera/SelfShotView;
 
-    .line 153
+    .line 149
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraSMenuResourceData:Lcom/sec/android/app/camera/CameraSideMenuResourceData;
 
-    .line 154
+    .line 150
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderSideMenuResourceData:Lcom/sec/android/app/camera/CamcorderSideMenuResourceData;
 
-    .line 156
+    .line 152
     iput-object p1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    .line 157
+    .line 153
     return-void
 .end method
 
@@ -438,31 +428,31 @@
     .prologue
     const/4 v6, 0x1
 
-    const/16 v10, 0x12
+    const/4 v10, 0x2
 
-    const/4 v7, 0x2
+    const/16 v7, 0x12
 
     const/4 v9, 0x4
 
     const/16 v8, 0x13
 
-    .line 161
+    .line 157
     packed-switch p1, :pswitch_data_0
 
-    .line 592
+    .line 580
     :pswitch_0
     const/4 v0, 0x0
 
     :goto_0
     return-object v0
 
-    .line 164
+    .line 160
     :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraBaseIndicators:Lcom/sec/android/app/camera/CameraBaseIndicators;
 
     if-nez v0, :cond_0
 
-    .line 165
+    .line 161
     new-instance v0, Lcom/sec/android/app/camera/CameraBaseIndicators;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -481,19 +471,19 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraBaseIndicators:Lcom/sec/android/app/camera/CameraBaseIndicators;
 
-    .line 168
+    .line 164
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraBaseIndicators:Lcom/sec/android/app/camera/CameraBaseIndicators;
 
     goto :goto_0
 
-    .line 170
+    .line 166
     :pswitch_2
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderBaseIndicators:Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
     if-nez v0, :cond_1
 
-    .line 171
+    .line 167
     new-instance v0, Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -512,32 +502,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderBaseIndicators:Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
-    .line 174
+    .line 170
     :cond_1
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderBaseIndicators:Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
     goto :goto_0
 
-    .line 176
+    .line 172
     :pswitch_3
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraSMenuResourceData:Lcom/sec/android/app/camera/CameraSideMenuResourceData;
 
     if-nez v0, :cond_2
 
-    .line 177
+    .line 173
     new-instance v0, Lcom/sec/android/app/camera/CameraSideMenuResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/CameraSideMenuResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraSMenuResourceData:Lcom/sec/android/app/camera/CameraSideMenuResourceData;
 
-    .line 179
+    .line 175
     :cond_2
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraSideMenu:Lcom/sec/android/app/camera/CameraSideMenu;
 
     if-nez v0, :cond_3
 
-    .line 180
+    .line 176
     new-instance v0, Lcom/sec/android/app/camera/CameraSideMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -556,32 +546,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraSideMenu:Lcom/sec/android/app/camera/CameraSideMenu;
 
-    .line 183
+    .line 179
     :cond_3
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraSideMenu:Lcom/sec/android/app/camera/CameraSideMenu;
 
     goto :goto_0
 
-    .line 185
+    .line 181
     :pswitch_4
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderSideMenuResourceData:Lcom/sec/android/app/camera/CamcorderSideMenuResourceData;
 
     if-nez v0, :cond_4
 
-    .line 186
+    .line 182
     new-instance v0, Lcom/sec/android/app/camera/CamcorderSideMenuResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/CamcorderSideMenuResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderSideMenuResourceData:Lcom/sec/android/app/camera/CamcorderSideMenuResourceData;
 
-    .line 188
+    .line 184
     :cond_4
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     if-nez v0, :cond_5
 
-    .line 189
+    .line 185
     new-instance v0, Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -600,19 +590,19 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
-    .line 192
+    .line 188
     :cond_5
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     goto :goto_0
 
-    .line 194
+    .line 190
     :pswitch_5
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraIndicators:Lcom/sec/android/app/camera/CameraIndicators;
 
     if-nez v0, :cond_6
 
-    .line 195
+    .line 191
     new-instance v0, Lcom/sec/android/app/camera/CameraIndicators;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -625,25 +615,25 @@
 
     move-object v5, p0
 
-    move v6, v7
+    move v6, v10
 
     invoke-direct/range {v0 .. v6}, Lcom/sec/android/app/camera/CameraIndicators;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraIndicators:Lcom/sec/android/app/camera/CameraIndicators;
 
-    .line 198
+    .line 194
     :cond_6
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraIndicators:Lcom/sec/android/app/camera/CameraIndicators;
 
     goto/16 :goto_0
 
-    .line 200
+    .line 196
     :pswitch_6
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderIndicators:Lcom/sec/android/app/camera/CamcorderIndicators;
 
     if-nez v0, :cond_7
 
-    .line 201
+    .line 197
     new-instance v0, Lcom/sec/android/app/camera/CamcorderIndicators;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -656,25 +646,25 @@
 
     move-object v5, p0
 
-    move v6, v7
+    move v6, v10
 
     invoke-direct/range {v0 .. v6}, Lcom/sec/android/app/camera/CamcorderIndicators;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderIndicators:Lcom/sec/android/app/camera/CamcorderIndicators;
 
-    .line 204
+    .line 200
     :cond_7
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderIndicators:Lcom/sec/android/app/camera/CamcorderIndicators;
 
     goto/16 :goto_0
 
-    .line 206
+    .line 202
     :pswitch_7
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
     if-nez v0, :cond_8
 
-    .line 207
+    .line 203
     new-instance v0, Lcom/sec/android/app/camera/ShutterButton;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -691,19 +681,19 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
-    .line 210
+    .line 206
     :cond_8
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
     goto/16 :goto_0
 
-    .line 212
+    .line 209
     :pswitch_8
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShootingModeResourceData:Lcom/sec/android/app/camera/ShootingModeResourceData;
 
     if-nez v0, :cond_9
 
-    .line 213
+    .line 210
     new-instance v0, Lcom/sec/android/app/camera/ShootingModeResourceData;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -712,13 +702,13 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShootingModeResourceData:Lcom/sec/android/app/camera/ShootingModeResourceData;
 
-    .line 215
+    .line 212
     :cond_9
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShootingModeMenu:Lcom/sec/android/app/camera/ShootingModeMenu;
 
     if-nez v0, :cond_a
 
-    .line 216
+    .line 213
     new-instance v0, Lcom/sec/android/app/camera/ShootingModeMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -737,32 +727,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShootingModeMenu:Lcom/sec/android/app/camera/ShootingModeMenu;
 
-    .line 219
+    .line 216
     :cond_a
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShootingModeMenu:Lcom/sec/android/app/camera/ShootingModeMenu;
 
     goto/16 :goto_0
 
-    .line 221
+    .line 218
     :pswitch_9
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mRecordingModeResourceData:Lcom/sec/android/app/camera/RecordingModeResourceData;
 
     if-nez v0, :cond_b
 
-    .line 222
+    .line 219
     new-instance v0, Lcom/sec/android/app/camera/RecordingModeResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/RecordingModeResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mRecordingModeResourceData:Lcom/sec/android/app/camera/RecordingModeResourceData;
 
-    .line 224
+    .line 221
     :cond_b
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mRecordingModeMenu:Lcom/sec/android/app/camera/RecordingModeMenu;
 
     if-nez v0, :cond_c
 
-    .line 225
+    .line 222
     new-instance v0, Lcom/sec/android/app/camera/RecordingModeMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -781,32 +771,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mRecordingModeMenu:Lcom/sec/android/app/camera/RecordingModeMenu;
 
-    .line 228
+    .line 225
     :cond_c
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mRecordingModeMenu:Lcom/sec/android/app/camera/RecordingModeMenu;
 
     goto/16 :goto_0
 
-    .line 230
+    .line 227
     :pswitch_a
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mSceneModeResourceData:Lcom/sec/android/app/camera/SceneModeResourceData;
 
     if-nez v0, :cond_d
 
-    .line 231
+    .line 228
     new-instance v0, Lcom/sec/android/app/camera/SceneModeResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/SceneModeResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mSceneModeResourceData:Lcom/sec/android/app/camera/SceneModeResourceData;
 
-    .line 233
+    .line 230
     :cond_d
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mSceneModeMenu:Lcom/sec/android/app/camera/SceneModeMenu;
 
     if-nez v0, :cond_e
 
-    .line 234
+    .line 231
     new-instance v0, Lcom/sec/android/app/camera/SceneModeMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -825,32 +815,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mSceneModeMenu:Lcom/sec/android/app/camera/SceneModeMenu;
 
-    .line 237
+    .line 234
     :cond_e
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mSceneModeMenu:Lcom/sec/android/app/camera/SceneModeMenu;
 
     goto/16 :goto_0
 
-    .line 239
+    .line 236
     :pswitch_b
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraSettingsMenuResourceData:Lcom/sec/android/app/camera/CameraSettingsMenuResourceData;
 
     if-nez v0, :cond_f
 
-    .line 240
+    .line 237
     new-instance v0, Lcom/sec/android/app/camera/CameraSettingsMenuResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/CameraSettingsMenuResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraSettingsMenuResourceData:Lcom/sec/android/app/camera/CameraSettingsMenuResourceData;
 
-    .line 242
+    .line 239
     :cond_f
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraSettingsMenu:Lcom/sec/android/app/camera/CameraSettingsMenu;
 
     if-nez v0, :cond_10
 
-    .line 243
+    .line 240
     new-instance v0, Lcom/sec/android/app/camera/CameraSettingsMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -865,38 +855,36 @@
 
     move-object v5, p0
 
-    move v7, v10
-
     invoke-direct/range {v0 .. v7}, Lcom/sec/android/app/camera/CameraSettingsMenu;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;Lcom/sec/android/app/camera/CameraSettingsMenuResourceData;I)V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraSettingsMenu:Lcom/sec/android/app/camera/CameraSettingsMenu;
 
-    .line 246
+    .line 243
     :cond_10
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraSettingsMenu:Lcom/sec/android/app/camera/CameraSettingsMenu;
 
     goto/16 :goto_0
 
-    .line 248
+    .line 245
     :pswitch_c
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderSettingsMenuResourceData:Lcom/sec/android/app/camera/CamcorderSettingsMenuResourceData;
 
     if-nez v0, :cond_11
 
-    .line 249
+    .line 246
     new-instance v0, Lcom/sec/android/app/camera/CamcorderSettingsMenuResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/CamcorderSettingsMenuResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderSettingsMenuResourceData:Lcom/sec/android/app/camera/CamcorderSettingsMenuResourceData;
 
-    .line 251
+    .line 248
     :cond_11
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderSettingsMenu:Lcom/sec/android/app/camera/CamcorderSettingsMenu;
 
     if-nez v0, :cond_12
 
-    .line 252
+    .line 249
     new-instance v0, Lcom/sec/android/app/camera/CamcorderSettingsMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -911,40 +899,36 @@
 
     move-object v5, p0
 
-    move v7, v10
-
     invoke-direct/range {v0 .. v7}, Lcom/sec/android/app/camera/CamcorderSettingsMenu;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;Lcom/sec/android/app/camera/CamcorderSettingsMenuResourceData;I)V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderSettingsMenu:Lcom/sec/android/app/camera/CamcorderSettingsMenu;
 
-    .line 255
+    .line 252
     :cond_12
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderSettingsMenu:Lcom/sec/android/app/camera/CamcorderSettingsMenu;
 
     goto/16 :goto_0
 
-    .line 257
+    .line 254
     :pswitch_d
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeResourceData:Lcom/sec/android/app/camera/FlashModeResourceData;
 
     if-nez v0, :cond_13
 
-    .line 258
+    .line 255
     new-instance v0, Lcom/sec/android/app/camera/FlashModeResourceData;
 
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/sec/android/app/camera/FlashModeResourceData;-><init>(Z)V
+    invoke-direct {v0}, Lcom/sec/android/app/camera/FlashModeResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeResourceData:Lcom/sec/android/app/camera/FlashModeResourceData;
 
-    .line 260
+    .line 257
     :cond_13
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeMenu:Lcom/sec/android/app/camera/FlashModeMenu;
 
     if-nez v0, :cond_14
 
-    .line 261
+    .line 258
     new-instance v0, Lcom/sec/android/app/camera/FlashModeMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -959,85 +943,43 @@
 
     move-object v6, p0
 
+    move v7, v10
+
     invoke-direct/range {v0 .. v7}, Lcom/sec/android/app/camera/FlashModeMenu;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/FlashModeResourceData;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeMenu:Lcom/sec/android/app/camera/FlashModeMenu;
 
-    .line 264
+    .line 261
     :cond_14
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeMenu:Lcom/sec/android/app/camera/FlashModeMenu;
 
     goto/16 :goto_0
 
-    .line 266
+    .line 263
     :pswitch_e
-    iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeResourceData2:Lcom/sec/android/app/camera/FlashModeResourceData;
+    iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeResourceData:Lcom/sec/android/app/camera/FocusModeResourceData;
 
     if-nez v0, :cond_15
 
-    .line 267
-    new-instance v0, Lcom/sec/android/app/camera/FlashModeResourceData;
-
-    invoke-direct {v0, v6}, Lcom/sec/android/app/camera/FlashModeResourceData;-><init>(Z)V
-
-    iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeResourceData2:Lcom/sec/android/app/camera/FlashModeResourceData;
-
-    .line 269
-    :cond_15
-    iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeMenu2:Lcom/sec/android/app/camera/FlashModeMenu;
-
-    if-nez v0, :cond_16
-
-    .line 270
-    new-instance v0, Lcom/sec/android/app/camera/FlashModeMenu;
-
-    iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
-
-    const v3, 0x7f0a009f
-
-    iget-object v5, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeResourceData2:Lcom/sec/android/app/camera/FlashModeResourceData;
-
-    move v2, p1
-
-    move-object v4, p2
-
-    move-object v6, p0
-
-    invoke-direct/range {v0 .. v7}, Lcom/sec/android/app/camera/FlashModeMenu;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/FlashModeResourceData;Lcom/sec/android/app/camera/MenuResourceData;I)V
-
-    iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeMenu2:Lcom/sec/android/app/camera/FlashModeMenu;
-
-    .line 273
-    :cond_16
-    iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeMenu2:Lcom/sec/android/app/camera/FlashModeMenu;
-
-    goto/16 :goto_0
-
-    .line 275
-    :pswitch_f
-    iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeResourceData:Lcom/sec/android/app/camera/FocusModeResourceData;
-
-    if-nez v0, :cond_17
-
-    .line 276
+    .line 264
     new-instance v0, Lcom/sec/android/app/camera/FocusModeResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/FocusModeResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeResourceData:Lcom/sec/android/app/camera/FocusModeResourceData;
 
-    .line 278
-    :cond_17
+    .line 266
+    :cond_15
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeMenu:Lcom/sec/android/app/camera/FocusModeMenu;
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_16
 
-    .line 279
+    .line 267
     new-instance v0, Lcom/sec/android/app/camera/FocusModeMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const v3, 0x7f0a00a0
+    const v3, 0x7f0a009f
 
     iget-object v5, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeResourceData:Lcom/sec/android/app/camera/FocusModeResourceData;
 
@@ -1053,37 +995,37 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeMenu:Lcom/sec/android/app/camera/FocusModeMenu;
 
-    .line 282
-    :cond_18
+    .line 270
+    :cond_16
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeMenu:Lcom/sec/android/app/camera/FocusModeMenu;
 
     goto/16 :goto_0
 
-    .line 284
-    :pswitch_10
+    .line 272
+    :pswitch_f
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeContinuousResourceData:Lcom/sec/android/app/camera/FocusModeContinuousResourceData;
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_17
 
-    .line 285
+    .line 273
     new-instance v0, Lcom/sec/android/app/camera/FocusModeContinuousResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/FocusModeContinuousResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeContinuousResourceData:Lcom/sec/android/app/camera/FocusModeContinuousResourceData;
 
-    .line 287
-    :cond_19
+    .line 275
+    :cond_17
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeContinuousMenu:Lcom/sec/android/app/camera/FocusModeContinuousMenu;
 
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_18
 
-    .line 288
+    .line 276
     new-instance v0, Lcom/sec/android/app/camera/FocusModeContinuousMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const v3, 0x7f0a00a1
+    const v3, 0x7f0a00a0
 
     iget-object v5, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeContinuousResourceData:Lcom/sec/android/app/camera/FocusModeContinuousResourceData;
 
@@ -1099,32 +1041,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeContinuousMenu:Lcom/sec/android/app/camera/FocusModeContinuousMenu;
 
-    .line 291
-    :cond_1a
+    .line 279
+    :cond_18
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeContinuousMenu:Lcom/sec/android/app/camera/FocusModeContinuousMenu;
 
     goto/16 :goto_0
 
-    .line 302
-    :pswitch_11
+    .line 290
+    :pswitch_10
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mTimerResourceData:Lcom/sec/android/app/camera/TimerResourceData;
 
-    if-nez v0, :cond_1b
+    if-nez v0, :cond_19
 
-    .line 303
+    .line 291
     new-instance v0, Lcom/sec/android/app/camera/TimerResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/TimerResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mTimerResourceData:Lcom/sec/android/app/camera/TimerResourceData;
 
-    .line 305
-    :cond_1b
+    .line 293
+    :cond_19
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mTimerMenu:Lcom/sec/android/app/camera/TimerMenu;
 
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_1a
 
-    .line 306
+    .line 294
     new-instance v0, Lcom/sec/android/app/camera/TimerMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1145,32 +1087,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mTimerMenu:Lcom/sec/android/app/camera/TimerMenu;
 
-    .line 310
-    :cond_1c
+    .line 298
+    :cond_1a
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mTimerMenu:Lcom/sec/android/app/camera/TimerMenu;
 
     goto/16 :goto_0
 
-    .line 312
-    :pswitch_12
+    .line 300
+    :pswitch_11
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraResolutionResourceData:Lcom/sec/android/app/camera/CameraResolutionResourceData;
 
-    if-nez v0, :cond_1d
+    if-nez v0, :cond_1b
 
-    .line 313
+    .line 301
     new-instance v0, Lcom/sec/android/app/camera/CameraResolutionResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/CameraResolutionResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraResolutionResourceData:Lcom/sec/android/app/camera/CameraResolutionResourceData;
 
-    .line 315
-    :cond_1d
+    .line 303
+    :cond_1b
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraResolutionMenu:Lcom/sec/android/app/camera/CameraResolutionMenu;
 
-    if-nez v0, :cond_1e
+    if-nez v0, :cond_1c
 
-    .line 316
+    .line 304
     new-instance v0, Lcom/sec/android/app/camera/CameraResolutionMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1191,32 +1133,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraResolutionMenu:Lcom/sec/android/app/camera/CameraResolutionMenu;
 
-    .line 319
-    :cond_1e
+    .line 307
+    :cond_1c
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraResolutionMenu:Lcom/sec/android/app/camera/CameraResolutionMenu;
 
     goto/16 :goto_0
 
-    .line 321
-    :pswitch_13
+    .line 309
+    :pswitch_12
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderResolutionResourceData:Lcom/sec/android/app/camera/CamcorderResolutionResourceData;
 
-    if-nez v0, :cond_1f
+    if-nez v0, :cond_1d
 
-    .line 322
+    .line 310
     new-instance v0, Lcom/sec/android/app/camera/CamcorderResolutionResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/CamcorderResolutionResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderResolutionResourceData:Lcom/sec/android/app/camera/CamcorderResolutionResourceData;
 
-    .line 324
-    :cond_1f
+    .line 312
+    :cond_1d
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderResolutionMenu:Lcom/sec/android/app/camera/CamcorderResolutionMenu;
 
-    if-nez v0, :cond_20
+    if-nez v0, :cond_1e
 
-    .line 325
+    .line 313
     new-instance v0, Lcom/sec/android/app/camera/CamcorderResolutionMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1237,32 +1179,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderResolutionMenu:Lcom/sec/android/app/camera/CamcorderResolutionMenu;
 
-    .line 328
-    :cond_20
+    .line 316
+    :cond_1e
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderResolutionMenu:Lcom/sec/android/app/camera/CamcorderResolutionMenu;
 
     goto/16 :goto_0
 
-    .line 330
-    :pswitch_14
+    .line 318
+    :pswitch_13
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mEffectResourceData:Lcom/sec/android/app/camera/EffectResourceData;
 
-    if-nez v0, :cond_21
+    if-nez v0, :cond_1f
 
-    .line 331
+    .line 319
     new-instance v0, Lcom/sec/android/app/camera/EffectResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/EffectResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mEffectResourceData:Lcom/sec/android/app/camera/EffectResourceData;
 
-    .line 333
-    :cond_21
+    .line 321
+    :cond_1f
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mEffectMenu:Lcom/sec/android/app/camera/EffectMenu;
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_20
 
-    .line 334
+    .line 322
     new-instance v0, Lcom/sec/android/app/camera/EffectMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1283,32 +1225,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mEffectMenu:Lcom/sec/android/app/camera/EffectMenu;
 
-    .line 337
-    :cond_22
+    .line 325
+    :cond_20
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mEffectMenu:Lcom/sec/android/app/camera/EffectMenu;
 
     goto/16 :goto_0
 
-    .line 339
-    :pswitch_15
+    .line 327
+    :pswitch_14
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mWhiteBalanceResourceData:Lcom/sec/android/app/camera/WhiteBalanceResourceData;
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_21
 
-    .line 340
+    .line 328
     new-instance v0, Lcom/sec/android/app/camera/WhiteBalanceResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/WhiteBalanceResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mWhiteBalanceResourceData:Lcom/sec/android/app/camera/WhiteBalanceResourceData;
 
-    .line 342
-    :cond_23
+    .line 330
+    :cond_21
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mWhiteBalanceMenu:Lcom/sec/android/app/camera/WhiteBalanceMenu;
 
-    if-nez v0, :cond_24
+    if-nez v0, :cond_22
 
-    .line 343
+    .line 331
     new-instance v0, Lcom/sec/android/app/camera/WhiteBalanceMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1329,32 +1271,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mWhiteBalanceMenu:Lcom/sec/android/app/camera/WhiteBalanceMenu;
 
-    .line 346
-    :cond_24
+    .line 334
+    :cond_22
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mWhiteBalanceMenu:Lcom/sec/android/app/camera/WhiteBalanceMenu;
 
     goto/16 :goto_0
 
-    .line 348
-    :pswitch_16
+    .line 336
+    :pswitch_15
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mISOResourceData:Lcom/sec/android/app/camera/ISOResourceData;
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_23
 
-    .line 349
+    .line 337
     new-instance v0, Lcom/sec/android/app/camera/ISOResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/ISOResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mISOResourceData:Lcom/sec/android/app/camera/ISOResourceData;
 
-    .line 351
-    :cond_25
+    .line 339
+    :cond_23
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mISOMenu:Lcom/sec/android/app/camera/ISOMenu;
 
-    if-nez v0, :cond_26
+    if-nez v0, :cond_24
 
-    .line 352
+    .line 340
     new-instance v0, Lcom/sec/android/app/camera/ISOMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1375,32 +1317,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mISOMenu:Lcom/sec/android/app/camera/ISOMenu;
 
-    .line 355
-    :cond_26
+    .line 343
+    :cond_24
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mISOMenu:Lcom/sec/android/app/camera/ISOMenu;
 
     goto/16 :goto_0
 
-    .line 357
-    :pswitch_17
+    .line 345
+    :pswitch_16
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mExposuremeterResourceData:Lcom/sec/android/app/camera/ExposuremeterResourceData;
 
-    if-nez v0, :cond_27
+    if-nez v0, :cond_25
 
-    .line 358
+    .line 346
     new-instance v0, Lcom/sec/android/app/camera/ExposuremeterResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/ExposuremeterResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mExposuremeterResourceData:Lcom/sec/android/app/camera/ExposuremeterResourceData;
 
-    .line 360
-    :cond_27
+    .line 348
+    :cond_25
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mExposuremeterMenu:Lcom/sec/android/app/camera/ExposuremeterMenu;
 
-    if-nez v0, :cond_28
+    if-nez v0, :cond_26
 
-    .line 361
+    .line 349
     new-instance v0, Lcom/sec/android/app/camera/ExposuremeterMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1421,32 +1363,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mExposuremeterMenu:Lcom/sec/android/app/camera/ExposuremeterMenu;
 
-    .line 364
-    :cond_28
+    .line 352
+    :cond_26
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mExposuremeterMenu:Lcom/sec/android/app/camera/ExposuremeterMenu;
 
     goto/16 :goto_0
 
-    .line 366
-    :pswitch_18
+    .line 354
+    :pswitch_17
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraQualityResourceData:Lcom/sec/android/app/camera/CameraQualityResourceData;
 
-    if-nez v0, :cond_29
+    if-nez v0, :cond_27
 
-    .line 367
+    .line 355
     new-instance v0, Lcom/sec/android/app/camera/CameraQualityResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/CameraQualityResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraQualityResourceData:Lcom/sec/android/app/camera/CameraQualityResourceData;
 
-    .line 369
-    :cond_29
+    .line 357
+    :cond_27
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraQualityMenu:Lcom/sec/android/app/camera/CameraQualityMenu;
 
-    if-nez v0, :cond_2a
+    if-nez v0, :cond_28
 
-    .line 370
+    .line 358
     new-instance v0, Lcom/sec/android/app/camera/CameraQualityMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1467,32 +1409,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraQualityMenu:Lcom/sec/android/app/camera/CameraQualityMenu;
 
-    .line 373
-    :cond_2a
+    .line 361
+    :cond_28
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraQualityMenu:Lcom/sec/android/app/camera/CameraQualityMenu;
 
     goto/16 :goto_0
 
-    .line 375
-    :pswitch_19
+    .line 363
+    :pswitch_18
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderQualityResourceData:Lcom/sec/android/app/camera/CamcorderQualityResourceData;
 
-    if-nez v0, :cond_2b
+    if-nez v0, :cond_29
 
-    .line 376
+    .line 364
     new-instance v0, Lcom/sec/android/app/camera/CamcorderQualityResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/CamcorderQualityResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderQualityResourceData:Lcom/sec/android/app/camera/CamcorderQualityResourceData;
 
-    .line 378
-    :cond_2b
+    .line 366
+    :cond_29
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderQualityMenu:Lcom/sec/android/app/camera/CamcorderQualityMenu;
 
-    if-nez v0, :cond_2c
+    if-nez v0, :cond_2a
 
-    .line 379
+    .line 367
     new-instance v0, Lcom/sec/android/app/camera/CamcorderQualityMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1513,32 +1455,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderQualityMenu:Lcom/sec/android/app/camera/CamcorderQualityMenu;
 
-    .line 382
-    :cond_2c
+    .line 370
+    :cond_2a
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderQualityMenu:Lcom/sec/android/app/camera/CamcorderQualityMenu;
 
     goto/16 :goto_0
 
-    .line 384
-    :pswitch_1a
+    .line 372
+    :pswitch_19
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mReviewResourceData:Lcom/sec/android/app/camera/ReviewResourceData;
 
-    if-nez v0, :cond_2d
+    if-nez v0, :cond_2b
 
-    .line 385
+    .line 373
     new-instance v0, Lcom/sec/android/app/camera/ReviewResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/ReviewResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mReviewResourceData:Lcom/sec/android/app/camera/ReviewResourceData;
 
-    .line 387
-    :cond_2d
+    .line 375
+    :cond_2b
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mReviewMenu:Lcom/sec/android/app/camera/ReviewMenu;
 
-    if-nez v0, :cond_2e
+    if-nez v0, :cond_2c
 
-    .line 388
+    .line 376
     new-instance v0, Lcom/sec/android/app/camera/ReviewMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1559,19 +1501,19 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mReviewMenu:Lcom/sec/android/app/camera/ReviewMenu;
 
-    .line 391
-    :cond_2e
+    .line 379
+    :cond_2c
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mReviewMenu:Lcom/sec/android/app/camera/ReviewMenu;
 
     goto/16 :goto_0
 
-    .line 393
-    :pswitch_1b
+    .line 381
+    :pswitch_1a
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraAdjustMenu:Lcom/sec/android/app/camera/AdjustMenu;
 
-    if-nez v0, :cond_2f
+    if-nez v0, :cond_2d
 
-    .line 394
+    .line 382
     new-instance v0, Lcom/sec/android/app/camera/AdjustMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1590,32 +1532,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraAdjustMenu:Lcom/sec/android/app/camera/AdjustMenu;
 
-    .line 397
-    :cond_2f
+    .line 385
+    :cond_2d
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraAdjustMenu:Lcom/sec/android/app/camera/AdjustMenu;
 
     goto/16 :goto_0
 
-    .line 399
-    :pswitch_1c
+    .line 387
+    :pswitch_1b
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundResourceData:Lcom/sec/android/app/camera/ShutterSoundResourceData;
 
-    if-nez v0, :cond_30
+    if-nez v0, :cond_2e
 
-    .line 400
+    .line 388
     new-instance v0, Lcom/sec/android/app/camera/ShutterSoundResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/ShutterSoundResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundResourceData:Lcom/sec/android/app/camera/ShutterSoundResourceData;
 
-    .line 402
-    :cond_30
+    .line 390
+    :cond_2e
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundMenu:Lcom/sec/android/app/camera/ShutterSoundMenu;
 
-    if-nez v0, :cond_31
+    if-nez v0, :cond_2f
 
-    .line 403
+    .line 391
     new-instance v0, Lcom/sec/android/app/camera/ShutterSoundMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1636,32 +1578,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundMenu:Lcom/sec/android/app/camera/ShutterSoundMenu;
 
-    .line 407
-    :cond_31
+    .line 395
+    :cond_2f
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundMenu:Lcom/sec/android/app/camera/ShutterSoundMenu;
 
     goto/16 :goto_0
 
-    .line 409
-    :pswitch_1d
+    .line 397
+    :pswitch_1c
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundContinuousResourceData:Lcom/sec/android/app/camera/ShutterSoundContinuousResourceData;
 
-    if-nez v0, :cond_32
+    if-nez v0, :cond_30
 
-    .line 410
+    .line 398
     new-instance v0, Lcom/sec/android/app/camera/ShutterSoundContinuousResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/ShutterSoundContinuousResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundContinuousResourceData:Lcom/sec/android/app/camera/ShutterSoundContinuousResourceData;
 
-    .line 412
-    :cond_32
+    .line 400
+    :cond_30
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundContinuousMenu:Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;
 
-    if-nez v0, :cond_33
+    if-nez v0, :cond_31
 
-    .line 413
+    .line 401
     new-instance v0, Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1682,32 +1624,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundContinuousMenu:Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;
 
-    .line 417
-    :cond_33
+    .line 405
+    :cond_31
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundContinuousMenu:Lcom/sec/android/app/camera/ShutterSoundContinuousMenu;
 
     goto/16 :goto_0
 
-    .line 419
-    :pswitch_1e
+    .line 407
+    :pswitch_1d
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mStorageResourceData:Lcom/sec/android/app/camera/StorageResourceData;
 
-    if-nez v0, :cond_34
+    if-nez v0, :cond_32
 
-    .line 420
+    .line 408
     new-instance v0, Lcom/sec/android/app/camera/StorageResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/StorageResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mStorageResourceData:Lcom/sec/android/app/camera/StorageResourceData;
 
-    .line 422
-    :cond_34
+    .line 410
+    :cond_32
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mStorageMenu:Lcom/sec/android/app/camera/StorageMenu;
 
-    if-nez v0, :cond_35
+    if-nez v0, :cond_33
 
-    .line 423
+    .line 411
     new-instance v0, Lcom/sec/android/app/camera/StorageMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1728,19 +1670,19 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mStorageMenu:Lcom/sec/android/app/camera/StorageMenu;
 
-    .line 427
-    :cond_35
+    .line 415
+    :cond_33
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mStorageMenu:Lcom/sec/android/app/camera/StorageMenu;
 
     goto/16 :goto_0
 
-    .line 429
-    :pswitch_1f
+    .line 417
+    :pswitch_1e
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mExposureValueMenu:Lcom/sec/android/app/camera/ExposureValueMenu;
 
-    if-nez v0, :cond_36
+    if-nez v0, :cond_34
 
-    .line 430
+    .line 418
     new-instance v0, Lcom/sec/android/app/camera/ExposureValueMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1753,25 +1695,25 @@
 
     move-object v5, p0
 
-    move v6, v8
+    move v6, v10
 
     invoke-direct/range {v0 .. v6}, Lcom/sec/android/app/camera/ExposureValueMenu;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mExposureValueMenu:Lcom/sec/android/app/camera/ExposureValueMenu;
 
-    .line 433
-    :cond_36
+    .line 421
+    :cond_34
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mExposureValueMenu:Lcom/sec/android/app/camera/ExposureValueMenu;
 
     goto/16 :goto_0
 
-    .line 435
-    :pswitch_20
+    .line 423
+    :pswitch_1f
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mZoomMenu:Lcom/sec/android/app/camera/ZoomMenu;
 
-    if-nez v0, :cond_37
+    if-nez v0, :cond_35
 
-    .line 436
+    .line 424
     new-instance v0, Lcom/sec/android/app/camera/ZoomMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1790,19 +1732,19 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mZoomMenu:Lcom/sec/android/app/camera/ZoomMenu;
 
-    .line 439
-    :cond_37
+    .line 427
+    :cond_35
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mZoomMenu:Lcom/sec/android/app/camera/ZoomMenu;
 
     goto/16 :goto_0
 
-    .line 441
-    :pswitch_21
+    .line 429
+    :pswitch_20
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mPanoramaView:Lcom/sec/android/app/camera/Panoramax1View;
 
-    if-nez v0, :cond_38
+    if-nez v0, :cond_36
 
-    .line 442
+    .line 430
     new-instance v0, Lcom/sec/android/app/camera/Panoramax1View;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1821,37 +1763,37 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mPanoramaView:Lcom/sec/android/app/camera/Panoramax1View;
 
-    .line 446
-    :cond_38
+    .line 434
+    :cond_36
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mPanoramaView:Lcom/sec/android/app/camera/Panoramax1View;
 
     goto/16 :goto_0
 
-    .line 448
-    :pswitch_22
+    .line 436
+    :pswitch_21
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameShotSelectionResourceData:Lcom/sec/android/app/camera/FrameShotSelectionResourceData;
 
-    if-nez v0, :cond_39
+    if-nez v0, :cond_37
 
-    .line 449
+    .line 437
     new-instance v0, Lcom/sec/android/app/camera/FrameShotSelectionResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/FrameShotSelectionResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameShotSelectionResourceData:Lcom/sec/android/app/camera/FrameShotSelectionResourceData;
 
-    .line 451
-    :cond_39
+    .line 439
+    :cond_37
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameShotMenu:Lcom/sec/android/app/camera/FrameShotMenu;
 
-    if-nez v0, :cond_3a
+    if-nez v0, :cond_38
 
-    .line 452
+    .line 440
     new-instance v0, Lcom/sec/android/app/camera/FrameShotMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const v3, 0x7f0a00a3
+    const v3, 0x7f0a00a2
 
     iget-object v5, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameShotSelectionResourceData:Lcom/sec/android/app/camera/FrameShotSelectionResourceData;
 
@@ -1861,38 +1803,36 @@
 
     move-object v6, p0
 
-    move v7, v10
-
     invoke-direct/range {v0 .. v7}, Lcom/sec/android/app/camera/FrameShotMenu;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/FrameShotSelectionResourceData;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameShotMenu:Lcom/sec/android/app/camera/FrameShotMenu;
 
-    .line 457
-    :cond_3a
+    .line 445
+    :cond_38
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameShotMenu:Lcom/sec/android/app/camera/FrameShotMenu;
 
     goto/16 :goto_0
 
-    .line 459
-    :pswitch_23
+    .line 447
+    :pswitch_22
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicShotSelectionResourceData:Lcom/sec/android/app/camera/MosaicShotSelectionResourceData;
 
-    if-nez v0, :cond_3b
+    if-nez v0, :cond_39
 
-    .line 460
+    .line 448
     new-instance v0, Lcom/sec/android/app/camera/MosaicShotSelectionResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/MosaicShotSelectionResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicShotSelectionResourceData:Lcom/sec/android/app/camera/MosaicShotSelectionResourceData;
 
-    .line 462
-    :cond_3b
+    .line 450
+    :cond_39
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicShotMenu:Lcom/sec/android/app/camera/MosaicShotMenu;
 
-    if-nez v0, :cond_3c
+    if-nez v0, :cond_3a
 
-    .line 463
+    .line 451
     new-instance v0, Lcom/sec/android/app/camera/MosaicShotMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1907,25 +1847,23 @@
 
     move-object v6, p0
 
-    move v7, v10
-
     invoke-direct/range {v0 .. v7}, Lcom/sec/android/app/camera/MosaicShotMenu;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MosaicShotSelectionResourceData;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicShotMenu:Lcom/sec/android/app/camera/MosaicShotMenu;
 
-    .line 468
-    :cond_3c
+    .line 456
+    :cond_3a
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicShotMenu:Lcom/sec/android/app/camera/MosaicShotMenu;
 
     goto/16 :goto_0
 
-    .line 470
-    :pswitch_24
+    .line 458
+    :pswitch_23
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mContinuousView:Lcom/sec/android/app/camera/ContinuousShotView;
 
-    if-nez v0, :cond_3d
+    if-nez v0, :cond_3b
 
-    .line 471
+    .line 459
     new-instance v0, Lcom/sec/android/app/camera/ContinuousShotView;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1944,19 +1882,19 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mContinuousView:Lcom/sec/android/app/camera/ContinuousShotView;
 
-    .line 474
-    :cond_3d
+    .line 462
+    :cond_3b
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mContinuousView:Lcom/sec/android/app/camera/ContinuousShotView;
 
     goto/16 :goto_0
 
-    .line 476
-    :pswitch_25
+    .line 464
+    :pswitch_24
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mTimerCounting:Lcom/sec/android/app/camera/TimerCounting;
 
-    if-nez v0, :cond_3e
+    if-nez v0, :cond_3c
 
-    .line 477
+    .line 465
     new-instance v0, Lcom/sec/android/app/camera/TimerCounting;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -1975,37 +1913,37 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mTimerCounting:Lcom/sec/android/app/camera/TimerCounting;
 
-    .line 481
-    :cond_3e
+    .line 469
+    :cond_3c
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mTimerCounting:Lcom/sec/android/app/camera/TimerCounting;
 
     goto/16 :goto_0
 
-    .line 483
-    :pswitch_26
+    .line 471
+    :pswitch_25
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameCaptureResourceData:Lcom/sec/android/app/camera/FrameCaptureResourceData;
 
-    if-nez v0, :cond_3f
+    if-nez v0, :cond_3d
 
-    .line 484
+    .line 472
     new-instance v0, Lcom/sec/android/app/camera/FrameCaptureResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/FrameCaptureResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameCaptureResourceData:Lcom/sec/android/app/camera/FrameCaptureResourceData;
 
-    .line 486
-    :cond_3f
+    .line 474
+    :cond_3d
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameCaptureMenu:Lcom/sec/android/app/camera/FrameCaptureMenu;
 
-    if-nez v0, :cond_40
+    if-nez v0, :cond_3e
 
-    .line 487
+    .line 475
     new-instance v0, Lcom/sec/android/app/camera/FrameCaptureMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const v3, 0x7f0a00a2
+    const v3, 0x7f0a00a1
 
     iget-object v5, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameCaptureResourceData:Lcom/sec/android/app/camera/FrameCaptureResourceData;
 
@@ -2021,32 +1959,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameCaptureMenu:Lcom/sec/android/app/camera/FrameCaptureMenu;
 
-    .line 492
-    :cond_40
+    .line 480
+    :cond_3e
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameCaptureMenu:Lcom/sec/android/app/camera/FrameCaptureMenu;
 
     goto/16 :goto_0
 
-    .line 494
-    :pswitch_27
+    .line 482
+    :pswitch_26
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicCaptureResourceData:Lcom/sec/android/app/camera/MosaicCaptureResourceData;
 
-    if-nez v0, :cond_41
+    if-nez v0, :cond_3f
 
-    .line 495
+    .line 483
     new-instance v0, Lcom/sec/android/app/camera/MosaicCaptureResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/MosaicCaptureResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicCaptureResourceData:Lcom/sec/android/app/camera/MosaicCaptureResourceData;
 
-    .line 497
-    :cond_41
+    .line 485
+    :cond_3f
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicCaptureMenu:Lcom/sec/android/app/camera/MosaicCaptureMenu;
 
-    if-nez v0, :cond_42
+    if-nez v0, :cond_40
 
-    .line 498
+    .line 486
     new-instance v0, Lcom/sec/android/app/camera/MosaicCaptureMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -2067,50 +2005,48 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicCaptureMenu:Lcom/sec/android/app/camera/MosaicCaptureMenu;
 
-    .line 503
-    :cond_42
+    .line 491
+    :cond_40
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicCaptureMenu:Lcom/sec/android/app/camera/MosaicCaptureMenu;
 
     goto/16 :goto_0
 
-    .line 505
-    :pswitch_28
+    .line 493
+    :pswitch_27
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderRecordingMenu:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
 
-    if-nez v0, :cond_43
+    if-nez v0, :cond_41
 
-    .line 506
-    new-instance v0, Lcom/sec/android/app/camera/CamcorderRecordingMenu;
+    .line 494
+    new-instance v1, Lcom/sec/android/app/camera/CamcorderRecordingMenu;
 
-    iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+    iget-object v2, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const v3, 0x7f0a00e0
+    const v4, 0x7f0a00e0
 
-    move v2, p1
+    move v3, p1
 
-    move-object v4, p2
+    move-object v5, p2
 
-    move-object v5, p0
+    move-object v6, p0
 
-    move v6, v10
+    invoke-direct/range {v1 .. v7}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
-    invoke-direct/range {v0 .. v6}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
+    iput-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderRecordingMenu:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
 
-    iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderRecordingMenu:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
-
-    .line 510
-    :cond_43
+    .line 498
+    :cond_41
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderRecordingMenu:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
 
     goto/16 :goto_0
 
-    .line 512
-    :pswitch_29
+    .line 500
+    :pswitch_28
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mStopMotionPreview:Lcom/sec/android/app/camera/StopMotionPreview;
 
-    if-nez v0, :cond_44
+    if-nez v0, :cond_42
 
-    .line 513
+    .line 501
     new-instance v0, Lcom/sec/android/app/camera/StopMotionPreview;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -2129,19 +2065,19 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mStopMotionPreview:Lcom/sec/android/app/camera/StopMotionPreview;
 
-    .line 517
-    :cond_44
+    .line 505
+    :cond_42
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mStopMotionPreview:Lcom/sec/android/app/camera/StopMotionPreview;
 
     goto/16 :goto_0
 
-    .line 519
-    :pswitch_2a
+    .line 507
+    :pswitch_29
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mSmileShotView:Lcom/sec/android/app/camera/SmileShotView;
 
-    if-nez v0, :cond_45
+    if-nez v0, :cond_43
 
-    .line 520
+    .line 508
     new-instance v0, Lcom/sec/android/app/camera/SmileShotView;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -2160,19 +2096,19 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mSmileShotView:Lcom/sec/android/app/camera/SmileShotView;
 
-    .line 524
-    :cond_45
+    .line 512
+    :cond_43
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mSmileShotView:Lcom/sec/android/app/camera/SmileShotView;
 
     goto/16 :goto_0
 
-    .line 526
-    :pswitch_2b
+    .line 514
+    :pswitch_2a
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActionShotView:Lcom/sec/android/app/camera/ActionShotView;
 
-    if-nez v0, :cond_46
+    if-nez v0, :cond_44
 
-    .line 527
+    .line 515
     new-instance v0, Lcom/sec/android/app/camera/ActionShotView;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -2191,19 +2127,19 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActionShotView:Lcom/sec/android/app/camera/ActionShotView;
 
-    .line 531
-    :cond_46
+    .line 519
+    :cond_44
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActionShotView:Lcom/sec/android/app/camera/ActionShotView;
 
     goto/16 :goto_0
 
-    .line 533
-    :pswitch_2c
+    .line 521
+    :pswitch_2b
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mAddMeView:Lcom/sec/android/app/camera/AddMeView;
 
-    if-nez v0, :cond_47
+    if-nez v0, :cond_45
 
-    .line 534
+    .line 522
     new-instance v0, Lcom/sec/android/app/camera/AddMeView;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -2222,50 +2158,48 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mAddMeView:Lcom/sec/android/app/camera/AddMeView;
 
-    .line 538
-    :cond_47
+    .line 526
+    :cond_45
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mAddMeView:Lcom/sec/android/app/camera/AddMeView;
 
     goto/16 :goto_0
 
-    .line 540
-    :pswitch_2d
+    .line 528
+    :pswitch_2c
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mPostView:Lcom/sec/android/app/camera/PostView;
 
-    if-nez v0, :cond_48
+    if-nez v0, :cond_46
 
-    .line 541
-    new-instance v0, Lcom/sec/android/app/camera/PostView;
+    .line 529
+    new-instance v1, Lcom/sec/android/app/camera/PostView;
 
-    iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+    iget-object v2, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const v3, 0x7f0a00b9
+    const v4, 0x7f0a00b9
 
-    move v2, p1
+    move v3, p1
 
-    move-object v4, p2
+    move-object v5, p2
 
-    move-object v5, p0
+    move-object v6, p0
 
-    move v6, v10
+    invoke-direct/range {v1 .. v7}, Lcom/sec/android/app/camera/PostView;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
-    invoke-direct/range {v0 .. v6}, Lcom/sec/android/app/camera/PostView;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
+    iput-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mPostView:Lcom/sec/android/app/camera/PostView;
 
-    iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mPostView:Lcom/sec/android/app/camera/PostView;
-
-    .line 545
-    :cond_48
+    .line 533
+    :cond_46
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mPostView:Lcom/sec/android/app/camera/PostView;
 
     goto/16 :goto_0
 
-    .line 547
-    :pswitch_2e
+    .line 535
+    :pswitch_2d
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mEmptyView:Lcom/sec/android/app/camera/EmptyView;
 
-    if-nez v0, :cond_49
+    if-nez v0, :cond_47
 
-    .line 548
+    .line 536
     new-instance v0, Lcom/sec/android/app/camera/EmptyView;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -2284,19 +2218,19 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mEmptyView:Lcom/sec/android/app/camera/EmptyView;
 
-    .line 552
-    :cond_49
+    .line 540
+    :cond_47
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mEmptyView:Lcom/sec/android/app/camera/EmptyView;
 
     goto/16 :goto_0
 
-    .line 554
-    :pswitch_2f
+    .line 542
+    :pswitch_2e
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mHelptextForShootingMode:Lcom/sec/android/app/camera/HelptextForShootingMode;
 
-    if-nez v0, :cond_4a
+    if-nez v0, :cond_48
 
-    .line 555
+    .line 543
     new-instance v0, Lcom/sec/android/app/camera/HelptextForShootingMode;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -2315,19 +2249,19 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mHelptextForShootingMode:Lcom/sec/android/app/camera/HelptextForShootingMode;
 
-    .line 559
-    :cond_4a
+    .line 547
+    :cond_48
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mHelptextForShootingMode:Lcom/sec/android/app/camera/HelptextForShootingMode;
 
     goto/16 :goto_0
 
-    .line 561
-    :pswitch_30
+    .line 549
+    :pswitch_2f
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mVintageShotView:Lcom/sec/android/app/camera/VintageShotView;
 
-    if-nez v0, :cond_4b
+    if-nez v0, :cond_49
 
-    .line 562
+    .line 550
     new-instance v0, Lcom/sec/android/app/camera/VintageShotView;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -2346,32 +2280,32 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mVintageShotView:Lcom/sec/android/app/camera/VintageShotView;
 
-    .line 566
-    :cond_4b
+    .line 554
+    :cond_49
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mVintageShotView:Lcom/sec/android/app/camera/VintageShotView;
 
     goto/16 :goto_0
 
-    .line 568
-    :pswitch_31
+    .line 556
+    :pswitch_30
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mVintageShotSelectionResourceData:Lcom/sec/android/app/camera/VintageShotSelectionResourceData;
 
-    if-nez v0, :cond_4c
+    if-nez v0, :cond_4a
 
-    .line 569
+    .line 557
     new-instance v0, Lcom/sec/android/app/camera/VintageShotSelectionResourceData;
 
     invoke-direct {v0}, Lcom/sec/android/app/camera/VintageShotSelectionResourceData;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mVintageShotSelectionResourceData:Lcom/sec/android/app/camera/VintageShotSelectionResourceData;
 
-    .line 571
-    :cond_4c
+    .line 559
+    :cond_4a
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mVintageShotSelectionMenu:Lcom/sec/android/app/camera/VintageShotSelectionMenu;
 
-    if-nez v0, :cond_4d
+    if-nez v0, :cond_4b
 
-    .line 572
+    .line 560
     new-instance v0, Lcom/sec/android/app/camera/VintageShotSelectionMenu;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -2386,25 +2320,23 @@
 
     move-object v6, p0
 
-    move v7, v10
-
     invoke-direct/range {v0 .. v7}, Lcom/sec/android/app/camera/VintageShotSelectionMenu;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/VintageShotSelectionResourceData;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mVintageShotSelectionMenu:Lcom/sec/android/app/camera/VintageShotSelectionMenu;
 
-    .line 576
-    :cond_4d
+    .line 564
+    :cond_4b
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mVintageShotSelectionMenu:Lcom/sec/android/app/camera/VintageShotSelectionMenu;
 
     goto/16 :goto_0
 
-    .line 578
-    :pswitch_32
+    .line 566
+    :pswitch_31
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCartoonShotView:Lcom/sec/android/app/camera/CartoonShotView;
 
-    if-nez v0, :cond_4e
+    if-nez v0, :cond_4c
 
-    .line 579
+    .line 567
     new-instance v0, Lcom/sec/android/app/camera/CartoonShotView;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -2423,19 +2355,19 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCartoonShotView:Lcom/sec/android/app/camera/CartoonShotView;
 
-    .line 583
-    :cond_4e
+    .line 571
+    :cond_4c
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCartoonShotView:Lcom/sec/android/app/camera/CartoonShotView;
 
     goto/16 :goto_0
 
-    .line 585
-    :pswitch_33
+    .line 573
+    :pswitch_32
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mSelfShotView:Lcom/sec/android/app/camera/SelfShotView;
 
-    if-nez v0, :cond_4f
+    if-nez v0, :cond_4d
 
-    .line 586
+    .line 574
     new-instance v0, Lcom/sec/android/app/camera/SelfShotView;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuResourceData;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -2454,80 +2386,83 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mSelfShotView:Lcom/sec/android/app/camera/SelfShotView;
 
-    .line 590
-    :cond_4f
+    .line 578
+    :cond_4d
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mSelfShotView:Lcom/sec/android/app/camera/SelfShotView;
 
     goto/16 :goto_0
 
-    .line 161
+    .line 157
+    nop
+
     :pswitch_data_0
     .packed-switch 0x7f030000
+        :pswitch_2a
         :pswitch_2b
-        :pswitch_2c
-        :pswitch_1b
+        :pswitch_1a
         :pswitch_0
         :pswitch_2
         :pswitch_6
-        :pswitch_19
-        :pswitch_13
+        :pswitch_18
+        :pswitch_12
         :pswitch_c
         :pswitch_4
         :pswitch_1
         :pswitch_5
-        :pswitch_18
-        :pswitch_12
+        :pswitch_17
+        :pswitch_11
         :pswitch_b
         :pswitch_3
-        :pswitch_32
-        :pswitch_24
+        :pswitch_31
+        :pswitch_23
         :pswitch_0
         :pswitch_0
         :pswitch_0
-        :pswitch_14
-        :pswitch_2e
-        :pswitch_17
-        :pswitch_1f
+        :pswitch_13
+        :pswitch_2d
+        :pswitch_16
+        :pswitch_1e
         :pswitch_d
         :pswitch_e
         :pswitch_f
-        :pswitch_10
+        :pswitch_25
+        :pswitch_21
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_2e
+        :pswitch_15
+        :pswitch_0
         :pswitch_26
         :pswitch_22
         :pswitch_0
-        :pswitch_0
-        :pswitch_2f
-        :pswitch_16
-        :pswitch_0
-        :pswitch_27
-        :pswitch_23
-        :pswitch_0
-        :pswitch_21
-        :pswitch_2d
+        :pswitch_20
+        :pswitch_2c
         :pswitch_9
-        :pswitch_1a
+        :pswitch_19
         :pswitch_0
         :pswitch_0
         :pswitch_0
         :pswitch_0
         :pswitch_a
-        :pswitch_33
+        :pswitch_32
         :pswitch_0
         :pswitch_8
+        :pswitch_8
         :pswitch_7
+        :pswitch_1b
         :pswitch_1c
-        :pswitch_1d
-        :pswitch_2a
         :pswitch_29
-        :pswitch_1e
-        :pswitch_11
-        :pswitch_25
         :pswitch_28
+        :pswitch_1d
+        :pswitch_10
+        :pswitch_24
+        :pswitch_27
         :pswitch_0
+        :pswitch_2f
         :pswitch_30
-        :pswitch_31
-        :pswitch_15
-        :pswitch_20
+        :pswitch_14
+        :pswitch_1f
     .end packed-switch
 .end method
 
@@ -2535,303 +2470,292 @@
     .locals 1
 
     .prologue
-    .line 597
+    .line 585
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mSceneModeResourceData:Lcom/sec/android/app/camera/SceneModeResourceData;
 
     if-eqz v0, :cond_0
 
-    .line 598
+    .line 586
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mSceneModeResourceData:Lcom/sec/android/app/camera/SceneModeResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/SceneModeResourceData;->cleanUpResources()V
 
-    .line 600
+    .line 588
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShootingModeResourceData:Lcom/sec/android/app/camera/ShootingModeResourceData;
 
     if-eqz v0, :cond_1
 
-    .line 601
+    .line 589
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShootingModeResourceData:Lcom/sec/android/app/camera/ShootingModeResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ShootingModeResourceData;->cleanUpResources()V
 
-    .line 603
+    .line 591
     :cond_1
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mRecordingModeResourceData:Lcom/sec/android/app/camera/RecordingModeResourceData;
 
     if-eqz v0, :cond_2
 
-    .line 604
+    .line 592
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mRecordingModeResourceData:Lcom/sec/android/app/camera/RecordingModeResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/RecordingModeResourceData;->cleanUpResources()V
 
-    .line 606
+    .line 594
     :cond_2
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeResourceData:Lcom/sec/android/app/camera/FlashModeResourceData;
 
     if-eqz v0, :cond_3
 
-    .line 607
+    .line 595
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeResourceData:Lcom/sec/android/app/camera/FlashModeResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/FlashModeResourceData;->cleanUpResources()V
 
-    .line 609
+    .line 597
     :cond_3
-    iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeResourceData2:Lcom/sec/android/app/camera/FlashModeResourceData;
+    iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeResourceData:Lcom/sec/android/app/camera/FocusModeResourceData;
 
     if-eqz v0, :cond_4
 
-    .line 610
-    iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFlashModeResourceData2:Lcom/sec/android/app/camera/FlashModeResourceData;
-
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/FlashModeResourceData;->cleanUpResources()V
-
-    .line 612
-    :cond_4
-    iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeResourceData:Lcom/sec/android/app/camera/FocusModeResourceData;
-
-    if-eqz v0, :cond_5
-
-    .line 613
+    .line 598
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeResourceData:Lcom/sec/android/app/camera/FocusModeResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/FocusModeResourceData;->cleanUpResources()V
 
-    .line 615
-    :cond_5
+    .line 600
+    :cond_4
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeContinuousResourceData:Lcom/sec/android/app/camera/FocusModeContinuousResourceData;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_5
 
-    .line 616
+    .line 601
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFocusModeContinuousResourceData:Lcom/sec/android/app/camera/FocusModeContinuousResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/FocusModeContinuousResourceData;->cleanUpResources()V
 
-    .line 618
-    :cond_6
+    .line 603
+    :cond_5
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mTimerResourceData:Lcom/sec/android/app/camera/TimerResourceData;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_6
 
-    .line 619
+    .line 604
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mTimerResourceData:Lcom/sec/android/app/camera/TimerResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/TimerResourceData;->cleanUpResources()V
 
-    .line 621
-    :cond_7
+    .line 606
+    :cond_6
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraResolutionResourceData:Lcom/sec/android/app/camera/CameraResolutionResourceData;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_7
 
-    .line 622
+    .line 607
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraResolutionResourceData:Lcom/sec/android/app/camera/CameraResolutionResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraResolutionResourceData;->cleanUpResources()V
 
-    .line 624
-    :cond_8
+    .line 609
+    :cond_7
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderResolutionResourceData:Lcom/sec/android/app/camera/CamcorderResolutionResourceData;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_8
 
-    .line 625
+    .line 610
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderResolutionResourceData:Lcom/sec/android/app/camera/CamcorderResolutionResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderResolutionResourceData;->cleanUpResources()V
 
-    .line 627
-    :cond_9
+    .line 612
+    :cond_8
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mEffectResourceData:Lcom/sec/android/app/camera/EffectResourceData;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_9
 
-    .line 628
+    .line 613
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mEffectResourceData:Lcom/sec/android/app/camera/EffectResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/EffectResourceData;->cleanUpResources()V
 
-    .line 630
-    :cond_a
+    .line 615
+    :cond_9
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mWhiteBalanceResourceData:Lcom/sec/android/app/camera/WhiteBalanceResourceData;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_a
 
-    .line 631
+    .line 616
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mWhiteBalanceResourceData:Lcom/sec/android/app/camera/WhiteBalanceResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/WhiteBalanceResourceData;->cleanUpResources()V
 
-    .line 633
-    :cond_b
+    .line 618
+    :cond_a
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraQualityResourceData:Lcom/sec/android/app/camera/CameraQualityResourceData;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_b
 
-    .line 634
+    .line 619
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraQualityResourceData:Lcom/sec/android/app/camera/CameraQualityResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraQualityResourceData;->cleanUpResources()V
 
-    .line 636
-    :cond_c
+    .line 621
+    :cond_b
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderQualityResourceData:Lcom/sec/android/app/camera/CamcorderQualityResourceData;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_c
 
-    .line 637
+    .line 622
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderQualityResourceData:Lcom/sec/android/app/camera/CamcorderQualityResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderQualityResourceData;->cleanUpResources()V
 
-    .line 639
-    :cond_d
+    .line 624
+    :cond_c
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mISOResourceData:Lcom/sec/android/app/camera/ISOResourceData;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_d
 
-    .line 640
+    .line 625
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mISOResourceData:Lcom/sec/android/app/camera/ISOResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ISOResourceData;->cleanUpResources()V
 
-    .line 642
-    :cond_e
+    .line 627
+    :cond_d
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mExposuremeterResourceData:Lcom/sec/android/app/camera/ExposuremeterResourceData;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_e
 
-    .line 643
+    .line 628
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mExposuremeterResourceData:Lcom/sec/android/app/camera/ExposuremeterResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ExposuremeterResourceData;->cleanUpResources()V
 
-    .line 645
-    :cond_f
+    .line 630
+    :cond_e
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mReviewResourceData:Lcom/sec/android/app/camera/ReviewResourceData;
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_f
 
-    .line 646
+    .line 631
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mReviewResourceData:Lcom/sec/android/app/camera/ReviewResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ReviewResourceData;->cleanUpResources()V
 
-    .line 648
-    :cond_10
+    .line 633
+    :cond_f
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundResourceData:Lcom/sec/android/app/camera/ShutterSoundResourceData;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_10
 
-    .line 649
+    .line 634
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundResourceData:Lcom/sec/android/app/camera/ShutterSoundResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ShutterSoundResourceData;->cleanUpResources()V
 
-    .line 651
-    :cond_11
+    .line 636
+    :cond_10
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundContinuousResourceData:Lcom/sec/android/app/camera/ShutterSoundContinuousResourceData;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_11
 
-    .line 652
+    .line 637
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mShutterSoundContinuousResourceData:Lcom/sec/android/app/camera/ShutterSoundContinuousResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ShutterSoundContinuousResourceData;->cleanUpResources()V
 
-    .line 654
-    :cond_12
+    .line 639
+    :cond_11
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameShotSelectionResourceData:Lcom/sec/android/app/camera/FrameShotSelectionResourceData;
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_12
 
-    .line 655
+    .line 640
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameShotSelectionResourceData:Lcom/sec/android/app/camera/FrameShotSelectionResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/FrameShotSelectionResourceData;->cleanUpResources()V
 
-    .line 657
-    :cond_13
+    .line 642
+    :cond_12
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicShotSelectionResourceData:Lcom/sec/android/app/camera/MosaicShotSelectionResourceData;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_13
 
-    .line 658
+    .line 643
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicShotSelectionResourceData:Lcom/sec/android/app/camera/MosaicShotSelectionResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/MosaicShotSelectionResourceData;->cleanUpResources()V
 
-    .line 660
-    :cond_14
+    .line 645
+    :cond_13
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraSettingsMenuResourceData:Lcom/sec/android/app/camera/CameraSettingsMenuResourceData;
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_14
 
-    .line 661
+    .line 646
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCameraSettingsMenuResourceData:Lcom/sec/android/app/camera/CameraSettingsMenuResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettingsMenuResourceData;->cleanUpResources()V
 
-    .line 663
-    :cond_15
+    .line 648
+    :cond_14
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderSettingsMenuResourceData:Lcom/sec/android/app/camera/CamcorderSettingsMenuResourceData;
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_15
 
-    .line 664
+    .line 649
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mCamcorderSettingsMenuResourceData:Lcom/sec/android/app/camera/CamcorderSettingsMenuResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderSettingsMenuResourceData;->cleanUpResources()V
 
-    .line 666
-    :cond_16
+    .line 651
+    :cond_15
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mStorageResourceData:Lcom/sec/android/app/camera/StorageResourceData;
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_16
 
-    .line 667
+    .line 652
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mStorageResourceData:Lcom/sec/android/app/camera/StorageResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/StorageResourceData;->cleanUpResources()V
 
-    .line 669
-    :cond_17
+    .line 654
+    :cond_16
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameCaptureResourceData:Lcom/sec/android/app/camera/FrameCaptureResourceData;
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_17
 
-    .line 670
+    .line 655
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mFrameCaptureResourceData:Lcom/sec/android/app/camera/FrameCaptureResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/FrameCaptureResourceData;->cleanUpResources()V
 
-    .line 672
-    :cond_18
+    .line 657
+    :cond_17
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicCaptureResourceData:Lcom/sec/android/app/camera/MosaicCaptureResourceData;
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_18
 
-    .line 673
+    .line 658
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mMosaicCaptureResourceData:Lcom/sec/android/app/camera/MosaicCaptureResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/MosaicCaptureResourceData;->cleanUpResources()V
 
-    .line 675
-    :cond_19
+    .line 660
+    :cond_18
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mVintageShotSelectionResourceData:Lcom/sec/android/app/camera/VintageShotSelectionResourceData;
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_19
 
-    .line 676
+    .line 661
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuResourceData;->mVintageShotSelectionResourceData:Lcom/sec/android/app/camera/VintageShotSelectionResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/VintageShotSelectionResourceData;->cleanUpResources()V
 
-    .line 678
-    :cond_1a
+    .line 663
+    :cond_19
     return-void
 .end method

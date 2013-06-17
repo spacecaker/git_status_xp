@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 383
+    .line 385
     iput-object p1, p0, Lcom/sec/android/app/camera/ZoomButtonsController$5;->this$0:Lcom/sec/android/app/camera/ZoomButtonsController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,13 +41,13 @@
     .locals 2
 
     .prologue
-    .line 385
+    .line 387
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController$5;->this$0:Lcom/sec/android/app/camera/ZoomButtonsController;
 
     #calls: Lcom/sec/android/app/camera/ZoomButtonsController;->refreshPositioningVariables()V
     invoke-static {v0}, Lcom/sec/android/app/camera/ZoomButtonsController;->access$700(Lcom/sec/android/app/camera/ZoomButtonsController;)V
 
-    .line 387
+    .line 389
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController$5;->this$0:Lcom/sec/android/app/camera/ZoomButtonsController;
 
     #getter for: Lcom/sec/android/app/camera/ZoomButtonsController;->mCallback:Lcom/sec/android/app/camera/ZoomButtonsController$OnZoomListener;
@@ -57,7 +57,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 388
+    .line 390
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomButtonsController$5;->this$0:Lcom/sec/android/app/camera/ZoomButtonsController;
 
     #getter for: Lcom/sec/android/app/camera/ZoomButtonsController;->mCallback:Lcom/sec/android/app/camera/ZoomButtonsController$OnZoomListener;
@@ -69,7 +69,7 @@
 
     invoke-interface {v0, v1}, Lcom/sec/android/app/camera/ZoomButtonsController$OnZoomListener;->onVisibilityChanged(Z)V
 
-    .line 390
+    .line 392
     :cond_0
     return-void
 .end method

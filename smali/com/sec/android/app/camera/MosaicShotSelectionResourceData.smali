@@ -8,14 +8,14 @@
     .locals 1
 
     .prologue
-    .line 25
+    .line 24
     invoke-direct {p0}, Lcom/sec/android/app/camera/MenuResourceBase;-><init>()V
 
-    .line 26
-    const v0, 0x7f070099
+    .line 25
+    const v0, 0x7f0700a7
 
     iput v0, p0, Lcom/sec/android/app/camera/MenuResourceBase;->mTextTitle:I
 
-    .line 84
+    .line 83
     return-void
 .end method

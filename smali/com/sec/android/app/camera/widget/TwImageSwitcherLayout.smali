@@ -87,11 +87,11 @@
 
     move-result-object v3
 
-    const v4, 0x7f02036f
+    const v4, 0x7f02038c
 
-    const v5, 0x7f020370
+    const v5, 0x7f02038d
 
-    const v6, 0x7f020371
+    const v6, 0x7f02038e
 
     invoke-direct {v2, v3, v4, v5, v6}, Lcom/sec/android/app/camera/widget/TwImageButton;-><init>(Landroid/content/Context;III)V
 

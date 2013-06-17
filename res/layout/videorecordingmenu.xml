@@ -14,5 +14,5 @@
         <ProgressBar android:id="@id/VRRecProgressBar" android:layout_width="195.0dip" android:layout_height="6.669983dip" android:layout_marginLeft="10.0dip" android:layout_marginTop="10.669983dip" android:progressDrawable="@drawable/tw_progress_horizontal" style="@style/TwHorizontalProgressBar" />
         <TextView android:textSize="21.329987dip" android:gravity="left" android:id="@id/VRRecMaxSize" android:layout_width="112.0dip" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="@string/MaxRecordingSizeMMS" android:shadowColor="#ff000000" android:shadowDx="1.0" android:shadowDy="1.0" android:shadowRadius="2.0" android:layout_toRightOf="@id/VRRecProgressBar" />
     </RelativeLayout>
-    <ImageView android:id="@id/lock_indicator_rec" android:background="@drawable/tw30_camera_lock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="240.0dip" android:layout_marginTop="6.0dip" android:layout_below="@id/VideoRecordingMenu" />
+    <ImageView android:id="@id/lock_indicator_rec" android:background="@drawable/tw30_camera_lock" android:layout_width="26.669983dip" android:layout_height="32.0dip" android:layout_marginLeft="240.0dip" android:layout_marginTop="6.0dip" android:layout_below="@id/VideoRecordingMenu" />
 </RelativeLayout>

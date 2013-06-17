@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 98
+    .line 95
     iput-object p1, p0, Lcom/sec/android/app/camera/ZoomMenu$MainHandler;->this$0:Lcom/sec/android/app/camera/ZoomMenu;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 98
+    .line 95
     invoke-direct {p0, p1}, Lcom/sec/android/app/camera/ZoomMenu$MainHandler;-><init>(Lcom/sec/android/app/camera/ZoomMenu;)V
 
     return-void
@@ -51,23 +51,23 @@
     .parameter "msg"
 
     .prologue
-    .line 101
+    .line 98
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 110
+    .line 107
     :cond_0
     :goto_0
     return-void
 
-    .line 103
+    .line 100
     :pswitch_0
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu$MainHandler;->this$0:Lcom/sec/android/app/camera/ZoomMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ZoomMenu;->stopZoomMenuTimer()V
 
-    .line 104
+    .line 101
     const/4 v0, 0x1
 
     iget-object v1, p0, Lcom/sec/android/app/camera/ZoomMenu$MainHandler;->this$0:Lcom/sec/android/app/camera/ZoomMenu;
@@ -78,7 +78,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 105
+    .line 102
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu$MainHandler;->this$0:Lcom/sec/android/app/camera/ZoomMenu;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -87,7 +87,7 @@
 
     goto :goto_0
 
-    .line 101
+    .line 98
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

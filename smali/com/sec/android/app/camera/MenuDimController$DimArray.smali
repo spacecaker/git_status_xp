@@ -33,49 +33,49 @@
     .prologue
     const/4 v3, 0x0
 
-    const/16 v2, 0x22
+    const/16 v2, 0x23
 
-    .line 119
+    .line 118
     iput-object p1, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 115
+    .line 114
     new-array v1, v2, [Z
 
     iput-object v1, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->mDimArray:[Z
 
-    .line 117
+    .line 116
     new-array v1, v2, [Z
 
     iput-object v1, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->mChangeArray:[Z
 
-    .line 120
+    .line 119
     iput p2, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->mMenuId:I
 
-    .line 121
+    .line 120
     const/4 v0, 0x0
 
     .local v0, i:I
     :goto_0
     if-ge v0, v2, :cond_0
 
-    .line 122
+    .line 121
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->mDimArray:[Z
 
     aput-boolean v3, v1, v0
 
-    .line 123
+    .line 122
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->mChangeArray:[Z
 
     aput-boolean v3, v1, v0
 
-    .line 121
+    .line 120
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 125
+    .line 124
     :cond_0
     return-void
 .end method
@@ -85,7 +85,7 @@
     .parameter "x0"
 
     .prologue
-    .line 112
+    .line 111
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->mChangeArray:[Z
 
     return-object v0
@@ -97,7 +97,7 @@
     .locals 1
 
     .prologue
-    .line 132
+    .line 131
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->mDimArray:[Z
 
     return-object v0
@@ -107,7 +107,7 @@
     .locals 1
 
     .prologue
-    .line 128
+    .line 127
     iget v0, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->mMenuId:I
 
     return v0
@@ -118,7 +118,7 @@
     .parameter "menuid"
 
     .prologue
-    .line 272
+    .line 276
     iget-object v2, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
 
     #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
@@ -136,23 +136,23 @@
 
     check-cast v0, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;
 
-    .line 274
+    .line 278
     .local v0, dimReference:Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;
     if-eqz v0, :cond_1
 
-    .line 275
+    .line 279
     invoke-virtual {v0}, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->getReferenceCount()I
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 276
+    .line 280
     invoke-virtual {v0}, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->getSettingsValue()I
 
     move-result v1
 
-    .line 277
+    .line 281
     .local v1, settingValue:I
     iget-object v2, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
 
@@ -169,16 +169,16 @@
 
     move v2, v1
 
-    .line 283
+    .line 287
     .end local v1           #settingValue:I
     :goto_0
     return v2
 
-    .line 280
+    .line 284
     :cond_0
     invoke-virtual {v0}, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->decreaseReferenceCount()V
 
-    .line 283
+    .line 287
     :cond_1
     const/4 v2, -0x1
 
@@ -186,723 +186,728 @@
 .end method
 
 .method public restoreUserSettingValues()Z
-    .locals 12
+    .locals 11
 
     .prologue
-    const/16 v11, 0x73
+    const/16 v10, 0x74
 
-    const/16 v10, 0x1a
+    const/16 v9, 0x73
 
-    const/16 v9, 0x19
+    const/16 v8, 0x1a
 
-    const/4 v8, 0x2
+    const/16 v7, 0x19
 
-    const/4 v7, -0x1
+    const/4 v6, -0x1
 
-    .line 287
-    const/4 v3, 0x0
+    .line 291
+    const/4 v2, 0x0
 
-    .line 289
-    .local v3, resolutionChanged:Z
-    iget-object v5, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
+    .line 293
+    .local v2, resolutionChanged:Z
+    iget-object v4, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
 
     #getter for: Lcom/sec/android/app/camera/MenuDimController;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
-    invoke-static {v5}, Lcom/sec/android/app/camera/MenuDimController;->access$100(Lcom/sec/android/app/camera/MenuDimController;)Lcom/sec/android/app/camera/AbstractCameraActivity;
+    invoke-static {v4}, Lcom/sec/android/app/camera/MenuDimController;->access$100(Lcom/sec/android/app/camera/MenuDimController;)Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
+    invoke-virtual {v4}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
-    .line 291
+    .line 295
     .local v0, cs:Lcom/sec/android/app/camera/CameraSettings;
     const/4 v1, 0x0
 
     .local v1, key:I
     :goto_0
-    const/16 v5, 0x22
+    const/16 v4, 0x23
 
-    if-ge v1, v5, :cond_3
+    if-ge v1, v4, :cond_3
 
-    .line 292
-    iget-object v5, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->mChangeArray:[Z
+    .line 296
+    iget-object v4, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->mChangeArray:[Z
 
-    aget-boolean v5, v5, v1
+    aget-boolean v4, v4, v1
 
-    if-nez v5, :cond_1
+    if-nez v4, :cond_1
 
-    .line 291
+    .line 295
     :cond_0
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 296
+    .line 300
     :cond_1
     packed-switch v1, :pswitch_data_0
 
     :pswitch_0
     goto :goto_1
 
-    .line 298
-    :pswitch_1
-    const/16 v5, 0xd
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
-
-    move-result v4
-
-    .line 299
-    .local v4, savedValue:I
-    if-eq v4, v7, :cond_0
-
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setAntishake(I)V
-
-    goto :goto_1
-
     .line 302
-    .end local v4           #savedValue:I
-    :pswitch_2
-    const/16 v5, 0xe
+    :pswitch_1
+    const/16 v4, 0xd
 
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
 
-    move-result v4
+    move-result v3
 
     .line 303
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
+    .local v3, savedValue:I
+    if-eq v3, v6, :cond_0
 
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCameraAutocontrast(I)V
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setAntishake(I)V
 
     goto :goto_1
 
     .line 306
-    .end local v4           #savedValue:I
-    :pswitch_3
-    invoke-virtual {p0, v8}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+    .end local v3           #savedValue:I
+    :pswitch_2
+    const/16 v4, 0xe
 
-    move-result v4
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
 
     .line 307
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
 
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setSceneMode(I)V
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setCameraAutocontrast(I)V
 
     goto :goto_1
 
     .line 310
-    .end local v4           #savedValue:I
-    :pswitch_4
-    const/4 v5, 0x1
+    .end local v3           #savedValue:I
+    :pswitch_3
+    const/4 v4, 0x2
 
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
 
-    move-result v4
+    move-result v3
 
     .line 311
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
 
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setShootingMode(I)V
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setSceneMode(I)V
 
     goto :goto_1
 
     .line 314
-    .end local v4           #savedValue:I
-    :pswitch_5
-    const/16 v5, 0xa
+    .end local v3           #savedValue:I
+    :pswitch_4
+    const/4 v4, 0x1
 
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
 
-    move-result v4
+    move-result v3
 
     .line 315
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
 
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setISO(I)V
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setShootingMode(I)V
 
     goto :goto_1
 
     .line 318
-    .end local v4           #savedValue:I
-    :pswitch_6
-    const/16 v5, 0x8
+    .end local v3           #savedValue:I
+    :pswitch_5
+    const/16 v4, 0x10
 
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
 
-    move-result v4
+    move-result v3
 
     .line 319
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
 
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCameraEffect(I)V
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setCameraQuality(I)V
 
     goto :goto_1
 
     .line 322
-    .end local v4           #savedValue:I
-    :pswitch_7
-    const/16 v5, 0x12
+    .end local v3           #savedValue:I
+    :pswitch_6
+    const/16 v4, 0xa
 
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
 
-    move-result v4
+    move-result v3
 
     .line 323
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
 
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCameraZoomValue(I)V
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setISO(I)V
 
     goto :goto_1
 
     .line 326
-    .end local v4           #savedValue:I
-    :pswitch_8
-    const/4 v5, 0x3
+    .end local v3           #savedValue:I
+    :pswitch_7
+    const/16 v4, 0x8
 
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
 
-    move-result v4
+    move-result v3
 
     .line 327
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
 
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCameraFlashMode(I)V
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setCameraEffect(I)V
 
     goto :goto_1
 
     .line 330
-    .end local v4           #savedValue:I
-    :pswitch_9
-    const/4 v5, 0x5
+    .end local v3           #savedValue:I
+    :pswitch_8
+    const/16 v4, 0x12
 
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
 
-    move-result v4
+    move-result v3
 
-    .line 332
-    .restart local v4       #savedValue:I
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getMenuId()I
+    .line 331
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
 
-    move-result v2
-
-    .line 333
-    .local v2, menuid:I
-    if-eq v2, v8, :cond_0
-
-    .line 334
-    if-eq v4, v7, :cond_0
-
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setFocusMode(I)V
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setCameraZoomValue(I)V
 
     goto :goto_1
 
-    .line 338
-    .end local v2           #menuid:I
-    .end local v4           #savedValue:I
-    :pswitch_a
-    const/16 v5, 0x18
+    .line 334
+    .end local v3           #savedValue:I
+    :pswitch_9
+    const/4 v4, 0x3
 
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
 
-    move-result v4
+    move-result v3
+
+    .line 335
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setCameraFlashMode(I)V
+
+    goto :goto_1
 
     .line 339
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
+    .end local v3           #savedValue:I
+    :pswitch_a
+    const/4 v4, 0x5
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
 
     .line 340
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCameraContrast(I)V
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
 
-    .line 341
-    iget-object v5, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setFocusMode(I)V
 
-    #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
-    invoke-static {v5}, Lcom/sec/android/app/camera/MenuDimController;->access$000(Lcom/sec/android/app/camera/MenuDimController;)Ljava/util/HashMap;
-
-    move-result-object v5
-
-    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;
-
-    invoke-virtual {v5}, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->getSettingsValue()I
-
-    move-result v5
-
-    invoke-virtual {v0, v5}, Lcom/sec/android/app/camera/CameraSettings;->setCameraSharpness(I)V
-
-    .line 342
-    iget-object v5, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
-
-    #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
-    invoke-static {v5}, Lcom/sec/android/app/camera/MenuDimController;->access$000(Lcom/sec/android/app/camera/MenuDimController;)Ljava/util/HashMap;
-
-    move-result-object v5
-
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;
-
-    invoke-virtual {v5}, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->getSettingsValue()I
-
-    move-result v5
-
-    invoke-virtual {v0, v5}, Lcom/sec/android/app/camera/CameraSettings;->setCameraSaturation(I)V
-
-    .line 343
-    iget-object v5, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
-
-    #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
-    invoke-static {v5}, Lcom/sec/android/app/camera/MenuDimController;->access$000(Lcom/sec/android/app/camera/MenuDimController;)Ljava/util/HashMap;
-
-    move-result-object v5
-
-    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    goto :goto_1
 
     .line 344
-    iget-object v5, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
+    .end local v3           #savedValue:I
+    :pswitch_b
+    const/16 v4, 0x18
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 345
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    .line 346
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setCameraContrast(I)V
+
+    .line 347
+    iget-object v4, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
 
     #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
-    invoke-static {v5}, Lcom/sec/android/app/camera/MenuDimController;->access$000(Lcom/sec/android/app/camera/MenuDimController;)Ljava/util/HashMap;
+    invoke-static {v4}, Lcom/sec/android/app/camera/MenuDimController;->access$000(Lcom/sec/android/app/camera/MenuDimController;)Ljava/util/HashMap;
+
+    move-result-object v4
+
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;
+
+    invoke-virtual {v4}, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->getSettingsValue()I
+
+    move-result v4
+
+    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCameraSharpness(I)V
+
+    .line 348
+    iget-object v4, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
+
+    #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
+    invoke-static {v4}, Lcom/sec/android/app/camera/MenuDimController;->access$000(Lcom/sec/android/app/camera/MenuDimController;)Ljava/util/HashMap;
+
+    move-result-object v4
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;
+
+    invoke-virtual {v4}, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->getSettingsValue()I
+
+    move-result v4
+
+    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCameraSaturation(I)V
+
+    .line 349
+    iget-object v4, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
+
+    #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
+    invoke-static {v4}, Lcom/sec/android/app/camera/MenuDimController;->access$000(Lcom/sec/android/app/camera/MenuDimController;)Ljava/util/HashMap;
+
+    move-result-object v4
+
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 350
+    iget-object v4, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
+
+    #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
+    invoke-static {v4}, Lcom/sec/android/app/camera/MenuDimController;->access$000(Lcom/sec/android/app/camera/MenuDimController;)Ljava/util/HashMap;
+
+    move-result-object v4
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto/16 :goto_1
+
+    .line 354
+    .end local v3           #savedValue:I
+    :pswitch_c
+    const/16 v4, 0xb
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 355
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setExposuremeter(I)V
+
+    goto/16 :goto_1
+
+    .line 358
+    .end local v3           #savedValue:I
+    :pswitch_d
+    const/16 v4, 0xc
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 359
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setObjecttracking(I)V
+
+    goto/16 :goto_1
+
+    .line 362
+    .end local v3           #savedValue:I
+    :pswitch_e
+    const/4 v4, 0x7
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 363
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setCameraExposureValue(I)V
+
+    goto/16 :goto_1
+
+    .line 366
+    .end local v3           #savedValue:I
+    :pswitch_f
+    const/4 v4, 0x4
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 367
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    .line 368
+    const/4 v4, 0x0
+
+    invoke-virtual {v0, v3, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCameraResolution(IZ)Z
+
+    .line 369
+    const/4 v2, 0x1
+
+    goto/16 :goto_1
+
+    .line 373
+    .end local v3           #savedValue:I
+    :pswitch_10
+    const/16 v4, 0x9
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 374
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setCameraWB(I)V
+
+    goto/16 :goto_1
+
+    .line 377
+    .end local v3           #savedValue:I
+    :pswitch_11
+    const/16 v4, 0xf
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 378
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setBlinkdetection(I)V
+
+    goto/16 :goto_1
+
+    .line 381
+    .end local v3           #savedValue:I
+    :pswitch_12
+    const/4 v4, 0x6
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 382
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setCameraTimer(I)V
+
+    goto/16 :goto_1
+
+    .line 385
+    .end local v3           #savedValue:I
+    :pswitch_13
+    const/16 v4, 0x11
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 386
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setReview(I)V
+
+    goto/16 :goto_1
+
+    .line 389
+    .end local v3           #savedValue:I
+    :pswitch_14
+    const/16 v4, 0x13
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 390
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setGuideline(I)V
+
+    goto/16 :goto_1
+
+    .line 393
+    .end local v3           #savedValue:I
+    :pswitch_15
+    const/16 v4, 0x65
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 394
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setRecordingMode(I)V
+
+    goto/16 :goto_1
+
+    .line 397
+    .end local v3           #savedValue:I
+    :pswitch_16
+    const/16 v4, 0x6d
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 398
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderExposureValue(I)V
+
+    goto/16 :goto_1
+
+    .line 401
+    .end local v3           #savedValue:I
+    :pswitch_17
+    const/16 v4, 0x68
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 402
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    .line 403
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderResolution(I)Z
+
+    .line 404
+    const/4 v2, 0x1
+
+    goto/16 :goto_1
+
+    .line 408
+    .end local v3           #savedValue:I
+    :pswitch_18
+    const/16 v4, 0x6c
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 409
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderEffect(I)V
+
+    goto/16 :goto_1
+
+    .line 412
+    .end local v3           #savedValue:I
+    :pswitch_19
+    const/16 v4, 0x6b
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 413
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderWB(I)V
+
+    goto/16 :goto_1
+
+    .line 416
+    .end local v3           #savedValue:I
+    :pswitch_1a
+    const/16 v4, 0x72
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 417
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    .line 418
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderContrast(I)V
+
+    .line 419
+    iget-object v4, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
+
+    #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
+    invoke-static {v4}, Lcom/sec/android/app/camera/MenuDimController;->access$000(Lcom/sec/android/app/camera/MenuDimController;)Ljava/util/HashMap;
+
+    move-result-object v4
+
+    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;
+
+    invoke-virtual {v4}, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->getSettingsValue()I
+
+    move-result v4
+
+    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderSharpness(I)V
+
+    .line 420
+    iget-object v4, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
+
+    #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
+    invoke-static {v4}, Lcom/sec/android/app/camera/MenuDimController;->access$000(Lcom/sec/android/app/camera/MenuDimController;)Ljava/util/HashMap;
+
+    move-result-object v4
 
     invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 348
-    .end local v4           #savedValue:I
-    :pswitch_b
-    const/16 v5, 0xb
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
-
-    move-result v4
-
-    .line 349
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
-
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setExposuremeter(I)V
-
-    goto/16 :goto_1
-
-    .line 352
-    .end local v4           #savedValue:I
-    :pswitch_c
-    const/16 v5, 0xc
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
-
-    move-result v4
-
-    .line 353
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
-
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setObjecttracking(I)V
-
-    goto/16 :goto_1
-
-    .line 356
-    .end local v4           #savedValue:I
-    :pswitch_d
-    const/4 v5, 0x7
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
-
-    move-result v4
-
-    .line 357
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
-
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCameraExposureValue(I)V
-
-    goto/16 :goto_1
-
-    .line 360
-    .end local v4           #savedValue:I
-    :pswitch_e
-    const/4 v5, 0x4
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
-
-    move-result v4
-
-    .line 361
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
-
-    .line 362
-    const/4 v5, 0x0
-
-    invoke-virtual {v0, v4, v5}, Lcom/sec/android/app/camera/CameraSettings;->setCameraResolution(IZ)Z
-
-    .line 363
-    const/4 v3, 0x1
-
-    goto/16 :goto_1
-
-    .line 367
-    .end local v4           #savedValue:I
-    :pswitch_f
-    const/16 v5, 0x9
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
-
-    move-result v4
-
-    .line 368
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
-
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCameraWB(I)V
-
-    goto/16 :goto_1
-
-    .line 371
-    .end local v4           #savedValue:I
-    :pswitch_10
-    const/16 v5, 0xf
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
-
-    move-result v4
-
-    .line 372
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
-
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setBlinkdetection(I)V
-
-    goto/16 :goto_1
-
-    .line 375
-    .end local v4           #savedValue:I
-    :pswitch_11
-    const/4 v5, 0x6
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
-
-    move-result v4
-
-    .line 376
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
-
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCameraTimer(I)V
-
-    goto/16 :goto_1
-
-    .line 379
-    .end local v4           #savedValue:I
-    :pswitch_12
-    const/16 v5, 0x11
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
-
-    move-result v4
-
-    .line 380
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
-
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setReview(I)V
-
-    goto/16 :goto_1
-
-    .line 383
-    .end local v4           #savedValue:I
-    :pswitch_13
-    const/16 v5, 0x13
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
-
-    move-result v4
-
-    .line 384
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
-
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setGuideline(I)V
-
-    goto/16 :goto_1
-
-    .line 387
-    .end local v4           #savedValue:I
-    :pswitch_14
-    const/16 v5, 0x65
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
-
-    move-result v4
-
-    .line 388
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
-
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setRecordingMode(I)V
-
-    goto/16 :goto_1
-
-    .line 391
-    .end local v4           #savedValue:I
-    :pswitch_15
-    const/16 v5, 0x6d
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
-
-    move-result v4
-
-    .line 392
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
-
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderExposureValue(I)V
-
-    goto/16 :goto_1
-
-    .line 395
-    .end local v4           #savedValue:I
-    :pswitch_16
-    const/16 v5, 0x68
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
-
-    move-result v4
-
-    .line 396
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
-
-    .line 397
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderResolution(I)Z
-
-    .line 398
-    const/4 v3, 0x1
-
-    goto/16 :goto_1
-
-    .line 402
-    .end local v4           #savedValue:I
-    :pswitch_17
-    const/16 v5, 0x6c
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
-
-    move-result v4
-
-    .line 403
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
-
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderEffect(I)V
-
-    goto/16 :goto_1
-
-    .line 406
-    .end local v4           #savedValue:I
-    :pswitch_18
-    const/16 v5, 0x6b
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
-
-    move-result v4
-
-    .line 407
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
-
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderWB(I)V
-
-    goto/16 :goto_1
-
-    .line 410
-    .end local v4           #savedValue:I
-    :pswitch_19
-    const/16 v5, 0x72
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
-
-    move-result v4
-
-    .line 411
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
-
-    .line 412
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderContrast(I)V
-
-    .line 413
-    iget-object v5, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
-
-    #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
-    invoke-static {v5}, Lcom/sec/android/app/camera/MenuDimController;->access$000(Lcom/sec/android/app/camera/MenuDimController;)Ljava/util/HashMap;
-
     move-result-object v5
 
-    const/16 v6, 0x74
+    invoke-virtual {v4, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v4
 
-    move-result-object v6
+    check-cast v4, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;
 
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;
-
-    invoke-virtual {v5}, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->getSettingsValue()I
-
-    move-result v5
-
-    invoke-virtual {v0, v5}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderSharpness(I)V
-
-    .line 414
-    iget-object v5, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
-
-    #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
-    invoke-static {v5}, Lcom/sec/android/app/camera/MenuDimController;->access$000(Lcom/sec/android/app/camera/MenuDimController;)Ljava/util/HashMap;
-
-    move-result-object v5
-
-    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;
-
-    invoke-virtual {v5}, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->getSettingsValue()I
-
-    move-result v5
-
-    invoke-virtual {v0, v5}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderSaturation(I)V
-
-    .line 415
-    iget-object v5, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
-
-    #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
-    invoke-static {v5}, Lcom/sec/android/app/camera/MenuDimController;->access$000(Lcom/sec/android/app/camera/MenuDimController;)Ljava/util/HashMap;
-
-    move-result-object v5
-
-    const/16 v6, 0x74
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 416
-    iget-object v5, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
-
-    #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
-    invoke-static {v5}, Lcom/sec/android/app/camera/MenuDimController;->access$000(Lcom/sec/android/app/camera/MenuDimController;)Ljava/util/HashMap;
-
-    move-result-object v5
-
-    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 420
-    .end local v4           #savedValue:I
-    :pswitch_1a
-    const/16 v5, 0x77
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+    invoke-virtual {v4}, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->getSettingsValue()I
 
     move-result v4
+
+    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderSaturation(I)V
 
     .line 421
-    .restart local v4       #savedValue:I
-    if-eq v4, v7, :cond_0
+    iget-object v4, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
 
-    invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderReview(I)V
+    #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
+    invoke-static {v4}, Lcom/sec/android/app/camera/MenuDimController;->access$000(Lcom/sec/android/app/camera/MenuDimController;)Ljava/util/HashMap;
+
+    move-result-object v4
+
+    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 422
+    iget-object v4, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
+
+    #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
+    invoke-static {v4}, Lcom/sec/android/app/camera/MenuDimController;->access$000(Lcom/sec/android/app/camera/MenuDimController;)Ljava/util/HashMap;
+
+    move-result-object v4
+
+    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     goto/16 :goto_1
 
-    .line 424
-    .end local v4           #savedValue:I
+    .line 426
+    .end local v3           #savedValue:I
     :pswitch_1b
-    const/16 v5, 0x15
+    const/16 v4, 0x77
 
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 427
+    .restart local v3       #savedValue:I
+    if-eq v3, v6, :cond_0
+
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderReview(I)V
+
+    goto/16 :goto_1
+
+    .line 430
+    .end local v3           #savedValue:I
+    :pswitch_1c
+    const/16 v4, 0x15
+
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->getSavedSettingValue(I)I
+
+    move-result v3
+
+    .line 431
+    .restart local v3       #savedValue:I
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getShutterSound()I
 
     move-result v4
 
-    .line 425
-    .restart local v4       #savedValue:I
+    if-eqz v4, :cond_2
+
+    .line 432
+    if-eq v3, v6, :cond_0
+
+    invoke-virtual {v0, v3}, Lcom/sec/android/app/camera/CameraSettings;->setShutterSound(I)V
+
+    goto/16 :goto_1
+
+    .line 434
+    :cond_2
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getShutterSound()I
 
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    .line 426
-    if-eq v4, v7, :cond_0
+    move-result v4
 
     invoke-virtual {v0, v4}, Lcom/sec/android/app/camera/CameraSettings;->setShutterSound(I)V
 
     goto/16 :goto_1
 
-    .line 428
-    :cond_2
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getShutterSound()I
-
-    move-result v5
-
-    invoke-virtual {v0, v5}, Lcom/sec/android/app/camera/CameraSettings;->setShutterSound(I)V
-
-    goto/16 :goto_1
-
-    .line 434
-    .end local v4           #savedValue:I
+    .line 440
+    .end local v3           #savedValue:I
     :cond_3
-    return v3
+    return v2
 
-    .line 296
+    .line 300
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -910,11 +915,10 @@
         :pswitch_2
         :pswitch_3
         :pswitch_4
-        :pswitch_5
         :pswitch_6
         :pswitch_7
-        :pswitch_0
         :pswitch_8
+        :pswitch_0
         :pswitch_9
         :pswitch_a
         :pswitch_b
@@ -925,19 +929,21 @@
         :pswitch_10
         :pswitch_11
         :pswitch_12
-        :pswitch_0
         :pswitch_13
-        :pswitch_0
         :pswitch_0
         :pswitch_14
         :pswitch_0
+        :pswitch_0
         :pswitch_15
+        :pswitch_0
         :pswitch_16
         :pswitch_17
         :pswitch_18
         :pswitch_19
         :pswitch_1a
         :pswitch_1b
+        :pswitch_1c
+        :pswitch_5
     .end packed-switch
 .end method
 
@@ -947,7 +953,7 @@
     .parameter "value"
 
     .prologue
-    .line 147
+    .line 146
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
 
     #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
@@ -965,11 +971,11 @@
 
     check-cast v0, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;
 
-    .line 148
+    .line 147
     .local v0, dimReference:Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;
     if-nez v0, :cond_0
 
-    .line 149
+    .line 148
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
 
     #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
@@ -989,18 +995,18 @@
 
     invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 150
+    .line 149
     const/4 v1, 0x1
 
-    .line 153
+    .line 152
     :goto_0
     return v1
 
-    .line 152
+    .line 151
     :cond_0
     invoke-virtual {v0}, Lcom/sec/android/app/camera/MenuDimController$SettingValueReference;->increaseReferenceCount()V
 
-    .line 153
+    .line 152
     const/4 v1, 0x0
 
     goto :goto_0
@@ -1014,10 +1020,10 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 158
+    .line 157
     if-ltz p1, :cond_1
 
-    const/16 v1, 0x22
+    const/16 v1, 0x23
 
     if-ge p1, v1, :cond_1
 
@@ -1026,18 +1032,18 @@
     :goto_0
     if-nez v1, :cond_2
 
-    .line 261
+    .line 265
     :cond_0
     :goto_1
     return-void
 
-    .line 158
+    .line 157
     :cond_1
     const/4 v1, 0x0
 
     goto :goto_0
 
-    .line 162
+    .line 161
     :cond_2
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
 
@@ -1050,27 +1056,27 @@
 
     move-result-object v0
 
-    .line 164
+    .line 163
     .local v0, cs:Lcom/sec/android/app/camera/CameraSettings;
     if-eqz p2, :cond_0
 
-    .line 165
+    .line 164
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->mDimArray:[Z
 
     aput-boolean p2, v1, p1
 
-    .line 166
+    .line 165
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->mChangeArray:[Z
 
     aput-boolean p2, v1, p1
 
-    .line 168
+    .line 167
     packed-switch p1, :pswitch_data_0
 
     :pswitch_0
     goto :goto_1
 
-    .line 170
+    .line 169
     :pswitch_1
     const/16 v1, 0xd
 
@@ -1082,7 +1088,7 @@
 
     goto :goto_1
 
-    .line 173
+    .line 172
     :pswitch_2
     const/16 v1, 0xe
 
@@ -1094,7 +1100,7 @@
 
     goto :goto_1
 
-    .line 176
+    .line 175
     :pswitch_3
     const/4 v1, 0x2
 
@@ -1106,7 +1112,7 @@
 
     goto :goto_1
 
-    .line 179
+    .line 178
     :pswitch_4
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getShootingMode()I
 
@@ -1116,7 +1122,7 @@
 
     goto :goto_1
 
-    .line 182
+    .line 181
     :pswitch_5
     const/16 v1, 0xa
 
@@ -1128,7 +1134,7 @@
 
     goto :goto_1
 
-    .line 185
+    .line 184
     :pswitch_6
     const/16 v1, 0x8
 
@@ -1140,8 +1146,20 @@
 
     goto :goto_1
 
-    .line 188
+    .line 187
     :pswitch_7
+    const/16 v1, 0x10
+
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCameraQuality()I
+
+    move-result v2
+
+    invoke-virtual {p0, v1, v2}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->saveSetting(II)Z
+
+    goto :goto_1
+
+    .line 190
+    :pswitch_8
     const/16 v1, 0x12
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCameraZoomValue()I
@@ -1152,8 +1170,8 @@
 
     goto :goto_1
 
-    .line 191
-    :pswitch_8
+    .line 193
+    :pswitch_9
     const/4 v1, 0x3
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCameraFlashMode()I
@@ -1164,8 +1182,8 @@
 
     goto :goto_1
 
-    .line 194
-    :pswitch_9
+    .line 197
+    :pswitch_a
     const/4 v1, 0x5
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getFocusMode()I
@@ -1176,8 +1194,8 @@
 
     goto :goto_1
 
-    .line 197
-    :pswitch_a
+    .line 201
+    :pswitch_b
     const/16 v1, 0x18
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCameraContrast()I
@@ -1190,7 +1208,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 198
+    .line 202
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
 
     #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
@@ -1216,7 +1234,7 @@
 
     invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 200
+    .line 204
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
 
     #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
@@ -1244,8 +1262,8 @@
 
     goto/16 :goto_1
 
-    .line 205
-    :pswitch_b
+    .line 209
+    :pswitch_c
     const/16 v1, 0xb
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getExposuremeter()I
@@ -1256,8 +1274,8 @@
 
     goto/16 :goto_1
 
-    .line 208
-    :pswitch_c
+    .line 212
+    :pswitch_d
     const/16 v1, 0xc
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getObjecttracking()I
@@ -1268,8 +1286,8 @@
 
     goto/16 :goto_1
 
-    .line 211
-    :pswitch_d
+    .line 215
+    :pswitch_e
     const/4 v1, 0x7
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCameraExposureValue()I
@@ -1280,8 +1298,8 @@
 
     goto/16 :goto_1
 
-    .line 214
-    :pswitch_e
+    .line 218
+    :pswitch_f
     const/4 v1, 0x4
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCameraResolution()I
@@ -1292,8 +1310,8 @@
 
     goto/16 :goto_1
 
-    .line 217
-    :pswitch_f
+    .line 221
+    :pswitch_10
     const/16 v1, 0x9
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCameraWB()I
@@ -1304,8 +1322,8 @@
 
     goto/16 :goto_1
 
-    .line 220
-    :pswitch_10
+    .line 224
+    :pswitch_11
     const/16 v1, 0xf
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getBlinkdetection()I
@@ -1316,8 +1334,8 @@
 
     goto/16 :goto_1
 
-    .line 223
-    :pswitch_11
+    .line 227
+    :pswitch_12
     const/4 v1, 0x6
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCameraTimer()I
@@ -1328,8 +1346,8 @@
 
     goto/16 :goto_1
 
-    .line 226
-    :pswitch_12
+    .line 230
+    :pswitch_13
     const/16 v1, 0x11
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getReview()I
@@ -1340,8 +1358,8 @@
 
     goto/16 :goto_1
 
-    .line 229
-    :pswitch_13
+    .line 233
+    :pswitch_14
     const/16 v1, 0x16
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getStorage()I
@@ -1352,8 +1370,8 @@
 
     goto/16 :goto_1
 
-    .line 232
-    :pswitch_14
+    .line 236
+    :pswitch_15
     const/16 v1, 0x13
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getGuideline()I
@@ -1364,8 +1382,8 @@
 
     goto/16 :goto_1
 
-    .line 235
-    :pswitch_15
+    .line 239
+    :pswitch_16
     const/16 v1, 0x65
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getRecordingMode()I
@@ -1376,8 +1394,8 @@
 
     goto/16 :goto_1
 
-    .line 238
-    :pswitch_16
+    .line 242
+    :pswitch_17
     const/16 v1, 0x6d
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCamcorderExposureValue()I
@@ -1388,8 +1406,8 @@
 
     goto/16 :goto_1
 
-    .line 241
-    :pswitch_17
+    .line 245
+    :pswitch_18
     const/16 v1, 0x68
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCamcorderResolution()I
@@ -1400,8 +1418,8 @@
 
     goto/16 :goto_1
 
-    .line 244
-    :pswitch_18
+    .line 248
+    :pswitch_19
     const/16 v1, 0x6c
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCamcorderEffect()I
@@ -1412,8 +1430,8 @@
 
     goto/16 :goto_1
 
-    .line 247
-    :pswitch_19
+    .line 251
+    :pswitch_1a
     const/16 v1, 0x6b
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCamcorderWB()I
@@ -1424,8 +1442,8 @@
 
     goto/16 :goto_1
 
-    .line 250
-    :pswitch_1a
+    .line 254
+    :pswitch_1b
     const/16 v1, 0x72
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCamcorderContrast()I
@@ -1438,7 +1456,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 251
+    .line 255
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
 
     #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
@@ -1464,7 +1482,7 @@
 
     invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 253
+    .line 257
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuDimController$DimArray;->this$0:Lcom/sec/android/app/camera/MenuDimController;
 
     #getter for: Lcom/sec/android/app/camera/MenuDimController;->mUserSettingValueList:Ljava/util/HashMap;
@@ -1492,8 +1510,8 @@
 
     goto/16 :goto_1
 
-    .line 258
-    :pswitch_1b
+    .line 262
+    :pswitch_1c
     const/16 v1, 0x77
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCamcorderReview()I
@@ -1504,7 +1522,7 @@
 
     goto/16 :goto_1
 
-    .line 168
+    .line 167
     nop
 
     :pswitch_data_0
@@ -1516,9 +1534,8 @@
         :pswitch_4
         :pswitch_5
         :pswitch_6
-        :pswitch_7
-        :pswitch_0
         :pswitch_8
+        :pswitch_0
         :pswitch_9
         :pswitch_a
         :pswitch_b
@@ -1531,16 +1548,19 @@
         :pswitch_12
         :pswitch_13
         :pswitch_14
-        :pswitch_0
-        :pswitch_0
         :pswitch_15
         :pswitch_0
+        :pswitch_0
         :pswitch_16
+        :pswitch_0
         :pswitch_17
         :pswitch_18
         :pswitch_19
         :pswitch_1a
         :pswitch_1b
+        :pswitch_1c
+        :pswitch_0
+        :pswitch_7
     .end packed-switch
 .end method
 
@@ -1549,7 +1569,7 @@
     .parameter "indices"
 
     .prologue
-    .line 264
+    .line 268
     move-object v0, p1
 
     .local v0, arr$:[I
@@ -1564,18 +1584,18 @@
 
     aget v2, v0, v1
 
-    .line 265
+    .line 269
     .local v2, index:I
     const/4 v4, 0x1
 
     invoke-virtual {p0, v2, v4}, Lcom/sec/android/app/camera/MenuDimController$DimArray;->set(IZ)V
 
-    .line 264
+    .line 268
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 267
+    .line 271
     .end local v2           #index:I
     :cond_0
     return-void

@@ -1,4 +1,4 @@
-.class public abstract Lcom/sec/android/app/camera/MenuResourceBase;
+.class public Lcom/sec/android/app/camera/MenuResourceBase;
 .super Ljava/lang/Object;
 .source "MenuResourceBase.java"
 
@@ -129,6 +129,16 @@
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
+
+    return v0
+.end method
+
+.method public getTitle()I
+    .locals 1
+
+    .prologue
+    .line 31
+    iget v0, p0, Lcom/sec/android/app/camera/MenuResourceBase;->mTextTitle:I
 
     return v0
 .end method

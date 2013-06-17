@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 104
+    .line 105
     iput-object p1, p0, Lcom/sec/android/app/camera/ReviewImage$2;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 106
+    .line 107
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 107
+    .line 108
     .local v0, action:Ljava/lang/String;
     const-string v1, "android.intent.action.MEDIA_MOUNTED"
 
@@ -79,13 +79,13 @@
 
     if-eqz v1, :cond_1
 
-    .line 111
+    .line 112
     :cond_0
     iget-object v1, p0, Lcom/sec/android/app/camera/ReviewImage$2;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     invoke-virtual {v1}, Lcom/sec/android/app/camera/ReviewImage;->finish()V
 
-    .line 113
+    .line 114
     :cond_1
     return-void
 .end method

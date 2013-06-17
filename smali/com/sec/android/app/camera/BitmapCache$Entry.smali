@@ -25,13 +25,13 @@
     .locals 0
 
     .prologue
-    .line 1156
+    .line 1175
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1157
+    .line 1176
     invoke-virtual {p0}, Lcom/sec/android/app/camera/BitmapCache$Entry;->clear()V
 
-    .line 1158
+    .line 1177
     return-void
 .end method
 
@@ -41,16 +41,16 @@
     .locals 1
 
     .prologue
-    .line 1160
+    .line 1179
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/sec/android/app/camera/BitmapCache$Entry;->mPos:I
 
-    .line 1161
+    .line 1180
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/sec/android/app/camera/BitmapCache$Entry;->mBitmap:Landroid/graphics/Bitmap;
 
-    .line 1162
+    .line 1181
     return-void
 .end method

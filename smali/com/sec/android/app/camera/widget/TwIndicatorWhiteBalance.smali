@@ -67,7 +67,7 @@
 
     .line 52
     .local v0, attr:Landroid/content/res/TypedArray;
-    const v1, 0x7f020187
+    const v1, 0x7f0201a3
 
     invoke-virtual {v0, v3, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -76,7 +76,7 @@
     invoke-virtual {p0, v3, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorWhiteBalance;->addImageId(II)V
 
     .line 55
-    const v1, 0x7f020188
+    const v1, 0x7f0201a4
 
     invoke-virtual {v0, v4, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -85,7 +85,7 @@
     invoke-virtual {p0, v4, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorWhiteBalance;->addImageId(II)V
 
     .line 58
-    const v1, 0x7f020189
+    const v1, 0x7f0201a5
 
     invoke-virtual {v0, v5, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -94,7 +94,7 @@
     invoke-virtual {p0, v5, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorWhiteBalance;->addImageId(II)V
 
     .line 61
-    const v1, 0x7f02018a
+    const v1, 0x7f0201a6
 
     invoke-virtual {v0, v6, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -103,7 +103,7 @@
     invoke-virtual {p0, v6, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorWhiteBalance;->addImageId(II)V
 
     .line 64
-    const v1, 0x7f02018c
+    const v1, 0x7f0201a8
 
     invoke-virtual {v0, v7, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 

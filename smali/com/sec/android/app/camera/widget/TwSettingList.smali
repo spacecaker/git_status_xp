@@ -34,6 +34,12 @@
 
 .field protected mItemWidthMargin:I
 
+.field public mListItemButtonTextBottomPadding:I
+
+.field public mListItemButtonTextLeftMargin:I
+
+.field public mListItemButtonTextRightMargin:I
+
 .field public mListItemNormalButtonHeight:I
 
 .field public mListItemNormalButtonLeftMargin:I
@@ -51,6 +57,8 @@
 .field public mListItemRadioButtonWidth:I
 
 .field public mListItemTitleTextLeftMargin:I
+
+.field public mListItemTitleTextRightMargin:I
 
 .field public mListItemTitleTextTopMargin:I
 
@@ -119,7 +127,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 94
+    .line 99
     invoke-direct {p0, p1, p2}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 53
@@ -140,13 +148,13 @@
     .line 68
     iput-object v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mHelpTextTicker:Lcom/sec/android/app/camera/widget/TwTickerView;
 
-    .line 95
+    .line 100
     iput-object p1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mContext:Landroid/content/Context;
 
-    .line 96
+    .line 101
     invoke-direct {p0, p2}, Lcom/sec/android/app/camera/widget/TwSettingList;->init(Landroid/util/AttributeSet;)V
 
-    .line 97
+    .line 102
     return-void
 .end method
 
@@ -157,7 +165,7 @@
     .prologue
     const/4 v4, 0x5
 
-    .line 100
+    .line 105
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -168,7 +176,7 @@
 
     move-result-object v0
 
-    .line 103
+    .line 108
     .local v0, attr:Landroid/content/res/TypedArray;
     const/4 v1, 0x0
 
@@ -188,50 +196,8 @@
 
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mRows:I
 
-    .line 105
+    .line 110
     const/4 v1, 0x1
-
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f06001a
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
-
-    move-result v1
-
-    float-to-int v1, v1
-
-    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mItemWidth:I
-
-    .line 109
-    const/4 v1, 0x2
-
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f06001b
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
-
-    move-result v1
-
-    float-to-int v1, v1
-
-    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mItemHeight:I
-
-    .line 113
-    const/4 v1, 0x3
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
 
@@ -249,30 +215,10 @@
 
     float-to-int v1, v1
 
-    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mItemWidthMargin:I
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mItemWidth:I
 
-    .line 118
-    const/4 v1, 0x4
-
-    const v2, 0x7f0200a9
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mNormalBackground:I
-
-    .line 121
-    const v1, 0x7f0200aa
-
-    invoke-virtual {v0, v4, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mPressedBackground:I
-
-    .line 125
-    const/4 v1, 0x6
+    .line 114
+    const/4 v1, 0x2
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
 
@@ -290,10 +236,10 @@
 
     float-to-int v1, v1
 
-    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mScrollerX:I
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mItemHeight:I
 
-    .line 129
-    const/4 v1, 0x7
+    .line 118
+    const/4 v1, 0x3
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
 
@@ -311,10 +257,30 @@
 
     float-to-int v1, v1
 
-    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mScrollerY:I
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mItemWidthMargin:I
 
-    .line 134
-    const/16 v1, 0x8
+    .line 123
+    const/4 v1, 0x4
+
+    const v2, 0x7f0200a4
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mNormalBackground:I
+
+    .line 126
+    const v1, 0x7f0200a5
+
+    invoke-virtual {v0, v4, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mPressedBackground:I
+
+    .line 130
+    const/4 v1, 0x6
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
 
@@ -332,10 +298,10 @@
 
     float-to-int v1, v1
 
-    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemTitleTextLeftMargin:I
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mScrollerX:I
 
-    .line 138
-    const/16 v1, 0x9
+    .line 134
+    const/4 v1, 0x7
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
 
@@ -353,143 +319,10 @@
 
     float-to-int v1, v1
 
-    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemTitleTextTopMargin:I
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mScrollerY:I
 
-    .line 144
-    iget v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemTitleTextTopMargin:I
-
-    sub-int/2addr v1, v4
-
-    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemTitleTextTopMargin:I
-
-    .line 147
-    const/16 v1, 0xe
-
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f060025
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
-
-    move-result v1
-
-    float-to-int v1, v1
-
-    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemNormalButtonLeftMargin:I
-
-    .line 151
-    const/16 v1, 0xf
-
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f060026
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
-
-    move-result v1
-
-    float-to-int v1, v1
-
-    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemNormalButtonTopMargin:I
-
-    .line 156
-    const/16 v1, 0x10
-
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f060027
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
-
-    move-result v1
-
-    float-to-int v1, v1
-
-    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemRadioButtonLeftMargin:I
-
-    .line 160
-    const/16 v1, 0x11
-
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f060028
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
-
-    move-result v1
-
-    float-to-int v1, v1
-
-    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemRadioButtonTopMargin:I
-
-    .line 165
-    const/16 v1, 0xc
-
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f060023
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
-
-    move-result v1
-
-    float-to-int v1, v1
-
-    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemRadioButtonWidth:I
-
-    .line 169
-    const/16 v1, 0xd
-
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f060024
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
-
-    move-result v1
-
-    float-to-int v1, v1
-
-    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemRadioButtonHeight:I
-
-    .line 174
-    const/16 v1, 0xa
+    .line 139
+    const/16 v1, 0x8
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
 
@@ -507,10 +340,10 @@
 
     float-to-int v1, v1
 
-    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemNormalButtonWidth:I
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemTitleTextLeftMargin:I
 
-    .line 178
-    const/16 v1, 0xb
+    .line 144
+    const/16 v1, 0x9
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
 
@@ -528,10 +361,206 @@
 
     float-to-int v1, v1
 
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemTitleTextRightMargin:I
+
+    .line 149
+    const/16 v1, 0xa
+
+    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f060023
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemTitleTextTopMargin:I
+
+    .line 155
+    iget v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemTitleTextTopMargin:I
+
+    sub-int/2addr v1, v4
+
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemTitleTextTopMargin:I
+
+    .line 158
+    const/16 v1, 0xf
+
+    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f060028
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemNormalButtonLeftMargin:I
+
+    .line 162
+    const/16 v1, 0x10
+
+    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f060029
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemNormalButtonTopMargin:I
+
+    .line 167
+    const/16 v1, 0x11
+
+    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f06002a
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemRadioButtonLeftMargin:I
+
+    .line 171
+    const/16 v1, 0x12
+
+    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f06002b
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemRadioButtonTopMargin:I
+
+    .line 176
+    const/16 v1, 0xd
+
+    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f060026
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemRadioButtonWidth:I
+
+    .line 180
+    const/16 v1, 0xe
+
+    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f060027
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemRadioButtonHeight:I
+
+    .line 185
+    const/16 v1, 0xb
+
+    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f060024
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemNormalButtonWidth:I
+
+    .line 189
+    const/16 v1, 0xc
+
+    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f060025
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemNormalButtonHeight:I
 
-    .line 183
-    const/16 v1, 0x15
+    .line 194
+    const/16 v1, 0x16
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
 
@@ -549,8 +578,8 @@
 
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mTitleTextColor:I
 
-    .line 188
-    const/16 v1, 0x16
+    .line 199
+    const/16 v1, 0x17
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
 
@@ -568,8 +597,8 @@
 
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mButtonTextColor:I
 
-    .line 193
-    const/16 v1, 0x17
+    .line 204
+    const/16 v1, 0x18
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
 
@@ -587,8 +616,8 @@
 
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mButtonTextHighlightColor:I
 
-    .line 198
-    const/16 v1, 0x18
+    .line 209
+    const/16 v1, 0x19
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
 
@@ -606,10 +635,73 @@
 
     iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mHelpTextColor:I
 
-    .line 203
+    .line 214
+    const/16 v1, 0x1a
+
+    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f06002c
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemButtonTextLeftMargin:I
+
+    .line 217
+    const/16 v1, 0x1b
+
+    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f06002d
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemButtonTextRightMargin:I
+
+    .line 220
+    const/16 v1, 0x1c
+
+    invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f06002e
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mListItemButtonTextBottomPadding:I
+
+    .line 223
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 204
+    .line 224
     return-void
 .end method
 
@@ -617,12 +709,12 @@
     .locals 2
 
     .prologue
-    .line 359
+    .line 379
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mPageScroller:Lcom/sec/android/app/camera/widget/TwScroller;
 
     if-eqz v0, :cond_0
 
-    .line 360
+    .line 380
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mPageScroller:Lcom/sec/android/app/camera/widget/TwScroller;
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getPageText()Ljava/lang/String;
@@ -631,7 +723,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwScroller;->setPageText(Ljava/lang/String;)V
 
-    .line 362
+    .line 382
     :cond_0
     return-void
 .end method
@@ -643,7 +735,7 @@
     .parameter "menuId"
 
     .prologue
-    .line 234
+    .line 254
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mMenuItemMap:Ljava/util/Map;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -668,7 +760,7 @@
     .locals 2
 
     .prologue
-    .line 264
+    .line 284
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mMenuItemsList:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -690,7 +782,7 @@
     .locals 7
 
     .prologue
-    .line 238
+    .line 258
     const-string v0, "%d/%d"
 
     const/4 v1, 0x2
@@ -750,7 +842,7 @@
     .parameter "menuId"
 
     .prologue
-    .line 216
+    .line 236
     const-string v1, "TwSettingList"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -773,7 +865,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 217
+    .line 237
     new-instance v0, Lcom/sec/android/app/camera/widget/TwSettingListItem;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mContext:Landroid/content/Context;
@@ -788,7 +880,7 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/sec/android/app/camera/widget/TwSettingListItem;-><init>(Landroid/content/Context;ILjava/util/HashMap;Landroid/view/View$OnClickListener;Lcom/sec/android/app/camera/widget/TwSettingList;)V
 
-    .line 220
+    .line 240
     .local v0, cameraSettingsMenuItem:Lcom/sec/android/app/camera/widget/TwSettingListItem;
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mMenuItemsList:Ljava/util/List;
 
@@ -800,10 +892,10 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwSettingListItem;->setId(I)V
 
-    .line 221
+    .line 241
     invoke-virtual {v0, p0}, Lcom/sec/android/app/camera/widget/TwSettingListItem;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 222
+    .line 242
     new-instance v6, Landroid/widget/RelativeLayout$LayoutParams;
 
     iget v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mItemWidth:I
@@ -812,7 +904,7 @@
 
     invoke-direct {v6, v1, v2}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
 
-    .line 224
+    .line 244
     .local v6, lp:Landroid/widget/RelativeLayout$LayoutParams;
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mMenuItemsList:Ljava/util/List;
 
@@ -822,7 +914,7 @@
 
     if-lez v1, :cond_0
 
-    .line 225
+    .line 245
     const/4 v2, 0x3
 
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mMenuItemsList:Ljava/util/List;
@@ -849,16 +941,16 @@
 
     invoke-virtual {v6, v2, v1}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
 
-    .line 228
+    .line 248
     :cond_0
     invoke-virtual {p0, v0, v6}, Lcom/sec/android/app/camera/widget/TwSettingList;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 229
+    .line 249
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mMenuItemsList:Ljava/util/List;
 
     invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 230
+    .line 250
     iget-object v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mMenuItemMap:Ljava/util/Map;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -867,7 +959,7 @@
 
     invoke-interface {v1, v2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 231
+    .line 251
     return-void
 .end method
 
@@ -894,18 +986,18 @@
     .end annotation
 
     .prologue
-    .line 210
+    .line 230
     .local p1, settingsMenuResource:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/Integer;Lcom/sec/android/app/camera/SettingsMenuResourceBundle;>;"
     .local p3, menuItemMap:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/Integer;Lcom/sec/android/app/camera/widget/TwSettingListItem;>;"
     iput-object p1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mSettingsMenuResource:Ljava/util/HashMap;
 
-    .line 211
+    .line 231
     iput-object p2, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mMenuItemClickListener:Landroid/view/View$OnClickListener;
 
-    .line 212
+    .line 232
     iput-object p3, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mMenuItemMap:Ljava/util/Map;
 
-    .line 213
+    .line 233
     return-void
 .end method
 
@@ -915,20 +1007,20 @@
     .prologue
     const/4 v5, -0x2
 
-    .line 321
+    .line 341
     iget-object v3, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mMenuItemsList:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/util/List;->size()I
 
     move-result v0
 
-    .line 322
+    .line 342
     .local v0, count:I
     iget v3, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mRows:I
 
     if-le v0, v3, :cond_0
 
-    .line 323
+    .line 343
     iget-object v3, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mContext:Landroid/content/Context;
 
     const-string v4, "layout_inflater"
@@ -939,7 +1031,7 @@
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    .line 325
+    .line 345
     .local v1, inflator:Landroid/view/LayoutInflater;
     const v3, 0x7f030031
 
@@ -953,47 +1045,47 @@
 
     iput-object v3, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mPageScroller:Lcom/sec/android/app/camera/widget/TwScroller;
 
-    .line 328
+    .line 348
     new-instance v2, Landroid/widget/RelativeLayout$LayoutParams;
 
     invoke-direct {v2, v5, v5}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
 
-    .line 331
+    .line 351
     .local v2, scrollParams:Landroid/widget/RelativeLayout$LayoutParams;
     iget v3, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mScrollerX:I
 
     iput v3, v2, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
 
-    .line 332
+    .line 352
     iget v3, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mScrollerY:I
 
     iput v3, v2, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I
 
-    .line 334
+    .line 354
     iget-object v3, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mPageScroller:Lcom/sec/android/app/camera/widget/TwScroller;
 
     invoke-virtual {p0, v3, v2}, Lcom/sec/android/app/camera/widget/TwSettingList;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 335
+    .line 355
     iget-object v3, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mPageScroller:Lcom/sec/android/app/camera/widget/TwScroller;
 
     if-eqz v3, :cond_0
 
-    .line 336
+    .line 356
     iget-object v3, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mPageScroller:Lcom/sec/android/app/camera/widget/TwScroller;
 
     invoke-virtual {v3, p0}, Lcom/sec/android/app/camera/widget/TwScroller;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 339
+    .line 359
     .end local v1           #inflator:Landroid/view/LayoutInflater;
     .end local v2           #scrollParams:Landroid/widget/RelativeLayout$LayoutParams;
     :cond_0
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->refreshList()V
 
-    .line 340
+    .line 360
     invoke-direct {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->setPageText()V
 
-    .line 341
+    .line 361
     return-void
 .end method
 
@@ -1002,14 +1094,14 @@
     .parameter "view"
 
     .prologue
-    .line 344
+    .line 364
     const-string v0, "TwSettingList"
 
     const-string v1, "onClick"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 345
+    .line 365
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
@@ -1022,23 +1114,23 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 356
+    .line 376
     :goto_0
     return-void
 
-    .line 347
+    .line 367
     :pswitch_0
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->pageUp()V
 
     goto :goto_0
 
-    .line 352
+    .line 372
     :pswitch_1
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->pageDown()V
 
     goto :goto_0
 
-    .line 345
+    .line 365
     nop
 
     :pswitch_data_0
@@ -1054,7 +1146,7 @@
     .parameter "event"
 
     .prologue
-    .line 288
+    .line 308
     const-string v2, "TwSettingList"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1081,14 +1173,14 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 289
+    .line 309
     move-object v0, p1
 
     check-cast v0, Lcom/sec/android/app/camera/widget/TwSettingListItem;
 
     move-object v1, v0
 
-    .line 290
+    .line 310
     .local v1, listItem:Lcom/sec/android/app/camera/widget/TwSettingListItem;
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
@@ -1096,10 +1188,10 @@
 
     if-nez v2, :cond_0
 
-    .line 291
+    .line 311
     invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/widget/TwSettingList;->onTwSettingListItemHighlighted(Lcom/sec/android/app/camera/widget/TwSettingListItem;)V
 
-    .line 293
+    .line 313
     :cond_0
     const/4 v2, 0x1
 
@@ -1111,7 +1203,7 @@
     .parameter "settingListItem"
 
     .prologue
-    .line 297
+    .line 317
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mPreviousSelectedItem:Lcom/sec/android/app/camera/widget/TwSettingListItem;
 
     if-eqz v0, :cond_0
@@ -1124,52 +1216,52 @@
 
     if-nez v0, :cond_0
 
-    .line 299
+    .line 319
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mPreviousSelectedItem:Lcom/sec/android/app/camera/widget/TwSettingListItem;
 
     iget v1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mNormalBackground:I
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwSettingListItem;->setBackgroundResource(I)V
 
-    .line 300
+    .line 320
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mHelpTextTicker:Lcom/sec/android/app/camera/widget/TwTickerView;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/widget/TwTickerView;->stopTicker()V
 
-    .line 302
+    .line 322
     :cond_0
     iput-object p1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mPreviousSelectedItem:Lcom/sec/android/app/camera/widget/TwSettingListItem;
 
-    .line 303
+    .line 323
     if-nez p1, :cond_2
 
-    .line 304
+    .line 324
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mHelpTextTicker:Lcom/sec/android/app/camera/widget/TwTickerView;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/widget/TwTickerView;->clearText()V
 
-    .line 310
+    .line 330
     :goto_0
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mOnInvalidatePreviewListener:Lcom/sec/android/app/camera/widget/TwSettingList$OnInvalidatePreviewListener;
 
     if-eqz v0, :cond_1
 
-    .line 311
+    .line 331
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mOnInvalidatePreviewListener:Lcom/sec/android/app/camera/widget/TwSettingList$OnInvalidatePreviewListener;
 
     invoke-interface {v0}, Lcom/sec/android/app/camera/widget/TwSettingList$OnInvalidatePreviewListener;->onInvalidatePreview()V
 
-    .line 313
+    .line 333
     :cond_1
     return-void
 
-    .line 306
+    .line 326
     :cond_2
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mPressedBackground:I
 
     invoke-virtual {p1, v0}, Lcom/sec/android/app/camera/widget/TwSettingListItem;->setBackgroundResource(I)V
 
-    .line 307
+    .line 327
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mHelpTextTicker:Lcom/sec/android/app/camera/widget/TwTickerView;
 
     invoke-virtual {p1}, Lcom/sec/android/app/camera/widget/TwSettingListItem;->getHelpString()Ljava/lang/String;
@@ -1185,7 +1277,7 @@
     .locals 2
 
     .prologue
-    .line 278
+    .line 298
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mCurrentPage:I
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getLastPage()I
@@ -1194,12 +1286,12 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 279
+    .line 299
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mCurrentPage:I
 
-    .line 283
+    .line 303
     :goto_0
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mPageScroller:Lcom/sec/android/app/camera/widget/TwScroller;
 
@@ -1209,13 +1301,13 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwScroller;->setPageText(Ljava/lang/String;)V
 
-    .line 284
+    .line 304
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->refreshList()V
 
-    .line 285
+    .line 305
     return-void
 
-    .line 281
+    .line 301
     :cond_0
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mCurrentPage:I
 
@@ -1230,19 +1322,19 @@
     .locals 2
 
     .prologue
-    .line 268
+    .line 288
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mCurrentPage:I
 
     if-nez v0, :cond_0
 
-    .line 269
+    .line 289
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->getLastPage()I
 
     move-result v0
 
     iput v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mCurrentPage:I
 
-    .line 273
+    .line 293
     :goto_0
     iget-object v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mPageScroller:Lcom/sec/android/app/camera/widget/TwScroller;
 
@@ -1252,13 +1344,13 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwScroller;->setPageText(Ljava/lang/String;)V
 
-    .line 274
+    .line 294
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->refreshList()V
 
-    .line 275
+    .line 295
     return-void
 
-    .line 271
+    .line 291
     :cond_0
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mCurrentPage:I
 
@@ -1277,14 +1369,14 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 243
+    .line 263
     iget-object v4, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mMenuItemsList:Ljava/util/List;
 
     invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    .line 244
+    .line 264
     .local v2, iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/sec/android/app/camera/widget/TwSettingListItem;>;"
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -1293,14 +1385,14 @@
 
     if-eqz v4, :cond_0
 
-    .line 245
+    .line 265
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lcom/sec/android/app/camera/widget/TwSettingListItem;
 
-    .line 246
+    .line 266
     .local v1, item:Lcom/sec/android/app/camera/widget/TwSettingListItem;
     const/4 v4, 0x4
 
@@ -1308,7 +1400,7 @@
 
     goto :goto_0
 
-    .line 249
+    .line 269
     .end local v1           #item:Lcom/sec/android/app/camera/widget/TwSettingListItem;
     :cond_0
     const/4 v0, 0x0
@@ -1319,7 +1411,7 @@
 
     if-ge v0, v4, :cond_2
 
-    .line 250
+    .line 270
     iget v4, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mCurrentPage:I
 
     iget v5, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mRows:I
@@ -1336,7 +1428,7 @@
 
     if-ge v4, v5, :cond_1
 
-    .line 251
+    .line 271
     iget-object v4, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mMenuItemsList:Ljava/util/List;
 
     iget v5, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mCurrentPage:I
@@ -1353,11 +1445,11 @@
 
     check-cast v1, Lcom/sec/android/app/camera/widget/TwSettingListItem;
 
-    .line 253
+    .line 273
     .restart local v1       #item:Lcom/sec/android/app/camera/widget/TwSettingListItem;
     invoke-virtual {v1, v7}, Lcom/sec/android/app/camera/widget/TwSettingListItem;->setVisibility(I)V
 
-    .line 254
+    .line 274
     new-instance v3, Landroid/widget/RelativeLayout$LayoutParams;
 
     iget v4, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mItemWidth:I
@@ -1366,7 +1458,7 @@
 
     invoke-direct {v3, v4, v5}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
 
-    .line 256
+    .line 276
     .local v3, param:Landroid/widget/RelativeLayout$LayoutParams;
     iget v4, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mItemWidthMargin:I
 
@@ -1376,10 +1468,10 @@
 
     invoke-virtual {v3, v4, v5, v7, v7}, Landroid/widget/RelativeLayout$LayoutParams;->setMargins(IIII)V
 
-    .line 257
+    .line 277
     invoke-virtual {v1, v3}, Lcom/sec/android/app/camera/widget/TwSettingListItem;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 249
+    .line 269
     .end local v1           #item:Lcom/sec/android/app/camera/widget/TwSettingListItem;
     .end local v3           #param:Landroid/widget/RelativeLayout$LayoutParams;
     :cond_1
@@ -1387,13 +1479,13 @@
 
     goto :goto_1
 
-    .line 260
+    .line 280
     :cond_2
     const/4 v4, 0x0
 
     invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/widget/TwSettingList;->onTwSettingListItemHighlighted(Lcom/sec/android/app/camera/widget/TwSettingListItem;)V
 
-    .line 261
+    .line 281
     return-void
 .end method
 
@@ -1401,23 +1493,23 @@
     .locals 1
 
     .prologue
-    .line 365
+    .line 385
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mCurrentPage:I
 
     if-eqz v0, :cond_0
 
-    .line 366
+    .line 386
     :goto_0
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mCurrentPage:I
 
     if-eqz v0, :cond_0
 
-    .line 367
+    .line 387
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSettingList;->pageUp()V
 
     goto :goto_0
 
-    .line 370
+    .line 390
     :cond_0
     return-void
 .end method
@@ -1427,15 +1519,15 @@
     .parameter "helpTicker"
 
     .prologue
-    .line 316
+    .line 336
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mHelpTextColor:I
 
     invoke-virtual {p1, v0}, Lcom/sec/android/app/camera/widget/TwTickerView;->setTextColor(I)V
 
-    .line 317
+    .line 337
     iput-object p1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mHelpTextTicker:Lcom/sec/android/app/camera/widget/TwTickerView;
 
-    .line 318
+    .line 338
     return-void
 .end method
 
@@ -1444,9 +1536,9 @@
     .parameter "l"
 
     .prologue
-    .line 373
+    .line 393
     iput-object p1, p0, Lcom/sec/android/app/camera/widget/TwSettingList;->mOnInvalidatePreviewListener:Lcom/sec/android/app/camera/widget/TwSettingList$OnInvalidatePreviewListener;
 
-    .line 374
+    .line 394
     return-void
 .end method

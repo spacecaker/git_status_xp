@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1343
+    .line 1394
     iput-object p1, p0, Lcom/sec/android/app/camera/CameraEngine$4;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,14 +43,14 @@
     .prologue
     const-string v1, "CameraEngine"
 
-    .line 1345
+    .line 1396
     const-string v0, "CameraEngine"
 
     const-string v0, "starting preview..."
 
     invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1347
+    .line 1398
     :try_start_0
     const-string v0, "CameraEngine"
 
@@ -58,7 +58,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1348
+    .line 1399
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$4;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     #getter for: Lcom/sec/android/app/camera/CameraEngine;->mCameraDevice:Lcom/sec/android/seccamera/SecCamera;
@@ -70,7 +70,7 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1354
+    .line 1405
     :goto_0
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$4;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
@@ -80,7 +80,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/Camera;->hideLaunchIcon()V
 
-    .line 1355
+    .line 1406
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$4;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine;->mStateMessageHandler:Lcom/sec/android/app/camera/CameraEngine$StateMessageHandler;
@@ -89,10 +89,10 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraEngine$StateMessageHandler;->sendEmptyMessage(I)Z
 
-    .line 1357
+    .line 1408
     return-void
 
-    .line 1349
+    .line 1400
     :catch_0
     move-exception v0
 

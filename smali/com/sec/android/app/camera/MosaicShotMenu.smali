@@ -34,7 +34,7 @@
     .prologue
     const/4 v7, 0x1
 
-    .line 42
+    .line 41
     move-object v0, p0
 
     move-object v1, p1
@@ -51,16 +51,16 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/sec/android/app/camera/MenuBase;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
-    .line 45
+    .line 44
     invoke-virtual {p0, v7}, Lcom/sec/android/app/camera/MosaicShotMenu;->setCaptureEnabled(Z)V
 
-    .line 46
+    .line 45
     invoke-virtual {p0, v7}, Lcom/sec/android/app/camera/MosaicShotMenu;->setTouchHandled(Z)V
 
-    .line 47
+    .line 46
     invoke-direct {p0, p5}, Lcom/sec/android/app/camera/MosaicShotMenu;->init(Lcom/sec/android/app/camera/MosaicShotSelectionResourceData;)V
 
-    .line 48
+    .line 47
     return-void
 .end method
 
@@ -69,7 +69,7 @@
     .parameter "resourceData"
 
     .prologue
-    .line 51
+    .line 50
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -82,7 +82,7 @@
 
     iput v1, p0, Lcom/sec/android/app/camera/MosaicShotMenu;->mSelectedMosaicFrame:I
 
-    .line 52
+    .line 51
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     const v2, 0x7f0a00b0
@@ -93,16 +93,16 @@
 
     check-cast v0, Lcom/sec/android/app/camera/widget/TwGridView;
 
-    .line 54
+    .line 53
     .local v0, mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
     iget v1, p0, Lcom/sec/android/app/camera/MosaicShotMenu;->mSelectedMosaicFrame:I
 
     invoke-virtual {v0, p1, v1}, Lcom/sec/android/app/camera/widget/TwGridView;->initializeView(Lcom/sec/android/app/camera/MenuResourceBase;I)V
 
-    .line 55
+    .line 54
     invoke-virtual {v0, p0}, Lcom/sec/android/app/camera/widget/TwGridView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 56
+    .line 55
     return-void
 .end method
 
@@ -113,16 +113,16 @@
     .parameter "v"
 
     .prologue
-    .line 60
+    .line 59
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
 
-    const v1, 0x7f0a00a4
+    const v1, 0x7f0a00a3
 
     if-eq v0, v1, :cond_0
 
-    .line 61
+    .line 60
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
@@ -135,12 +135,12 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/MosaicShotMenu;->mSelectedMosaicFrame:I
 
-    .line 62
+    .line 61
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->processBack()V
 
-    .line 63
+    .line 62
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -151,6 +151,11 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraSettings;->setMosaicFrame(I)V
 
+    .line 63
+    iget-object v0, p0, Lcom/sec/android/app/camera/MosaicShotMenu;->mOnMosaicShotMenuChangedListener:Lcom/sec/android/app/camera/MosaicShotMenu$OnMosaicShotMenuChangedListener;
+
+    if-eqz v0, :cond_0
+
     .line 64
     iget-object v0, p0, Lcom/sec/android/app/camera/MosaicShotMenu;->mOnMosaicShotMenuChangedListener:Lcom/sec/android/app/camera/MosaicShotMenu$OnMosaicShotMenuChangedListener;
 
@@ -158,11 +163,16 @@
 
     invoke-interface {v0, v1}, Lcom/sec/android/app/camera/MosaicShotMenu$OnMosaicShotMenuChangedListener;->onMosaicShotMenuChanged(I)V
 
-    .line 66
+    .line 65
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/sec/android/app/camera/MosaicShotMenu;->mOnMosaicShotMenuChangedListener:Lcom/sec/android/app/camera/MosaicShotMenu$OnMosaicShotMenuChangedListener;
+
+    .line 68
     :cond_0
     invoke-super {p0, p1}, Lcom/sec/android/app/camera/MenuBase;->onClick(Landroid/view/View;)V
 
-    .line 67
+    .line 69
     return-void
 .end method
 
@@ -171,9 +181,9 @@
     .parameter "l"
 
     .prologue
-    .line 70
+    .line 72
     iput-object p1, p0, Lcom/sec/android/app/camera/MosaicShotMenu;->mOnMosaicShotMenuChangedListener:Lcom/sec/android/app/camera/MosaicShotMenu$OnMosaicShotMenuChangedListener;
 
-    .line 71
+    .line 73
     return-void
 .end method

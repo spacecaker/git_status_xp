@@ -19,8 +19,6 @@
 # instance fields
 .field private final mHandler:Landroid/os/Handler;
 
-.field public mMaxResolution:Z
-
 .field protected mOnZoomValueChangedListener:Lcom/sec/android/app/camera/ZoomMenu$OnZoomValueChangedListener;
 
 .field private mSliderController:Lcom/sec/android/app/camera/SliderController;
@@ -28,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
-    .locals 4
+    .locals 3
     .parameter "activityContext"
     .parameter "layoutId"
     .parameter "baseViewId"
@@ -37,53 +35,50 @@
     .parameter "zOrder"
 
     .prologue
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    const/4 v1, 0x0
-
-    .line 49
+    .line 48
     invoke-direct/range {p0 .. p6}, Lcom/sec/android/app/camera/MenuBase;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;IILandroid/view/ViewGroup;Lcom/sec/android/app/camera/MenuResourceData;I)V
 
     .line 34
     new-instance v0, Lcom/sec/android/app/camera/ZoomMenu$MainHandler;
 
-    invoke-direct {v0, p0, v3}, Lcom/sec/android/app/camera/ZoomMenu$MainHandler;-><init>(Lcom/sec/android/app/camera/ZoomMenu;Lcom/sec/android/app/camera/ZoomMenu$1;)V
+    invoke-direct {v0, p0, v2}, Lcom/sec/android/app/camera/ZoomMenu$MainHandler;-><init>(Lcom/sec/android/app/camera/ZoomMenu;Lcom/sec/android/app/camera/ZoomMenu$1;)V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu;->mHandler:Landroid/os/Handler;
 
-    .line 37
-    iput-boolean v1, p0, Lcom/sec/android/app/camera/ZoomMenu;->mMaxResolution:Z
+    .line 44
+    iput-object v2, p0, Lcom/sec/android/app/camera/ZoomMenu;->mSliderController:Lcom/sec/android/app/camera/SliderController;
 
-    .line 45
-    iput-object v3, p0, Lcom/sec/android/app/camera/ZoomMenu;->mSliderController:Lcom/sec/android/app/camera/SliderController;
+    .line 50
+    invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/ZoomMenu;->setCaptureEnabled(Z)V
 
     .line 51
-    invoke-virtual {p0, v2}, Lcom/sec/android/app/camera/ZoomMenu;->setCaptureEnabled(Z)V
+    invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/ZoomMenu;->setTouchHandled(Z)V
 
     .line 52
-    invoke-virtual {p0, v2}, Lcom/sec/android/app/camera/ZoomMenu;->setTouchHandled(Z)V
-
-    .line 53
     invoke-direct {p0}, Lcom/sec/android/app/camera/ZoomMenu;->init()V
 
-    .line 55
+    .line 54
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu;->mSliderController:Lcom/sec/android/app/camera/SliderController;
 
     if-nez v0, :cond_0
 
-    .line 60
+    .line 59
     :goto_0
     return-void
 
-    .line 58
+    .line 57
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu;->mSliderController:Lcom/sec/android/app/camera/SliderController;
 
+    const/4 v1, 0x0
+
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/SliderController;->setCurrentSlider(I)V
 
-    .line 59
+    .line 58
     invoke-virtual {p0}, Lcom/sec/android/app/camera/ZoomMenu;->stopZoomMenuTimer()V
 
     goto :goto_0
@@ -95,7 +90,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 63
+    .line 62
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     const v2, 0x7f0a00f7
@@ -106,20 +101,15 @@
 
     check-cast v0, Lcom/sec/android/app/camera/widget/TwSlider;
 
-    .line 64
+    .line 63
     .local v0, zoomSlider:Lcom/sec/android/app/camera/widget/TwSlider;
-    iget-boolean v1, p0, Lcom/sec/android/app/camera/ZoomMenu;->mMaxResolution:Z
-
-    sput-boolean v1, Lcom/sec/android/app/camera/widget/TwSlider;->mResolutionMax:Z
-
-    .line 66
     new-instance v1, Lcom/sec/android/app/camera/SliderController;
 
     invoke-direct {v1, v3, v3, v0, p0}, Lcom/sec/android/app/camera/SliderController;-><init>(Lcom/sec/android/app/camera/widget/TwImageButton;Lcom/sec/android/app/camera/widget/TwImageButton;Lcom/sec/android/app/camera/widget/TwSlider;Lcom/sec/android/app/camera/SliderController$OnSliderValueListener;)V
 
     iput-object v1, p0, Lcom/sec/android/app/camera/ZoomMenu;->mSliderController:Lcom/sec/android/app/camera/SliderController;
 
-    .line 67
+    .line 64
     return-void
 .end method
 
@@ -130,21 +120,21 @@
     .parameter "value"
 
     .prologue
-    .line 71
+    .line 68
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu;->mOnZoomValueChangedListener:Lcom/sec/android/app/camera/ZoomMenu$OnZoomValueChangedListener;
 
     if-eqz v0, :cond_0
 
-    .line 72
+    .line 69
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu;->mOnZoomValueChangedListener:Lcom/sec/android/app/camera/ZoomMenu$OnZoomValueChangedListener;
 
     invoke-interface {v0, p1}, Lcom/sec/android/app/camera/ZoomMenu$OnZoomValueChangedListener;->onZoomValueChanged(I)V
 
-    .line 74
+    .line 71
     :cond_0
     invoke-virtual {p0}, Lcom/sec/android/app/camera/ZoomMenu;->startZoomMenuTimer()V
 
-    .line 75
+    .line 72
     return-void
 .end method
 
@@ -155,7 +145,7 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 147
+    .line 152
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
@@ -165,11 +155,11 @@
     :pswitch_0
     move v0, v1
 
-    .line 156
+    .line 161
     :goto_0
     return v0
 
-    .line 149
+    .line 154
     :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -177,16 +167,16 @@
 
     move v0, v1
 
-    .line 150
+    .line 155
     goto :goto_0
 
-    .line 153
+    .line 158
     :pswitch_2
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 147
+    .line 152
     nop
 
     :pswitch_data_0
@@ -201,10 +191,10 @@
     .locals 0
 
     .prologue
-    .line 138
+    .line 143
     invoke-virtual {p0}, Lcom/sec/android/app/camera/ZoomMenu;->stopZoomMenuTimer()V
 
-    .line 139
+    .line 144
     return-void
 .end method
 
@@ -212,10 +202,10 @@
     .locals 0
 
     .prologue
-    .line 143
+    .line 148
     invoke-virtual {p0}, Lcom/sec/android/app/camera/ZoomMenu;->stopZoomMenuTimer()V
 
-    .line 144
+    .line 149
     return-void
 .end method
 
@@ -227,18 +217,18 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 162
+    .line 167
     const/16 v0, 0x1a
 
     if-ne p1, v0, :cond_0
 
     move v0, v1
 
-    .line 177
+    .line 182
     :goto_0
     return v0
 
-    .line 166
+    .line 171
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -252,12 +242,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 167
+    .line 172
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 170
+    .line 175
     :cond_1
     const/16 v0, 0x1b
 
@@ -267,22 +257,22 @@
 
     if-ne p1, v0, :cond_3
 
-    .line 171
+    .line 176
     :cond_2
     invoke-virtual {p0}, Lcom/sec/android/app/camera/ZoomMenu;->onHide()V
 
-    .line 172
+    .line 177
     invoke-virtual {p0}, Lcom/sec/android/app/camera/ZoomMenu;->hideMenu()V
 
     move v0, v1
 
-    .line 174
+    .line 179
     goto :goto_0
 
     :cond_3
     move v0, v1
 
-    .line 177
+    .line 182
     goto :goto_0
 .end method
 
@@ -294,18 +284,18 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 181
+    .line 186
     const/16 v0, 0x1a
 
     if-ne p1, v0, :cond_0
 
     move v0, v1
 
-    .line 196
+    .line 201
     :goto_0
     return v0
 
-    .line 185
+    .line 190
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -319,12 +309,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 186
+    .line 191
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 189
+    .line 194
     :cond_1
     const/16 v0, 0x1b
 
@@ -334,22 +324,22 @@
 
     if-ne p1, v0, :cond_3
 
-    .line 190
+    .line 195
     :cond_2
     invoke-virtual {p0}, Lcom/sec/android/app/camera/ZoomMenu;->onHide()V
 
-    .line 191
+    .line 196
     invoke-virtual {p0}, Lcom/sec/android/app/camera/ZoomMenu;->hideMenu()V
 
     move v0, v1
 
-    .line 193
+    .line 198
     goto :goto_0
 
     :cond_3
     move v0, v1
 
-    .line 196
+    .line 201
     goto :goto_0
 .end method
 
@@ -358,10 +348,10 @@
     .parameter "l"
 
     .prologue
-    .line 78
+    .line 75
     iput-object p1, p0, Lcom/sec/android/app/camera/ZoomMenu;->mOnZoomValueChangedListener:Lcom/sec/android/app/camera/ZoomMenu$OnZoomValueChangedListener;
 
-    .line 79
+    .line 76
     return-void
 .end method
 
@@ -371,19 +361,19 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 82
+    .line 79
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v3}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 83
+    .line 80
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu;->mHandler:Landroid/os/Handler;
 
     const-wide/16 v1, 0xbb8
 
     invoke-virtual {v0, v3, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 84
+    .line 81
     return-void
 .end method
 
@@ -391,24 +381,22 @@
     .locals 2
 
     .prologue
-    .line 87
+    .line 84
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 88
+    .line 85
     return-void
 .end method
 
 .method public updateSlider()V
-    .locals 3
+    .locals 2
 
     .prologue
-    const/4 v2, 0x0
-
-    .line 114
+    .line 111
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -419,45 +407,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
-
-    .line 116
-    iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
-
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSettings;->getCameraResolution()I
-
-    move-result v0
-
     if-nez v0, :cond_0
 
-    .line 117
-    iget-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu;->mSliderController:Lcom/sec/android/app/camera/SliderController;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/SliderController;->setMaxResolution(Z)V
-
-    .line 120
-    :goto_0
-    iget-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu;->mSliderController:Lcom/sec/android/app/camera/SliderController;
-
-    iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
-
-    invoke-virtual {v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/sec/android/app/camera/CameraSettings;->getZoomLevelReset()Z
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/SliderController;->setZoomReset(Z)V
-
-    .line 122
+    .line 112
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu;->mSliderController:Lcom/sec/android/app/camera/SliderController;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -472,44 +424,12 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/SliderController;->setCurrentSlider(I)V
 
-    .line 124
-    iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
-
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Lcom/sec/android/app/camera/CameraSettings;->setZoomLevelReset(Z)V
-
-    .line 135
-    :goto_1
+    .line 116
+    :goto_0
     return-void
 
-    .line 119
+    .line 114
     :cond_0
-    iget-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu;->mSliderController:Lcom/sec/android/app/camera/SliderController;
-
-    invoke-virtual {v0, v2}, Lcom/sec/android/app/camera/SliderController;->setMaxResolution(Z)V
-
-    goto :goto_0
-
-    .line 128
-    :cond_1
-    iget-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu;->mSliderController:Lcom/sec/android/app/camera/SliderController;
-
-    iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
-
-    invoke-virtual {v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/sec/android/app/camera/CameraSettings;->getZoomLevelReset()Z
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/SliderController;->setZoomReset(Z)V
-
-    .line 130
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu;->mSliderController:Lcom/sec/android/app/camera/SliderController;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -524,28 +444,121 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/SliderController;->setCurrentSlider(I)V
 
+    goto :goto_0
+.end method
+
+.method public updateSliderMaxValue()V
+    .locals 5
+
+    .prologue
+    const v4, 0x7f0700c3
+
+    .line 119
+    const-string v2, "2048x1536"
+
+    invoke-static {v2}, Lcom/sec/android/app/camera/CameraResolution;->getResolutionID(Ljava/lang/String;)I
+
+    move-result v2
+
+    const/4 v3, 0x0
+
+    invoke-static {v2, v3}, Lcom/sec/android/app/camera/CameraResolution;->compare(II)I
+
+    move-result v2
+
+    if-gez v2, :cond_0
+
+    .line 140
+    :goto_0
+    return-void
+
+    .line 125
+    :cond_0
+    iget-object v2, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+
+    const v3, 0x7f0a00f9
+
+    invoke-virtual {v2, v3}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/TextView;
+
+    .line 127
+    .local v1, mRightText:Landroid/widget/TextView;
+    iget-object v2, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+
+    invoke-virtual {v2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/sec/android/app/camera/CameraSettings;->getMode()I
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    .line 128
+    iget-object v2, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+
+    invoke-virtual {v2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/sec/android/app/camera/CameraSettings;->getCameraResolution()I
+
+    move-result v0
+
+    .line 130
+    .local v0, mResolution:I
+    const/4 v2, 0x2
+
+    if-ne v0, v2, :cond_1
+
+    .line 131
+    const v2, 0x7f0700c1
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
+
+    goto :goto_0
+
     .line 132
-    iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+    :cond_1
+    const/4 v2, 0x4
 
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
+    if-ne v0, v2, :cond_2
 
-    move-result-object v0
+    .line 133
+    const v2, 0x7f0700c2
 
-    invoke-virtual {v0, v2}, Lcom/sec/android/app/camera/CameraSettings;->setZoomLevelReset(Z)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
-    goto :goto_1
+    goto :goto_0
+
+    .line 135
+    :cond_2
+    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setText(I)V
+
+    goto :goto_0
+
+    .line 138
+    .end local v0           #mResolution:I
+    :cond_3
+    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setText(I)V
+
+    goto :goto_0
 .end method
 
 .method public zoomIn()V
     .locals 1
 
     .prologue
-    .line 91
+    .line 88
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu;->mSliderController:Lcom/sec/android/app/camera/SliderController;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/SliderController;->doPlus()V
 
-    .line 92
+    .line 89
     return-void
 .end method
 
@@ -553,11 +566,11 @@
     .locals 1
 
     .prologue
-    .line 95
+    .line 92
     iget-object v0, p0, Lcom/sec/android/app/camera/ZoomMenu;->mSliderController:Lcom/sec/android/app/camera/SliderController;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/SliderController;->doMinus()V
 
-    .line 96
+    .line 93
     return-void
 .end method

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1441
+    .line 1518
     iput-object p1, p0, Lcom/sec/android/app/camera/Camcorder$ThumbKicker$1;->this$1:Lcom/sec/android/app/camera/Camcorder$ThumbKicker;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,21 +41,21 @@
     .locals 5
 
     .prologue
-    .line 1443
+    .line 1520
     const-string v1, "Camcorder"
 
     const-string v2, "mThumbSuspendKicker.run()"
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1444
+    .line 1521
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.MEDIA_THUMBWORKER_SUSPEND"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1445
+    .line 1523
     .local v0, i:Landroid/content/Intent;
     iget-object v1, p0, Lcom/sec/android/app/camera/Camcorder$ThumbKicker$1;->this$1:Lcom/sec/android/app/camera/Camcorder$ThumbKicker;
 
@@ -63,7 +63,7 @@
 
     invoke-virtual {v1, v0}, Lcom/sec/android/app/camera/Camcorder;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 1446
+    .line 1524
     iget-object v1, p0, Lcom/sec/android/app/camera/Camcorder$ThumbKicker$1;->this$1:Lcom/sec/android/app/camera/Camcorder$ThumbKicker;
 
     #getter for: Lcom/sec/android/app/camera/Camcorder$ThumbKicker;->mThumbSuspendKickerHandler:Landroid/os/Handler;
@@ -82,6 +82,6 @@
 
     invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 1447
+    .line 1526
     return-void
 .end method

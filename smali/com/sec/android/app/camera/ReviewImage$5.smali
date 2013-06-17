@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 325
+    .line 326
     iput-object p1, p0, Lcom/sec/android/app/camera/ReviewImage$5;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,13 +43,13 @@
     .parameter "event"
 
     .prologue
-    .line 327
+    .line 328
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$5;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     #calls: Lcom/sec/android/app/camera/ReviewImage;->scheduleDismissOnScreenControls()V
     invoke-static {v0}, Lcom/sec/android/app/camera/ReviewImage;->access$500(Lcom/sec/android/app/camera/ReviewImage;)V
 
-    .line 328
+    .line 329
     const/4 v0, 0x0
 
     return v0

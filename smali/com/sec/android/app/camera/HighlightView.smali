@@ -1186,9 +1186,7 @@
 
     int-to-float v10, v10
 
-    const/high16 v11, 0x41a0
-
-    cmpg-float v10, v10, v11
+    cmpg-float v10, v10, v5
 
     if-gtz v10, :cond_4
 
@@ -1281,9 +1279,7 @@
 
     int-to-float v10, v10
 
-    const/high16 v11, 0x41a0
-
-    sub-float/2addr v10, v11
+    sub-float/2addr v10, v5
 
     cmpl-float v10, p2, v10
 
@@ -1293,9 +1289,7 @@
 
     int-to-float v10, v10
 
-    const/high16 v11, 0x41a0
-
-    add-float/2addr v10, v11
+    add-float/2addr v10, v5
 
     cmpg-float v10, p2, v10
 
@@ -1312,9 +1306,7 @@
 
     int-to-float v10, v10
 
-    const/high16 v11, 0x41a0
-
-    sub-float/2addr v10, v11
+    sub-float/2addr v10, v5
 
     cmpl-float v10, p1, v10
 
@@ -1324,9 +1316,7 @@
 
     int-to-float v10, v10
 
-    const/high16 v11, 0x41a0
-
-    add-float/2addr v10, v11
+    add-float/2addr v10, v5
 
     cmpg-float v10, p1, v10
 
@@ -1349,9 +1339,7 @@
 
     move-result v10
 
-    const/high16 v11, 0x41a0
-
-    cmpg-float v10, v10, v11
+    cmpg-float v10, v10, v5
 
     if-gez v10, :cond_7
 
@@ -1372,9 +1360,7 @@
 
     move-result v10
 
-    const/high16 v11, 0x41a0
-
-    cmpg-float v10, v10, v11
+    cmpg-float v10, v10, v5
 
     if-gez v10, :cond_8
 
@@ -1395,9 +1381,7 @@
 
     move-result v10
 
-    const/high16 v11, 0x41a0
-
-    cmpg-float v10, v10, v11
+    cmpg-float v10, v10, v5
 
     if-gez v10, :cond_9
 
@@ -1418,9 +1402,7 @@
 
     move-result v10
 
-    const/high16 v11, 0x41a0
-
-    cmpg-float v10, v10, v11
+    cmpg-float v10, v10, v5
 
     if-gez v10, :cond_a
 
@@ -1471,13 +1453,11 @@
 .end method
 
 .method growBy(FF)V
-    .locals 9
+    .locals 8
     .parameter "dx"
     .parameter "dy"
 
     .prologue
-    const/high16 v8, 0x41c8
-
     const/high16 v7, 0x4000
 
     const/4 v6, 0x0
@@ -1631,7 +1611,7 @@
 
     move-result v4
 
-    cmpg-float v4, v4, v8
+    cmpg-float v4, v4, v3
 
     if-gez v4, :cond_3
 
@@ -1640,7 +1620,7 @@
 
     move-result v4
 
-    sub-float v4, v8, v4
+    sub-float v4, v3, v4
 
     neg-float v4, v4
 
@@ -1656,7 +1636,7 @@
 
     iget v4, p0, Lcom/sec/android/app/camera/HighlightView;->mInitialAspectRatio:F
 
-    div-float v4, v8, v4
+    div-float v4, v3, v4
 
     move v1, v4
 
@@ -1772,7 +1752,7 @@
     .restart local v2       #r:Landroid/graphics/RectF;
     .restart local v3       #widthCap:F
     :cond_8
-    move v1, v8
+    move v1, v3
 
     .line 322
     goto :goto_1

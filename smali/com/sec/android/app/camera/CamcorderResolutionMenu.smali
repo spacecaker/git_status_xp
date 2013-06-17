@@ -111,19 +111,19 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 81
+    .line 82
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     if-ne v0, v1, :cond_0
 
-    .line 83
+    .line 84
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->processBack()V
 
-    .line 86
+    .line 87
     :cond_0
     return v1
 .end method
@@ -138,7 +138,7 @@
 
     move-result v0
 
-    const v1, 0x7f0a00a4
+    const v1, 0x7f0a00a3
 
     if-eq v0, v1, :cond_0
 
@@ -167,11 +167,16 @@
 
     invoke-interface {v0, v1}, Lcom/sec/android/app/camera/CamcorderResolutionMenu$OnCamcorderResolutionChangedListener;->onCamcorderResolutionChanged(I)V
 
-    .line 64
+    .line 62
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/sec/android/app/camera/CamcorderResolutionMenu;->mOnCamcorderResolutionChangedListener:Lcom/sec/android/app/camera/CamcorderResolutionMenu$OnCamcorderResolutionChangedListener;
+
+    .line 65
     :cond_0
     invoke-super {p0, p1}, Lcom/sec/android/app/camera/MenuBase;->onClick(Landroid/view/View;)V
 
-    .line 65
+    .line 66
     return-void
 .end method
 
@@ -181,7 +186,7 @@
     .parameter "event"
 
     .prologue
-    .line 90
+    .line 91
     const/16 v0, 0x1b
 
     if-eq p1, v0, :cond_0
@@ -194,11 +199,11 @@
 
     if-ne p1, v0, :cond_1
 
-    .line 93
+    .line 94
     :cond_0
     const/4 v0, 0x1
 
-    .line 96
+    .line 97
     :goto_0
     return v0
 
@@ -214,7 +219,7 @@
     .parameter "event"
 
     .prologue
-    .line 100
+    .line 101
     const/16 v0, 0x1b
 
     if-eq p1, v0, :cond_0
@@ -227,11 +232,11 @@
 
     if-ne p1, v0, :cond_1
 
-    .line 103
+    .line 104
     :cond_0
     const/4 v0, 0x1
 
-    .line 106
+    .line 107
     :goto_0
     return v0
 
@@ -245,7 +250,7 @@
     .locals 2
 
     .prologue
-    .line 73
+    .line 74
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
@@ -258,23 +263,23 @@
 
     iput v0, p0, Lcom/sec/android/app/camera/CamcorderResolutionMenu;->mSelectedResolution:I
 
-    .line 74
+    .line 75
     iget-object v0, p0, Lcom/sec/android/app/camera/CamcorderResolutionMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     if-eqz v0, :cond_0
 
-    .line 75
+    .line 76
     iget-object v0, p0, Lcom/sec/android/app/camera/CamcorderResolutionMenu;->mGrid:Lcom/sec/android/app/camera/widget/TwGridView;
 
     iget v1, p0, Lcom/sec/android/app/camera/CamcorderResolutionMenu;->mSelectedResolution:I
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/widget/TwGridView;->setCurrentSelectedItem(I)V
 
-    .line 77
+    .line 78
     :cond_0
     invoke-super {p0}, Lcom/sec/android/app/camera/MenuBase;->onShow()V
 
-    .line 78
+    .line 79
     return-void
 .end method
 
@@ -283,9 +288,9 @@
     .parameter "l"
 
     .prologue
-    .line 69
+    .line 70
     iput-object p1, p0, Lcom/sec/android/app/camera/CamcorderResolutionMenu;->mOnCamcorderResolutionChangedListener:Lcom/sec/android/app/camera/CamcorderResolutionMenu$OnCamcorderResolutionChangedListener;
 
-    .line 70
+    .line 71
     return-void
 .end method

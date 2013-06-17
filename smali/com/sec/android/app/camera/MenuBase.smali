@@ -45,7 +45,7 @@
 
     const/4 v3, 0x0
 
-    .line 64
+    .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 38
@@ -65,25 +65,25 @@
     .line 43
     iput-boolean v3, p0, Lcom/sec/android/app/camera/MenuBase;->mCaptureEnabled:Z
 
-    .line 65
+    .line 66
     iput-object p1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    .line 66
+    .line 67
     iput p2, p0, Lcom/sec/android/app/camera/MenuBase;->mLayoutId:I
 
-    .line 67
+    .line 68
     iput p3, p0, Lcom/sec/android/app/camera/MenuBase;->mBaseViewId:I
 
-    .line 68
+    .line 69
     iput-object p5, p0, Lcom/sec/android/app/camera/MenuBase;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
-    .line 69
+    .line 70
     iput p6, p0, Lcom/sec/android/app/camera/MenuBase;->mZorder:I
 
-    .line 70
+    .line 71
     iput-object p4, p0, Lcom/sec/android/app/camera/MenuBase;->mBaseView:Landroid/view/ViewGroup;
 
-    .line 72
+    .line 73
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->getBaseContext()Landroid/content/Context;
@@ -100,14 +100,14 @@
 
     iput-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 73
+    .line 75
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mInflater:Landroid/view/LayoutInflater;
 
     iget v2, p0, Lcom/sec/android/app/camera/MenuBase;->mLayoutId:I
 
     invoke-virtual {v1, v2, p4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    .line 75
+    .line 77
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     iget v2, p0, Lcom/sec/android/app/camera/MenuBase;->mBaseViewId:I
@@ -116,16 +116,16 @@
 
     move-result-object v0
 
-    .line 76
+    .line 78
     .local v0, baseView:Landroid/view/View;
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 77
+    .line 79
     iput-boolean v3, p0, Lcom/sec/android/app/camera/MenuBase;->mVisibility:Z
 
-    .line 78
+    .line 80
     return-void
 .end method
 
@@ -135,7 +135,7 @@
     .locals 1
 
     .prologue
-    .line 130
+    .line 132
     iget-boolean v0, p0, Lcom/sec/android/app/camera/MenuBase;->mVisibility:Z
 
     return v0
@@ -145,7 +145,7 @@
     .locals 1
 
     .prologue
-    .line 138
+    .line 140
     iget v0, p0, Lcom/sec/android/app/camera/MenuBase;->mZorder:I
 
     and-int/lit8 v0, v0, 0xf
@@ -157,12 +157,12 @@
     .locals 3
 
     .prologue
-    .line 86
+    .line 88
     iget-boolean v1, p0, Lcom/sec/android/app/camera/MenuBase;->mVisibility:Z
 
     if-eqz v1, :cond_0
 
-    .line 87
+    .line 89
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     iget v2, p0, Lcom/sec/android/app/camera/MenuBase;->mBaseViewId:I
@@ -171,34 +171,34 @@
 
     move-result-object v0
 
-    .line 88
+    .line 90
     .local v0, baseView:Landroid/view/View;
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 89
+    .line 91
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/sec/android/app/camera/MenuBase;->mVisibility:Z
 
-    .line 92
+    .line 94
     .end local v0           #baseView:Landroid/view/View;
     :cond_0
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mChild:Lcom/sec/android/app/camera/MenuBase;
 
     if-eqz v1, :cond_1
 
-    .line 93
+    .line 95
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mChild:Lcom/sec/android/app/camera/MenuBase;
 
     invoke-virtual {v1}, Lcom/sec/android/app/camera/MenuBase;->hideMenu()V
 
-    .line 96
+    .line 98
     :cond_1
     invoke-virtual {p0}, Lcom/sec/android/app/camera/MenuBase;->onHide()V
 
-    .line 97
+    .line 99
     return-void
 .end method
 
@@ -206,7 +206,7 @@
     .locals 1
 
     .prologue
-    .line 150
+    .line 152
     iget-boolean v0, p0, Lcom/sec/android/app/camera/MenuBase;->mCaptureEnabled:Z
 
     return v0
@@ -216,7 +216,7 @@
     .locals 2
 
     .prologue
-    .line 142
+    .line 144
     iget v0, p0, Lcom/sec/android/app/camera/MenuBase;->mZorder:I
 
     and-int/lit16 v0, v0, 0xf0
@@ -240,7 +240,7 @@
     .locals 1
 
     .prologue
-    .line 146
+    .line 148
     iget-boolean v0, p0, Lcom/sec/android/app/camera/MenuBase;->mPreviewTouchEnabled:Z
 
     return v0
@@ -251,7 +251,7 @@
     .parameter "event"
 
     .prologue
-    .line 184
+    .line 192
     const/4 v0, 0x0
 
     return v0
@@ -261,7 +261,7 @@
     .locals 0
 
     .prologue
-    .line 170
+    .line 176
     return-void
 .end method
 
@@ -270,21 +270,21 @@
     .parameter "arg0"
 
     .prologue
-    .line 162
+    .line 164
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
 
-    const v1, 0x7f0a00a4
+    const v1, 0x7f0a00a3
 
     if-ne v0, v1, :cond_0
 
-    .line 163
+    .line 165
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->processBack()V
 
-    .line 164
+    .line 166
     :cond_0
     return-void
 .end method
@@ -293,7 +293,7 @@
     .locals 0
 
     .prologue
-    .line 173
+    .line 181
     return-void
 .end method
 
@@ -303,7 +303,7 @@
     .parameter "event"
 
     .prologue
-    .line 176
+    .line 184
     const/4 v0, 0x0
 
     return v0
@@ -315,7 +315,7 @@
     .parameter "event"
 
     .prologue
-    .line 180
+    .line 188
     const/4 v0, 0x0
 
     return v0
@@ -325,7 +325,7 @@
     .locals 0
 
     .prologue
-    .line 167
+    .line 171
     return-void
 .end method
 
@@ -333,7 +333,7 @@
     .locals 0
 
     .prologue
-    .line 166
+    .line 169
     return-void
 .end method
 
@@ -341,7 +341,7 @@
     .locals 0
 
     .prologue
-    .line 172
+    .line 179
     return-void
 .end method
 
@@ -349,7 +349,7 @@
     .locals 0
 
     .prologue
-    .line 168
+    .line 173
     return-void
 .end method
 
@@ -357,12 +357,12 @@
     .locals 3
 
     .prologue
-    .line 100
+    .line 102
     iget-boolean v1, p0, Lcom/sec/android/app/camera/MenuBase;->mVisibility:Z
 
     if-nez v1, :cond_0
 
-    .line 101
+    .line 103
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     iget v2, p0, Lcom/sec/android/app/camera/MenuBase;->mBaseViewId:I
@@ -371,34 +371,34 @@
 
     move-result-object v0
 
-    .line 102
+    .line 104
     .local v0, baseView:Landroid/view/View;
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 103
+    .line 105
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/sec/android/app/camera/MenuBase;->mVisibility:Z
 
-    .line 106
+    .line 108
     .end local v0           #baseView:Landroid/view/View;
     :cond_0
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mChild:Lcom/sec/android/app/camera/MenuBase;
 
     if-eqz v1, :cond_1
 
-    .line 107
+    .line 109
     iget-object v1, p0, Lcom/sec/android/app/camera/MenuBase;->mChild:Lcom/sec/android/app/camera/MenuBase;
 
     invoke-virtual {v1}, Lcom/sec/android/app/camera/MenuBase;->showMenu()V
 
-    .line 110
+    .line 112
     :cond_1
     invoke-virtual {p0}, Lcom/sec/android/app/camera/MenuBase;->onShow()V
 
-    .line 111
+    .line 113
     return-void
 .end method
 
@@ -407,10 +407,10 @@
     .parameter "capture"
 
     .prologue
-    .line 158
+    .line 160
     iput-boolean p1, p0, Lcom/sec/android/app/camera/MenuBase;->mCaptureEnabled:Z
 
-    .line 159
+    .line 161
     return-void
 .end method
 
@@ -419,10 +419,10 @@
     .parameter "child"
 
     .prologue
-    .line 134
+    .line 136
     iput-object p1, p0, Lcom/sec/android/app/camera/MenuBase;->mChild:Lcom/sec/android/app/camera/MenuBase;
 
-    .line 135
+    .line 137
     return-void
 .end method
 
@@ -431,10 +431,10 @@
     .parameter "handle"
 
     .prologue
-    .line 154
+    .line 156
     iput-boolean p1, p0, Lcom/sec/android/app/camera/MenuBase;->mPreviewTouchEnabled:Z
 
-    .line 155
+    .line 157
     return-void
 .end method
 
@@ -442,14 +442,14 @@
     .locals 1
 
     .prologue
-    .line 81
+    .line 83
     iget-object v0, p0, Lcom/sec/android/app/camera/MenuBase;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0, p0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->pushMenu(Lcom/sec/android/app/camera/MenuBase;)V
 
-    .line 82
+    .line 84
     invoke-virtual {p0}, Lcom/sec/android/app/camera/MenuBase;->restoreMenu()V
 
-    .line 83
+    .line 85
     return-void
 .end method

@@ -12,11 +12,7 @@
 
 
 # static fields
-.field private static ZOOM_MAXVALUE_177:Ljava/lang/String;
-
-.field private static ZOOM_MAXVALUE_2X:Ljava/lang/String;
-
-.field private static ZOOM_MAXVALUE_4X:Ljava/lang/String;
+.field private static mBackKeyDown:Z
 
 
 # instance fields
@@ -48,8 +44,6 @@
 
 .field private mSoundPoolId:[I
 
-.field private mStreamVolume:F
-
 .field private mThumbKicker:Lcom/sec/android/app/camera/Camcorder$ThumbKicker;
 
 .field private mWindowManager:Landroid/view/IWindowManager;
@@ -61,19 +55,9 @@
 
     .prologue
     .line 78
-    const-string v0, "x1.77"
+    const/4 v0, 0x0
 
-    sput-object v0, Lcom/sec/android/app/camera/Camcorder;->ZOOM_MAXVALUE_177:Ljava/lang/String;
-
-    .line 79
-    const-string v0, "x4"
-
-    sput-object v0, Lcom/sec/android/app/camera/Camcorder;->ZOOM_MAXVALUE_4X:Ljava/lang/String;
-
-    .line 80
-    const-string v0, "x2"
-
-    sput-object v0, Lcom/sec/android/app/camera/Camcorder;->ZOOM_MAXVALUE_2X:Ljava/lang/String;
+    sput-boolean v0, Lcom/sec/android/app/camera/Camcorder;->mBackKeyDown:Z
 
     return-void
 .end method
@@ -86,25 +70,25 @@
 
     const/4 v1, 0x0
 
-    .line 56
+    .line 57
     invoke-direct {p0}, Lcom/sec/android/app/camera/AbstractCameraActivity;-><init>()V
 
-    .line 62
+    .line 63
     iput-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
-    .line 64
+    .line 65
     iput-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
-    .line 65
+    .line 66
     iput-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderIndicators:Lcom/sec/android/app/camera/CamcorderIndicators;
 
-    .line 66
+    .line 67
     iput-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderBaseIndicators:Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
-    .line 67
+    .line 68
     iput-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
-    .line 71
+    .line 72
     const/4 v0, 0x5
 
     new-array v0, v0, [I
@@ -126,21 +110,21 @@
     .line 84
     iput-boolean v2, p0, Lcom/sec/android/app/camera/Camcorder;->mDoRestoreShutterButton:Z
 
-    .line 97
+    .line 94
     new-instance v0, Lcom/sec/android/app/camera/Camcorder$1;
 
     invoke-direct {v0, p0}, Lcom/sec/android/app/camera/Camcorder$1;-><init>(Lcom/sec/android/app/camera/Camcorder;)V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 1436
+    .line 1513
     new-instance v0, Lcom/sec/android/app/camera/Camcorder$ThumbKicker;
 
     invoke-direct {v0, p0}, Lcom/sec/android/app/camera/Camcorder$ThumbKicker;-><init>(Lcom/sec/android/app/camera/Camcorder;)V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mThumbKicker:Lcom/sec/android/app/camera/Camcorder$ThumbKicker;
 
-    .line 1438
+    .line 1515
     return-void
 .end method
 
@@ -149,7 +133,7 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 57
     iget-boolean v0, p0, Lcom/sec/android/app/camera/Camcorder;->mIsDestroying:Z
 
     return v0
@@ -160,7 +144,7 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 57
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
     return-object v0
@@ -171,7 +155,7 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 57
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     return-object v0
@@ -182,7 +166,7 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 57
     invoke-direct {p0}, Lcom/sec/android/app/camera/Camcorder;->dismissResetSettingPopup()V
 
     return-void
@@ -193,7 +177,7 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 57
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     return-object v0
@@ -207,7 +191,7 @@
 
     const/4 v7, 0x0
 
-    .line 332
+    .line 316
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getIntent()Landroid/content/Intent;
 
     move-result-object v3
@@ -224,7 +208,7 @@
 
     move-result-wide v1
 
-    .line 333
+    .line 318
     .local v1, requestedSizeLimit:J
     iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
@@ -232,17 +216,17 @@
 
     move-result-object v0
 
-    .line 335
+    .line 320
     .local v0, profile:Lcom/sec/android/app/camera/MediaRecorderProfile;
     if-nez v0, :cond_0
 
     move v3, v7
 
-    .line 350
+    .line 337
     :goto_0
     return v3
 
-    .line 338
+    .line 323
     :cond_0
     const-string v3, "Camcorder"
 
@@ -282,7 +266,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 341
+    .line 327
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v3
@@ -293,7 +277,7 @@
 
     if-ne v3, v8, :cond_1
 
-    .line 342
+    .line 328
     iget v3, v0, Lcom/sec/android/app/camera/MediaRecorderProfile;->mVideoBitrate:I
 
     mul-int/lit8 v3, v3, 0x2
@@ -306,8 +290,8 @@
 
     if-gez v3, :cond_1
 
-    .line 343
-    const v3, 0x7f0700da
+    .line 329
+    const v3, 0x7f0700fe
 
     invoke-static {p0, v3, v7}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -315,21 +299,21 @@
 
     invoke-virtual {v3}, Landroid/widget/Toast;->show()V
 
-    .line 344
+    .line 331
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->finish()V
 
-    .line 345
+    .line 332
     invoke-super {p0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->onResume()V
 
     move v3, v8
 
-    .line 346
+    .line 333
     goto :goto_0
 
     :cond_1
     move v3, v7
 
-    .line 350
+    .line 337
     goto :goto_0
 .end method
 
@@ -337,23 +321,17 @@
     .locals 1
 
     .prologue
-    .line 1151
-    iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mResetCamcorderSettingPopup:Landroid/app/AlertDialog;
-
-    if-eqz v0, :cond_0
-
-    .line 1152
+    .line 1222
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mResetCamcorderSettingPopup:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 1153
+    .line 1223
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mResetCamcorderSettingPopup:Landroid/app/AlertDialog;
 
-    .line 1155
-    :cond_0
+    .line 1224
     return-void
 .end method
 
@@ -361,111 +339,111 @@
     .locals 5
 
     .prologue
-    .line 235
+    .line 222
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 238
+    .line 225
     .local v0, intentFilter:Landroid/content/IntentFilter;
     const-string v4, "android.intent.action.MEDIA_MOUNTED"
 
     invoke-virtual {v0, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 239
+    .line 226
     const-string v4, "android.intent.action.MEDIA_UNMOUNTED"
 
     invoke-virtual {v0, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 240
+    .line 227
     const-string v4, "android.intent.action.MEDIA_SCANNER_STARTED"
 
     invoke-virtual {v0, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 241
+    .line 228
     const-string v4, "android.intent.action.MEDIA_SCANNER_FINISHED"
 
     invoke-virtual {v0, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 242
+    .line 229
     const-string v4, "android.intent.action.MEDIA_EJECT"
 
     invoke-virtual {v0, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 243
+    .line 230
     const-string v4, "com.android.camera.NEW_PICTURE"
 
     invoke-virtual {v0, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 244
+    .line 231
     const-string v4, "file"
 
     invoke-virtual {v0, v4}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
 
-    .line 245
+    .line 232
     iget-object v4, p0, Lcom/sec/android/app/camera/Camcorder;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v4, v0}, Lcom/sec/android/app/camera/Camcorder;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 248
+    .line 235
     new-instance v1, Landroid/content/IntentFilter;
 
     invoke-direct {v1}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 249
+    .line 236
     .local v1, intentFilterBattery:Landroid/content/IntentFilter;
     const-string v4, "android.intent.action.BATTERY_CHANGED"
 
     invoke-virtual {v1, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 250
+    .line 237
     const-string v4, "android.intent.action.BATTERY_LOW"
 
     invoke-virtual {v1, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 251
+    .line 238
     const-string v4, "android.intent.action.ACTION_POWER_CONNECTED"
 
     invoke-virtual {v1, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 252
+    .line 239
     iget-object v4, p0, Lcom/sec/android/app/camera/Camcorder;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v4, v1}, Lcom/sec/android/app/camera/Camcorder;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 254
+    .line 241
     new-instance v2, Landroid/content/IntentFilter;
 
     invoke-direct {v2}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 255
+    .line 242
     .local v2, intentFilterSecurity:Landroid/content/IntentFilter;
     const-string v4, "android.app.action.DEVICE_POLICY_MANAGER_STATE_CHANGED"
 
     invoke-virtual {v2, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 256
+    .line 243
     iget-object v4, p0, Lcom/sec/android/app/camera/Camcorder;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v4, v2}, Lcom/sec/android/app/camera/Camcorder;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 259
+    .line 246
     new-instance v3, Landroid/content/IntentFilter;
 
     invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 260
+    .line 247
     .local v3, intentFilterShutDown:Landroid/content/IntentFilter;
     const-string v4, "android.intent.action.ACTION_SHUTDOWN"
 
     invoke-virtual {v3, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 261
+    .line 248
     iget-object v4, p0, Lcom/sec/android/app/camera/Camcorder;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v4, v3}, Lcom/sec/android/app/camera/Camcorder;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 262
+    .line 249
     return-void
 .end method
 
@@ -473,20 +451,20 @@
     .locals 2
 
     .prologue
-    .line 266
+    .line 253
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->searchForInitialLastContentUri()V
 
-    .line 268
+    .line 255
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->initCamcorderSound()V
 
-    .line 271
+    .line 258
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderSideMenu;->updateBackgroundTransparency()V
 
-    .line 273
+    .line 260
     invoke-static {}, Lcom/sec/android/app/camera/CheckMemory;->isStorageMounted()Z
 
     move-result v0
@@ -495,21 +473,18 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/sec/android/app/camera/Camcorder;->checkStorage(ZZ)V
 
-    .line 275
+    .line 261
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderIndicators:Lcom/sec/android/app/camera/CamcorderIndicators;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderIndicators;->initIndicators()V
 
-    .line 276
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->resizeForPreviewAspectRatio()Z
-
-    .line 278
+    .line 263
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->pauseAudioPlayback()V
 
-    .line 280
+    .line 265
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->updateQuickViewButtonDimmed()V
 
-    .line 281
+    .line 266
     return-void
 .end method
 
@@ -517,7 +492,7 @@
     .locals 2
 
     .prologue
-    .line 284
+    .line 269
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
@@ -526,7 +501,7 @@
 
     move-result-object v0
 
-    .line 285
+    .line 270
     .local v0, action:Ljava/lang/String;
     const-string v1, "android.media.action.VIDEO_CAPTURE"
 
@@ -537,130 +512,53 @@
     return v1
 .end method
 
-.method private setZoomLevel()V
-    .locals 2
-
-    .prologue
-    .line 214
-    const v1, 0x7f0a00f9
-
-    invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/Camcorder;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    .line 215
-    .local v0, mZoomText:Landroid/widget/TextView;
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/sec/android/app/camera/CameraSettings;->getCamcorderResolution()I
-
-    move-result v1
-
-    packed-switch v1, :pswitch_data_0
-
-    .line 231
-    :goto_0
-    :pswitch_0
-    return-void
-
-    .line 217
-    :pswitch_1
-    sget-object v1, Lcom/sec/android/app/camera/Camcorder;->ZOOM_MAXVALUE_177:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto :goto_0
-
-    .line 220
-    :pswitch_2
-    sget-object v1, Lcom/sec/android/app/camera/Camcorder;->ZOOM_MAXVALUE_2X:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto :goto_0
-
-    .line 223
-    :pswitch_3
-    sget-object v1, Lcom/sec/android/app/camera/Camcorder;->ZOOM_MAXVALUE_2X:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto :goto_0
-
-    .line 226
-    :pswitch_4
-    sget-object v1, Lcom/sec/android/app/camera/Camcorder;->ZOOM_MAXVALUE_2X:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto :goto_0
-
-    .line 215
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x7
-        :pswitch_2
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1
-        :pswitch_0
-        :pswitch_3
-        :pswitch_4
-    .end packed-switch
-.end method
-
 .method private switchToCamera()V
     .locals 4
 
     .prologue
     const/4 v3, 0x0
 
-    .line 756
+    .line 777
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/sec/android/app/camera/Camera;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 757
+    .line 778
     const-string v1, "TurnOnScrAB"
 
     iget-boolean v2, p0, Lcom/sec/android/app/camera/Camcorder;->bTurnOnScrAB:Z
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 763
+    .line 784
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getMenuDimController()Lcom/sec/android/app/camera/MenuDimController;
 
     move-result-object v1
 
     invoke-virtual {v1}, Lcom/sec/android/app/camera/MenuDimController;->restoreUserSettingValues()V
 
-    .line 765
+    .line 786
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/Camcorder;->startActivity(Landroid/content/Intent;)V
 
-    .line 767
+    .line 788
     iput-boolean v3, p0, Lcom/sec/android/app/camera/Camcorder;->bTurnOnScrAB:Z
 
-    .line 768
+    .line 789
     const-string v0, "Camcorder"
 
     const-string v1, "Camcorder finishing"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 769
+    .line 790
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->finish()V
 
-    .line 772
+    .line 793
     invoke-virtual {p0, v3, v3}, Lcom/sec/android/app/camera/Camcorder;->overridePendingTransition(II)V
 
-    .line 773
+    .line 794
     return-void
 .end method
 
@@ -670,7 +568,7 @@
     .locals 1
 
     .prologue
-    .line 1414
+    .line 1498
     iget-boolean v0, p0, Lcom/sec/android/app/camera/Camcorder;->mDoRestoreShutterButton:Z
 
     return v0
@@ -680,12 +578,12 @@
     .locals 1
 
     .prologue
-    .line 1418
+    .line 1502
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/sec/android/app/camera/Camcorder;->mDoRestoreShutterButton:Z
 
-    .line 1419
+    .line 1503
     return-void
 .end method
 
@@ -693,24 +591,24 @@
     .locals 2
 
     .prologue
-    .line 1352
+    .line 1441
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->doCancelShutterTimer()V
 
-    .line 1354
+    .line 1443
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CamcorderSideMenu;->setAnimationEnabled(Z)V
 
-    .line 1355
+    .line 1444
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderSideMenu;->showMenu()V
 
-    .line 1356
+    .line 1445
     return-void
 .end method
 
@@ -719,14 +617,14 @@
     .parameter "contrast"
 
     .prologue
-    .line 902
+    .line 932
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     const/16 v1, 0x72
 
     invoke-virtual {v0, v1, p1}, Lcom/sec/android/app/camera/CamcorderEngine;->onCameraSettingsChanged(II)V
 
-    .line 903
+    .line 934
     return-void
 .end method
 
@@ -735,17 +633,17 @@
     .parameter "effect"
 
     .prologue
-    .line 859
+    .line 887
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     const/16 v1, 0x6c
 
     invoke-virtual {v0, v1, p1}, Lcom/sec/android/app/camera/CamcorderEngine;->onCameraSettingsChanged(II)V
 
-    .line 861
+    .line 890
     if-eqz p1, :cond_0
 
-    .line 862
+    .line 891
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     const/16 v1, 0x6b
@@ -754,7 +652,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/sec/android/app/camera/CamcorderEngine;->onCameraSettingsChanged(II)V
 
-    .line 863
+    .line 893
     :cond_0
     return-void
 .end method
@@ -764,14 +662,14 @@
     .parameter "saturation"
 
     .prologue
-    .line 906
+    .line 937
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     const/16 v1, 0x73
 
     invoke-virtual {v0, v1, p1}, Lcom/sec/android/app/camera/CamcorderEngine;->onCameraSettingsChanged(II)V
 
-    .line 907
+    .line 939
     return-void
 .end method
 
@@ -780,7 +678,7 @@
     .parameter "sceneMode"
 
     .prologue
-    .line 1364
+    .line 1453
     return-void
 .end method
 
@@ -789,14 +687,14 @@
     .parameter "sharpness"
 
     .prologue
-    .line 910
+    .line 942
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     const/16 v1, 0x74
 
     invoke-virtual {v0, v1, p1}, Lcom/sec/android/app/camera/CamcorderEngine;->onCameraSettingsChanged(II)V
 
-    .line 911
+    .line 944
     return-void
 .end method
 
@@ -805,17 +703,17 @@
     .parameter "whiteBalance"
 
     .prologue
-    .line 843
+    .line 868
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     const/16 v1, 0x6b
 
     invoke-virtual {v0, v1, p1}, Lcom/sec/android/app/camera/CamcorderEngine;->onCameraSettingsChanged(II)V
 
-    .line 845
+    .line 871
     if-eqz p1, :cond_0
 
-    .line 846
+    .line 872
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     const/16 v1, 0x6c
@@ -824,7 +722,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/sec/android/app/camera/CamcorderEngine;->onCameraSettingsChanged(II)V
 
-    .line 847
+    .line 875
     :cond_0
     return-void
 .end method
@@ -835,7 +733,7 @@
     .parameter "bBroadcastReceiver"
 
     .prologue
-    .line 1397
+    .line 1486
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
@@ -846,14 +744,14 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_0
 
-    .line 1398
+    .line 1487
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/sec/android/app/camera/Camcorder;->mStorageStatus:I
 
-    .line 1399
+    .line 1488
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->isMediaRecorderRecording()Z
@@ -862,45 +760,24 @@
 
     if-eqz v0, :cond_0
 
-    .line 1400
+    .line 1489
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleCancelVideoRecording()V
 
-    .line 1401
+    .line 1490
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleStartPreview()V
 
-    .line 1402
+    .line 1491
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->processBack()V
 
-    .line 1404
+    .line 1494
     :cond_0
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->isTimerCounting()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 1405
-    iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
-
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleStopVideoRecording()V
-
-    .line 1406
-    iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
-
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleStartPreview()V
-
-    .line 1407
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->processBack()V
-
-    .line 1410
-    :cond_1
     invoke-super {p0, p1, p2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->checkStorage(ZZ)V
 
-    .line 1411
+    .line 1495
     return-void
 .end method
 
@@ -908,12 +785,12 @@
     .locals 4
 
     .prologue
-    .line 1384
+    .line 1473
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getAvailableStorage()J
 
     move-result-wide v0
 
-    .line 1385
+    .line 1474
     .local v0, lAvailableStorage:J
     const-wide/16 v2, -0x2
 
@@ -921,16 +798,16 @@
 
     if-nez v2, :cond_0
 
-    .line 1386
+    .line 1475
     const/4 v2, 0x2
 
     iput v2, p0, Lcom/sec/android/app/camera/Camcorder;->mStorageStatus:I
 
-    .line 1394
+    .line 1483
     :goto_0
     return-void
 
-    .line 1389
+    .line 1478
     :cond_0
     const-wide/16 v2, 0x0
 
@@ -938,14 +815,14 @@
 
     if-gtz v2, :cond_1
 
-    .line 1390
+    .line 1479
     const/4 v2, 0x1
 
     iput v2, p0, Lcom/sec/android/app/camera/Camcorder;->mStorageStatus:I
 
     goto :goto_0
 
-    .line 1392
+    .line 1481
     :cond_1
     const/4 v2, 0x0
 
@@ -958,14 +835,14 @@
     .locals 2
 
     .prologue
-    .line 1042
+    .line 1088
     const-string v0, "Camcorder"
 
     const-string v1, "handleLowBattery"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1043
+    .line 1089
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->getCurrentStateHandler()Lcom/sec/android/app/camera/AbstractCeState;
@@ -980,7 +857,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 1044
+    .line 1090
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->getVideoRecordingTimeInSecond()I
@@ -991,17 +868,17 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 1045
+    .line 1091
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->doCancelVideoRecordingSync()V
 
-    .line 1046
+    .line 1092
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleProcessBack()V
 
-    .line 1050
+    .line 1096
     :goto_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
@@ -1009,14 +886,12 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CamcorderEngine;->changeEngineState(I)V
 
-    .line 1053
+    .line 1100
+    .line 1101
     :cond_0
-    invoke-super {p0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->handleLowBattery()V
-
-    .line 1054
     return-void
 
-    .line 1048
+    .line 1094
     :cond_1
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
@@ -1030,21 +905,21 @@
     .parameter
 
     .prologue
-    .line 1086
+    .line 1141
     packed-switch p1, :pswitch_data_0
 
-    .line 1102
+    .line 1157
     const-string v0, "Camcorder"
 
     const-string v1, "Invalid recording state."
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1106
+    .line 1161
     :goto_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
-    const v1, 0x7f030040
+    const v1, 0x7f030041
 
     iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mBaseLayout:Landroid/view/ViewGroup;
 
@@ -1054,21 +929,21 @@
 
     check-cast v0, Lcom/sec/android/app/camera/ZoomMenu;
 
-    .line 1107
+    .line 1163
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ZoomMenu;->getVisibility()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1108
+    .line 1164
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->processBack()V
 
-    .line 1110
+    .line 1166
     :cond_0
     return-void
 
-    .line 1088
+    .line 1143
     :pswitch_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
@@ -1076,7 +951,7 @@
 
     goto :goto_0
 
-    .line 1091
+    .line 1146
     :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
@@ -1084,33 +959,33 @@
 
     goto :goto_0
 
-    .line 1094
+    .line 1149
     :pswitch_2
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderSideMenu;->resetPressedButtons()V
 
-    .line 1095
+    .line 1150
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleStopVideoRecording()V
 
     goto :goto_0
 
-    .line 1098
+    .line 1153
     :pswitch_3
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleCancelVideoRecording()V
 
-    .line 1099
+    .line 1154
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleProcessBack()V
 
     goto :goto_0
 
-    .line 1086
+    .line 1141
     nop
 
     :pswitch_data_0
@@ -1126,10 +1001,10 @@
     .locals 4
 
     .prologue
-    .line 1072
+    .line 1124
     iget-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
-    const v2, 0x7f03003b
+    const v2, 0x7f03003c
 
     iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mBaseLayout:Landroid/view/ViewGroup;
 
@@ -1139,26 +1014,19 @@
 
     check-cast v0, Lcom/sec/android/app/camera/CamcorderRecordingMenu;
 
-    .line 1073
+    .line 1126
     .local v0, recordingMenu:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->getRecordingTime()I
+    iget v1, p0, Lcom/sec/android/app/camera/Camcorder;->mRecordingSizeUpdateCounter:I
 
-    move-result v1
+    add-int/lit8 v1, v1, 0x1
 
-    iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
+    iput v1, p0, Lcom/sec/android/app/camera/Camcorder;->mRecordingSizeUpdateCounter:I
 
-    invoke-virtual {v2}, Lcom/sec/android/app/camera/CamcorderEngine;->getVideoRecordingTimeInSecond()I
-
-    move-result v2
+    const/4 v2, 0x5
 
     if-ne v1, v2, :cond_0
 
-    .line 1079
-    :goto_0
-    return-void
-
-    .line 1076
-    :cond_0
+    .line 1127
     iget-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v1}, Lcom/sec/android/app/camera/CamcorderEngine;->getVideoFileLengthInByte()J
@@ -1167,7 +1035,13 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->updateProgressBarText(J)V
 
-    .line 1077
+    .line 1129
+    const/4 v1, 0x0
+
+    iput v1, p0, Lcom/sec/android/app/camera/Camcorder;->mRecordingSizeUpdateCounter:I
+
+    .line 1131
+    :cond_0
     iget-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v1}, Lcom/sec/android/app/camera/CamcorderEngine;->getVideoRecordingTimeInSecond()I
@@ -1176,7 +1050,11 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->updateRecordingTime(I)V
 
-    goto :goto_0
+    .line 1133
+    invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->invalidatePreview()V
+
+    .line 1134
+    return-void
 .end method
 
 .method public handleResolutionChanged(IZ)V
@@ -1185,7 +1063,7 @@
     .parameter
 
     .prologue
-    .line 817
+    .line 840
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
     const v1, 0x7f030008
@@ -1198,22 +1076,22 @@
 
     check-cast v0, Lcom/sec/android/app/camera/CamcorderSettingsMenu;
 
-    .line 818
+    .line 842
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderSettingsMenu;->lockResolutionChanging()V
 
-    .line 820
+    .line 844
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleStopPreview()V
 
-    .line 821
+    .line 845
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     const/16 v1, 0x68
 
     invoke-virtual {v0, v1, p1}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleChangeParameter(II)V
 
-    .line 822
+    .line 847
     if-eqz p2, :cond_0
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->resizeForPreviewAspectRatio()Z
@@ -1222,18 +1100,18 @@
 
     if-nez v0, :cond_0
 
-    .line 823
+    .line 848
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleStartPreview()V
 
-    .line 830
+    .line 855
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderSideMenu;->updateBackgroundTransparency()V
 
-    .line 831
+    .line 856
     return-void
 .end method
 
@@ -1241,7 +1119,7 @@
     .locals 2
 
     .prologue
-    .line 585
+    .line 582
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
@@ -1252,13 +1130,13 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 597
+    .line 594
     :goto_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
     if-eqz v0, :cond_0
 
-    .line 598
+    .line 595
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ShutterButton;->getVisibility()Z
@@ -1267,21 +1145,26 @@
 
     iput-boolean v0, p0, Lcom/sec/android/app/camera/Camcorder;->mDoRestoreShutterButton:Z
 
-    .line 599
+    .line 596
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ShutterButton;->hideMenu()V
 
-    .line 601
+    .line 597
+    iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
+
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/ShutterButton;->setSutterButtonSoundOff()V
+
+    .line 599
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleStartVideoRecording()V
 
-    .line 602
+    .line 600
     return-void
 
-    .line 587
+    .line 584
     :pswitch_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
@@ -1291,7 +1174,7 @@
 
     goto :goto_0
 
-    .line 590
+    .line 587
     :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
@@ -1301,7 +1184,7 @@
 
     goto :goto_0
 
-    .line 593
+    .line 590
     :pswitch_2
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
@@ -1311,7 +1194,9 @@
 
     goto :goto_0
 
-    .line 585
+    .line 582
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1324,12 +1209,12 @@
     .locals 1
 
     .prologue
-    .line 1348
+    .line 1437
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderBaseIndicators:Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderBaseIndicators;->hideLaunchIcon()V
 
-    .line 1349
+    .line 1438
     return-void
 .end method
 
@@ -1337,17 +1222,17 @@
     .locals 1
 
     .prologue
-    .line 1330
+    .line 1419
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
     if-eqz v0, :cond_0
 
-    .line 1331
+    .line 1420
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ShutterButton;->hideMenu()V
 
-    .line 1333
+    .line 1422
     :cond_0
     return-void
 .end method
@@ -1358,7 +1243,7 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 1309
+    .line 1398
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderSideMenu;->isAnimationInProgress()Z
@@ -1367,12 +1252,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 1321
+    .line 1410
     :cond_0
     :goto_0
     return-void
 
-    .line 1311
+    .line 1400
     :cond_1
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->isTimerCounting()Z
 
@@ -1380,7 +1265,7 @@
 
     if-nez v0, :cond_0
 
-    .line 1313
+    .line 1402
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderSideMenu;->getVisibility()Z
@@ -1389,30 +1274,30 @@
 
     if-nez v0, :cond_2
 
-    .line 1314
+    .line 1403
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CamcorderSideMenu;->setAnimationEnabled(Z)V
 
-    .line 1315
+    .line 1404
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderSideMenu;->restoreMenu()V
 
     goto :goto_0
 
-    .line 1317
+    .line 1406
     :cond_2
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CamcorderSideMenu;->setAnimationEnabled(Z)V
 
-    .line 1318
+    .line 1407
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderSideMenu;->hideMenu()V
 
-    .line 1319
+    .line 1408
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderBaseIndicators:Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderBaseIndicators;->restoreMenu()V
@@ -1424,17 +1309,17 @@
     .locals 1
 
     .prologue
-    .line 1342
+    .line 1431
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
     if-eqz v0, :cond_0
 
-    .line 1343
+    .line 1432
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ShutterButton;->hideTrayButton()V
 
-    .line 1345
+    .line 1434
     :cond_0
     return-void
 .end method
@@ -1445,91 +1330,34 @@
     .prologue
     const/4 v2, 0x3
 
-    const/4 v5, 0x0
-
     const/4 v4, 0x1
 
-    .line 987
+    const/4 v5, 0x0
+
+    .line 1018
     const-string v0, "Camcorder"
 
     const-string v1, "Initialize Camcorder Sound"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 988
+    .line 1019
     const-string v0, "ro.csc.sales_code"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 990
-    const-string v1, "TEL"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eq v1, v4, :cond_0
-
-    const-string v1, "TLP"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eq v1, v4, :cond_0
-
-    const-string v1, "XSA"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eq v1, v4, :cond_0
-
+    .line 1021
     const-string v1, "OPS"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eq v1, v4, :cond_0
-
-    const-string v1, "VAU"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eq v1, v4, :cond_0
-
-    const-string v1, "HUT"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eq v1, v4, :cond_0
-
-    const-string v1, "OPP"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eq v1, v4, :cond_0
-
-    const-string v1, "BST"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-ne v0, v4, :cond_1
+    if-ne v0, v4, :cond_0
 
-    .line 993
-    :cond_0
+    .line 1022
     new-instance v0, Landroid/media/SoundPool;
 
     const/4 v1, 0x7
@@ -1538,13 +1366,13 @@
 
     iput-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mSoundPool:Landroid/media/SoundPool;
 
-    .line 999
+    .line 1030
     :goto_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mSoundPoolId:[I
 
     aput v5, v0, v5
 
-    .line 1000
+    .line 1031
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mSoundPoolId:[I
 
     iget-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mSoundPool:Landroid/media/SoundPool;
@@ -1561,7 +1389,7 @@
 
     aput v1, v0, v4
 
-    .line 1001
+    .line 1033
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mSoundPoolId:[I
 
     const/4 v1, 0x2
@@ -1580,7 +1408,7 @@
 
     aput v2, v0, v1
 
-    .line 1004
+    .line 1037
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mSoundPoolId:[I
 
     const/4 v1, 0x4
@@ -1599,11 +1427,11 @@
 
     aput v2, v0, v1
 
-    .line 1005
+    .line 1039
     return-void
 
-    .line 995
-    :cond_1
+    .line 1026
+    :cond_0
     new-instance v0, Landroid/media/SoundPool;
 
     invoke-direct {v0, v2, v4, v5}, Landroid/media/SoundPool;-><init>(III)V
@@ -1618,7 +1446,7 @@
     .parameter "keyCode"
 
     .prologue
-    .line 1474
+    .line 1559
     :try_start_0
     iget-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mWindowManager:Landroid/view/IWindowManager;
 
@@ -1632,21 +1460,21 @@
 
     move-result v1
 
-    .line 1478
+    .line 1565
     :goto_0
     return v1
 
-    .line 1475
+    .line 1561
     :catch_0
     move-exception v1
 
     move-object v0, v1
 
-    .line 1476
+    .line 1562
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
-    .line 1478
+    .line 1565
     const/4 v1, 0x0
 
     goto :goto_0
@@ -1656,22 +1484,22 @@
     .locals 2
 
     .prologue
-    .line 1422
+    .line 1506
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     if-nez v0, :cond_0
 
-    .line 1423
+    .line 1507
     const-string v0, "Camcorder"
 
     const-string v1, "isTimerCounting - mCamcorderEngine is null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1424
+    .line 1508
     const/4 v0, 0x0
 
-    .line 1426
+    .line 1510
     :goto_0
     return v0
 
@@ -1696,7 +1524,7 @@
 
     const-string v6, "Camcorder"
 
-    .line 1259
+    .line 1333
     const-string v0, "Camcorder"
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1719,7 +1547,7 @@
 
     invoke-static {v6, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1260
+    .line 1334
     const-string v0, "Camcorder"
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1742,7 +1570,7 @@
 
     invoke-static {v6, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1261
+    .line 1335
     const-string v0, "Camcorder"
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1765,7 +1593,7 @@
 
     invoke-static {v6, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1263
+    .line 1337
     invoke-static {}, Landroid/os/Environment;->getExternalStorageState()Ljava/lang/String;
 
     move-result-object v0
@@ -1778,18 +1606,18 @@
 
     if-nez v0, :cond_1
 
-    .line 1306
+    .line 1395
     :cond_0
     :goto_0
     return-void
 
-    .line 1266
+    .line 1341
     :cond_1
     packed-switch p1, :pswitch_data_0
 
     goto :goto_0
 
-    .line 1273
+    .line 1350
     :pswitch_0
     const/4 v0, -0x1
 
@@ -1797,7 +1625,7 @@
 
     if-eqz p3, :cond_3
 
-    .line 1276
+    .line 1356
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->getLastContentUri()Landroid/net/Uri;
@@ -1806,7 +1634,7 @@
 
     if-eqz v0, :cond_4
 
-    .line 1277
+    .line 1357
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -1827,7 +1655,7 @@
 
     move-result-object v0
 
-    .line 1278
+    .line 1360
     :goto_1
     if-eqz v0, :cond_2
 
@@ -1837,7 +1665,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 1280
+    .line 1362
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->getLastContentUri()Landroid/net/Uri;
@@ -1846,15 +1674,15 @@
 
     invoke-virtual {p3, v0}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
-    .line 1281
+    .line 1363
     invoke-virtual {p0, p2, p3}, Lcom/sec/android/app/camera/Camcorder;->setResult(ILandroid/content/Intent;)V
 
-    .line 1282
+    .line 1364
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->finish()V
 
     goto :goto_0
 
-    .line 1284
+    .line 1366
     :cond_2
     const-string v0, "Camcorder"
 
@@ -1864,18 +1692,18 @@
 
     goto :goto_0
 
-    .line 1289
+    .line 1373
     :cond_3
     if-nez p2, :cond_0
 
-    .line 1290
+    .line 1374
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 1292
+    .line 1376
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->getCurrentVideoFilename()Ljava/lang/String;
@@ -1892,7 +1720,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1294
+    .line 1379
     :try_start_0
     const-string v0, "Camcorder"
 
@@ -1900,7 +1728,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1295
+    .line 1380
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -1925,14 +1753,14 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 
-    .line 1297
+    .line 1385
     const-string v0, "Camcorder"
 
     const-string v1, "Deleting cancelled attach image file name "
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1298
+    .line 1386
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
@@ -1949,7 +1777,7 @@
 
     goto/16 :goto_0
 
-    .line 1299
+    .line 1388
     :catch_0
     move-exception v0
 
@@ -1960,7 +1788,7 @@
 
     goto :goto_1
 
-    .line 1266
+    .line 1341
     :pswitch_data_0
     .packed-switch 0x7d2
         :pswitch_0
@@ -1972,14 +1800,14 @@
     .parameter "autocontrast"
 
     .prologue
-    .line 866
+    .line 896
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderAutocontrast(I)V
 
-    .line 867
+    .line 897
     return-void
 .end method
 
@@ -1988,20 +1816,20 @@
     .parameter "quality"
 
     .prologue
-    .line 870
+    .line 900
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderQuality(I)V
 
-    .line 871
+    .line 901
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->processBack()V
 
-    .line 872
+    .line 902
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->updateRemainStorageIndicator()V
 
-    .line 873
+    .line 903
     return-void
 .end method
 
@@ -2010,20 +1838,20 @@
     .parameter "resolution"
 
     .prologue
-    .line 810
+    .line 833
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderResolution(I)Z
 
-    .line 811
+    .line 834
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->processBack()V
 
-    .line 812
+    .line 835
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->updateRemainStorageIndicator()V
 
-    .line 813
+    .line 836
     return-void
 .end method
 
@@ -2036,17 +1864,17 @@
 
     const-string v3, "Camcorder"
 
-    .line 155
+    .line 154
     invoke-super {p0, p1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 157
+    .line 156
     iget v0, p1, Landroid/content/res/Configuration;->orientation:I
 
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_1
 
-    .line 158
+    .line 157
     const-string v0, "Camcorder"
 
     const-string v0, "!!!!!!!!!!!!!!!ORIENTATION_LANDSCAPE!!!!!!!!!!!!!!!!!!!!"
@@ -2058,7 +1886,7 @@
 
     invoke-virtual {v0, v2}, Lcom/sec/android/app/camera/CamcorderEngine;->setLandscapeActive(Z)V
 
-    .line 164
+    .line 165
     :cond_0
     :goto_0
     return-void
@@ -2076,7 +1904,7 @@
 
     invoke-static {v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 162
+    .line 163
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     const/4 v1, 0x0
@@ -2091,14 +1919,14 @@
     .parameter "contrast"
 
     .prologue
-    .line 890
+    .line 920
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderContrast(I)V
 
-    .line 891
+    .line 921
     return-void
 .end method
 
@@ -2107,47 +1935,47 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 167
+    .line 168
     invoke-super {p0, p1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 169
+    .line 170
     const-string v2, "Camcorder"
 
     const-string v3, "onCreate"
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 171
+    .line 172
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getWindow()Landroid/view/Window;
 
     move-result-object v1
 
-    .line 172
+    .line 173
     .local v1, win:Landroid/view/Window;
     const/16 v2, 0x80
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->addFlags(I)V
 
-    .line 174
+    .line 175
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v2
 
     invoke-virtual {v2}, Lcom/sec/android/app/camera/CameraSettings;->clear()V
 
-    .line 175
+    .line 176
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getMenuDimController()Lcom/sec/android/app/camera/MenuDimController;
 
     move-result-object v2
 
     invoke-virtual {v2}, Lcom/sec/android/app/camera/MenuDimController;->clear()V
 
-    .line 177
+    .line 178
     const v2, 0x7f030023
 
     invoke-virtual {p0, v2}, Lcom/sec/android/app/camera/Camcorder;->setContentView(I)V
 
-    .line 178
+    .line 179
     const v2, 0x7f0a00aa
 
     invoke-virtual {p0, v2}, Lcom/sec/android/app/camera/Camcorder;->findViewById(I)Landroid/view/View;
@@ -2158,7 +1986,7 @@
 
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mBaseLayout:Landroid/view/ViewGroup;
 
-    .line 180
+    .line 181
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v2
@@ -2167,26 +1995,26 @@
 
     invoke-virtual {v2, v3}, Lcom/sec/android/app/camera/CameraSettings;->setMode(I)V
 
-    .line 182
+    .line 183
     new-instance v2, Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-direct {v2, p0}, Lcom/sec/android/app/camera/CamcorderEngine;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;)V
 
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
-    .line 183
+    .line 184
     iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v2, p0}, Lcom/sec/android/app/camera/CamcorderEngine;->setOnTimerEventListener(Lcom/sec/android/app/camera/CameraEngine$OnTimerEventListener;)V
 
-    .line 185
+    .line 186
     new-instance v2, Lcom/sec/android/app/camera/MenuResourceData;
 
     invoke-direct {v2, p0}, Lcom/sec/android/app/camera/MenuResourceData;-><init>(Lcom/sec/android/app/camera/AbstractCameraActivity;)V
 
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
-    .line 187
+    .line 188
     iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
     const v3, 0x7f030004
@@ -2201,7 +2029,7 @@
 
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderBaseIndicators:Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
-    .line 188
+    .line 191
     iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
     const v3, 0x7f030005
@@ -2216,7 +2044,7 @@
 
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderIndicators:Lcom/sec/android/app/camera/CamcorderIndicators;
 
-    .line 189
+    .line 193
     iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
     const v3, 0x7f030009
@@ -2231,10 +2059,10 @@
 
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
-    .line 190
+    .line 195
     iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
-    const v3, 0x7f030033
+    const v3, 0x7f030034
 
     iget-object v4, p0, Lcom/sec/android/app/camera/Camcorder;->mBaseLayout:Landroid/view/ViewGroup;
 
@@ -2246,29 +2074,29 @@
 
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
-    .line 192
+    .line 198
     iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderIndicators:Lcom/sec/android/app/camera/CamcorderIndicators;
 
     invoke-virtual {v2, v3}, Lcom/sec/android/app/camera/CamcorderSideMenu;->setChild(Lcom/sec/android/app/camera/MenuBase;)V
 
-    .line 193
+    .line 199
     iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderIndicators:Lcom/sec/android/app/camera/CamcorderIndicators;
 
     iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderBaseIndicators:Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
     invoke-virtual {v2, v3}, Lcom/sec/android/app/camera/CamcorderIndicators;->setChild(Lcom/sec/android/app/camera/MenuBase;)V
 
-    .line 194
+    .line 200
     iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     invoke-virtual {v2}, Lcom/sec/android/app/camera/CamcorderSideMenu;->showMenu()V
 
-    .line 196
+    .line 202
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->resizeForPreviewAspectRatio()Z
 
-    .line 198
+    .line 204
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getBaseContext()Landroid/content/Context;
 
     move-result-object v2
@@ -2283,9 +2111,7 @@
 
     move-result v2
 
-    iput v2, p0, Lcom/sec/android/app/camera/Camcorder;->mLowBatteryWarningLevel:I
-
-    .line 201
+    .line 207
     const-string v2, "window"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -2298,14 +2124,14 @@
 
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mWindowManager:Landroid/view/IWindowManager;
 
-    .line 203
+    .line 210
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v2
 
     invoke-virtual {v2}, Lcom/sec/android/app/camera/CameraSettings;->initializeCamcorder()V
 
-    .line 205
+    .line 212
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v2
@@ -2314,16 +2140,16 @@
 
     move-result v0
 
-    .line 206
+    .line 213
     .local v0, recordingMode:I
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/Camcorder;->resetMaxVideoDuration(I)V
 
-    .line 208
+    .line 215
     iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mAudioManager:Landroid/media/AudioManager;
 
     if-nez v2, :cond_0
 
-    .line 209
+    .line 216
     const-string v2, "audio"
 
     invoke-virtual {p0, v2}, Lcom/sec/android/app/camera/Camcorder;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -2334,7 +2160,7 @@
 
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mAudioManager:Landroid/media/AudioManager;
 
-    .line 211
+    .line 218
     :cond_0
     return-void
 .end method
@@ -2345,99 +2171,94 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 467
+    .line 455
     const-string v0, "Camcorder"
 
     const-string v1, "onDestroy"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 468
+    .line 456
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/sec/android/app/camera/Camcorder;->mIsDestroying:Z
 
-    .line 470
+    .line 458
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getMenuDimController()Lcom/sec/android/app/camera/MenuDimController;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/MenuDimController;->restoreUserSettingValues()V
 
-    .line 472
+    .line 460
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
     if-eqz v0, :cond_0
 
-    .line 473
+    .line 461
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/MenuResourceData;->onDestroy()V
 
-    .line 476
+    .line 464
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     if-eqz v0, :cond_1
 
-    .line 477
+    .line 465
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->clearErrorMessageHandler()V
 
-    .line 478
+    .line 466
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->clearSearchingHandler()V
 
-    .line 479
-    iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
-
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->clearTimerListener()V
-
-    .line 481
+    .line 468
     :cond_1
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
-    .line 483
+    .line 470
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mBaseLayout:Landroid/view/ViewGroup;
 
-    .line 484
+    .line 471
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
-    .line 485
+    .line 472
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderIndicators:Lcom/sec/android/app/camera/CamcorderIndicators;
 
-    .line 487
+    .line 474
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderBaseIndicators:Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
     if-eqz v0, :cond_2
 
-    .line 488
+    .line 475
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderBaseIndicators:Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderBaseIndicators;->onDestroy()V
 
-    .line 489
+    .line 476
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderBaseIndicators:Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
-    .line 491
+    .line 478
     :cond_2
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
-    .line 492
+    .line 479
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mSoundPoolId:[I
 
-    .line 493
+    .line 480
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 494
+    .line 481
     iput-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mInactivityHandler:Landroid/os/Handler;
 
-    .line 496
+    .line 483
     invoke-super {p0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->onDestroy()V
 
-    .line 497
+    .line 484
     return-void
 .end method
 
@@ -2446,17 +2267,17 @@
     .parameter "effect"
 
     .prologue
-    .line 850
+    .line 878
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderEffect(I)V
 
-    .line 851
+    .line 879
     if-eqz p1, :cond_0
 
-    .line 852
+    .line 880
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
@@ -2465,11 +2286,11 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderWB(I)V
 
-    .line 855
+    .line 883
     :cond_0
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->processBack()V
 
-    .line 856
+    .line 884
     return-void
 .end method
 
@@ -2478,14 +2299,14 @@
     .parameter "exposureValue"
 
     .prologue
-    .line 737
+    .line 757
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderExposureValue(I)V
 
-    .line 738
+    .line 758
     return-void
 .end method
 
@@ -2494,17 +2315,17 @@
     .parameter "flashMode"
 
     .prologue
-    .line 800
+    .line 823
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderFlashMode(I)V
 
-    .line 801
+    .line 824
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->processBack()V
 
-    .line 802
+    .line 825
     return-void
 .end method
 
@@ -2513,14 +2334,14 @@
     .parameter "guideline"
 
     .prologue
-    .line 876
+    .line 906
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/CameraSettings;->setGuideline(I)V
 
-    .line 877
+    .line 907
     return-void
 .end method
 
@@ -2528,14 +2349,14 @@
     .locals 2
 
     .prologue
-    .line 1359
+    .line 1448
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CamcorderSideMenu;->setInflatedMenu(Lcom/sec/android/app/camera/MenuBase;)V
 
-    .line 1360
+    .line 1449
     return-void
 .end method
 
@@ -2549,14 +2370,14 @@
 
     const/4 v5, 0x1
 
-    .line 500
+    .line 487
     const-string v2, "Camcorder"
 
     const-string v3, "onDown()"
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 503
+    .line 490
     :try_start_0
     iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mViewStack:Ljava/util/Stack;
 
@@ -2576,15 +2397,15 @@
 
     move v2, v5
 
-    .line 581
+    .line 578
     :goto_0
     return v2
 
-    .line 506
+    .line 493
     :catch_0
     move-exception v2
 
-    .line 521
+    .line 505
     :cond_0
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
@@ -2598,14 +2419,14 @@
 
     move v2, v5
 
-    .line 522
+    .line 506
     goto :goto_0
 
-    .line 525
+    .line 509
     :cond_1
     sparse-switch p1, :sswitch_data_0
 
-    .line 581
+    .line 578
     :sswitch_0
     invoke-super {p0, p1, p2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
@@ -2613,17 +2434,21 @@
 
     goto :goto_0
 
+    .line 511
     :sswitch_1
+    sput-boolean v5, Lcom/sec/android/app/camera/Camcorder;->mBackKeyDown:Z
+
+    :sswitch_2
     move v2, v5
 
-    .line 530
+    .line 515
     goto :goto_0
 
-    .line 540
-    :sswitch_2
+    .line 525
+    :sswitch_3
     iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
-    const v3, 0x7f03003b
+    const v3, 0x7f03003c
 
     iget-object v4, p0, Lcom/sec/android/app/camera/Camcorder;->mBaseLayout:Landroid/view/ViewGroup;
 
@@ -2633,7 +2458,7 @@
 
     check-cast v1, Lcom/sec/android/app/camera/CamcorderRecordingMenu;
 
-    .line 542
+    .line 528
     .local v1, recordingMenu:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
     invoke-virtual {v1}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->getVisibility()Z
 
@@ -2651,14 +2476,14 @@
 
     move v2, v5
 
-    .line 544
+    .line 530
     goto :goto_0
 
-    .line 547
+    .line 533
     :cond_2
     iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
-    const v3, 0x7f030040
+    const v3, 0x7f030041
 
     iget-object v4, p0, Lcom/sec/android/app/camera/Camcorder;->mBaseLayout:Landroid/view/ViewGroup;
 
@@ -2668,51 +2493,51 @@
 
     check-cast v0, Lcom/sec/android/app/camera/ZoomMenu;
 
-    .line 549
+    .line 535
     .local v0, menu:Lcom/sec/android/app/camera/ZoomMenu;
-    invoke-direct {p0}, Lcom/sec/android/app/camera/Camcorder;->setZoomLevel()V
-
-    .line 551
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ZoomMenu;->updateSlider()V
 
-    .line 552
+    .line 536
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/ZoomMenu;->updateSliderMaxValue()V
+
+    .line 537
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ZoomMenu;->getVisibility()Z
 
     move-result v2
 
     if-eqz v2, :cond_6
 
-    .line 553
+    .line 539
     if-eq p1, v6, :cond_3
 
     const/16 v2, 0x15
 
     if-ne p1, v2, :cond_5
 
-    .line 554
+    .line 541
     :cond_3
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ZoomMenu;->zoomOut()V
 
-    .line 561
+    .line 557
     :cond_4
     :goto_1
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ZoomMenu;->startZoomMenuTimer()V
 
-    .line 562
+    .line 558
     invoke-virtual {v0, p0}, Lcom/sec/android/app/camera/ZoomMenu;->setOnZoomValueChangedListener(Lcom/sec/android/app/camera/ZoomMenu$OnZoomValueChangedListener;)V
 
     move v2, v5
 
-    .line 564
+    .line 560
     goto :goto_0
 
-    .line 556
+    .line 543
     :cond_5
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ZoomMenu;->zoomIn()V
 
     goto :goto_1
 
-    .line 558
+    .line 553
     :cond_6
     if-eq p1, v6, :cond_7
 
@@ -2720,16 +2545,16 @@
 
     if-ne p1, v2, :cond_4
 
-    .line 559
+    .line 555
     :cond_7
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ZoomMenu;->showMenu()V
 
     goto :goto_1
 
-    .line 567
+    .line 563
     .end local v0           #menu:Lcom/sec/android/app/camera/ZoomMenu;
     .end local v1           #recordingMenu:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
-    :sswitch_3
+    :sswitch_4
     iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
     const v3, 0x7f030018
@@ -2742,7 +2567,7 @@
 
     check-cast v0, Lcom/sec/android/app/camera/ExposureValueMenu;
 
-    .line 568
+    .line 565
     .local v0, menu:Lcom/sec/android/app/camera/ExposureValueMenu;
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ExposureValueMenu;->getVisibility()Z
 
@@ -2750,198 +2575,198 @@
 
     if-eqz v2, :cond_8
 
-    .line 569
+    .line 566
     const/16 v2, 0x13
 
     if-ne p1, v2, :cond_9
 
-    .line 570
+    .line 567
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ExposureValueMenu;->setPlus()V
 
     :cond_8
     :goto_2
     move v2, v5
 
-    .line 575
+    .line 572
     goto/16 :goto_0
 
-    .line 572
+    .line 569
     :cond_9
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ExposureValueMenu;->setMinus()V
 
     goto :goto_2
 
-    .line 525
+    .line 509
     :sswitch_data_0
     .sparse-switch
         0x4 -> :sswitch_1
-        0x13 -> :sswitch_3
-        0x14 -> :sswitch_3
-        0x15 -> :sswitch_2
-        0x16 -> :sswitch_2
+        0x13 -> :sswitch_4
+        0x14 -> :sswitch_4
+        0x15 -> :sswitch_3
+        0x16 -> :sswitch_3
         0x17 -> :sswitch_0
-        0x18 -> :sswitch_2
-        0x19 -> :sswitch_2
-        0x1a -> :sswitch_1
+        0x18 -> :sswitch_3
+        0x19 -> :sswitch_3
+        0x1a -> :sswitch_2
         0x1b -> :sswitch_0
         0x42 -> :sswitch_0
-        0x43 -> :sswitch_1
-        0x52 -> :sswitch_1
+        0x43 -> :sswitch_2
+        0x52 -> :sswitch_2
     .end sparse-switch
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .locals 10
+    .locals 8
     .parameter "keyCode"
     .parameter "event"
 
     .prologue
-    const v9, 0x7f03003b
+    const/4 v6, 0x3
 
-    const/4 v7, 0x0
+    const/4 v4, 0x0
 
-    const/4 v5, 0x3
+    const/4 v5, 0x1
 
-    const/4 v6, 0x1
+    const-string v7, "Camcorder"
 
-    const-string v8, "Camcorder"
-
-    .line 606
+    .line 604
     :try_start_0
-    iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mViewStack:Ljava/util/Stack;
+    iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mViewStack:Ljava/util/Stack;
 
-    invoke-virtual {v3}, Ljava/util/Stack;->lastElement()Ljava/lang/Object;
+    invoke-virtual {v2}, Ljava/util/Stack;->lastElement()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Lcom/sec/android/app/camera/MenuBase;
+    check-cast v2, Lcom/sec/android/app/camera/MenuBase;
 
-    invoke-virtual {v3, p1, p2}, Lcom/sec/android/app/camera/MenuBase;->onKeyUp(ILandroid/view/KeyEvent;)Z
+    invoke-virtual {v2, p1, p2}, Lcom/sec/android/app/camera/MenuBase;->onKeyUp(ILandroid/view/KeyEvent;)Z
     :try_end_0
     .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
-    move v3, v6
+    move v2, v5
 
-    .line 693
+    .line 702
     :goto_0
-    return v3
+    return v2
 
-    .line 609
+    .line 607
     :catch_0
-    move-exception v3
+    move-exception v2
 
-    .line 613
+    .line 611
     :cond_0
-    const/16 v3, 0x1a
+    const/16 v2, 0x1a
 
-    if-ne p1, v3, :cond_3
+    if-ne p1, v2, :cond_3
 
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getFlags()I
 
-    move-result v3
+    move-result v2
 
-    const/16 v4, 0x20
+    const/16 v3, 0x20
 
-    if-eq v3, v4, :cond_3
+    if-eq v2, v3, :cond_3
+
+    .line 613
+    invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/sec/android/app/camera/CameraSettings;->getLock()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
 
     .line 614
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Lcom/sec/android/app/camera/CameraSettings;->getLock()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
+    invoke-virtual {v2, v4}, Lcom/sec/android/app/camera/CameraSettings;->setLock(Z)V
 
     .line 615
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v7}, Lcom/sec/android/app/camera/CameraSettings;->setLock(Z)V
-
-    .line 616
-    invoke-virtual {p0, v5, v7}, Lcom/sec/android/app/camera/Camcorder;->requestSystemKeyEvent(IZ)Z
+    invoke-virtual {p0, v6, v4}, Lcom/sec/android/app/camera/Camcorder;->requestSystemKeyEvent(IZ)Z
 
     :cond_1
-    move v3, v6
+    move v2, v5
 
-    .line 624
+    .line 623
     goto :goto_0
 
-    .line 618
+    .line 617
     :cond_2
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3, v6}, Lcom/sec/android/app/camera/CameraSettings;->setLock(Z)V
+    invoke-virtual {v2, v5}, Lcom/sec/android/app/camera/CameraSettings;->setLock(Z)V
+
+    .line 618
+    invoke-virtual {p0, v6, v5}, Lcom/sec/android/app/camera/Camcorder;->requestSystemKeyEvent(IZ)Z
 
     .line 619
-    invoke-virtual {p0, v5, v6}, Lcom/sec/android/app/camera/Camcorder;->requestSystemKeyEvent(IZ)Z
-
-    .line 620
     :goto_1
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->isCaptureEnabled()Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_1
+    if-nez v2, :cond_1
 
-    .line 621
+    .line 620
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->processBack()V
 
     goto :goto_1
 
-    .line 627
+    .line 626
     :cond_3
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Lcom/sec/android/app/camera/CameraSettings;->getLock()Z
+    invoke-virtual {v2}, Lcom/sec/android/app/camera/CameraSettings;->getLock()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_4
+    if-eqz v2, :cond_4
 
-    move v3, v6
+    move v2, v5
 
-    .line 628
+    .line 627
     goto :goto_0
 
-    .line 631
+    .line 630
     :cond_4
     sparse-switch p1, :sswitch_data_0
 
-    .line 693
+    .line 702
     :goto_2
     invoke-super {p0, p1, p2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->onKeyUp(ILandroid/view/KeyEvent;)Z
 
-    move-result v3
+    move-result v2
 
     goto :goto_0
 
-    .line 635
+    .line 634
     :sswitch_0
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->isCaptureEnabled()Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_7
+    if-nez v2, :cond_7
 
-    .line 636
-    iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
+    .line 635
+    iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
+
+    const v3, 0x7f03003c
 
     iget-object v4, p0, Lcom/sec/android/app/camera/Camcorder;->mBaseLayout:Landroid/view/ViewGroup;
 
-    invoke-virtual {v3, v9, v4}, Lcom/sec/android/app/camera/MenuResourceData;->getMenuByLayoutId(ILandroid/view/ViewGroup;)Lcom/sec/android/app/camera/MenuBase;
+    invoke-virtual {v2, v3, v4}, Lcom/sec/android/app/camera/MenuResourceData;->getMenuByLayoutId(ILandroid/view/ViewGroup;)Lcom/sec/android/app/camera/MenuBase;
 
     move-result-object v0
 
@@ -2951,192 +2776,195 @@
     .local v0, RCMenu:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->getVisibility()Z
 
-    move-result v3
+    move-result v2
 
-    if-ne v3, v6, :cond_5
+    if-ne v2, v5, :cond_5
 
     .line 639
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->getRecordingState()I
 
-    move-result v3
+    move-result v2
 
-    if-ne v3, v5, :cond_6
+    if-ne v2, v6, :cond_6
 
     .line 640
-    invoke-virtual {v0, v6}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->setRecordingMode(I)V
+    invoke-virtual {v0, v5}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->setRecordingMode(I)V
 
     :cond_5
     :goto_3
-    move v3, v6
+    move v2, v5
 
-    .line 644
+    .line 646
     goto :goto_0
 
-    .line 641
+    .line 642
     :cond_6
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->getRecordingState()I
 
-    move-result v3
+    move-result v2
 
-    if-ne v3, v6, :cond_5
+    if-ne v2, v5, :cond_5
 
-    .line 642
-    invoke-virtual {v0, v5}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->setRecordingMode(I)V
+    .line 643
+    invoke-virtual {v0, v6}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->setRecordingMode(I)V
 
     goto :goto_3
 
-    .line 646
+    .line 648
     .end local v0           #RCMenu:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
     :cond_7
-    iget v3, p0, Lcom/sec/android/app/camera/Camcorder;->mStorageStatus:I
+    iget v2, p0, Lcom/sec/android/app/camera/Camcorder;->mStorageStatus:I
 
-    if-eqz v3, :cond_8
+    if-eqz v2, :cond_8
 
-    .line 647
-    invoke-virtual {p0, v7}, Lcom/sec/android/app/camera/Camcorder;->showDlg(I)V
+    .line 649
+    invoke-virtual {p0, v4}, Lcom/sec/android/app/camera/Camcorder;->showDlg(I)V
 
-    move v3, v6
+    move v2, v5
 
-    .line 648
-    goto :goto_0
+    .line 650
+    goto/16 :goto_0
 
-    .line 651
+    .line 653
     :cond_8
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->handleShutter()V
 
     goto :goto_2
 
-    .line 655
-    :sswitch_1
-    const-string v3, "Camcorder"
-
-    const-string v3, "User go out Comcorder"
-
-    invoke-static {v8, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     .line 656
-    iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
+    :sswitch_1
+    const-string v2, "Camcorder"
 
-    invoke-virtual {v3}, Lcom/sec/android/app/camera/CamcorderEngine;->isStartingPreview()Z
+    const-string v2, "User want to go out camcorder"
 
-    move-result v3
+    invoke-static {v7, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-nez v3, :cond_9
+    .line 657
+    iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
-    iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
+    invoke-virtual {v2}, Lcom/sec/android/app/camera/CamcorderEngine;->isStartingPreview()Z
 
-    invoke-virtual {v3, v6}, Lcom/sec/android/app/camera/CamcorderEngine;->isCurrentState(I)Z
+    move-result v2
 
-    move-result v3
+    if-nez v2, :cond_9
 
-    if-eqz v3, :cond_a
+    iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
-    .line 660
+    invoke-virtual {v2, v5}, Lcom/sec/android/app/camera/CamcorderEngine;->isCurrentState(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_a
+
+    .line 662
     :cond_9
-    const-string v3, "Camcorder"
+    const-string v2, "Camcorder"
 
-    const-string v3, "Ignoring it because preview is being started!"
+    const-string v2, "Ignoring it because preview is being started!"
 
-    invoke-static {v8, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move v3, v6
+    move v2, v5
 
-    .line 661
+    .line 665
     goto/16 :goto_0
 
-    .line 664
+    .line 668
     :cond_a
-    iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
+    sget-boolean v2, Lcom/sec/android/app/camera/Camcorder;->mBackKeyDown:Z
+
+    if-eqz v2, :cond_b
+
+    .line 669
+    sput-boolean v4, Lcom/sec/android/app/camera/Camcorder;->mBackKeyDown:Z
+
+    .line 674
+    iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
+
+    const v3, 0x7f030041
 
     iget-object v4, p0, Lcom/sec/android/app/camera/Camcorder;->mBaseLayout:Landroid/view/ViewGroup;
 
-    invoke-virtual {v3, v9, v4}, Lcom/sec/android/app/camera/MenuResourceData;->getMenuByLayoutId(ILandroid/view/ViewGroup;)Lcom/sec/android/app/camera/MenuBase;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/sec/android/app/camera/CamcorderRecordingMenu;
-
-    .line 667
-    .local v2, recordingMenu:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
-    iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
-
-    const v4, 0x7f030040
-
-    iget-object v5, p0, Lcom/sec/android/app/camera/Camcorder;->mBaseLayout:Landroid/view/ViewGroup;
-
-    invoke-virtual {v3, v4, v5}, Lcom/sec/android/app/camera/MenuResourceData;->getMenuByLayoutId(ILandroid/view/ViewGroup;)Lcom/sec/android/app/camera/MenuBase;
+    invoke-virtual {v2, v3, v4}, Lcom/sec/android/app/camera/MenuResourceData;->getMenuByLayoutId(ILandroid/view/ViewGroup;)Lcom/sec/android/app/camera/MenuBase;
 
     move-result-object v1
 
     check-cast v1, Lcom/sec/android/app/camera/ZoomMenu;
 
-    .line 668
+    .line 676
     .local v1, menu:Lcom/sec/android/app/camera/ZoomMenu;
     invoke-virtual {v1}, Lcom/sec/android/app/camera/ZoomMenu;->getVisibility()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_b
+    if-eqz v2, :cond_c
 
-    .line 669
-    const-string v3, "Camcorder"
+    .line 677
+    const-string v2, "Camcorder"
 
-    const-string v3, "it for zoom menu."
+    const-string v2, "it for zoom menu."
 
-    invoke-static {v8, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 670
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->processBack()V
-
-    move v3, v6
-
-    .line 671
-    goto/16 :goto_0
-
-    .line 674
-    :cond_b
-    iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
-
-    invoke-virtual {v3}, Lcom/sec/android/app/camera/CamcorderEngine;->isMediaRecorderRecording()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_c
-
-    .line 675
-    iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
-
-    invoke-virtual {v3}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleCancelVideoRecording()V
-
-    .line 676
-    iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
-
-    invoke-virtual {v3}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleStartPreview()V
+    invoke-static {v7, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 678
-    :cond_c
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->processBack()V
 
-    move v3, v6
+    move v2, v5
 
     .line 679
     goto/16 :goto_0
 
     .end local v1           #menu:Lcom/sec/android/app/camera/ZoomMenu;
-    .end local v2           #recordingMenu:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
-    :sswitch_2
-    move v3, v6
+    :cond_b
+    move v2, v5
 
-    .line 681
+    .line 671
+    goto/16 :goto_0
+
+    .line 682
+    .restart local v1       #menu:Lcom/sec/android/app/camera/ZoomMenu;
+    :cond_c
+    iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
+
+    invoke-virtual {v2}, Lcom/sec/android/app/camera/CamcorderEngine;->isMediaRecorderRecording()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_d
+
+    .line 683
+    iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
+
+    invoke-virtual {v2}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleCancelVideoRecording()V
+
+    .line 684
+    iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
+
+    invoke-virtual {v2}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleStartPreview()V
+
+    .line 686
+    :cond_d
+    invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->processBack()V
+
+    move v2, v5
+
+    .line 687
+    goto/16 :goto_0
+
+    .end local v1           #menu:Lcom/sec/android/app/camera/ZoomMenu;
+    :sswitch_2
+    move v2, v5
+
+    .line 690
     goto/16 :goto_0
 
     :sswitch_3
-    move v3, v6
+    move v2, v5
 
-    .line 688
+    .line 697
     goto/16 :goto_0
 
-    .line 631
+    .line 630
     :sswitch_data_0
     .sparse-switch
         0x4 -> :sswitch_1
@@ -3149,7 +2977,7 @@
         0x19 -> :sswitch_3
         0x1b -> :sswitch_0
         0x42 -> :sswitch_0
-        0x43 -> :sswitch_1
+        0x43 -> :sswitch_2
         0x52 -> :sswitch_2
     .end sparse-switch
 .end method
@@ -3167,7 +2995,7 @@
 
     const-string v2, "Camcorder"
 
-    .line 1206
+    .line 1279
     const-string v0, "Camcorder"
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -3190,22 +3018,22 @@
 
     invoke-static {v2, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1207
+    .line 1280
     const-string v0, "Camcorder"
 
-    const-string v0, "Camcorder getLastContentUri: "
+    const-string v0, "Camcorder getLastContentUri "
 
     invoke-static {v2, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1209
+    .line 1282
     if-nez p1, :cond_1
 
-    .line 1256
+    .line 1330
     :cond_0
     :goto_0
     return-void
 
-    .line 1212
+    .line 1285
     :cond_1
     new-instance v0, Landroid/content/Intent;
 
@@ -3221,7 +3049,7 @@
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/Camcorder;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 1214
+    .line 1288
     const-string v0, "quickview"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -3238,20 +3066,20 @@
 
     if-eqz v0, :cond_3
 
-    .line 1230
+    .line 1302
     :cond_2
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 1231
+    .line 1303
     const-string v1, "com.sec.android.app.camera"
 
     const-string v1, "com.sec.android.app.camera.ReviewImage"
 
     invoke-virtual {v0, v5, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1233
+    .line 1306
     iget-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v1}, Lcom/sec/android/app/camera/CamcorderEngine;->getLastContentUri()Landroid/net/Uri;
@@ -3260,30 +3088,30 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
-    .line 1234
+    .line 1307
     const-string v1, "android.intent.extra.fullScreen"
 
     invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 1235
+    .line 1308
     const-string v1, "android.intent.extra.showActionIcons"
 
     invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 1236
+    .line 1309
     const-string v1, "com.sec.android.app.camera.ReviewMode"
 
     invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 1238
+    .line 1311
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/Camcorder;->startActivity(Landroid/content/Intent;)V
 
-    .line 1241
+    .line 1314
     invoke-virtual {p0, v4, v4}, Lcom/sec/android/app/camera/Camcorder;->overridePendingTransition(II)V
 
     goto :goto_0
 
-    .line 1242
+    .line 1315
     :cond_3
     const-string v0, "from_app"
 
@@ -3293,19 +3121,19 @@
 
     if-eqz v0, :cond_0
 
-    .line 1244
+    .line 1317
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 1245
+    .line 1318
     const-string v1, "com.sec.android.app.camera"
 
     const-string v1, "com.sec.android.app.camera.CropImage"
 
     invoke-virtual {v0, v5, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1247
+    .line 1321
     iget-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v1}, Lcom/sec/android/app/camera/CamcorderEngine;->getLastContentUri()Landroid/net/Uri;
@@ -3314,22 +3142,22 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
-    .line 1248
+    .line 1322
     const-string v1, "noFaceDetection"
 
     invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 1249
+    .line 1323
     const-string v1, "attach-video"
 
     invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 1251
+    .line 1325
     const/16 v1, 0x7d2
 
     invoke-virtual {p0, v0, v1}, Lcom/sec/android/app/camera/Camcorder;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 1254
+    .line 1328
     invoke-virtual {p0, v4, v4}, Lcom/sec/android/app/camera/Camcorder;->overridePendingTransition(II)V
 
     goto :goto_0
@@ -3339,7 +3167,7 @@
     .locals 2
 
     .prologue
-    .line 745
+    .line 765
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CamcorderEngine;->mCurrentState:Lcom/sec/android/app/camera/AbstractCeState;
@@ -3350,31 +3178,40 @@
 
     const/4 v1, 0x4
 
-    if-eq v0, v1, :cond_0
+    if-ne v0, v1, :cond_0
 
-    .line 746
+    iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
+
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->isTimerCounting()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 767
+    :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderSideMenu;->resetPressedButtons()V
 
-    .line 747
+    .line 768
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getMenuDimController()Lcom/sec/android/app/camera/MenuDimController;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/MenuDimController;->synchronizeDim()V
 
-    .line 753
+    .line 774
     :goto_0
     return-void
 
-    .line 751
-    :cond_0
+    .line 772
+    :cond_1
     const/4 v0, 0x0
 
     sput v0, Lcom/sec/android/app/camera/Camcorder;->mSelectedMode:I
 
-    .line 752
+    .line 773
     invoke-direct {p0}, Lcom/sec/android/app/camera/Camcorder;->switchToCamera()V
 
     goto :goto_0
@@ -3386,60 +3223,60 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 289
+    .line 274
     const-string v0, "Camcorder"
 
     const-string v1, "onPause"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 291
+    .line 276
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     if-nez v0, :cond_0
 
-    .line 329
+    .line 313
     :goto_0
     return-void
 
-    .line 294
+    .line 279
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->enableStatusBar()V
 
-    .line 296
+    .line 281
     const/16 v0, 0x1a
 
     invoke-virtual {p0, v0, v2}, Lcom/sec/android/app/camera/Camcorder;->requestSystemKeyEvent(IZ)Z
 
-    .line 298
+    .line 283
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     if-eqz v0, :cond_1
 
-    .line 299
+    .line 284
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->waitForEngineStartingThread()V
 
-    .line 300
+    .line 285
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->waitForStartPreviewThreadComplete()V
 
-    .line 303
+    .line 288
     :cond_1
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mThumbKicker:Lcom/sec/android/app/camera/Camcorder$ThumbKicker;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/Camcorder$ThumbKicker;->stopKickThumbSuspend()V
 
-    .line 305
+    .line 290
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderSideMenu;->stopHideMenuTimer()V
 
-    .line 307
+    .line 292
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->getCurrentStateHandler()Lcom/sec/android/app/camera/AbstractCeState;
@@ -3454,7 +3291,7 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 308
+    .line 293
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->getVideoRecordingTimeInSecond()I
@@ -3465,21 +3302,18 @@
 
     if-ge v0, v1, :cond_4
 
-    .line 309
+    .line 294
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->doCancelVideoRecordingSync()V
 
-    .line 313
+    .line 298
     :goto_1
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->doStopPreviewSync()V
 
-    .line 314
-    invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->pauseRecordingMenu()V
-
-    .line 317
+    .line 301
     :cond_2
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
@@ -3495,41 +3329,41 @@
 
     if-ne v0, v1, :cond_3
 
-    .line 318
+    .line 302
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->doStopPreviewSync()V
 
-    .line 321
+    .line 305
     :cond_3
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->doStopEngineSync()V
 
-    .line 322
+    .line 306
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->clearRequest()V
 
-    .line 323
+    .line 307
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0, v2}, Lcom/sec/android/app/camera/CamcorderEngine;->changeEngineState(I)V
 
-    .line 325
+    .line 309
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/Camcorder;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 326
+    .line 310
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->hideAllDlg()V
 
-    .line 328
+    .line 312
     invoke-super {p0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->onPause()V
 
     goto :goto_0
 
-    .line 311
+    .line 296
     :cond_4
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
@@ -3545,7 +3379,7 @@
     .prologue
     const-string v3, "Camcorder"
 
-    .line 776
+    .line 797
     const-string v0, "Camcorder"
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -3568,7 +3402,7 @@
 
     invoke-static {v3, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 777
+    .line 798
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
     const v1, 0x7f030009
@@ -3581,24 +3415,24 @@
 
     check-cast v0, Lcom/sec/android/app/camera/CamcorderSideMenu;
 
-    .line 778
+    .line 800
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CamcorderSideMenu;->setInflatedMenu(Lcom/sec/android/app/camera/MenuBase;)V
 
-    .line 779
+    .line 801
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/CameraSettings;->setRecordingMode(I)V
 
-    .line 781
+    .line 803
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleStopPreview()V
 
-    .line 782
+    .line 804
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getMenuDimController()Lcom/sec/android/app/camera/MenuDimController;
 
     move-result-object v0
@@ -3607,33 +3441,33 @@
 
     invoke-virtual {v0, v1, p1}, Lcom/sec/android/app/camera/MenuDimController;->refreshButtonDim(II)Z
 
-    .line 784
+    .line 807
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->processBack()V
 
-    .line 786
+    .line 809
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->resizeForPreviewAspectRatio()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 787
+    .line 810
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleStartPreview()V
 
-    .line 790
+    .line 813
     :cond_0
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->updateRemainStorageIndicator()V
 
-    .line 792
+    .line 815
     const-string v0, "Camcorder"
 
     const-string v0, "onRecordingModeChanged out"
 
     invoke-static {v3, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 793
+    .line 816
     return-void
 .end method
 
@@ -3649,14 +3483,14 @@
 
     const-string v8, "Camcorder"
 
-    .line 354
+    .line 341
     const-string v3, "Camcorder"
 
     const-string v3, "onResume"
 
     invoke-static {v8, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 356
+    .line 343
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getBaseContext()Landroid/content/Context;
 
     move-result-object v3
@@ -3669,55 +3503,82 @@
 
     check-cast v0, Landroid/app/admin/DevicePolicyManager;
 
-    .line 365
+    .line 346
     .local v0, mDPM:Landroid/app/admin/DevicePolicyManager;
+    invoke-virtual {v0, v7}, Landroid/app/admin/DevicePolicyManager;->getAllowCamera(Landroid/content/ComponentName;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    .line 347
+    const-string v3, "Camcorder"
+
+    const-string v3, "onResume CAMERA disable"
+
+    invoke-static {v8, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 348
+    const v3, 0x7f0700ca
+
+    invoke-static {p0, v3, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/widget/Toast;->show()V
+
+    .line 350
+    invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->finish()V
+
+    .line 353
+    :cond_0
     invoke-direct {p0}, Lcom/sec/android/app/camera/Camcorder;->initIntentFilter()V
 
-    .line 366
+    .line 354
     iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v3}, Lcom/sec/android/app/camera/CamcorderEngine;->disableStatusBar()V
 
-    .line 368
+    .line 356
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->checkCameraStartCondition_Call()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
-    .line 369
+    .line 357
     invoke-super {p0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->onResume()V
 
-    .line 370
+    .line 358
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v3
 
     invoke-virtual {v3}, Lcom/sec/android/app/camera/CameraSettings;->getAndSetLock()V
 
-    .line 464
+    .line 452
     :goto_0
     return-void
 
-    .line 374
-    :cond_0
+    .line 362
+    :cond_1
     iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v3, p0}, Lcom/sec/android/app/camera/CamcorderEngine;->isMediaScannerScanning(Landroid/content/Context;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
-    .line 375
+    .line 363
     const-string v3, "Camcorder"
 
     const-string v3, "Camcorder MediaScannerScanning --> Finish"
 
     invoke-static {v8, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 376
-    const v3, 0x7f0700d7
+    .line 364
+    const v3, 0x7f0700fd
 
     invoke-static {p0, v3, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -3725,32 +3586,32 @@
 
     invoke-virtual {v3}, Landroid/widget/Toast;->show()V
 
-    .line 377
+    .line 366
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->finish()V
 
-    .line 397
-    :cond_1
+    .line 379
+    :cond_2
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getWindow()Landroid/view/Window;
 
     move-result-object v2
 
-    .line 398
+    .line 380
     .local v2, win:Landroid/view/Window;
     const/16 v3, 0x80
 
     invoke-virtual {v2, v3}, Landroid/view/Window;->addFlags(I)V
 
-    .line 400
+    .line 382
     iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v3}, Lcom/sec/android/app/camera/CamcorderEngine;->clearRequest()V
 
-    .line 401
+    .line 383
     iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v3, v5}, Lcom/sec/android/app/camera/CamcorderEngine;->changeEngineState(I)V
 
-    .line 403
+    .line 385
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v3
@@ -3759,57 +3620,57 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
-    .line 404
+    .line 386
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v3
 
     invoke-virtual {v3, v6}, Lcom/sec/android/app/camera/CameraSettings;->setLockForResume(Z)V
 
-    .line 409
+    .line 391
     :goto_1
     iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v3}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleStartEngine()V
 
-    .line 410
+    .line 392
     iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v3}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleSetAllParams()V
 
-    .line 411
+    .line 393
     iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     invoke-virtual {v3}, Lcom/sec/android/app/camera/CamcorderSideMenu;->resetPressedButtons()V
 
-    .line 413
+    .line 395
     const/16 v3, 0x1a
 
     invoke-virtual {p0, v3, v6}, Lcom/sec/android/app/camera/Camcorder;->requestSystemKeyEvent(IZ)Z
 
-    .line 414
+    .line 396
     const/4 v3, 0x3
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/camera/Camcorder;->isSystemKeyEventRequested(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
-    .line 415
+    .line 397
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v3
 
     invoke-virtual {v3, v6}, Lcom/sec/android/app/camera/CameraSettings;->setLock(Z)V
 
-    .line 419
+    .line 401
     :goto_2
     iput-object v7, p0, Lcom/sec/android/app/camera/Camcorder;->mChkKeyFromApp:Ljava/lang/String;
 
-    .line 420
+    .line 402
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getIntent()Landroid/content/Intent;
 
     move-result-object v3
@@ -3818,7 +3679,7 @@
 
     move-result-object v1
 
-    .line 422
+    .line 404
     .local v1, myExtras:Landroid/os/Bundle;
     iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
@@ -3830,26 +3691,26 @@
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_8
 
-    .line 423
+    .line 405
     const-string v3, "from_app"
 
     iput-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mChkKeyFromApp:Ljava/lang/String;
 
-    .line 424
-    if-eqz v1, :cond_6
+    .line 406
+    if-eqz v1, :cond_7
 
-    .line 425
+    .line 407
     const-string v3, "mms"
 
     invoke-virtual {v1, v3, v5}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
-    .line 426
+    .line 408
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getMenuDimController()Lcom/sec/android/app/camera/MenuDimController;
 
     move-result-object v3
@@ -3858,28 +3719,28 @@
 
     invoke-virtual {v3, v5, v4}, Lcom/sec/android/app/camera/MenuDimController;->refreshButtonDim(II)Z
 
-    .line 427
+    .line 410
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v3
 
     invoke-virtual {v3, v6}, Lcom/sec/android/app/camera/CameraSettings;->setAttachMMSMode(Z)V
 
-    .line 428
+    .line 411
     invoke-direct {p0}, Lcom/sec/android/app/camera/Camcorder;->checkCamcorderStartCondition_LimitedMMS()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_6
 
-    .line 429
+    .line 412
     invoke-super {p0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->onResume()V
 
     goto/16 :goto_0
 
-    .line 406
+    .line 388
     .end local v1           #myExtras:Landroid/os/Bundle;
-    :cond_2
+    :cond_3
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v3
@@ -3888,8 +3749,8 @@
 
     goto :goto_1
 
-    .line 417
-    :cond_3
+    .line 399
+    :cond_4
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v3
@@ -3898,63 +3759,66 @@
 
     goto :goto_2
 
-    .line 433
+    .line 416
     .restart local v1       #myExtras:Landroid/os/Bundle;
-    :cond_4
+    :cond_5
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getMenuDimController()Lcom/sec/android/app/camera/MenuDimController;
 
     move-result-object v3
 
     invoke-virtual {v3, v5, v6}, Lcom/sec/android/app/camera/MenuDimController;->refreshButtonDim(II)Z
 
-    .line 434
+    .line 418
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v3
 
     invoke-virtual {v3, v5}, Lcom/sec/android/app/camera/CameraSettings;->setAttachMMSMode(Z)V
 
-    .line 454
-    :cond_5
+    .line 441
+    :cond_6
     :goto_3
     iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v3, v6}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleWait(I)V
 
-    .line 455
+    .line 442
     iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v3}, Lcom/sec/android/app/camera/CamcorderEngine;->scheduleStartPreview()V
 
-    .line 457
+    .line 444
     invoke-direct {p0}, Lcom/sec/android/app/camera/Camcorder;->initRemains()V
 
-    .line 459
+    .line 446
     iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mThumbKicker:Lcom/sec/android/app/camera/Camcorder$ThumbKicker;
 
     invoke-virtual {v3}, Lcom/sec/android/app/camera/Camcorder$ThumbKicker;->suspendThumbWork()V
 
-    .line 461
+    .line 448
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v3
 
     invoke-virtual {v3}, Lcom/sec/android/app/camera/CameraSettings;->getAndSetLock()V
 
-    .line 463
+    .line 449
+    sput-boolean v5, Lcom/sec/android/app/camera/Camcorder;->mBackKeyDown:Z
+
+    .line 451
     invoke-super {p0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->onResume()V
 
     goto/16 :goto_0
 
-    .line 437
-    :cond_6
+    .line 421
+    :cond_7
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getMenuDimController()Lcom/sec/android/app/camera/MenuDimController;
 
     move-result-object v3
 
     invoke-virtual {v3, v5, v6}, Lcom/sec/android/app/camera/MenuDimController;->refreshButtonDim(II)Z
 
-    .line 438
+    .line 423
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v3
@@ -3963,18 +3827,18 @@
 
     goto :goto_3
 
-    .line 441
-    :cond_7
+    .line 426
+    :cond_8
     iput-object v7, p0, Lcom/sec/android/app/camera/Camcorder;->mChkKeyFromApp:Ljava/lang/String;
 
-    .line 449
+    .line 435
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getMenuDimController()Lcom/sec/android/app/camera/MenuDimController;
 
     move-result-object v3
 
     invoke-virtual {v3, v5, v5}, Lcom/sec/android/app/camera/MenuDimController;->refreshButtonDim(II)Z
 
-    .line 451
+    .line 438
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v3
@@ -3989,17 +3853,17 @@
     .parameter "cameraReview"
 
     .prologue
-    .line 880
+    .line 910
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderReview(I)V
 
-    .line 881
+    .line 911
     invoke-super {p0, p1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->onReviewChanged(I)V
 
-    .line 882
+    .line 912
     return-void
 .end method
 
@@ -4008,14 +3872,14 @@
     .parameter "saturation"
 
     .prologue
-    .line 894
+    .line 924
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderSaturation(I)V
 
-    .line 895
+    .line 925
     return-void
 .end method
 
@@ -4024,14 +3888,14 @@
     .parameter "sharpness"
 
     .prologue
-    .line 898
+    .line 928
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderSharpness(I)V
 
-    .line 899
+    .line 929
     return-void
 .end method
 
@@ -4039,7 +3903,7 @@
     .locals 3
 
     .prologue
-    .line 982
+    .line 1012
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
     const v1, 0x7f030008
@@ -4052,10 +3916,10 @@
 
     check-cast p0, Lcom/sec/android/app/camera/CamcorderSettingsMenu;
 
-    .line 983
+    .line 1014
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CamcorderSettingsMenu;->unlockResolutionChanging()V
 
-    .line 984
+    .line 1015
     return-void
 .end method
 
@@ -4064,17 +3928,17 @@
     .parameter "storage"
 
     .prologue
-    .line 885
+    .line 915
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/CameraSettings;->setStorage(I)V
 
-    .line 886
+    .line 916
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->processBack()V
 
-    .line 887
+    .line 917
     return-void
 .end method
 
@@ -4083,17 +3947,17 @@
     .parameter "timer"
 
     .prologue
-    .line 805
+    .line 828
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderTimer(I)V
 
-    .line 806
+    .line 829
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->processBack()V
 
-    .line 807
+    .line 830
     return-void
 .end method
 
@@ -4102,10 +3966,20 @@
     .parameter
 
     .prologue
-    .line 1057
+    .line 1104
+    iget-boolean v0, p0, Lcom/sec/android/app/camera/Camcorder;->mIsDestroying:Z
+
+    if-eqz v0, :cond_0
+
+    .line 1112
+    :goto_0
+    return-void
+
+    .line 1108
+    :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
-    const v1, 0x7f03003a
+    const v1, 0x7f03003b
 
     iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mBaseLayout:Landroid/view/ViewGroup;
 
@@ -4115,46 +3989,45 @@
 
     check-cast p0, Lcom/sec/android/app/camera/TimerCounting;
 
-    .line 1058
+    .line 1110
     invoke-virtual {p0}, Lcom/sec/android/app/camera/TimerCounting;->showMenu()V
 
-    .line 1059
+    .line 1111
     invoke-virtual {p0, p1}, Lcom/sec/android/app/camera/TimerCounting;->updateCountingNum(I)V
 
-    .line 1060
-    return-void
+    goto :goto_0
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 2
+    .locals 3
     .parameter "event"
 
     .prologue
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    .line 697
+    .line 706
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     if-nez v0, :cond_0
 
-    .line 698
+    .line 707
     invoke-super {p0, p1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
-    .line 725
+    .line 745
     :goto_0
     return v0
 
-    .line 700
+    .line 709
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderSideMenu:Lcom/sec/android/app/camera/CamcorderSideMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderSideMenu;->resetPressedButtons()V
 
-    .line 703
+    .line 712
     :try_start_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mViewStack:Ljava/util/Stack;
 
@@ -4172,16 +4045,16 @@
 
     if-eqz v0, :cond_1
 
-    move v0, v1
+    move v0, v2
 
-    .line 704
+    .line 713
     goto :goto_0
 
-    .line 706
+    .line 715
     :catch_0
     move-exception v0
 
-    .line 710
+    .line 719
     :cond_1
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
@@ -4193,12 +4066,12 @@
 
     if-eqz v0, :cond_2
 
-    move v0, v1
+    move v0, v2
 
-    .line 711
+    .line 720
     goto :goto_0
 
-    .line 714
+    .line 723
     :cond_2
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -4212,35 +4085,70 @@
 
     if-eqz v0, :cond_3
 
-    move v0, v1
+    move v0, v2
 
-    .line 715
+    .line 725
     goto :goto_0
 
-    .line 718
+    .line 728
     :cond_3
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v2, :cond_5
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->isPreviewTouchEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
-    .line 720
+    .line 731
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->hideSideMenu()V
 
-    move v0, v1
+    .line 733
+    iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
-    .line 722
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
+
+    move-result-object v0
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CeRequestQueue;->searchRequest(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    .line 735
+    iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
+
+    if-eqz v0, :cond_4
+
+    .line 736
+    iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
+
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/ShutterButton;->getVisibility()Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/sec/android/app/camera/Camcorder;->mDoRestoreShutterButton:Z
+
+    .line 738
+    iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
+
+    invoke-virtual {v0}, Lcom/sec/android/app/camera/ShutterButton;->hideMenu()V
+
+    :cond_4
+    move v0, v2
+
+    .line 742
     goto :goto_0
 
-    .line 725
-    :cond_4
+    .line 745
+    :cond_5
     invoke-super {p0, p1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
@@ -4252,7 +4160,7 @@
     .locals 2
 
     .prologue
-    .line 729
+    .line 749
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->getCurrentStateHandler()Lcom/sec/android/app/camera/AbstractCeState;
@@ -4267,15 +4175,15 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 734
+    .line 754
     :goto_0
     return-void
 
-    .line 732
+    .line 752
     :cond_0
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->restartInactivityTimer()V
 
-    .line 733
+    .line 753
     invoke-super {p0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->onUserInteraction()V
 
     goto :goto_0
@@ -4285,17 +4193,17 @@
     .locals 3
 
     .prologue
-    .line 1162
+    .line 1231
     const-string v0, "Camcorder"
 
     const-string v1, "onVideoMaxSizeReached!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1163
+    .line 1232
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
-    const v1, 0x7f03003b
+    const v1, 0x7f03003c
 
     iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mBaseLayout:Landroid/view/ViewGroup;
 
@@ -4305,13 +4213,13 @@
 
     check-cast v0, Lcom/sec/android/app/camera/CamcorderRecordingMenu;
 
-    .line 1165
+    .line 1234
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->handleRecordingTimerElapsed()V
 
-    .line 1166
+    .line 1235
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->changeUIToStop()V
 
-    .line 1167
+    .line 1236
     return-void
 .end method
 
@@ -4319,10 +4227,10 @@
     .locals 4
 
     .prologue
-    .line 1063
+    .line 1115
     iget-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
-    const v2, 0x7f03003b
+    const v2, 0x7f03003c
 
     iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mBaseLayout:Landroid/view/ViewGroup;
 
@@ -4332,29 +4240,24 @@
 
     check-cast v0, Lcom/sec/android/app/camera/CamcorderRecordingMenu;
 
-    .line 1064
+    .line 1117
     .local v0, recordingMenu:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
     const-wide/16 v1, 0x0
 
     invoke-virtual {v0, v1, v2}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->updateProgressBarText(J)V
 
-    .line 1065
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->updateRecordingTime(I)V
-
-    .line 1066
+    .line 1118
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->showRecordingMenu(Z)V
 
-    .line 1067
+    .line 1119
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->showMenu()V
 
-    .line 1068
+    .line 1120
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->startTimer()V
 
-    .line 1069
+    .line 1121
     return-void
 .end method
 
@@ -4365,25 +4268,25 @@
     .prologue
     const/4 v3, 0x2
 
-    .line 1170
+    .line 1239
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->updateQuickViewButtonDimmed()V
 
-    .line 1171
+    .line 1240
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mChkKeyFromApp:Ljava/lang/String;
 
     if-eqz v0, :cond_2
 
-    .line 1172
+    .line 1241
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mChkKeyFromApp:Ljava/lang/String;
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/Camcorder;->onLaunchGallery(Ljava/lang/String;)V
 
-    .line 1179
+    .line 1248
     :cond_0
     :goto_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
-    const v1, 0x7f030040
+    const v1, 0x7f030041
 
     iget-object v2, p0, Lcom/sec/android/app/camera/Camcorder;->mBaseLayout:Landroid/view/ViewGroup;
 
@@ -4393,17 +4296,17 @@
 
     check-cast v0, Lcom/sec/android/app/camera/ZoomMenu;
 
-    .line 1180
+    .line 1250
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ZoomMenu;->getVisibility()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 1181
+    .line 1251
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->processBack()V
 
-    .line 1183
+    .line 1254
     :cond_1
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
@@ -4415,11 +4318,11 @@
 
     if-ne v0, v3, :cond_3
 
-    .line 1195
+    .line 1266
     :goto_1
     return-void
 
-    .line 1174
+    .line 1243
     :cond_2
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
@@ -4431,14 +4334,14 @@
 
     if-ne v0, v3, :cond_0
 
-    .line 1175
+    .line 1244
     const-string v0, "reviewon"
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/Camcorder;->onLaunchGallery(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 1194
+    .line 1265
     :cond_3
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->processBack()V
 
@@ -4450,17 +4353,17 @@
     .parameter "whiteBalance"
 
     .prologue
-    .line 834
+    .line 859
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderWB(I)V
 
-    .line 835
+    .line 860
     if-eqz p1, :cond_0
 
-    .line 836
+    .line 861
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
@@ -4469,11 +4372,11 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderEffect(I)V
 
-    .line 839
+    .line 864
     :cond_0
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->processBack()V
 
-    .line 840
+    .line 865
     return-void
 .end method
 
@@ -4482,39 +4385,14 @@
     .parameter "zoomValue"
 
     .prologue
-    .line 741
+    .line 761
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/CameraSettings;->setCamcorderZoomValue(I)V
 
-    .line 742
-    return-void
-.end method
-
-.method public pauseRecordingMenu()V
-    .locals 4
-
-    .prologue
-    .line 1430
-    iget-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
-
-    const v2, 0x7f03003b
-
-    iget-object v3, p0, Lcom/sec/android/app/camera/Camcorder;->mBaseLayout:Landroid/view/ViewGroup;
-
-    invoke-virtual {v1, v2, v3}, Lcom/sec/android/app/camera/MenuResourceData;->getMenuByLayoutId(ILandroid/view/ViewGroup;)Lcom/sec/android/app/camera/MenuBase;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/sec/android/app/camera/CamcorderRecordingMenu;
-
-    .line 1433
-    .local v0, RCMenu:Lcom/sec/android/app/camera/CamcorderRecordingMenu;
-    invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderRecordingMenu;->onSetPauseState()V
-
-    .line 1434
+    .line 762
     return-void
 .end method
 
@@ -4524,7 +4402,7 @@
     .parameter
 
     .prologue
-    .line 1010
+    .line 1045
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mAudioManager:Landroid/media/AudioManager;
 
     const-string v1, "situation=5;device=0"
@@ -4535,11 +4413,9 @@
 
     invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    move-result v0
+    move-result v2
 
-    iput v0, p0, Lcom/sec/android/app/camera/Camcorder;->mStreamVolume:F
-
-    .line 1012
+    .line 1049
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
@@ -4550,20 +4426,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 1013
+    .line 1050
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mSoundPool:Landroid/media/SoundPool;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mSoundPoolId:[I
 
     aget v1, v1, p1
 
-    iget v2, p0, Lcom/sec/android/app/camera/Camcorder;->mStreamVolume:F
-
-    iget v3, p0, Lcom/sec/android/app/camera/Camcorder;->mStreamVolume:F
-
     const/4 v4, 0x0
 
     const/high16 v6, 0x3f80
+
+    move v3, v2
 
     move v5, p2
 
@@ -4573,14 +4447,14 @@
 
     if-nez v0, :cond_0
 
-    .line 1014
+    .line 1052
     const-string v0, "Camcorder"
 
     const-string v1, "playCameraSound fail"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1016
+    .line 1055
     :cond_0
     return-void
 .end method
@@ -4591,14 +4465,14 @@
     .parameter
 
     .prologue
-    .line 1020
+    .line 1060
     if-ltz p1, :cond_0
 
     const/4 v0, 0x4
 
     if-ge p1, v0, :cond_0
 
-    .line 1021
+    .line 1061
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mAudioManager:Landroid/media/AudioManager;
 
     const-string v1, "situation=3;device=0"
@@ -4611,9 +4485,9 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/sec/android/app/camera/Camcorder;->mStreamVolume:F
+    move v2, v0
 
-    .line 1027
+    .line 1071
     :goto_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mSoundPool:Landroid/media/SoundPool;
 
@@ -4621,22 +4495,20 @@
 
     aget v1, v1, p1
 
-    iget v2, p0, Lcom/sec/android/app/camera/Camcorder;->mStreamVolume:F
-
-    iget v3, p0, Lcom/sec/android/app/camera/Camcorder;->mStreamVolume:F
-
     const/4 v4, 0x0
 
     const/high16 v6, 0x3f80
+
+    move v3, v2
 
     move v5, p2
 
     invoke-virtual/range {v0 .. v6}, Landroid/media/SoundPool;->play(IFFIIF)I
 
-    .line 1028
+    .line 1074
     return-void
 
-    .line 1023
+    .line 1066
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mAudioManager:Landroid/media/AudioManager;
 
@@ -4650,7 +4522,7 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/sec/android/app/camera/Camcorder;->mStreamVolume:F
+    move v2, v0
 
     goto :goto_0
 .end method
@@ -4661,7 +4533,7 @@
     .parameter "request"
 
     .prologue
-    .line 1465
+    .line 1547
     :try_start_0
     iget-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mWindowManager:Landroid/view/IWindowManager;
 
@@ -4675,21 +4547,21 @@
 
     move-result v1
 
-    .line 1469
+    .line 1553
     :goto_0
     return v1
 
-    .line 1466
+    .line 1549
     :catch_0
     move-exception v1
 
     move-object v0, v1
 
-    .line 1467
+    .line 1550
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
-    .line 1469
+    .line 1553
     const/4 v1, 0x0
 
     goto :goto_0
@@ -4700,14 +4572,14 @@
     .parameter "recordingMode"
 
     .prologue
-    .line 796
+    .line 819
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/sec/android/app/camera/CameraSettings;->resetMaxVideoDuration(I)V
 
-    .line 797
+    .line 820
     return-void
 .end method
 
@@ -4715,7 +4587,7 @@
     .locals 3
 
     .prologue
-    .line 1113
+    .line 1169
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mResetCamcorderSettingPopup:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
@@ -4728,30 +4600,42 @@
 
     if-eqz v0, :cond_0
 
-    .line 1114
+    .line 1171
     const-string v0, "Camcorder"
 
     const-string v1, "mResetCamcorderSettingPopup is showing"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1148
+    .line 1219
     :goto_0
     return-void
 
-    .line 1118
+    .line 1175
     :cond_0
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0700d3
+    const v1, 0x7f0700ab
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0700b2
+    const v1, 0x7f0700ac
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    const v1, 0x1080027
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setIcon(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    const v1, 0x7f07000b
 
     new-instance v2, Lcom/sec/android/app/camera/Camcorder$2;
 
@@ -4761,7 +4645,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0700b3
+    const v1, 0x7f07000a
 
     const/4 v2, 0x0
 
@@ -4788,17 +4672,17 @@
     .locals 8
 
     .prologue
+    const/16 v2, 0x320
+
     const/16 v6, 0x280
 
-    const/16 v4, 0x140
+    const/16 v5, 0x140
 
-    const/16 v3, 0x1e0
+    const/16 v4, 0x1e0
 
-    const-string v5, "GT-S5830"
+    const-string v3, "480x320"
 
-    const-string v2, "480x320"
-
-    .line 917
+    .line 950
     const v0, 0x7f0a00ab
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/Camcorder;->findViewById(I)Landroid/view/View;
@@ -4807,7 +4691,7 @@
 
     check-cast v0, Lcom/sec/android/app/camera/PreviewFrameLayout;
 
-    .line 921
+    .line 954
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getCameraSettings()Lcom/sec/android/app/camera/CameraSettings;
 
     move-result-object v1
@@ -4819,11 +4703,11 @@
     packed-switch v1, :pswitch_data_0
 
     :pswitch_0
-    move v1, v3
+    move v1, v4
 
     move v2, v6
 
-    .line 977
+    .line 1007
     :goto_0
     invoke-virtual {v0, v2, v1}, Lcom/sec/android/app/camera/PreviewFrameLayout;->setSize(II)Z
 
@@ -4831,171 +4715,147 @@
 
     return v0
 
-    .line 923
+    .line 957
     :pswitch_1
-    const/16 v1, 0x320
+    const/16 v1, 0x1c0
 
-    .line 924
-    const/16 v2, 0x1c0
-
-    move v7, v2
-
-    move v2, v1
-
-    move v1, v7
-
-    .line 925
+    .line 958
     goto :goto_0
 
-    .line 927
     :pswitch_2
-    const/16 v1, 0x320
-
-    move v2, v1
-
-    move v1, v3
-
-    .line 929
-    goto :goto_0
-
-    .line 931
-    :pswitch_3
-    const-string v1, "480x320"
-
-    const-string v1, "480x320"
-
-    invoke-virtual {v2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
     move v1, v4
 
-    move v2, v3
-
-    .line 933
+    .line 962
     goto :goto_0
 
-    .line 935
-    :cond_0
+    .line 964
+    :pswitch_3
     const/16 v1, 0x2d0
 
     move v2, v1
 
-    move v1, v3
+    move v1, v4
 
-    .line 938
+    .line 966
     goto :goto_0
 
-    .line 940
+    .line 975
     :pswitch_4
-    const-string v1, "480x320"
+    const-string v1, "400x240"
 
-    const-string v1, "480x320"
+    const-string v2, "480x320"
 
-    invoke-virtual {v2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "320x240"
+
+    const-string v2, "480x320"
+
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "240x320"
+
+    const-string v2, "480x320"
+
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 941
-    const/16 v1, 0x1ae
+    .line 979
+    :cond_0
+    const/16 v1, 0xf0
 
-    move v2, v1
+    move v2, v5
 
-    move v1, v4
-
-    .line 942
     goto :goto_0
 
+    .line 980
     :cond_1
-    move v1, v3
-
-    move v2, v6
-
-    .line 947
-    goto :goto_0
-
-    .line 949
-    :pswitch_5
     const-string v1, "480x320"
 
     const-string v1, "480x320"
 
-    invoke-virtual {v2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
-    .line 950
+    .line 981
     const/16 v1, 0x1ae
 
     move v2, v1
 
-    move v1, v4
+    move v1, v5
 
-    .line 951
+    .line 982
     goto :goto_0
 
     :cond_2
-    move v1, v3
+    move v1, v4
 
     move v2, v6
 
-    .line 956
+    .line 987
     goto :goto_0
 
-    .line 958
-    :pswitch_6
-    const-string v1, "480x320"
+    .line 990
+    :pswitch_5
+    const-string v1, "400x240"
 
-    const-string v1, "480x320"
+    const-string v2, "480x320"
 
-    invoke-virtual {v2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    .line 959
-    const-string v1, "GT-S5830"
-
-    const-string v1, "GT-S5830"
-
-    invoke-virtual {v5, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
     if-nez v1, :cond_3
 
-    const-string v1, "GT-S5830"
+    const-string v1, "480x320"
 
-    const-string v1, "GT-S5830G"
+    const-string v1, "480x320"
 
-    invoke-virtual {v5, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v3, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
     if-nez v1, :cond_3
 
-    const-string v1, "GT-S5830"
+    const-string v1, "320x240"
 
-    const-string v1, "GT-S5830F"
+    const-string v2, "480x320"
 
-    invoke-virtual {v5, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_3
+
+    const-string v1, "240x320"
+
+    const-string v2, "480x320"
+
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
     if-eqz v1, :cond_4
 
-    .line 960
+    .line 994
     :cond_3
     const/16 v1, 0xb0
 
-    .line 961
+    .line 995
     const/16 v2, 0x90
 
     move v7, v2
@@ -5006,40 +4866,27 @@
 
     goto :goto_0
 
-    .line 963
+    .line 997
     :cond_4
-    const/16 v1, 0x188
+    const/16 v1, 0x250
 
     move v2, v1
 
     move v1, v4
 
-    .line 964
+    .line 1000
     goto :goto_0
 
-    .line 967
-    :cond_5
-    const/16 v1, 0x250
-
-    move v2, v1
-
-    move v1, v3
-
-    .line 970
-    goto/16 :goto_0
-
-    .line 921
-    nop
-
+    .line 954
     :pswitch_data_0
     .packed-switch 0x7
-        :pswitch_4
-        :pswitch_2
         :pswitch_1
+        :pswitch_2
         :pswitch_3
+        :pswitch_4
         :pswitch_0
+        :pswitch_4
         :pswitch_5
-        :pswitch_6
     .end packed-switch
 .end method
 
@@ -5048,7 +4895,7 @@
     .parameter "request"
 
     .prologue
-    .line 1082
+    .line 1137
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
@@ -5066,17 +4913,17 @@
     .locals 1
 
     .prologue
-    .line 1324
+    .line 1413
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
     if-eqz v0, :cond_0
 
-    .line 1325
+    .line 1414
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ShutterButton;->restoreMenu()V
 
-    .line 1327
+    .line 1416
     :cond_0
     return-void
 .end method
@@ -5085,17 +4932,17 @@
     .locals 1
 
     .prologue
-    .line 1336
+    .line 1425
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
     if-eqz v0, :cond_0
 
-    .line 1337
+    .line 1426
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mShutterButton:Lcom/sec/android/app/camera/ShutterButton;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ShutterButton;->showTrayButton()V
 
-    .line 1339
+    .line 1428
     :cond_0
     return-void
 .end method
@@ -5106,19 +4953,19 @@
     .parameter "LevelRatio"
 
     .prologue
-    .line 1031
+    .line 1077
     packed-switch p1, :pswitch_data_0
 
-    .line 1036
+    .line 1082
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderBaseIndicators:Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
     invoke-virtual {v0, p2}, Lcom/sec/android/app/camera/CamcorderBaseIndicators;->setBatteryLevel(I)V
 
-    .line 1039
+    .line 1085
     :goto_0
     return-void
 
-    .line 1033
+    .line 1079
     :pswitch_0
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderBaseIndicators:Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
@@ -5126,7 +4973,7 @@
 
     goto :goto_0
 
-    .line 1031
+    .line 1077
     nop
 
     :pswitch_data_0
@@ -5141,7 +4988,7 @@
     .prologue
     const/16 v2, 0x1d
 
-    .line 1198
+    .line 1269
     iget-object v0, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CamcorderEngine;->getLastContentUri()Landroid/net/Uri;
@@ -5150,7 +4997,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1199
+    .line 1270
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getMenuDimController()Lcom/sec/android/app/camera/MenuDimController;
 
     move-result-object v0
@@ -5159,11 +5006,11 @@
 
     invoke-virtual {v0, v2, v1}, Lcom/sec/android/app/camera/MenuDimController;->refreshButtonDim(II)Z
 
-    .line 1203
+    .line 1276
     :goto_0
     return-void
 
-    .line 1201
+    .line 1273
     :cond_0
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->getMenuDimController()Lcom/sec/android/app/camera/MenuDimController;
 
@@ -5182,53 +5029,53 @@
     .prologue
     const/4 v2, 0x2
 
-    .line 1367
+    .line 1456
     const/4 v0, 0x0
 
-    .line 1368
+    .line 1457
     .local v0, nRemainTime:I
     iget v1, p0, Lcom/sec/android/app/camera/Camcorder;->mStorageStatus:I
 
     if-eq v1, v2, :cond_0
 
-    .line 1369
+    .line 1458
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camcorder;->checkStorageLow()V
 
-    .line 1370
+    .line 1459
     iget v1, p0, Lcom/sec/android/app/camera/Camcorder;->mStorageStatus:I
 
     if-nez v1, :cond_0
 
-    .line 1371
+    .line 1460
     iget-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderEngine:Lcom/sec/android/app/camera/CamcorderEngine;
 
     invoke-virtual {v1}, Lcom/sec/android/app/camera/CamcorderEngine;->getRemainTime()I
 
     move-result v0
 
-    .line 1372
+    .line 1461
     const/4 v1, -0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 1373
+    .line 1462
     iput v2, p0, Lcom/sec/android/app/camera/Camcorder;->mStorageStatus:I
 
-    .line 1377
+    .line 1466
     :cond_0
     iget v1, p0, Lcom/sec/android/app/camera/Camcorder;->mStorageStatus:I
 
     if-eqz v1, :cond_1
 
-    .line 1378
+    .line 1467
     const/4 v0, 0x0
 
-    .line 1380
+    .line 1469
     :cond_1
     iget-object v1, p0, Lcom/sec/android/app/camera/Camcorder;->mCamcorderBaseIndicators:Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
     invoke-virtual {v1, v0}, Lcom/sec/android/app/camera/CamcorderBaseIndicators;->setRemainTime(I)V
 
-    .line 1381
+    .line 1470
     return-void
 .end method

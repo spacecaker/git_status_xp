@@ -757,7 +757,7 @@
 .end method
 
 .method public static setExif(Ljava/lang/String;JLandroid/location/Location;III)V
-    .locals 4
+    .locals 3
     .parameter "filePath"
     .parameter "dateTaken"
     .parameter "location"
@@ -767,34 +767,34 @@
 
     .prologue
     .line 123
-    const/4 v0, 0x0
+    const/4 p6, 0x0
 
     .line 125
-    .local v0, exif:Landroid/media/ExifInterface;
+    .local p6, exif:Landroid/media/ExifInterface;
     :try_start_0
-    new-instance v1, Landroid/media/ExifInterface;
+    new-instance v0, Landroid/media/ExifInterface;
 
-    invoke-direct {v1, p0}, Landroid/media/ExifInterface;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Landroid/media/ExifInterface;-><init>(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 131
-    .end local v0           #exif:Landroid/media/ExifInterface;
-    .local v1, exif:Landroid/media/ExifInterface;
+    .end local p6           #exif:Landroid/media/ExifInterface;
+    .local v0, exif:Landroid/media/ExifInterface;
     new-instance p0, Ljava/text/SimpleDateFormat;
 
     .end local p0
-    const-string v0, "yyyy:MM:dd HH:mm:ss"
+    const-string p6, "yyyy:MM:dd HH:mm:ss"
 
-    invoke-direct {p0, v0}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p6}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
 
     .line 132
     .local p0, sdf:Ljava/text/SimpleDateFormat;
-    new-instance v0, Ljava/util/Date;
+    new-instance p6, Ljava/util/Date;
 
-    invoke-direct {v0, p1, p2}, Ljava/util/Date;-><init>(J)V
+    invoke-direct {p6, p1, p2}, Ljava/util/Date;-><init>(J)V
 
-    invoke-virtual {p0, v0}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+    invoke-virtual {p0, p6}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -803,7 +803,7 @@
     const-string p1, "DateTime"
 
     .end local p1
-    invoke-virtual {v1, p1, p0}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, p1, p0}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 135
     if-eqz p3, :cond_1
@@ -824,17 +824,17 @@
     if-eqz p2, :cond_0
 
     .line 139
-    const-string v0, "GPSLatitude"
+    const-string p6, "GPSLatitude"
 
-    invoke-virtual {v1, v0, p2}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, p6, p2}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 140
     const-string p2, "GPSLatitudeRef"
 
     .end local p2           #slat:Ljava/lang/String;
-    const-wide/16 v2, 0x0
+    const-wide/16 v1, 0x0
 
-    cmpl-double p0, p0, v2
+    cmpl-double p0, p0, v1
 
     if-lez p0, :cond_2
 
@@ -842,7 +842,7 @@
     const-string p0, "N"
 
     :goto_0
-    invoke-virtual {v1, p2, p0}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, p2, p0}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 143
     :cond_0
@@ -864,15 +864,15 @@
     const-string p3, "GPSLongitude"
 
     .end local p3
-    invoke-virtual {v1, p3, p2}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, p3, p2}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 147
     const-string p2, "GPSLongitudeRef"
 
     .end local p2           #slon:Ljava/lang/String;
-    const-wide/16 v2, 0x0
+    const-wide/16 v1, 0x0
 
-    cmpl-double p0, p0, v2
+    cmpl-double p0, p0, v1
 
     if-lez p0, :cond_3
 
@@ -880,7 +880,7 @@
     const-string p0, "E"
 
     :goto_1
-    invoke-virtual {v1, p2, p0}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, p2, p0}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 151
     :cond_1
@@ -888,14 +888,14 @@
 
     const-string p1, "SAMSUNG"
 
-    invoke-virtual {v1, p0, p1}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, p0, p1}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 152
     const-string p0, "Model"
 
-    const-string p1, "GT-S5830"
+    const-string p1, "GT-S5660"
 
-    invoke-virtual {v1, p0, p1}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, p0, p1}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 153
     const-string p0, "Orientation"
@@ -908,7 +908,7 @@
 
     move-result-object p1
 
-    invoke-virtual {v1, p0, p1}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, p0, p1}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 155
     if-nez p5, :cond_4
@@ -925,7 +925,7 @@
     move-result-object p0
 
     .end local p0           #wb:I
-    invoke-virtual {v1, p1, p0}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, p1, p0}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 159
     const/4 p0, 0x0
@@ -946,16 +946,12 @@
     .local p0, EXIF_FLASH_AUTO:I
     const/16 p0, 0x20
 
-    .line 167
+    .line 182
     .local p0, EXIF_FLASH_UNSUPPORTED:I
-    packed-switch p6, :pswitch_data_0
-
-    .line 179
-    const/4 p0, 0x0
+    move p0, p0
 
     .line 184
     .local p0, exifFlash:I
-    :goto_3
     const-string p1, "Flash"
 
     invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
@@ -963,28 +959,28 @@
     move-result-object p0
 
     .end local p0           #exifFlash:I
-    invoke-virtual {v1, p1, p0}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, p1, p0}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 187
     :try_start_1
-    invoke-virtual {v1}, Landroid/media/ExifInterface;->saveAttributes()V
+    invoke-virtual {v0}, Landroid/media/ExifInterface;->saveAttributes()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    :goto_4
-    move-object p0, v1
+    :goto_3
+    move-object p0, v0
 
     .line 191
-    .end local v1           #exif:Landroid/media/ExifInterface;
+    .end local v0           #exif:Landroid/media/ExifInterface;
     .local p0, exif:Landroid/media/ExifInterface;
-    :goto_5
+    :goto_4
     return-void
 
     .line 126
-    .restart local v0       #exif:Landroid/media/ExifInterface;
     .local p0, filePath:Ljava/lang/String;
     .restart local p1
     .restart local p3
+    .restart local p6       #exif:Landroid/media/ExifInterface;
     :catch_0
     move-exception p0
 
@@ -997,16 +993,16 @@
 
     invoke-static {p1, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    move-object p0, v0
+    move-object p0, p6
 
     .line 128
-    .end local v0           #exif:Landroid/media/ExifInterface;
+    .end local p6           #exif:Landroid/media/ExifInterface;
     .local p0, exif:Landroid/media/ExifInterface;
-    goto :goto_5
+    goto :goto_4
 
     .line 140
     .end local p0           #exif:Landroid/media/ExifInterface;
-    .restart local v1       #exif:Landroid/media/ExifInterface;
+    .restart local v0       #exif:Landroid/media/ExifInterface;
     :cond_2
     const-string p0, "S"
 
@@ -1025,35 +1021,7 @@
 
     goto :goto_2
 
-    .line 170
-    .local p0, EXIF_FLASH_UNSUPPORTED:I
-    :pswitch_0
-    const/16 p0, 0x8
-
-    .line 171
-    .local p0, exifFlash:I
-    goto :goto_3
-
-    .line 173
-    .local p0, EXIF_FLASH_UNSUPPORTED:I
-    :pswitch_1
-    const/16 p0, 0x18
-
-    .line 174
-    .local p0, exifFlash:I
-    goto :goto_3
-
-    .line 176
-    .local p0, EXIF_FLASH_UNSUPPORTED:I
-    :pswitch_2
-    const/16 p0, 0x10
-
-    .line 177
-    .local p0, exifFlash:I
-    goto :goto_3
-
     .line 188
-    .end local p0           #exifFlash:I
     :catch_1
     move-exception p0
 
@@ -1065,18 +1033,7 @@
 
     invoke-static {p1, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_4
-
-    .line 167
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    goto :goto_3
 .end method
 
 .method public static setImageSize(Landroid/content/ContentResolver;Landroid/net/Uri;J)V

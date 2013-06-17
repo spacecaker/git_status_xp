@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 46
+    .line 47
     iput-object p1, p0, Lcom/sec/android/app/camera/CamcorderBaseIndicators$1;->this$0:Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 49
+    .line 50
     iget-object v0, p0, Lcom/sec/android/app/camera/CamcorderBaseIndicators$1;->this$0:Lcom/sec/android/app/camera/CamcorderBaseIndicators;
 
     #getter for: Lcom/sec/android/app/camera/CamcorderBaseIndicators;->mLaunchIcon:Landroid/widget/RelativeLayout;
@@ -53,6 +53,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
-    .line 50
+    .line 51
     return-void
 .end method

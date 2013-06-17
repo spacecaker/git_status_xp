@@ -63,9 +63,9 @@
 
     const/4 v5, 0x1
 
-    const-string v8, "SelectButton"
+    const-string v8, "Selet "
 
-    const-string v7, "Select "
+    const-string v7, "SelectButton"
 
     .line 58
     iget-boolean v3, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mDisabled:Z
@@ -79,7 +79,7 @@
     :cond_0
     move v3, v5
 
-    .line 107
+    .line 109
     :goto_0
     return v3
 
@@ -102,7 +102,7 @@
 
     move-result-object v2
 
-    .line 68
+    .line 69
     :cond_2
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
@@ -110,16 +110,16 @@
 
     if-nez v3, :cond_4
 
-    .line 69
+    .line 70
     const-string v3, "SelectButton"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Select "
+    const-string v4, "Selet "
 
-    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -131,34 +131,34 @@
 
     move-result-object v3
 
-    invoke-static {v8, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 70
+    .line 71
     iget-boolean v3, p0, Lcom/sec/android/app/camera/widget/TwSelectButton;->mSelected:Z
 
     iput-boolean v3, p0, Lcom/sec/android/app/camera/widget/TwSelectButton;->mPrevSelected:Z
 
-    .line 71
+    .line 72
     iget v3, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPressedImage:I
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/camera/widget/TwSelectButton;->setButtonImage(I)V
 
-    .line 72
+    .line 73
     iget v3, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPressedBackground:I
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/camera/widget/TwSelectButton;->setBackgroundResource(I)V
 
-    .line 73
+    .line 74
     invoke-virtual {p0, v5}, Lcom/sec/android/app/camera/widget/TwSelectButton;->showToolTip(Z)V
 
-    .line 104
+    .line 106
     :cond_3
     :goto_1
     iget-object v3, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
     if-eqz v3, :cond_9
 
-    .line 105
+    .line 107
     iget-object v3, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
     invoke-interface {v3, p0, p2}, Landroid/view/View$OnTouchListener;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
@@ -167,7 +167,7 @@
 
     goto :goto_0
 
-    .line 74
+    .line 75
     :cond_4
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
@@ -175,16 +175,16 @@
 
     if-ne v3, v5, :cond_3
 
-    .line 75
+    .line 76
     const-string v3, "SelectButton"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Select "
+    const-string v4, "Selet "
 
-    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -196,12 +196,12 @@
 
     move-result-object v3
 
-    invoke-static {v8, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 76
-    invoke-virtual {p0, v6}, Lcom/sec/android/app/camera/widget/TwSelectButton;->showToolTip(Z)V
+    invoke-static {v7, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 77
+    invoke-virtual {p0, v6}, Lcom/sec/android/app/camera/widget/TwSelectButton;->showToolTip(Z)V
+
+    .line 78
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
     move-result v3
@@ -220,79 +220,79 @@
 
     if-eqz v3, :cond_6
 
-    .line 78
+    .line 79
     iget-boolean v3, p0, Lcom/sec/android/app/camera/widget/TwSelectButton;->mSelected:Z
 
     if-eqz v3, :cond_5
 
-    .line 79
+    .line 80
     iput-boolean v6, p0, Lcom/sec/android/app/camera/widget/TwSelectButton;->mSelected:Z
 
-    .line 80
+    .line 81
     iget v3, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mNormalImage:I
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/camera/widget/TwSelectButton;->setButtonImage(I)V
 
-    .line 81
+    .line 82
     iget v3, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mNormalBackground:I
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/camera/widget/TwSelectButton;->setBackgroundResource(I)V
 
     goto :goto_1
 
-    .line 83
+    .line 84
     :cond_5
     iput-boolean v5, p0, Lcom/sec/android/app/camera/widget/TwSelectButton;->mSelected:Z
 
-    .line 84
+    .line 85
     iget v3, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPressedImage:I
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/camera/widget/TwSelectButton;->setButtonImage(I)V
 
-    .line 85
+    .line 86
     iget v3, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPressedBackground:I
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/camera/widget/TwSelectButton;->setBackgroundResource(I)V
 
     goto :goto_1
 
-    .line 89
+    .line 90
     :cond_6
     iget-boolean v3, p0, Lcom/sec/android/app/camera/widget/TwSelectButton;->mPrevSelected:Z
 
     if-nez v3, :cond_7
 
-    .line 90
+    .line 91
     iput-boolean v6, p0, Lcom/sec/android/app/camera/widget/TwSelectButton;->mSelected:Z
 
-    .line 91
+    .line 92
     iget v3, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mNormalImage:I
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/camera/widget/TwSelectButton;->setButtonImage(I)V
 
-    .line 92
+    .line 93
     iget v3, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mNormalBackground:I
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/camera/widget/TwSelectButton;->setBackgroundResource(I)V
 
-    .line 96
+    .line 97
     :cond_7
     iget-object v3, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
     if-eqz v3, :cond_8
 
-    .line 97
+    .line 98
     invoke-static {p2}, Landroid/view/MotionEvent;->obtain(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
 
     move-result-object v0
 
-    .line 98
+    .line 99
     .local v0, ev:Landroid/view/MotionEvent;
     const/4 v3, 0x3
 
     invoke-virtual {v0, v3}, Landroid/view/MotionEvent;->setAction(I)V
 
-    .line 99
+    .line 100
     iget-object v3, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
     invoke-interface {v3, p0, v0}, Landroid/view/View$OnTouchListener;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
@@ -305,13 +305,13 @@
     :cond_8
     move v3, v5
 
-    .line 101
+    .line 102
     goto/16 :goto_0
 
     :cond_9
     move v3, v6
 
-    .line 107
+    .line 109
     goto/16 :goto_0
 .end method
 
@@ -320,81 +320,81 @@
     .parameter "dimmed"
 
     .prologue
-    .line 111
+    .line 113
     iput-boolean p1, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mDimmed:Z
 
-    .line 112
+    .line 114
     iget-boolean v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mDimmed:Z
 
     if-eqz v0, :cond_2
 
-    .line 113
+    .line 115
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSelectButton;->SetClickSoundDisabled()V
 
-    .line 114
+    .line 116
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mDimmedImage:I
 
     if-eqz v0, :cond_0
 
-    .line 115
+    .line 117
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mDimmedImage:I
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/widget/TwSelectButton;->setButtonImage(I)V
 
-    .line 117
+    .line 119
     :cond_0
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mDimmedBackground:I
 
     if-eqz v0, :cond_1
 
-    .line 118
+    .line 120
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mDimmedBackground:I
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/widget/TwSelectButton;->setBackgroundResource(I)V
 
-    .line 134
+    .line 136
     :cond_1
     :goto_0
     return-void
 
-    .line 121
+    .line 123
     :cond_2
     invoke-virtual {p0}, Lcom/sec/android/app/camera/widget/TwSelectButton;->SetClickSoundEnabled()V
 
-    .line 122
+    .line 124
     iget-boolean v0, p0, Lcom/sec/android/app/camera/widget/TwSelectButton;->mSelected:Z
 
     if-eqz v0, :cond_3
 
-    .line 123
+    .line 125
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPressedImage:I
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/widget/TwSelectButton;->setButtonImage(I)V
 
-    .line 124
+    .line 126
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPressedBackground:I
 
     if-eqz v0, :cond_1
 
-    .line 125
+    .line 127
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mPressedBackground:I
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/widget/TwSelectButton;->setBackgroundResource(I)V
 
     goto :goto_0
 
-    .line 128
+    .line 130
     :cond_3
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mNormalImage:I
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/widget/TwSelectButton;->setButtonImage(I)V
 
-    .line 129
+    .line 131
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mNormalBackground:I
 
     if-eqz v0, :cond_1
 
-    .line 130
+    .line 132
     iget v0, p0, Lcom/sec/android/app/camera/widget/TwImageButton;->mNormalBackground:I
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/widget/TwSelectButton;->setBackgroundResource(I)V

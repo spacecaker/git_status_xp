@@ -63,7 +63,7 @@
 
     .line 48
     .local v0, attr:Landroid/content/res/TypedArray;
-    const v1, 0x7f020157
+    const v1, 0x7f020173
 
     invoke-virtual {v0, v3, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -72,7 +72,7 @@
     invoke-virtual {p0, v3, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorMetering;->addImageId(II)V
 
     .line 51
-    const v1, 0x7f020155
+    const v1, 0x7f020171
 
     invoke-virtual {v0, v4, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -81,7 +81,7 @@
     invoke-virtual {p0, v4, v1}, Lcom/sec/android/app/camera/widget/TwIndicatorMetering;->addImageId(II)V
 
     .line 54
-    const v1, 0x7f020156
+    const v1, 0x7f020172
 
     invoke-virtual {v0, v5, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 

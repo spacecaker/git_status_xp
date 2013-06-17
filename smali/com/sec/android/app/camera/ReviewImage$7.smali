@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 398
+    .line 399
     iput-object p1, p0, Lcom/sec/android/app/camera/ReviewImage$7;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 400
+    .line 401
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$7;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/ReviewImage;->mAllImages:Lcom/sec/android/app/camera/gallery/IImageList;
@@ -58,7 +58,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 401
+    .line 402
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$7;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     new-instance v1, Landroid/content/Intent;
@@ -69,7 +69,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/ReviewImage;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 405
+    .line 406
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$7;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/ReviewImage;->mAllImages:Lcom/sec/android/app/camera/gallery/IImageList;
@@ -80,17 +80,17 @@
 
     if-nez v0, :cond_1
 
-    .line 406
+    .line 407
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$7;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ReviewImage;->finish()V
 
-    .line 416
+    .line 417
     :cond_0
     :goto_0
     return-void
 
-    .line 409
+    .line 410
     :cond_1
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$7;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
@@ -106,7 +106,7 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 410
+    .line 411
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$7;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     iget v1, v0, Lcom/sec/android/app/camera/ReviewImage;->mCurrentPosition:I
@@ -115,7 +115,7 @@
 
     iput v1, v0, Lcom/sec/android/app/camera/ReviewImage;->mCurrentPosition:I
 
-    .line 413
+    .line 414
     :cond_2
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$7;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
@@ -126,7 +126,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/ImageViewTouch2;->clear()V
 
-    .line 414
+    .line 415
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$7;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     #getter for: Lcom/sec/android/app/camera/ReviewImage;->mCache:Lcom/sec/android/app/camera/BitmapCache;
@@ -136,7 +136,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/BitmapCache;->clear()V
 
-    .line 415
+    .line 416
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$7;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     iget-object v1, p0, Lcom/sec/android/app/camera/ReviewImage$7;->this$0:Lcom/sec/android/app/camera/ReviewImage;

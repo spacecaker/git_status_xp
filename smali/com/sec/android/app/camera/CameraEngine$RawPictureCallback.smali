@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 565
+    .line 597
     iput-object p1, p0, Lcom/sec/android/app/camera/CameraEngine$RawPictureCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .parameter "x1"
 
     .prologue
-    .line 565
+    .line 597
     invoke-direct {p0, p1}, Lcom/sec/android/app/camera/CameraEngine$RawPictureCallback;-><init>(Lcom/sec/android/app/camera/CameraEngine;)V
 
     return-void
@@ -50,19 +50,21 @@
 
 # virtual methods
 .method public onPictureTaken([BLcom/sec/android/seccamera/SecCamera;)V
-    .locals 4
+    .locals 5
     .parameter "rawData"
     .parameter "camera"
 
     .prologue
-    .line 568
+    const-string v4, "CameraEngine"
+
+    .line 600
     const-string v2, "CameraEngine"
 
-    const-string v3, "RawPictureCallback.onPictureTaken"
+    const-string v2, "RawPictureCallback.onPictureTaken"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 570
+    .line 602
     iget-object v2, p0, Lcom/sec/android/app/camera/CameraEngine$RawPictureCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v2, v2, Lcom/sec/android/app/camera/CameraEngine;->mCurrentState:Lcom/sec/android/app/camera/AbstractCeState;
@@ -73,14 +75,26 @@
 
     const/4 v3, 0x7
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_1
 
-    .line 591
+    .line 624
+    :cond_0
     :goto_0
     return-void
 
-    .line 577
-    :cond_0
+    .line 610
+    :cond_1
+    const-string v2, "GT-S5660"
+
+    const-string v3, "GT-B7510"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 611
     iget-object v2, p0, Lcom/sec/android/app/camera/CameraEngine$RawPictureCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     #getter for: Lcom/sec/android/app/camera/CameraEngine;->mParameters:Lcom/sec/android/seccamera/SecCamera$Parameters;
@@ -92,11 +106,18 @@
 
     move-result v1
 
-    .line 581
+    .line 612
     .local v1, cur_zoom:I
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
-    .line 582
+    .line 613
+    const-string v2, "CameraEngine"
+
+    const-string v2, "<=PCAM=> B7510 capture mode"
+
+    invoke-static {v4, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 614
     iget-object v2, p0, Lcom/sec/android/app/camera/CameraEngine$RawPictureCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v2, v2, Lcom/sec/android/app/camera/CameraEngine;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
@@ -109,11 +130,11 @@
 
     move-result v0
 
-    .line 584
+    .line 616
     .local v0, curShootingMode:I
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
-    .line 586
+    .line 618
     iget-object v2, p0, Lcom/sec/android/app/camera/CameraEngine$RawPictureCallback;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v2, v2, Lcom/sec/android/app/camera/CameraEngine;->mStateMessageHandler:Lcom/sec/android/app/camera/CameraEngine$StateMessageHandler;
@@ -121,13 +142,6 @@
     const/4 v3, 0x3
 
     invoke-virtual {v2, v3}, Lcom/sec/android/app/camera/CameraEngine$StateMessageHandler;->sendEmptyMessage(I)Z
-
-    .line 590
-    .end local v0           #curShootingMode:I
-    :cond_1
-    const-wide/16 v2, 0x64
-
-    invoke-static {v2, v3}, Landroid/os/SystemClock;->sleep(J)V
 
     goto :goto_0
 .end method

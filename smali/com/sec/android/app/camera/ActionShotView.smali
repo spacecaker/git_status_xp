@@ -18,8 +18,6 @@
 
 .field private mCaptureProgressBar:Landroid/widget/ProgressBar;
 
-.field private mIndicatorView:Landroid/view/ViewGroup;
-
 .field private mListener:Lcom/sec/android/app/camera/ActionShotView$ActionShotCaptureCancelListener;
 
 .field private mPostCaptureLayout:Landroid/widget/RelativeLayout;
@@ -71,122 +69,121 @@
 .end method
 
 .method private init()V
-    .locals 3
+    .locals 4
 
     .prologue
-    .line 64
-    iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+    .line 65
+    iget-object v1, p0, Lcom/sec/android/app/camera/ActionShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const v1, 0x7f0a0003
+    const v2, 0x7f0a0003
 
-    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/RelativeLayout;
+    check-cast v1, Landroid/widget/RelativeLayout;
 
-    iput-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mCaptureLayout:Landroid/widget/RelativeLayout;
-
-    .line 67
-    iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
-
-    const v1, 0x7f0a0004
-
-    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/ProgressBar;
-
-    iput-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mCaptureProgressBar:Landroid/widget/ProgressBar;
+    iput-object v1, p0, Lcom/sec/android/app/camera/ActionShotView;->mCaptureLayout:Landroid/widget/RelativeLayout;
 
     .line 68
-    iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mCaptureProgressBar:Landroid/widget/ProgressBar;
+    iget-object v1, p0, Lcom/sec/android/app/camera/ActionShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const/16 v1, 0x64
+    const v2, 0x7f0a0004
 
-    invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setMax(I)V
+    invoke-virtual {v1, v2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
 
-    .line 71
-    iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+    move-result-object v1
 
-    const v1, 0x7f0a0005
+    check-cast v1, Landroid/widget/ProgressBar;
 
-    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
+    iput-object v1, p0, Lcom/sec/android/app/camera/ActionShotView;->mCaptureProgressBar:Landroid/widget/ProgressBar;
 
-    move-result-object v0
+    .line 69
+    iget-object v1, p0, Lcom/sec/android/app/camera/ActionShotView;->mCaptureProgressBar:Landroid/widget/ProgressBar;
 
-    check-cast v0, Landroid/widget/RelativeLayout;
+    const/16 v2, 0x64
 
-    iput-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mPostCaptureLayout:Landroid/widget/RelativeLayout;
+    invoke-virtual {v1, v2}, Landroid/widget/ProgressBar;->setMax(I)V
 
-    .line 74
-    iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
+    .line 72
+    iget-object v1, p0, Lcom/sec/android/app/camera/ActionShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const v1, 0x7f0a0007
+    const v2, 0x7f0a0005
 
-    invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/ProgressBar;
+    check-cast v1, Landroid/widget/RelativeLayout;
 
-    iput-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mPostCaptureProgressBar:Landroid/widget/ProgressBar;
+    iput-object v1, p0, Lcom/sec/android/app/camera/ActionShotView;->mPostCaptureLayout:Landroid/widget/RelativeLayout;
 
     .line 75
-    iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mPostCaptureProgressBar:Landroid/widget/ProgressBar;
+    iget-object v1, p0, Lcom/sec/android/app/camera/ActionShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
-    const/4 v1, 0x0
+    const v2, 0x7f0a0007
 
-    invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setProgress(I)V
+    invoke-virtual {v1, v2}, Lcom/sec/android/app/camera/AbstractCameraActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/ProgressBar;
+
+    iput-object v1, p0, Lcom/sec/android/app/camera/ActionShotView;->mPostCaptureProgressBar:Landroid/widget/ProgressBar;
 
     .line 76
-    iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
+    iget-object v1, p0, Lcom/sec/android/app/camera/ActionShotView;->mPostCaptureProgressBar:Landroid/widget/ProgressBar;
 
-    const v1, 0x7f03000f
+    const/4 v2, 0x0
 
-    iget-object v2, p0, Lcom/sec/android/app/camera/ActionShotView;->mBaseView:Landroid/view/ViewGroup;
-
-    invoke-virtual {v0, v1, v2}, Lcom/sec/android/app/camera/MenuResourceData;->getMenuByLayoutId(ILandroid/view/ViewGroup;)Lcom/sec/android/app/camera/MenuBase;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/sec/android/app/camera/CameraSideMenu;
-
-    iput-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mSideMenu:Lcom/sec/android/app/camera/CameraSideMenu;
+    invoke-virtual {v1, v2}, Landroid/widget/ProgressBar;->setProgress(I)V
 
     .line 77
-    iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
+    iget-object v1, p0, Lcom/sec/android/app/camera/ActionShotView;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
-    const v1, 0x7f03000a
+    const v2, 0x7f03000f
 
-    iget-object v2, p0, Lcom/sec/android/app/camera/ActionShotView;->mBaseView:Landroid/view/ViewGroup;
+    iget-object v3, p0, Lcom/sec/android/app/camera/ActionShotView;->mBaseView:Landroid/view/ViewGroup;
 
-    invoke-virtual {v0, v1, v2}, Lcom/sec/android/app/camera/MenuResourceData;->getMenuByLayoutId(ILandroid/view/ViewGroup;)Lcom/sec/android/app/camera/MenuBase;
+    invoke-virtual {v1, v2, v3}, Lcom/sec/android/app/camera/MenuResourceData;->getMenuByLayoutId(ILandroid/view/ViewGroup;)Lcom/sec/android/app/camera/MenuBase;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lcom/sec/android/app/camera/CameraBaseIndicators;
+    check-cast v1, Lcom/sec/android/app/camera/CameraSideMenu;
 
-    iput-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mCameraBaseIndicator:Lcom/sec/android/app/camera/CameraBaseIndicators;
+    iput-object v1, p0, Lcom/sec/android/app/camera/ActionShotView;->mSideMenu:Lcom/sec/android/app/camera/CameraSideMenu;
 
-    .line 79
-    iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mBaseView:Landroid/view/ViewGroup;
+    .line 78
+    iget-object v1, p0, Lcom/sec/android/app/camera/ActionShotView;->mMenuResourceData:Lcom/sec/android/app/camera/MenuResourceData;
 
-    const v1, 0x7f0a0002
+    const v2, 0x7f03000a
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    iget-object v3, p0, Lcom/sec/android/app/camera/ActionShotView;->mBaseView:Landroid/view/ViewGroup;
+
+    invoke-virtual {v1, v2, v3}, Lcom/sec/android/app/camera/MenuResourceData;->getMenuByLayoutId(ILandroid/view/ViewGroup;)Lcom/sec/android/app/camera/MenuBase;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/sec/android/app/camera/CameraBaseIndicators;
+
+    iput-object v1, p0, Lcom/sec/android/app/camera/ActionShotView;->mCameraBaseIndicator:Lcom/sec/android/app/camera/CameraBaseIndicators;
+
+    .line 80
+    iget-object v1, p0, Lcom/sec/android/app/camera/ActionShotView;->mBaseView:Landroid/view/ViewGroup;
+
+    const v2, 0x7f0a0002
+
+    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/ViewGroup;
 
-    iput-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mIndicatorView:Landroid/view/ViewGroup;
-
-    .line 87
+    .line 88
+    .local v0, mIndicatorView:Landroid/view/ViewGroup;
     invoke-virtual {p0}, Lcom/sec/android/app/camera/ActionShotView;->resetAcquisitionProgress()V
 
-    .line 88
+    .line 89
     return-void
 .end method
 
@@ -196,14 +193,14 @@
     .locals 2
 
     .prologue
-    .line 141
+    .line 142
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mCaptureLayout:Landroid/widget/RelativeLayout;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
-    .line 146
+    .line 147
     return-void
 .end method
 
@@ -211,14 +208,14 @@
     .locals 2
 
     .prologue
-    .line 153
+    .line 154
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mPostCaptureLayout:Landroid/widget/RelativeLayout;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
-    .line 154
+    .line 155
     return-void
 .end method
 
@@ -226,7 +223,7 @@
     .locals 1
 
     .prologue
-    .line 91
+    .line 92
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mCaptureProgressBar:Landroid/widget/ProgressBar;
 
     invoke-virtual {v0}, Landroid/widget/ProgressBar;->getProgress()I
@@ -235,22 +232,22 @@
 
     if-nez v0, :cond_0
 
-    .line 92
+    .line 93
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/AbstractCameraActivity;->processBack()V
 
-    .line 97
+    .line 98
     :goto_0
     return-void
 
-    .line 94
+    .line 95
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mListener:Lcom/sec/android/app/camera/ActionShotView$ActionShotCaptureCancelListener;
 
     invoke-interface {v0}, Lcom/sec/android/app/camera/ActionShotView$ActionShotCaptureCancelListener;->onActionShotCaptureCancelled()V
 
-    .line 95
+    .line 96
     invoke-virtual {p0}, Lcom/sec/android/app/camera/ActionShotView;->resetAcquisitionProgress()V
 
     goto :goto_0
@@ -266,18 +263,18 @@
 
     const/4 v1, 0x1
 
-    .line 165
+    .line 166
     const/16 v0, 0x1a
 
     if-ne p1, v0, :cond_0
 
     move v0, v2
 
-    .line 185
+    .line 186
     :goto_0
     return v0
 
-    .line 169
+    .line 170
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -293,10 +290,10 @@
 
     move v0, v1
 
-    .line 170
+    .line 171
     goto :goto_0
 
-    .line 173
+    .line 174
     :cond_1
     const/16 v0, 0x18
 
@@ -317,10 +314,10 @@
     :cond_2
     move v0, v1
 
-    .line 175
+    .line 176
     goto :goto_0
 
-    .line 178
+    .line 179
     :cond_3
     const/4 v0, 0x4
 
@@ -338,7 +335,7 @@
 
     if-ne p1, v0, :cond_5
 
-    .line 180
+    .line 181
     :cond_4
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mPostCaptureLayout:Landroid/widget/RelativeLayout;
 
@@ -350,13 +347,13 @@
 
     move v0, v1
 
-    .line 181
+    .line 182
     goto :goto_0
 
     :cond_5
     move v0, v2
 
-    .line 185
+    .line 186
     goto :goto_0
 .end method
 
@@ -370,18 +367,18 @@
 
     const/4 v1, 0x1
 
-    .line 189
+    .line 190
     const/16 v0, 0x1a
 
     if-ne p1, v0, :cond_0
 
     move v0, v2
 
-    .line 209
+    .line 210
     :goto_0
     return v0
 
-    .line 193
+    .line 194
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
@@ -397,10 +394,10 @@
 
     move v0, v1
 
-    .line 194
+    .line 195
     goto :goto_0
 
-    .line 197
+    .line 198
     :cond_1
     const/16 v0, 0x18
 
@@ -421,10 +418,10 @@
     :cond_2
     move v0, v1
 
-    .line 199
+    .line 200
     goto :goto_0
 
-    .line 202
+    .line 203
     :cond_3
     const/4 v0, 0x4
 
@@ -442,7 +439,7 @@
 
     if-ne p1, v0, :cond_5
 
-    .line 204
+    .line 205
     :cond_4
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mPostCaptureLayout:Landroid/widget/RelativeLayout;
 
@@ -454,13 +451,13 @@
 
     move v0, v1
 
-    .line 205
+    .line 206
     goto :goto_0
 
     :cond_5
     move v0, v2
 
-    .line 209
+    .line 210
     goto :goto_0
 .end method
 
@@ -468,7 +465,7 @@
     .locals 1
 
     .prologue
-    .line 213
+    .line 214
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mCaptureProgressBar:Landroid/widget/ProgressBar;
 
     invoke-virtual {v0}, Landroid/widget/ProgressBar;->getProgress()I
@@ -477,17 +474,17 @@
 
     if-lez v0, :cond_0
 
-    .line 214
+    .line 215
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     check-cast v0, Lcom/sec/android/app/camera/Camera;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/Camera;->onActionShotCaptureCancelled()V
 
-    .line 215
+    .line 216
     invoke-virtual {p0}, Lcom/sec/android/app/camera/ActionShotView;->resetAcquisitionProgress()V
 
-    .line 217
+    .line 218
     :cond_0
     return-void
 .end method
@@ -500,34 +497,34 @@
 
     const/4 v1, 0x0
 
-    .line 100
+    .line 101
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mCaptureProgressBar:Landroid/widget/ProgressBar;
 
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setProgress(I)V
 
-    .line 101
+    .line 102
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mSideMenu:Lcom/sec/android/app/camera/CameraSideMenu;
 
     invoke-virtual {v0, v2}, Lcom/sec/android/app/camera/CameraSideMenu;->setAnimationEnabled(Z)V
 
-    .line 102
+    .line 103
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mSideMenu:Lcom/sec/android/app/camera/CameraSideMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSideMenu;->restoreMenu()V
 
-    .line 103
+    .line 104
     invoke-virtual {p0}, Lcom/sec/android/app/camera/ActionShotView;->showMenu()V
 
-    .line 104
+    .line 105
     invoke-virtual {p0}, Lcom/sec/android/app/camera/ActionShotView;->restoreMenu()V
 
-    .line 109
+    .line 110
     invoke-virtual {p0, v2}, Lcom/sec/android/app/camera/ActionShotView;->setTouchHandled(Z)V
 
-    .line 110
+    .line 111
     iput-boolean v1, p0, Lcom/sec/android/app/camera/ActionShotView;->mSideMenuHidden:Z
 
-    .line 111
+    .line 112
     return-void
 .end method
 
@@ -536,49 +533,49 @@
     .parameter "nProgress"
 
     .prologue
-    .line 114
+    .line 115
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mCaptureProgressBar:Landroid/widget/ProgressBar;
 
     invoke-virtual {v0, p1}, Landroid/widget/ProgressBar;->setProgress(I)V
 
-    .line 117
+    .line 118
     iget-boolean v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mSideMenuHidden:Z
 
     if-nez v0, :cond_0
 
-    .line 118
+    .line 119
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mSideMenuHidden:Z
 
-    .line 119
+    .line 120
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/camera/ActionShotView;->setTouchHandled(Z)V
 
-    .line 120
+    .line 121
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mSideMenu:Lcom/sec/android/app/camera/CameraSideMenu;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraSideMenu;->hideMenu()V
 
-    .line 121
+    .line 122
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mCameraBaseIndicator:Lcom/sec/android/app/camera/CameraBaseIndicators;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraBaseIndicators;->restoreMenu()V
 
-    .line 122
+    .line 123
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mCameraBaseIndicator:Lcom/sec/android/app/camera/CameraBaseIndicators;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraBaseIndicators;->hideTextMessage()V
 
-    .line 123
+    .line 124
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     check-cast v0, Lcom/sec/android/app/camera/Camera;
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/Camera;->showShutterButton()V
 
-    .line 124
+    .line 125
     iget-object p0, p0, Lcom/sec/android/app/camera/ActionShotView;->mActivityContext:Lcom/sec/android/app/camera/AbstractCameraActivity;
 
     .end local p0
@@ -586,7 +583,7 @@
 
     invoke-virtual {p0}, Lcom/sec/android/app/camera/Camera;->hideTrayButton()V
 
-    .line 130
+    .line 131
     :cond_0
     return-void
 .end method
@@ -596,10 +593,10 @@
     .parameter "listener"
 
     .prologue
-    .line 160
+    .line 161
     iput-object p1, p0, Lcom/sec/android/app/camera/ActionShotView;->mListener:Lcom/sec/android/app/camera/ActionShotView$ActionShotCaptureCancelListener;
 
-    .line 161
+    .line 162
     return-void
 .end method
 
@@ -608,12 +605,12 @@
     .parameter "progress"
 
     .prologue
-    .line 133
+    .line 134
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mPostCaptureProgressBar:Landroid/widget/ProgressBar;
 
     invoke-virtual {v0, p1}, Landroid/widget/ProgressBar;->setProgress(I)V
 
-    .line 134
+    .line 135
     return-void
 .end method
 
@@ -622,12 +619,12 @@
     .parameter "max"
 
     .prologue
-    .line 137
+    .line 138
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mPostCaptureProgressBar:Landroid/widget/ProgressBar;
 
     invoke-virtual {v0, p1}, Landroid/widget/ProgressBar;->setMax(I)V
 
-    .line 138
+    .line 139
     return-void
 .end method
 
@@ -635,14 +632,14 @@
     .locals 2
 
     .prologue
-    .line 149
+    .line 150
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mCaptureLayout:Landroid/widget/RelativeLayout;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
-    .line 150
+    .line 151
     return-void
 .end method
 
@@ -650,13 +647,13 @@
     .locals 2
 
     .prologue
-    .line 157
+    .line 158
     iget-object v0, p0, Lcom/sec/android/app/camera/ActionShotView;->mPostCaptureLayout:Landroid/widget/RelativeLayout;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
-    .line 158
+    .line 159
     return-void
 .end method

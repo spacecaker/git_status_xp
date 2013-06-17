@@ -36,7 +36,7 @@
     .locals 1
 
     .prologue
-    .line 60
+    .line 68
     const/4 v0, 0x0
 
     sput-object v0, Lcom/sec/android/app/camera/BitmapManager;->sManager:Lcom/sec/android/app/camera/BitmapManager;
@@ -48,17 +48,17 @@
     .locals 1
 
     .prologue
-    .line 62
+    .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 57
+    .line 65
     new-instance v0, Ljava/util/WeakHashMap;
 
     invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/camera/BitmapManager;->mThreadStatus:Ljava/util/WeakHashMap;
 
-    .line 63
+    .line 71
     return-void
 .end method
 
@@ -67,7 +67,7 @@
     .parameter "t"
 
     .prologue
-    .line 69
+    .line 77
     monitor-enter p0
 
     :try_start_0
@@ -79,11 +79,11 @@
 
     check-cast v0, Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;
 
-    .line 70
+    .line 78
     .local v0, status:Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;
     if-nez v0, :cond_0
 
-    .line 71
+    .line 79
     new-instance v0, Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;
 
     .end local v0           #status:Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;
@@ -91,7 +91,7 @@
 
     invoke-direct {v0, v1}, Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;-><init>(Lcom/sec/android/app/camera/BitmapManager$1;)V
 
-    .line 72
+    .line 80
     .restart local v0       #status:Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;
     iget-object v1, p0, Lcom/sec/android/app/camera/BitmapManager;->mThreadStatus:Ljava/util/WeakHashMap;
 
@@ -99,13 +99,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 74
+    .line 82
     :cond_0
     monitor-exit p0
 
     return-object v0
 
-    .line 69
+    .line 77
     .end local v0           #status:Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;
     :catchall_0
     move-exception v1
@@ -119,7 +119,7 @@
     .locals 2
 
     .prologue
-    .line 124
+    .line 130
     const-class v0, Lcom/sec/android/app/camera/BitmapManager;
 
     monitor-enter v0
@@ -129,14 +129,14 @@
 
     if-nez v1, :cond_0
 
-    .line 125
+    .line 131
     new-instance v1, Lcom/sec/android/app/camera/BitmapManager;
 
     invoke-direct {v1}, Lcom/sec/android/app/camera/BitmapManager;-><init>()V
 
     sput-object v1, Lcom/sec/android/app/camera/BitmapManager;->sManager:Lcom/sec/android/app/camera/BitmapManager;
 
-    .line 127
+    .line 133
     :cond_0
     sget-object v1, Lcom/sec/android/app/camera/BitmapManager;->sManager:Lcom/sec/android/app/camera/BitmapManager;
     :try_end_0
@@ -146,7 +146,7 @@
 
     return-object v1
 
-    .line 124
+    .line 130
     :catchall_0
     move-exception v1
 
@@ -161,7 +161,7 @@
     .parameter "options"
 
     .prologue
-    .line 83
+    .line 91
     monitor-enter p0
 
     :try_start_0
@@ -173,12 +173,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 84
+    .line 92
     monitor-exit p0
 
     return-void
 
-    .line 83
+    .line 91
     :catchall_0
     move-exception v0
 
@@ -194,7 +194,7 @@
     .parameter "t"
 
     .prologue
-    .line 109
+    .line 115
     monitor-enter p0
 
     :try_start_0
@@ -208,12 +208,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 110
+    .line 116
     monitor-exit p0
 
     return-void
 
-    .line 109
+    .line 115
     :catchall_0
     move-exception v0
 
@@ -229,7 +229,7 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 98
+    .line 104
     monitor-enter p0
 
     :try_start_0
@@ -243,19 +243,19 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 99
+    .line 105
     .local v1, status:Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;
     if-nez v1, :cond_0
 
     move v2, v4
 
-    .line 105
+    .line 111
     :goto_0
     monitor-exit p0
 
     return v2
 
-    .line 104
+    .line 110
     :cond_0
     :try_start_1
     iget-object v2, v1, Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;->mState:Lcom/sec/android/app/camera/BitmapManager$State;
@@ -272,10 +272,10 @@
     :goto_1
     move v2, v0
 
-    .line 105
+    .line 111
     goto :goto_0
 
-    .line 104
+    .line 110
     .end local v0           #result:Z
     :cond_1
     const/4 v2, 0x0
@@ -284,7 +284,7 @@
 
     goto :goto_1
 
-    .line 98
+    .line 104
     .end local v1           #status:Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;
     :catchall_0
     move-exception v2
@@ -299,7 +299,7 @@
     .parameter "t"
 
     .prologue
-    .line 113
+    .line 119
     monitor-enter p0
 
     :try_start_0
@@ -307,34 +307,34 @@
 
     move-result-object v0
 
-    .line 114
+    .line 120
     .local v0, status:Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;
     sget-object v1, Lcom/sec/android/app/camera/BitmapManager$State;->CANCEL:Lcom/sec/android/app/camera/BitmapManager$State;
 
     iput-object v1, v0, Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;->mState:Lcom/sec/android/app/camera/BitmapManager$State;
 
-    .line 115
+    .line 121
     iget-object v1, v0, Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;->mOptions:Landroid/graphics/BitmapFactory$Options;
 
     if-eqz v1, :cond_0
 
-    .line 116
+    .line 122
     iget-object v1, v0, Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;->mOptions:Landroid/graphics/BitmapFactory$Options;
 
     invoke-virtual {v1}, Landroid/graphics/BitmapFactory$Options;->requestCancelDecode()V
 
-    .line 120
+    .line 126
     :cond_0
     invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 121
+    .line 127
     monitor-exit p0
 
     return-void
 
-    .line 113
+    .line 119
     .end local v0           #status:Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;
     :catchall_0
     move-exception v1
@@ -352,24 +352,24 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 135
+    .line 141
     iget-boolean v2, p2, Landroid/graphics/BitmapFactory$Options;->mCancel:Z
 
     if-eqz v2, :cond_0
 
     move-object v2, v5
 
-    .line 149
+    .line 155
     :goto_0
     return-object v2
 
-    .line 139
+    .line 145
     :cond_0
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v1
 
-    .line 140
+    .line 146
     .local v1, thread:Ljava/lang/Thread;
     invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/BitmapManager;->canThreadDecoding(Ljava/lang/Thread;)Z
 
@@ -377,7 +377,7 @@
 
     if-nez v2, :cond_1
 
-    .line 141
+    .line 147
     const-string v2, "BitmapManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -408,25 +408,25 @@
 
     move-object v2, v5
 
-    .line 142
+    .line 148
     goto :goto_0
 
-    .line 145
+    .line 151
     :cond_1
     invoke-direct {p0, v1, p2}, Lcom/sec/android/app/camera/BitmapManager;->setDecodingOptions(Ljava/lang/Thread;Landroid/graphics/BitmapFactory$Options;)V
 
-    .line 146
+    .line 152
     invoke-static {p1, v5, p2}, Landroid/graphics/BitmapFactory;->decodeFileDescriptor(Ljava/io/FileDescriptor;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 148
+    .line 154
     .local v0, b:Landroid/graphics/Bitmap;
     invoke-virtual {p0, v1}, Lcom/sec/android/app/camera/BitmapManager;->removeDecodingOptions(Ljava/lang/Thread;)V
 
     move-object v2, v0
 
-    .line 149
+    .line 155
     goto :goto_0
 .end method
 
@@ -435,7 +435,7 @@
     .parameter "t"
 
     .prologue
-    .line 87
+    .line 95
     monitor-enter p0
 
     :try_start_0
@@ -447,24 +447,20 @@
 
     check-cast v0, Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;
 
-    .line 88
+    .line 96
     .local v0, status:Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;
-    if-eqz v0, :cond_0
-
-    .line 89
     const/4 v1, 0x0
 
     iput-object v1, v0, Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;->mOptions:Landroid/graphics/BitmapFactory$Options;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 91
-    :cond_0
+    .line 97
     monitor-exit p0
 
     return-void
 
-    .line 87
+    .line 95
     .end local v0           #status:Lcom/sec/android/app/camera/BitmapManager$ThreadStatus;
     :catchall_0
     move-exception v1

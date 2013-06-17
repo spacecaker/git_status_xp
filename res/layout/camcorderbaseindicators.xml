@@ -9,6 +9,6 @@
     <ImageView android:id="@id/lock_indicator" android:background="@drawable/tw30_camera_lock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="302.0dip" android:layout_marginTop="28.0dip" android:layout_below="@id/CamcorderBaseIndicatorLayout" />
     <RelativeLayout android:id="@id/LaunchImageTextWrapperLyout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_above="@id/LaunchImage" android:layout_centerInParent="true">
         <ImageView android:id="@id/LaunchImage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/camera_camcorder_mode" android:layout_centerHorizontal="true" />
-        <TextView android:textSize="21.5sp" android:id="@id/LaunchIconTextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/camcorder_label" android:shadowColor="#ff000000" android:shadowDx="1.0" android:shadowDy="1.0" android:shadowRadius="1.0" android:layout_below="@id/LaunchImage" android:layout_centerInParent="true" />
+        <TextView android:textSize="21.5sp" android:id="@id/LaunchIconTextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/camcorder_label" android:layout_below="@id/LaunchImage" android:layout_centerInParent="true" />
     </RelativeLayout>
 </RelativeLayout>

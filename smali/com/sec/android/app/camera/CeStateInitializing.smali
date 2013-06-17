@@ -11,10 +11,10 @@
     .parameter "id"
 
     .prologue
-    .line 30
+    .line 29
     invoke-direct {p0, p1, p2, p3}, Lcom/sec/android/app/camera/AbstractCeState;-><init>(Lcom/sec/android/app/camera/CameraEngine;Lcom/sec/android/app/camera/CeRequestQueue;I)V
 
-    .line 32
+    .line 31
     return-void
 .end method
 
@@ -25,7 +25,7 @@
     .parameter "msg"
 
     .prologue
-    .line 60
+    .line 59
     const-string v0, "CeStateInitializing"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -50,16 +50,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 61
+    .line 60
     iget v0, p1, Landroid/os/Message;->what:I
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 70
+    .line 69
     :goto_0
     return-void
 
-    .line 63
+    .line 62
     :sswitch_0
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStateInitializing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
 
@@ -69,7 +69,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/camera/CameraEngine;->changeEngineState(I)V
 
-    .line 64
+    .line 63
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStateInitializing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -78,7 +78,7 @@
 
     goto :goto_0
 
-    .line 67
+    .line 66
     :sswitch_1
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStateInitializing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
@@ -88,7 +88,7 @@
 
     goto :goto_0
 
-    .line 61
+    .line 60
     :sswitch_data_0
     .sparse-switch
         0x0 -> :sswitch_0
@@ -105,7 +105,7 @@
 
     const-string v3, "CeStateInitializing"
 
-    .line 41
+    .line 40
     const-string v0, "CeStateInitializing"
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -132,35 +132,35 @@
 
     invoke-static {v3, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 42
+    .line 41
     invoke-virtual {p1}, Lcom/sec/android/app/camera/CeRequest;->getRequest()I
 
     move-result v0
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 52
+    .line 51
     const-string v0, "CeStateInitializing"
 
     const-string v0, "invalid request id for current state"
 
     invoke-static {v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 53
+    .line 52
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStateInitializing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CeRequestQueue;->completeRequest()V
 
-    .line 55
+    .line 54
     const/4 v0, 0x0
 
     .end local p0
     :goto_0
     return v0
 
-    .line 44
+    .line 43
     .restart local p0
     :sswitch_0
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStateInitializing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
@@ -182,10 +182,10 @@
 
     move v0, v2
 
-    .line 45
+    .line 44
     goto :goto_0
 
-    .line 47
+    .line 46
     .restart local p0
     :sswitch_1
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStateInitializing;->getCameraEngine()Lcom/sec/android/app/camera/CameraEngine;
@@ -194,7 +194,7 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/camera/CameraEngine;->doProcessBackSync()V
 
-    .line 48
+    .line 47
     invoke-virtual {p0}, Lcom/sec/android/app/camera/CeStateInitializing;->getRequestQueue()Lcom/sec/android/app/camera/CeRequestQueue;
 
     move-result-object v0
@@ -203,10 +203,10 @@
 
     move v0, v2
 
-    .line 49
+    .line 48
     goto :goto_0
 
-    .line 42
+    .line 41
     nop
 
     :sswitch_data_0

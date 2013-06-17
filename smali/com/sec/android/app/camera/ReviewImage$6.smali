@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 332
+    .line 333
     iput-object p1, p0, Lcom/sec/android/app/camera/ReviewImage$6;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     iput-object p2, p0, Lcom/sec/android/app/camera/ReviewImage$6;->val$buttonListener:Landroid/view/View$OnTouchListener;
@@ -48,12 +48,12 @@
     .parameter "event"
 
     .prologue
-    .line 334
+    .line 335
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$6;->val$buttonListener:Landroid/view/View$OnTouchListener;
 
     invoke-interface {v0, p1, p2}, Landroid/view/View$OnTouchListener;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
 
-    .line 335
+    .line 336
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$6;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     #getter for: Lcom/sec/android/app/camera/ReviewImage;->mImageView:Lcom/sec/android/app/camera/ImageViewTouch2;
@@ -67,14 +67,14 @@
 
     if-nez v0, :cond_0
 
-    .line 336
+    .line 337
     iget-object v0, p0, Lcom/sec/android/app/camera/ReviewImage$6;->this$0:Lcom/sec/android/app/camera/ReviewImage;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/ReviewImage;->mGestureDetector:Landroid/view/GestureDetector;
 
     invoke-virtual {v0, p2}, Landroid/view/GestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
-    .line 340
+    .line 341
     :cond_0
     const/4 v0, 0x1
 

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 230
+    .line 233
     iput-object p1, p0, Lcom/sec/android/app/camera/CameraEngine$TimerEventHandler;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,14 +39,7 @@
     .parameter "msg"
 
     .prologue
-    .line 232
-    iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$TimerEventHandler;->this$0:Lcom/sec/android/app/camera/CameraEngine;
-
-    iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine;->mOnTimerEventListener:Lcom/sec/android/app/camera/CameraEngine$OnTimerEventListener;
-
-    if-eqz v0, :cond_0
-
-    .line 233
+    .line 235
     iget-object v0, p0, Lcom/sec/android/app/camera/CameraEngine$TimerEventHandler;->this$0:Lcom/sec/android/app/camera/CameraEngine;
 
     iget-object v0, v0, Lcom/sec/android/app/camera/CameraEngine;->mOnTimerEventListener:Lcom/sec/android/app/camera/CameraEngine$OnTimerEventListener;
@@ -55,7 +48,6 @@
 
     invoke-interface {v0, v1}, Lcom/sec/android/app/camera/CameraEngine$OnTimerEventListener;->onTimerEvent(I)V
 
-    .line 235
-    :cond_0
+    .line 236
     return-void
 .end method

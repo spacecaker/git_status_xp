@@ -471,8 +471,8 @@ Attempt made: %s."</string>
     <string name="preview_please_wait">Please wait.</string>
     <string name="numberpicker_range">This value should be between %1$s and %2$s</string>
     <string name="welcome_note">Welcome to Samsung! Your device is now registered</string>
-    <string name="ltn_alert_fdn_mode_restriction">Unable to send message. Please turn Fixed Dialing Number off</string>
-    <string name="ltn_no_available_email_account">No available Email account</string>
     <item type="string" name="APKTOOL_DUMMY_01d3">false</item>
     <item type="string" name="APKTOOL_DUMMY_01d4">false</item>
+    <string name="ltn_alert_fdn_mode_restriction">Unable to send message. Please turn Fixed Dialing Number off</string>
+    <string name="ltn_no_available_email_account">No available Email account</string>
 </resources>

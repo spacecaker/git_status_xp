@@ -2,9 +2,9 @@
 <resources>
     <item type="drawable" name="class_zero_background">#7f040000</item>
     <item type="drawable" name="light_blue_background">#ffecfbff</item>
-    <item type="drawable" name="white_background">#ffffffff</item>
-    <item type="drawable" name="text_color">#ff000000</item>
+    <item type="drawable" name="white_background">#ffff0000</item>
+    <item type="drawable" name="text_color">#ffb4b4b4</item>
     <item type="drawable" name="text_color_red">#ffff0000</item>
-    <item type="drawable" name="text_color_black">#ff000000</item>
-    <item type="drawable" name="text_color_offwhite">#55ffffff</item>
+    <item type="drawable" name="text_color_black">#ffb4b4b4</item>
+    <item type="drawable" name="text_color_offwhite">#ffb4b4b4</item>
 </resources>

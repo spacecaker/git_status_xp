@@ -1169,11 +1169,11 @@
     <public type="string" name="preview_please_wait" id="0x7f0901d0" />
     <public type="string" name="numberpicker_range" id="0x7f0901d1" />
     <public type="string" name="welcome_note" id="0x7f0901d2" />
+    <public type="string" name="APKTOOL_DUMMY_01d3" id="0x7f0901d3" />
+    <public type="string" name="APKTOOL_DUMMY_01d4" id="0x7f0901d4" />
     <public type="string" name="ltn_alert_fdn_mode_restriction" id="0x7f0901d6" />
     <public type="string" name="ltn_no_available_email_account" id="0x7f0901d7" />
     <public type="string" name="day" id="0x7f0901d5" />
-    <public type="string" name="APKTOOL_DUMMY_01d3" id="0x7f0901d3" />
-    <public type="string" name="APKTOOL_DUMMY_01d4" id="0x7f0901d4" />
     <public type="plurals" name="confirm_delete_message" id="0x7f0a0000" />
     <public type="plurals" name="confirm_delete_thread" id="0x7f0a0001" />
     <public type="plurals" name="confirm_delete_message_translated" id="0x7f0a0002" />

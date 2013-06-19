@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.android.mms.ui.AddRecipientButtonEditor android:id="@id/recipient_button_editor" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <Button android:textSize="16.0sp" android:id="@id/recipient_recent_button" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/recipient_button_recent" android:layout_weight="1.0" />
-    <Button android:textSize="16.0sp" android:id="@id/recipient_phonebook_button" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/recipient_button_phonebook" android:layout_weight="1.0" />
-    <Button android:textSize="16.0sp" android:id="@id/recipient_group_button" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/recipient_button_group" android:layout_weight="1.0" />
-</com.android.mms.ui.AddRecipientButtonEditor>

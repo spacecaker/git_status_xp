@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:background="#88000000" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ListView android:textAppearance="@touchwiz:style/TwTextAppearanceListTwoLinePrimary" android:id="@id/messages" android:focusable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:drawSelectorOnTop="false" android:stackFromBottom="false" android:divider="@*android:drawable/divider_horizontal_bright" />
-    <TextView android:layout_gravity="center" android:id="@id/empty_message" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sim_empty" />
-</FrameLayout>

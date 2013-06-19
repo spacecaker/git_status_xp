@@ -112,6 +112,10 @@
 
 .field mScrollView:Landroid/widget/ScrollView;
 
+.field mSettingsBut:Landroid/view/View;
+
+.field private mSettingsButListener:Landroid/view/View$OnClickListener;
+
 .field mStartTracing:Ljava/lang/Runnable;
 
 .field mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
@@ -240,6 +244,13 @@
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarService$6;-><init>(Lcom/android/systemui/statusbar/StatusBarService;)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStopTracing:Ljava/lang/Runnable;
+
+    .line 1703
+    new-instance v0, Lcom/android/systemui/statusbar/StatusBarService$8;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarService$8;-><init>(Lcom/android/systemui/statusbar/StatusBarService;)V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarService;->mSettingsButListener:Landroid/view/View$OnClickListener;
 
     return-void
 .end method
@@ -787,6 +798,22 @@
 
     iput v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mEdgeBorder:I
 
+    .line 323
+    const v8, 0x7f090032
+
+    invoke-virtual {v2, v8}, Lcom/android/systemui/statusbar/ExpandedView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mSettingsBut:Landroid/view/View;
+
+    .line 324
+    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mSettingsBut:Landroid/view/View;
+
+    iget-object v9, p0, Lcom/android/systemui/statusbar/StatusBarService;->mSettingsButListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v8, v9}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
     .line 325
     invoke-direct {p0}, Lcom/android/systemui/statusbar/StatusBarService;->setAreThereNotifications()V
 
@@ -826,40 +853,24 @@
     .line 337
     const/4 v4, 0x0
 
-    .line 338
-    .local v4, qsv:Lcom/android/systemui/statusbar/quickpanel/QuickSettingsView;
-    const-string v8, "ro.csc.sales_code"
-
-    invoke-static {v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 339
-    .local v1, code:Ljava/lang/String;
-    const-string v8, "XEC"
-
-    invoke-virtual {v8, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_1
-
-    .line 340
-    const v8, 0x7f030003
+    .line 344
+    const v8, 0x3030003
 
     invoke-static {p1, v8, v10}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v4
 
-    .end local v4           #qsv:Lcom/android/systemui/statusbar/quickpanel/QuickSettingsView;
-    check-cast v4, Lcom/android/systemui/statusbar/quickpanel/QuickSettingsView;
+    check-cast v4, Lcom/lidroid/systemui/quickpanel/PowerWidget;
 
     .line 348
-    .restart local v4       #qsv:Lcom/android/systemui/statusbar/quickpanel/QuickSettingsView;
-    :goto_0
+    .local v4, qsv:Lcom/lidroid/systemui/quickpanel/PowerWidget;
+    const/4 v9, 0x1
+
+    invoke-virtual {v4}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->setupWidget()V
+
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mExpandedView:Lcom/android/systemui/statusbar/ExpandedView;
 
-    invoke-virtual {v8, v4, v13}, Lcom/android/systemui/statusbar/ExpandedView;->addView(Landroid/view/View;I)V
+    invoke-virtual {v8, v4, v9}, Lcom/android/systemui/statusbar/ExpandedView;->addView(Landroid/view/View;I)V
 
     .line 352
     new-instance v8, Landroid/widget/LinearLayout;
@@ -906,21 +917,6 @@
 
     .line 361
     return-void
-
-    .line 344
-    :cond_1
-    const v8, 0x3030003
-
-    invoke-static {p1, v8, v10}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/lidroid/systemui/quickpanel/PowerWidget;
-
-    .local v4, qsv:Lcom/lidroid/systemui/quickpanel/PowerWidget;
-    invoke-virtual {v4}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->setupWidget()V
-
-    goto :goto_0
 .end method
 
 .method private setAreThereNotifications()V
@@ -1067,216 +1063,6 @@
 
 
 # virtual methods
-.method public Calendar(Landroid/view/View;)V
-    .locals 3
-    .parameter "v"
-
-    .prologue
-    .line 1717
-    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v2, "com.android.calendar.CalendarApplication"
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const/high16 v2, 0x1000
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->animateCollapse()V
-
-    .line 1720
-    return-void
-.end method
-
-.method public Camera(Landroid/view/View;)V
-    .locals 3
-    .parameter "v"
-
-    .prologue
-    .line 1717
-    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v2, "android.media.action.IMAGE_CAPTURE"
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const/high16 v2, 0x1000
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->animateCollapse()V
-
-    .line 1720
-    return-void
-.end method
-
-.method public Contacts(Landroid/view/View;)V
-    .locals 3
-    .parameter "v"
-
-    .prologue
-    .line 1717
-    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v2, "android.intent.action.CALL_BUTTON"
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const/high16 v2, 0x1000
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->animateCollapse()V
-
-    .line 1720
-    return-void
-.end method
-
-.method public DeskClock(Landroid/view/View;)V
-    .locals 3
-    .parameter "v"
-
-    .prologue
-    .line 1717
-    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v2, "android.intent.action.SET_ALARM"
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const/high16 v2, 0x1000
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->animateCollapse()V
-
-    .line 1720
-    return-void
-.end method
-
-.method public Dialer(Landroid/view/View;)V
-    .locals 3
-    .parameter "v"
-
-    .prologue
-    .line 1717
-    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v2, "com.sec.android.app.dialertab.dialer.DialerActivity"
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const/high16 v2, 0x1000
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->animateCollapse()V
-
-    .line 1720
-    return-void
-.end method
-
-.method public Mms(Landroid/view/View;)V
-    .locals 3
-    .parameter "v"
-
-    .prologue
-    .line 1717
-    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v2, "android.intent.action.MMS"
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const/high16 v2, 0x1000
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->animateCollapse()V
-
-    .line 1720
-    return-void
-.end method
-
-.method public Settings(Landroid/view/View;)V
-    .locals 3
-    .parameter "v"
-
-    .prologue
-    .line 1717
-    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v2, "android.settings.SETTINGS"
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const/high16 v2, 0x1000
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarService;->animateCollapse()V
-
-    .line 1720
-    return-void
-.end method
-
 .method public addIcon(Ljava/lang/String;IILcom/android/internal/statusbar/StatusBarIcon;)V
     .locals 5
     .parameter "slot"
@@ -2881,6 +2667,14 @@
 
     move-result v0
 
+    iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/StatusBarView;->getHeight()I
+
+    move-result v1
+
+    sub-int/2addr v0, v1
+
     iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mCloseView:Lcom/android/systemui/statusbar/CloseDragHandle;
 
     invoke-virtual {v1}, Lcom/android/systemui/statusbar/CloseDragHandle;->getHeight()I
@@ -3666,7 +3460,7 @@
     :goto_0
     new-instance v0, Landroid/view/WindowManager$LayoutParams;
 
-    const/16 v3, 0x7d3
+    const/16 v3, 0x7de
 
     const v4, 0x20300
 
@@ -3994,7 +3788,7 @@
     iput v1, p0, Lcom/android/systemui/statusbar/StatusBarService;->mTrackingPosition:I
 
     .line 1336
-    const/16 v1, 0x7d3
+    const/16 v1, 0x7de
 
     iput v1, v2, Landroid/view/WindowManager$LayoutParams;->type:I
 
@@ -4968,6 +4762,13 @@
 
     const/4 v11, 0x1
 
+    .line 1388
+    iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mStatusBarView:Lcom/android/systemui/statusbar/StatusBarView;
+
+    invoke-virtual {v8}, Lcom/android/systemui/statusbar/StatusBarView;->getHeight()I
+
+    move-result v3
+
     .line 1389
     .local v3, h:I
     iget-object v8, p0, Lcom/android/systemui/statusbar/StatusBarService;->mDisplay:Landroid/view/Display;
@@ -5046,8 +4847,6 @@
 
     .line 1410
     :cond_2
-    const/4 v3, 0x0
-
     const/16 v8, -0x2711
 
     if-ne p1, v8, :cond_6

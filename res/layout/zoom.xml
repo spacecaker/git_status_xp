@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/ZoomLayout" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:custom="http://schemas.android.com/apk/res/com.sec.android.app.camera">
-    <com.sec.android.app.camera.widget.TwSlider android:id="@id/ZoomSliderView" android:background="@drawable/tw30_camera_zooming_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="99.0dip" android:layout_marginTop="268.0dip" custom:slider_bar_image="@drawable/tw30_camera_zooming_gauge" custom:slider_focus_bar_image="@drawable/tw30_camera_zooming_gauge_focus" custom:slider_number_of_guage="9" custom:slider_layout_width="282.66406dip" custom:slider_bar_margin_top="26.0dip" custom:slider_focus_bar_margin_top="18.0dip" custom:slider_image_width="3.3299866dip" custom:slider_image_height="10.0dip" custom:slider_focus_image_width="4.0dip" custom:slider_focus_image_height="20.0dip">
-        <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="#ffa4d7ff" android:gravity="center" android:id="@id/ZoomLeftText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="24.0dip" android:layout_marginTop="1.0dip" android:text="@string/ZOOM_X_1" />
-        <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="#ffa4d7ff" android:gravity="center" android:id="@id/ZoomRightText" android:layout_width="40.0dip" android:layout_height="wrap_content" android:layout_marginLeft="236.0dip" android:layout_marginTop="1.0dip" android:text="@string/ZOOM_X_3" />
-    </com.sec.android.app.camera.widget.TwSlider>
-</RelativeLayout>

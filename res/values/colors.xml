@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="default_TitleText_Color">#ffa4d7ff</color>
-    <color name="default_settinglist_item_titletext_color">#ffffffff</color>
-    <color name="default_settinglist_item_buttontext_color">#ff000000</color>
-    <color name="default_settinglist_item_buttontext_highlight_color">#ffffffff</color>
-    <color name="default_settinglist_item_helptext_color">#ffffffff</color>
-</resources>

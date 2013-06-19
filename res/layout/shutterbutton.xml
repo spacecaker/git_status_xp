@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/ShutterButtonLayout" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:custom="http://schemas.android.com/apk/res/com.sec.android.app.camera">
-    <com.sec.android.app.camera.widget.TwImageButton android:id="@id/TrayButtonShutterMenu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/CameraSideMenuLeft" android:layout_alignParentLeft="true" custom:twimagebutton_image_n="@drawable/camera_tray_close" custom:twimagebutton_image_p="@drawable/camera_tray_close_p" />
-    <com.sec.android.app.camera.widget.TwImageButton android:id="@id/ShutterButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerInParent="true" />
-</RelativeLayout>

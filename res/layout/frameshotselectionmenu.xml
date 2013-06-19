@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.sec.android.app.camera.widget.TwGridView android:orientation="vertical" android:id="@id/FrameShotSelectionMenu" android:fitsSystemWindows="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:stackFromBottom="false" custom:TitleText="@string/Title_Frame" custom:TitleText_Y="42.0dip" custom:GridView_Style="3" custom:Grid_Num_Colums="3" custom:Grid_Layout_X="92.0dip" custom:Grid_Layout_Y="77.32999dip" custom:Grid_Layout_Width="346.66406dip" custom:Grid_Layout_Height="189.32999dip" custom:Grid_Button_Width="93.32999dip" custom:Grid_Button_Height="93.32999dip" custom:Grid_Scroll_Bar_X="385.32812dip" custom:Grid_Scroll_Bar_Y="77.32999dip" custom:Grid_image_text="0" custom:Grid_Button_X="6.669983dip" custom:Grid_Button_Y="16.669983dip"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:custom="http://schemas.android.com/apk/res/com.sec.android.app.camera" />

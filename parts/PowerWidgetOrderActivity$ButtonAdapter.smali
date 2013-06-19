@@ -77,7 +77,7 @@
 
     .line 112
     :try_start_0
-    const-string v2, "lidroid"
+    const-string v2, "creed"
 
     invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
 

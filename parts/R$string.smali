@@ -51,6 +51,8 @@
 
 .field public static final config_beam_screen_on:I = 0x7f080002
 
+.field public static final creed_ui_style:I = 0x7f08004e
+
 .field public static final custom_app_activity:I = 0x7f08001b
 
 .field public static final custom_app_starter:I = 0x7f080013
@@ -122,8 +124,6 @@
 .field public static final group_applications:I = 0x7f08001c
 
 .field public static final label_create_gesture:I = 0x7f08002f
-
-.field public static final lidroid_ui_style:I = 0x7f08004e
 
 .field public static final lock_screen_incall_title:I = 0x7f080012
 

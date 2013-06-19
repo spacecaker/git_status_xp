@@ -144,7 +144,7 @@
 
     sget-object v1, Landroid/os/Build;->DISPLAY:Ljava/lang/String;
 
-    const-string v2, "lidroid-sgs-"
+    const-string v2, "creed-sgs-"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
@@ -154,7 +154,7 @@
 
     sget-object v1, Landroid/os/Build;->DISPLAY:Ljava/lang/String;
 
-    const-string v2, "lidroid-m110s-"
+    const-string v2, "creed-m110s-"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 

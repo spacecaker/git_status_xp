@@ -24,7 +24,7 @@
     .end annotation
 .end field
 
-.field private static final BUTTONS_DEFAULT:Ljava/lang/String; = "toggleWifi|toggleMobileData|toggleBluetooth|toggleGPS|toggleFlashlight|toggleWifiAp|toggleBrightness|toggleAirplane|toggleSound|toggleAutoRotate|toggleSync|toggleScreenTimeout|toggleLockScreen|toggleReboot|toggleShutdown"
+.field private static final BUTTONS_DEFAULT:Ljava/lang/String; = "toggleWifi|toggleMobileData|toggleBluetooth|toggleGPS|toggleSound|toggleSync|toggleWifiAp|toggleNetworkMode|toggleAirplane|toggleAutoRotate|toggleBrightness|toggleScreenTimeout|toggleLockScreen|toggleFlashlight|toggleMediaPrevious|toggleMediaPlayPause|toggleMediaNext|toggleSleepMode|toggleReboot|toggleShutdown"
 
 .field public static final BUTTON_AIRPLANE:Ljava/lang/String; = "toggleAirplane"
 
@@ -42,13 +42,23 @@
 
 .field public static final BUTTON_LOCKSCREEN:Ljava/lang/String; = "toggleLockScreen"
 
+.field public static final BUTTON_MEDIA_NEXT:Ljava/lang/String; = "toggleMediaNext"
+
+.field public static final BUTTON_MEDIA_PLAY_PAUSE:Ljava/lang/String; = "toggleMediaPlayPause"
+
+.field public static final BUTTON_MEDIA_PREVIOUS:Ljava/lang/String; = "toggleMediaPrevious"
+
 .field public static final BUTTON_MOBILEDATA:Ljava/lang/String; = "toggleMobileData"
+
+.field public static final BUTTON_NETWORKMODE:Ljava/lang/String; = "toggleNetworkMode"
 
 .field public static final BUTTON_REBOOT:Ljava/lang/String; = "toggleReboot"
 
 .field public static final BUTTON_SCREENTIMEOUT:Ljava/lang/String; = "toggleScreenTimeout"
 
 .field public static final BUTTON_SHUTDOWN:Ljava/lang/String; = "toggleShutdown"
+
+.field public static final BUTTON_SLEEP:Ljava/lang/String; = "toggleSleepMode"
 
 .field public static final BUTTON_SOUND:Ljava/lang/String; = "toggleSound"
 
@@ -200,6 +210,57 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 999
+    sget-object v0, Lcom/lidroid/util/PowerWidgetUtil;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleMediaNext"
+
+    new-instance v2, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;
+
+    const-string v3, "toggleMediaNext"
+
+    const v4, 0x7f08009f
+
+    const-string v5, "lidroid:drawable/stat_media_next"
+
+    invoke-direct {v2, v3, v4, v5}, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 998
+    sget-object v0, Lcom/lidroid/util/PowerWidgetUtil;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleMediaPlayPause"
+
+    new-instance v2, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;
+
+    const-string v3, "toggleMediaPlayPause"
+
+    const v4, 0x7f0800a0
+
+    const-string v5, "lidroid:drawable/stat_media_play"
+
+    invoke-direct {v2, v3, v4, v5}, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 997
+    sget-object v0, Lcom/lidroid/util/PowerWidgetUtil;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleMediaPrevious"
+
+    new-instance v2, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;
+
+    const-string v3, "toggleMediaPrevious"
+
+    const v4, 0x7f08009e
+
+    const-string v5, "lidroid:drawable/stat_media_previous"
+
+    invoke-direct {v2, v3, v4, v5}, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
     .line 67
     sget-object v0, Lcom/lidroid/util/PowerWidgetUtil;->BUTTONS:Ljava/util/HashMap;
 
@@ -212,6 +273,23 @@
     const v4, 0x7f080061
 
     const-string v5, "lidroid:drawable/stat_data_on"
+
+    invoke-direct {v2, v3, v4, v5}, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 68
+    sget-object v0, Lcom/lidroid/util/PowerWidgetUtil;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleNetworkMode"
+
+    new-instance v2, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;
+
+    const-string v3, "toggleNetworkMode"
+
+    const v4, 0x7f08007f
+
+    const-string v5, "lidroid:drawable/stat_2g3g_on"
 
     invoke-direct {v2, v3, v4, v5}, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
@@ -263,6 +341,23 @@
     const v4, 0x7f080067
 
     const-string v5, "lidroid:drawable/stat_shutdown"
+
+    invoke-direct {v2, v3, v4, v5}, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 996
+    sget-object v0, Lcom/lidroid/util/PowerWidgetUtil;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleSleepMode"
+
+    new-instance v2, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;
+
+    const-string v3, "toggleSleepMode"
+
+    const v4, 0x7f08009d
+
+    const-string v5, "lidroid:drawable/stat_sleep"
 
     invoke-direct {v2, v3, v4, v5}, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
@@ -496,7 +591,7 @@
     if-nez v0, :cond_0
 
     .line 139
-    const-string v0, "toggleWifi|toggleMobileData|toggleBluetooth|toggleGPS|toggleFlashlight|toggleWifiAp|toggleBrightness|toggleAirplane|toggleSound|toggleAutoRotate|toggleSync|toggleScreenTimeout|toggleLockScreen|toggleReboot|toggleShutdown"
+    const-string v0, "toggleWifi|toggleMobileData|toggleBluetooth|toggleGPS|toggleFlashlight|toggleWifiAp|toggleBrightness|toggleAirplane|toggleNetworkMode|toggleSound|toggleAutoRotate|toggleSync|toggleScreenTimeout|toggleLockScreen|toggleReboot|toggleShutdown"
 
     .line 141
     :cond_0

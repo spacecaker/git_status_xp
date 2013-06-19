@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:background="#ff000000" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.sec.android.touchwiz.widget.TwSweepActionListView android:scrollbarStyle="insideOverlay" android:id="@*android:id/list" android:fadingEdgeLength="16.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:drawSelectorOnTop="false"
+      xmlns:android="http://schemas.android.com/apk/res/android" />
+    <LinearLayout android:orientation="vertical" android:id="@id/empty_screen" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true">
+        <ViewStub android:id="@id/new_message_header_stub" android:paddingRight="10.0dip" android:layout="@layout/create_message" android:inflatedId="@id/new_message_header" android:layout_width="fill_parent" android:layout_height="?android:listPreferredItemHeight" />
+        <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/emptyText" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ImageView android:layout_gravity="center" android:id="@id/empty_list_imageView" android:visibility="visible" android:layout_width="116.0dip" android:layout_height="116.0dip" android:src="@drawable/noitems_text_based" />
+            <TextView android:textSize="22.0dip" android:textColor="@touchwiz:color/tw_color145" android:layout_gravity="center" android:id="@id/empty_list_textView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Conversation_count_zero" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

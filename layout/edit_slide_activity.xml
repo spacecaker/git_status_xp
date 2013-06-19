@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.mms.ui.BasicSlideEditorView android:orientation="vertical" android:id="@id/slide_editor_view" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true">
+        <LinearLayout android:orientation="vertical" android:background="@drawable/search_plate" android:paddingTop="8.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:orientation="vertical" android:background="@drawable/attachfield_default" android:paddingLeft="6.0dip" android:paddingTop="7.0dip" android:paddingRight="6.0dip" android:paddingBottom="7.0dip" android:layout_width="fill_parent" android:layout_height="180.0dip" android:layout_marginLeft="3.0dip" android:layout_marginRight="3.0dip">
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="170.0dip">
+                    <RelativeLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_weight="1.0">
+                        <ImageView android:id="@id/image" android:layout_width="wrap_content" android:layout_height="140.0dip" android:src="@drawable/noitems_image_based_2" android:adjustViewBounds="true" android:layout_centerHorizontal="true" />
+                        <LinearLayout android:orientation="horizontal" android:id="@id/audio" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="3.0dip" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true">
+                            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/audio_icon" />
+                            <TextView android:textColor="@touchwiz:color/tw_color002" android:layout_gravity="center_vertical" android:id="@id/audio_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:id="@id/controler" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:minWidth="109.0dip">
+                        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                            <ImageButton android:id="@id/pre_slide_button" android:layout_width="wrap_content" android:layout_height="40.0dip" android:src="@drawable/selector_arrow_left" android:layout_weight="0.5" style="?android:attr/buttonStyleSmall" />
+                            <ImageButton android:id="@id/next_slide_button" android:layout_width="wrap_content" android:layout_height="40.0dip" android:src="@drawable/selector_arrow_right" android:layout_weight="0.5" style="?android:attr/buttonStyleSmall" />
+                        </LinearLayout>
+                        <Button android:textSize="14.0sp" android:id="@id/preview_button" android:paddingLeft="4.0dip" android:paddingTop="0.0dip" android:paddingRight="4.0dip" android:paddingBottom="7.0dip" android:layout_width="110.0dip" android:layout_height="40.0dip" android:layout_marginTop="2.0dip" android:text="@string/preview" android:lineSpacingMultiplier="0.85" style="?android:attr/buttonStyleSmall" />
+                        <Button android:textSize="14.0sp" android:id="@id/replace_image_button" android:paddingLeft="2.0dip" android:paddingTop="0.0dip" android:paddingRight="2.0dip" android:paddingBottom="7.0dip" android:layout_width="110.0dip" android:layout_height="40.0dip" android:layout_marginTop="2.0dip" android:text="@string/replace_image" android:lineSpacingMultiplier="0.85" style="?android:attr/buttonStyleSmall" />
+                        <Button android:textSize="14.0sp" android:id="@id/remove_slide_button" android:paddingLeft="4.0dip" android:paddingTop="0.0dip" android:paddingRight="4.0dip" android:paddingBottom="7.0dip" android:layout_width="110.0dip" android:layout_height="40.0dip" android:layout_marginTop="2.0dip" android:text="@string/remove_slide" android:lineSpacingMultiplier="0.85" style="?android:attr/buttonStyleSmall" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <RelativeLayout android:id="@id/bottom_panel_edit_slide" android:background="@drawable/selector_msg_textfield" android:paddingLeft="6.0dip" android:paddingTop="7.0dip" android:paddingRight="4.0dip" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="7.0dip" android:baselineAligned="false" android:layout_weight="1.0">
+                <Button android:textSize="16.0sp" android:id="@id/done_button" android:paddingLeft="3.0dip" android:paddingTop="4.0dip" android:paddingRight="3.0dip" android:paddingBottom="7.0dip" android:layout_width="62.0dip" android:layout_height="48.0dip" android:layout_marginLeft="7.0dip" android:text="@string/done" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+                <RelativeLayout android:id="@id/editor_with_counter" android:addStatesFromChildren="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_toLeftOf="@id/done_button" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true">
+                    <EditText android:textSize="18.0sp" android:gravity="top" android:id="@id/text_message" android:background="#ffffffff" android:nextFocusRight="@id/done_button" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="6.0dip" android:layout_marginTop="4.0dip" android:layout_marginBottom="4.0dip" android:hint="@string/type_to_compose_text_or_leave_blank" android:capitalize="sentences" android:autoText="true" />
+                    <TextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/mms_counter" android:background="#88000000" android:paddingLeft="3.0dip" android:paddingRight="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</com.android.mms.ui.BasicSlideEditorView>

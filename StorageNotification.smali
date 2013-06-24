@@ -2540,7 +2540,7 @@
 
     .line 415
     :goto_0
-    const-string v0, "GT-S5660"
+    const-string v0, "GT-S5830"
 
     const-string v1, "GT-I5510"
 

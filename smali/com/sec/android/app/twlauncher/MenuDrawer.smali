@@ -248,13 +248,35 @@
 .end method
 
 .method public setBackgroundImage()V
-    .locals 1
+    .locals 3
 
     .prologue
     .line 93
-    const v0, 0x7f07000c
+    invoke-virtual {p0}, Lcom/sec/android/app/twlauncher/MenuDrawer;->getContext()Landroid/content/Context;
 
-    invoke-virtual {p0, v0}, Lcom/sec/android/app/twlauncher/MenuDrawer;->setBackgroundResource(I)V
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const/4 v2, -0x1
+
+    const-string v1, "drawer_custom_color"
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->setBackgroundColor(I)V
 
     .line 96
     return-void

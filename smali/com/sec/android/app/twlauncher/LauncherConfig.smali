@@ -33,163 +33,29 @@
 .end method
 
 .method static getColumnNo(Landroid/content/Context;)I
-    .locals 13
-    .parameter "context"
+    .locals 2
 
-    .prologue
-    const-string v12, "Launcher.LauncherConfig"
+    const/4 v0, 0x1
 
-    const-string v11, "Got exception parsing config."
-
-    .line 48
-    new-instance v8, Landroid/content/ContentValues;
-
-    invoke-direct {v8}, Landroid/content/ContentValues;-><init>()V
-
-    .line 50
-    .local v8, values:Landroid/content/ContentValues;
-    const/4 v2, 0x4
-
-    .line 52
-    .local v2, columnNum:I
-    :try_start_0
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x7f050003
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
-
-    move-result-object v6
-
-    .line 53
-    .local v6, parser:Landroid/content/res/XmlResourceParser;
-    invoke-static {v6}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
-    .line 54
-    .local v1, attrs:Landroid/util/AttributeSet;
-    const-string v9, "config"
+    const-string p0, "column_no"
 
-    invoke-static {v6, v9}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
+    invoke-static {v1, p0, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    .line 56
-    invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->getDepth()I
+    move-result v0
 
-    move-result v3
+    if-eqz v0, :cond_0
 
-    .line 60
-    .local v3, depth:I
-    :cond_0
     :goto_0
-    invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->next()I
+    return v0
 
-    move-result v7
-
-    .local v7, type:I
-    const/4 v9, 0x3
-
-    if-ne v7, v9, :cond_1
-
-    invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->getDepth()I
-
-    move-result v9
-
-    if-le v9, v3, :cond_2
-
-    :cond_1
-    const/4 v9, 0x1
-
-    if-eq v7, v9, :cond_2
-
-    .line 62
-    const/4 v9, 0x2
-
-    if-ne v7, v9, :cond_0
-
-    .line 66
-    invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 68
-    .local v5, name:Ljava/lang/String;
-    sget-object v9, Lcom/sec/android/app/twlauncher/R$styleable;->MenuManager:[I
-
-    invoke-virtual {p0, v1, v9}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
-
-    move-result-object v0
-
-    .line 69
-    .local v0, a:Landroid/content/res/TypedArray;
-    invoke-virtual {v8}, Landroid/content/ContentValues;->clear()V
-
-    .line 70
-    const-string v9, "columnno"
-
-    invoke-virtual {v9, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_0
-
-    .line 71
-    const/4 v9, 0x0
-
-    const/4 v10, 0x4
-
-    invoke-virtual {v0, v9, v10}, Landroid/content/res/TypedArray;->getInt(II)I
-    :try_end_0
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-
-    move-result v2
+    :cond_0
+    const/4 v0, 0x4
 
     goto :goto_0
-
-    .line 74
-    .end local v0           #a:Landroid/content/res/TypedArray;
-    .end local v1           #attrs:Landroid/util/AttributeSet;
-    .end local v3           #depth:I
-    .end local v5           #name:Ljava/lang/String;
-    .end local v6           #parser:Landroid/content/res/XmlResourceParser;
-    .end local v7           #type:I
-    :catch_0
-    move-exception v9
-
-    move-object v4, v9
-
-    .line 75
-    .local v4, e:Lorg/xmlpull/v1/XmlPullParserException;
-    const-string v9, "Launcher.LauncherConfig"
-
-    const-string v9, "Got exception parsing config."
-
-    invoke-static {v12, v11, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 80
-    .end local v4           #e:Lorg/xmlpull/v1/XmlPullParserException;
-    :cond_2
-    :goto_1
-    return v2
-
-    .line 76
-    :catch_1
-    move-exception v9
-
-    move-object v4, v9
-
-    .line 77
-    .local v4, e:Ljava/io/IOException;
-    const-string v9, "Launcher.LauncherConfig"
-
-    const-string v9, "Got exception parsing config."
-
-    invoke-static {v12, v11, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_1
 .end method
 
 .method static getDefaultScreenCount(Landroid/content/Context;)I
@@ -351,163 +217,29 @@
 .end method
 
 .method static getItemNoOfPage(Landroid/content/Context;)I
-    .locals 14
-    .parameter "context"
+    .locals 2
 
-    .prologue
-    const/4 v11, 0x1
+    const/4 v0, 0x1
 
-    const-string v13, "Launcher.LauncherConfig"
-
-    const-string v12, "Got exception parsing config."
-
-    .line 84
-    new-instance v8, Landroid/content/ContentValues;
-
-    invoke-direct {v8}, Landroid/content/ContentValues;-><init>()V
-
-    .line 86
-    .local v8, values:Landroid/content/ContentValues;
-    const/16 v4, 0x10
-
-    .line 88
-    .local v4, itemNo:I
-    :try_start_0
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x7f050003
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
-
-    move-result-object v6
-
-    .line 89
-    .local v6, parser:Landroid/content/res/XmlResourceParser;
-    invoke-static {v6}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
-    .line 90
-    .local v1, attrs:Landroid/util/AttributeSet;
-    const-string v9, "config"
+    const-string p0, "item_no_page"
 
-    invoke-static {v6, v9}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
+    invoke-static {v1, p0, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    .line 92
-    invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->getDepth()I
+    move-result v0
 
-    move-result v2
+    if-eqz v0, :cond_0
 
-    .line 96
-    .local v2, depth:I
-    :cond_0
     :goto_0
-    invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->next()I
+    return v0
 
-    move-result v7
-
-    .local v7, type:I
-    const/4 v9, 0x3
-
-    if-ne v7, v9, :cond_1
-
-    invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->getDepth()I
-
-    move-result v9
-
-    if-le v9, v2, :cond_2
-
-    :cond_1
-    if-eq v7, v11, :cond_2
-
-    .line 98
-    const/4 v9, 0x2
-
-    if-ne v7, v9, :cond_0
-
-    .line 102
-    invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 104
-    .local v5, name:Ljava/lang/String;
-    sget-object v9, Lcom/sec/android/app/twlauncher/R$styleable;->MenuManager:[I
-
-    invoke-virtual {p0, v1, v9}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
-
-    move-result-object v0
-
-    .line 105
-    .local v0, a:Landroid/content/res/TypedArray;
-    invoke-virtual {v8}, Landroid/content/ContentValues;->clear()V
-
-    .line 106
-    const-string v9, "itemno"
-
-    invoke-virtual {v9, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_0
-
-    .line 107
-    const/4 v9, 0x1
-
-    const/16 v10, 0x10
-
-    invoke-virtual {v0, v9, v10}, Landroid/content/res/TypedArray;->getInt(II)I
-    :try_end_0
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-
-    move-result v4
+    :cond_0
+    const v0, 0xb
 
     goto :goto_0
-
-    .line 110
-    .end local v0           #a:Landroid/content/res/TypedArray;
-    .end local v1           #attrs:Landroid/util/AttributeSet;
-    .end local v2           #depth:I
-    .end local v5           #name:Ljava/lang/String;
-    .end local v6           #parser:Landroid/content/res/XmlResourceParser;
-    .end local v7           #type:I
-    :catch_0
-    move-exception v9
-
-    move-object v3, v9
-
-    .line 111
-    .local v3, e:Lorg/xmlpull/v1/XmlPullParserException;
-    const-string v9, "Launcher.LauncherConfig"
-
-    const-string v9, "Got exception parsing config."
-
-    invoke-static {v13, v12, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 116
-    .end local v3           #e:Lorg/xmlpull/v1/XmlPullParserException;
-    :cond_2
-    :goto_1
-    return v4
-
-    .line 112
-    :catch_1
-    move-exception v9
-
-    move-object v3, v9
-
-    .line 113
-    .local v3, e:Ljava/io/IOException;
-    const-string v9, "Launcher.LauncherConfig"
-
-    const-string v9, "Got exception parsing config."
-
-    invoke-static {v13, v12, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_1
 .end method
 
 .method static getProductModel(Landroid/content/Context;)Ljava/lang/String;
@@ -1009,161 +741,21 @@
 .end method
 
 .method public static getUse16BitWindow(Landroid/content/Context;)Z
-    .locals 13
-    .parameter "context"
+    .locals 2
 
-    .prologue
-    const-string v12, "Launcher.LauncherConfig"
+    const/4 v0, 0x1
 
-    const-string v11, "Got exception parsing config."
-
-    .line 303
-    new-instance v8, Landroid/content/ContentValues;
-
-    invoke-direct {v8}, Landroid/content/ContentValues;-><init>()V
-
-    .line 305
-    .local v8, values:Landroid/content/ContentValues;
-    const/4 v7, 0x0
-
-    .line 307
-    .local v7, use16BitWindow:Z
-    :try_start_0
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x7f050003
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
-
-    move-result-object v5
-
-    .line 308
-    .local v5, parser:Landroid/content/res/XmlResourceParser;
-    invoke-static {v5}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
-    .line 309
-    .local v1, attrs:Landroid/util/AttributeSet;
-    const-string v9, "config"
+    const-string p0, "use_16bit_window"
 
-    invoke-static {v5, v9}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
+    invoke-static {v1, p0, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    .line 311
-    invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->getDepth()I
+    move-result v0
 
-    move-result v2
-
-    .line 315
-    .local v2, depth:I
-    :cond_0
-    :goto_0
-    invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->next()I
-
-    move-result v6
-
-    .local v6, type:I
-    const/4 v9, 0x3
-
-    if-ne v6, v9, :cond_1
-
-    invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->getDepth()I
-
-    move-result v9
-
-    if-le v9, v2, :cond_2
-
-    :cond_1
-    const/4 v9, 0x1
-
-    if-eq v6, v9, :cond_2
-
-    .line 317
-    const/4 v9, 0x2
-
-    if-ne v6, v9, :cond_0
-
-    .line 321
-    invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 323
-    .local v4, name:Ljava/lang/String;
-    sget-object v9, Lcom/sec/android/app/twlauncher/R$styleable;->Launcher:[I
-
-    invoke-virtual {p0, v1, v9}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
-
-    move-result-object v0
-
-    .line 324
-    .local v0, a:Landroid/content/res/TypedArray;
-    invoke-virtual {v8}, Landroid/content/ContentValues;->clear()V
-
-    .line 325
-    const-string v9, "launcher"
-
-    invoke-virtual {v9, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_0
-
-    .line 326
-    const/4 v9, 0x5
-
-    invoke-virtual {v0, v9, v7}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
-    :try_end_0
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-
-    move-result v7
-
-    goto :goto_0
-
-    .line 330
-    .end local v0           #a:Landroid/content/res/TypedArray;
-    .end local v1           #attrs:Landroid/util/AttributeSet;
-    .end local v2           #depth:I
-    .end local v4           #name:Ljava/lang/String;
-    .end local v5           #parser:Landroid/content/res/XmlResourceParser;
-    .end local v6           #type:I
-    :catch_0
-    move-exception v9
-
-    move-object v3, v9
-
-    .line 331
-    .local v3, e:Lorg/xmlpull/v1/XmlPullParserException;
-    const-string v9, "Launcher.LauncherConfig"
-
-    const-string v9, "Got exception parsing config."
-
-    invoke-static {v12, v11, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 336
-    .end local v3           #e:Lorg/xmlpull/v1/XmlPullParserException;
-    :cond_2
-    :goto_1
-    return v7
-
-    .line 332
-    :catch_1
-    move-exception v9
-
-    move-object v3, v9
-
-    .line 333
-    .local v3, e:Ljava/io/IOException;
-    const-string v9, "Launcher.LauncherConfig"
-
-    const-string v9, "Got exception parsing config."
-
-    invoke-static {v12, v11, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_1
+    return v0
 .end method
 
 .method static getUseIconMenu(Landroid/content/Context;)Z
@@ -1977,159 +1569,19 @@
 .end method
 
 .method public static pageIndicator_getUseLargeDrawablesOnly(Landroid/content/Context;)Z
-    .locals 13
-    .parameter "context"
+    .locals 2
 
-    .prologue
-    const-string v12, "Launcher.LauncherConfig"
+    const/4 v0, 0x1
 
-    const-string v11, "Got exception parsing config."
-
-    .line 120
-    new-instance v8, Landroid/content/ContentValues;
-
-    invoke-direct {v8}, Landroid/content/ContentValues;-><init>()V
-
-    .line 122
-    .local v8, values:Landroid/content/ContentValues;
-    const/4 v7, 0x0
-
-    .line 124
-    .local v7, useLargeDrawablesOnlyForPageIndicator:Z
-    :try_start_0
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x7f050003
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
-
-    move-result-object v5
-
-    .line 125
-    .local v5, parser:Landroid/content/res/XmlResourceParser;
-    invoke-static {v5}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
-    .line 126
-    .local v1, attrs:Landroid/util/AttributeSet;
-    const-string v9, "config"
+    const-string p0, "use_large_indicator"
 
-    invoke-static {v5, v9}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
+    invoke-static {v1, p0, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    .line 128
-    invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->getDepth()I
+    move-result v0
 
-    move-result v2
-
-    .line 132
-    .local v2, depth:I
-    :cond_0
-    :goto_0
-    invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->next()I
-
-    move-result v6
-
-    .local v6, type:I
-    const/4 v9, 0x3
-
-    if-ne v6, v9, :cond_1
-
-    invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->getDepth()I
-
-    move-result v9
-
-    if-le v9, v2, :cond_2
-
-    :cond_1
-    const/4 v9, 0x1
-
-    if-eq v6, v9, :cond_2
-
-    .line 134
-    const/4 v9, 0x2
-
-    if-ne v6, v9, :cond_0
-
-    .line 138
-    invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 140
-    .local v4, name:Ljava/lang/String;
-    sget-object v9, Lcom/sec/android/app/twlauncher/R$styleable;->Launcher:[I
-
-    invoke-virtual {p0, v1, v9}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
-
-    move-result-object v0
-
-    .line 141
-    .local v0, a:Landroid/content/res/TypedArray;
-    invoke-virtual {v8}, Landroid/content/ContentValues;->clear()V
-
-    .line 142
-    const-string v9, "pageindicator"
-
-    invoke-virtual {v9, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_0
-
-    .line 143
-    const/4 v9, 0x0
-
-    invoke-virtual {v0, v9, v7}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
-    :try_end_0
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-
-    move-result v7
-
-    goto :goto_0
-
-    .line 147
-    .end local v0           #a:Landroid/content/res/TypedArray;
-    .end local v1           #attrs:Landroid/util/AttributeSet;
-    .end local v2           #depth:I
-    .end local v4           #name:Ljava/lang/String;
-    .end local v5           #parser:Landroid/content/res/XmlResourceParser;
-    .end local v6           #type:I
-    :catch_0
-    move-exception v9
-
-    move-object v3, v9
-
-    .line 148
-    .local v3, e:Lorg/xmlpull/v1/XmlPullParserException;
-    const-string v9, "Launcher.LauncherConfig"
-
-    const-string v9, "Got exception parsing config."
-
-    invoke-static {v12, v11, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 153
-    .end local v3           #e:Lorg/xmlpull/v1/XmlPullParserException;
-    :cond_2
-    :goto_1
-    return v7
-
-    .line 149
-    :catch_1
-    move-exception v9
-
-    move-object v3, v9
-
-    .line 150
-    .local v3, e:Ljava/io/IOException;
-    const-string v9, "Launcher.LauncherConfig"
-
-    const-string v9, "Got exception parsing config."
-
-    invoke-static {v12, v11, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_1
+    return v0
 .end method

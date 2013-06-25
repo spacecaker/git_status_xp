@@ -10466,7 +10466,7 @@
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
-    .locals 8
+    .locals 9
     .parameter
 
     .prologue

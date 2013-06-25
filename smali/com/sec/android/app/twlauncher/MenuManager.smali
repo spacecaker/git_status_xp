@@ -2909,8 +2909,6 @@
     :cond_7
     iget-object v6, p0, Lcom/sec/android/app/twlauncher/MenuManager;->mPageIndicatorMore:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v6, v10}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
-
     goto :goto_2
 
     .line 514

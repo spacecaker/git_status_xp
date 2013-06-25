@@ -66,7 +66,7 @@
 
     iget-object v6, p0, Landroid/widget/AbsListView$CheckForTap;->this$0:Landroid/widget/AbsListView;
 
-    iget v6, v6, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v6, v6, Landroid/widget/AbsListView;->mFirstPosition:I
 
     sub-int/2addr v5, v6
 
@@ -94,7 +94,7 @@
     .line 2179
     iget-object v4, p0, Landroid/widget/AbsListView$CheckForTap;->this$0:Landroid/widget/AbsListView;
 
-    iget-boolean v4, v4, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v4, v4, Landroid/widget/AbsListView;->mDataChanged:Z
 
     if-nez v4, :cond_5
 

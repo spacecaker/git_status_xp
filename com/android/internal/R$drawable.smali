@@ -1792,21 +1792,21 @@
 
 .field public static final unlock_music_line:I = 0x108039b
 
-.field public static final unlock_music_play_grid_thumb_01:I = 0x108044d
+.field public static final unlock_music_play_grid_thumb_01:I = 0x108039c
 
-.field public static final unlock_music_play_grid_thumb_02:I = 0x108044e
+.field public static final unlock_music_play_grid_thumb_02:I = 0x108039d
 
-.field public static final unlock_music_play_grid_thumb_03:I = 0x108044f
+.field public static final unlock_music_play_grid_thumb_03:I = 0x108039e
 
-.field public static final unlock_music_play_grid_thumb_04:I = 0x1080450
+.field public static final unlock_music_play_grid_thumb_04:I = 0x108039f
 
-.field public static final unlock_music_play_grid_thumb_05:I = 0x1080451
+.field public static final unlock_music_play_grid_thumb_05:I = 0x10803a0
 
-.field public static final unlock_music_play_grid_thumb_06:I = 0x1080452
+.field public static final unlock_music_play_grid_thumb_06:I = 0x10803a1
 
-.field public static final unlock_music_play_grid_thumb_07:I = 0x1080453
+.field public static final unlock_music_play_grid_thumb_07:I = 0x10803a2
 
-.field public static final unlock_music_play_grid_thumb_08:I = 0x1080454
+.field public static final unlock_music_play_grid_thumb_08:I = 0x10803a3
 
 .field public static final unlock_radio_icon:I = 0x10803a4
 
@@ -1834,9 +1834,9 @@
 
 .field public static final unlock_shadow_h:I = 0x10803b0
 
-.field public static final unlock_tem_c:I = 0x108045e
+.field public static final unlock_tem_c:I = 0x10803b1
 
-.field public static final unlock_tem_f:I = 0x108045f
+.field public static final unlock_tem_f:I = 0x10803b2
 
 .field public static final unlockscreen_lock_01:I = 0x10803b3
 
@@ -1882,85 +1882,85 @@
 
 .field public static final usb_android_connected:I = 0x10803c8
 
-.field public static final weather_01_02:I = 0x1080462
+.field public static final weather_01_02:I = 0x10803c9
 
-.field public static final weather_03_04_05:I = 0x1080463
+.field public static final weather_03_04_05:I = 0x10803ca
 
-.field public static final weather_06_07_08:I = 0x1080464
+.field public static final weather_06_07_08:I = 0x10803cb
 
-.field public static final weather_11:I = 0x1080465
+.field public static final weather_11:I = 0x10803cc
 
-.field public static final weather_12_13_39_40:I = 0x1080466
+.field public static final weather_12_13_39_40:I = 0x10803cd
 
-.field public static final weather_14:I = 0x1080467
+.field public static final weather_14:I = 0x10803ce
 
-.field public static final weather_15_41_42:I = 0x1080468
+.field public static final weather_15_41_42:I = 0x10803cf
 
-.field public static final weather_16_17:I = 0x1080469
+.field public static final weather_16_17:I = 0x10803d0
 
-.field public static final weather_18:I = 0x108046a
+.field public static final weather_18:I = 0x10803d1
 
-.field public static final weather_19_43:I = 0x108046b
+.field public static final weather_19_43:I = 0x10803d2
 
-.field public static final weather_20_21:I = 0x108046c
+.field public static final weather_20_21:I = 0x10803d3
 
-.field public static final weather_22_23_44:I = 0x108046d
+.field public static final weather_22_23_44:I = 0x10803d4
 
-.field public static final weather_24_25_26:I = 0x108046e
+.field public static final weather_24_25_26:I = 0x10803d5
 
-.field public static final weather_29:I = 0x108046f
+.field public static final weather_29:I = 0x10803d6
 
-.field public static final weather_2_01_02:I = 0x1080470
+.field public static final weather_2_01_02:I = 0x10803d7
 
-.field public static final weather_2_03_04_05:I = 0x1080471
+.field public static final weather_2_03_04_05:I = 0x10803d8
 
-.field public static final weather_2_06_07_08:I = 0x1080472
+.field public static final weather_2_06_07_08:I = 0x10803d9
 
-.field public static final weather_2_11:I = 0x1080473
+.field public static final weather_2_11:I = 0x10803da
 
-.field public static final weather_2_12_13_39_40:I = 0x1080474
+.field public static final weather_2_12_13_39_40:I = 0x10803db
 
-.field public static final weather_2_14:I = 0x1080475
+.field public static final weather_2_14:I = 0x10803dc
 
-.field public static final weather_2_15_41_42:I = 0x1080476
+.field public static final weather_2_15_41_42:I = 0x10803dd
 
-.field public static final weather_2_16_17:I = 0x1080477
+.field public static final weather_2_16_17:I = 0x10803de
 
-.field public static final weather_2_18:I = 0x1080478
+.field public static final weather_2_18:I = 0x10803df
 
-.field public static final weather_2_19_43:I = 0x1080479
+.field public static final weather_2_19_43:I = 0x10803e0
 
-.field public static final weather_2_20_21:I = 0x108047a
+.field public static final weather_2_20_21:I = 0x10803e1
 
-.field public static final weather_2_22_23_44:I = 0x108047b
+.field public static final weather_2_22_23_44:I = 0x10803e2
 
-.field public static final weather_2_24_25_26:I = 0x108047c
+.field public static final weather_2_24_25_26:I = 0x10803e3
 
-.field public static final weather_2_29:I = 0x108047d
+.field public static final weather_2_29:I = 0x10803e4
 
-.field public static final weather_2_30:I = 0x108047e
+.field public static final weather_2_30:I = 0x10803e5
 
-.field public static final weather_2_31:I = 0x108047f
+.field public static final weather_2_31:I = 0x10803e6
 
-.field public static final weather_2_32:I = 0x1080480
+.field public static final weather_2_32:I = 0x10803e7
 
-.field public static final weather_2_33:I = 0x1080481
+.field public static final weather_2_33:I = 0x10803e8
 
-.field public static final weather_2_34_35_36_37:I = 0x1080482
+.field public static final weather_2_34_35_36_37:I = 0x10803e9
 
-.field public static final weather_2_38:I = 0x1080483
+.field public static final weather_2_38:I = 0x10803ea
 
-.field public static final weather_30:I = 0x1080484
+.field public static final weather_30:I = 0x10803eb
 
-.field public static final weather_31:I = 0x1080485
+.field public static final weather_31:I = 0x10803ec
 
-.field public static final weather_32:I = 0x1080486
+.field public static final weather_32:I = 0x10803ed
 
-.field public static final weather_33:I = 0x1080487
+.field public static final weather_33:I = 0x10803ee
 
-.field public static final weather_34_35_36_37:I = 0x1080488
+.field public static final weather_34_35_36_37:I = 0x10803ef
 
-.field public static final weather_38:I = 0x1080489
+.field public static final weather_38:I = 0x10803f0
 
 .field public static final zoom_plate:I = 0x1080097
 

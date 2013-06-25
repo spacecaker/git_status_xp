@@ -176,7 +176,7 @@
 
     .line 135
     .local v1, pf:Landroid/renderscript/ProgramFragment;
-    iput v7, v1, Landroid/renderscript/Program;->mTextureCount:I
+    iput v7, v1, Landroid/renderscript/ProgramFragment;->mTextureCount:I
 
     .line 136
     return-object v1

@@ -452,7 +452,7 @@
     const v4, 0x102000d
 
     .line 113
-    iget-object v2, p0, Landroid/app/Dialog;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Landroid/app/ProgressDialog;->mContext:Landroid/content/Context;
 
     invoke-static {v2}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 

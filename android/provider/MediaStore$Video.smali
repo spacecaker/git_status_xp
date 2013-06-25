@@ -15,8 +15,8 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/provider/MediaStore$Video$Thumbnails;,
         Landroid/provider/MediaStore$Video$Media;,
+        Landroid/provider/MediaStore$Video$Thumbnails;,
         Landroid/provider/MediaStore$Video$VideoColumns;
     }
 .end annotation
@@ -31,23 +31,22 @@
     .locals 0
 
     .prologue
-    .line 1600
+    .line 1681
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1759
     return-void
 .end method
 
 .method public static final query(Landroid/content/ContentResolver;Landroid/net/Uri;[Ljava/lang/String;)Landroid/database/Cursor;
     .locals 6
-    .parameter "cr"
-    .parameter "uri"
-    .parameter "projection"
+    .parameter
+    .parameter
+    .parameter
 
     .prologue
     const/4 v3, 0x0
 
-    .line 1608
+    .line 1689
     const-string v5, "_display_name"
 
     move-object v0, p0

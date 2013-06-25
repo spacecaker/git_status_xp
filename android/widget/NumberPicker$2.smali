@@ -49,7 +49,7 @@
 
     move-result-object v0
 
-    const-string v1, "onLongClick"
+    const-string/jumbo v1, "onLongClick"
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setTag(Ljava/lang/Object;)V
 

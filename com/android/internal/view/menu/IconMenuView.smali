@@ -1739,9 +1739,9 @@
     if-lez v1, :cond_1
 
     .line 487
-    iget v3, p0, Landroid/view/View;->mMeasuredWidth:I
+    iget v3, p0, Lcom/android/internal/view/menu/IconMenuView;->mMeasuredWidth:I
 
-    iget v4, p0, Landroid/view/View;->mMeasuredHeight:I
+    iget v4, p0, Lcom/android/internal/view/menu/IconMenuView;->mMeasuredHeight:I
 
     invoke-direct {p0, v3, v4}, Lcom/android/internal/view/menu/IconMenuView;->positionChildren(II)V
 

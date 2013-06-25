@@ -1624,7 +1624,7 @@
 
     .line 649
     .local v2, y:I
-    iget-object v3, p0, Landroid/app/Dialog;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/app/SearchDialog;->mContext:Landroid/content/Context;
 
     invoke-static {v3}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
@@ -2206,7 +2206,7 @@
 
     .prologue
     .line 281
-    iget-object v1, p0, Landroid/app/Dialog;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/app/SearchDialog;->mContext:Landroid/content/Context;
 
     const-string/jumbo v2, "search"
 
@@ -2407,7 +2407,7 @@
 
     .line 526
     .local v2, info:Landroid/content/pm/ActivityInfo;
-    iget-object v4, v2, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v4, v2, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     invoke-virtual {v3, v4}, Landroid/content/pm/PackageManager;->getApplicationIcon(Landroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
     :try_end_0
@@ -2778,7 +2778,7 @@
     if-eqz v1, :cond_1
 
     .line 435
-    iget-object v1, p0, Landroid/app/Dialog;->mDecor:Landroid/view/View;
+    iget-object v1, p0, Landroid/app/SearchDialog;->mDecor:Landroid/view/View;
 
     const/4 v2, 0x0
 
@@ -3435,10 +3435,10 @@
 
     .line 176
     .local v0, lp:Landroid/view/WindowManager$LayoutParams;
-    iput v2, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v2, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     .line 180
-    iput v2, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v2, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
     .line 181
     const/16 v2, 0x37

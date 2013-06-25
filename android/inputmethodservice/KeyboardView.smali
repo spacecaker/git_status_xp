@@ -546,7 +546,7 @@
     .line 329
     .end local v1           #attr:I
     :cond_0
-    iget-object v7, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
     sget-object v8, Lcom/android/internal/R$styleable;->Theme:[I
 
@@ -1978,7 +1978,7 @@
     .local v27, padding:Landroid/graphics/Rect;
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mPaddingLeft:I
+    iget v0, v0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     move/from16 v20, v0
 
@@ -1986,7 +1986,7 @@
     .local v20, kbdPaddingLeft:I
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mPaddingTop:I
+    iget v0, v0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
     move/from16 v21, v0
 
@@ -2788,7 +2788,7 @@
 
     float-to-int v0, v0
 
-    iget v1, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v1, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     sub-int v2, v0, v1
 
@@ -2804,7 +2804,7 @@
 
     add-int/2addr v0, v1
 
-    iget v1, p0, Landroid/view/View;->mPaddingTop:I
+    iget v1, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
     sub-int v3, v0, v1
 
@@ -3741,7 +3741,7 @@
 
     sub-int/2addr v7, v8
 
-    iget v8, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v8, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     add-int/2addr v7, v8
 
@@ -4444,13 +4444,13 @@
 
     iget v2, v0, Landroid/inputmethodservice/Keyboard$Key;->x:I
 
-    iget v3, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v3, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     add-int/2addr v2, v3
 
     iget v3, v0, Landroid/inputmethodservice/Keyboard$Key;->y:I
 
-    iget v4, p0, Landroid/view/View;->mPaddingTop:I
+    iget v4, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
     add-int/2addr v3, v4
 
@@ -4460,7 +4460,7 @@
 
     add-int/2addr v4, v5
 
-    iget v5, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v5, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     add-int/2addr v4, v5
 
@@ -4470,7 +4470,7 @@
 
     add-int/2addr v5, v6
 
-    iget v6, p0, Landroid/view/View;->mPaddingTop:I
+    iget v6, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
     add-int/2addr v5, v6
 
@@ -4482,13 +4482,13 @@
     .line 976
     iget v1, v0, Landroid/inputmethodservice/Keyboard$Key;->x:I
 
-    iget v2, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v2, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     add-int/2addr v1, v2
 
     iget v2, v0, Landroid/inputmethodservice/Keyboard$Key;->y:I
 
-    iget v3, p0, Landroid/view/View;->mPaddingTop:I
+    iget v3, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
     add-int/2addr v2, v3
 
@@ -4498,7 +4498,7 @@
 
     add-int/2addr v3, v4
 
-    iget v4, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v4, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     add-int/2addr v3, v4
 
@@ -4508,7 +4508,7 @@
 
     add-int/2addr v4, v5
 
-    iget v5, p0, Landroid/view/View;->mPaddingTop:I
+    iget v5, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
     add-int/2addr v4, v5
 
@@ -4818,7 +4818,7 @@
     :cond_1
     iget v1, p1, Landroid/inputmethodservice/Keyboard$Key;->x:I
 
-    iget v3, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v3, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     add-int/2addr v1, v3
 
@@ -4827,7 +4827,7 @@
     .line 1065
     iget v1, p1, Landroid/inputmethodservice/Keyboard$Key;->y:I
 
-    iget v3, p0, Landroid/view/View;->mPaddingTop:I
+    iget v3, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
     add-int/2addr v1, v3
 
@@ -5027,15 +5027,15 @@
     if-nez v1, :cond_0
 
     .line 574
-    iget v1, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v1, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
-    iget v2, p0, Landroid/view/View;->mPaddingRight:I
+    iget v2, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingRight:I
 
     add-int/2addr v1, v2
 
-    iget v2, p0, Landroid/view/View;->mPaddingTop:I
+    iget v2, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
-    iget v3, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v3, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingBottom:I
 
     add-int/2addr v2, v3
 
@@ -5053,11 +5053,11 @@
 
     move-result v1
 
-    iget v2, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v2, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingLeft:I
 
     add-int/2addr v1, v2
 
-    iget v2, p0, Landroid/view/View;->mPaddingRight:I
+    iget v2, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingRight:I
 
     add-int v0, v1, v2
 
@@ -5084,11 +5084,11 @@
 
     move-result v1
 
-    iget v2, p0, Landroid/view/View;->mPaddingTop:I
+    iget v2, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingTop:I
 
     add-int/2addr v1, v2
 
-    iget v2, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v2, p0, Landroid/inputmethodservice/KeyboardView;->mPaddingBottom:I
 
     add-int/2addr v1, v2
 

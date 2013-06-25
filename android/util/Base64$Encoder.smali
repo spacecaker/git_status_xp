@@ -237,7 +237,7 @@
     invoke-direct {p0}, Landroid/util/Base64$Coder;-><init>()V
 
     .line 582
-    iput-object p2, p0, Landroid/util/Base64$Coder;->output:[B
+    iput-object p2, p0, Landroid/util/Base64$Encoder;->output:[B
 
     .line 584
     and-int/lit8 v0, p1, 0x1
@@ -363,7 +363,7 @@
 
     .line 606
     .local v2, alphabet:[B
-    iget-object v6, p0, Landroid/util/Base64$Coder;->output:[B
+    iget-object v6, p0, Landroid/util/Base64$Encoder;->output:[B
 
     .line 607
     .local v6, output:[B
@@ -1194,7 +1194,7 @@
     .restart local v4       #op:I
     :cond_11
     :goto_8
-    iput v4, p0, Landroid/util/Base64$Coder;->op:I
+    iput v4, p0, Landroid/util/Base64$Encoder;->op:I
 
     .line 734
     iput v3, p0, Landroid/util/Base64$Encoder;->count:I

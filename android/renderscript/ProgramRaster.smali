@@ -42,7 +42,7 @@
     invoke-direct {p0, p2}, Landroid/renderscript/BaseObj;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 39
-    iput p1, p0, Landroid/renderscript/BaseObj;->mID:I
+    iput p1, p0, Landroid/renderscript/ProgramRaster;->mID:I
 
     .line 41
     iput v1, p0, Landroid/renderscript/ProgramRaster;->mPointSize:F
@@ -107,7 +107,7 @@
     .line 64
     iget-object v0, p0, Landroid/renderscript/ProgramRaster;->mIn:Landroid/renderscript/Element;
 
-    iget v1, v0, Landroid/renderscript/BaseObj;->mID:I
+    iget v1, v0, Landroid/renderscript/Element;->mID:I
 
     .line 66
     :cond_0
@@ -118,11 +118,11 @@
     .line 67
     iget-object v0, p0, Landroid/renderscript/ProgramRaster;->mOut:Landroid/renderscript/Element;
 
-    iget v2, v0, Landroid/renderscript/BaseObj;->mID:I
+    iget v2, v0, Landroid/renderscript/Element;->mID:I
 
     .line 69
     :cond_1
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/ProgramRaster;->mRS:Landroid/renderscript/RenderScript;
 
     iget-boolean v3, p0, Landroid/renderscript/ProgramRaster;->mPointSmooth:Z
 
@@ -134,7 +134,7 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/renderscript/BaseObj;->mID:I
+    iput v0, p0, Landroid/renderscript/ProgramRaster;->mID:I
 
     .line 70
     return-void
@@ -146,7 +146,7 @@
 
     .prologue
     .line 49
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/ProgramRaster;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-virtual {v0}, Landroid/renderscript/RenderScript;->validate()V
 
@@ -154,9 +154,9 @@
     iput p1, p0, Landroid/renderscript/ProgramRaster;->mLineWidth:F
 
     .line 51
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/ProgramRaster;->mRS:Landroid/renderscript/RenderScript;
 
-    iget v1, p0, Landroid/renderscript/BaseObj;->mID:I
+    iget v1, p0, Landroid/renderscript/ProgramRaster;->mID:I
 
     invoke-virtual {v0, v1, p1}, Landroid/renderscript/RenderScript;->nProgramRasterSetLineWidth(IF)V
 
@@ -187,7 +187,7 @@
 
     .prologue
     .line 55
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/ProgramRaster;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-virtual {v0}, Landroid/renderscript/RenderScript;->validate()V
 
@@ -195,9 +195,9 @@
     iput p1, p0, Landroid/renderscript/ProgramRaster;->mPointSize:F
 
     .line 57
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/ProgramRaster;->mRS:Landroid/renderscript/RenderScript;
 
-    iget v1, p0, Landroid/renderscript/BaseObj;->mID:I
+    iget v1, p0, Landroid/renderscript/ProgramRaster;->mID:I
 
     invoke-virtual {v0, v1, p1}, Landroid/renderscript/RenderScript;->nProgramRasterSetPointSize(IF)V
 

@@ -64,7 +64,7 @@
     .line 3975
     iget-object v0, p0, Landroid/widget/AbsListView$2;->this$0:Landroid/widget/AbsListView;
 
-    #getter for: Landroid/view/ViewGroup;->mPersistentDrawingCache:I
+    #getter for: Landroid/widget/AbsListView;->mPersistentDrawingCache:I
     invoke-static {v0}, Landroid/widget/AbsListView;->access$3500(Landroid/widget/AbsListView;)I
 
     move-result v0

@@ -164,7 +164,7 @@
     iput-object p2, p0, Landroid/app/LoadedApk;->mApplicationInfo:Landroid/content/pm/ApplicationInfo;
 
     .line 105
-    iget-object v0, p2, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v0, p2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/app/LoadedApk;->mPackageName:Ljava/lang/String;
 
@@ -362,7 +362,7 @@
     .line 138
     iget-object v0, p0, Landroid/app/LoadedApk;->mApplicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iput-object p2, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iput-object p2, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     .line 139
     iput-object p2, p0, Landroid/app/LoadedApk;->mPackageName:Ljava/lang/String;

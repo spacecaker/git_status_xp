@@ -149,7 +149,7 @@
 
     .prologue
     .line 761
-    iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Timer;->mCount:I
+    iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mCount:I
 
     iget-boolean v1, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mInDischarge:Z
 
@@ -182,7 +182,7 @@
 
     .prologue
     .line 756
-    iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Timer;->mTotalTime:J
+    iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mTotalTime:J
 
     iget-boolean v2, p0, Lcom/android/internal/os/BatteryStatsImpl$SamplingTimer;->mInDischarge:Z
 

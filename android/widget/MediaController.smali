@@ -1844,12 +1844,12 @@
 
     move-result v3
 
-    iput v3, v2, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v3, v2, Landroid/view/WindowManager$LayoutParams;->width:I
 
     .line 296
     const/4 v3, -0x2
 
-    iput v3, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v3, v2, Landroid/view/WindowManager$LayoutParams;->height:I
 
     .line 297
     iput v6, v2, Landroid/view/WindowManager$LayoutParams;->x:I
@@ -1865,7 +1865,7 @@
 
     add-int/2addr v3, v4
 
-    iget v4, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v4, v2, Landroid/view/WindowManager$LayoutParams;->height:I
 
     sub-int/2addr v3, v4
 

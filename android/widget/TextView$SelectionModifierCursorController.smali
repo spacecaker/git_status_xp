@@ -668,7 +668,7 @@
     :sswitch_1
     iget-object v2, p0, Landroid/widget/TextView$SelectionModifierCursorController;->this$0:Landroid/widget/TextView;
 
-    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
+    #getter for: Landroid/widget/TextView;->mContext:Landroid/content/Context;
     invoke-static {v2}, Landroid/widget/TextView;->access$3100(Landroid/widget/TextView;)Landroid/content/Context;
 
     move-result-object v2

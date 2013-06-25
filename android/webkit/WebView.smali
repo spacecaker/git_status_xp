@@ -1832,7 +1832,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     return v0
 .end method
@@ -1843,7 +1843,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     return v0
 .end method
@@ -1870,7 +1870,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     return v0
 .end method
@@ -1881,7 +1881,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollY:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollY:I
 
     return v0
 .end method
@@ -1905,7 +1905,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollY:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollY:I
 
     return v0
 .end method
@@ -2072,7 +2072,7 @@
 
     .prologue
     .line 321
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/webkit/WebView;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -2083,7 +2083,7 @@
 
     .prologue
     .line 321
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/webkit/WebView;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -2094,7 +2094,7 @@
 
     .prologue
     .line 321
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/webkit/WebView;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -2105,7 +2105,7 @@
 
     .prologue
     .line 321
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/webkit/WebView;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -2129,7 +2129,7 @@
 
     .prologue
     .line 321
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/webkit/WebView;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -2163,7 +2163,7 @@
 
     .prologue
     .line 321
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/webkit/WebView;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -2336,7 +2336,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     return v0
 .end method
@@ -2359,7 +2359,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollY:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollY:I
 
     return v0
 .end method
@@ -2537,7 +2537,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     return v0
 .end method
@@ -2571,7 +2571,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollY:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollY:I
 
     return v0
 .end method
@@ -2618,7 +2618,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     return v0
 .end method
@@ -2629,7 +2629,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollY:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollY:I
 
     return v0
 .end method
@@ -2677,7 +2677,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     return v0
 .end method
@@ -2688,7 +2688,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollY:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollY:I
 
     return v0
 .end method
@@ -3087,7 +3087,7 @@
 
     .prologue
     .line 321
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/webkit/WebView;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -3268,7 +3268,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     return v0
 .end method
@@ -3293,7 +3293,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     return v0
 .end method
@@ -3304,7 +3304,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollY:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollY:I
 
     return v0
 .end method
@@ -3329,7 +3329,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollY:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollY:I
 
     return v0
 .end method
@@ -3353,7 +3353,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     return v0
 .end method
@@ -3364,7 +3364,7 @@
 
     .prologue
     .line 321
-    iget v0, p0, Landroid/view/View;->mScrollY:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollY:I
 
     return v0
 .end method
@@ -3833,7 +3833,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move/from16 v19, v0
 
@@ -3964,7 +3964,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move/from16 v19, v0
 
@@ -4522,7 +4522,7 @@
     .line 8100
     new-instance v0, Landroid/webkit/WebView$ExtendedZoomControls;
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/webkit/WebView;->mContext:Landroid/content/Context;
 
     const/4 v2, 0x0
 
@@ -4917,7 +4917,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move/from16 v24, v0
 
@@ -4952,7 +4952,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move/from16 v24, v0
 
@@ -5207,7 +5207,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move/from16 v24, v0
 
@@ -5267,7 +5267,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move/from16 v24, v0
 
@@ -5328,7 +5328,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move/from16 v24, v0
 
@@ -5363,7 +5363,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move/from16 v24, v0
 
@@ -5543,7 +5543,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move/from16 v24, v0
 
@@ -5578,7 +5578,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move/from16 v24, v0
 
@@ -5801,7 +5801,7 @@
     :cond_a
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move/from16 v23, v0
 
@@ -5874,7 +5874,7 @@
     .local v15, scrollCentreY:F
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move/from16 v23, v0
 
@@ -5987,7 +5987,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move/from16 v24, v0
 
@@ -6005,7 +6005,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move/from16 v24, v0
 
@@ -6054,7 +6054,7 @@
     :cond_d
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move/from16 v23, v0
 
@@ -6062,7 +6062,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move/from16 v24, v0
 
@@ -6252,7 +6252,7 @@
 
     float-to-int v8, v8
 
-    iget v9, p0, Landroid/view/View;->mScrollX:I
+    iget v9, p0, Landroid/webkit/WebView;->mScrollX:I
 
     add-int/2addr v8, v9
 
@@ -6267,7 +6267,7 @@
 
     float-to-int v8, v8
 
-    iget v9, p0, Landroid/view/View;->mScrollY:I
+    iget v9, p0, Landroid/webkit/WebView;->mScrollY:I
 
     add-int/2addr v8, v9
 
@@ -6315,7 +6315,7 @@
     iput-boolean v12, p0, Landroid/webkit/WebView;->mInZoomOverview:Z
 
     .line 8462
-    iget v8, p0, Landroid/view/View;->mScrollY:I
+    iget v8, p0, Landroid/webkit/WebView;->mScrollY:I
 
     invoke-virtual {p0}, Landroid/webkit/WebView;->getTitleHeight()I
 
@@ -6323,7 +6323,7 @@
 
     if-ge v8, v9, :cond_5
 
-    iput v11, p0, Landroid/view/View;->mScrollY:I
+    iput v11, p0, Landroid/webkit/WebView;->mScrollY:I
 
     .line 8463
     :cond_5
@@ -6446,7 +6446,7 @@
 
     move-result v8
 
-    iget v9, p0, Landroid/view/View;->mScrollX:I
+    iget v9, p0, Landroid/webkit/WebView;->mScrollX:I
 
     sub-int v6, v8, v9
 
@@ -6521,7 +6521,7 @@
     iput-boolean v12, p0, Landroid/webkit/WebView;->mInZoomOverview:Z
 
     .line 8488
-    iget v8, p0, Landroid/view/View;->mScrollY:I
+    iget v8, p0, Landroid/webkit/WebView;->mScrollY:I
 
     invoke-virtual {p0}, Landroid/webkit/WebView;->getTitleHeight()I
 
@@ -6529,7 +6529,7 @@
 
     if-ge v8, v9, :cond_b
 
-    iput v11, p0, Landroid/view/View;->mScrollY:I
+    iput v11, p0, Landroid/webkit/WebView;->mScrollY:I
 
     .line 8489
     :cond_b
@@ -6631,11 +6631,11 @@
     if-eqz v0, :cond_4
 
     .line 7481
-    iget v3, p0, Landroid/view/View;->mScrollX:I
+    iget v3, p0, Landroid/webkit/WebView;->mScrollX:I
 
     .line 7482
     .local v3, oldX:I
-    iget v4, p0, Landroid/view/View;->mScrollY:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollY:I
 
     .line 7483
     .local v4, oldY:I
@@ -7006,13 +7006,13 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v4, v0
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v5, v0
 
@@ -7262,7 +7262,7 @@
     :cond_a
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v3, v0
 
@@ -7270,7 +7270,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v3, v0
 
@@ -7294,7 +7294,7 @@
     :cond_c
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v3, v0
 
@@ -7302,7 +7302,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v3, v0
 
@@ -7341,7 +7341,7 @@
     .line 7982
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v3, v0
 
@@ -7357,7 +7357,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v3, v0
 
@@ -7379,7 +7379,7 @@
     :cond_10
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v3, v0
 
@@ -7395,7 +7395,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v3, v0
 
@@ -7474,13 +7474,13 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v4, v0
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v5, v0
 
@@ -7634,7 +7634,7 @@
 
     float-to-int v3, v3
 
-    iget v4, p0, Landroid/view/View;->mScrollX:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollX:I
 
     add-int/2addr v3, v4
 
@@ -7648,7 +7648,7 @@
 
     float-to-int v3, v3
 
-    iget v4, p0, Landroid/view/View;->mScrollY:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollY:I
 
     add-int/2addr v3, v4
 
@@ -8021,7 +8021,7 @@
     .local v7, count:I
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move/from16 v17, v0
 
@@ -8029,7 +8029,7 @@
     .local v17, oldScrollX:I
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move/from16 v18, v0
 
@@ -8211,7 +8211,7 @@
     .local v24, yMove:I
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v5, v0
 
@@ -8234,7 +8234,7 @@
     :cond_c
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v5, v0
 
@@ -9013,7 +9013,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move/from16 v22, v0
 
@@ -9126,7 +9126,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move/from16 v22, v0
 
@@ -9941,11 +9941,11 @@
     const/4 v9, 0x0
 
     .line 4418
-    iget v3, p0, Landroid/view/View;->mScrollX:I
+    iget v3, p0, Landroid/webkit/WebView;->mScrollX:I
 
     .line 4419
     .local v3, scrollX:I
-    iget v4, p0, Landroid/view/View;->mScrollY:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollY:I
 
     .line 4420
     .local v4, scrollY:I
@@ -10279,7 +10279,7 @@
 
     .line 4232
     .local v3, y:I
-    iget-object v4, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Landroid/webkit/WebView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -11521,7 +11521,7 @@
     .line 1615
     new-instance v3, Landroid/webkit/WebClipboard;
 
-    iget-object v4, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Landroid/webkit/WebView;->mContext:Landroid/content/Context;
 
     invoke-direct {v3, v4}, Landroid/webkit/WebClipboard;-><init>(Landroid/content/Context;)V
 
@@ -11629,7 +11629,7 @@
 
     move-result v3
 
-    iget v4, p0, Landroid/view/View;->mScrollX:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollX:I
 
     if-lt v3, v4, :cond_2
 
@@ -11643,7 +11643,7 @@
 
     move-result v3
 
-    iget v4, p0, Landroid/view/View;->mScrollX:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollX:I
 
     add-int/2addr v4, v2
 
@@ -11655,7 +11655,7 @@
 
     move-result v3
 
-    iget v4, p0, Landroid/view/View;->mScrollY:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollY:I
 
     if-lt v3, v4, :cond_2
 
@@ -11669,7 +11669,7 @@
 
     move-result v3
 
-    iget v4, p0, Landroid/view/View;->mScrollY:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollY:I
 
     add-int/2addr v4, v1
 
@@ -12421,11 +12421,11 @@
 
     .prologue
     .line 3791
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     add-int/2addr v0, p1
 
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollY:I
 
     add-int/2addr v1, p2
 
@@ -12455,13 +12455,13 @@
     move-result p2
 
     .line 3798
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     sub-int v3, p1, v0
 
     .line 3799
     .local v3, dx:I
-    iget v0, p0, Landroid/view/View;->mScrollY:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollY:I
 
     sub-int v4, p2, v0
 
@@ -12485,9 +12485,9 @@
     .line 3806
     iget-object v0, p0, Landroid/webkit/WebView;->mScroller:Landroid/widget/OverScroller;
 
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollX:I
 
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollY:I
 
     if-lez p4, :cond_1
 
@@ -12569,7 +12569,7 @@
 
     float-to-int v4, v4
 
-    iget v5, p0, Landroid/view/View;->mScrollX:I
+    iget v5, p0, Landroid/webkit/WebView;->mScrollX:I
 
     add-int/2addr v4, v5
 
@@ -12583,7 +12583,7 @@
 
     float-to-int v4, v4
 
-    iget v5, p0, Landroid/view/View;->mScrollY:I
+    iget v5, p0, Landroid/webkit/WebView;->mScrollY:I
 
     add-int/2addr v4, v5
 
@@ -12661,45 +12661,45 @@
     if-nez v2, :cond_4
 
     .line 2896
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     .line 2897
     .local v0, oldX:I
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollY:I
 
     .line 2898
     .local v1, oldY:I
-    iget v2, p0, Landroid/view/View;->mScrollX:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollX:I
 
     invoke-direct {p0, v2}, Landroid/webkit/WebView;->pinLocX(I)I
 
     move-result v2
 
-    iput v2, p0, Landroid/view/View;->mScrollX:I
+    iput v2, p0, Landroid/webkit/WebView;->mScrollX:I
 
     .line 2899
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollY:I
 
     invoke-direct {p0, v2}, Landroid/webkit/WebView;->pinLocY(I)I
 
     move-result v2
 
-    iput v2, p0, Landroid/view/View;->mScrollY:I
+    iput v2, p0, Landroid/webkit/WebView;->mScrollY:I
 
     .line 2900
-    iget v2, p0, Landroid/view/View;->mScrollX:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollX:I
 
     if-ne v0, v2, :cond_2
 
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollY:I
 
     if-eq v1, v2, :cond_3
 
     .line 2901
     :cond_2
-    iget v2, p0, Landroid/view/View;->mScrollX:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollX:I
 
-    iget v3, p0, Landroid/view/View;->mScrollY:I
+    iget v3, p0, Landroid/webkit/WebView;->mScrollY:I
 
     invoke-virtual {p0, v2, v3, v0, v1}, Landroid/webkit/WebView;->onScrollChanged(IIII)V
 
@@ -12769,7 +12769,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move/from16 v16, v0
 
@@ -12783,7 +12783,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move/from16 v17, v0
 
@@ -12797,7 +12797,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move/from16 v18, v0
 
@@ -12823,7 +12823,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move/from16 v19, v0
 
@@ -13200,10 +13200,10 @@
     iput-object p1, p0, Landroid/webkit/WebView;->mHistoryPicture:Landroid/graphics/Picture;
 
     .line 2060
-    iput v1, p0, Landroid/view/View;->mScrollX:I
+    iput v1, p0, Landroid/webkit/WebView;->mScrollX:I
 
     .line 2061
-    iput v2, p0, Landroid/view/View;->mScrollY:I
+    iput v2, p0, Landroid/webkit/WebView;->mScrollY:I
 
     .line 2062
     invoke-virtual {p1}, Landroid/graphics/Picture;->getWidth()I
@@ -13875,7 +13875,7 @@
     iput-boolean p1, v0, Landroid/webkit/WebView$ViewSizeData;->mNeedAnchorDiff:Z
 
     .line 3215
-    iget v4, p0, Landroid/view/View;->mScrollX:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollX:I
 
     invoke-virtual {p0, v4}, Landroid/webkit/WebView;->viewToContentX(I)I
 
@@ -13884,7 +13884,7 @@
     iput v4, v0, Landroid/webkit/WebView$ViewSizeData;->mViewportLeft:I
 
     .line 3216
-    iget v4, p0, Landroid/view/View;->mScrollY:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollY:I
 
     invoke-virtual {p0, v4}, Landroid/webkit/WebView;->viewToContentY(I)I
 
@@ -14203,11 +14203,11 @@
 
     if-ne p2, v5, :cond_3
 
-    iget v2, p0, Landroid/view/View;->mScrollX:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollX:I
 
     if-nez v2, :cond_3
 
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollY:I
 
     if-nez v2, :cond_3
 
@@ -14273,7 +14273,7 @@
     invoke-direct {p0, v0, v1, v4, v4}, Landroid/webkit/WebView;->pinScrollTo(IIZI)Z
 
     .line 3940
-    iget v2, p0, Landroid/view/View;->mScrollX:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollX:I
 
     if-eq v2, v0, :cond_4
 
@@ -14284,7 +14284,7 @@
 
     if-nez v2, :cond_6
 
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollY:I
 
     if-eq v2, v1, :cond_6
 
@@ -14390,7 +14390,7 @@
     .local v12, oldAdaptiveZoomAnimationLength:F
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move/from16 v16, v0
 
@@ -14398,7 +14398,7 @@
     .local v16, oldScrollX:I
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move/from16 v17, v0
 
@@ -14597,7 +14597,7 @@
     .line 3040
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v3, v0
 
@@ -14612,7 +14612,7 @@
     .line 3041
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v3, v0
 
@@ -14697,14 +14697,14 @@
 
     move-object/from16 v1, p0
 
-    iput v0, v1, Landroid/view/View;->mScrollX:I
+    iput v0, v1, Landroid/webkit/WebView;->mScrollX:I
 
     .line 3053
     move/from16 v0, v17
 
     move-object/from16 v1, p0
 
-    iput v0, v1, Landroid/view/View;->mScrollY:I
+    iput v0, v1, Landroid/webkit/WebView;->mScrollY:I
 
     .line 3054
     move v0, v13
@@ -14756,7 +14756,7 @@
     :cond_7
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v6, v0
 
@@ -14764,7 +14764,7 @@
     .local v6, oldX:I
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v7, v0
 
@@ -14977,7 +14977,7 @@
 
     move-object/from16 v1, p0
 
-    iput v0, v1, Landroid/view/View;->mScrollX:I
+    iput v0, v1, Landroid/webkit/WebView;->mScrollX:I
 
     .line 3014
     invoke-static/range {v23 .. v23}, Ljava/lang/Math;->round(F)I
@@ -14996,7 +14996,7 @@
 
     move-object/from16 v1, p0
 
-    iput v0, v1, Landroid/view/View;->mScrollY:I
+    iput v0, v1, Landroid/webkit/WebView;->mScrollY:I
 
     .line 3017
     sget-object v3, Landroid/webkit/WebView$ZoomMode;->ZOOM_ROTATE:Landroid/webkit/WebView$ZoomMode;
@@ -15035,7 +15035,7 @@
     :goto_3
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v3, v0
 
@@ -15043,7 +15043,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v3, v0
 
@@ -15056,13 +15056,13 @@
     .line 3021
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v4, v0
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v5, v0
 
@@ -15272,7 +15272,7 @@
     .local v5, oldAdaptiveZoomAnimationLength:F
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v8, v0
 
@@ -15280,7 +15280,7 @@
     .local v8, oldScrollX:I
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v9, v0
 
@@ -15436,7 +15436,7 @@
     .line 8864
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move/from16 v17, v0
 
@@ -15455,7 +15455,7 @@
     .line 8865
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move/from16 v17, v0
 
@@ -15544,14 +15544,14 @@
 
     move-object/from16 v1, p0
 
-    iput v0, v1, Landroid/view/View;->mScrollX:I
+    iput v0, v1, Landroid/webkit/WebView;->mScrollX:I
 
     .line 8877
     move v0, v9
 
     move-object/from16 v1, p0
 
-    iput v0, v1, Landroid/view/View;->mScrollY:I
+    iput v0, v1, Landroid/webkit/WebView;->mScrollY:I
 
     .line 8880
     :cond_5
@@ -15582,7 +15582,7 @@
     :cond_7
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v11, v0
 
@@ -15590,7 +15590,7 @@
     .local v11, oldX:I
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v12, v0
 
@@ -15802,7 +15802,7 @@
 
     move-object/from16 v1, p0
 
-    iput v0, v1, Landroid/view/View;->mScrollX:I
+    iput v0, v1, Landroid/webkit/WebView;->mScrollX:I
 
     .line 8846
     invoke-static {v15}, Ljava/lang/Math;->round(F)I
@@ -15821,7 +15821,7 @@
 
     move-object/from16 v1, p0
 
-    iput v0, v1, Landroid/view/View;->mScrollY:I
+    iput v0, v1, Landroid/webkit/WebView;->mScrollY:I
 
     .line 8852
     if-nez p4, :cond_4
@@ -16212,7 +16212,7 @@
     invoke-virtual {v1, v0}, Landroid/webkit/WebSettings;->setDoubleTapToastCount(I)V
 
     .line 7460
-    iget-object v2, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Landroid/webkit/WebView;->mContext:Landroid/content/Context;
 
     const v3, 0x1040358
 
@@ -17353,7 +17353,7 @@
 
     float-to-int v3, v3
 
-    iget v4, p0, Landroid/view/View;->mScrollX:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollX:I
 
     add-int/2addr v3, v4
 
@@ -17367,7 +17367,7 @@
 
     float-to-int v3, v3
 
-    iget v4, p0, Landroid/view/View;->mScrollY:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollY:I
 
     add-int/2addr v3, v4
 
@@ -17918,12 +17918,12 @@
     if-nez p3, :cond_0
 
     .line 8027
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollX:I
 
     iput v1, p0, Landroid/webkit/WebView;->mInitialScrollX:I
 
     .line 8028
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollY:I
 
     iput v1, p0, Landroid/webkit/WebView;->mInitialScrollY:I
 
@@ -18026,12 +18026,12 @@
     if-nez p2, :cond_0
 
     .line 8887
-    iget v2, p0, Landroid/view/View;->mScrollX:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollX:I
 
     iput v2, p0, Landroid/webkit/WebView;->mInitialScrollX:I
 
     .line 8888
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollY:I
 
     iput v2, p0, Landroid/webkit/WebView;->mInitialScrollY:I
 
@@ -19440,7 +19440,7 @@
 
     .prologue
     .line 3258
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     const/4 v1, 0x0
 
@@ -19462,7 +19462,7 @@
 
     .line 3245
     .local v1, range:I
-    iget v2, p0, Landroid/view/View;->mScrollX:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollX:I
 
     .line 3246
     .local v2, scrollX:I
@@ -19508,11 +19508,11 @@
     if-eqz v0, :cond_7
 
     .line 3731
-    iget v3, p0, Landroid/view/View;->mScrollX:I
+    iget v3, p0, Landroid/webkit/WebView;->mScrollX:I
 
     .line 3732
     .local v3, oldX:I
-    iget v4, p0, Landroid/view/View;->mScrollY:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollY:I
 
     .line 3733
     .local v4, oldY:I
@@ -19786,7 +19786,7 @@
 
     .prologue
     .line 3292
-    iget v0, p0, Landroid/view/View;->mScrollY:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollY:I
 
     invoke-virtual {p0}, Landroid/webkit/WebView;->getTitleHeight()I
 
@@ -19814,7 +19814,7 @@
 
     .line 3279
     .local v1, range:I
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollY:I
 
     .line 3280
     .local v2, scrollY:I
@@ -19935,7 +19935,7 @@
     if-eq v3, v4, :cond_0
 
     .line 5469
-    iget-object v4, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Landroid/webkit/WebView;->mContext:Landroid/content/Context;
 
     const v5, 0x1040366
 
@@ -20566,7 +20566,7 @@
     .line 4214
     iget-object v0, p0, Landroid/webkit/WebView;->mTitleBar:Landroid/view/View;
 
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollX:I
 
     iget-object v2, p0, Landroid/webkit/WebView;->mTitleBar:Landroid/view/View;
 
@@ -21098,9 +21098,9 @@
     .line 7894
     iget-object v0, p0, Landroid/webkit/WebView;->mScroller:Landroid/widget/OverScroller;
 
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollX:I
 
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollY:I
 
     invoke-direct {p0}, Landroid/webkit/WebView;->computeMaxScrollX()I
 
@@ -21521,7 +21521,7 @@
 
     float-to-int v5, v5
 
-    iget v6, p0, Landroid/view/View;->mScrollX:I
+    iget v6, p0, Landroid/webkit/WebView;->mScrollX:I
 
     add-int/2addr v5, v6
 
@@ -21535,7 +21535,7 @@
 
     float-to-int v5, v5
 
-    iget v6, p0, Landroid/view/View;->mScrollY:I
+    iget v6, p0, Landroid/webkit/WebView;->mScrollY:I
 
     add-int/2addr v5, v6
 
@@ -22250,7 +22250,7 @@
     .line 10723
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v14, v0
 
@@ -22267,7 +22267,7 @@
     .line 10724
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v14, v0
 
@@ -23122,7 +23122,7 @@
 
     move-result v0
 
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollY:I
 
     invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
 
@@ -23499,11 +23499,11 @@
 
     .line 381
     .local v3, start:J
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollX:I
 
     .line 382
     .local v1, savedScrollX:I
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollY:I
 
     .line 383
     .local v2, savedScrollY:I
@@ -23513,22 +23513,22 @@
     .local v0, savedScale:F
     neg-int v5, p2
 
-    iput v5, p0, Landroid/view/View;->mScrollX:I
+    iput v5, p0, Landroid/webkit/WebView;->mScrollX:I
 
     .line 386
     neg-int v5, p3
 
-    iput v5, p0, Landroid/view/View;->mScrollY:I
+    iput v5, p0, Landroid/webkit/WebView;->mScrollY:I
 
     .line 387
     iput p4, p0, Landroid/webkit/WebView;->mActualScale:F
 
     .line 388
-    iget v5, p0, Landroid/view/View;->mScrollX:I
+    iget v5, p0, Landroid/webkit/WebView;->mScrollX:I
 
     int-to-float v5, v5
 
-    iget v6, p0, Landroid/view/View;->mScrollY:I
+    iget v6, p0, Landroid/webkit/WebView;->mScrollY:I
 
     int-to-float v6, v6
 
@@ -23538,10 +23538,10 @@
     invoke-virtual {p0, p1}, Landroid/webkit/WebView;->onDraw(Landroid/graphics/Canvas;)V
 
     .line 390
-    iput v1, p0, Landroid/view/View;->mScrollX:I
+    iput v1, p0, Landroid/webkit/WebView;->mScrollX:I
 
     .line 391
-    iput v2, p0, Landroid/view/View;->mScrollY:I
+    iput v2, p0, Landroid/webkit/WebView;->mScrollY:I
 
     .line 392
     iput v0, p0, Landroid/webkit/WebView;->mActualScale:F
@@ -23631,7 +23631,7 @@
 
     move-result v0
 
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollX:I
 
     sub-int/2addr v0, v1
 
@@ -23648,7 +23648,7 @@
 
     move-result v0
 
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollY:I
 
     sub-int/2addr v0, v1
 
@@ -24358,19 +24358,19 @@
     iput v7, p0, Landroid/webkit/WebView;->mSelectY:I
 
     .line 7721
-    iget v7, p0, Landroid/view/View;->mScrollX:I
+    iget v7, p0, Landroid/webkit/WebView;->mScrollX:I
 
     add-int v1, v6, v7
 
     .line 7722
     .local v1, maxX:I
-    iget v7, p0, Landroid/view/View;->mScrollY:I
+    iget v7, p0, Landroid/webkit/WebView;->mScrollY:I
 
     add-int v2, v0, v7
 
     .line 7723
     .local v2, maxY:I
-    iget v7, p0, Landroid/view/View;->mScrollX:I
+    iget v7, p0, Landroid/webkit/WebView;->mScrollX:I
 
     sub-int/2addr v7, v9
 
@@ -24387,7 +24387,7 @@
     iput v7, p0, Landroid/webkit/WebView;->mSelectX:I
 
     .line 7725
-    iget v7, p0, Landroid/view/View;->mScrollY:I
+    iget v7, p0, Landroid/webkit/WebView;->mScrollY:I
 
     sub-int/2addr v7, v9
 
@@ -24421,7 +24421,7 @@
     .line 7738
     iget v7, p0, Landroid/webkit/WebView;->mSelectX:I
 
-    iget v8, p0, Landroid/view/View;->mScrollX:I
+    iget v8, p0, Landroid/webkit/WebView;->mScrollX:I
 
     if-ge v7, v8, :cond_1
 
@@ -24432,7 +24432,7 @@
     :goto_1
     iget v7, p0, Landroid/webkit/WebView;->mSelectY:I
 
-    iget v8, p0, Landroid/view/View;->mScrollY:I
+    iget v8, p0, Landroid/webkit/WebView;->mScrollY:I
 
     if-ge v7, v8, :cond_3
 
@@ -24580,9 +24580,9 @@
     invoke-direct {p0, v0, v1, v3}, Landroid/webkit/WebView;->recordNewContentSize(IIZ)V
 
     .line 3701
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollY:I
 
     invoke-direct {p0, v0, v1, v3, v3}, Landroid/webkit/WebView;->pinScrollTo(IIZI)Z
 
@@ -24962,7 +24962,7 @@
     sput-object v0, Landroid/webkit/WebView;->mOverScrollBackground:Landroid/graphics/Paint;
 
     .line 4340
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/webkit/WebView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -25040,36 +25040,36 @@
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 4356
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     int-to-float v0, v0
 
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollY:I
 
     int-to-float v1, v1
 
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 4357
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     neg-int v0, v0
 
     int-to-float v1, v0
 
-    iget v0, p0, Landroid/view/View;->mScrollY:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollY:I
 
     sub-int v0, v12, v0
 
     int-to-float v2, v0
 
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     sub-int v0, v9, v0
 
     int-to-float v3, v0
 
-    iget v0, p0, Landroid/view/View;->mScrollY:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollY:I
 
     sub-int v0, v7, v0
 
@@ -25200,11 +25200,11 @@
     .local v8, height:I
     iget-object v0, p0, Landroid/webkit/WebView;->mTitleShadow:Landroid/graphics/drawable/Drawable;
 
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollX:I
 
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollY:I
 
-    iget v3, p0, Landroid/view/View;->mScrollX:I
+    iget v3, p0, Landroid/webkit/WebView;->mScrollX:I
 
     invoke-virtual {p0}, Landroid/webkit/WebView;->getWidth()I
 
@@ -25212,7 +25212,7 @@
 
     add-int/2addr v3, v4
 
-    iget v4, p0, Landroid/view/View;->mScrollY:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollY:I
 
     add-int/2addr v4, v8
 
@@ -25288,12 +25288,12 @@
 
     .prologue
     .line 3305
-    iget v0, p0, Landroid/view/View;->mScrollY:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollY:I
 
     if-gez v0, :cond_0
 
     .line 3306
-    iget v0, p0, Landroid/view/View;->mScrollY:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollY:I
 
     sub-int/2addr p4, v0
 
@@ -26511,11 +26511,11 @@
 
     .line 3328
     :cond_2
-    iget v2, p0, Landroid/view/View;->mScrollX:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollX:I
 
     .line 3329
     .local v2, oldX:I
-    iget v3, p0, Landroid/view/View;->mScrollY:I
+    iget v3, p0, Landroid/webkit/WebView;->mScrollY:I
 
     .line 3331
     .local v3, oldY:I
@@ -26526,11 +26526,11 @@
 
     if-eqz v6, :cond_7
 
-    iget v6, p0, Landroid/view/View;->mScrollY:I
+    iget v6, p0, Landroid/webkit/WebView;->mScrollY:I
 
     if-ne v3, v6, :cond_7
 
-    iget v6, p0, Landroid/view/View;->mScrollX:I
+    iget v6, p0, Landroid/webkit/WebView;->mScrollX:I
 
     if-ne v2, v6, :cond_7
 
@@ -26757,11 +26757,11 @@
 
     if-eqz v0, :cond_0
 
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     if-nez v0, :cond_0
 
-    iget v0, p0, Landroid/view/View;->mScrollY:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollY:I
 
     if-nez v0, :cond_0
 
@@ -27188,7 +27188,7 @@
 
     float-to-int v3, v3
 
-    iget v4, p0, Landroid/view/View;->mScrollX:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollX:I
 
     add-int/2addr v3, v4
 
@@ -27203,7 +27203,7 @@
 
     float-to-int v3, v3
 
-    iget v4, p0, Landroid/view/View;->mScrollY:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollY:I
 
     add-int/2addr v3, v4
 
@@ -27781,7 +27781,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v6, v0
 
@@ -27801,7 +27801,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v6, v0
 
@@ -29599,7 +29599,7 @@
     :cond_32
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v5, v0
 
@@ -29617,7 +29617,7 @@
     .local v30, newScrollX:I
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v5, v0
 
@@ -29646,7 +29646,7 @@
     :cond_33
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v5, v0
 
@@ -29664,7 +29664,7 @@
     .local v31, newScrollY:I
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v5, v0
 
@@ -30691,13 +30691,13 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v13, v0
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v14, v0
 
@@ -30761,13 +30761,13 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v13, v0
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move v14, v0
 
@@ -31263,7 +31263,7 @@
     if-eqz p1, :cond_1
 
     .line 2438
-    iget v2, p0, Landroid/view/View;->mScrollX:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollX:I
 
     invoke-direct {p0}, Landroid/webkit/WebView;->computeRealVerticalScrollRange()I
 
@@ -31357,7 +31357,7 @@
     if-eqz p1, :cond_1
 
     .line 2412
-    iget v2, p0, Landroid/view/View;->mScrollX:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollX:I
 
     invoke-direct {p0, v2, v3, v4, v3}, Landroid/webkit/WebView;->pinScrollTo(IIZI)Z
 
@@ -31617,7 +31617,7 @@
 
     float-to-int v3, v3
 
-    iget v4, p0, Landroid/view/View;->mScrollX:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollX:I
 
     add-int/2addr v3, v4
 
@@ -31631,7 +31631,7 @@
 
     float-to-int v3, v3
 
-    iget v4, p0, Landroid/view/View;->mScrollY:I
+    iget v4, p0, Landroid/webkit/WebView;->mScrollY:I
 
     add-int/2addr v3, v4
 
@@ -31812,7 +31812,7 @@
     .line 4942
     new-instance v9, Landroid/webkit/WebTextView;
 
-    iget-object v10, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v10, p0, Landroid/webkit/WebView;->mContext:Landroid/content/Context;
 
     invoke-direct {v9, v10, p0}, Landroid/webkit/WebTextView;-><init>(Landroid/content/Context;Landroid/webkit/WebView;)V
 
@@ -32238,7 +32238,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move v15, v0
 
@@ -32252,7 +32252,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move/from16 v16, v0
 
@@ -32266,7 +32266,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollX:I
 
     move/from16 v17, v0
 
@@ -32292,7 +32292,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/webkit/WebView;->mScrollY:I
 
     move/from16 v18, v0
 
@@ -32852,7 +32852,7 @@
 
     float-to-int v4, v4
 
-    iget v5, p0, Landroid/view/View;->mScrollX:I
+    iget v5, p0, Landroid/webkit/WebView;->mScrollX:I
 
     add-int/2addr v4, v5
 
@@ -32866,7 +32866,7 @@
 
     float-to-int v4, v4
 
-    iget v5, p0, Landroid/view/View;->mScrollY:I
+    iget v5, p0, Landroid/webkit/WebView;->mScrollY:I
 
     add-int/2addr v4, v5
 
@@ -33482,14 +33482,14 @@
     .line 2046
     const-string/jumbo v2, "scrollX"
 
-    iget v3, p0, Landroid/view/View;->mScrollX:I
+    iget v3, p0, Landroid/webkit/WebView;->mScrollX:I
 
     invoke-virtual {p1, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     .line 2047
     const-string/jumbo v2, "scrollY"
 
-    iget v3, p0, Landroid/view/View;->mScrollY:I
+    iget v3, p0, Landroid/webkit/WebView;->mScrollY:I
 
     invoke-virtual {p1, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -34482,7 +34482,7 @@
     if-nez v0, :cond_2
 
     .line 2747
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/webkit/WebView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -35064,7 +35064,7 @@
     if-nez v2, :cond_0
 
     .line 1276
-    iget v2, p0, Landroid/view/View;->mScrollX:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollX:I
 
     add-int/2addr v2, p1
 
@@ -35074,7 +35074,7 @@
 
     .line 1277
     .local v0, contentX:I
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollY:I
 
     add-int/2addr v2, p2
 
@@ -35288,7 +35288,7 @@
     if-lez v1, :cond_3
 
     .line 5393
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollX:I
 
     iget v2, p0, Landroid/webkit/WebView;->mLastTouchX:F
 
@@ -35299,7 +35299,7 @@
     iput v1, p0, Landroid/webkit/WebView;->mSelectX:I
 
     .line 5394
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollY:I
 
     iget v2, p0, Landroid/webkit/WebView;->mLastTouchY:F
 
@@ -35313,7 +35313,7 @@
 
     .line 5396
     :cond_3
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollX:I
 
     invoke-virtual {p0}, Landroid/webkit/WebView;->getViewWidth()I
 
@@ -35326,7 +35326,7 @@
     iput v1, p0, Landroid/webkit/WebView;->mSelectX:I
 
     .line 5397
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollY:I
 
     invoke-direct {p0}, Landroid/webkit/WebView;->getViewHeightWithTitle()I
 
@@ -35467,37 +35467,37 @@
     invoke-virtual {p0}, Landroid/webkit/WebView;->invalidate()V
 
     .line 4813
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/webkit/WebView;->mScrollX:I
 
     .line 4814
     .local v0, oldScrollX:I
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollY:I
 
     .line 4815
     .local v1, oldScrollY:I
-    iget v2, p0, Landroid/view/View;->mScrollX:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollX:I
 
     invoke-direct {p0, v2}, Landroid/webkit/WebView;->pinLocX(I)I
 
     move-result v2
 
-    iput v2, p0, Landroid/view/View;->mScrollX:I
+    iput v2, p0, Landroid/webkit/WebView;->mScrollX:I
 
     .line 4816
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollY:I
 
     invoke-direct {p0, v2}, Landroid/webkit/WebView;->pinLocY(I)I
 
     move-result v2
 
-    iput v2, p0, Landroid/view/View;->mScrollY:I
+    iput v2, p0, Landroid/webkit/WebView;->mScrollY:I
 
     .line 4817
-    iget v2, p0, Landroid/view/View;->mScrollX:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollX:I
 
     if-ne v0, v2, :cond_2
 
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollY:I
 
     if-eq v1, v2, :cond_3
 
@@ -35513,9 +35513,9 @@
     invoke-virtual {v2, v3, v0, v1}, Landroid/webkit/WebViewCore;->sendMessage(III)V
 
     .line 4821
-    iget v2, p0, Landroid/view/View;->mScrollX:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollX:I
 
-    iget v3, p0, Landroid/view/View;->mScrollY:I
+    iget v3, p0, Landroid/webkit/WebView;->mScrollY:I
 
     invoke-virtual {p0, v2, v3, v0, v1}, Landroid/webkit/WebView;->onScrollChanged(IIII)V
 
@@ -35584,7 +35584,7 @@
 
     move-result v1
 
-    iget v2, p0, Landroid/view/View;->mScrollX:I
+    iget v2, p0, Landroid/webkit/WebView;->mScrollX:I
 
     sub-int/2addr v1, v2
 
@@ -35596,7 +35596,7 @@
 
     move-result v2
 
-    iget v3, p0, Landroid/view/View;->mScrollY:I
+    iget v3, p0, Landroid/webkit/WebView;->mScrollY:I
 
     sub-int/2addr v2, v3
 
@@ -35929,7 +35929,7 @@
 
     .line 1538
     .local v1, settings:Landroid/webkit/WebSettings;
-    const-string v2, "GT-S5660"
+    const-string v2, "GT-S5830"
 
     const-string v3, "GT-B7510"
 
@@ -36205,7 +36205,7 @@
 
     float-to-int v0, v0
 
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollX:I
 
     add-int/2addr v0, v1
 
@@ -36220,7 +36220,7 @@
 
     float-to-int v0, v0
 
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollY:I
 
     add-int/2addr v0, v1
 
@@ -36282,7 +36282,7 @@
 
     float-to-int v0, v0
 
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollX:I
 
     add-int/2addr v0, v1
 
@@ -36297,7 +36297,7 @@
 
     float-to-int v0, v0
 
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/webkit/WebView;->mScrollY:I
 
     add-int/2addr v0, v1
 

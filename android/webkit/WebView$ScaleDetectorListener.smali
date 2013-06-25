@@ -557,7 +557,7 @@
 
     iget-object v5, p0, Landroid/webkit/WebView$ScaleDetectorListener;->this$0:Landroid/webkit/WebView;
 
-    #getter for: Landroid/view/View;->mScrollX:I
+    #getter for: Landroid/webkit/WebView;->mScrollX:I
     invoke-static {v5}, Landroid/webkit/WebView;->access$2400(Landroid/webkit/WebView;)I
 
     move-result v5
@@ -587,7 +587,7 @@
 
     iget-object v5, p0, Landroid/webkit/WebView$ScaleDetectorListener;->this$0:Landroid/webkit/WebView;
 
-    #getter for: Landroid/view/View;->mScrollY:I
+    #getter for: Landroid/webkit/WebView;->mScrollY:I
     invoke-static {v5}, Landroid/webkit/WebView;->access$2600(Landroid/webkit/WebView;)I
 
     move-result v5

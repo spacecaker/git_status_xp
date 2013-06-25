@@ -57,7 +57,7 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 32
-    const-string v1, "SpaceCaker Roms!"
+    const-string v1, "Zombie art by Jack Larson"
 
     const/4 v2, 0x0
 

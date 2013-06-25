@@ -291,7 +291,7 @@
     invoke-virtual {p2, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
     .line 106
-    iget-object v6, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    iget-object v6, p0, Lcom/android/internal/app/ResolverActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
     .line 108
     .local v6, ap:Lcom/android/internal/app/AlertController$AlertParams;
@@ -868,7 +868,7 @@
 
     move-object/from16 v0, v24
 
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     move-object/from16 v24, v0
 
@@ -880,7 +880,7 @@
 
     move-object/from16 v0, v25
 
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
     move-object/from16 v25, v0
 

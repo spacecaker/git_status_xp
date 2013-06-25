@@ -416,13 +416,13 @@
     if-eqz v0, :cond_1
 
     .line 724
-    iget v2, p0, Landroid/view/View;->mLeft:I
+    iget v2, p0, Landroid/widget/AdapterView;->mLeft:I
 
-    iget v3, p0, Landroid/view/View;->mTop:I
+    iget v3, p0, Landroid/widget/AdapterView;->mTop:I
 
-    iget v4, p0, Landroid/view/View;->mRight:I
+    iget v4, p0, Landroid/widget/AdapterView;->mRight:I
 
-    iget v5, p0, Landroid/view/View;->mBottom:I
+    iget v5, p0, Landroid/widget/AdapterView;->mBottom:I
 
     move-object v0, p0
 

@@ -993,7 +993,7 @@
 
     move-object/from16 v0, v19
 
-    iget v0, v0, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+    iget v0, v0, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
 
     move v6, v0
 
@@ -1001,7 +1001,7 @@
 
     move-object/from16 v0, v19
 
-    iget v0, v0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+    iget v0, v0, Landroid/widget/LinearLayout$LayoutParams;->bottomMargin:I
 
     move v6, v0
 
@@ -1208,7 +1208,7 @@
 
     move-object/from16 v0, v19
 
-    iget v0, v0, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+    iget v0, v0, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
 
     move v6, v0
 
@@ -1216,7 +1216,7 @@
 
     move-object/from16 v0, v19
 
-    iget v0, v0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+    iget v0, v0, Landroid/widget/LinearLayout$LayoutParams;->bottomMargin:I
 
     move v6, v0
 

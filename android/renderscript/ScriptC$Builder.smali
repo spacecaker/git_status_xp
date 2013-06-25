@@ -82,7 +82,7 @@
     monitor-enter v7
 
     :try_start_0
-    iget-object v5, p0, Landroid/renderscript/Script$Builder;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v5, p0, Landroid/renderscript/ScriptC$Builder;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-virtual {v5}, Landroid/renderscript/RenderScript;->nScriptCBegin()V
 
@@ -116,7 +116,7 @@
 
     .line 98
     .local v1, e:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Integer;>;"
-    iget-object v8, p0, Landroid/renderscript/Script$Builder;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v8, p0, Landroid/renderscript/ScriptC$Builder;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -179,7 +179,7 @@
 
     .line 101
     .local v0, e:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Float;>;"
-    iget-object v8, p0, Landroid/renderscript/Script$Builder;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v8, p0, Landroid/renderscript/ScriptC$Builder;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -204,7 +204,7 @@
     .line 104
     .end local v0           #e:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Float;>;"
     :cond_1
-    iget-object v5, p0, Landroid/renderscript/Script$Builder;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v5, p0, Landroid/renderscript/ScriptC$Builder;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v6, p0, Landroid/renderscript/ScriptC$Builder;->mProgram:[B
 
@@ -215,7 +215,7 @@
     invoke-virtual {v5, v6, v8, v9}, Landroid/renderscript/RenderScript;->nScriptCSetScript([BII)V
 
     .line 106
-    iget-object v5, p0, Landroid/renderscript/Script$Builder;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v5, p0, Landroid/renderscript/ScriptC$Builder;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-virtual {v5}, Landroid/renderscript/RenderScript;->nScriptCCreate()I
 
@@ -225,7 +225,7 @@
     .local v3, id:I
     new-instance v4, Landroid/renderscript/ScriptC;
 
-    iget-object v5, p0, Landroid/renderscript/Script$Builder;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v5, p0, Landroid/renderscript/ScriptC$Builder;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-direct {v4, v3, v5}, Landroid/renderscript/ScriptC;-><init>(ILandroid/renderscript/RenderScript;)V
 

@@ -123,7 +123,7 @@
     .line 1338
     iget-object v5, p0, Landroid/widget/Gallery$FlingRunnable;->this$0:Landroid/widget/Gallery;
 
-    iget v5, v5, Landroid/widget/AdapterView;->mItemCount:I
+    iget v5, v5, Landroid/widget/Gallery;->mItemCount:I
 
     if-nez v5, :cond_0
 
@@ -173,7 +173,7 @@
 
     iget-object v6, p0, Landroid/widget/Gallery$FlingRunnable;->this$0:Landroid/widget/Gallery;
 
-    iget v6, v6, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v6, v6, Landroid/widget/Gallery;->mFirstPosition:I
 
     #setter for: Landroid/widget/Gallery;->mDownTouchPosition:I
     invoke-static {v5, v6}, Landroid/widget/Gallery;->access$702(Landroid/widget/Gallery;I)I
@@ -187,7 +187,7 @@
 
     iget-object v6, p0, Landroid/widget/Gallery$FlingRunnable;->this$0:Landroid/widget/Gallery;
 
-    #getter for: Landroid/view/View;->mPaddingLeft:I
+    #getter for: Landroid/widget/Gallery;->mPaddingLeft:I
     invoke-static {v6}, Landroid/widget/Gallery;->access$800(Landroid/widget/Gallery;)I
 
     move-result v6
@@ -196,7 +196,7 @@
 
     iget-object v6, p0, Landroid/widget/Gallery$FlingRunnable;->this$0:Landroid/widget/Gallery;
 
-    #getter for: Landroid/view/View;->mPaddingRight:I
+    #getter for: Landroid/widget/Gallery;->mPaddingRight:I
     invoke-static {v6}, Landroid/widget/Gallery;->access$900(Landroid/widget/Gallery;)I
 
     move-result v6
@@ -253,7 +253,7 @@
 
     iget-object v6, p0, Landroid/widget/Gallery$FlingRunnable;->this$0:Landroid/widget/Gallery;
 
-    iget v6, v6, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v6, v6, Landroid/widget/Gallery;->mFirstPosition:I
 
     add-int/2addr v6, v2
 
@@ -269,7 +269,7 @@
 
     iget-object v6, p0, Landroid/widget/Gallery$FlingRunnable;->this$0:Landroid/widget/Gallery;
 
-    #getter for: Landroid/view/View;->mPaddingRight:I
+    #getter for: Landroid/widget/Gallery;->mPaddingRight:I
     invoke-static {v6}, Landroid/widget/Gallery;->access$1000(Landroid/widget/Gallery;)I
 
     move-result v6
@@ -278,7 +278,7 @@
 
     iget-object v6, p0, Landroid/widget/Gallery$FlingRunnable;->this$0:Landroid/widget/Gallery;
 
-    #getter for: Landroid/view/View;->mPaddingLeft:I
+    #getter for: Landroid/widget/Gallery;->mPaddingLeft:I
     invoke-static {v6}, Landroid/widget/Gallery;->access$1100(Landroid/widget/Gallery;)I
 
     move-result v6

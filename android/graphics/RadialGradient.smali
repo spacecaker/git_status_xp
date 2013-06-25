@@ -51,7 +51,7 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/graphics/Shader;->native_instance:I
+    iput v0, p0, Landroid/graphics/RadialGradient;->native_instance:I
 
     .line 59
     return-void
@@ -140,7 +140,7 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/graphics/Shader;->native_instance:I
+    iput v0, p0, Landroid/graphics/RadialGradient;->native_instance:I
 
     .line 43
     return-void

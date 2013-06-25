@@ -3,6 +3,14 @@
 .source "LockPatternUtils.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/internal/widget/LockPatternUtils$NotiMode;
+    }
+.end annotation
+
+
 # static fields
 .field public static final FAILED_ATTEMPTS_BEFORE_RESET:I = 0x14
 
@@ -37,6 +45,8 @@
 .field private static final SYSTEM_DIRECTORY:Ljava/lang/String; = "/system/"
 
 .field private static final TAG:Ljava/lang/String; = "LockPatternUtils"
+
+.field private static mSimLockPrepared:Z
 
 .field private static final sHaveNonZeroPasswordFile:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -1693,6 +1703,98 @@
     return-object v0
 .end method
 
+.method public getIntentMissedEvent(Lcom/android/internal/widget/LockPatternUtils$NotiMode;)Landroid/app/PendingIntent;
+    .locals 7
+    .parameter "mode"
+
+    .prologue
+    const/4 v6, 0x0
+
+    .line 1304
+    const/4 v0, -0x1
+
+    .line 1305
+    .local v0, index:I
+    const/4 v3, 0x1
+
+    .line 1306
+    .local v3, reqNum:I
+    const-string v2, "com.android.phone"
+
+    .line 1309
+    .local v2, pkg:Ljava/lang/String;
+    iget-object v4, p0, Lcom/android/internal/widget/LockPatternUtils;->mContext:Landroid/content/Context;
+
+    const-string v5, "notification"
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/app/NotificationManager;
+
+    .line 1312
+    .local v1, mNM:Landroid/app/NotificationManager;
+    sget-object v4, Lcom/android/internal/widget/LockPatternUtils$NotiMode;->MissedCall:Lcom/android/internal/widget/LockPatternUtils$NotiMode;
+
+    if-ne p1, v4, :cond_0
+
+    const-string v2, "com.android.phone"
+
+    .line 1317
+    :goto_0
+    invoke-virtual {v1, v2, v3}, Landroid/app/NotificationManager;->getEventIndexWithReq(Ljava/lang/String;I)I
+
+    move-result v0
+
+    .line 1319
+    const/4 v4, -0x1
+
+    if-ne v0, v4, :cond_3
+
+    move-object v4, v6
+
+    .line 1320
+    :goto_1
+    return-object v4
+
+    .line 1313
+    :cond_0
+    sget-object v4, Lcom/android/internal/widget/LockPatternUtils$NotiMode;->MissedMsg:Lcom/android/internal/widget/LockPatternUtils$NotiMode;
+
+    if-ne p1, v4, :cond_1
+
+    const-string v2, "com.android.mms"
+
+    const/16 v3, 0x7b
+
+    goto :goto_0
+
+    .line 1314
+    :cond_1
+    sget-object v4, Lcom/android/internal/widget/LockPatternUtils$NotiMode;->MissedEMail:Lcom/android/internal/widget/LockPatternUtils$NotiMode;
+
+    if-ne p1, v4, :cond_2
+
+    const-string v2, "com.android.email"
+
+    goto :goto_0
+
+    :cond_2
+    move-object v4, v6
+
+    .line 1315
+    goto :goto_1
+
+    .line 1320
+    :cond_3
+    invoke-virtual {v1, v0}, Landroid/app/NotificationManager;->getEventIntent(I)Landroid/app/PendingIntent;
+
+    move-result-object v4
+
+    goto :goto_1
+.end method
+
 .method public getKeyguardStoredPasswordQuality()I
     .locals 3
 
@@ -1809,6 +1911,113 @@
     :cond_1
     move-object v1, v0
 
+    goto :goto_0
+.end method
+
+.method public getNumMissedEvent(Lcom/android/internal/widget/LockPatternUtils$NotiMode;)I
+    .locals 8
+    .parameter "mode"
+
+    .prologue
+    const/4 v7, 0x0
+
+    .line 1330
+    const/4 v1, -0x1
+
+    .line 1331
+    .local v1, index:I
+    const/4 v4, 0x1
+
+    .line 1332
+    .local v4, reqNum:I
+    const/4 v0, 0x0
+
+    .line 1333
+    .local v0, count:I
+    const-string v3, "com.android.phone"
+
+    .line 1335
+    .local v3, pkg:Ljava/lang/String;
+    iget-object v5, p0, Lcom/android/internal/widget/LockPatternUtils;->mContext:Landroid/content/Context;
+
+    const-string v6, "notification"
+
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/app/NotificationManager;
+
+    .line 1336
+    .local v2, mNM:Landroid/app/NotificationManager;
+    if-nez v2, :cond_0
+
+    move v5, v7
+
+    .line 1353
+    :goto_0
+    return v5
+
+    .line 1340
+    :cond_0
+    sget-object v5, Lcom/android/internal/widget/LockPatternUtils$NotiMode;->MissedCall:Lcom/android/internal/widget/LockPatternUtils$NotiMode;
+
+    if-ne p1, v5, :cond_1
+
+    const-string v3, "com.android.phone"
+
+    .line 1345
+    :goto_1
+    invoke-virtual {v2, v3, v4}, Landroid/app/NotificationManager;->getEventIndexWithReq(Ljava/lang/String;I)I
+
+    move-result v1
+
+    .line 1349
+    const/4 v5, -0x1
+
+    if-ne v1, v5, :cond_4
+
+    move v5, v7
+
+    goto :goto_0
+
+    .line 1341
+    :cond_1
+    sget-object v5, Lcom/android/internal/widget/LockPatternUtils$NotiMode;->MissedMsg:Lcom/android/internal/widget/LockPatternUtils$NotiMode;
+
+    if-ne p1, v5, :cond_2
+
+    const-string v3, "com.android.mms"
+
+    const/16 v4, 0x7b
+
+    goto :goto_1
+
+    .line 1342
+    :cond_2
+    sget-object v5, Lcom/android/internal/widget/LockPatternUtils$NotiMode;->MissedEMail:Lcom/android/internal/widget/LockPatternUtils$NotiMode;
+
+    if-ne p1, v5, :cond_3
+
+    const-string v3, "com.android.email"
+
+    goto :goto_1
+
+    :cond_3
+    move v5, v7
+
+    .line 1343
+    goto :goto_0
+
+    .line 1351
+    :cond_4
+    invoke-virtual {v2, v1}, Landroid/app/NotificationManager;->getEventCount(I)I
+
+    move-result v0
+
+    move v5, v0
+
+    .line 1353
     goto :goto_0
 .end method
 
@@ -2276,6 +2485,16 @@
 
     .line 1045
     goto :goto_2
+.end method
+
+.method public isSimLocked()Z
+    .locals 1
+
+    .prologue
+    .line 1288
+    sget-boolean v0, Lcom/android/internal/widget/LockPatternUtils;->mSimLockPrepared:Z
+
+    return v0
 .end method
 
 .method public isTactileFeedbackEnabled()Z

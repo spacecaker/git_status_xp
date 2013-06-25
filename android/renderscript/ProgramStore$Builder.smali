@@ -125,7 +125,7 @@
     .line 145
     iget-object v4, p1, Landroid/renderscript/ProgramStore$Builder;->mIn:Landroid/renderscript/Element;
 
-    iget v1, v4, Landroid/renderscript/BaseObj;->mID:I
+    iget v1, v4, Landroid/renderscript/Element;->mID:I
 
     .line 147
     :cond_0
@@ -136,7 +136,7 @@
     .line 148
     iget-object v4, p1, Landroid/renderscript/ProgramStore$Builder;->mOut:Landroid/renderscript/Element;
 
-    iget v2, v4, Landroid/renderscript/BaseObj;->mID:I
+    iget v2, v4, Landroid/renderscript/Element;->mID:I
 
     .line 150
     :cond_1

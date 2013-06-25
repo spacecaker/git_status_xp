@@ -171,14 +171,14 @@
     invoke-direct {p0}, Landroid/view/ViewGroup$LayoutParams;-><init>()V
 
     .line 3716
-    iget v0, p1, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v0, p1, Landroid/view/ViewGroup$MarginLayoutParams;->width:I
 
-    iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v0, p0, Landroid/view/ViewGroup$MarginLayoutParams;->width:I
 
     .line 3717
-    iget v0, p1, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v0, p1, Landroid/view/ViewGroup$MarginLayoutParams;->height:I
 
-    iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v0, p0, Landroid/view/ViewGroup$MarginLayoutParams;->height:I
 
     .line 3719
     iget v0, p1, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I

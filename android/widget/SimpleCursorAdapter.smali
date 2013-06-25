@@ -63,7 +63,7 @@
 
     .prologue
     .line 305
-    iget-object v2, p0, Landroid/widget/CursorAdapter;->mCursor:Landroid/database/Cursor;
+    iget-object v2, p0, Landroid/widget/SimpleCursorAdapter;->mCursor:Landroid/database/Cursor;
 
     if-eqz v2, :cond_2
 
@@ -99,7 +99,7 @@
     .line 312
     iget-object v2, p0, Landroid/widget/SimpleCursorAdapter;->mFrom:[I
 
-    iget-object v3, p0, Landroid/widget/CursorAdapter;->mCursor:Landroid/database/Cursor;
+    iget-object v3, p0, Landroid/widget/SimpleCursorAdapter;->mCursor:Landroid/database/Cursor;
 
     aget-object v4, p1, v1
 

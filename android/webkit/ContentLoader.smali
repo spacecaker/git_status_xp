@@ -73,7 +73,7 @@
 
     .line 55
     .local v1, exMessage:Ljava/lang/String;
-    iget-object v2, p0, Landroid/webkit/StreamLoader;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Landroid/webkit/ContentLoader;->mContext:Landroid/content/Context;
 
     const v3, 0x104010e
 
@@ -162,13 +162,13 @@
     if-nez v1, :cond_0
 
     .line 67
-    iget-object v2, p0, Landroid/webkit/StreamLoader;->mLoadListener:Landroid/webkit/LoadListener;
+    iget-object v2, p0, Landroid/webkit/ContentLoader;->mLoadListener:Landroid/webkit/LoadListener;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v4, p0, Landroid/webkit/StreamLoader;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Landroid/webkit/ContentLoader;->mContext:Landroid/content/Context;
 
     const v5, 0x1040007
 
@@ -207,7 +207,7 @@
     .line 76
     :cond_0
     :try_start_0
-    iget-object v2, p0, Landroid/webkit/StreamLoader;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Landroid/webkit/ContentLoader;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -217,10 +217,10 @@
 
     move-result-object v2
 
-    iput-object v2, p0, Landroid/webkit/StreamLoader;->mDataStream:Ljava/io/InputStream;
+    iput-object v2, p0, Landroid/webkit/ContentLoader;->mDataStream:Ljava/io/InputStream;
 
     .line 77
-    iget-object v2, p0, Landroid/webkit/StreamLoader;->mLoadListener:Landroid/webkit/LoadListener;
+    iget-object v2, p0, Landroid/webkit/ContentLoader;->mLoadListener:Landroid/webkit/LoadListener;
 
     const/4 v3, 0x1
 
@@ -248,7 +248,7 @@
 
     .line 79
     .local v0, ex:Ljava/io/FileNotFoundException;
-    iget-object v2, p0, Landroid/webkit/StreamLoader;->mLoadListener:Landroid/webkit/LoadListener;
+    iget-object v2, p0, Landroid/webkit/ContentLoader;->mLoadListener:Landroid/webkit/LoadListener;
 
     invoke-direct {p0, v0}, Landroid/webkit/ContentLoader;->errString(Ljava/lang/Exception;)Ljava/lang/String;
 
@@ -270,7 +270,7 @@
 
     .line 84
     .local v0, ex:Ljava/lang/RuntimeException;
-    iget-object v2, p0, Landroid/webkit/StreamLoader;->mLoadListener:Landroid/webkit/LoadListener;
+    iget-object v2, p0, Landroid/webkit/ContentLoader;->mLoadListener:Landroid/webkit/LoadListener;
 
     const/16 v3, -0xd
 

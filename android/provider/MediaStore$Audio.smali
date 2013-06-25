@@ -15,16 +15,18 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/provider/MediaStore$Audio$Albums;,
         Landroid/provider/MediaStore$Audio$AlbumColumns;,
-        Landroid/provider/MediaStore$Audio$Artists;,
+        Landroid/provider/MediaStore$Audio$AlbumartistColumns;,
+        Landroid/provider/MediaStore$Audio$Albumartists;,
+        Landroid/provider/MediaStore$Audio$Albums;,
         Landroid/provider/MediaStore$Audio$ArtistColumns;,
-        Landroid/provider/MediaStore$Audio$Playlists;,
-        Landroid/provider/MediaStore$Audio$PlaylistsColumns;,
+        Landroid/provider/MediaStore$Audio$Artists;,
+        Landroid/provider/MediaStore$Audio$AudioColumns;,
         Landroid/provider/MediaStore$Audio$Genres;,
         Landroid/provider/MediaStore$Audio$GenresColumns;,
         Landroid/provider/MediaStore$Audio$Media;,
-        Landroid/provider/MediaStore$Audio$AudioColumns;
+        Landroid/provider/MediaStore$Audio$Playlists;,
+        Landroid/provider/MediaStore$Audio$PlaylistsColumns;
     }
 .end annotation
 
@@ -34,302 +36,288 @@
     .locals 0
 
     .prologue
-    .line 901
+    .line 864
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1557
     return-void
 .end method
 
 .method public static keyFor(Ljava/lang/String;)Ljava/lang/String;
-    .locals 10
-    .parameter "name"
+    .locals 8
+    .parameter
 
     .prologue
-    const/16 v8, 0x2e
+    const/16 v7, 0x2e
 
-    const-string v9, ""
-
-    const-string v7, "\u0001"
-
-    .line 1054
-    if-eqz p0, :cond_a
-
-    .line 1055
     const/4 v4, 0x0
 
-    .line 1056
-    .local v4, sortfirst:Z
-    const-string v5, "<unknown>"
-
-    invoke-virtual {p0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    .line 1057
-    const-string v5, "\u0001"
-
-    move-object v5, v7
-
-    .line 1101
-    .end local v4           #sortfirst:Z
-    :goto_0
-    return-object v5
-
-    .line 1061
-    .restart local v4       #sortfirst:Z
-    :cond_0
-    const-string v5, "\u0001"
-
-    invoke-virtual {p0, v7}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    .line 1062
-    const/4 v4, 0x1
-
-    .line 1064
-    :cond_1
-    invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
-
-    move-result-object p0
-
-    .line 1065
-    const-string/jumbo v5, "the "
-
-    invoke-virtual {p0, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    .line 1066
-    const/4 v5, 0x4
-
-    invoke-virtual {p0, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    .line 1068
-    :cond_2
-    const-string v5, "an "
-
-    invoke-virtual {p0, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    .line 1069
-    const/4 v5, 0x3
-
-    invoke-virtual {p0, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    .line 1071
-    :cond_3
-    const-string v5, "a "
-
-    invoke-virtual {p0, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_4
-
-    .line 1072
-    const/4 v5, 0x2
-
-    invoke-virtual {p0, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    .line 1074
-    :cond_4
-    const-string v5, ", the"
-
-    invoke-virtual {p0, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-nez v5, :cond_5
-
-    const-string v5, ",the"
-
-    invoke-virtual {p0, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-nez v5, :cond_5
-
-    const-string v5, ", an"
-
-    invoke-virtual {p0, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-nez v5, :cond_5
-
-    const-string v5, ",an"
-
-    invoke-virtual {p0, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-nez v5, :cond_5
-
-    const-string v5, ", a"
-
-    invoke-virtual {p0, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-nez v5, :cond_5
-
-    const-string v5, ",a"
-
-    invoke-virtual {p0, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_6
-
-    .line 1077
-    :cond_5
-    const/4 v5, 0x0
-
-    const/16 v6, 0x2c
-
-    invoke-virtual {p0, v6}, Ljava/lang/String;->lastIndexOf(I)I
-
-    move-result v6
-
-    invoke-virtual {p0, v5, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object p0
-
-    .line 1079
-    :cond_6
-    const-string v5, "[\\[\\]\\(\\)\"\'.,?!]"
-
-    const-string v6, ""
-
-    invoke-virtual {p0, v5, v9}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object p0
-
-    .line 1080
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
-
-    move-result v5
-
-    if-lez v5, :cond_9
-
-    .line 1084
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    .line 1085
-    .local v0, b:Ljava/lang/StringBuilder;
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    .line 1086
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
-
-    move-result v3
-
-    .line 1087
-    .local v3, nl:I
-    const/4 v1, 0x0
-
-    .local v1, i:I
-    :goto_1
-    if-ge v1, v3, :cond_7
-
-    .line 1088
-    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
-
-    move-result v5
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    .line 1089
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    .line 1087
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
-
-    .line 1091
-    :cond_7
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    .line 1092
-    invoke-static {p0}, Landroid/database/DatabaseUtils;->getCollationKey(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 1093
-    .local v2, key:Ljava/lang/String;
-    if-eqz v4, :cond_8
-
-    .line 1094
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v5, ""
 
     const-string v6, "\u0001"
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 1032
+    if-eqz p0, :cond_8
 
-    move-result-object v5
+    .line 1034
+    const-string v0, "<unknown>"
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v5
+    move-result v0
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-eqz v0, :cond_0
 
-    move-result-object v2
+    .line 1035
+    const-string v0, "\u0001"
 
+    move-object v0, v6
+
+    .line 1079
+    :goto_0
+    return-object v0
+
+    .line 1039
+    :cond_0
+    const-string v0, "\u0001"
+
+    invoke-virtual {p0, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    .line 1040
+    const/4 v0, 0x1
+
+    .line 1042
+    :goto_1
+    invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 1043
+    const-string/jumbo v2, "the "
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 1044
+    const/4 v2, 0x4
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 1046
+    :cond_1
+    const-string v2, "an "
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    .line 1047
+    const/4 v2, 0x3
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 1049
+    :cond_2
+    const-string v2, "a "
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    .line 1050
+    const/4 v2, 0x2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 1052
+    :cond_3
+    const-string v2, ", the"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    const-string v2, ",the"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    .line 1053
+    const-string v2, ", an"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    const-string v2, ",an"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    .line 1054
+    const-string v2, ", a"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    const-string v2, ",a"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    .line 1055
+    :cond_4
+    const/16 v2, 0x2c
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->lastIndexOf(I)I
+
+    move-result v2
+
+    invoke-virtual {v1, v4, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 1057
+    :cond_5
+    const-string v2, "[\\[\\]\\(\\)\"\'.,?!]"
+
+    const-string v3, ""
+
+    invoke-virtual {v1, v2, v5}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 1058
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    if-lez v2, :cond_7
+
+    .line 1062
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 1063
+    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 1064
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    .line 1065
+    :goto_2
+    if-lt v4, v3, :cond_6
+
+    .line 1069
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 1070
+    invoke-static {v1}, Landroid/database/DatabaseUtils;->getCollationKey(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 1071
+    if-eqz v0, :cond_9
+
+    .line 1072
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v2, "\u0001"
+
+    invoke-direct {v0, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    .line 1066
+    :cond_6
+    invoke-virtual {v1, v4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v5
+
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 1067
+    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 1065
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_2
+
+    .line 1076
+    :cond_7
+    const-string v0, ""
+
+    move-object v0, v5
+
+    goto/16 :goto_0
+
+    .line 1079
     :cond_8
-    move-object v5, v2
+    const/4 v0, 0x0
 
-    .line 1096
     goto/16 :goto_0
 
-    .line 1098
-    .end local v0           #b:Ljava/lang/StringBuilder;
-    .end local v1           #i:I
-    .end local v2           #key:Ljava/lang/String;
-    .end local v3           #nl:I
     :cond_9
-    const-string v5, ""
-
-    move-object v5, v9
+    move-object v0, v1
 
     goto/16 :goto_0
 
-    .line 1101
-    .end local v4           #sortfirst:Z
     :cond_a
-    const/4 v5, 0x0
+    move v0, v4
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 .end method

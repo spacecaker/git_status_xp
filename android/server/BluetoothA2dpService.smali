@@ -1978,7 +1978,7 @@
     .line 601
     const-string v5, "BluetoothA2dpService"
 
-    const-string v6, "onSinkPropertyChanged: Address of the remote device in null"
+    const-string/jumbo v6, "onSinkPropertyChanged: Address of the remote device in null"
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1

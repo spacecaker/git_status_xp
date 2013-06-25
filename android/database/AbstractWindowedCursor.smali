@@ -56,7 +56,7 @@
     invoke-virtual {p0}, Landroid/database/AbstractWindowedCursor;->checkPosition()V
 
     .line 57
-    iget-object v0, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mUpdatedRows:Ljava/util/HashMap;
 
     monitor-enter v0
 
@@ -80,7 +80,7 @@
     .line 63
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v1, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v0, v1, p1, p2}, Landroid/database/CursorWindow;->copyStringToBuffer(IILandroid/database/CharArrayBuffer;)V
 
@@ -108,7 +108,7 @@
     invoke-virtual {p0}, Landroid/database/AbstractWindowedCursor;->checkPosition()V
 
     .line 29
-    iget-object v0, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mUpdatedRows:Ljava/util/HashMap;
 
     monitor-enter v0
 
@@ -148,7 +148,7 @@
     .line 35
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v1, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v0, v1, p1}, Landroid/database/CursorWindow;->getBlob(II)[B
 
@@ -178,7 +178,7 @@
     invoke-virtual {p0}, Landroid/database/AbstractWindowedCursor;->checkPosition()V
 
     .line 131
-    iget-object v1, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mUpdatedRows:Ljava/util/HashMap;
 
     monitor-enter v1
 
@@ -221,7 +221,7 @@
     .line 138
     iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v2, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v2, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v1, v2, p1}, Landroid/database/CursorWindow;->getDouble(II)D
 
@@ -250,7 +250,7 @@
     invoke-virtual {p0}, Landroid/database/AbstractWindowedCursor;->checkPosition()V
 
     .line 116
-    iget-object v1, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mUpdatedRows:Ljava/util/HashMap;
 
     monitor-enter v1
 
@@ -293,7 +293,7 @@
     .line 123
     iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v2, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v2, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v1, v2, p1}, Landroid/database/CursorWindow;->getFloat(II)F
 
@@ -322,7 +322,7 @@
     invoke-virtual {p0}, Landroid/database/AbstractWindowedCursor;->checkPosition()V
 
     .line 86
-    iget-object v1, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mUpdatedRows:Ljava/util/HashMap;
 
     monitor-enter v1
 
@@ -365,7 +365,7 @@
     .line 93
     iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v2, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v2, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v1, v2, p1}, Landroid/database/CursorWindow;->getInt(II)I
 
@@ -394,7 +394,7 @@
     invoke-virtual {p0}, Landroid/database/AbstractWindowedCursor;->checkPosition()V
 
     .line 101
-    iget-object v1, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mUpdatedRows:Ljava/util/HashMap;
 
     monitor-enter v1
 
@@ -437,7 +437,7 @@
     .line 108
     iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v2, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v2, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v1, v2, p1}, Landroid/database/CursorWindow;->getLong(II)J
 
@@ -466,7 +466,7 @@
     invoke-virtual {p0}, Landroid/database/AbstractWindowedCursor;->checkPosition()V
 
     .line 71
-    iget-object v1, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mUpdatedRows:Ljava/util/HashMap;
 
     monitor-enter v1
 
@@ -509,7 +509,7 @@
     .line 78
     iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v2, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v2, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v1, v2, p1}, Landroid/database/CursorWindow;->getShort(II)S
 
@@ -538,7 +538,7 @@
     invoke-virtual {p0}, Landroid/database/AbstractWindowedCursor;->checkPosition()V
 
     .line 43
-    iget-object v0, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mUpdatedRows:Ljava/util/HashMap;
 
     monitor-enter v0
 
@@ -576,7 +576,7 @@
     .line 49
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v1, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v0, v1, p1}, Landroid/database/CursorWindow;->getString(II)Ljava/lang/String;
 
@@ -636,7 +636,7 @@
     invoke-virtual {p0}, Landroid/database/AbstractWindowedCursor;->checkPosition()V
 
     .line 159
-    iget-object v1, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mUpdatedRows:Ljava/util/HashMap;
 
     monitor-enter v1
 
@@ -691,7 +691,7 @@
     .line 166
     iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v2, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v2, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v1, v2, p1}, Landroid/database/CursorWindow;->isBlob(II)Z
 
@@ -720,7 +720,7 @@
     invoke-virtual {p0}, Landroid/database/AbstractWindowedCursor;->checkPosition()V
 
     .line 201
-    iget-object v1, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mUpdatedRows:Ljava/util/HashMap;
 
     monitor-enter v1
 
@@ -779,7 +779,7 @@
     .line 208
     iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v2, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v2, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v1, v2, p1}, Landroid/database/CursorWindow;->isFloat(II)Z
 
@@ -808,7 +808,7 @@
     invoke-virtual {p0}, Landroid/database/AbstractWindowedCursor;->checkPosition()V
 
     .line 187
-    iget-object v1, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mUpdatedRows:Ljava/util/HashMap;
 
     monitor-enter v1
 
@@ -867,7 +867,7 @@
     .line 194
     iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v2, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v2, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v1, v2, p1}, Landroid/database/CursorWindow;->isLong(II)Z
 
@@ -896,7 +896,7 @@
     invoke-virtual {p0}, Landroid/database/AbstractWindowedCursor;->checkPosition()V
 
     .line 146
-    iget-object v0, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mUpdatedRows:Ljava/util/HashMap;
 
     monitor-enter v0
 
@@ -941,7 +941,7 @@
     .line 152
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v1, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v0, v1, p1}, Landroid/database/CursorWindow;->isNull(II)Z
 
@@ -970,7 +970,7 @@
     invoke-virtual {p0}, Landroid/database/AbstractWindowedCursor;->checkPosition()V
 
     .line 173
-    iget-object v1, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mUpdatedRows:Ljava/util/HashMap;
 
     monitor-enter v1
 
@@ -1025,7 +1025,7 @@
     .line 180
     iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    iget v2, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v2, p0, Landroid/database/AbstractWindowedCursor;->mPos:I
 
     invoke-virtual {v1, v2, p1}, Landroid/database/CursorWindow;->isString(II)Z
 

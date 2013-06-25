@@ -253,11 +253,11 @@
 
     move-result v2
 
-    iget v3, p0, Landroid/view/View;->mPaddingTop:I
+    iget v3, p0, Landroid/widget/ScrollView;->mPaddingTop:I
 
     add-int/2addr v3, v1
 
-    iget v4, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v4, p0, Landroid/widget/ScrollView;->mPaddingBottom:I
 
     add-int/2addr v3, v4
 
@@ -426,13 +426,13 @@
     .line 1328
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/widget/ScrollView;->mScrollX:I
 
     move v5, v0
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/widget/ScrollView;->mScrollY:I
 
     move v6, v0
 
@@ -948,11 +948,11 @@
 
     move-result v3
 
-    iget v4, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v4, p0, Landroid/widget/ScrollView;->mPaddingBottom:I
 
     sub-int/2addr v3, v4
 
-    iget v4, p0, Landroid/view/View;->mPaddingTop:I
+    iget v4, p0, Landroid/widget/ScrollView;->mPaddingTop:I
 
     sub-int/2addr v3, v4
 
@@ -984,7 +984,7 @@
     if-lez v2, :cond_1
 
     .line 441
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/widget/ScrollView;->mScrollY:I
 
     .line 442
     .local v1, scrollY:I
@@ -1067,7 +1067,7 @@
     invoke-virtual {p0, v2}, Landroid/widget/ScrollView;->setWillNotDraw(Z)V
 
     .line 227
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/ScrollView;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
@@ -1915,11 +1915,11 @@
     if-eqz v0, :cond_0
 
     .line 1387
-    iget v3, p0, Landroid/view/View;->mScrollX:I
+    iget v3, p0, Landroid/widget/ScrollView;->mScrollX:I
 
     .line 1388
     .local v3, oldX:I
-    iget v4, p0, Landroid/view/View;->mScrollY:I
+    iget v4, p0, Landroid/widget/ScrollView;->mScrollY:I
 
     .line 1389
     .local v4, oldY:I
@@ -1964,9 +1964,9 @@
     invoke-virtual/range {v0 .. v9}, Landroid/widget/ScrollView;->overScrollBy(IIIIIIIIZ)Z
 
     .line 1395
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/widget/ScrollView;->mScrollX:I
 
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/widget/ScrollView;->mScrollY:I
 
     invoke-virtual {p0, v0, v1, v3, v4}, Landroid/widget/ScrollView;->onScrollChanged(IIII)V
 
@@ -2410,11 +2410,11 @@
 
     move-result v5
 
-    iget v6, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v6, p0, Landroid/widget/ScrollView;->mPaddingBottom:I
 
     sub-int/2addr v5, v6
 
-    iget v6, p0, Landroid/view/View;->mPaddingTop:I
+    iget v6, p0, Landroid/widget/ScrollView;->mPaddingTop:I
 
     sub-int v0, v5, v6
 
@@ -2440,7 +2440,7 @@
 
     .line 1215
     .local v3, scrollRange:I
-    iget v4, p0, Landroid/view/View;->mScrollY:I
+    iget v4, p0, Landroid/widget/ScrollView;->mScrollY:I
 
     .line 1216
     .local v4, scrollY:I
@@ -2581,7 +2581,7 @@
     if-eqz v5, :cond_7
 
     .line 1720
-    iget v3, p0, Landroid/view/View;->mScrollY:I
+    iget v3, p0, Landroid/widget/ScrollView;->mScrollY:I
 
     .line 1721
     .local v3, scrollY:I
@@ -2993,11 +2993,11 @@
 
     move-result v0
 
-    iget v1, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v1, p0, Landroid/widget/ScrollView;->mPaddingBottom:I
 
     sub-int/2addr v0, v1
 
-    iget v1, p0, Landroid/view/View;->mPaddingTop:I
+    iget v1, p0, Landroid/widget/ScrollView;->mPaddingTop:I
 
     sub-int v12, v0, v1
 
@@ -3017,9 +3017,9 @@
     .local v11, bottom:I
     iget-object v0, p0, Landroid/widget/ScrollView;->mScroller:Landroid/widget/OverScroller;
 
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/widget/ScrollView;->mScrollX:I
 
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/widget/ScrollView;->mScrollY:I
 
     const/4 v3, 0x0
 
@@ -3267,7 +3267,7 @@
 
     move-result v3
 
-    iget v4, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v4, p0, Landroid/widget/ScrollView;->mPaddingBottom:I
 
     sub-int v0, v3, v4
 
@@ -3283,7 +3283,7 @@
 
     move-result v3
 
-    iget v4, p0, Landroid/view/View;->mScrollY:I
+    iget v4, p0, Landroid/widget/ScrollView;->mScrollY:I
 
     sub-int/2addr v3, v4
 
@@ -3326,9 +3326,9 @@
     .line 219
     const/high16 v0, 0x3f00
 
-    iget v1, p0, Landroid/view/View;->mBottom:I
+    iget v1, p0, Landroid/widget/ScrollView;->mBottom:I
 
-    iget v2, p0, Landroid/view/View;->mTop:I
+    iget v2, p0, Landroid/widget/ScrollView;->mTop:I
 
     sub-int/2addr v1, v2
 
@@ -3367,12 +3367,12 @@
 
     .line 191
     .local v0, length:I
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/widget/ScrollView;->mScrollY:I
 
     if-ge v1, v0, :cond_1
 
     .line 192
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/widget/ScrollView;->mScrollY:I
 
     int-to-float v1, v1
 
@@ -3425,9 +3425,9 @@
 
     .line 1266
     .local v2, lp:Landroid/view/ViewGroup$LayoutParams;
-    iget v3, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v3, p0, Landroid/widget/ScrollView;->mPaddingLeft:I
 
-    iget v4, p0, Landroid/view/View;->mPaddingRight:I
+    iget v4, p0, Landroid/widget/ScrollView;->mPaddingRight:I
 
     add-int/2addr v3, v4
 
@@ -3469,9 +3469,9 @@
 
     .line 1279
     .local v2, lp:Landroid/view/ViewGroup$MarginLayoutParams;
-    iget v3, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v3, p0, Landroid/widget/ScrollView;->mPaddingLeft:I
 
-    iget v4, p0, Landroid/view/View;->mPaddingRight:I
+    iget v4, p0, Landroid/widget/ScrollView;->mPaddingRight:I
 
     add-int/2addr v3, v4
 
@@ -3485,7 +3485,7 @@
 
     add-int/2addr v3, p3
 
-    iget v4, v2, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v4, v2, Landroid/view/ViewGroup$MarginLayoutParams;->width:I
 
     invoke-static {p2, v3, v4}, Landroid/widget/ScrollView;->getChildMeasureSpec(III)I
 
@@ -3612,12 +3612,12 @@
     iput v10, p0, Landroid/widget/ScrollView;->mLastMotionY:F
 
     .line 497
-    iget-object v0, p0, Landroid/view/View;->mParent:Landroid/view/ViewParent;
+    iget-object v0, p0, Landroid/widget/ScrollView;->mParent:Landroid/view/ViewParent;
 
     if-eqz v0, :cond_1
 
     .line 498
-    iget-object v0, p0, Landroid/view/View;->mParent:Landroid/view/ViewParent;
+    iget-object v0, p0, Landroid/widget/ScrollView;->mParent:Landroid/view/ViewParent;
 
     invoke-interface {v0, v2}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
 
@@ -3697,9 +3697,9 @@
     .line 531
     iget-object v0, p0, Landroid/widget/ScrollView;->mScroller:Landroid/widget/OverScroller;
 
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/widget/ScrollView;->mScrollX:I
 
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/widget/ScrollView;->mScrollY:I
 
     invoke-direct {p0}, Landroid/widget/ScrollView;->getScrollRange()I
 
@@ -3781,9 +3781,9 @@
     iput-object v0, p0, Landroid/widget/ScrollView;->mChildToScrollTo:Landroid/view/View;
 
     .line 1594
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/widget/ScrollView;->mScrollX:I
 
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/widget/ScrollView;->mScrollY:I
 
     invoke-virtual {p0, v0, v1}, Landroid/widget/ScrollView;->scrollTo(II)V
 
@@ -3857,13 +3857,13 @@
 
     .line 371
     .local v5, lp:Landroid/widget/FrameLayout$LayoutParams;
-    iget v6, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v6, p0, Landroid/widget/ScrollView;->mPaddingLeft:I
 
-    iget v7, p0, Landroid/view/View;->mPaddingRight:I
+    iget v7, p0, Landroid/widget/ScrollView;->mPaddingRight:I
 
     add-int/2addr v6, v7
 
-    iget v7, v5, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v7, v5, Landroid/widget/FrameLayout$LayoutParams;->width:I
 
     invoke-static {p1, v6, v7}, Landroid/widget/ScrollView;->getChildMeasureSpec(III)I
 
@@ -3871,12 +3871,12 @@
 
     .line 373
     .local v2, childWidthMeasureSpec:I
-    iget v6, p0, Landroid/view/View;->mPaddingTop:I
+    iget v6, p0, Landroid/widget/ScrollView;->mPaddingTop:I
 
     sub-int/2addr v3, v6
 
     .line 374
-    iget v6, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v6, p0, Landroid/widget/ScrollView;->mPaddingBottom:I
 
     sub-int/2addr v3, v6
 
@@ -3914,10 +3914,10 @@
     if-nez v0, :cond_1
 
     .line 812
-    iput p1, p0, Landroid/view/View;->mScrollX:I
+    iput p1, p0, Landroid/widget/ScrollView;->mScrollX:I
 
     .line 813
-    iput p2, p0, Landroid/view/View;->mScrollY:I
+    iput p2, p0, Landroid/widget/ScrollView;->mScrollY:I
 
     .line 814
     if-eqz p4, :cond_0
@@ -3925,9 +3925,9 @@
     .line 815
     iget-object v0, p0, Landroid/widget/ScrollView;->mScroller:Landroid/widget/OverScroller;
 
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/widget/ScrollView;->mScrollX:I
 
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/widget/ScrollView;->mScrollY:I
 
     invoke-direct {p0}, Landroid/widget/ScrollView;->getScrollRange()I
 
@@ -4892,7 +4892,7 @@
     :cond_12
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/widget/ScrollView;->mScrollX:I
 
     move/from16 v32, v0
 
@@ -4900,7 +4900,7 @@
     .local v32, oldX:I
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/widget/ScrollView;->mScrollY:I
 
     move/from16 v33, v0
 
@@ -4918,7 +4918,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/widget/ScrollView;->mScrollY:I
 
     move v9, v0
 
@@ -4955,13 +4955,13 @@
     :cond_13
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/widget/ScrollView;->mScrollX:I
 
     move v5, v0
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/widget/ScrollView;->mScrollY:I
 
     move v6, v0
 
@@ -5340,13 +5340,13 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/widget/ScrollView;->mScrollX:I
 
     move v13, v0
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/widget/ScrollView;->mScrollY:I
 
     move v14, v0
 
@@ -5395,13 +5395,13 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollX:I
+    iget v0, v0, Landroid/widget/ScrollView;->mScrollX:I
 
     move/from16 v20, v0
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mScrollY:I
+    iget v0, v0, Landroid/widget/ScrollView;->mScrollY:I
 
     move/from16 v21, v0
 
@@ -5789,11 +5789,11 @@
 
     move-result v1
 
-    iget v2, p0, Landroid/view/View;->mPaddingRight:I
+    iget v2, p0, Landroid/widget/ScrollView;->mPaddingRight:I
 
     sub-int/2addr v1, v2
 
-    iget v2, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v2, p0, Landroid/widget/ScrollView;->mPaddingLeft:I
 
     sub-int/2addr v1, v2
 
@@ -5810,11 +5810,11 @@
 
     move-result v1
 
-    iget v2, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v2, p0, Landroid/widget/ScrollView;->mPaddingBottom:I
 
     sub-int/2addr v1, v2
 
-    iget v2, p0, Landroid/view/View;->mPaddingTop:I
+    iget v2, p0, Landroid/widget/ScrollView;->mPaddingTop:I
 
     sub-int/2addr v1, v2
 
@@ -5827,11 +5827,11 @@
     move-result p2
 
     .line 1674
-    iget v1, p0, Landroid/view/View;->mScrollX:I
+    iget v1, p0, Landroid/widget/ScrollView;->mScrollX:I
 
     if-ne p1, v1, :cond_0
 
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/widget/ScrollView;->mScrollY:I
 
     if-eq p2, v1, :cond_1
 
@@ -6048,11 +6048,11 @@
 
     move-result v6
 
-    iget v7, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v7, p0, Landroid/widget/ScrollView;->mPaddingBottom:I
 
     sub-int/2addr v6, v7
 
-    iget v7, p0, Landroid/view/View;->mPaddingTop:I
+    iget v7, p0, Landroid/widget/ScrollView;->mPaddingTop:I
 
     sub-int v3, v6, v7
 
@@ -6076,7 +6076,7 @@
 
     .line 1176
     .local v4, maxY:I
-    iget v5, p0, Landroid/view/View;->mScrollY:I
+    iget v5, p0, Landroid/widget/ScrollView;->mScrollY:I
 
     .line 1177
     .local v5, scrollY:I
@@ -6095,7 +6095,7 @@
     .line 1179
     iget-object v6, p0, Landroid/widget/ScrollView;->mScroller:Landroid/widget/OverScroller;
 
-    iget v7, p0, Landroid/view/View;->mScrollX:I
+    iget v7, p0, Landroid/widget/ScrollView;->mScrollX:I
 
     invoke-virtual {v6, v7, v5, v10, p2}, Landroid/widget/OverScroller;->startScroll(IIII)V
 
@@ -6145,11 +6145,11 @@
 
     .prologue
     .line 1197
-    iget v0, p0, Landroid/view/View;->mScrollX:I
+    iget v0, p0, Landroid/widget/ScrollView;->mScrollX:I
 
     sub-int v0, p1, v0
 
-    iget v1, p0, Landroid/view/View;->mScrollY:I
+    iget v1, p0, Landroid/widget/ScrollView;->mScrollY:I
 
     sub-int v1, p2, v1
 

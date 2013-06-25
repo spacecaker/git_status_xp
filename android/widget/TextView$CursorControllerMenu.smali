@@ -113,11 +113,11 @@
 
     const/4 v5, 0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     const/4 v2, 0x0
 
-    const-string v4, "GT-S5660"
+    const-string v3, "GT-S5830"
 
     .line 9486
     iput-object p1, p0, Landroid/widget/TextView$CursorControllerMenu;->this$0:Landroid/widget/TextView;
@@ -188,41 +188,41 @@
     iput-object v0, p0, Landroid/widget/TextView$CursorControllerMenu;->mIMM:Landroid/view/inputmethod/InputMethodManager;
 
     .line 9493
-    const-string v0, "GT-S5660"
+    const-string v0, "GT-S5830"
 
     const-string v0, "GT-S5830"
 
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    const-string v0, "GT-S5660"
+    const-string v0, "GT-S5830"
 
     const-string v0, "GT-S5830T"
 
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    const-string v0, "GT-S5660"
+    const-string v0, "GT-S5830"
 
     const-string v0, "GT-S5830G"
 
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    const-string v0, "GT-S5660"
+    const-string v0, "GT-S5830"
 
     const-string v0, "GT-S5830F"
 
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -234,7 +234,7 @@
 
     const v1, 0x1090074
 
-    invoke-static {v0, v1, v3}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-static {v0, v1, v4}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
@@ -246,7 +246,7 @@
 
     const v1, 0x1090071
 
-    invoke-static {v0, v1, v3}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-static {v0, v1, v4}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
@@ -257,7 +257,7 @@
 
     const v1, 0x1090072
 
-    invoke-static {v0, v1, v3}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-static {v0, v1, v4}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
@@ -627,7 +627,7 @@
 
     const v1, 0x1090070
 
-    invoke-static {v0, v1, v3}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-static {v0, v1, v4}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
@@ -1813,7 +1813,7 @@
 
     .line 9794
     .local v10, heightArrowY:I
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830"
 
@@ -1823,7 +1823,7 @@
 
     if-nez v24, :cond_3
 
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830T"
 
@@ -1833,7 +1833,7 @@
 
     if-nez v24, :cond_3
 
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830G"
 
@@ -1843,7 +1843,7 @@
 
     if-nez v24, :cond_3
 
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830F"
 
@@ -2164,7 +2164,7 @@
 
     .line 9872
     :goto_4
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830"
 
@@ -2174,7 +2174,7 @@
 
     if-nez v24, :cond_7
 
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830T"
 
@@ -2184,7 +2184,7 @@
 
     if-nez v24, :cond_7
 
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830G"
 
@@ -2194,7 +2194,7 @@
 
     if-nez v24, :cond_7
 
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830F"
 
@@ -3527,7 +3527,7 @@
 
     .line 9954
     .local v10, heightArrowY:I
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830"
 
@@ -3537,7 +3537,7 @@
 
     if-nez v24, :cond_2
 
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830T"
 
@@ -3547,7 +3547,7 @@
 
     if-nez v24, :cond_2
 
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830G"
 
@@ -3557,7 +3557,7 @@
 
     if-nez v24, :cond_2
 
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830F"
 
@@ -3782,7 +3782,7 @@
     if-gt v0, v1, :cond_13
 
     .line 10013
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830"
 
@@ -3792,7 +3792,7 @@
 
     if-nez v24, :cond_5
 
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830T"
 
@@ -3802,7 +3802,7 @@
 
     if-nez v24, :cond_5
 
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830G"
 
@@ -3812,7 +3812,7 @@
 
     if-nez v24, :cond_5
 
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830F"
 
@@ -3921,7 +3921,7 @@
 
     .line 10035
     :goto_5
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830"
 
@@ -3931,7 +3931,7 @@
 
     if-nez v24, :cond_7
 
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830T"
 
@@ -3941,7 +3941,7 @@
 
     if-nez v24, :cond_7
 
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830G"
 
@@ -3951,7 +3951,7 @@
 
     if-nez v24, :cond_7
 
-    const-string v24, "GT-S5660"
+    const-string v24, "GT-S5830"
 
     const-string v25, "GT-S5830F"
 

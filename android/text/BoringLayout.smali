@@ -871,9 +871,9 @@
     if-eqz p8, :cond_4
 
     .line 186
-    iget v0, p7, Landroid/graphics/Paint$FontMetricsInt;->bottom:I
+    iget v0, p7, Landroid/text/BoringLayout$Metrics;->bottom:I
 
-    iget v1, p7, Landroid/graphics/Paint$FontMetricsInt;->top:I
+    iget v1, p7, Landroid/text/BoringLayout$Metrics;->top:I
 
     sub-int v6, v0, v1
 
@@ -914,7 +914,7 @@
     if-eqz p8, :cond_5
 
     .line 198
-    iget v0, p7, Landroid/graphics/Paint$FontMetricsInt;->top:I
+    iget v0, p7, Landroid/text/BoringLayout$Metrics;->top:I
 
     add-int/2addr v0, v6
 
@@ -937,18 +937,18 @@
     if-eqz p8, :cond_2
 
     .line 219
-    iget v0, p7, Landroid/graphics/Paint$FontMetricsInt;->top:I
+    iget v0, p7, Landroid/text/BoringLayout$Metrics;->top:I
 
-    iget v1, p7, Landroid/graphics/Paint$FontMetricsInt;->ascent:I
+    iget v1, p7, Landroid/text/BoringLayout$Metrics;->ascent:I
 
     sub-int/2addr v0, v1
 
     iput v0, p0, Landroid/text/BoringLayout;->mTopPadding:I
 
     .line 220
-    iget v0, p7, Landroid/graphics/Paint$FontMetricsInt;->bottom:I
+    iget v0, p7, Landroid/text/BoringLayout$Metrics;->bottom:I
 
-    iget v1, p7, Landroid/graphics/Paint$FontMetricsInt;->descent:I
+    iget v1, p7, Landroid/text/BoringLayout$Metrics;->descent:I
 
     sub-int/2addr v0, v1
 
@@ -968,9 +968,9 @@
 
     .line 188
     :cond_4
-    iget v0, p7, Landroid/graphics/Paint$FontMetricsInt;->descent:I
+    iget v0, p7, Landroid/text/BoringLayout$Metrics;->descent:I
 
-    iget v1, p7, Landroid/graphics/Paint$FontMetricsInt;->ascent:I
+    iget v1, p7, Landroid/text/BoringLayout$Metrics;->ascent:I
 
     sub-int v6, v0, v1
 
@@ -979,7 +979,7 @@
 
     .line 200
     :cond_5
-    iget v0, p7, Landroid/graphics/Paint$FontMetricsInt;->ascent:I
+    iget v0, p7, Landroid/text/BoringLayout$Metrics;->ascent:I
 
     add-int/2addr v0, v6
 

@@ -2009,7 +2009,7 @@
 
     .line 89
     :cond_0
-    const-string v1, "GT-S5660"
+    const-string v1, "GT-S5830"
 
     const-string v2, "GT-I5510"
 
@@ -5006,7 +5006,7 @@
     if-gt v0, v1, :cond_a
 
     .line 199
-    const-string v5, "GT-S5660"
+    const-string v5, "GT-S5830"
 
     const-string v6, "GT-I5510"
 
@@ -5157,7 +5157,7 @@
 
     .line 211
     :cond_a
-    const-string v5, "GT-S5660"
+    const-string v5, "GT-S5830"
 
     const-string v6, "GT-I5510"
 
@@ -5667,7 +5667,7 @@
     .line 271
     .end local v39           #revision:Ljava/lang/String;
     :cond_1a
-    const-string v5, "GT-S5660"
+    const-string v5, "GT-S5830"
 
     const-string v6, "GT-B7510"
 
@@ -7015,7 +7015,7 @@
     const-string v4, "en"
 
     .line 120
-    const-string v0, "GT-S5660"
+    const-string v0, "GT-S5830"
 
     const-string v1, "GT-I5510"
 

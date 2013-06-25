@@ -2128,7 +2128,7 @@
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerInputConnection;->updateInputMethodSelectionWithRandom()V
 
     .line 646
-    iget-boolean v2, p0, Landroid/webkit/WebView;->bShowSingleCursorHandler:Z
+    iget-boolean v2, p0, Landroid/webkit/HtmlComposerView;->bShowSingleCursorHandler:Z
 
     if-ne v4, v2, :cond_0
 
@@ -2140,10 +2140,10 @@
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 650
-    iput v5, p0, Landroid/webkit/WebView;->iTimer:I
+    iput v5, p0, Landroid/webkit/HtmlComposerView;->iTimer:I
 
     .line 652
-    iput-boolean v5, p0, Landroid/webkit/WebView;->mActionMoveSCH:Z
+    iput-boolean v5, p0, Landroid/webkit/HtmlComposerView;->mActionMoveSCH:Z
 
     .line 656
     :cond_0
@@ -2157,7 +2157,7 @@
 
     .line 662
     :sswitch_0
-    iput-boolean v4, p0, Landroid/webkit/WebView;->SimulateSelect:Z
+    iput-boolean v4, p0, Landroid/webkit/HtmlComposerView;->SimulateSelect:Z
 
     .line 666
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->AdvanceTextSelectionAll()Z
@@ -2175,7 +2175,7 @@
 
     .line 675
     .local v0, cursurRect:Landroid/graphics/Rect;
-    iput-boolean v4, p0, Landroid/webkit/WebView;->SimulateSelect:Z
+    iput-boolean v4, p0, Landroid/webkit/HtmlComposerView;->SimulateSelect:Z
 
     .line 677
     invoke-virtual {v0}, Landroid/graphics/Rect;->centerX()I
@@ -2364,15 +2364,15 @@
 
     .line 471
     .local v0, added:Z
-    iget-boolean v4, p0, Landroid/webkit/WebView;->bShowSingleCursorHandler:Z
+    iget-boolean v4, p0, Landroid/webkit/HtmlComposerView;->bShowSingleCursorHandler:Z
 
     if-ne v7, v4, :cond_0
 
     .line 472
-    iput v6, p0, Landroid/webkit/WebView;->iTimer:I
+    iput v6, p0, Landroid/webkit/HtmlComposerView;->iTimer:I
 
     .line 474
-    iput-boolean v6, p0, Landroid/webkit/WebView;->mActionMoveSCH:Z
+    iput-boolean v6, p0, Landroid/webkit/HtmlComposerView;->mActionMoveSCH:Z
 
     .line 479
     :cond_0
@@ -2674,7 +2674,7 @@
     .line 2203
     .end local v0           #bundle:Landroid/os/Bundle;
     :cond_0
-    iget-boolean v1, p0, Landroid/webkit/WebView;->isSelectionset:Z
+    iget-boolean v1, p0, Landroid/webkit/HtmlComposerView;->isSelectionset:Z
 
     if-nez v1, :cond_1
 
@@ -2805,7 +2805,7 @@
     .line 1409
     const/4 v0, 0x1
 
-    iget-boolean v1, p0, Landroid/webkit/WebView;->bShowSingleCursorHandler:Z
+    iget-boolean v1, p0, Landroid/webkit/HtmlComposerView;->bShowSingleCursorHandler:Z
 
     if-ne v0, v1, :cond_0
 
@@ -2817,13 +2817,13 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1413
-    iput v2, p0, Landroid/webkit/WebView;->iTimer:I
+    iput v2, p0, Landroid/webkit/HtmlComposerView;->iTimer:I
 
     .line 1415
-    iput-boolean v2, p0, Landroid/webkit/WebView;->mActionMoveSCH:Z
+    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mActionMoveSCH:Z
 
     .line 1417
-    iput-boolean v2, p0, Landroid/webkit/WebView;->bSCHvisibleonFocus:Z
+    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->bSCHvisibleonFocus:Z
 
     .line 1421
     :cond_0
@@ -3436,7 +3436,7 @@
 
     .line 1331
     :pswitch_0
-    iput-boolean v2, p0, Landroid/webkit/WebView;->mInActionMove:Z
+    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mInActionMove:Z
 
     goto :goto_0
 
@@ -3453,7 +3453,7 @@
     if-eqz v1, :cond_0
 
     .line 1339
-    iput-boolean v3, p0, Landroid/webkit/WebView;->isSelectionset:Z
+    iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->isSelectionset:Z
 
     .line 1341
     iget-boolean v1, p0, Landroid/webkit/HtmlComposerView;->isContextMenuVisible:Z
@@ -3480,7 +3480,7 @@
     invoke-virtual {p0, v3}, Landroid/webkit/HtmlComposerView;->setCaretForEdit(Z)V
 
     .line 1358
-    iput-boolean v2, p0, Landroid/webkit/WebView;->mInActionMove:Z
+    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mInActionMove:Z
 
     goto :goto_0
 
@@ -3535,18 +3535,18 @@
     if-nez p1, :cond_5
 
     .line 1470
-    iget-boolean v1, p0, Landroid/webkit/WebView;->bShowSingleCursorHandler:Z
+    iget-boolean v1, p0, Landroid/webkit/HtmlComposerView;->bShowSingleCursorHandler:Z
 
     if-ne v5, v1, :cond_2
 
     .line 1472
-    iput v6, p0, Landroid/webkit/WebView;->iTimer:I
+    iput v6, p0, Landroid/webkit/HtmlComposerView;->iTimer:I
 
     .line 1474
-    iput-boolean v6, p0, Landroid/webkit/WebView;->mActionMoveSCH:Z
+    iput-boolean v6, p0, Landroid/webkit/HtmlComposerView;->mActionMoveSCH:Z
 
     .line 1476
-    iput-boolean v6, p0, Landroid/webkit/WebView;->bSCHvisibleonFocus:Z
+    iput-boolean v6, p0, Landroid/webkit/HtmlComposerView;->bSCHvisibleonFocus:Z
 
     .line 1480
     :cond_2

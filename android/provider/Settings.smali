@@ -7,11 +7,11 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/provider/Settings$Bookmarks;,
-        Landroid/provider/Settings$Secure;,
-        Landroid/provider/Settings$System;,
         Landroid/provider/Settings$NameValueCache;,
         Landroid/provider/Settings$NameValueTable;,
-        Landroid/provider/Settings$SettingNotFoundException;
+        Landroid/provider/Settings$Secure;,
+        Landroid/provider/Settings$SettingNotFoundException;,
+        Landroid/provider/Settings$System;
     }
 .end annotation
 
@@ -93,6 +93,8 @@
 
 .field private static final LOCAL_LOGV:Z = false
 
+.field public static final SETTINGS_CHANGED:Ljava/lang/String; = "android.settings.SETTINGS_CHANGED_ACTION"
+
 .field private static final TAG:Ljava/lang/String; = "Settings"
 
 
@@ -101,28 +103,24 @@
     .locals 0
 
     .prologue
-    .line 59
+    .line 68
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3723
+    .line 70
     return-void
 .end method
 
 .method public static getGTalkDeviceId(J)Ljava/lang/String;
     .locals 2
-    .parameter "androidId"
+    .parameter
 
     .prologue
-    .line 3940
+    .line 5200
     new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v1, "android-"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-static {p0, p1}, Ljava/lang/Long;->toHexString(J)Ljava/lang/String;
 

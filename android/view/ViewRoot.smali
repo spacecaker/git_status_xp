@@ -5553,7 +5553,7 @@
     :goto_6
     move-object/from16 v0, v43
 
-    iget v0, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     move v6, v0
 
@@ -5571,7 +5571,7 @@
     .local v19, childWidthMeasureSpec:I
     move-object/from16 v0, v43
 
-    iget v0, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
     move v6, v0
 
@@ -5930,7 +5930,7 @@
     :cond_16
     move-object/from16 v0, v43
 
-    iget v0, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     move v6, v0
 
@@ -5940,7 +5940,7 @@
 
     move-object/from16 v0, v43
 
-    iget v0, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
     move v6, v0
 
@@ -6116,7 +6116,7 @@
 
     move-object/from16 v0, v43
 
-    iget v0, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     move v6, v0
 
@@ -6149,7 +6149,7 @@
     :cond_1c
     move-object/from16 v0, v43
 
-    iget v0, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
     move v6, v0
 
@@ -7177,7 +7177,7 @@
 
     move-object/from16 v0, v43
 
-    iget v0, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     move v7, v0
 
@@ -7201,7 +7201,7 @@
 
     move-object/from16 v0, v43
 
-    iget v0, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
     move v7, v0
 

@@ -47,13 +47,13 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/renderscript/RenderScript;->mDev:I
+    iput v0, p0, Landroid/renderscript/RenderScriptGL;->mDev:I
 
     .line 43
     if-eqz p2, :cond_0
 
     .line 44
-    iget v0, p0, Landroid/renderscript/RenderScript;->mDev:I
+    iget v0, p0, Landroid/renderscript/RenderScriptGL;->mDev:I
 
     const/4 v1, 0x1
 
@@ -61,23 +61,23 @@
 
     .line 46
     :cond_0
-    iget v0, p0, Landroid/renderscript/RenderScript;->mDev:I
+    iget v0, p0, Landroid/renderscript/RenderScriptGL;->mDev:I
 
     invoke-virtual {p0, v0, v2, p1}, Landroid/renderscript/RenderScriptGL;->nContextCreateGL(IIZ)I
 
     move-result v0
 
-    iput v0, p0, Landroid/renderscript/RenderScript;->mContext:I
+    iput v0, p0, Landroid/renderscript/RenderScriptGL;->mContext:I
 
     .line 47
     new-instance v0, Landroid/renderscript/RenderScript$MessageThread;
 
     invoke-direct {v0, p0}, Landroid/renderscript/RenderScript$MessageThread;-><init>(Landroid/renderscript/RenderScript;)V
 
-    iput-object v0, p0, Landroid/renderscript/RenderScript;->mMessageThread:Landroid/renderscript/RenderScript$MessageThread;
+    iput-object v0, p0, Landroid/renderscript/RenderScriptGL;->mMessageThread:Landroid/renderscript/RenderScript$MessageThread;
 
     .line 48
-    iget-object v0, p0, Landroid/renderscript/RenderScript;->mMessageThread:Landroid/renderscript/RenderScript$MessageThread;
+    iget-object v0, p0, Landroid/renderscript/RenderScriptGL;->mMessageThread:Landroid/renderscript/RenderScript$MessageThread;
 
     invoke-virtual {v0}, Landroid/renderscript/RenderScript$MessageThread;->start()V
 

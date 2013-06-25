@@ -468,7 +468,7 @@
     iput p8, p0, Landroid/view/KeyEvent;->mMetaState:I
 
     .line 696
-    iput p9, p0, Landroid/view/InputEvent;->mDeviceId:I
+    iput p9, p0, Landroid/view/KeyEvent;->mDeviceId:I
 
     .line 697
     iput p10, p0, Landroid/view/KeyEvent;->mScanCode:I
@@ -512,7 +512,7 @@
     iput p8, p0, Landroid/view/KeyEvent;->mMetaState:I
 
     .line 726
-    iput p9, p0, Landroid/view/InputEvent;->mDeviceId:I
+    iput p9, p0, Landroid/view/KeyEvent;->mDeviceId:I
 
     .line 727
     iput p10, p0, Landroid/view/KeyEvent;->mScanCode:I
@@ -560,7 +560,7 @@
     iput p8, p0, Landroid/view/KeyEvent;->mMetaState:I
 
     .line 758
-    iput p9, p0, Landroid/view/InputEvent;->mDeviceId:I
+    iput p9, p0, Landroid/view/KeyEvent;->mDeviceId:I
 
     .line 759
     iput p10, p0, Landroid/view/KeyEvent;->mScanCode:I
@@ -569,7 +569,7 @@
     iput p11, p0, Landroid/view/KeyEvent;->mFlags:I
 
     .line 761
-    iput p12, p0, Landroid/view/InputEvent;->mSource:I
+    iput p12, p0, Landroid/view/KeyEvent;->mSource:I
 
     .line 762
     return-void
@@ -609,7 +609,7 @@
     iput v1, p0, Landroid/view/KeyEvent;->mRepeatCount:I
 
     .line 783
-    iput p4, p0, Landroid/view/InputEvent;->mDeviceId:I
+    iput p4, p0, Landroid/view/KeyEvent;->mDeviceId:I
 
     .line 784
     iput p5, p0, Landroid/view/KeyEvent;->mFlags:I
@@ -617,7 +617,7 @@
     .line 785
     const/16 v0, 0x101
 
-    iput v0, p0, Landroid/view/InputEvent;->mSource:I
+    iput v0, p0, Landroid/view/KeyEvent;->mSource:I
 
     .line 786
     return-void
@@ -733,14 +733,14 @@
     iput v0, p0, Landroid/view/KeyEvent;->mMetaState:I
 
     .line 798
-    iget v0, p1, Landroid/view/InputEvent;->mDeviceId:I
+    iget v0, p1, Landroid/view/KeyEvent;->mDeviceId:I
 
-    iput v0, p0, Landroid/view/InputEvent;->mDeviceId:I
+    iput v0, p0, Landroid/view/KeyEvent;->mDeviceId:I
 
     .line 799
-    iget v0, p1, Landroid/view/InputEvent;->mSource:I
+    iget v0, p1, Landroid/view/KeyEvent;->mSource:I
 
-    iput v0, p0, Landroid/view/InputEvent;->mSource:I
+    iput v0, p0, Landroid/view/KeyEvent;->mSource:I
 
     .line 800
     iget v0, p1, Landroid/view/KeyEvent;->mScanCode:I
@@ -799,14 +799,14 @@
     iput v0, p0, Landroid/view/KeyEvent;->mMetaState:I
 
     .line 878
-    iget v0, p1, Landroid/view/InputEvent;->mDeviceId:I
+    iget v0, p1, Landroid/view/KeyEvent;->mDeviceId:I
 
-    iput v0, p0, Landroid/view/InputEvent;->mDeviceId:I
+    iput v0, p0, Landroid/view/KeyEvent;->mDeviceId:I
 
     .line 879
-    iget v0, p1, Landroid/view/InputEvent;->mSource:I
+    iget v0, p1, Landroid/view/KeyEvent;->mSource:I
 
-    iput v0, p0, Landroid/view/InputEvent;->mSource:I
+    iput v0, p0, Landroid/view/KeyEvent;->mSource:I
 
     .line 880
     iget v0, p1, Landroid/view/KeyEvent;->mScanCode:I
@@ -861,14 +861,14 @@
     iput v0, p0, Landroid/view/KeyEvent;->mMetaState:I
 
     .line 824
-    iget v0, p1, Landroid/view/InputEvent;->mDeviceId:I
+    iget v0, p1, Landroid/view/KeyEvent;->mDeviceId:I
 
-    iput v0, p0, Landroid/view/InputEvent;->mDeviceId:I
+    iput v0, p0, Landroid/view/KeyEvent;->mDeviceId:I
 
     .line 825
-    iget v0, p1, Landroid/view/InputEvent;->mSource:I
+    iget v0, p1, Landroid/view/KeyEvent;->mSource:I
 
-    iput v0, p0, Landroid/view/InputEvent;->mSource:I
+    iput v0, p0, Landroid/view/KeyEvent;->mSource:I
 
     .line 826
     iget v0, p1, Landroid/view/KeyEvent;->mScanCode:I
@@ -1311,7 +1311,7 @@
 
     .prologue
     .line 1153
-    iget v0, p0, Landroid/view/InputEvent;->mDeviceId:I
+    iget v0, p0, Landroid/view/KeyEvent;->mDeviceId:I
 
     invoke-static {v0}, Landroid/view/KeyCharacterMap;->load(I)Landroid/view/KeyCharacterMap;
 
@@ -1372,7 +1372,7 @@
 
     .prologue
     .line 1202
-    iget v0, p0, Landroid/view/InputEvent;->mDeviceId:I
+    iget v0, p0, Landroid/view/KeyEvent;->mDeviceId:I
 
     invoke-static {v0}, Landroid/view/KeyCharacterMap;->load(I)Landroid/view/KeyCharacterMap;
 
@@ -1392,7 +1392,7 @@
 
     .prologue
     .line 1145
-    iget v0, p0, Landroid/view/InputEvent;->mDeviceId:I
+    iget v0, p0, Landroid/view/KeyEvent;->mDeviceId:I
 
     return v0
 .end method
@@ -1419,7 +1419,7 @@
 
     .prologue
     .line 1221
-    iget v0, p0, Landroid/view/InputEvent;->mDeviceId:I
+    iget v0, p0, Landroid/view/KeyEvent;->mDeviceId:I
 
     invoke-static {v0}, Landroid/view/KeyCharacterMap;->load(I)Landroid/view/KeyCharacterMap;
 
@@ -1449,7 +1449,7 @@
 
     .prologue
     .line 1230
-    iget v0, p0, Landroid/view/InputEvent;->mDeviceId:I
+    iget v0, p0, Landroid/view/KeyEvent;->mDeviceId:I
 
     invoke-static {v0}, Landroid/view/KeyCharacterMap;->load(I)Landroid/view/KeyCharacterMap;
 
@@ -1504,7 +1504,7 @@
 
     .prologue
     .line 1190
-    iget v0, p0, Landroid/view/InputEvent;->mDeviceId:I
+    iget v0, p0, Landroid/view/KeyEvent;->mDeviceId:I
 
     invoke-static {v0}, Landroid/view/KeyCharacterMap;->load(I)Landroid/view/KeyCharacterMap;
 
@@ -1626,7 +1626,7 @@
 
     .prologue
     .line 1237
-    iget v0, p0, Landroid/view/InputEvent;->mDeviceId:I
+    iget v0, p0, Landroid/view/KeyEvent;->mDeviceId:I
 
     invoke-static {v0}, Landroid/view/KeyCharacterMap;->load(I)Landroid/view/KeyCharacterMap;
 

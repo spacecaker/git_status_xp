@@ -1601,7 +1601,7 @@
 
     move-result-object v10
 
-    iget-object v11, v6, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v11, v6, Landroid/content/pm/PermissionInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1638,7 +1638,7 @@
 
     move-result-object v10
 
-    iget-object v11, v6, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v11, v6, Landroid/content/pm/PermissionInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1698,7 +1698,7 @@
 
     move-result-object v10
 
-    iget-object v11, v6, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v11, v6, Landroid/content/pm/PermissionInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

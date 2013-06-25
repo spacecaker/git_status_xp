@@ -1401,7 +1401,7 @@
 
     .prologue
     .line 773
-    iget v0, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v0, p0, Lcom/android/internal/widget/LockPatternView;->mPaddingLeft:I
 
     int-to-float v0, v0
 
@@ -1430,7 +1430,7 @@
 
     .prologue
     .line 777
-    iget v0, p0, Landroid/view/View;->mPaddingTop:I
+    iget v0, p0, Lcom/android/internal/widget/LockPatternView;->mPaddingTop:I
 
     int-to-float v0, v0
 
@@ -1469,7 +1469,7 @@
 
     .line 570
     .local v1, hitSize:F
-    iget v5, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v5, p0, Lcom/android/internal/widget/LockPatternView;->mPaddingLeft:I
 
     int-to-float v5, v5
 
@@ -1548,7 +1548,7 @@
 
     .line 550
     .local v0, hitSize:F
-    iget v5, p0, Landroid/view/View;->mPaddingTop:I
+    iget v5, p0, Lcom/android/internal/widget/LockPatternView;->mPaddingTop:I
 
     int-to-float v5, v5
 
@@ -2247,7 +2247,7 @@
     :cond_7
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mPaddingTop:I
+    iget v0, v0, Lcom/android/internal/widget/LockPatternView;->mPaddingTop:I
 
     move/from16 v29, v0
 
@@ -2255,7 +2255,7 @@
     .local v29, paddingTop:I
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/View;->mPaddingLeft:I
+    iget v0, v0, Lcom/android/internal/widget/LockPatternView;->mPaddingLeft:I
 
     move/from16 v28, v0
 
@@ -2830,11 +2830,11 @@
     const/high16 v4, 0x4040
 
     .line 439
-    iget v2, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v2, p0, Lcom/android/internal/widget/LockPatternView;->mPaddingLeft:I
 
     sub-int v2, p1, v2
 
-    iget v3, p0, Landroid/view/View;->mPaddingRight:I
+    iget v3, p0, Lcom/android/internal/widget/LockPatternView;->mPaddingRight:I
 
     sub-int v1, v2, v3
 
@@ -2847,11 +2847,11 @@
     iput v2, p0, Lcom/android/internal/widget/LockPatternView;->mSquareWidth:F
 
     .line 442
-    iget v2, p0, Landroid/view/View;->mPaddingTop:I
+    iget v2, p0, Lcom/android/internal/widget/LockPatternView;->mPaddingTop:I
 
     sub-int v2, p2, v2
 
-    iget v3, p0, Landroid/view/View;->mPaddingBottom:I
+    iget v3, p0, Lcom/android/internal/widget/LockPatternView;->mPaddingBottom:I
 
     sub-int v0, v2, v3
 

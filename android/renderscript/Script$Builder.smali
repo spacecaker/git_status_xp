@@ -223,7 +223,7 @@
 
     aget-object v2, v2, v0
 
-    iget v2, v2, Landroid/renderscript/BaseObj;->mID:I
+    iget v2, v2, Landroid/renderscript/Type;->mID:I
 
     iget-object v3, p0, Landroid/renderscript/Script$Builder;->mWritable:[Z
 

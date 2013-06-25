@@ -52,7 +52,7 @@
 
     iget-object v1, p0, Landroid/renderscript/Script$Invokable;->mScript:Landroid/renderscript/Script;
 
-    iget v1, v1, Landroid/renderscript/BaseObj;->mID:I
+    iget v1, v1, Landroid/renderscript/Script;->mID:I
 
     iget v2, p0, Landroid/renderscript/Script$Invokable;->mSlot:I
 

@@ -205,15 +205,13 @@
 .end method
 
 .method public static DSMgetNonGpsSIMData(Landroid/content/Context;)[I
-    .locals 9
+    .locals 8
     .parameter "mcontext"
 
     .prologue
-    const/4 v6, 0x3
+    const/4 v7, 0x3
 
-    const/4 v7, 0x0
-
-    const-string v8, "DSMSVC"
+    const/4 v6, 0x0
 
     .line 618
     const/4 v5, 0x2
@@ -257,7 +255,7 @@
     if-eqz v5, :cond_0
 
     .line 625
-    invoke-virtual {v1, v7, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v1, v6, v7}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v5
 
@@ -266,7 +264,7 @@
     move-result v2
 
     .line 626
-    invoke-virtual {v1, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v1, v7}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v5
 
@@ -274,41 +272,8 @@
 
     move-result v3
 
-    .line 627
-    const-string v5, "DSMSVC"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, " mcc = "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v6, " mnc = "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v8, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     .line 628
-    aput v2, v0, v7
+    aput v2, v0, v6
 
     .line 629
     const/4 v5, 0x1
@@ -325,9 +290,9 @@
     :cond_0
     const-string v5, "DSMSVC"
 
-    const-string v5, "Error getting cell location info from SIM."
+    const-string v6, "Error getting cell location info from SIM."
 
-    invoke-static {v8, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 634
     const/4 v5, 0x0
@@ -345,19 +310,19 @@
 .end method
 
 .method public static DSMgetnonGPSData(Landroid/content/Context;)[I
-    .locals 15
+    .locals 14
     .parameter "pcontext"
 
     .prologue
-    const/4 v14, 0x2
+    const/4 v13, 0x2
 
-    const/4 v13, 0x0
+    const/4 v12, 0x0
 
-    const/4 v12, 0x3
+    const/4 v10, 0x3
 
-    const/4 v11, 0x1
+    const/4 v9, 0x1
 
-    const-string v10, "DSMSVC"
+    const-string v11, "DSMSVC"
 
     .line 561
     move-object v5, p0
@@ -402,7 +367,7 @@
 
     move-result v8
 
-    if-ne v8, v11, :cond_2
+    if-ne v8, v9, :cond_2
 
     .line 570
     invoke-virtual {v7}, Landroid/telephony/TelephonyManager;->getCellLocation()Landroid/telephony/CellLocation;
@@ -419,7 +384,7 @@
 
     move-result v8
 
-    if-ne v8, v11, :cond_1
+    if-ne v8, v9, :cond_1
 
     .line 573
     invoke-virtual {v7}, Landroid/telephony/TelephonyManager;->getNetworkOperator()Ljava/lang/String;
@@ -443,7 +408,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v8, v13, v12}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v8, v12, v10}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v8
 
@@ -456,46 +421,13 @@
 
     move-result-object v8
 
-    invoke-virtual {v8, v12}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v8, v10}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v8
 
     invoke-static {v8}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v6
-
-    .line 577
-    const-string v8, "DSMSVC"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, " mcc = "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string v9, " mnc = "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v10, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 580
     :cond_0
@@ -508,50 +440,17 @@
 
     move-result v1
 
-    .line 582
-    const-string v8, "DSMSVC"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "Lac = "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string v9, " cellid = "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v10, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     .line 583
-    aput v4, v0, v13
+    aput v4, v0, v12
 
     .line 584
-    aput v6, v0, v11
+    aput v6, v0, v9
 
     .line 585
-    aput v3, v0, v14
+    aput v3, v0, v13
 
     .line 586
-    aput v1, v0, v12
+    aput v1, v0, v10
 
     move-object v8, v0
 
@@ -567,7 +466,7 @@
 
     const-string v8, "Error getting cell location info."
 
-    invoke-static {v10, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v11, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 591
     const/4 v8, 0x0
@@ -581,7 +480,7 @@
 
     move-result v8
 
-    if-ne v8, v14, :cond_3
+    if-ne v8, v13, :cond_3
 
     .line 610
     const-string v8, "DSMSVC"
@@ -608,7 +507,7 @@
 
     move-result-object v8
 
-    invoke-static {v10, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v11, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 614
     :goto_1
@@ -642,7 +541,7 @@
 
     move-result-object v8
 
-    invoke-static {v10, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v11, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 

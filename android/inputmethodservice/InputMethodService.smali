@@ -2487,7 +2487,7 @@
 
     iget v1, p0, Landroid/inputmethodservice/InputMethodService;->mTheme:I
 
-    iget-object v2, p0, Landroid/inputmethodservice/AbstractInputMethodService;->mDispatcherState:Landroid/view/KeyEvent$DispatcherState;
+    iget-object v2, p0, Landroid/inputmethodservice/InputMethodService;->mDispatcherState:Landroid/view/KeyEvent$DispatcherState;
 
     invoke-direct {v0, p0, v1, v2}, Landroid/inputmethodservice/SoftInputWindow;-><init>(Landroid/content/Context;ILandroid/view/KeyEvent$DispatcherState;)V
 
@@ -5349,7 +5349,7 @@
     invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 948
-    iput v7, v3, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v7, v3, Landroid/widget/LinearLayout$LayoutParams;->height:I
 
     .line 949
     const/high16 v5, 0x3f80
@@ -5459,7 +5459,7 @@
     .line 952
     const/4 v5, -0x2
 
-    iput v5, v3, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v5, v3, Landroid/widget/LinearLayout$LayoutParams;->height:I
 
     .line 953
     const/4 v5, 0x0

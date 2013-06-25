@@ -37,7 +37,7 @@
     iput-object p1, p0, Lcom/android/internal/nfc/P2pTarget;->mService:Landroid/nfc/IP2pTarget;
 
     .line 70
-    iput p2, p0, Lcom/android/internal/nfc/P2pDevice;->mHandle:I
+    iput p2, p0, Lcom/android/internal/nfc/P2pTarget;->mHandle:I
 
     .line 71
     return-void
@@ -89,7 +89,7 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/internal/nfc/P2pTarget;->mService:Landroid/nfc/IP2pTarget;
 
-    iget v3, p0, Lcom/android/internal/nfc/P2pDevice;->mHandle:I
+    iget v3, p0, Lcom/android/internal/nfc/P2pTarget;->mHandle:I
 
     invoke-interface {v2, v3}, Landroid/nfc/IP2pTarget;->connect(I)I
 
@@ -168,7 +168,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/nfc/P2pTarget;->mService:Landroid/nfc/IP2pTarget;
 
-    iget v2, p0, Lcom/android/internal/nfc/P2pDevice;->mHandle:I
+    iget v2, p0, Lcom/android/internal/nfc/P2pTarget;->mHandle:I
 
     invoke-interface {v1, v2}, Landroid/nfc/IP2pTarget;->disconnect(I)Z
 
@@ -218,7 +218,7 @@
     .line 156
     iget-object v1, p0, Lcom/android/internal/nfc/P2pTarget;->mService:Landroid/nfc/IP2pTarget;
 
-    iget v2, p0, Lcom/android/internal/nfc/P2pDevice;->mHandle:I
+    iget v2, p0, Lcom/android/internal/nfc/P2pTarget;->mHandle:I
 
     invoke-interface {v1, v2}, Landroid/nfc/IP2pTarget;->getGeneralBytes(I)[B
 
@@ -288,7 +288,7 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/internal/nfc/P2pTarget;->mService:Landroid/nfc/IP2pTarget;
 
-    iget v3, p0, Lcom/android/internal/nfc/P2pDevice;->mHandle:I
+    iget v3, p0, Lcom/android/internal/nfc/P2pTarget;->mHandle:I
 
     invoke-interface {v2, v3, p1}, Landroid/nfc/IP2pTarget;->transceive(I[B)[B
 

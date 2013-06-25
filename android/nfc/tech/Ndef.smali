@@ -281,7 +281,7 @@
 
     .line 261
     :try_start_0
-    iget-object v5, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
+    iget-object v5, p0, Landroid/nfc/tech/Ndef;->mTag:Landroid/nfc/Tag;
 
     invoke-virtual {v5}, Landroid/nfc/Tag;->getTagService()Landroid/nfc/INfcTag;
 
@@ -289,7 +289,7 @@
 
     .line 262
     .local v4, tagService:Landroid/nfc/INfcTag;
-    iget-object v5, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
+    iget-object v5, p0, Landroid/nfc/tech/Ndef;->mTag:Landroid/nfc/Tag;
 
     invoke-virtual {v5}, Landroid/nfc/Tag;->getServiceHandle()I
 
@@ -525,7 +525,7 @@
 
     .line 366
     :try_start_0
-    iget-object v3, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
+    iget-object v3, p0, Landroid/nfc/tech/Ndef;->mTag:Landroid/nfc/Tag;
 
     invoke-virtual {v3}, Landroid/nfc/Tag;->getTagService()Landroid/nfc/INfcTag;
 
@@ -533,7 +533,7 @@
 
     .line 367
     .local v2, tagService:Landroid/nfc/INfcTag;
-    iget-object v3, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
+    iget-object v3, p0, Landroid/nfc/tech/Ndef;->mTag:Landroid/nfc/Tag;
 
     invoke-virtual {v3}, Landroid/nfc/Tag;->getServiceHandle()I
 
@@ -546,7 +546,7 @@
     if-eqz v3, :cond_0
 
     .line 368
-    iget-object v3, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
+    iget-object v3, p0, Landroid/nfc/tech/Ndef;->mTag:Landroid/nfc/Tag;
 
     invoke-virtual {v3}, Landroid/nfc/Tag;->getServiceHandle()I
 
@@ -668,7 +668,7 @@
 
     .line 305
     :try_start_0
-    iget-object v4, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
+    iget-object v4, p0, Landroid/nfc/tech/Ndef;->mTag:Landroid/nfc/Tag;
 
     invoke-virtual {v4}, Landroid/nfc/Tag;->getTagService()Landroid/nfc/INfcTag;
 
@@ -676,7 +676,7 @@
 
     .line 306
     .local v3, tagService:Landroid/nfc/INfcTag;
-    iget-object v4, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
+    iget-object v4, p0, Landroid/nfc/tech/Ndef;->mTag:Landroid/nfc/Tag;
 
     invoke-virtual {v4}, Landroid/nfc/Tag;->getServiceHandle()I
 

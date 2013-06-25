@@ -259,7 +259,7 @@
 
     move-object v8, v0
 
-    #getter for: Landroid/view/View;->mScrollX:I
+    #getter for: Landroid/webkit/WebView;->mScrollX:I
     invoke-static {v8}, Landroid/webkit/WebView;->access$3800(Landroid/webkit/WebView;)I
 
     move-result v8
@@ -295,7 +295,7 @@
 
     move-object v9, v0
 
-    #getter for: Landroid/view/View;->mScrollY:I
+    #getter for: Landroid/webkit/WebView;->mScrollY:I
     invoke-static {v9}, Landroid/webkit/WebView;->access$4000(Landroid/webkit/WebView;)I
 
     move-result v9
@@ -496,7 +496,7 @@
 
     move-object v7, v0
 
-    #getter for: Landroid/view/View;->mScrollX:I
+    #getter for: Landroid/webkit/WebView;->mScrollX:I
     invoke-static {v7}, Landroid/webkit/WebView;->access$4400(Landroid/webkit/WebView;)I
 
     move-result v7
@@ -534,7 +534,7 @@
 
     move-object v7, v0
 
-    #getter for: Landroid/view/View;->mScrollY:I
+    #getter for: Landroid/webkit/WebView;->mScrollY:I
     invoke-static {v7}, Landroid/webkit/WebView;->access$4500(Landroid/webkit/WebView;)I
 
     move-result v7
@@ -630,7 +630,7 @@
 
     move-object v7, v0
 
-    #getter for: Landroid/view/View;->mScrollX:I
+    #getter for: Landroid/webkit/WebView;->mScrollX:I
     invoke-static {v7}, Landroid/webkit/WebView;->access$4900(Landroid/webkit/WebView;)I
 
     move-result v7
@@ -673,7 +673,7 @@
 
     move-object v7, v0
 
-    #getter for: Landroid/view/View;->mScrollY:I
+    #getter for: Landroid/webkit/WebView;->mScrollY:I
     invoke-static {v7}, Landroid/webkit/WebView;->access$5000(Landroid/webkit/WebView;)I
 
     move-result v7
@@ -3354,7 +3354,7 @@
 
     move-object v6, v0
 
-    #getter for: Landroid/view/View;->mScrollX:I
+    #getter for: Landroid/webkit/WebView;->mScrollX:I
     invoke-static {v6}, Landroid/webkit/WebView;->access$9000(Landroid/webkit/WebView;)I
 
     move-result v6
@@ -3395,7 +3395,7 @@
 
     move-object v6, v0
 
-    #getter for: Landroid/view/View;->mScrollX:I
+    #getter for: Landroid/webkit/WebView;->mScrollX:I
     invoke-static {v6}, Landroid/webkit/WebView;->access$9200(Landroid/webkit/WebView;)I
 
     move-result v6
@@ -3416,7 +3416,7 @@
 
     move-object v6, v0
 
-    #getter for: Landroid/view/View;->mScrollY:I
+    #getter for: Landroid/webkit/WebView;->mScrollY:I
     invoke-static {v6}, Landroid/webkit/WebView;->access$9300(Landroid/webkit/WebView;)I
 
     move-result v6
@@ -3457,7 +3457,7 @@
 
     move-object v6, v0
 
-    #getter for: Landroid/view/View;->mScrollY:I
+    #getter for: Landroid/webkit/WebView;->mScrollY:I
     invoke-static {v6}, Landroid/webkit/WebView;->access$9500(Landroid/webkit/WebView;)I
 
     move-result v6
@@ -3557,7 +3557,7 @@
 
     move-object v6, v0
 
-    #getter for: Landroid/view/View;->mScrollX:I
+    #getter for: Landroid/webkit/WebView;->mScrollX:I
     invoke-static {v6}, Landroid/webkit/WebView;->access$9700(Landroid/webkit/WebView;)I
 
     move-result v6
@@ -3568,7 +3568,7 @@
 
     move-object v7, v0
 
-    #getter for: Landroid/view/View;->mScrollY:I
+    #getter for: Landroid/webkit/WebView;->mScrollY:I
     invoke-static {v7}, Landroid/webkit/WebView;->access$9800(Landroid/webkit/WebView;)I
 
     move-result v7
@@ -4263,7 +4263,7 @@
 
     move-object v5, v0
 
-    #getter for: Landroid/view/View;->mScrollX:I
+    #getter for: Landroid/webkit/WebView;->mScrollX:I
     invoke-static {v5}, Landroid/webkit/WebView;->access$10800(Landroid/webkit/WebView;)I
 
     move-result v53
@@ -4487,7 +4487,7 @@
 
     move-object v5, v0
 
-    #getter for: Landroid/view/View;->mScrollY:I
+    #getter for: Landroid/webkit/WebView;->mScrollY:I
     invoke-static {v5}, Landroid/webkit/WebView;->access$11100(Landroid/webkit/WebView;)I
 
     move-result v54
@@ -4657,7 +4657,7 @@
 
     move-object v6, v0
 
-    #getter for: Landroid/view/View;->mScrollX:I
+    #getter for: Landroid/webkit/WebView;->mScrollX:I
     invoke-static {v6}, Landroid/webkit/WebView;->access$10900(Landroid/webkit/WebView;)I
 
     move-result v6
@@ -4702,7 +4702,7 @@
 
     move-object v6, v0
 
-    #getter for: Landroid/view/View;->mScrollX:I
+    #getter for: Landroid/webkit/WebView;->mScrollX:I
     invoke-static {v6}, Landroid/webkit/WebView;->access$11000(Landroid/webkit/WebView;)I
 
     move-result v6
@@ -4768,7 +4768,7 @@
 
     move-object v6, v0
 
-    #getter for: Landroid/view/View;->mScrollY:I
+    #getter for: Landroid/webkit/WebView;->mScrollY:I
     invoke-static {v6}, Landroid/webkit/WebView;->access$11300(Landroid/webkit/WebView;)I
 
     move-result v6

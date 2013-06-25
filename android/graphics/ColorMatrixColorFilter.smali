@@ -21,7 +21,7 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/graphics/ColorFilter;->native_instance:I
+    iput v0, p0, Landroid/graphics/ColorMatrixColorFilter;->native_instance:I
 
     .line 29
     return-void
@@ -55,7 +55,7 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/graphics/ColorFilter;->native_instance:I
+    iput v0, p0, Landroid/graphics/ColorMatrixColorFilter;->native_instance:I
 
     .line 43
     return-void

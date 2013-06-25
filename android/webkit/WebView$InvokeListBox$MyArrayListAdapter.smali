@@ -173,7 +173,7 @@
 
     iget-object v5, v5, Landroid/webkit/WebView$InvokeListBox;->this$0:Landroid/webkit/WebView;
 
-    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
+    #getter for: Landroid/webkit/WebView;->mContext:Landroid/content/Context;
     invoke-static {v5}, Landroid/webkit/WebView;->access$12500(Landroid/webkit/WebView;)Landroid/content/Context;
 
     move-result-object v5
@@ -194,7 +194,7 @@
 
     iget-object v5, v5, Landroid/webkit/WebView$InvokeListBox;->this$0:Landroid/webkit/WebView;
 
-    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
+    #getter for: Landroid/webkit/WebView;->mContext:Landroid/content/Context;
     invoke-static {v5}, Landroid/webkit/WebView;->access$12600(Landroid/webkit/WebView;)Landroid/content/Context;
 
     move-result-object v5
@@ -251,7 +251,7 @@
 
     iget-object v5, v5, Landroid/webkit/WebView$InvokeListBox;->this$0:Landroid/webkit/WebView;
 
-    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
+    #getter for: Landroid/webkit/WebView;->mContext:Landroid/content/Context;
     invoke-static {v5}, Landroid/webkit/WebView;->access$12700(Landroid/webkit/WebView;)Landroid/content/Context;
 
     move-result-object v5

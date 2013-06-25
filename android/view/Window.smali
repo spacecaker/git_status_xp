@@ -851,10 +851,10 @@
 
     .line 511
     .local v0, attrs:Landroid/view/WindowManager$LayoutParams;
-    iput p1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput p1, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     .line 512
-    iput p2, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput p2, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
     .line 513
     iget-object v1, p0, Landroid/view/Window;->mCallback:Landroid/view/Window$Callback;

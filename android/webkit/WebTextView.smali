@@ -195,7 +195,7 @@
     if-eqz v0, :cond_0
 
     .line 316
-    iget v2, p0, Landroid/view/View;->mScrollY:I
+    iget v2, p0, Landroid/webkit/WebTextView;->mScrollY:I
 
     invoke-static {p0, v0, v2}, Landroid/text/method/Touch;->getMaxScrollX(Landroid/widget/TextView;Landroid/text/Layout;I)I
 
@@ -211,14 +211,14 @@
 
     if-lez v3, :cond_1
 
-    iget v3, p0, Landroid/view/View;->mScrollX:I
+    iget v3, p0, Landroid/webkit/WebTextView;->mScrollX:I
 
     int-to-float v3, v3
 
     div-float/2addr v3, v1
 
     :goto_0
-    iget v4, p0, Landroid/view/View;->mScrollY:I
+    iget v4, p0, Landroid/webkit/WebTextView;->mScrollY:I
 
     invoke-virtual {v2, v3, v4}, Landroid/webkit/WebView;->scrollFocusedTextInput(FI)V
 
@@ -587,7 +587,7 @@
     .line 191
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, v0, Landroid/webkit/WebTextView;->mContext:Landroid/content/Context;
 
     move-object v3, v0
 
@@ -1204,7 +1204,7 @@
 
     .line 380
     :pswitch_3
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/webkit/WebTextView;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Landroid/view/inputmethod/InputMethodManager;->getInstance(Landroid/content/Context;)Landroid/view/inputmethod/InputMethodManager;
 
@@ -1959,7 +1959,7 @@
 
     .line 559
     :cond_0
-    iget-object v8, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v8, p0, Landroid/webkit/WebTextView;->mContext:Landroid/content/Context;
 
     invoke-static {v8}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
@@ -1992,7 +1992,7 @@
     invoke-super {p0, p1}, Landroid/widget/AutoCompleteTextView;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     .line 564
-    iget v8, p0, Landroid/view/View;->mScrollX:I
+    iget v8, p0, Landroid/webkit/WebTextView;->mScrollX:I
 
     sub-int/2addr v8, v3
 
@@ -2002,7 +2002,7 @@
 
     .line 565
     .local v1, dx:I
-    iget v8, p0, Landroid/view/View;->mScrollY:I
+    iget v8, p0, Landroid/webkit/WebTextView;->mScrollY:I
 
     sub-int/2addr v8, v4
 
@@ -2347,7 +2347,7 @@
 
     .prologue
     .line 660
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/webkit/WebTextView;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Landroid/view/inputmethod/InputMethodManager;->getInstance(Landroid/content/Context;)Landroid/view/inputmethod/InputMethodManager;
 
@@ -2721,10 +2721,10 @@
     iput p2, v0, Landroid/widget/AbsoluteLayout$LayoutParams;->y:I
 
     .line 872
-    iput p3, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput p3, v0, Landroid/widget/AbsoluteLayout$LayoutParams;->width:I
 
     .line 873
-    iput p4, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput p4, v0, Landroid/widget/AbsoluteLayout$LayoutParams;->height:I
 
     goto :goto_0
 

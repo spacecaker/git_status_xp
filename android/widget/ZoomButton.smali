@@ -88,7 +88,7 @@
 
     .prologue
     .line 27
-    iget-object v0, p0, Landroid/view/View;->mOnClickListener:Landroid/view/View$OnClickListener;
+    iget-object v0, p0, Landroid/widget/ZoomButton;->mOnClickListener:Landroid/view/View$OnClickListener;
 
     return-object v0
 .end method
@@ -110,7 +110,7 @@
 
     .prologue
     .line 27
-    iget-object v0, p0, Landroid/view/View;->mOnClickListener:Landroid/view/View$OnClickListener;
+    iget-object v0, p0, Landroid/widget/ZoomButton;->mOnClickListener:Landroid/view/View$OnClickListener;
 
     return-object v0
 .end method

@@ -169,7 +169,7 @@
     .line 447
     iget-object v3, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
-    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
+    #getter for: Landroid/widget/VideoView;->mContext:Landroid/content/Context;
     invoke-static {v3}, Landroid/widget/VideoView;->access$1900(Landroid/widget/VideoView;)Landroid/content/Context;
 
     move-result-object v3

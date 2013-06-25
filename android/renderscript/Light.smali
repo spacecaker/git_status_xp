@@ -22,7 +22,7 @@
     invoke-direct {p0, p2}, Landroid/renderscript/BaseObj;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 29
-    iput p1, p0, Landroid/renderscript/BaseObj;->mID:I
+    iput p1, p0, Landroid/renderscript/Light;->mID:I
 
     .line 30
     return-void
@@ -60,14 +60,14 @@
 
     .prologue
     .line 33
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/Light;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-virtual {v0}, Landroid/renderscript/RenderScript;->validate()V
 
     .line 34
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/Light;->mRS:Landroid/renderscript/RenderScript;
 
-    iget v1, p0, Landroid/renderscript/BaseObj;->mID:I
+    iget v1, p0, Landroid/renderscript/Light;->mID:I
 
     invoke-virtual {v0, v1, p1, p2, p3}, Landroid/renderscript/RenderScript;->nLightSetColor(IFFF)V
 
@@ -100,14 +100,14 @@
 
     .prologue
     .line 38
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/Light;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-virtual {v0}, Landroid/renderscript/RenderScript;->validate()V
 
     .line 39
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/Light;->mRS:Landroid/renderscript/RenderScript;
 
-    iget v1, p0, Landroid/renderscript/BaseObj;->mID:I
+    iget v1, p0, Landroid/renderscript/Light;->mID:I
 
     invoke-virtual {v0, v1, p1, p2, p3}, Landroid/renderscript/RenderScript;->nLightSetPosition(IFFF)V
 

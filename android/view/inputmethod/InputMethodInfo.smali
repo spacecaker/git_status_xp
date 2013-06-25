@@ -79,9 +79,9 @@
     .local v11, si:Landroid/content/pm/ServiceInfo;
     new-instance v13, Landroid/content/ComponentName;
 
-    iget-object v14, v11, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v14, v11, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
-    iget-object v15, v11, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v15, v11, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
 
     invoke-direct {v13, v14, v15}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -157,7 +157,7 @@
 
     move-result-object v14
 
-    iget-object v15, v11, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v15, v11, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -188,7 +188,7 @@
     .line 97
     :cond_1
     :try_start_2
-    iget-object v13, v11, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v13, v11, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     invoke-virtual {v7, v13}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/Resources;
 
@@ -372,28 +372,28 @@
 
     .line 145
     .local v0, ai:Landroid/content/pm/ApplicationInfo;
-    iput-object p1, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iput-object p1, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     .line 146
     iput-boolean v3, v0, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
     .line 147
-    iput-object v0, v2, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iput-object v0, v2, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     .line 148
-    iput-boolean v3, v2, Landroid/content/pm/ComponentInfo;->enabled:Z
+    iput-boolean v3, v2, Landroid/content/pm/ServiceInfo;->enabled:Z
 
     .line 149
-    iput-object p1, v2, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iput-object p1, v2, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
     .line 150
-    iput-object p2, v2, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iput-object p2, v2, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
 
     .line 151
-    iput-boolean v3, v2, Landroid/content/pm/ComponentInfo;->exported:Z
+    iput-boolean v3, v2, Landroid/content/pm/ServiceInfo;->exported:Z
 
     .line 152
-    iput-object p3, v2, Landroid/content/pm/PackageItemInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
+    iput-object p3, v2, Landroid/content/pm/ServiceInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
 
     .line 153
     iput-object v2, v1, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
@@ -404,9 +404,9 @@
     .line 155
     new-instance v3, Landroid/content/ComponentName;
 
-    iget-object v4, v2, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v4, v2, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
-    iget-object v5, v2, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v5, v2, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
 
     invoke-direct {v3, v4, v5}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -630,13 +630,13 @@
 
     iget-object v1, v1, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
-    iget-object v1, v1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v1, v1, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
     iget-object v2, p0, Landroid/view/inputmethod/InputMethodInfo;->mService:Landroid/content/pm/ResolveInfo;
 
     iget-object v2, v2, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
-    iget-object v2, v2, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v2, v2, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
 
     invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -672,7 +672,7 @@
 
     iget-object v0, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -698,7 +698,7 @@
 
     iget-object v0, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
 
     return-object v0
 .end method

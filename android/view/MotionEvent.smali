@@ -781,7 +781,7 @@
 
     move-object v1, v2
 
-    iput v0, v1, Landroid/view/InputEvent;->mDeviceId:I
+    iput v0, v1, Landroid/view/MotionEvent;->mDeviceId:I
 
     .line 490
     const/16 p12, 0x0
@@ -790,7 +790,7 @@
 
     move-object v1, v2
 
-    iput v0, v1, Landroid/view/InputEvent;->mSource:I
+    iput v0, v1, Landroid/view/MotionEvent;->mSource:I
 
     .line 491
     .end local p12
@@ -1028,10 +1028,10 @@
 
     .line 427
     .local v0, ev:Landroid/view/MotionEvent;
-    iput p11, v0, Landroid/view/InputEvent;->mDeviceId:I
+    iput p11, v0, Landroid/view/MotionEvent;->mDeviceId:I
 
     .line 428
-    iput p13, v0, Landroid/view/InputEvent;->mSource:I
+    iput p13, v0, Landroid/view/MotionEvent;->mSource:I
 
     .line 429
     iput p12, v0, Landroid/view/MotionEvent;->mEdgeFlags:I
@@ -1137,14 +1137,14 @@
 
     .line 586
     .local v0, ev:Landroid/view/MotionEvent;
-    iget v3, p0, Landroid/view/InputEvent;->mDeviceId:I
+    iget v3, p0, Landroid/view/MotionEvent;->mDeviceId:I
 
-    iput v3, v0, Landroid/view/InputEvent;->mDeviceId:I
+    iput v3, v0, Landroid/view/MotionEvent;->mDeviceId:I
 
     .line 587
-    iget v3, p0, Landroid/view/InputEvent;->mSource:I
+    iget v3, p0, Landroid/view/MotionEvent;->mSource:I
 
-    iput v3, v0, Landroid/view/InputEvent;->mSource:I
+    iput v3, v0, Landroid/view/MotionEvent;->mSource:I
 
     .line 588
     iget v3, p0, Landroid/view/MotionEvent;->mEdgeFlags:I
@@ -1260,14 +1260,14 @@
 
     .line 618
     .local v0, ev:Landroid/view/MotionEvent;
-    iget v2, p0, Landroid/view/InputEvent;->mDeviceId:I
+    iget v2, p0, Landroid/view/MotionEvent;->mDeviceId:I
 
-    iput v2, v0, Landroid/view/InputEvent;->mDeviceId:I
+    iput v2, v0, Landroid/view/MotionEvent;->mDeviceId:I
 
     .line 619
-    iget v2, p0, Landroid/view/InputEvent;->mSource:I
+    iget v2, p0, Landroid/view/MotionEvent;->mSource:I
 
-    iput v2, v0, Landroid/view/InputEvent;->mSource:I
+    iput v2, v0, Landroid/view/MotionEvent;->mSource:I
 
     .line 620
     iget v2, p0, Landroid/view/MotionEvent;->mEdgeFlags:I

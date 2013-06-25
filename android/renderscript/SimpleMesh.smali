@@ -31,7 +31,7 @@
     invoke-direct {p0, p2}, Landroid/renderscript/BaseObj;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 34
-    iput p1, p0, Landroid/renderscript/BaseObj;->mID:I
+    iput p1, p0, Landroid/renderscript/SimpleMesh;->mID:I
 
     .line 35
     return-void
@@ -45,16 +45,16 @@
 
     .prologue
     .line 43
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/SimpleMesh;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-virtual {v0}, Landroid/renderscript/RenderScript;->validate()V
 
     .line 44
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/SimpleMesh;->mRS:Landroid/renderscript/RenderScript;
 
-    iget v1, p0, Landroid/renderscript/BaseObj;->mID:I
+    iget v1, p0, Landroid/renderscript/SimpleMesh;->mID:I
 
-    iget v2, p1, Landroid/renderscript/BaseObj;->mID:I
+    iget v2, p1, Landroid/renderscript/Allocation;->mID:I
 
     invoke-virtual {v0, v1, v2}, Landroid/renderscript/RenderScript;->nSimpleMeshBindIndex(II)V
 
@@ -69,16 +69,16 @@
 
     .prologue
     .line 38
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/SimpleMesh;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-virtual {v0}, Landroid/renderscript/RenderScript;->validate()V
 
     .line 39
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/SimpleMesh;->mRS:Landroid/renderscript/RenderScript;
 
-    iget v1, p0, Landroid/renderscript/BaseObj;->mID:I
+    iget v1, p0, Landroid/renderscript/SimpleMesh;->mID:I
 
-    iget v2, p1, Landroid/renderscript/BaseObj;->mID:I
+    iget v2, p1, Landroid/renderscript/Allocation;->mID:I
 
     invoke-virtual {v0, v1, v2, p2}, Landroid/renderscript/RenderScript;->nSimpleMeshBindVertex(III)V
 
@@ -91,12 +91,12 @@
 
     .prologue
     .line 53
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/SimpleMesh;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-virtual {v0}, Landroid/renderscript/RenderScript;->validate()V
 
     .line 54
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/SimpleMesh;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v1, p0, Landroid/renderscript/SimpleMesh;->mIndexType:Landroid/renderscript/Type;
 
@@ -113,12 +113,12 @@
 
     .prologue
     .line 48
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/SimpleMesh;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-virtual {v0}, Landroid/renderscript/RenderScript;->validate()V
 
     .line 49
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/SimpleMesh;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v1, p0, Landroid/renderscript/SimpleMesh;->mVertexTypes:[Landroid/renderscript/Type;
 

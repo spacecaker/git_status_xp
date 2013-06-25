@@ -93,7 +93,7 @@
     .line 134
     iget-object v3, p0, Landroid/database/sqlite/SQLiteCursor$QueryThread;->this$0:Landroid/database/sqlite/SQLiteCursor;
 
-    #getter for: Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
+    #getter for: Landroid/database/sqlite/SQLiteCursor;->mWindow:Landroid/database/CursorWindow;
     invoke-static {v3}, Landroid/database/sqlite/SQLiteCursor;->access$100(Landroid/database/sqlite/SQLiteCursor;)Landroid/database/CursorWindow;
 
     move-result-object v1

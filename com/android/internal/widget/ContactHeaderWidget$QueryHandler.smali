@@ -58,7 +58,7 @@
     .line 242
     const-string v12, "ContactHeaderWidget"
 
-    const-string v13, "onQueryComplete: discard result, the query handler is reset!"
+    const-string/jumbo v13, "onQueryComplete: discard result, the query handler is reset!"
 
     invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
@@ -590,6 +590,8 @@
     goto/16 :goto_1
 
     .line 246
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1

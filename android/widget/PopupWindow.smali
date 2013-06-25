@@ -855,14 +855,14 @@
 
     iput v1, p0, Landroid/widget/PopupWindow;->mLastWidth:I
 
-    iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     .line 927
     iget v1, p0, Landroid/widget/PopupWindow;->mHeight:I
 
     iput v1, p0, Landroid/widget/PopupWindow;->mLastHeight:I
 
-    iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
     .line 928
     iget-object v1, p0, Landroid/widget/PopupWindow;->mBackground:Landroid/graphics/drawable/Drawable;
@@ -1330,12 +1330,12 @@
     .end local v2           #listParams:Landroid/widget/FrameLayout$LayoutParams;
     .end local v3           #popupViewContainer:Landroid/widget/PopupWindow$PopupViewContainer;
     :goto_0
-    iget v4, p1, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v4, p1, Landroid/view/WindowManager$LayoutParams;->width:I
 
     iput v4, p0, Landroid/widget/PopupWindow;->mPopupWidth:I
 
     .line 894
-    iget v4, p1, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v4, p1, Landroid/view/WindowManager$LayoutParams;->height:I
 
     iput v4, p0, Landroid/widget/PopupWindow;->mPopupHeight:I
 
@@ -2510,7 +2510,7 @@
 
     iput v1, p0, Landroid/widget/PopupWindow;->mLastHeight:I
 
-    iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
     .line 815
     :cond_2
@@ -2522,7 +2522,7 @@
 
     iput v1, p0, Landroid/widget/PopupWindow;->mLastWidth:I
 
-    iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     .line 817
     :cond_3
@@ -2842,14 +2842,14 @@
     :goto_1
     if-eq p3, v7, :cond_4
 
-    iget v6, v4, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v6, v4, Landroid/view/WindowManager$LayoutParams;->width:I
 
     if-eq v6, v1, :cond_4
 
     .line 1259
     iput v1, p0, Landroid/widget/PopupWindow;->mLastWidth:I
 
-    iput v1, v4, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v1, v4, Landroid/view/WindowManager$LayoutParams;->width:I
 
     .line 1260
     const/4 v5, 0x1
@@ -2869,14 +2869,14 @@
     :goto_2
     if-eq p4, v7, :cond_5
 
-    iget v6, v4, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v6, v4, Landroid/view/WindowManager$LayoutParams;->height:I
 
     if-eq v6, v0, :cond_5
 
     .line 1265
     iput v0, p0, Landroid/widget/PopupWindow;->mLastHeight:I
 
-    iput v0, v4, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v0, v4, Landroid/view/WindowManager$LayoutParams;->height:I
 
     .line 1266
     const/4 v5, 0x1

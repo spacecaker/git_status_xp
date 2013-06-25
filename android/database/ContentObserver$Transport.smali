@@ -21,63 +21,81 @@
 # direct methods
 .method public constructor <init>(Landroid/database/ContentObserver;)V
     .locals 0
-    .parameter "contentObserver"
+    .parameter
 
     .prologue
-    .line 50
+    .line 61
     invoke-direct {p0}, Landroid/database/IContentObserver$Stub;-><init>()V
 
-    .line 51
+    .line 62
     iput-object p1, p0, Landroid/database/ContentObserver$Transport;->mContentObserver:Landroid/database/ContentObserver;
 
-    .line 52
+    .line 63
     return-void
 .end method
 
 
 # virtual methods
 .method public deliverSelfNotifications()Z
-    .locals 2
+    .locals 1
 
     .prologue
-    .line 55
+    .line 66
     iget-object v0, p0, Landroid/database/ContentObserver$Transport;->mContentObserver:Landroid/database/ContentObserver;
 
-    .line 56
-    .local v0, contentObserver:Landroid/database/ContentObserver;
+    .line 67
     if-eqz v0, :cond_0
 
-    .line 57
+    .line 68
     invoke-virtual {v0}, Landroid/database/ContentObserver;->deliverSelfNotifications()Z
 
-    move-result v1
+    move-result v0
 
-    .line 59
+    .line 70
     :goto_0
-    return v1
+    return v0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
 
 .method public onChange(Z)V
     .locals 1
-    .parameter "selfChange"
+    .parameter
 
     .prologue
-    .line 63
+    .line 74
     iget-object v0, p0, Landroid/database/ContentObserver$Transport;->mContentObserver:Landroid/database/ContentObserver;
 
-    .line 64
-    .local v0, contentObserver:Landroid/database/ContentObserver;
+    .line 75
     if-eqz v0, :cond_0
 
-    .line 65
+    .line 76
     invoke-virtual {v0, p1}, Landroid/database/ContentObserver;->dispatchChange(Z)V
 
-    .line 67
+    .line 78
+    :cond_0
+    return-void
+.end method
+
+.method public onChangeUri(Landroid/net/Uri;Z)V
+    .locals 1
+    .parameter
+    .parameter
+
+    .prologue
+    .line 81
+    iget-object v0, p0, Landroid/database/ContentObserver$Transport;->mContentObserver:Landroid/database/ContentObserver;
+
+    .line 82
+    if-eqz v0, :cond_0
+
+    .line 83
+    invoke-virtual {v0, p1, p2}, Landroid/database/ContentObserver;->dispatchChange(Landroid/net/Uri;Z)V
+
+    .line 85
     :cond_0
     return-void
 .end method
@@ -86,11 +104,11 @@
     .locals 1
 
     .prologue
-    .line 70
+    .line 88
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/database/ContentObserver$Transport;->mContentObserver:Landroid/database/ContentObserver;
 
-    .line 71
+    .line 89
     return-void
 .end method

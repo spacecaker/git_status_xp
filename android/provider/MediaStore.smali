@@ -6,11 +6,11 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/provider/MediaStore$Video;,
         Landroid/provider/MediaStore$Audio;,
         Landroid/provider/MediaStore$Images;,
         Landroid/provider/MediaStore$InternalThumbnails;,
-        Landroid/provider/MediaStore$MediaColumns;
+        Landroid/provider/MediaStore$MediaColumns;,
+        Landroid/provider/MediaStore$Video;
     }
 .end annotation
 
@@ -31,6 +31,8 @@
 .field public static final EXTRA_FULL_SCREEN:Ljava/lang/String; = "android.intent.extra.fullScreen"
 
 .field public static final EXTRA_MEDIA_ALBUM:Ljava/lang/String; = "android.intent.extra.album"
+
+.field public static final EXTRA_MEDIA_ALBUM_ARTIST:Ljava/lang/String; = "android.intent.extra.albumartist"
 
 .field public static final EXTRA_MEDIA_ARTIST:Ljava/lang/String; = "android.intent.extra.artist"
 
@@ -75,7 +77,6 @@
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1600
     return-void
 .end method
 
@@ -83,7 +84,7 @@
     .locals 1
 
     .prologue
-    .line 1897
+    .line 1973
     const-string v0, "content://media/none/media_scanner"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;

@@ -162,14 +162,14 @@
     invoke-virtual {p0, v2}, Landroid/widget/TabWidget;->setOrientation(I)V
 
     .line 113
-    iget v2, p0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iget v2, p0, Landroid/widget/TabWidget;->mGroupFlags:I
 
     or-int/lit16 v2, v2, 0x400
 
-    iput v2, p0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iput v2, p0, Landroid/widget/TabWidget;->mGroupFlags:I
 
     .line 115
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/TabWidget;->mContext:Landroid/content/Context;
 
     .line 116
     .local v0, context:Landroid/content/Context;
@@ -320,7 +320,7 @@
     .line 402
     new-instance v0, Landroid/widget/ImageView;
 
-    iget-object v2, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Landroid/widget/TabWidget;->mContext:Landroid/content/Context;
 
     invoke-direct {v0, v2}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
@@ -836,7 +836,7 @@
 
     .prologue
     .line 193
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/TabWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -923,7 +923,7 @@
 
     .prologue
     .line 216
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/TabWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -969,7 +969,7 @@
 
     .prologue
     .line 238
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/TabWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 

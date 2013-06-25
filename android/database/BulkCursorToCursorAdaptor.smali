@@ -97,7 +97,7 @@
     :goto_0
     const/4 v1, 0x0
 
-    iput-object v1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
+    iput-object v1, p0, Landroid/database/BulkCursorToCursorAdaptor;->mWindow:Landroid/database/CursorWindow;
 
     .line 148
     return-void
@@ -167,7 +167,7 @@
 
     .line 234
     :cond_0
-    iget-object v2, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v2, p0, Landroid/database/BulkCursorToCursorAdaptor;->mUpdatedRows:Ljava/util/HashMap;
 
     monitor-enter v2
 
@@ -176,13 +176,13 @@
 
     .line 236
     :try_start_0
-    iget-object v3, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v3, p0, Landroid/database/BulkCursorToCursorAdaptor;->mUpdatedRows:Ljava/util/HashMap;
 
     invoke-virtual {v3, p1}, Ljava/util/HashMap;->putAll(Ljava/util/Map;)V
 
     .line 239
     :cond_1
-    iget-object v3, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v3, p0, Landroid/database/BulkCursorToCursorAdaptor;->mUpdatedRows:Ljava/util/HashMap;
 
     invoke-virtual {v3}, Ljava/util/HashMap;->size()I
 
@@ -204,7 +204,7 @@
     :try_start_1
     iget-object v3, p0, Landroid/database/BulkCursorToCursorAdaptor;->mBulkCursor:Landroid/database/IBulkCursor;
 
-    iget-object v4, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v4, p0, Landroid/database/BulkCursorToCursorAdaptor;->mUpdatedRows:Ljava/util/HashMap;
 
     invoke-interface {v3, v4}, Landroid/database/IBulkCursor;->updateRows(Ljava/util/Map;)Z
 
@@ -215,7 +215,7 @@
     if-ne v1, v6, :cond_3
 
     .line 247
-    iget-object v3, p0, Landroid/database/AbstractCursor;->mUpdatedRows:Ljava/util/HashMap;
+    iget-object v3, p0, Landroid/database/BulkCursorToCursorAdaptor;->mUpdatedRows:Ljava/util/HashMap;
 
     invoke-virtual {v3}, Ljava/util/HashMap;->clear()V
 
@@ -289,7 +289,7 @@
     :goto_0
     const/4 v1, 0x0
 
-    iput-object v1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
+    iput-object v1, p0, Landroid/database/BulkCursorToCursorAdaptor;->mWindow:Landroid/database/CursorWindow;
 
     .line 137
     return-void
@@ -319,7 +319,7 @@
     :try_start_0
     iget-object v3, p0, Landroid/database/BulkCursorToCursorAdaptor;->mBulkCursor:Landroid/database/IBulkCursor;
 
-    iget v4, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v4, p0, Landroid/database/BulkCursorToCursorAdaptor;->mPos:I
 
     invoke-interface {v3, v4}, Landroid/database/IBulkCursor;->deleteRow(I)Z
 
@@ -332,7 +332,7 @@
     .line 187
     const/4 v3, 0x0
 
-    iput-object v3, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
+    iput-object v3, p0, Landroid/database/BulkCursorToCursorAdaptor;->mWindow:Landroid/database/CursorWindow;
 
     .line 190
     iget-object v3, p0, Landroid/database/BulkCursorToCursorAdaptor;->mBulkCursor:Landroid/database/IBulkCursor;
@@ -344,20 +344,20 @@
     iput v3, p0, Landroid/database/BulkCursorToCursorAdaptor;->mCount:I
 
     .line 191
-    iget v3, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v3, p0, Landroid/database/BulkCursorToCursorAdaptor;->mPos:I
 
     iget v4, p0, Landroid/database/BulkCursorToCursorAdaptor;->mCount:I
 
     if-ge v3, v4, :cond_1
 
     .line 192
-    iget v1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iget v1, p0, Landroid/database/BulkCursorToCursorAdaptor;->mPos:I
 
     .line 193
     .local v1, oldPos:I
     const/4 v3, -0x1
 
-    iput v3, p0, Landroid/database/AbstractCursor;->mPos:I
+    iput v3, p0, Landroid/database/BulkCursorToCursorAdaptor;->mPos:I
 
     .line 194
     invoke-virtual {p0, v1}, Landroid/database/BulkCursorToCursorAdaptor;->moveToPosition(I)Z
@@ -382,7 +382,7 @@
     :cond_1
     iget v3, p0, Landroid/database/BulkCursorToCursorAdaptor;->mCount:I
 
-    iput v3, p0, Landroid/database/AbstractCursor;->mPos:I
+    iput v3, p0, Landroid/database/BulkCursorToCursorAdaptor;->mPos:I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -550,12 +550,12 @@
 
     .line 101
     :try_start_0
-    iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
+    iget-object v1, p0, Landroid/database/BulkCursorToCursorAdaptor;->mWindow:Landroid/database/CursorWindow;
 
     if-eqz v1, :cond_3
 
     .line 102
-    iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
+    iget-object v1, p0, Landroid/database/BulkCursorToCursorAdaptor;->mWindow:Landroid/database/CursorWindow;
 
     invoke-virtual {v1}, Landroid/database/CursorWindow;->getStartPosition()I
 
@@ -563,13 +563,13 @@
 
     if-lt p2, v1, :cond_0
 
-    iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
+    iget-object v1, p0, Landroid/database/BulkCursorToCursorAdaptor;->mWindow:Landroid/database/CursorWindow;
 
     invoke-virtual {v1}, Landroid/database/CursorWindow;->getStartPosition()I
 
     move-result v1
 
-    iget-object v2, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
+    iget-object v2, p0, Landroid/database/BulkCursorToCursorAdaptor;->mWindow:Landroid/database/CursorWindow;
 
     invoke-virtual {v2}, Landroid/database/CursorWindow;->getNumRows()I
 
@@ -587,14 +587,14 @@
 
     move-result-object v1
 
-    iput-object v1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
+    iput-object v1, p0, Landroid/database/BulkCursorToCursorAdaptor;->mWindow:Landroid/database/CursorWindow;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 118
     :cond_1
     :goto_0
-    iget-object v1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
+    iget-object v1, p0, Landroid/database/BulkCursorToCursorAdaptor;->mWindow:Landroid/database/CursorWindow;
 
     if-nez v1, :cond_4
 
@@ -649,7 +649,7 @@
 
     move-result-object v1
 
-    iput-object v1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
+    iput-object v1, p0, Landroid/database/BulkCursorToCursorAdaptor;->mWindow:Landroid/database/CursorWindow;
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
@@ -702,12 +702,12 @@
     .line 158
     const/4 v2, -0x1
 
-    iput v2, p0, Landroid/database/AbstractCursor;->mPos:I
+    iput v2, p0, Landroid/database/BulkCursorToCursorAdaptor;->mPos:I
 
     .line 159
     const/4 v2, 0x0
 
-    iput-object v2, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
+    iput-object v2, p0, Landroid/database/BulkCursorToCursorAdaptor;->mWindow:Landroid/database/CursorWindow;
 
     .line 164
     invoke-super {p0}, Landroid/database/AbstractWindowedCursor;->requery()Z
@@ -858,7 +858,7 @@
 
     move-result v1
 
-    iput v1, p0, Landroid/database/AbstractCursor;->mRowIdColumnIndex:I
+    iput v1, p0, Landroid/database/BulkCursorToCursorAdaptor;->mRowIdColumnIndex:I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -902,7 +902,7 @@
     iput p2, p0, Landroid/database/BulkCursorToCursorAdaptor;->mCount:I
 
     .line 63
-    iput p3, p0, Landroid/database/AbstractCursor;->mRowIdColumnIndex:I
+    iput p3, p0, Landroid/database/BulkCursorToCursorAdaptor;->mRowIdColumnIndex:I
 
     .line 64
     return-void

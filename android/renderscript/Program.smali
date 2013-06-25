@@ -44,7 +44,7 @@
     invoke-direct {p0, p2}, Landroid/renderscript/BaseObj;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 42
-    iput p1, p0, Landroid/renderscript/BaseObj;->mID:I
+    iput p1, p0, Landroid/renderscript/Program;->mID:I
 
     .line 43
     return-void
@@ -59,11 +59,11 @@
 
     .prologue
     .line 46
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/Program;->mRS:Landroid/renderscript/RenderScript;
 
-    iget v1, p0, Landroid/renderscript/BaseObj;->mID:I
+    iget v1, p0, Landroid/renderscript/Program;->mID:I
 
-    iget v2, p1, Landroid/renderscript/BaseObj;->mID:I
+    iget v2, p1, Landroid/renderscript/Allocation;->mID:I
 
     invoke-virtual {v0, v1, p2, v2}, Landroid/renderscript/RenderScript;->nProgramBindConstants(III)V
 
@@ -83,7 +83,7 @@
 
     .prologue
     .line 61
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/Program;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-virtual {v0}, Landroid/renderscript/RenderScript;->validate()V
 
@@ -106,11 +106,11 @@
 
     .line 66
     :cond_1
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/Program;->mRS:Landroid/renderscript/RenderScript;
 
-    iget v1, p0, Landroid/renderscript/BaseObj;->mID:I
+    iget v1, p0, Landroid/renderscript/Program;->mID:I
 
-    iget v2, p1, Landroid/renderscript/BaseObj;->mID:I
+    iget v2, p1, Landroid/renderscript/Sampler;->mID:I
 
     invoke-virtual {v0, v1, p2, v2}, Landroid/renderscript/RenderScript;->nProgramBindSampler(III)V
 
@@ -130,7 +130,7 @@
 
     .prologue
     .line 51
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/Program;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-virtual {v0}, Landroid/renderscript/RenderScript;->validate()V
 
@@ -153,11 +153,11 @@
 
     .line 56
     :cond_1
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/Program;->mRS:Landroid/renderscript/RenderScript;
 
-    iget v1, p0, Landroid/renderscript/BaseObj;->mID:I
+    iget v1, p0, Landroid/renderscript/Program;->mID:I
 
-    iget v2, p1, Landroid/renderscript/BaseObj;->mID:I
+    iget v2, p1, Landroid/renderscript/Allocation;->mID:I
 
     invoke-virtual {v0, v1, p2, v2}, Landroid/renderscript/RenderScript;->nProgramBindTexture(III)V
 

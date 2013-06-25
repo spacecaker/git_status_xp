@@ -62,7 +62,7 @@
     .line 1985
     iget-object v2, p0, Landroid/widget/AbsListView$PerformClick;->this$0:Landroid/widget/AbsListView;
 
-    iget-boolean v2, v2, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v2, v2, Landroid/widget/AbsListView;->mDataChanged:Z
 
     if-eqz v2, :cond_1
 
@@ -87,7 +87,7 @@
 
     iget-object v2, p0, Landroid/widget/AbsListView$PerformClick;->this$0:Landroid/widget/AbsListView;
 
-    iget v2, v2, Landroid/widget/AdapterView;->mItemCount:I
+    iget v2, v2, Landroid/widget/AbsListView;->mItemCount:I
 
     if-lez v2, :cond_0
 

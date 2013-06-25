@@ -1700,7 +1700,7 @@
     .line 1018
     const-string v1, "BluetoothEventLoop"
 
-    const-string v2, "onRemoteDiInfoReceived"
+    const-string/jumbo v2, "onRemoteDiInfoReceived"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1760,7 +1760,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "onRemoteDiRecordReceived("
+    const-string/jumbo v3, "onRemoteDiRecordReceived("
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3694,7 +3694,7 @@
     .line 430
     const-string v2, "BluetoothEventLoop"
 
-    const-string v3, "onPropertyChanged() unable to post message to handler!"
+    const-string/jumbo v3, "onPropertyChanged() unable to post message to handler!"
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 

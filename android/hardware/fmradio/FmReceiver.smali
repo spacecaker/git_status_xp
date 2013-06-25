@@ -120,7 +120,7 @@
 
     invoke-direct {v0}, Landroid/hardware/fmradio/FmRxControls;-><init>()V
 
-    iput-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
+    iput-object v0, p0, Landroid/hardware/fmradio/FmReceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
 
     .line 278
     new-instance v0, Landroid/hardware/fmradio/FmRxRdsData;
@@ -129,14 +129,14 @@
 
     invoke-direct {v0, v1}, Landroid/hardware/fmradio/FmRxRdsData;-><init>(I)V
 
-    iput-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iput-object v0, p0, Landroid/hardware/fmradio/FmReceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     .line 279
     new-instance v0, Landroid/hardware/fmradio/FmRxEventListner;
 
     invoke-direct {v0}, Landroid/hardware/fmradio/FmRxEventListner;-><init>()V
 
-    iput-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mRxEvents:Landroid/hardware/fmradio/FmRxEventListner;
+    iput-object v0, p0, Landroid/hardware/fmradio/FmReceiver;->mRxEvents:Landroid/hardware/fmradio/FmRxEventListner;
 
     .line 280
     return-void
@@ -161,14 +161,14 @@
 
     invoke-direct {v0}, Landroid/hardware/fmradio/FmRxControls;-><init>()V
 
-    iput-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
+    iput-object v0, p0, Landroid/hardware/fmradio/FmReceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
 
     .line 294
     new-instance v0, Landroid/hardware/fmradio/FmRxEventListner;
 
     invoke-direct {v0}, Landroid/hardware/fmradio/FmRxEventListner;-><init>()V
 
-    iput-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mRxEvents:Landroid/hardware/fmradio/FmRxEventListner;
+    iput-object v0, p0, Landroid/hardware/fmradio/FmReceiver;->mRxEvents:Landroid/hardware/fmradio/FmRxEventListner;
 
     .line 297
     iput-object p2, p0, Landroid/hardware/fmradio/FmReceiver;->mCallback:Landroid/hardware/fmradio/FmRxEvCallbacksAdaptor;
@@ -184,7 +184,7 @@
 
     .prologue
     .line 908
-    iget-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
+    iget-object v0, p0, Landroid/hardware/fmradio/FmReceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
 
     sget v1, Landroid/hardware/fmradio/FmReceiver;->sFd:I
 
@@ -257,7 +257,7 @@
 
     invoke-direct {v1, v2}, Landroid/hardware/fmradio/FmRxRdsData;-><init>(I)V
 
-    iput-object v1, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iput-object v1, p0, Landroid/hardware/fmradio/FmReceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     .line 415
     :goto_0
@@ -280,7 +280,7 @@
     const/4 v2, 0x0
 
     .line 1565
-    iget-object v1, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iget-object v1, p0, Landroid/hardware/fmradio/FmReceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     invoke-virtual {v1, v3}, Landroid/hardware/fmradio/FmRxRdsData;->rdsOn(Z)I
 
@@ -298,7 +298,7 @@
 
     .line 1570
     :cond_0
-    iget-object v1, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iget-object v1, p0, Landroid/hardware/fmradio/FmReceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     invoke-virtual {v1, p1}, Landroid/hardware/fmradio/FmRxRdsData;->enableAFjump(Z)I
 
@@ -479,12 +479,12 @@
 
     .line 1122
     .local v2, pi:I
-    iget-object v6, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iget-object v6, p0, Landroid/hardware/fmradio/FmReceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     invoke-virtual {v6, v2}, Landroid/hardware/fmradio/FmRxRdsData;->setPrgmId(I)V
 
     .line 1123
-    iget-object v6, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iget-object v6, p0, Landroid/hardware/fmradio/FmReceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     const/4 v7, 0x1
 
@@ -514,7 +514,7 @@
 
     .line 1129
     .local v5, rdsStr:Ljava/lang/String;
-    iget-object v6, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iget-object v6, p0, Landroid/hardware/fmradio/FmReceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     invoke-virtual {v6, v5}, Landroid/hardware/fmradio/FmRxRdsData;->setPrgmServices(Ljava/lang/String;)V
     :try_end_0
@@ -523,7 +523,7 @@
     .line 1135
     .end local v5           #rdsStr:Ljava/lang/String;
     :goto_0
-    iget-object v6, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iget-object v6, p0, Landroid/hardware/fmradio/FmReceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     return-object v6
 
@@ -539,7 +539,7 @@
 
     .prologue
     .line 1296
-    iget-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
+    iget-object v0, p0, Landroid/hardware/fmradio/FmReceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
 
     sget v1, Landroid/hardware/fmradio/FmReceiver;->sFd:I
 
@@ -600,12 +600,12 @@
 
     .line 1173
     .local v1, pi:I
-    iget-object v5, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iget-object v5, p0, Landroid/hardware/fmradio/FmReceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     invoke-virtual {v5, v1}, Landroid/hardware/fmradio/FmRxRdsData;->setPrgmId(I)V
 
     .line 1174
-    iget-object v5, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iget-object v5, p0, Landroid/hardware/fmradio/FmReceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     const/4 v6, 0x1
 
@@ -630,7 +630,7 @@
     move-result-object v4
 
     .line 1178
-    iget-object v5, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iget-object v5, p0, Landroid/hardware/fmradio/FmReceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     invoke-virtual {v5, v4}, Landroid/hardware/fmradio/FmRxRdsData;->setRadioText(Ljava/lang/String;)V
     :try_end_0
@@ -638,7 +638,7 @@
 
     .line 1184
     :goto_0
-    iget-object v5, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iget-object v5, p0, Landroid/hardware/fmradio/FmReceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     return-object v5
 
@@ -887,7 +887,7 @@
 
     .line 1598
     .local v0, stnList:[I
-    iget-object v1, p0, Landroid/hardware/fmradio/FmTransceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
+    iget-object v1, p0, Landroid/hardware/fmradio/FmReceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
 
     sget v2, Landroid/hardware/fmradio/FmReceiver;->sFd:I
 
@@ -940,7 +940,7 @@
     const/4 v2, 0x0
 
     .line 1531
-    iget-object v1, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iget-object v1, p0, Landroid/hardware/fmradio/FmReceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     invoke-virtual {v1, v3}, Landroid/hardware/fmradio/FmRxRdsData;->rdsOn(Z)I
 
@@ -958,7 +958,7 @@
 
     .line 1536
     :cond_0
-    iget-object v1, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iget-object v1, p0, Landroid/hardware/fmradio/FmReceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     invoke-virtual {v1, p1}, Landroid/hardware/fmradio/FmRxRdsData;->rdsOptions(I)I
 
@@ -1053,7 +1053,7 @@
 
     .line 871
     :cond_4
-    iget-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
+    iget-object v0, p0, Landroid/hardware/fmradio/FmReceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
 
     sget v1, Landroid/hardware/fmradio/FmReceiver;->sFd:I
 
@@ -1083,7 +1083,7 @@
 
     .line 873
     :cond_6
-    iget-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
+    iget-object v0, p0, Landroid/hardware/fmradio/FmReceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
 
     sget v1, Landroid/hardware/fmradio/FmReceiver;->sFd:I
 
@@ -1157,7 +1157,7 @@
     if-eqz v7, :cond_4
 
     .line 582
-    iget-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
+    iget-object v0, p0, Landroid/hardware/fmradio/FmReceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
 
     sget v1, Landroid/hardware/fmradio/FmReceiver;->sFd:I
 
@@ -1235,7 +1235,7 @@
     if-eqz v7, :cond_4
 
     .line 750
-    iget-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
+    iget-object v0, p0, Landroid/hardware/fmradio/FmReceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
 
     sget v1, Landroid/hardware/fmradio/FmReceiver;->sFd:I
 
@@ -1322,7 +1322,7 @@
 
     .line 937
     :pswitch_0
-    iget-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
+    iget-object v0, p0, Landroid/hardware/fmradio/FmReceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
 
     sget v1, Landroid/hardware/fmradio/FmReceiver;->sFd:I
 
@@ -1334,7 +1334,7 @@
 
     .line 940
     :pswitch_1
-    iget-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
+    iget-object v0, p0, Landroid/hardware/fmradio/FmReceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
 
     sget v1, Landroid/hardware/fmradio/FmReceiver;->sFd:I
 
@@ -1363,7 +1363,7 @@
     if-ne p1, v3, :cond_0
 
     .line 1269
-    iget-object v1, p0, Landroid/hardware/fmradio/FmTransceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
+    iget-object v1, p0, Landroid/hardware/fmradio/FmReceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
 
     sget v2, Landroid/hardware/fmradio/FmReceiver;->sFd:I
 
@@ -1385,7 +1385,7 @@
     .line 1272
     .end local v0           #re:I
     :cond_0
-    iget-object v1, p0, Landroid/hardware/fmradio/FmTransceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
+    iget-object v1, p0, Landroid/hardware/fmradio/FmReceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
 
     sget v2, Landroid/hardware/fmradio/FmReceiver;->sFd:I
 
@@ -1415,7 +1415,7 @@
     const/4 v2, 0x0
 
     .line 1461
-    iget-object v1, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iget-object v1, p0, Landroid/hardware/fmradio/FmReceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     invoke-virtual {v1, v3}, Landroid/hardware/fmradio/FmRxRdsData;->rdsOn(Z)I
 
@@ -1433,7 +1433,7 @@
 
     .line 1466
     :cond_0
-    iget-object v1, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iget-object v1, p0, Landroid/hardware/fmradio/FmReceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     invoke-virtual {v1, p1, p2, p3}, Landroid/hardware/fmradio/FmRxRdsData;->rdsGrpOptions(IIZ)I
 
@@ -1555,7 +1555,7 @@
 
     .prologue
     .line 968
-    iget-object v1, p0, Landroid/hardware/fmradio/FmTransceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
+    iget-object v1, p0, Landroid/hardware/fmradio/FmReceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
 
     sget v2, Landroid/hardware/fmradio/FmReceiver;->sFd:I
 

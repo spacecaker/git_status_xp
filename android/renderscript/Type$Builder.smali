@@ -41,7 +41,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 168
-    iget v0, p2, Landroid/renderscript/BaseObj;->mID:I
+    iget v0, p2, Landroid/renderscript/Element;->mID:I
 
     if-nez v0, :cond_0
 
@@ -86,7 +86,7 @@
     :try_start_0
     iget-object v4, p1, Landroid/renderscript/Type$Builder;->mElement:Landroid/renderscript/Element;
 
-    iget v4, v4, Landroid/renderscript/BaseObj;->mID:I
+    iget v4, v4, Landroid/renderscript/Element;->mID:I
 
     invoke-virtual {p0, v4}, Landroid/renderscript/RenderScript;->nTypeBegin(I)V
 

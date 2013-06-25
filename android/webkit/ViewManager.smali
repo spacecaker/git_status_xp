@@ -394,10 +394,10 @@
 
     .line 155
     .local v10, lp:Landroid/widget/AbsoluteLayout$LayoutParams;
-    iput v13, v10, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v13, v10, Landroid/widget/AbsoluteLayout$LayoutParams;->width:I
 
     .line 156
-    iput v8, v10, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v8, v10, Landroid/widget/AbsoluteLayout$LayoutParams;->height:I
 
     .line 157
     iput v14, v10, Landroid/widget/AbsoluteLayout$LayoutParams;->x:I

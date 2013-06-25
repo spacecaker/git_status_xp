@@ -23,7 +23,7 @@
     invoke-direct {p0, p2}, Landroid/renderscript/BaseObj;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 51
-    iput p1, p0, Landroid/renderscript/BaseObj;->mID:I
+    iput p1, p0, Landroid/renderscript/Sampler;->mID:I
 
     .line 52
     return-void

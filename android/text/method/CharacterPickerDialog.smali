@@ -174,7 +174,7 @@
 
     .line 149
     :goto_0
-    const-string v2, "GT-S5660"
+    const-string v2, "GT-S5830"
 
     const-string v3, "GT-B7510"
 
@@ -285,7 +285,7 @@
 
     .prologue
     .line 213
-    iget-boolean v0, p0, Landroid/app/Dialog;->mCancelable:Z
+    iget-boolean v0, p0, Landroid/text/method/CharacterPickerDialog;->mCancelable:Z
 
     if-eqz v0, :cond_0
 

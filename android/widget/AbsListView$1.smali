@@ -66,7 +66,7 @@
     .line 2777
     iget-object v0, p0, Landroid/widget/AbsListView$1;->this$0:Landroid/widget/AbsListView;
 
-    iget-boolean v0, v0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v0, v0, Landroid/widget/AbsListView;->mDataChanged:Z
 
     if-nez v0, :cond_0
 

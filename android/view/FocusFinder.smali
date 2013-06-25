@@ -893,7 +893,7 @@
     .local v11, numTouchables:I
     move-object/from16 v0, p1
 
-    iget-object v0, v0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, v0, Landroid/view/ViewGroup;->mContext:Landroid/content/Context;
 
     move-object v15, v0
 

@@ -444,7 +444,7 @@
 
     add-int/2addr v0, v1
 
-    iput v0, p0, Landroid/view/View;->mPaddingRight:I
+    iput v0, p0, Landroid/widget/CheckedTextView;->mPaddingRight:I
 
     .line 134
     invoke-virtual {p0}, Landroid/widget/CheckedTextView;->getDrawableState()[I
@@ -473,7 +473,7 @@
     :cond_2
     iget v0, p0, Landroid/widget/CheckedTextView;->mBasePaddingRight:I
 
-    iput v0, p0, Landroid/view/View;->mPaddingRight:I
+    iput v0, p0, Landroid/widget/CheckedTextView;->mPaddingRight:I
 
     goto :goto_1
 .end method
@@ -511,7 +511,7 @@
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 145
-    iget v0, p0, Landroid/view/View;->mPaddingRight:I
+    iget v0, p0, Landroid/widget/CheckedTextView;->mPaddingRight:I
 
     iput v0, p0, Landroid/widget/CheckedTextView;->mBasePaddingRight:I
 

@@ -550,7 +550,7 @@
     iput-object v4, p0, Lcom/android/internal/app/RingtonePickerActivity;->mExistingUri:Landroid/net/Uri;
 
     .line 153
-    iget-object v2, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    iget-object v2, p0, Lcom/android/internal/app/RingtonePickerActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
     .line 154
     .local v2, p:Lcom/android/internal/app/AlertController$AlertParams;
@@ -751,7 +751,7 @@
 
     .line 224
     :cond_2
-    iget-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    iget-object v0, p0, Lcom/android/internal/app/RingtonePickerActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
     iget v1, p0, Lcom/android/internal/app/RingtonePickerActivity;->mClickedPos:I
 

@@ -24,6 +24,10 @@
 
 .field public static final ALBUM_ARTIST:Ljava/lang/String; = "album_artist"
 
+.field public static final ALBUM_ARTIST_ID:Ljava/lang/String; = "album_artist_id"
+
+.field public static final ALBUM_ARTIST_KEY:Ljava/lang/String; = "album_artist_key"
+
 .field public static final ALBUM_ID:Ljava/lang/String; = "album_id"
 
 .field public static final ALBUM_KEY:Ljava/lang/String; = "album_key"

@@ -146,10 +146,10 @@
     const-wide/16 v0, 0x0
 
     .line 112
-    iput-wide v0, p0, Landroid/view/animation/Animation;->mStartTime:J
+    iput-wide v0, p0, Landroid/view/animation/AnimationSet;->mStartTime:J
 
     .line 113
-    iput-wide v0, p0, Landroid/view/animation/Animation;->mDuration:J
+    iput-wide v0, p0, Landroid/view/animation/AnimationSet;->mDuration:J
 
     .line 114
     return-void
@@ -280,12 +280,12 @@
 
     add-long/2addr v2, v4
 
-    iput-wide v2, p0, Landroid/view/animation/Animation;->mDuration:J
+    iput-wide v2, p0, Landroid/view/animation/AnimationSet;->mDuration:J
 
     .line 173
-    iget-wide v2, p0, Landroid/view/animation/Animation;->mStartOffset:J
+    iget-wide v2, p0, Landroid/view/animation/AnimationSet;->mStartOffset:J
 
-    iget-wide v4, p0, Landroid/view/animation/Animation;->mDuration:J
+    iget-wide v4, p0, Landroid/view/animation/AnimationSet;->mDuration:J
 
     add-long/2addr v2, v4
 
@@ -334,11 +334,11 @@
     .line 176
     iget-wide v2, p0, Landroid/view/animation/AnimationSet;->mLastEnd:J
 
-    iget-wide v4, p0, Landroid/view/animation/Animation;->mStartOffset:J
+    iget-wide v4, p0, Landroid/view/animation/AnimationSet;->mStartOffset:J
 
     sub-long/2addr v2, v4
 
-    iput-wide v2, p0, Landroid/view/animation/Animation;->mDuration:J
+    iput-wide v2, p0, Landroid/view/animation/AnimationSet;->mDuration:J
 
     goto :goto_2
 .end method
@@ -570,7 +570,7 @@
     if-eqz v4, :cond_2
 
     .line 239
-    iget-wide v2, p0, Landroid/view/animation/Animation;->mDuration:J
+    iget-wide v2, p0, Landroid/view/animation/AnimationSet;->mDuration:J
 
     .line 246
     .end local p0
@@ -801,43 +801,43 @@
     :cond_5
     if-eqz v6, :cond_7
 
-    iget-boolean v8, p0, Landroid/view/animation/Animation;->mStarted:Z
+    iget-boolean v8, p0, Landroid/view/animation/AnimationSet;->mStarted:Z
 
     if-nez v8, :cond_7
 
     .line 323
-    iget-object v8, p0, Landroid/view/animation/Animation;->mListener:Landroid/view/animation/Animation$AnimationListener;
+    iget-object v8, p0, Landroid/view/animation/AnimationSet;->mListener:Landroid/view/animation/Animation$AnimationListener;
 
     if-eqz v8, :cond_6
 
     .line 324
-    iget-object v8, p0, Landroid/view/animation/Animation;->mListener:Landroid/view/animation/Animation$AnimationListener;
+    iget-object v8, p0, Landroid/view/animation/AnimationSet;->mListener:Landroid/view/animation/Animation$AnimationListener;
 
     invoke-interface {v8, p0}, Landroid/view/animation/Animation$AnimationListener;->onAnimationStart(Landroid/view/animation/Animation;)V
 
     .line 326
     :cond_6
-    iput-boolean v9, p0, Landroid/view/animation/Animation;->mStarted:Z
+    iput-boolean v9, p0, Landroid/view/animation/AnimationSet;->mStarted:Z
 
     .line 329
     :cond_7
-    iget-boolean v8, p0, Landroid/view/animation/Animation;->mEnded:Z
+    iget-boolean v8, p0, Landroid/view/animation/AnimationSet;->mEnded:Z
 
     if-eq v3, v8, :cond_9
 
     .line 330
-    iget-object v8, p0, Landroid/view/animation/Animation;->mListener:Landroid/view/animation/Animation$AnimationListener;
+    iget-object v8, p0, Landroid/view/animation/AnimationSet;->mListener:Landroid/view/animation/Animation$AnimationListener;
 
     if-eqz v8, :cond_8
 
     .line 331
-    iget-object v8, p0, Landroid/view/animation/Animation;->mListener:Landroid/view/animation/Animation$AnimationListener;
+    iget-object v8, p0, Landroid/view/animation/AnimationSet;->mListener:Landroid/view/animation/Animation$AnimationListener;
 
     invoke-interface {v8, p0}, Landroid/view/animation/Animation$AnimationListener;->onAnimationEnd(Landroid/view/animation/Animation;)V
 
     .line 333
     :cond_8
-    iput-boolean v3, p0, Landroid/view/animation/Animation;->mEnded:Z
+    iput-boolean v3, p0, Landroid/view/animation/AnimationSet;->mEnded:Z
 
     .line 336
     :cond_9
@@ -1017,7 +1017,7 @@
     .local v7, count:I
     move-object/from16 v0, p0
 
-    iget-wide v0, v0, Landroid/view/animation/Animation;->mDuration:J
+    iget-wide v0, v0, Landroid/view/animation/AnimationSet;->mDuration:J
 
     move-wide v8, v0
 
@@ -1025,7 +1025,7 @@
     .local v8, duration:J
     move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Landroid/view/animation/Animation;->mFillAfter:Z
+    iget-boolean v0, v0, Landroid/view/animation/AnimationSet;->mFillAfter:Z
 
     move v11, v0
 
@@ -1033,7 +1033,7 @@
     .local v11, fillAfter:Z
     move-object/from16 v0, p0
 
-    iget-boolean v0, v0, Landroid/view/animation/Animation;->mFillBefore:Z
+    iget-boolean v0, v0, Landroid/view/animation/AnimationSet;->mFillBefore:Z
 
     move v13, v0
 
@@ -1041,7 +1041,7 @@
     .local v13, fillBefore:Z
     move-object/from16 v0, p0
 
-    iget v0, v0, Landroid/view/animation/Animation;->mRepeatMode:I
+    iget v0, v0, Landroid/view/animation/AnimationSet;->mRepeatMode:I
 
     move/from16 v19, v0
 
@@ -1049,7 +1049,7 @@
     .local v19, repeatMode:I
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/animation/Animation;->mInterpolator:Landroid/view/animation/Interpolator;
+    iget-object v0, v0, Landroid/view/animation/AnimationSet;->mInterpolator:Landroid/view/animation/Interpolator;
 
     move-object/from16 v16, v0
 
@@ -1057,7 +1057,7 @@
     .local v16, interpolator:Landroid/view/animation/Interpolator;
     move-object/from16 v0, p0
 
-    iget-wide v0, v0, Landroid/view/animation/Animation;->mStartOffset:J
+    iget-wide v0, v0, Landroid/view/animation/AnimationSet;->mStartOffset:J
 
     move-wide/from16 v22, v0
 
@@ -1315,7 +1315,7 @@
 
     .prologue
     .line 270
-    iget-object v7, p0, Landroid/view/animation/Animation;->mPreviousRegion:Landroid/graphics/RectF;
+    iget-object v7, p0, Landroid/view/animation/AnimationSet;->mPreviousRegion:Landroid/graphics/RectF;
 
     .line 271
     .local v7, region:Landroid/graphics/RectF;
@@ -1345,7 +1345,7 @@
     invoke-virtual {v7, v9, v10}, Landroid/graphics/RectF;->inset(FF)V
 
     .line 274
-    iget-boolean v9, p0, Landroid/view/animation/Animation;->mFillBefore:Z
+    iget-boolean v9, p0, Landroid/view/animation/AnimationSet;->mFillBefore:Z
 
     if-eqz v9, :cond_1
 
@@ -1366,7 +1366,7 @@
 
     .line 279
     .local v8, temp:Landroid/view/animation/Transformation;
-    iget-object v6, p0, Landroid/view/animation/Animation;->mPreviousTransformation:Landroid/view/animation/Transformation;
+    iget-object v6, p0, Landroid/view/animation/AnimationSet;->mPreviousTransformation:Landroid/view/animation/Transformation;
 
     .line 281
     .local v6, previousTransformation:Landroid/view/animation/Transformation;

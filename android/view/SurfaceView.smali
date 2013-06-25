@@ -1258,7 +1258,7 @@
 
     move-result v6
 
-    iput v6, v5, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v6, v5, Landroid/view/WindowManager$LayoutParams;->width:I
 
     .line 455
     move-object/from16 v0, p0
@@ -1271,7 +1271,7 @@
 
     move-result v6
 
-    iput v6, v5, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v6, v5, Landroid/view/WindowManager$LayoutParams;->height:I
 
     .line 456
     move-object/from16 v0, p0
@@ -1395,7 +1395,7 @@
     :cond_c
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/View;->mAttachInfo:Landroid/view/View$AttachInfo;
+    iget-object v0, v0, Landroid/view/SurfaceView;->mAttachInfo:Landroid/view/View$AttachInfo;
 
     move-object v5, v0
 
@@ -2423,7 +2423,7 @@
     if-eq v0, v1, :cond_0
 
     .line 343
-    iget v0, p0, Landroid/view/View;->mPrivateFlags:I
+    iget v0, p0, Landroid/view/SurfaceView;->mPrivateFlags:I
 
     and-int/lit16 v0, v0, 0x80
 
@@ -2465,7 +2465,7 @@
     if-eq v0, v1, :cond_0
 
     .line 331
-    iget v0, p0, Landroid/view/View;->mPrivateFlags:I
+    iget v0, p0, Landroid/view/SurfaceView;->mPrivateFlags:I
 
     and-int/lit16 v0, v0, 0x80
 
@@ -2513,7 +2513,7 @@
 
     .line 307
     .local v7, opaque:Z
-    iget v0, p0, Landroid/view/View;->mPrivateFlags:I
+    iget v0, p0, Landroid/view/SurfaceView;->mPrivateFlags:I
 
     and-int/lit16 v0, v0, 0x80
 
@@ -2762,7 +2762,7 @@
     invoke-super {p0}, Landroid/view/View;->onAttachedToWindow()V
 
     .line 202
-    iget-object v0, p0, Landroid/view/View;->mParent:Landroid/view/ViewParent;
+    iget-object v0, p0, Landroid/view/SurfaceView;->mParent:Landroid/view/ViewParent;
 
     invoke-interface {v0, p0}, Landroid/view/ViewParent;->requestTransparentRegion(Landroid/view/View;)V
 

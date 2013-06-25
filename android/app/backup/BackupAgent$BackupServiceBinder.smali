@@ -261,7 +261,7 @@
     .end annotation
 
     .prologue
-    const-string v4, "onRestore ("
+    const-string/jumbo v4, "onRestore ("
 
     const-string v4, "BackupServiceBinder"
 
@@ -321,7 +321,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "onRestore ("
+    const-string/jumbo v6, "onRestore ("
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -394,7 +394,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "onRestore ("
+    const-string/jumbo v6, "onRestore ("
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

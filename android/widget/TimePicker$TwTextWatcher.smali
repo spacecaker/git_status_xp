@@ -417,7 +417,7 @@
 
     if-nez v1, :cond_2
 
-    const-string v1, "onLongClick"
+    const-string/jumbo v1, "onLongClick"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

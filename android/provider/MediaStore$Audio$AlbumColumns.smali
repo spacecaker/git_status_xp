@@ -19,6 +19,8 @@
 
 .field public static final ALBUM_ART:Ljava/lang/String; = "album_art"
 
+.field public static final ALBUM_ARTIST:Ljava/lang/String; = "album_artist"
+
 .field public static final ALBUM_ID:Ljava/lang/String; = "album_id"
 
 .field public static final ALBUM_KEY:Ljava/lang/String; = "album_key"
@@ -30,5 +32,7 @@
 .field public static final LAST_YEAR:Ljava/lang/String; = "maxyear"
 
 .field public static final NUMBER_OF_SONGS:Ljava/lang/String; = "numsongs"
+
+.field public static final NUMBER_OF_SONGS_FOR_ALBUM_ARTIST:Ljava/lang/String; = "numsongs_by_album_artist"
 
 .field public static final NUMBER_OF_SONGS_FOR_ARTIST:Ljava/lang/String; = "numsongs_by_artist"

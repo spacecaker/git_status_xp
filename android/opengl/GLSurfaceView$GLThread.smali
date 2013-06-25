@@ -1194,7 +1194,7 @@
     .line 1371
     const-string v14, "GLThread"
 
-    const-string v15, "onSurfaceCreated"
+    const-string/jumbo v15, "onSurfaceCreated"
 
     invoke-static {v14, v15}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1229,7 +1229,7 @@
 
     invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v16, "onSurfaceChanged("
+    const-string/jumbo v16, "onSurfaceChanged("
 
     invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1538,7 +1538,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "onPause tid="
+    const-string/jumbo v4, "onPause tid="
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1583,7 +1583,7 @@
     .line 1495
     const-string v2, "Main thread"
 
-    const-string v3, "onPause waiting for mPaused."
+    const-string/jumbo v3, "onPause waiting for mPaused."
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
@@ -1659,7 +1659,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "onResume tid="
+    const-string/jumbo v4, "onResume tid="
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1718,7 +1718,7 @@
     .line 1517
     const-string v2, "Main thread"
 
-    const-string v3, "onResume waiting for !mPaused."
+    const-string/jumbo v3, "onResume waiting for !mPaused."
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0

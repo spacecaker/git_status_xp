@@ -90,7 +90,7 @@
     if-eqz v3, :cond_0
 
     .line 237
-    iget-object v5, p0, Landroid/pim/vcard/VCardParserImpl_V21;->mInterpreter:Landroid/pim/vcard/VCardInterpreter;
+    iget-object v5, p0, Landroid/pim/vcard/VCardParserImpl_V30;->mInterpreter:Landroid/pim/vcard/VCardInterpreter;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -137,7 +137,7 @@
 
     .line 250
     :cond_2
-    iget-object v5, p0, Landroid/pim/vcard/VCardParserImpl_V21;->mInterpreter:Landroid/pim/vcard/VCardInterpreter;
+    iget-object v5, p0, Landroid/pim/vcard/VCardParserImpl_V30;->mInterpreter:Landroid/pim/vcard/VCardInterpreter;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -191,7 +191,7 @@
 
     .line 260
     :cond_4
-    iget-object v5, p0, Landroid/pim/vcard/VCardParserImpl_V21;->mInterpreter:Landroid/pim/vcard/VCardInterpreter;
+    iget-object v5, p0, Landroid/pim/vcard/VCardParserImpl_V30;->mInterpreter:Landroid/pim/vcard/VCardInterpreter;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -258,7 +258,7 @@
 
     .line 282
     :cond_a
-    iget-object v5, p0, Landroid/pim/vcard/VCardParserImpl_V21;->mInterpreter:Landroid/pim/vcard/VCardInterpreter;
+    iget-object v5, p0, Landroid/pim/vcard/VCardParserImpl_V30;->mInterpreter:Landroid/pim/vcard/VCardInterpreter;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -531,7 +531,7 @@
     return-object v1
 
     :cond_0
-    iget-object v1, p0, Landroid/pim/vcard/VCardParserImpl_V21;->mReader:Landroid/pim/vcard/VCardParserImpl_V21$CustomBufferedReader;
+    iget-object v1, p0, Landroid/pim/vcard/VCardParserImpl_V30;->mReader:Landroid/pim/vcard/VCardParserImpl_V21$CustomBufferedReader;
 
     invoke-virtual {v1}, Landroid/pim/vcard/VCardParserImpl_V21$CustomBufferedReader;->readLine()Ljava/lang/String;
 
@@ -563,7 +563,7 @@
     .local v0, builder:Ljava/lang/StringBuilder;
     :cond_0
     :goto_0
-    iget-object v3, p0, Landroid/pim/vcard/VCardParserImpl_V21;->mReader:Landroid/pim/vcard/VCardParserImpl_V21$CustomBufferedReader;
+    iget-object v3, p0, Landroid/pim/vcard/VCardParserImpl_V30;->mReader:Landroid/pim/vcard/VCardParserImpl_V21$CustomBufferedReader;
 
     invoke-virtual {v3}, Landroid/pim/vcard/VCardParserImpl_V21$CustomBufferedReader;->readLine()Ljava/lang/String;
 
@@ -809,7 +809,7 @@
 
     .prologue
     .line 181
-    iget-object v0, p0, Landroid/pim/vcard/VCardParserImpl_V21;->mInterpreter:Landroid/pim/vcard/VCardInterpreter;
+    iget-object v0, p0, Landroid/pim/vcard/VCardParserImpl_V30;->mInterpreter:Landroid/pim/vcard/VCardInterpreter;
 
     invoke-interface {v0, p1}, Landroid/pim/vcard/VCardInterpreter;->propertyParamType(Ljava/lang/String;)V
 
@@ -918,7 +918,7 @@
 
     .prologue
     .line 204
-    iget-object v0, p0, Landroid/pim/vcard/VCardParserImpl_V21;->mInterpreter:Landroid/pim/vcard/VCardInterpreter;
+    iget-object v0, p0, Landroid/pim/vcard/VCardParserImpl_V30;->mInterpreter:Landroid/pim/vcard/VCardInterpreter;
 
     const-string v1, "TYPE"
 

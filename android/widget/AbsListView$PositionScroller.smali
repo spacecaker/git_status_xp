@@ -57,7 +57,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 3687
-    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
+    #getter for: Landroid/widget/AbsListView;->mContext:Landroid/content/Context;
     invoke-static {p1}, Landroid/widget/AbsListView;->access$3300(Landroid/widget/AbsListView;)Landroid/content/Context;
 
     move-result-object v0
@@ -103,7 +103,7 @@
 
     move-object/from16 v0, v21
 
-    iget v0, v0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v0, v0, Landroid/widget/AbsListView;->mFirstPosition:I
 
     move v5, v0
 
@@ -216,7 +216,7 @@
 
     move-object/from16 v0, v21
 
-    iget v0, v0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v0, v0, Landroid/widget/AbsListView;->mItemCount:I
 
     move/from16 v21, v0
 
@@ -373,7 +373,7 @@
 
     move-object/from16 v0, v22
 
-    iget v0, v0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v0, v0, Landroid/widget/AbsListView;->mItemCount:I
 
     move/from16 v22, v0
 
@@ -908,7 +908,7 @@
     .line 3692
     iget-object v3, p0, Landroid/widget/AbsListView$PositionScroller;->this$0:Landroid/widget/AbsListView;
 
-    iget v0, v3, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v0, v3, Landroid/widget/AbsListView;->mFirstPosition:I
 
     .line 3693
     .local v0, firstPos:I
@@ -1019,7 +1019,7 @@
     :cond_1
     iget-object v7, p0, Landroid/widget/AbsListView$PositionScroller;->this$0:Landroid/widget/AbsListView;
 
-    iget v3, v7, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v3, v7, Landroid/widget/AbsListView;->mFirstPosition:I
 
     .line 3727
     .local v3, firstPos:I

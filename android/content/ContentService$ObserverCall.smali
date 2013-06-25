@@ -25,12 +25,12 @@
 # direct methods
 .method constructor <init>(Landroid/content/ContentService$ObserverNode;Landroid/database/IContentObserver;Z)V
     .locals 0
-    .parameter "node"
-    .parameter "observer"
-    .parameter "selfNotify"
+    .parameter
+    .parameter
+    .parameter
 
     .prologue
-    .line 187
+    .line 186
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 188

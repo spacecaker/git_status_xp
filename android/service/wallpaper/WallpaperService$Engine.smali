@@ -1438,7 +1438,7 @@
 
     move-object v1, v5
 
-    iput v0, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v0, v1, Landroid/view/WindowManager$LayoutParams;->width:I
 
     .line 496
     move-object/from16 v0, p0
@@ -1451,7 +1451,7 @@
 
     move-object v1, v5
 
-    iput v0, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v0, v1, Landroid/view/WindowManager$LayoutParams;->height:I
 
     .line 498
     move-object/from16 v0, p0

@@ -257,14 +257,14 @@
 
     .line 64
     .local v8, timeStart:J
-    iget-object v0, p0, Landroid/database/sqlite/SQLiteProgram;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
+    iget-object v0, p0, Landroid/database/sqlite/SQLiteQuery;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->lock()V
 
     .line 65
-    iget-object v0, p0, Landroid/database/sqlite/SQLiteProgram;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
+    iget-object v0, p0, Landroid/database/sqlite/SQLiteQuery;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
 
-    iget-object v1, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteQuery;->mSql:Ljava/lang/String;
 
     const-string v2, "GETLOCK:"
 
@@ -318,7 +318,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
+    iget-object v2, p0, Landroid/database/sqlite/SQLiteQuery;->mSql:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -332,9 +332,9 @@
 
     .line 80
     :cond_0
-    iget-object v0, p0, Landroid/database/sqlite/SQLiteProgram;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
+    iget-object v0, p0, Landroid/database/sqlite/SQLiteQuery;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
 
-    iget-object v1, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteQuery;->mSql:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v8, v9}, Landroid/database/sqlite/SQLiteDatabase;->logTimeStat(Ljava/lang/String;J)V
     :try_end_1
@@ -352,7 +352,7 @@
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteQuery;->releaseReference()V
 
     .line 93
-    iget-object v0, p0, Landroid/database/sqlite/SQLiteProgram;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
+    iget-object v0, p0, Landroid/database/sqlite/SQLiteQuery;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->unlock()V
 
@@ -382,7 +382,7 @@
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteQuery;->releaseReference()V
 
     .line 93
-    iget-object v1, p0, Landroid/database/sqlite/SQLiteProgram;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteQuery;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v1}, Landroid/database/sqlite/SQLiteDatabase;->unlock()V
 
@@ -398,7 +398,7 @@
     .line 86
     .local v6, e:Landroid/database/sqlite/SQLiteDatabaseCorruptException;
     :try_start_4
-    iget-object v0, p0, Landroid/database/sqlite/SQLiteProgram;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
+    iget-object v0, p0, Landroid/database/sqlite/SQLiteQuery;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->onCorruption()V
 
@@ -426,7 +426,7 @@
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteQuery;->releaseReference()V
 
     .line 93
-    iget-object v1, p0, Landroid/database/sqlite/SQLiteProgram;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteQuery;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v1}, Landroid/database/sqlite/SQLiteDatabase;->unlock()V
 
@@ -494,7 +494,7 @@
 
     move-result-object v5
 
-    iget-object v6, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
+    iget-object v6, p0, Landroid/database/sqlite/SQLiteQuery;->mSql:Ljava/lang/String;
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -574,7 +574,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteQuery;->mSql:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

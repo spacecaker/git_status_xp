@@ -233,7 +233,7 @@
 
     .line 69
     .local v0, intent:Landroid/content/Intent;
-    iget-object v1, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    iget-object v1, p0, Lcom/android/internal/app/NetInitiatedActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
     .line 70
     .local v1, p:Lcom/android/internal/app/AlertController$AlertParams;
@@ -328,7 +328,7 @@
     .line 94
     const-string v0, "NetInitiatedActivity"
 
-    const-string v1, "onPause"
+    const-string/jumbo v1, "onPause"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -351,7 +351,7 @@
     .line 87
     const-string v0, "NetInitiatedActivity"
 
-    const-string v1, "onResume"
+    const-string/jumbo v1, "onResume"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

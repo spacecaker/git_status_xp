@@ -496,12 +496,12 @@
 
     .prologue
     .line 127
-    iget-object v0, p0, Landroid/graphics/drawable/Drawable;->mCallback:Landroid/graphics/drawable/Drawable$Callback;
+    iget-object v0, p0, Landroid/graphics/drawable/ScaleDrawable;->mCallback:Landroid/graphics/drawable/Drawable$Callback;
 
     if-eqz v0, :cond_0
 
     .line 128
-    iget-object v0, p0, Landroid/graphics/drawable/Drawable;->mCallback:Landroid/graphics/drawable/Drawable$Callback;
+    iget-object v0, p0, Landroid/graphics/drawable/ScaleDrawable;->mCallback:Landroid/graphics/drawable/Drawable$Callback;
 
     invoke-interface {v0, p0}, Landroid/graphics/drawable/Drawable$Callback;->invalidateDrawable(Landroid/graphics/drawable/Drawable;)V
 
@@ -757,12 +757,12 @@
 
     .prologue
     .line 133
-    iget-object v0, p0, Landroid/graphics/drawable/Drawable;->mCallback:Landroid/graphics/drawable/Drawable$Callback;
+    iget-object v0, p0, Landroid/graphics/drawable/ScaleDrawable;->mCallback:Landroid/graphics/drawable/Drawable$Callback;
 
     if-eqz v0, :cond_0
 
     .line 134
-    iget-object v0, p0, Landroid/graphics/drawable/Drawable;->mCallback:Landroid/graphics/drawable/Drawable$Callback;
+    iget-object v0, p0, Landroid/graphics/drawable/ScaleDrawable;->mCallback:Landroid/graphics/drawable/Drawable$Callback;
 
     invoke-interface {v0, p0, p2, p3, p4}, Landroid/graphics/drawable/Drawable$Callback;->scheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;J)V
 
@@ -831,12 +831,12 @@
 
     .prologue
     .line 139
-    iget-object v0, p0, Landroid/graphics/drawable/Drawable;->mCallback:Landroid/graphics/drawable/Drawable$Callback;
+    iget-object v0, p0, Landroid/graphics/drawable/ScaleDrawable;->mCallback:Landroid/graphics/drawable/Drawable$Callback;
 
     if-eqz v0, :cond_0
 
     .line 140
-    iget-object v0, p0, Landroid/graphics/drawable/Drawable;->mCallback:Landroid/graphics/drawable/Drawable$Callback;
+    iget-object v0, p0, Landroid/graphics/drawable/ScaleDrawable;->mCallback:Landroid/graphics/drawable/Drawable$Callback;
 
     invoke-interface {v0, p0, p2}, Landroid/graphics/drawable/Drawable$Callback;->unscheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;)V
 

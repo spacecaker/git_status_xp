@@ -490,7 +490,7 @@
 
     .prologue
     .line 57
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/VideoView;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -536,7 +536,7 @@
 
     .prologue
     .line 57
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/VideoView;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -786,7 +786,7 @@
     if-nez v0, :cond_0
 
     .line 194
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/VideoView;->mContext:Landroid/content/Context;
 
     const-string v1, "audio"
 
@@ -882,7 +882,7 @@
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 239
-    iget-object v2, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Landroid/widget/VideoView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
@@ -892,7 +892,7 @@
     if-nez v2, :cond_2
 
     .line 242
-    iget-object v2, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Landroid/widget/VideoView;->mContext:Landroid/content/Context;
 
     const-string v3, "audio"
 
@@ -964,7 +964,7 @@
     .line 256
     iget-object v2, p0, Landroid/widget/VideoView;->mMediaPlayer:Landroid/media/MediaPlayer;
 
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/widget/VideoView;->mContext:Landroid/content/Context;
 
     iget-object v4, p0, Landroid/widget/VideoView;->mUri:Landroid/net/Uri;
 
@@ -1582,7 +1582,7 @@
     .line 126
     iget-object v2, p0, Landroid/widget/VideoView;->TAG:Ljava/lang/String;
 
-    const-string v3, "onMeasure()"
+    const-string/jumbo v3, "onMeasure()"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

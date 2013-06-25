@@ -722,7 +722,7 @@
     if-eqz v3, :cond_2
 
     .line 189
-    iget-object v3, v1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v3, v1, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
 
     iget v4, p0, Landroid/content/pm/ResolveInfo;->icon:I
 
@@ -776,7 +776,7 @@
     .line 135
     iget-object v4, p0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v4, v4, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v4, v4, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     const-string v5, "com.android.stk"
 
@@ -876,7 +876,7 @@
     if-eqz v4, :cond_4
 
     .line 155
-    iget-object v4, v1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v4, v1, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
 
     iget v5, p0, Landroid/content/pm/ResolveInfo;->labelRes:I
 
@@ -981,7 +981,7 @@
 
     move-result-object v1
 
-    iget-object v2, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v2, v0, Landroid/content/pm/ComponentInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

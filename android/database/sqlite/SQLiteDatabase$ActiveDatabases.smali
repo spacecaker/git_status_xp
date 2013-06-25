@@ -38,7 +38,7 @@
     .locals 1
 
     .prologue
-    .line 2170
+    .line 2313
     new-instance v0, Landroid/database/sqlite/SQLiteDatabase$ActiveDatabases;
 
     invoke-direct {v0}, Landroid/database/sqlite/SQLiteDatabase$ActiveDatabases;-><init>()V
@@ -52,17 +52,17 @@
     .locals 1
 
     .prologue
-    .line 2173
+    .line 2316
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2171
+    .line 2314
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     iput-object v0, p0, Landroid/database/sqlite/SQLiteDatabase$ActiveDatabases;->mActiveDatabases:Ljava/util/HashSet;
 
-    .line 2173
+    .line 2316
     return-void
 .end method
 
@@ -71,7 +71,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2169
+    .line 2312
     iget-object v0, p0, Landroid/database/sqlite/SQLiteDatabase$ActiveDatabases;->mActiveDatabases:Ljava/util/HashSet;
 
     return-object v0
@@ -81,7 +81,7 @@
     .locals 1
 
     .prologue
-    .line 2174
+    .line 2317
     sget-object v0, Landroid/database/sqlite/SQLiteDatabase$ActiveDatabases;->activeDatabases:Landroid/database/sqlite/SQLiteDatabase$ActiveDatabases;
 
     return-object v0

@@ -248,7 +248,7 @@
     invoke-virtual {p0, v0}, Landroid/content/ContentProvider;->setPathPermissions([Landroid/content/pm/PathPermission;)V
 
     .line 838
-    iget-boolean v0, p2, Landroid/content/pm/ComponentInfo;->exported:Z
+    iget-boolean v0, p2, Landroid/content/pm/ProviderInfo;->exported:Z
 
     iput-boolean v0, p0, Landroid/content/ContentProvider;->mExported:Z
 

@@ -70,7 +70,7 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/renderscript/BaseObj;->mID:I
+    iput v0, p0, Landroid/renderscript/Element;->mID:I
 
     .line 241
     return-void
@@ -134,7 +134,7 @@
 
     aget-object v2, v2, v0
 
-    iget v2, v2, Landroid/renderscript/BaseObj;->mID:I
+    iget v2, v2, Landroid/renderscript/Element;->mID:I
 
     aput v2, v1, v0
 
@@ -151,7 +151,7 @@
 
     move-result v2
 
-    iput v2, p0, Landroid/renderscript/BaseObj;->mID:I
+    iput v2, p0, Landroid/renderscript/Element;->mID:I
 
     .line 231
     return-void

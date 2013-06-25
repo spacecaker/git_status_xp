@@ -24,21 +24,22 @@
 
 .field private final observersLock:Ljava/lang/Object;
 
-.field final synthetic this$0:Landroid/content/ContentService$ObserverNode;
+.field final synthetic this$1:Landroid/content/ContentService$ObserverNode;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/ContentService$ObserverNode;Landroid/database/IContentObserver;ZLjava/lang/Object;)V
-    .locals 3
+    .locals 2
     .parameter
-    .parameter "o"
-    .parameter "n"
-    .parameter "observersLock"
+    .parameter
+    .parameter
+    .parameter
 
     .prologue
-    .line 477
-    iput-object p1, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->this$0:Landroid/content/ContentService$ObserverNode;
+    .line 486
+    iput-object p1, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->this$1:Landroid/content/ContentService$ObserverNode;
 
+    .line 477
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 478
@@ -52,30 +53,25 @@
 
     .line 482
     :try_start_0
-    iget-object v1, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->observer:Landroid/database/IContentObserver;
+    iget-object v0, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->observer:Landroid/database/IContentObserver;
 
-    invoke-interface {v1}, Landroid/database/IContentObserver;->asBinder()Landroid/os/IBinder;
+    invoke-interface {v0}, Landroid/database/IContentObserver;->asBinder()Landroid/os/IBinder;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-interface {v1, p0, v2}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
+    invoke-interface {v0, p0, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 486
+    .line 484
     :goto_0
     return-void
 
-    .line 483
     :catch_0
-    move-exception v1
+    move-exception v0
 
-    move-object v0, v1
-
-    .line 484
-    .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {p0}, Landroid/content/ContentService$ObserverNode$ObserverEntry;->binderDied()V
 
     goto :goto_0
@@ -94,19 +90,19 @@
 
     .line 490
     :try_start_0
-    iget-object v1, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->this$0:Landroid/content/ContentService$ObserverNode;
+    iget-object v1, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->this$1:Landroid/content/ContentService$ObserverNode;
 
     iget-object v2, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->observer:Landroid/database/IContentObserver;
 
     invoke-virtual {v1, v2}, Landroid/content/ContentService$ObserverNode;->removeObserverLocked(Landroid/database/IContentObserver;)Z
 
-    .line 491
+    .line 489
     monitor-exit v0
 
     .line 492
     return-void
 
-    .line 491
+    .line 489
     :catchall_0
     move-exception v1
 

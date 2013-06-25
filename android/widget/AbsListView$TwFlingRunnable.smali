@@ -137,7 +137,7 @@
     :pswitch_0
     iget-object v10, p0, Landroid/widget/AbsListView$TwFlingRunnable;->this$0:Landroid/widget/AbsListView;
 
-    iget v10, v10, Landroid/widget/AdapterView;->mItemCount:I
+    iget v10, v10, Landroid/widget/AbsListView;->mItemCount:I
 
     if-eqz v10, :cond_1
 
@@ -194,7 +194,7 @@
 
     iget-object v11, p0, Landroid/widget/AbsListView$TwFlingRunnable;->this$0:Landroid/widget/AbsListView;
 
-    iget v11, v11, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v11, v11, Landroid/widget/AbsListView;->mFirstPosition:I
 
     iput v11, v10, Landroid/widget/AbsListView;->mMotionPosition:I
 
@@ -226,7 +226,7 @@
 
     iget-object v11, p0, Landroid/widget/AbsListView$TwFlingRunnable;->this$0:Landroid/widget/AbsListView;
 
-    #getter for: Landroid/view/View;->mPaddingBottom:I
+    #getter for: Landroid/widget/AbsListView;->mPaddingBottom:I
     invoke-static {v11}, Landroid/widget/AbsListView;->access$1200(Landroid/widget/AbsListView;)I
 
     move-result v11
@@ -235,7 +235,7 @@
 
     iget-object v11, p0, Landroid/widget/AbsListView$TwFlingRunnable;->this$0:Landroid/widget/AbsListView;
 
-    #getter for: Landroid/view/View;->mPaddingTop:I
+    #getter for: Landroid/widget/AbsListView;->mPaddingTop:I
     invoke-static {v11}, Landroid/widget/AbsListView;->access$1300(Landroid/widget/AbsListView;)I
 
     move-result v11
@@ -330,7 +330,7 @@
 
     iget-object v11, p0, Landroid/widget/AbsListView$TwFlingRunnable;->this$0:Landroid/widget/AbsListView;
 
-    iget v11, v11, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v11, v11, Landroid/widget/AbsListView;->mFirstPosition:I
 
     add-int/2addr v11, v6
 
@@ -362,7 +362,7 @@
 
     iget-object v11, p0, Landroid/widget/AbsListView$TwFlingRunnable;->this$0:Landroid/widget/AbsListView;
 
-    #getter for: Landroid/view/View;->mPaddingBottom:I
+    #getter for: Landroid/widget/AbsListView;->mPaddingBottom:I
     invoke-static {v11}, Landroid/widget/AbsListView;->access$1400(Landroid/widget/AbsListView;)I
 
     move-result v11
@@ -371,7 +371,7 @@
 
     iget-object v11, p0, Landroid/widget/AbsListView$TwFlingRunnable;->this$0:Landroid/widget/AbsListView;
 
-    #getter for: Landroid/view/View;->mPaddingTop:I
+    #getter for: Landroid/widget/AbsListView;->mPaddingTop:I
     invoke-static {v11}, Landroid/widget/AbsListView;->access$1500(Landroid/widget/AbsListView;)I
 
     move-result v11

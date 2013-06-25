@@ -1330,11 +1330,11 @@
 
     .line 2125
     .local v1, params:Landroid/view/ViewGroup$LayoutParams;
-    iget v3, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v3, v1, Landroid/view/WindowManager$LayoutParams;->width:I
 
     if-ne v3, v4, :cond_1
 
-    iget v3, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v3, v1, Landroid/view/WindowManager$LayoutParams;->height:I
 
     if-ne v3, v4, :cond_1
 

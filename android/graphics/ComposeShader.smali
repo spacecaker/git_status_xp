@@ -25,7 +25,7 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/graphics/Shader;->native_instance:I
+    iput v0, p0, Landroid/graphics/ComposeShader;->native_instance:I
 
     .line 46
     return-void
@@ -55,7 +55,7 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/graphics/Shader;->native_instance:I
+    iput v0, p0, Landroid/graphics/ComposeShader;->native_instance:I
 
     .line 34
     return-void

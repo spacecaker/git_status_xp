@@ -142,12 +142,12 @@
 
 # virtual methods
 .method public GetGPSLocation()Z
-    .locals 6
+    .locals 4
 
     .prologue
-    const/4 v5, 0x1
+    const/4 v3, 0x1
 
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
     .line 279
     const/4 v0, 0x0
@@ -158,36 +158,11 @@
 
     move-result-object v0
 
-    .line 285
-    const-string v1, "DSM"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "gpsdata is "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     .line 287
     if-nez v0, :cond_0
 
     .line 289
-    sput-boolean v4, Landroid/dsm/DeviceSecurityManager;->isGpsValid:Z
-
-    move v1, v4
+    sput-boolean v1, Landroid/dsm/DeviceSecurityManager;->isGpsValid:Z
 
     .line 312
     :goto_0
@@ -195,15 +170,15 @@
 
     .line 295
     :cond_0
-    sput-boolean v5, Landroid/dsm/DeviceSecurityManager;->isGpsValid:Z
+    sput-boolean v3, Landroid/dsm/DeviceSecurityManager;->isGpsValid:Z
 
     .line 297
-    aget-wide v1, v0, v4
+    aget-wide v1, v0, v1
 
     sput-wide v1, Landroid/dsm/DeviceSecurityManager;->mLatitude:D
 
     .line 299
-    aget-wide v1, v0, v5
+    aget-wide v1, v0, v3
 
     sput-wide v1, Landroid/dsm/DeviceSecurityManager;->mLongitude:D
 
@@ -235,22 +210,20 @@
 
     sput-wide v1, Landroid/dsm/DeviceSecurityManager;->mAccuracy:D
 
-    move v1, v5
+    move v1, v3
 
     .line 312
     goto :goto_0
 .end method
 
 .method public GetNonGPSLocation(Landroid/content/Context;)Z
-    .locals 8
+    .locals 7
     .parameter "pcontext"
 
     .prologue
     const/4 v6, 0x1
 
     const/4 v5, 0x0
-
-    const-string v7, "DSM"
 
     .line 155
     move-object v0, p1
@@ -328,67 +301,6 @@
 
     sput-object v2, Landroid/dsm/DeviceSecurityManager;->cellid:Ljava/lang/String;
 
-    .line 177
-    const-string v2, "DSM"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "mcc is "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    sget v3, Landroid/dsm/DeviceSecurityManager;->mcc:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, " mnc is "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    sget v3, Landroid/dsm/DeviceSecurityManager;->mnc:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, " lac is "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    sget-object v3, Landroid/dsm/DeviceSecurityManager;->lac:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, " cellid is "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    sget-object v3, Landroid/dsm/DeviceSecurityManager;->cellid:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v7, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     move v2, v6
 
     .line 189
@@ -402,9 +314,9 @@
     .line 187
     const-string v2, "DSM"
 
-    const-string v2, "nonGPSdata is null"
+    const-string v3, "nonGPSdata is null"
 
-    invoke-static {v7, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move v2, v5
 
@@ -413,7 +325,7 @@
 .end method
 
 .method public GetNonGpsSIMLoc(Landroid/content/Context;)Z
-    .locals 14
+    .locals 13
     .parameter "pcontext"
 
     .prologue
@@ -423,9 +335,7 @@
 
     const/4 v4, 0x0
 
-    const-string v13, "number"
-
-    const-string v12, "DSM"
+    const-string v12, "number"
 
     .line 201
     move-object v7, p1
@@ -478,7 +388,7 @@
 
     const-string v0, "number"
 
-    aput-object v13, v2, v11
+    aput-object v12, v2, v11
 
     .line 231
     .local v2, PROJECTION:[Ljava/lang/String;
@@ -507,7 +417,7 @@
     .line 241
     const-string v0, "number"
 
-    invoke-interface {v6, v13}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v6, v12}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v10
 
@@ -521,84 +431,12 @@
 
     move-result-object v9
 
-    .line 249
-    const-string v0, "TestDSM"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "phone number is "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     .line 251
     sput-object v9, Landroid/dsm/DeviceSecurityManager;->MSISDN:Ljava/lang/String;
 
-    .line 255
     .end local v9           #number:Ljava/lang/String;
     .end local v10           #numberColumn:I
     :cond_0
-    const-string v0, "DSM"
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "SIMDATA; SIMmcc is "
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    sget v3, Landroid/dsm/DeviceSecurityManager;->SIMmcc:I
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v3, " SIMmnc is "
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    sget v3, Landroid/dsm/DeviceSecurityManager;->SIMmnc:I
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v3, " MSISDN"
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    sget-object v3, Landroid/dsm/DeviceSecurityManager;->MSISDN:Ljava/lang/String;
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v12, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     move v0, v11
 
     .line 267
@@ -615,9 +453,9 @@
     .line 265
     const-string v0, "DSM"
 
-    const-string v0, "nonGPSdata is null"
+    const-string v3, "nonGPSdata is null"
 
-    invoke-static {v12, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move v0, v4
 

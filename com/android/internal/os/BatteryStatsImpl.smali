@@ -5361,7 +5361,7 @@
     :cond_1
     move-object/from16 v0, v19
 
-    iget-object v0, v0, Lcom/android/internal/os/BatteryStatsImpl$Counter;->mCount:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object v0, v0, Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;->mCount:Ljava/util/concurrent/atomic/AtomicInteger;
 
     move-object/from16 v21, v0
 
@@ -5376,7 +5376,7 @@
     .line 4561
     move-object v0, v8
 
-    iget-object v0, v0, Lcom/android/internal/os/BatteryStatsImpl$Counter;->mCount:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object v0, v0, Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;->mCount:Ljava/util/concurrent/atomic/AtomicInteger;
 
     move-object/from16 v21, v0
 

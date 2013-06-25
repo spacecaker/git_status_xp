@@ -20,7 +20,7 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/graphics/ColorFilter;->native_instance:I
+    iput v0, p0, Landroid/graphics/PorterDuffColorFilter;->native_instance:I
 
     .line 30
     return-void

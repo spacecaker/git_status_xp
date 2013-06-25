@@ -32,7 +32,7 @@
     .line 183
     const/4 v0, 0x4
 
-    iput v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mRequestedFormat:I
+    iput v0, p0, Landroid/service/wallpaper/WallpaperService$Engine$2;->mRequestedFormat:I
 
     .line 184
     return-void

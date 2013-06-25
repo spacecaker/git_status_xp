@@ -733,7 +733,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "onShowVolumeChanged(streamType: "
+    const-string/jumbo v8, "onShowVolumeChanged(streamType: "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1225,6 +1225,8 @@
     goto/16 :goto_2
 
     .line 201
+    nop
+
     nop
 
     :pswitch_data_0

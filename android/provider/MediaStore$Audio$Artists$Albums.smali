@@ -22,7 +22,7 @@
     .locals 0
 
     .prologue
-    .line 1476
+    .line 1454
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,25 +30,22 @@
 
 .method public static final getContentUri(Ljava/lang/String;J)Landroid/net/Uri;
     .locals 2
-    .parameter "volumeName"
-    .parameter "artistId"
+    .parameter
+    .parameter
 
     .prologue
-    .line 1479
+    .line 1457
     new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v1, "content://media/"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    .line 1458
     const-string v1, "/audio/artists/"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -65,6 +62,7 @@
 
     move-result-object v0
 
+    .line 1457
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0

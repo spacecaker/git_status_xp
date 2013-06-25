@@ -263,7 +263,7 @@
 
     .prologue
     .line 28
-    iput p1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iput p1, p0, Lcom/android/internal/database/SortCursor;->mPos:I
 
     return p1
 .end method
@@ -275,7 +275,7 @@
 
     .prologue
     .line 28
-    iput p1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iput p1, p0, Lcom/android/internal/database/SortCursor;->mPos:I
 
     return p1
 .end method
@@ -724,7 +724,7 @@
     .line 123
     const-string v8, "SortCursor"
 
-    const-string v9, "onMove: cache results in a null cursor."
+    const-string/jumbo v9, "onMove: cache results in a null cursor."
 
     invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 

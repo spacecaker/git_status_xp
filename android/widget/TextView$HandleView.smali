@@ -70,7 +70,7 @@
     iput-object p1, p0, Landroid/widget/TextView$HandleView;->this$0:Landroid/widget/TextView;
 
     .line 8303
-    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
+    #getter for: Landroid/widget/TextView;->mContext:Landroid/content/Context;
     invoke-static {p1}, Landroid/widget/TextView;->access$1500(Landroid/widget/TextView;)Landroid/content/Context;
 
     move-result-object v0
@@ -86,7 +86,7 @@
     .line 8305
     new-instance v0, Landroid/widget/PopupWindow;
 
-    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
+    #getter for: Landroid/widget/TextView;->mContext:Landroid/content/Context;
     invoke-static {p1}, Landroid/widget/TextView;->access$1600(Landroid/widget/TextView;)Landroid/content/Context;
 
     move-result-object v1
@@ -501,7 +501,7 @@
     .line 8439
     iget-object v1, p0, Landroid/widget/TextView$HandleView;->this$0:Landroid/widget/TextView;
 
-    #getter for: Landroid/view/View;->mScrollX:I
+    #getter for: Landroid/widget/TextView;->mScrollX:I
     invoke-static {v1}, Landroid/widget/TextView;->access$1700(Landroid/widget/TextView;)I
 
     move-result v1
@@ -513,7 +513,7 @@
     .line 8440
     iget-object v1, p0, Landroid/widget/TextView$HandleView;->this$0:Landroid/widget/TextView;
 
-    #getter for: Landroid/view/View;->mScrollY:I
+    #getter for: Landroid/widget/TextView;->mScrollY:I
     invoke-static {v1}, Landroid/widget/TextView;->access$1800(Landroid/widget/TextView;)I
 
     move-result v1
@@ -567,15 +567,15 @@
 
     add-int/2addr v3, v4
 
-    iget v4, p0, Landroid/view/View;->mRight:I
+    iget v4, p0, Landroid/widget/TextView$HandleView;->mRight:I
 
-    iget v5, p0, Landroid/view/View;->mLeft:I
+    iget v5, p0, Landroid/widget/TextView$HandleView;->mLeft:I
 
     sub-int/2addr v4, v5
 
-    iget v5, p0, Landroid/view/View;->mBottom:I
+    iget v5, p0, Landroid/widget/TextView$HandleView;->mBottom:I
 
-    iget v6, p0, Landroid/view/View;->mTop:I
+    iget v6, p0, Landroid/widget/TextView$HandleView;->mTop:I
 
     sub-int/2addr v5, v6
 
@@ -730,15 +730,15 @@
     .line 8471
     iget-object v0, p0, Landroid/widget/TextView$HandleView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    iget v1, p0, Landroid/view/View;->mRight:I
+    iget v1, p0, Landroid/widget/TextView$HandleView;->mRight:I
 
-    iget v2, p0, Landroid/view/View;->mLeft:I
+    iget v2, p0, Landroid/widget/TextView$HandleView;->mLeft:I
 
     sub-int/2addr v1, v2
 
-    iget v2, p0, Landroid/view/View;->mBottom:I
+    iget v2, p0, Landroid/widget/TextView$HandleView;->mBottom:I
 
-    iget v3, p0, Landroid/view/View;->mTop:I
+    iget v3, p0, Landroid/widget/TextView$HandleView;->mTop:I
 
     sub-int/2addr v2, v3
 
@@ -755,9 +755,9 @@
     .line 8474
     const/high16 v0, 0x4334
 
-    iget v1, p0, Landroid/view/View;->mRight:I
+    iget v1, p0, Landroid/widget/TextView$HandleView;->mRight:I
 
-    iget v2, p0, Landroid/view/View;->mLeft:I
+    iget v2, p0, Landroid/widget/TextView$HandleView;->mLeft:I
 
     sub-int/2addr v1, v2
 
@@ -765,9 +765,9 @@
 
     int-to-float v1, v1
 
-    iget v2, p0, Landroid/view/View;->mBottom:I
+    iget v2, p0, Landroid/widget/TextView$HandleView;->mBottom:I
 
-    iget v3, p0, Landroid/view/View;->mTop:I
+    iget v3, p0, Landroid/widget/TextView$HandleView;->mTop:I
 
     sub-int/2addr v2, v3
 
@@ -1071,7 +1071,7 @@
 
     iget-object v10, p0, Landroid/widget/TextView$HandleView;->this$0:Landroid/widget/TextView;
 
-    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
+    #getter for: Landroid/widget/TextView;->mContext:Landroid/content/Context;
     invoke-static {v10}, Landroid/widget/TextView;->access$1900(Landroid/widget/TextView;)Landroid/content/Context;
 
     move-result-object v10
@@ -1089,7 +1089,7 @@
 
     iget-object v8, p0, Landroid/widget/TextView$HandleView;->this$0:Landroid/widget/TextView;
 
-    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
+    #getter for: Landroid/widget/TextView;->mContext:Landroid/content/Context;
     invoke-static {v8}, Landroid/widget/TextView;->access$2000(Landroid/widget/TextView;)Landroid/content/Context;
 
     move-result-object v8
@@ -1369,7 +1369,7 @@
 
     iget-object v7, p0, Landroid/widget/TextView$HandleView;->this$0:Landroid/widget/TextView;
 
-    #getter for: Landroid/view/View;->mScrollX:I
+    #getter for: Landroid/widget/TextView;->mScrollX:I
     invoke-static {v7}, Landroid/widget/TextView;->access$2300(Landroid/widget/TextView;)I
 
     move-result v7
@@ -1386,7 +1386,7 @@
     :goto_1
     iget-object v7, p0, Landroid/widget/TextView$HandleView;->this$0:Landroid/widget/TextView;
 
-    #getter for: Landroid/view/View;->mScrollY:I
+    #getter for: Landroid/widget/TextView;->mScrollY:I
     invoke-static {v7}, Landroid/widget/TextView;->access$2400(Landroid/widget/TextView;)I
 
     move-result v7
@@ -1466,7 +1466,7 @@
     .line 8342
     iget-object v2, p0, Landroid/widget/TextView$HandleView;->this$0:Landroid/widget/TextView;
 
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/widget/TextView$HandleView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -1564,7 +1564,7 @@
     .line 8319
     iget-object v2, p0, Landroid/widget/TextView$HandleView;->this$0:Landroid/widget/TextView;
 
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/widget/TextView$HandleView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -1619,7 +1619,7 @@
     .line 8330
     iget-object v2, p0, Landroid/widget/TextView$HandleView;->this$0:Landroid/widget/TextView;
 
-    iget-object v3, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/widget/TextView$HandleView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 

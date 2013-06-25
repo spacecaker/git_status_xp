@@ -199,7 +199,7 @@
     invoke-virtual {p0, v9}, Landroid/widget/NumberPicker;->setOrientation(I)V
 
     .line 164
-    iget-object v6, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Landroid/widget/NumberPicker;->mContext:Landroid/content/Context;
 
     const-string v7, "layout_inflater"
 

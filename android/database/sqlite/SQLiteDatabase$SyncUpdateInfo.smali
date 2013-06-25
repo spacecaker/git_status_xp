@@ -30,18 +30,18 @@
     .parameter "foreignKey"
 
     .prologue
-    .line 773
+    .line 827
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 774
+    .line 828
     iput-object p1, p0, Landroid/database/sqlite/SQLiteDatabase$SyncUpdateInfo;->masterTable:Ljava/lang/String;
 
-    .line 775
+    .line 829
     iput-object p2, p0, Landroid/database/sqlite/SQLiteDatabase$SyncUpdateInfo;->deletedTable:Ljava/lang/String;
 
-    .line 776
+    .line 830
     iput-object p3, p0, Landroid/database/sqlite/SQLiteDatabase$SyncUpdateInfo;->foreignKey:Ljava/lang/String;
 
-    .line 777
+    .line 831
     return-void
 .end method

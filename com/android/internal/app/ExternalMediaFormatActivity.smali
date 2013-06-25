@@ -200,7 +200,7 @@
     invoke-virtual {p0}, Lcom/android/internal/app/ExternalMediaFormatActivity;->findDamagedSdCard()V
 
     .line 93
-    iget-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    iget-object v0, p0, Lcom/android/internal/app/ExternalMediaFormatActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
     .line 94
     .local v0, p:Lcom/android/internal/app/AlertController$AlertParams;
@@ -267,7 +267,7 @@
     .line 122
     const-string v0, "ExternalMediaFormatActivity"
 
-    const-string v1, "onPause!"
+    const-string/jumbo v1, "onPause!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -290,7 +290,7 @@
     .line 107
     const-string v1, "ExternalMediaFormatActivity"
 
-    const-string v2, "onResume!"
+    const-string/jumbo v2, "onResume!"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

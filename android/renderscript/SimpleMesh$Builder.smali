@@ -104,7 +104,7 @@
 
     iget-object v8, v8, Landroid/renderscript/SimpleMesh$Builder$Entry;->t:Landroid/renderscript/Type;
 
-    iget v3, v8, Landroid/renderscript/BaseObj;->mID:I
+    iget v3, v8, Landroid/renderscript/Type;->mID:I
 
     .line 149
     :cond_0
@@ -143,7 +143,7 @@
 
     iget-object v8, v8, Landroid/renderscript/SimpleMesh$Builder$Entry;->t:Landroid/renderscript/Type;
 
-    iget v8, v8, Landroid/renderscript/BaseObj;->mID:I
+    iget v8, v8, Landroid/renderscript/Type;->mID:I
 
     aput v8, v0, v1
 
@@ -195,7 +195,7 @@
 
     iget-object v8, v8, Landroid/renderscript/SimpleMesh$Builder$Entry;->t:Landroid/renderscript/Type;
 
-    iget v3, v8, Landroid/renderscript/BaseObj;->mID:I
+    iget v3, v8, Landroid/renderscript/Type;->mID:I
 
     .line 146
     add-int/lit8 v6, v5, 0x1
@@ -249,7 +249,7 @@
 
     iget-object v8, v8, Landroid/renderscript/SimpleMesh$Builder$Entry;->t:Landroid/renderscript/Type;
 
-    iget v8, v8, Landroid/renderscript/BaseObj;->mID:I
+    iget v8, v8, Landroid/renderscript/Type;->mID:I
 
     aput v8, v0, v1
 

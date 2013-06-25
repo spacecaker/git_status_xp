@@ -12275,7 +12275,7 @@
     .line 8318
     new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "onMeasure() did not set the measured dimension by calling setMeasuredDimension()"
+    const-string/jumbo v1, "onMeasure() did not set the measured dimension by calling setMeasuredDimension()"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 

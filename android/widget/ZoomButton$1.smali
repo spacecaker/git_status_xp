@@ -44,7 +44,7 @@
     .line 32
     iget-object v0, p0, Landroid/widget/ZoomButton$1;->this$0:Landroid/widget/ZoomButton;
 
-    #getter for: Landroid/view/View;->mOnClickListener:Landroid/view/View$OnClickListener;
+    #getter for: Landroid/widget/ZoomButton;->mOnClickListener:Landroid/view/View$OnClickListener;
     invoke-static {v0}, Landroid/widget/ZoomButton;->access$000(Landroid/widget/ZoomButton;)Landroid/view/View$OnClickListener;
 
     move-result-object v0
@@ -71,7 +71,7 @@
     .line 33
     iget-object v0, p0, Landroid/widget/ZoomButton$1;->this$0:Landroid/widget/ZoomButton;
 
-    #getter for: Landroid/view/View;->mOnClickListener:Landroid/view/View$OnClickListener;
+    #getter for: Landroid/widget/ZoomButton;->mOnClickListener:Landroid/view/View$OnClickListener;
     invoke-static {v0}, Landroid/widget/ZoomButton;->access$200(Landroid/widget/ZoomButton;)Landroid/view/View$OnClickListener;
 
     move-result-object v0

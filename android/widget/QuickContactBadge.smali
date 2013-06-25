@@ -248,7 +248,7 @@
     .line 109
     new-instance v0, Landroid/widget/QuickContactBadge$QueryHandler;
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/QuickContactBadge;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 

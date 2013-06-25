@@ -54,7 +54,7 @@
 
     .prologue
     .line 373
-    iget-object v0, p0, Landroid/app/ListActivity;->mAdapter:Landroid/widget/ListAdapter;
+    iget-object v0, p0, Landroid/app/LauncherActivity;->mAdapter:Landroid/widget/ListAdapter;
 
     check-cast v0, Landroid/app/LauncherActivity$ActivityAdapter;
 
@@ -73,7 +73,7 @@
 
     .prologue
     .line 383
-    iget-object v0, p0, Landroid/app/ListActivity;->mAdapter:Landroid/widget/ListAdapter;
+    iget-object v0, p0, Landroid/app/LauncherActivity;->mAdapter:Landroid/widget/ListAdapter;
 
     check-cast v0, Landroid/app/LauncherActivity$ActivityAdapter;
 
@@ -229,10 +229,10 @@
 
     invoke-direct {v0, p0, v1}, Landroid/app/LauncherActivity$ActivityAdapter;-><init>(Landroid/app/LauncherActivity;Landroid/app/LauncherActivity$IconResizer;)V
 
-    iput-object v0, p0, Landroid/app/ListActivity;->mAdapter:Landroid/widget/ListAdapter;
+    iput-object v0, p0, Landroid/app/LauncherActivity;->mAdapter:Landroid/widget/ListAdapter;
 
     .line 347
-    iget-object v0, p0, Landroid/app/ListActivity;->mAdapter:Landroid/widget/ListAdapter;
+    iget-object v0, p0, Landroid/app/LauncherActivity;->mAdapter:Landroid/widget/ListAdapter;
 
     invoke-virtual {p0, v0}, Landroid/app/LauncherActivity;->setListAdapter(Landroid/widget/ListAdapter;)V
 

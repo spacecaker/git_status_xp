@@ -4255,7 +4255,7 @@
     :cond_2a
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/text/Layout;->mWorkPaint:Landroid/text/TextPaint;
+    iget-object v0, v0, Landroid/text/StaticLayout;->mWorkPaint:Landroid/text/TextPaint;
 
     move-object v5, v0
 
@@ -4266,7 +4266,7 @@
     .line 337
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/text/Layout;->mWorkPaint:Landroid/text/TextPaint;
+    iget-object v0, v0, Landroid/text/StaticLayout;->mWorkPaint:Landroid/text/TextPaint;
 
     move-object v6, v0
 
@@ -4290,7 +4290,7 @@
     .line 343
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/text/Layout;->mWorkPaint:Landroid/text/TextPaint;
+    iget-object v0, v0, Landroid/text/StaticLayout;->mWorkPaint:Landroid/text/TextPaint;
 
     move-object v5, v0
 
@@ -4303,7 +4303,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/text/Layout;->mWorkPaint:Landroid/text/TextPaint;
+    iget-object v0, v0, Landroid/text/StaticLayout;->mWorkPaint:Landroid/text/TextPaint;
 
     move-object v6, v0
 
@@ -4318,7 +4318,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/text/Layout;->mWorkPaint:Landroid/text/TextPaint;
+    iget-object v0, v0, Landroid/text/StaticLayout;->mWorkPaint:Landroid/text/TextPaint;
 
     move-object v6, v0
 
@@ -4336,7 +4336,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/text/Layout;->mWorkPaint:Landroid/text/TextPaint;
+    iget-object v0, v0, Landroid/text/StaticLayout;->mWorkPaint:Landroid/text/TextPaint;
 
     move-object v6, v0
 
@@ -4351,7 +4351,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/text/Layout;->mWorkPaint:Landroid/text/TextPaint;
+    iget-object v0, v0, Landroid/text/StaticLayout;->mWorkPaint:Landroid/text/TextPaint;
 
     move-object v6, v0
 
@@ -4518,7 +4518,7 @@
     :cond_2e
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/text/Layout;->mWorkPaint:Landroid/text/TextPaint;
+    iget-object v0, v0, Landroid/text/StaticLayout;->mWorkPaint:Landroid/text/TextPaint;
 
     move-object/from16 v155, v0
 
@@ -4912,7 +4912,7 @@
     :cond_3e
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/text/Layout;->mWorkPaint:Landroid/text/TextPaint;
+    iget-object v0, v0, Landroid/text/StaticLayout;->mWorkPaint:Landroid/text/TextPaint;
 
     move-object/from16 v33, v0
 

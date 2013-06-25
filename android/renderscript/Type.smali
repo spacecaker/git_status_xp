@@ -42,7 +42,7 @@
     invoke-direct {p0, p2}, Landroid/renderscript/BaseObj;-><init>(Landroid/renderscript/RenderScript;)V
 
     .line 99
-    iput p1, p0, Landroid/renderscript/BaseObj;->mID:I
+    iput p1, p0, Landroid/renderscript/Type;->mID:I
 
     .line 100
     const/4 v0, 0x0
@@ -396,7 +396,7 @@
     if-eqz v0, :cond_0
 
     .line 105
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/Type;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-virtual {v0, p0}, Landroid/renderscript/RenderScript;->nTypeFinalDestroy(Landroid/renderscript/Type;)V
 

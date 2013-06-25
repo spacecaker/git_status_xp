@@ -749,11 +749,11 @@
 
     .line 670
     .local v1, params:Landroid/view/ViewGroup$LayoutParams;
-    iget v2, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->width:I
 
     if-ne v2, v3, :cond_0
 
-    iget v2, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->height:I
 
     if-ne v2, v3, :cond_0
 

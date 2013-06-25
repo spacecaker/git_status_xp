@@ -26,8 +26,6 @@
 
 .field private static mContext:Landroid/content/Context;
 
-.field public static mReboot:I
-
 .field private static mReboot:Z
 
 .field private static mRebootReason:Ljava/lang/String;
@@ -750,7 +748,7 @@
     const-string v4, "ShutdownThread"
 
     .line 595
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_0
 
     .line 596
     const-string v2, "ShutdownThread"
@@ -789,45 +787,10 @@
 
     invoke-static {v4, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget v1, Lcom/android/internal/app/ShutdownThread;->mReboot:I
-
-    const/4 v2, 0x1
-
-    if-eq v1, v2, :cond_0
-
-    const/4 v2, 0x2
-
-    if-eq v1, v2, :cond_1
-
-    const/4 v2, 0x3
-
-    if-eq v1, v2, :cond_2
-
     .line 621
     invoke-static {}, Landroid/os/Power;->shutdown()V
 
     .line 622
-    return-void
-
-    :cond_0
-    const-string v4, "now"
-
-    invoke-static {v4}, Landroid/os/Power;->reboot(Ljava/lang/String;)V
-
-    return-void
-
-    :cond_1
-    const-string/jumbo v4, "recovery"
-
-    invoke-static {v4}, Landroid/os/Power;->reboot(Ljava/lang/String;)V
-
-    return-void
-
-    :cond_2
-    const-string v4, "download"
-
-    invoke-static {v4}, Landroid/os/Power;->reboot(Ljava/lang/String;)V
-
     return-void
 
     .line 599
@@ -846,7 +809,7 @@
 
     .line 604
     .end local v0           #e:Ljava/lang/Exception;
-    :cond_3
+    :cond_0
     new-instance v1, Landroid/os/Vibrator;
 
     invoke-direct {v1}, Landroid/os/Vibrator;-><init>()V

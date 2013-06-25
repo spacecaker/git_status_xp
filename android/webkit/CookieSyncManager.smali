@@ -167,7 +167,7 @@
     if-eqz v2, :cond_1
 
     .line 201
-    iget-object v2, p0, Landroid/webkit/WebSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
+    iget-object v2, p0, Landroid/webkit/CookieSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
 
     iget-object v3, v0, Landroid/webkit/CookieManager$Cookie;->domain:Ljava/lang/String;
 
@@ -186,7 +186,7 @@
     if-eq v2, v3, :cond_2
 
     .line 205
-    iget-object v2, p0, Landroid/webkit/WebSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
+    iget-object v2, p0, Landroid/webkit/CookieSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
 
     invoke-virtual {v2, v0}, Landroid/webkit/WebViewDatabase;->addCookie(Landroid/webkit/CookieManager$Cookie;)V
 
@@ -222,7 +222,7 @@
 
     .prologue
     .line 124
-    iget-object v0, p0, Landroid/webkit/WebSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
+    iget-object v0, p0, Landroid/webkit/CookieSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
 
     if-nez v0, :cond_0
 
@@ -232,7 +232,7 @@
 
     .line 128
     :cond_0
-    iget-object v0, p0, Landroid/webkit/WebSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
+    iget-object v0, p0, Landroid/webkit/CookieSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewDatabase;->clearCookies()V
 
@@ -245,7 +245,7 @@
 
     .prologue
     .line 165
-    iget-object v0, p0, Landroid/webkit/WebSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
+    iget-object v0, p0, Landroid/webkit/CookieSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
 
     if-nez v0, :cond_0
 
@@ -255,7 +255,7 @@
 
     .line 169
     :cond_0
-    iget-object v0, p0, Landroid/webkit/WebSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
+    iget-object v0, p0, Landroid/webkit/CookieSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
 
     invoke-virtual {v0, p1, p2}, Landroid/webkit/WebViewDatabase;->clearExpiredCookies(J)V
 
@@ -267,7 +267,7 @@
 
     .prologue
     .line 151
-    iget-object v0, p0, Landroid/webkit/WebSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
+    iget-object v0, p0, Landroid/webkit/CookieSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
 
     if-nez v0, :cond_0
 
@@ -277,7 +277,7 @@
 
     .line 155
     :cond_0
-    iget-object v0, p0, Landroid/webkit/WebSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
+    iget-object v0, p0, Landroid/webkit/CookieSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewDatabase;->clearSessionCookies()V
 
@@ -301,7 +301,7 @@
 
     .prologue
     .line 110
-    iget-object v0, p0, Landroid/webkit/WebSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
+    iget-object v0, p0, Landroid/webkit/CookieSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
 
     if-nez v0, :cond_0
 
@@ -315,7 +315,7 @@
     return-object v0
 
     :cond_0
-    iget-object v0, p0, Landroid/webkit/WebSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
+    iget-object v0, p0, Landroid/webkit/CookieSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
 
     invoke-virtual {v0, p1}, Landroid/webkit/WebViewDatabase;->getCookiesForDomain(Ljava/lang/String;)Ljava/util/ArrayList;
 
@@ -329,7 +329,7 @@
 
     .prologue
     .line 137
-    iget-object v0, p0, Landroid/webkit/WebSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
+    iget-object v0, p0, Landroid/webkit/CookieSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
 
     if-nez v0, :cond_0
 
@@ -341,7 +341,7 @@
     return v0
 
     :cond_0
-    iget-object v0, p0, Landroid/webkit/WebSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
+    iget-object v0, p0, Landroid/webkit/CookieSyncManager;->mDataBase:Landroid/webkit/WebViewDatabase;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewDatabase;->hasCookies()Z
 

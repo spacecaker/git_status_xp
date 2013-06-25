@@ -33,7 +33,7 @@
 
     invoke-direct {v0}, Landroid/hardware/fmradio/FmRxControls;-><init>()V
 
-    iput-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
+    iput-object v0, p0, Landroid/hardware/fmradio/FmTransmitter;->mControl:Landroid/hardware/fmradio/FmRxControls;
 
     .line 69
     new-instance v0, Landroid/hardware/fmradio/FmRxRdsData;
@@ -42,14 +42,14 @@
 
     invoke-direct {v0, v1}, Landroid/hardware/fmradio/FmRxRdsData;-><init>(I)V
 
-    iput-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iput-object v0, p0, Landroid/hardware/fmradio/FmTransmitter;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     .line 70
     new-instance v0, Landroid/hardware/fmradio/FmRxEventListner;
 
     invoke-direct {v0}, Landroid/hardware/fmradio/FmRxEventListner;-><init>()V
 
-    iput-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mRxEvents:Landroid/hardware/fmradio/FmRxEventListner;
+    iput-object v0, p0, Landroid/hardware/fmradio/FmTransmitter;->mRxEvents:Landroid/hardware/fmradio/FmRxEventListner;
 
     .line 71
     return-void
@@ -75,7 +75,7 @@
 
     invoke-direct {v0}, Landroid/hardware/fmradio/FmRxControls;-><init>()V
 
-    iput-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mControl:Landroid/hardware/fmradio/FmRxControls;
+    iput-object v0, p0, Landroid/hardware/fmradio/FmTransmitter;->mControl:Landroid/hardware/fmradio/FmRxControls;
 
     .line 83
     new-instance v0, Landroid/hardware/fmradio/FmRxRdsData;
@@ -84,14 +84,14 @@
 
     invoke-direct {v0, v1}, Landroid/hardware/fmradio/FmRxRdsData;-><init>(I)V
 
-    iput-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
+    iput-object v0, p0, Landroid/hardware/fmradio/FmTransmitter;->mRdsData:Landroid/hardware/fmradio/FmRxRdsData;
 
     .line 84
     new-instance v0, Landroid/hardware/fmradio/FmRxEventListner;
 
     invoke-direct {v0}, Landroid/hardware/fmradio/FmRxEventListner;-><init>()V
 
-    iput-object v0, p0, Landroid/hardware/fmradio/FmTransceiver;->mRxEvents:Landroid/hardware/fmradio/FmRxEventListner;
+    iput-object v0, p0, Landroid/hardware/fmradio/FmTransmitter;->mRxEvents:Landroid/hardware/fmradio/FmRxEventListner;
 
     .line 85
     return-void

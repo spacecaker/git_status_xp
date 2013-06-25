@@ -114,7 +114,7 @@
 
     iget-object v2, p0, Landroid/widget/VideoView$6;->this$0:Landroid/widget/VideoView;
 
-    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
+    #getter for: Landroid/widget/VideoView;->mContext:Landroid/content/Context;
     invoke-static {v2}, Landroid/widget/VideoView;->access$2100(Landroid/widget/VideoView;)Landroid/content/Context;
 
     move-result-object v2

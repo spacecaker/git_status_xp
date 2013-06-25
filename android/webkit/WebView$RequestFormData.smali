@@ -89,7 +89,7 @@
 
     iget-object v2, p0, Landroid/webkit/WebView$RequestFormData;->this$0:Landroid/webkit/WebView;
 
-    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
+    #getter for: Landroid/webkit/WebView;->mContext:Landroid/content/Context;
     invoke-static {v2}, Landroid/webkit/WebView;->access$800(Landroid/webkit/WebView;)Landroid/content/Context;
 
     move-result-object v2

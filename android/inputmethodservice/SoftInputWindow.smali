@@ -60,7 +60,7 @@
     .line 140
     const/4 v1, -0x1
 
-    iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     .line 145
     invoke-virtual {p0}, Landroid/inputmethodservice/SoftInputWindow;->getWindow()Landroid/view/Window;
@@ -115,14 +115,14 @@
 
     .line 80
     :cond_0
-    iget v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
     .line 82
     :goto_0
     return v1
 
     :cond_1
-    iget v1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     goto :goto_0
 .end method
@@ -202,16 +202,16 @@
     if-eq v2, v1, :cond_2
 
     .line 126
-    iget v3, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v3, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     .line 127
     .local v3, tmp:I
-    iget v4, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v4, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
-    iput v4, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v4, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     .line 128
-    iput v3, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v3, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
     .line 129
     invoke-virtual {p0}, Landroid/inputmethodservice/SoftInputWindow;->getWindow()Landroid/view/Window;
@@ -273,10 +273,10 @@
 
     .line 99
     :cond_0
-    iput v3, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v3, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     .line 100
-    iput p1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput p1, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
     .line 105
     :goto_0
@@ -291,10 +291,10 @@
 
     .line 102
     :cond_1
-    iput p1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput p1, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     .line 103
-    iput v3, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v3, v0, Landroid/view/WindowManager$LayoutParams;->height:I
 
     goto :goto_0
 .end method

@@ -28,9 +28,6 @@
 .method public abstract recreateMe(Landroid/content/res/Configuration;)V
 .end method
 
-.method public abstract reportDeviceWipe(I)V
-.end method
-
 .method public abstract reportFailedUnlockAttempt()V
 .end method
 

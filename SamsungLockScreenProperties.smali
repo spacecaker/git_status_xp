@@ -50,7 +50,7 @@
     .locals 1
 
     .prologue
-    .line 59
+    .line 60
     invoke-static {}, Lcom/android/internal/policy/impl/SamsungLockScreenProperties;->isAttSimLockMsgEnableForSalesCode()Z
 
     move-result v0
@@ -64,19 +64,19 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 64
+    .line 65
     sget-boolean v1, Lcom/android/internal/policy/impl/SamsungLockScreenProperties;->mAttSimLockChecked:Z
 
     if-nez v1, :cond_2
 
-    .line 65
+    .line 66
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 67
+    .line 68
     .local v0, SalesCode:Ljava/lang/String;
     const-string v1, "TMB"
 
@@ -94,15 +94,15 @@
 
     if-eqz v1, :cond_1
 
-    .line 70
+    .line 71
     :cond_0
     sput-boolean v2, Lcom/android/internal/policy/impl/SamsungLockScreenProperties;->mAttSimLockMsgEnabled:Z
 
-    .line 72
+    .line 73
     :cond_1
     sput-boolean v2, Lcom/android/internal/policy/impl/SamsungLockScreenProperties;->mAttSimLockChecked:Z
 
-    .line 74
+    .line 75
     .end local v0           #SalesCode:Ljava/lang/String;
     :cond_2
     sget-boolean v1, Lcom/android/internal/policy/impl/SamsungLockScreenProperties;->mAttSimLockMsgEnabled:Z
@@ -206,6 +206,14 @@
 
     if-nez v1, :cond_0
 
+    const-string v1, "HBM"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
     const-string v1, "TMB"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -214,15 +222,15 @@
 
     if-eqz v1, :cond_1
 
-    .line 50
+    .line 51
     :cond_0
     sput-boolean v2, Lcom/android/internal/policy/impl/SamsungLockScreenProperties;->mShouldbeDisplaySalesCode:Z
 
-    .line 52
+    .line 53
     :cond_1
     sput-boolean v2, Lcom/android/internal/policy/impl/SamsungLockScreenProperties;->mChecked:Z
 
-    .line 54
+    .line 55
     .end local v0           #SalesCode:Ljava/lang/String;
     :cond_2
     sget-boolean v1, Lcom/android/internal/policy/impl/SamsungLockScreenProperties;->mShouldbeDisplaySalesCode:Z

@@ -91,7 +91,7 @@
     invoke-virtual {p0, v8}, Lcom/android/internal/widget/DialogTitle;->setSingleLine(Z)V
 
     .line 57
-    iget-object v5, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/internal/widget/DialogTitle;->mContext:Landroid/content/Context;
 
     const v6, 0x1030044
 

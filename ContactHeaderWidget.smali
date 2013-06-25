@@ -173,7 +173,7 @@
     iput-object v4, p0, Lcom/android/internal/widget/ContactHeaderWidget;->mExcludeMimes:[Ljava/lang/String;
 
     .line 170
-    iget-object v4, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/internal/widget/ContactHeaderWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -182,7 +182,7 @@
     iput-object v4, p0, Lcom/android/internal/widget/ContactHeaderWidget;->mContentResolver:Landroid/content/ContentResolver;
 
     .line 172
-    iget-object v4, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/internal/widget/ContactHeaderWidget;->mContext:Landroid/content/Context;
 
     const-string v5, "layout_inflater"
 
@@ -423,7 +423,7 @@
     return-object v0
 
     :cond_0
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/internal/widget/ContactHeaderWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 

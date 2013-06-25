@@ -212,7 +212,7 @@
 
     .line 94
     .local v0, key:Lcom/android/internal/widget/PasswordEntryKeyboard$LatinKey;
-    iget-object v1, v0, Landroid/inputmethodservice/Keyboard$Key;->codes:[I
+    iget-object v1, v0, Lcom/android/internal/widget/PasswordEntryKeyboard$LatinKey;->codes:[I
 
     aget v6, v1, v7
 
@@ -236,14 +236,14 @@
     :cond_0
     const-string v1, " "
 
-    iput-object v1, v0, Landroid/inputmethodservice/Keyboard$Key;->label:Ljava/lang/CharSequence;
+    iput-object v1, v0, Lcom/android/internal/widget/PasswordEntryKeyboard$LatinKey;->label:Ljava/lang/CharSequence;
 
     .line 98
     invoke-virtual {v0, v7}, Lcom/android/internal/widget/PasswordEntryKeyboard$LatinKey;->setEnabled(Z)V
 
     .line 100
     :cond_1
-    iget-object v1, v0, Landroid/inputmethodservice/Keyboard$Key;->codes:[I
+    iget-object v1, v0, Lcom/android/internal/widget/PasswordEntryKeyboard$LatinKey;->codes:[I
 
     aget v1, v1, v7
 

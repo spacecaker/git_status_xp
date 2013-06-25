@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sec.android.app.twlauncher.LiveFolder android:orientation="vertical"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:textSize="14.0sp" android:textStyle="bold" android:textColor="#ff404040" android:gravity="left|center" android:id="@id/folder_close" android:background="@drawable/box_launcher_top" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <ListView android:id="@id/folder_content" android:background="@drawable/box_launcher_bottom" android:layout_width="fill_parent" android:layout_height="0.0dip" android:cacheColorHint="#ff333333" android:layout_weight="1.0" />
+</com.sec.android.app.twlauncher.LiveFolder>

@@ -15,9 +15,6 @@
 
 
 # virtual methods
-.method public abstract onMusicChanged()V
-.end method
-
 .method public abstract onPhoneStateChanged(Ljava/lang/String;)V
 .end method
 

@@ -268,7 +268,7 @@
 
     .line 295
     :goto_0
-    const v1, 0x10201fb
+    const v1, 0x10201f8
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/LockScreen;->findViewById(I)Landroid/view/View;
 
@@ -401,7 +401,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 325
-    const v1, 0x10201fa
+    const v1, 0x10201fb
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/LockScreen;->findViewById(I)Landroid/view/View;
 

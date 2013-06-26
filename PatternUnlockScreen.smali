@@ -248,7 +248,7 @@
 
     .line 200
     :goto_0
-    const v2, 0x10201fb
+    const v2, 0x10201f8
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/PatternUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -949,16 +949,16 @@
 .end method
 
 .method private updateStatusLines()V
-    .locals 9
+    .locals 8
 
     .prologue
-    const v8, 0x108001e
+    const v7, 0x108001e
 
-    const/16 v7, 0x64
+    const/16 v6, 0x64
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    const/16 v6, 0x8
+    const/16 v3, 0x8
 
     const/4 v5, 0x0
 
@@ -997,12 +997,12 @@
     .line 311
     iget-object v0, p0, Lcom/android/internal/policy/impl/PatternUnlockScreen;->mStatusSep:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 312
     iget-object v0, p0, Lcom/android/internal/policy/impl/PatternUnlockScreen;->mStatus2:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 370
     :goto_1
@@ -1030,13 +1030,13 @@
 
     sget v0, Lcom/android/internal/policy/impl/PatternUnlockScreen;->mBatteryInfoState:I
 
-    if-eq v0, v3, :cond_8
+    if-eq v0, v4, :cond_8
 
     .line 315
     :cond_2
     sget v0, Lcom/android/internal/policy/impl/PatternUnlockScreen;->mPlugedState:I
 
-    if-ne v0, v3, :cond_7
+    if-ne v0, v4, :cond_7
 
     .line 316
     sget v0, Lcom/android/internal/policy/impl/PatternUnlockScreen;->mBatteryInfoState:I
@@ -1064,7 +1064,7 @@
     :goto_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/PatternUnlockScreen;->mStatus1:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v8, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
+    invoke-virtual {v0, v7, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
     .line 332
     iget-object v0, p0, Lcom/android/internal/policy/impl/PatternUnlockScreen;->mStatus1:Landroid/widget/TextView;
@@ -1074,12 +1074,12 @@
     .line 333
     iget-object v0, p0, Lcom/android/internal/policy/impl/PatternUnlockScreen;->mStatusSep:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 334
     iget-object v0, p0, Lcom/android/internal/policy/impl/PatternUnlockScreen;->mStatus2:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto :goto_1
 
@@ -1112,7 +1112,7 @@
     :cond_4
     iget v0, p0, Lcom/android/internal/policy/impl/PatternUnlockScreen;->mBatteryLevel:I
 
-    if-lt v0, v7, :cond_6
+    if-lt v0, v6, :cond_6
 
     const/16 v0, 0x63
 
@@ -1128,17 +1128,7 @@
 
     const v2, 0x1040317
 
-    new-array v3, v3, [Ljava/lang/Object;
-
-    iget v4, p0, Lcom/android/internal/policy/impl/PatternUnlockScreen;->mBatteryLevel:I
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    aput-object v4, v3, v5
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -1152,7 +1142,7 @@
 
     if-gtz v0, :cond_5
 
-    goto/16 :goto_1
+    goto :goto_1
 
     .line 328
     :cond_7
@@ -1204,12 +1194,12 @@
     .line 342
     iget-object v0, p0, Lcom/android/internal/policy/impl/PatternUnlockScreen;->mStatusSep:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 343
     iget-object v0, p0, Lcom/android/internal/policy/impl/PatternUnlockScreen;->mStatus2:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto/16 :goto_1
 
@@ -1246,11 +1236,11 @@
 
     const v2, 0x1040319
 
-    new-array v3, v3, [Ljava/lang/Object;
+    new-array v3, v4, [Ljava/lang/Object;
 
     iget v4, p0, Lcom/android/internal/policy/impl/PatternUnlockScreen;->mBatteryLevel:I
 
-    invoke-static {v7, v4}, Ljava/lang/Math;->min(II)I
+    invoke-static {v6, v4}, Ljava/lang/Math;->min(II)I
 
     move-result v4
 
@@ -1281,7 +1271,7 @@
     .line 353
     iget-object v0, p0, Lcom/android/internal/policy/impl/PatternUnlockScreen;->mStatus2:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v8, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
+    invoke-virtual {v0, v7, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
     .line 358
     :goto_3
@@ -1332,12 +1322,12 @@
     .line 367
     iget-object v0, p0, Lcom/android/internal/policy/impl/PatternUnlockScreen;->mStatusSep:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 368
     iget-object v0, p0, Lcom/android/internal/policy/impl/PatternUnlockScreen;->mStatus2:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto/16 :goto_1
 .end method

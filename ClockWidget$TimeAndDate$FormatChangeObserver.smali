@@ -38,31 +38,31 @@
     .parameter "clock"
 
     .prologue
-    .line 552
+    .line 554
     iput-object p1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$FormatChangeObserver;->this$0:Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;
 
-    .line 553
+    .line 555
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 554
+    .line 556
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$FormatChangeObserver;->mClock:Ljava/lang/ref/WeakReference;
 
-    .line 555
+    .line 557
     invoke-virtual {p2}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$FormatChangeObserver;->mContext:Landroid/content/Context;
 
-    .line 556
+    .line 558
     return-void
 .end method
 
@@ -73,7 +73,7 @@
     .parameter "selfChange"
 
     .prologue
-    .line 560
+    .line 562
     iget-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$FormatChangeObserver;->mClock:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -82,19 +82,19 @@
 
     check-cast v0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;
 
-    .line 561
+    .line 563
     .local v0, digitalClock:Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;
     if-eqz v0, :cond_0
 
-    .line 562
+    .line 564
     #calls: Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->refreshTimeAndDate()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->access$400(Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;)V
 
-    .line 570
+    .line 572
     :goto_0
     return-void
 
-    .line 565
+    .line 567
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$FormatChangeObserver;->mContext:Landroid/content/Context;
@@ -109,7 +109,7 @@
 
     goto :goto_0
 
-    .line 566
+    .line 568
     :catch_0
     move-exception v1
 

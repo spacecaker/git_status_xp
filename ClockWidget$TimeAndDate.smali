@@ -52,20 +52,20 @@
     .parameter "attrs"
 
     .prologue
-    .line 574
+    .line 576
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 493
+    .line 495
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mHandler:Landroid/os/Handler;
 
-    .line 575
+    .line 577
     iput-object p1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mContext:Landroid/content/Context;
 
-    .line 576
+    .line 578
     return-void
 .end method
 
@@ -74,7 +74,7 @@
     .parameter "x0"
 
     .prologue
-    .line 491
+    .line 493
     iget-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mHandler:Landroid/os/Handler;
 
     return-object v0
@@ -86,7 +86,7 @@
     .parameter "x1"
 
     .prologue
-    .line 491
+    .line 493
     iput-object p1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mCalendar:Ljava/util/Calendar;
 
     return-object p1
@@ -97,7 +97,7 @@
     .parameter "x0"
 
     .prologue
-    .line 491
+    .line 493
     invoke-direct {p0}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->refreshTimeAndDate()V
 
     return-void
@@ -113,14 +113,14 @@
 
     const/4 v6, 0x0
 
-    .line 666
+    .line 668
     const/16 v4, 0xa
 
     new-array v3, v4, [I
 
     fill-array-data v3, :array_0
 
-    .line 674
+    .line 676
     .local v3, unlock_clock_drawables:[I
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -128,7 +128,7 @@
 
     new-array v0, v4, [I
 
-    .line 675
+    .line 677
     .local v0, choiceHourNumber:[I
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
@@ -136,7 +136,7 @@
 
     new-array v1, v4, [I
 
-    .line 676
+    .line 678
     .local v1, choiceMinNumber:[I
     const/4 v2, 0x0
 
@@ -148,7 +148,7 @@
 
     if-ge v2, v4, :cond_0
 
-    .line 677
+    .line 679
     invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v4
@@ -163,12 +163,12 @@
 
     aput v4, v0, v2
 
-    .line 676
+    .line 678
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 679
+    .line 681
     :cond_0
     const/4 v2, 0x0
 
@@ -179,7 +179,7 @@
 
     if-ge v2, v4, :cond_1
 
-    .line 680
+    .line 682
     invoke-virtual {p2, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v4
@@ -194,25 +194,25 @@
 
     aput v4, v1, v2
 
-    .line 679
+    .line 681
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 684
+    .line 686
     :cond_1
     aget v4, v0, v6
 
     if-ne v4, v7, :cond_2
 
-    .line 685
+    .line 687
     iget-object v4, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mHour01:Landroid/widget/ImageView;
 
     const v5, 0x10803f6
 
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 689
+    .line 691
     :goto_2
     iget-object v4, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mHour02:Landroid/widget/ImageView;
 
@@ -222,7 +222,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 690
+    .line 692
     iget-object v4, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mMin01:Landroid/widget/ImageView;
 
     aget v5, v1, v6
@@ -231,7 +231,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 691
+    .line 693
     iget-object v4, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mMin02:Landroid/widget/ImageView;
 
     aget v5, v1, v7
@@ -240,10 +240,10 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 692
+    .line 694
     return-void
 
-    .line 687
+    .line 689
     :cond_2
     iget-object v4, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mHour01:Landroid/widget/ImageView;
 
@@ -255,7 +255,7 @@
 
     goto :goto_2
 
-    .line 666
+    .line 668
     nop
 
     :array_0
@@ -279,16 +279,16 @@
     .prologue
     const/4 v8, 0x1
 
-    .line 634
+    .line 636
     iget-object v5, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mHandler:Landroid/os/Handler;
 
     if-nez v5, :cond_0
 
-    .line 663
+    .line 665
     :goto_0
     return-void
 
-    .line 638
+    .line 640
     :cond_0
     iget-object v5, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mCalendar:Ljava/util/Calendar;
 
@@ -298,7 +298,7 @@
 
     invoke-virtual {v5, v6, v7}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
-    .line 641
+    .line 643
     iget-object v5, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mContext:Landroid/content/Context;
 
     invoke-static {v5}, Landroid/text/format/DateFormat;->is24HourFormat(Landroid/content/Context;)Z
@@ -315,7 +315,7 @@
 
     move-object v1, v5
 
-    .line 643
+    .line 645
     .local v1, hourFormat:Ljava/text/SimpleDateFormat;
     :goto_1
     iget-object v5, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mCalendar:Ljava/util/Calendar;
@@ -328,7 +328,7 @@
 
     move-result-object v2
 
-    .line 645
+    .line 647
     .local v2, hourString:Ljava/lang/String;
     new-instance v4, Ljava/text/SimpleDateFormat;
 
@@ -336,7 +336,7 @@
 
     invoke-direct {v4, v5}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
 
-    .line 646
+    .line 648
     .local v4, minuteFormat:Ljava/text/SimpleDateFormat;
     iget-object v5, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mCalendar:Ljava/util/Calendar;
 
@@ -348,11 +348,11 @@
 
     move-result-object v3
 
-    .line 648
+    .line 650
     .local v3, minString:Ljava/lang/String;
     invoke-direct {p0, v2, v3}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->convertTimeToImage(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 651
+    .line 653
     iget-object v5, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mAM:Landroid/widget/TextView;
 
     iget-object v6, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mContext:Landroid/content/Context;
@@ -368,7 +368,7 @@
     :goto_2
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 652
+    .line 654
     iget-object v5, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mCalendar:Ljava/util/Calendar;
 
     const/16 v6, 0x9
@@ -379,7 +379,7 @@
 
     if-nez v5, :cond_4
 
-    .line 653
+    .line 655
     iget-object v5, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mAM:Landroid/widget/TextView;
 
     iget-object v6, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mContext:Landroid/content/Context;
@@ -396,7 +396,7 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 659
+    .line 661
     :goto_3
     iget-object v5, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mContext:Landroid/content/Context;
 
@@ -406,7 +406,7 @@
 
     move-result-object v0
 
-    .line 660
+    .line 662
     .local v0, dateFormat:Ljava/lang/String;
     const-string v5, "GT-S5830"
 
@@ -418,7 +418,7 @@
 
     if-eqz v5, :cond_1
 
-    .line 661
+    .line 663
     iget-object v5, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mContext:Landroid/content/Context;
 
     const v6, 0x10400a9
@@ -427,7 +427,7 @@
 
     move-result-object v0
 
-    .line 662
+    .line 664
     :cond_1
     iget-object v5, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mDate_Month:Landroid/widget/TextView;
 
@@ -441,7 +441,7 @@
 
     goto/16 :goto_0
 
-    .line 641
+    .line 643
     .end local v0           #dateFormat:Ljava/lang/String;
     .end local v1           #hourFormat:Ljava/text/SimpleDateFormat;
     .end local v2           #hourString:Ljava/lang/String;
@@ -458,7 +458,7 @@
 
     goto :goto_1
 
-    .line 651
+    .line 653
     .restart local v1       #hourFormat:Ljava/text/SimpleDateFormat;
     .restart local v2       #hourString:Ljava/lang/String;
     .restart local v3       #minString:Ljava/lang/String;
@@ -468,7 +468,7 @@
 
     goto :goto_2
 
-    .line 655
+    .line 657
     :cond_4
     iget-object v5, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mAM:Landroid/widget/TextView;
 
@@ -503,10 +503,10 @@
 
     const-string v9, "mm"
 
-    .line 696
+    .line 698
     const-string v0, ""
 
-    .line 698
+    .line 700
     .local v0, TTSMessage:Ljava/lang/String;
     iget-object v6, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mContext:Landroid/content/Context;
 
@@ -516,7 +516,7 @@
 
     move-result-object v1
 
-    .line 699
+    .line 701
     .local v1, dateFormat:Ljava/lang/String;
     const-string v6, "GT-S5830"
 
@@ -528,7 +528,7 @@
 
     if-eqz v6, :cond_0
 
-    .line 700
+    .line 702
     iget-object v6, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mContext:Landroid/content/Context;
 
     const v7, 0x10400a9
@@ -537,7 +537,7 @@
 
     move-result-object v1
 
-    .line 701
+    .line 703
     :cond_0
     iget-object v6, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mCalendar:Ljava/util/Calendar;
 
@@ -545,11 +545,11 @@
 
     move-result-object v2
 
-    .line 703
+    .line 705
     .local v2, dateText:Ljava/lang/CharSequence;
     const/4 v5, 0x0
 
-    .line 704
+    .line 706
     .local v5, timeText:Ljava/lang/String;
     iget-object v6, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mContext:Landroid/content/Context;
 
@@ -559,7 +559,7 @@
 
     if-eqz v6, :cond_1
 
-    .line 705
+    .line 707
     new-instance v6, Ljava/text/SimpleDateFormat;
 
     const-string v7, "HH"
@@ -576,7 +576,7 @@
 
     move-result-object v3
 
-    .line 706
+    .line 708
     .local v3, hourText:Ljava/lang/String;
     new-instance v6, Ljava/text/SimpleDateFormat;
 
@@ -594,7 +594,7 @@
 
     move-result-object v4
 
-    .line 707
+    .line 709
     .local v4, minuteText:Ljava/lang/String;
     iget-object v6, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mContext:Landroid/content/Context;
 
@@ -618,14 +618,14 @@
 
     move-result-object v5
 
-    .line 720
+    .line 722
     :goto_0
     move-object v0, v5
 
-    .line 723
+    .line 725
     return-object v0
 
-    .line 710
+    .line 712
     .end local v3           #hourText:Ljava/lang/String;
     .end local v4           #minuteText:Ljava/lang/String;
     :cond_1
@@ -645,7 +645,7 @@
 
     move-result-object v3
 
-    .line 711
+    .line 713
     .restart local v3       #hourText:Ljava/lang/String;
     new-instance v6, Ljava/text/SimpleDateFormat;
 
@@ -663,7 +663,7 @@
 
     move-result-object v4
 
-    .line 712
+    .line 714
     .restart local v4       #minuteText:Ljava/lang/String;
     iget-object v6, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mCalendar:Ljava/util/Calendar;
 
@@ -675,7 +675,7 @@
 
     if-nez v6, :cond_2
 
-    .line 713
+    .line 715
     iget-object v6, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mContext:Landroid/content/Context;
 
     const v7, 0x1040469
@@ -700,7 +700,7 @@
 
     goto :goto_0
 
-    .line 715
+    .line 717
     :cond_2
     iget-object v6, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mContext:Landroid/content/Context;
 
@@ -731,64 +731,64 @@
     .locals 5
 
     .prologue
-    .line 580
+    .line 582
     invoke-super {p0}, Landroid/widget/LinearLayout;->onAttachedToWindow()V
 
-    .line 583
+    .line 585
     iget-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
     if-nez v1, :cond_0
 
-    .line 584
+    .line 586
     new-instance v1, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$TimeChangedReceiver;
 
     invoke-direct {v1, p0, p0}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$TimeChangedReceiver;-><init>(Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;)V
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 585
+    .line 587
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 586
+    .line 588
     .local v0, filter:Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.TIME_TICK"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 587
+    .line 589
     const-string v1, "android.intent.action.TIME_SET"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 588
+    .line 590
     const-string v1, "android.intent.action.TIMEZONE_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 589
+    .line 591
     iget-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 593
+    .line 595
     .end local v0           #filter:Landroid/content/IntentFilter;
     :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mFormatChangeObserver:Landroid/database/ContentObserver;
 
     if-nez v1, :cond_1
 
-    .line 594
+    .line 596
     new-instance v1, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$FormatChangeObserver;
 
     invoke-direct {v1, p0, p0}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$FormatChangeObserver;-><init>(Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;)V
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mFormatChangeObserver:Landroid/database/ContentObserver;
 
-    .line 595
+    .line 597
     iget-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -803,11 +803,11 @@
 
     invoke-virtual {v1, v2, v3, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 599
+    .line 601
     :cond_1
     invoke-direct {p0}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->refreshTimeAndDate()V
 
-    .line 600
+    .line 602
     return-void
 .end method
 
@@ -817,28 +817,28 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 604
+    .line 606
     invoke-super {p0}, Landroid/widget/LinearLayout;->onDetachedFromWindow()V
 
-    .line 605
+    .line 607
     iget-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
     if-eqz v0, :cond_0
 
-    .line 606
+    .line 608
     iget-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 608
+    .line 610
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mFormatChangeObserver:Landroid/database/ContentObserver;
 
     if-eqz v0, :cond_1
 
-    .line 609
+    .line 611
     iget-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -849,32 +849,32 @@
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 611
+    .line 613
     :cond_1
     iput-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mHandler:Landroid/os/Handler;
 
-    .line 612
+    .line 614
     iput-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mAM:Landroid/widget/TextView;
 
-    .line 613
+    .line 615
     iput-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mDate_Month:Landroid/widget/TextView;
 
-    .line 614
+    .line 616
     iput-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mHour01:Landroid/widget/ImageView;
 
-    .line 615
+    .line 617
     iput-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mHour02:Landroid/widget/ImageView;
 
-    .line 616
+    .line 618
     iput-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mMin01:Landroid/widget/ImageView;
 
-    .line 617
+    .line 619
     iput-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mMin02:Landroid/widget/ImageView;
 
-    .line 618
+    .line 620
     iput-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mCalendar:Ljava/util/Calendar;
 
-    .line 619
+    .line 621
     return-void
 .end method
 
@@ -882,10 +882,10 @@
     .locals 1
 
     .prologue
-    .line 623
+    .line 625
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    .line 624
+    .line 626
     const v0, 0x1020267
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->findViewById(I)Landroid/view/View;
@@ -896,7 +896,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mHour01:Landroid/widget/ImageView;
 
-    .line 625
+    .line 627
     const v0, 0x1020268
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->findViewById(I)Landroid/view/View;
@@ -907,7 +907,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mHour02:Landroid/widget/ImageView;
 
-    .line 626
+    .line 628
     const v0, 0x102026a
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->findViewById(I)Landroid/view/View;
@@ -918,7 +918,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mMin01:Landroid/widget/ImageView;
 
-    .line 627
+    .line 629
     const v0, 0x102026b
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->findViewById(I)Landroid/view/View;
@@ -929,7 +929,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mMin02:Landroid/widget/ImageView;
 
-    .line 628
+    .line 630
     const v0, 0x102026c
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->findViewById(I)Landroid/view/View;
@@ -940,7 +940,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mAM:Landroid/widget/TextView;
 
-    .line 629
+    .line 631
     const v0, 0x102026d
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->findViewById(I)Landroid/view/View;
@@ -951,13 +951,13 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mDate_Month:Landroid/widget/TextView;
 
-    .line 630
+    .line 632
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mCalendar:Ljava/util/Calendar;
 
-    .line 631
+    .line 633
     return-void
 .end method

@@ -38,26 +38,26 @@
     .parameter "clock"
 
     .prologue
-    .line 511
+    .line 513
     iput-object p1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$TimeChangedReceiver;->this$0:Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
-    .line 512
+    .line 514
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$TimeChangedReceiver;->mClock:Ljava/lang/ref/WeakReference;
 
-    .line 513
+    .line 515
     invoke-virtual {p2}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$TimeChangedReceiver;->mContext:Landroid/content/Context;
 
-    .line 514
+    .line 516
     return-void
 .end method
 
@@ -69,7 +69,7 @@
     .parameter "intent"
 
     .prologue
-    .line 519
+    .line 521
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v3
@@ -80,11 +80,11 @@
 
     move-result v1
 
-    .line 521
+    .line 523
     .local v1, timezoneChanged:Z
     move-object v2, p2
 
-    .line 522
+    .line 524
     .local v2, tmpIntent:Landroid/content/Intent;
     iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$TimeChangedReceiver;->mClock:Ljava/lang/ref/WeakReference;
 
@@ -94,11 +94,11 @@
 
     check-cast v0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;
 
-    .line 523
+    .line 525
     .local v0, clock:Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;
     if-eqz v0, :cond_1
 
-    .line 524
+    .line 526
     iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$TimeChangedReceiver;->this$0:Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;
 
     #getter for: Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mHandler:Landroid/os/Handler;
@@ -108,11 +108,11 @@
 
     if-nez v3, :cond_0
 
-    .line 544
+    .line 546
     :goto_0
     return-void
 
-    .line 525
+    .line 527
     :cond_0
     #getter for: Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->access$200(Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;)Landroid/os/Handler;
@@ -127,7 +127,7 @@
 
     goto :goto_0
 
-    .line 539
+    .line 541
     :cond_1
     :try_start_0
     iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$TimeChangedReceiver;->mContext:Landroid/content/Context;
@@ -138,7 +138,7 @@
 
     goto :goto_0
 
-    .line 540
+    .line 542
     :catch_0
     move-exception v3
 

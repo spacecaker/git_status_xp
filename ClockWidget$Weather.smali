@@ -73,82 +73,82 @@
 
     const/4 v1, 0x0
 
-    .line 229
+    .line 231
     invoke-direct {p0, p1, p2}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 195
+    .line 197
     const-string v0, "com.sec.android.widgetapp.accuweatherdaemon.action.CHANGE_SETTING"
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->ACTION_WEATHER_SETTING_CHANGED:Ljava/lang/String;
 
-    .line 196
+    .line 198
     const-string v0, "com.sec.android.widgetapp.accuweatherdaemon.action.WEATHER_DATE_SYNC"
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->ACTION_WEATHER_DATE_SYNC:Ljava/lang/String;
 
-    .line 199
+    .line 201
     const-string v0, "aw_daemon_service_key_app_service_status"
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->KEY_APP_SERVICE_STATUS:Ljava/lang/String;
 
-    .line 200
+    .line 202
     const-string v0, "aw_daemon_service_key_loc_code"
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->KEY_CITY_ID:Ljava/lang/String;
 
-    .line 201
+    .line 203
     const-string v0, "aw_daemon_service_key_current_temp"
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->KEY_CURRENT_TEMP:Ljava/lang/String;
 
-    .line 202
+    .line 204
     const-string v0, "aw_daemon_service_key_temp_scale"
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->KEY_TEMP_SCALE:Ljava/lang/String;
 
-    .line 203
+    .line 205
     const-string v0, "aw_daemon_service_key_icon_num"
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->KEY_ICON_NUM:Ljava/lang/String;
 
-    .line 204
+    .line 206
     const-string v0, "aw_daemon_service_key_city_name"
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->KEY_CITY_NAME:Ljava/lang/String;
 
-    .line 207
+    .line 209
     iput v2, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->LOCK_SCREEN_SERVICE_CODE:I
 
-    .line 210
+    .line 212
     const/16 v0, 0x12c0
 
     iput v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->MSG_WEATHER_SETTING_CHANGED:I
 
-    .line 211
+    .line 213
     const/16 v0, 0x12c1
 
     iput v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->MSG_WEATHER_DATA_UPDATED:I
 
-    .line 214
+    .line 216
     iput v1, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->TEMP_SCALE_FAHRENHEIT:I
 
-    .line 215
+    .line 217
     iput v2, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->TEMP_SCALE_CENTIGRADE:I
 
-    .line 218
+    .line 220
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mIsWeatherDateAvailable:Z
 
-    .line 231
+    .line 233
     iput-object p1, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mContext:Landroid/content/Context;
 
-    .line 233
+    .line 235
     new-instance v0, Lcom/android/internal/policy/impl/ClockWidget$Weather$1;
 
     invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/ClockWidget$Weather$1;-><init>(Lcom/android/internal/policy/impl/ClockWidget$Weather;)V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mHandler:Landroid/os/Handler;
 
-    .line 245
+    .line 247
     return-void
 .end method
 
@@ -157,7 +157,7 @@
     .parameter "x0"
 
     .prologue
-    .line 189
+    .line 191
     iget-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mHandler:Landroid/os/Handler;
 
     return-object v0
@@ -170,129 +170,129 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 396
+    .line 398
     packed-switch p1, :pswitch_data_0
 
-    .line 458
+    .line 460
     :goto_0
     :pswitch_0
     return v0
 
-    .line 403
+    .line 405
     :pswitch_1
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 407
+    .line 409
     :pswitch_2
     const/4 v0, 0x2
 
     goto :goto_0
 
-    .line 409
+    .line 411
     :pswitch_3
     const/4 v0, 0x3
 
     goto :goto_0
 
-    .line 414
+    .line 416
     :pswitch_4
     const/4 v0, 0x4
 
     goto :goto_0
 
-    .line 416
+    .line 418
     :pswitch_5
     const/4 v0, 0x5
 
     goto :goto_0
 
-    .line 420
+    .line 422
     :pswitch_6
     const/4 v0, 0x6
 
     goto :goto_0
 
-    .line 423
+    .line 425
     :pswitch_7
     const/4 v0, 0x7
 
     goto :goto_0
 
-    .line 425
+    .line 427
     :pswitch_8
     const/16 v0, 0x8
 
     goto :goto_0
 
-    .line 428
+    .line 430
     :pswitch_9
     const/16 v0, 0x9
 
     goto :goto_0
 
-    .line 431
+    .line 433
     :pswitch_a
     const/16 v0, 0xa
 
     goto :goto_0
 
-    .line 435
+    .line 437
     :pswitch_b
     const/16 v0, 0xb
 
     goto :goto_0
 
-    .line 439
+    .line 441
     :pswitch_c
     const/16 v0, 0xc
 
     goto :goto_0
 
-    .line 441
+    .line 443
     :pswitch_d
     const/16 v0, 0xd
 
     goto :goto_0
 
-    .line 443
+    .line 445
     :pswitch_e
     const/16 v0, 0xe
 
     goto :goto_0
 
-    .line 445
+    .line 447
     :pswitch_f
     const/16 v0, 0xf
 
     goto :goto_0
 
-    .line 447
+    .line 449
     :pswitch_10
     const/16 v0, 0x10
 
     goto :goto_0
 
-    .line 449
+    .line 451
     :pswitch_11
     const/16 v0, 0x11
 
     goto :goto_0
 
-    .line 454
+    .line 456
     :pswitch_12
     const/16 v0, 0x12
 
     goto :goto_0
 
-    .line 456
+    .line 458
     :pswitch_13
     const/16 v0, 0x13
 
     goto :goto_0
 
-    .line 396
+    .line 398
     nop
 
     :pswitch_data_0
@@ -349,20 +349,20 @@
     .parameter "iconNum"
 
     .prologue
-    .line 379
+    .line 381
     const/16 v2, 0x15
 
     new-array v1, v2, [I
 
     fill-array-data v1, :array_0
 
-    .line 391
+    .line 393
     .local v1, unlock_weather_drawables:[I
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->findDrawableId(I)I
 
     move-result v0
 
-    .line 392
+    .line 394
     .local v0, i:I
     iget-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherIcon:Landroid/widget/ImageView;
 
@@ -370,10 +370,10 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 393
+    .line 395
     return-void
 
-    .line 379
+    .line 381
     nop
 
     :array_0
@@ -416,10 +416,10 @@
 
     const-string v11, " "
 
-    .line 464
+    .line 466
     const-string v0, ""
 
-    .line 466
+    .line 468
     .local v0, TTSMessage:Ljava/lang/String;
     iget-boolean v6, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mIsWeatherDateAvailable:Z
 
@@ -427,13 +427,13 @@
 
     move-object v1, v0
 
-    .line 482
+    .line 484
     .end local v0           #TTSMessage:Ljava/lang/String;
     .local v1, TTSMessage:Ljava/lang/String;
     :goto_0
     return-object v1
 
-    .line 469
+    .line 471
     .end local v1           #TTSMessage:Ljava/lang/String;
     .restart local v0       #TTSMessage:Ljava/lang/String;
     :cond_0
@@ -453,7 +453,7 @@
 
     move v5, v9
 
-    .line 470
+    .line 472
     .local v5, isCelsius:Z
     :goto_1
     iget-object v6, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mContext:Landroid/content/Context;
@@ -470,7 +470,7 @@
 
     move-result v4
 
-    .line 471
+    .line 473
     .local v4, currentTemp:F
     iget-object v6, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mContext:Landroid/content/Context;
 
@@ -484,11 +484,11 @@
 
     move-result-object v3
 
-    .line 474
+    .line 476
     .local v3, TtsWeather:Ljava/lang/String;
     if-eqz v5, :cond_2
 
-    .line 475
+    .line 477
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -525,7 +525,7 @@
 
     move-result-object v2
 
-    .line 479
+    .line 481
     .local v2, TtsDegreeText:Ljava/lang/String;
     :goto_2
     new-instance v6, Ljava/lang/StringBuilder;
@@ -556,7 +556,7 @@
 
     move-object v1, v0
 
-    .line 482
+    .line 484
     .end local v0           #TTSMessage:Ljava/lang/String;
     .restart local v1       #TTSMessage:Ljava/lang/String;
     goto :goto_0
@@ -570,10 +570,10 @@
     :cond_1
     move v5, v8
 
-    .line 469
+    .line 471
     goto :goto_1
 
-    .line 477
+    .line 479
     .restart local v3       #TtsWeather:Ljava/lang/String;
     .restart local v4       #currentTemp:F
     .restart local v5       #isCelsius:Z
@@ -622,50 +622,50 @@
     .locals 3
 
     .prologue
-    .line 249
+    .line 251
     invoke-super {p0}, Landroid/widget/RelativeLayout;->onAttachedToWindow()V
 
-    .line 252
+    .line 254
     iget-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     if-nez v1, :cond_0
 
-    .line 254
+    .line 256
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 255
+    .line 257
     .local v0, filter:Landroid/content/IntentFilter;
     const-string v1, "com.sec.android.widgetapp.accuweatherdaemon.action.CHANGE_SETTING"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 256
+    .line 258
     const-string v1, "com.sec.android.widgetapp.accuweatherdaemon.action.WEATHER_DATE_SYNC"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 259
+    .line 261
     new-instance v1, Lcom/android/internal/policy/impl/ClockWidget$Weather$2;
 
     invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/ClockWidget$Weather$2;-><init>(Lcom/android/internal/policy/impl/ClockWidget$Weather;)V
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 272
+    .line 274
     iget-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 276
+    .line 278
     .end local v0           #filter:Landroid/content/IntentFilter;
     :cond_0
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->updateWeatherInfo()V
 
-    .line 277
+    .line 279
     return-void
 .end method
 
@@ -675,44 +675,44 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 281
+    .line 283
     invoke-super {p0}, Landroid/widget/RelativeLayout;->onDetachedFromWindow()V
 
-    .line 285
+    .line 287
     iget-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     if-eqz v0, :cond_0
 
-    .line 286
+    .line 288
     iget-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 287
+    .line 289
     iput-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 288
+    .line 290
     iput-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mHandler:Landroid/os/Handler;
 
-    .line 291
+    .line 293
     :cond_0
     iput-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mNoServiceText:Landroid/widget/TextView;
 
-    .line 292
+    .line 294
     iput-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherDataBox:Landroid/widget/RelativeLayout;
 
-    .line 293
+    .line 295
     iput-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherCity:Landroid/widget/TextView;
 
-    .line 294
+    .line 296
     iput-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherTemperature:Landroid/widget/TextView;
 
-    .line 295
+    .line 297
     iput-object v2, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherIcon:Landroid/widget/ImageView;
 
-    .line 296
+    .line 298
     return-void
 .end method
 
@@ -720,10 +720,10 @@
     .locals 2
 
     .prologue
-    .line 300
+    .line 302
     invoke-super {p0}, Landroid/widget/RelativeLayout;->onFinishInflate()V
 
-    .line 301
+    .line 303
     const v0, 0x102026f
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->findViewById(I)Landroid/view/View;
@@ -734,14 +734,14 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mNoServiceText:Landroid/widget/TextView;
 
-    .line 302
+    .line 304
     iget-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mNoServiceText:Landroid/widget/TextView;
 
     const v1, 0x1040467
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 303
+    .line 305
     const v0, 0x1020270
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->findViewById(I)Landroid/view/View;
@@ -752,7 +752,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherDataBox:Landroid/widget/RelativeLayout;
 
-    .line 304
+    .line 306
     const v0, 0x1020272
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->findViewById(I)Landroid/view/View;
@@ -763,7 +763,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherCity:Landroid/widget/TextView;
 
-    .line 305
+    .line 307
     const v0, 0x1020273
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->findViewById(I)Landroid/view/View;
@@ -774,7 +774,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherTemperature:Landroid/widget/TextView;
 
-    .line 306
+    .line 308
     const v0, 0x1020274
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->findViewById(I)Landroid/view/View;
@@ -785,7 +785,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherIcon:Landroid/widget/ImageView;
 
-    .line 307
+    .line 309
     return-void
 .end method
 
@@ -803,16 +803,16 @@
 
     const-string v13, "ClockWidget"
 
-    .line 313
+    .line 315
     iget-object v8, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mHandler:Landroid/os/Handler;
 
     if-nez v8, :cond_0
 
-    .line 371
+    .line 373
     :goto_0
     return-void
 
-    .line 317
+    .line 319
     :cond_0
     iget-object v8, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mContext:Landroid/content/Context;
 
@@ -826,7 +826,7 @@
 
     move-result v5
 
-    .line 318
+    .line 320
     .local v5, mAppServiceStatus:I
     and-int/lit8 v8, v5, 0x1
 
@@ -834,7 +834,7 @@
 
     move v4, v12
 
-    .line 320
+    .line 322
     .local v4, isServiceEnable:Z
     :goto_1
     iget-object v8, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mContext:Landroid/content/Context;
@@ -849,7 +849,7 @@
 
     move-result-object v0
 
-    .line 321
+    .line 323
     .local v0, cityId:Ljava/lang/String;
     const-string v8, "ClockWidget"
 
@@ -883,7 +883,7 @@
 
     invoke-static {v13, v8}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 324
+    .line 326
     if-eqz v4, :cond_3
 
     if-eqz v0, :cond_3
@@ -894,30 +894,30 @@
 
     if-nez v8, :cond_3
 
-    .line 325
+    .line 327
     const-string v8, "ClockWidget"
 
     const-string v8, "Weather Demon is running, And data is ready"
 
     invoke-static {v13, v8}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 326
+    .line 328
     invoke-virtual {p0, v11}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->setVisibility(I)V
 
-    .line 327
+    .line 329
     iget-object v8, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mNoServiceText:Landroid/widget/TextView;
 
     invoke-virtual {v8, v10}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 328
+    .line 330
     iget-object v8, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherDataBox:Landroid/widget/RelativeLayout;
 
     invoke-virtual {v8, v11}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
-    .line 329
+    .line 331
     iput-boolean v12, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mIsWeatherDateAvailable:Z
 
-    .line 345
+    .line 347
     iget-object v8, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mContext:Landroid/content/Context;
 
     invoke-virtual {v8}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -932,7 +932,7 @@
 
     move-result v2
 
-    .line 346
+    .line 348
     .local v2, currentTemp:F
     iget-object v8, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mContext:Landroid/content/Context;
 
@@ -946,7 +946,7 @@
 
     move-result v6
 
-    .line 347
+    .line 349
     .local v6, tempScale:I
     iget-object v8, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mContext:Landroid/content/Context;
 
@@ -960,7 +960,7 @@
 
     move-result v3
 
-    .line 348
+    .line 350
     .local v3, iconNum:I
     iget-object v8, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mContext:Landroid/content/Context;
 
@@ -974,7 +974,7 @@
 
     move-result-object v1
 
-    .line 350
+    .line 352
     .local v1, cityName:Ljava/lang/String;
     const-string v8, "ClockWidget"
 
@@ -1028,20 +1028,20 @@
 
     invoke-static {v13, v8}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 354
+    .line 356
     iget-object v8, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherCity:Landroid/widget/TextView;
 
     invoke-virtual {v8, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 355
+    .line 357
     iget-object v8, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherCity:Landroid/widget/TextView;
 
     invoke-virtual {v8, v12}, Landroid/widget/TextView;->setSelected(Z)V
 
-    .line 358
+    .line 360
     if-ne v6, v12, :cond_6
 
-    .line 359
+    .line 361
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->getContext()Landroid/content/Context;
 
     move-result-object v8
@@ -1058,27 +1058,27 @@
 
     iput-object v8, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mTemperatureUnit:Landroid/graphics/drawable/Drawable;
 
-    .line 365
+    .line 367
     :cond_1
     :goto_2
     invoke-static {v2}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
 
     move-result-object v7
 
-    .line 366
+    .line 368
     .local v7, text_currentTemp:Ljava/lang/String;
     iget-object v8, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherTemperature:Landroid/widget/TextView;
 
     invoke-virtual {v8, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 367
+    .line 369
     iget-object v8, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherTemperature:Landroid/widget/TextView;
 
     iget-object v9, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mTemperatureUnit:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v8, v14, v14, v9, v14}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    .line 370
+    .line 372
     invoke-direct {p0, v3}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->setWeatherIcon(I)V
 
     goto/16 :goto_0
@@ -1093,10 +1093,10 @@
     :cond_2
     move v4, v11
 
-    .line 318
+    .line 320
     goto/16 :goto_1
 
-    .line 330
+    .line 332
     .restart local v0       #cityId:Ljava/lang/String;
     .restart local v4       #isServiceEnable:Z
     :cond_3
@@ -1110,7 +1110,7 @@
 
     if-eqz v8, :cond_5
 
-    .line 331
+    .line 333
     :cond_4
     const-string v8, "ClockWidget"
 
@@ -1118,25 +1118,25 @@
 
     invoke-static {v13, v8}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 332
+    .line 334
     invoke-virtual {p0, v11}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->setVisibility(I)V
 
-    .line 333
+    .line 335
     iget-object v8, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mNoServiceText:Landroid/widget/TextView;
 
     invoke-virtual {v8, v11}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 334
+    .line 336
     iget-object v8, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mWeatherDataBox:Landroid/widget/RelativeLayout;
 
     invoke-virtual {v8, v10}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
-    .line 335
+    .line 337
     iput-boolean v11, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mIsWeatherDateAvailable:Z
 
     goto/16 :goto_0
 
-    .line 338
+    .line 340
     :cond_5
     const-string v8, "ClockWidget"
 
@@ -1144,15 +1144,15 @@
 
     invoke-static {v13, v8}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 339
+    .line 341
     invoke-virtual {p0, v10}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->setVisibility(I)V
 
-    .line 340
+    .line 342
     iput-boolean v11, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather;->mIsWeatherDateAvailable:Z
 
     goto/16 :goto_0
 
-    .line 360
+    .line 362
     .restart local v1       #cityName:Ljava/lang/String;
     .restart local v2       #currentTemp:F
     .restart local v3       #iconNum:I
@@ -1160,7 +1160,7 @@
     :cond_6
     if-nez v6, :cond_1
 
-    .line 361
+    .line 363
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->getContext()Landroid/content/Context;
 
     move-result-object v8

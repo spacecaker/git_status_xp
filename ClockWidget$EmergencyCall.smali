@@ -17,20 +17,36 @@
 # instance fields
 .field private mEmergencyCallText:Landroid/widget/TextView;
 
+.field private mPhoneStateListener:Landroid/telephony/PhoneStateListener;
+
+.field private mServiceState:I
+
 .field private mTelephonyManager:Landroid/telephony/TelephonyManager;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
     .prologue
-    .line 742
+    .line 744
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 743
+    .line 742
+    const/4 v0, 0x1
+
+    iput v0, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mServiceState:I
+
+    .line 745
+    new-instance v0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall$1;
+
+    invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall$1;-><init>(Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;)V
+
+    iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
+
+    .line 753
     return-void
 .end method
 
@@ -39,103 +55,36 @@
     .parameter "x0"
 
     .prologue
-    .line 735
+    .line 737
     iget-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
 
     return-object v0
 .end method
 
-.method static getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 2
-    .parameter "telephonyPlmn"
-    .parameter "telephonySpn"
+.method static synthetic access$502(Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;I)I
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
 
     .prologue
-    .line 817
-    if-eqz p0, :cond_0
+    .line 737
+    iput p1, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mServiceState:I
 
-    if-nez p1, :cond_0
-
-    move-object v0, p0
-
-    .line 827
-    :goto_0
-    return-object v0
-
-    .line 819
-    :cond_0
-    if-eqz p0, :cond_2
-
-    if-eqz p1, :cond_2
-
-    .line 820
-    invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    move-object v0, p0
-
-    .line 821
-    goto :goto_0
-
-    .line 823
-    :cond_1
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, "|"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    .line 824
-    :cond_2
-    if-nez p0, :cond_3
-
-    if-eqz p1, :cond_3
-
-    move-object v0, p1
-
-    .line 825
-    goto :goto_0
-
-    .line 827
-    :cond_3
-    const-string v0, ""
-
-    goto :goto_0
+    return p1
 .end method
 
 .method private getPermanentBlockString()Ljava/lang/String;
     .locals 4
 
     .prologue
-    .line 832
+    .line 862
     const-string v1, "ril.pin_mode"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 833
+    .line 863
     .local v0, lock_key:Ljava/lang/String;
     const-string v1, "2"
 
@@ -153,7 +102,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 834
+    .line 864
     :cond_0
     const-string v1, "ClockWidget"
 
@@ -179,7 +128,7 @@
 
     move-object v1, v0
 
-    .line 837
+    .line 867
     :goto_0
     return-object v1
 
@@ -191,17 +140,117 @@
 
 
 # virtual methods
+.method getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    .locals 2
+    .parameter "telephonyPlmn"
+    .parameter "telephonySpn"
+
+    .prologue
+    .line 844
+    if-eqz p1, :cond_0
+
+    if-nez p2, :cond_0
+
+    move-object v0, p1
+
+    .line 857
+    :goto_0
+    return-object v0
+
+    .line 846
+    :cond_0
+    if-eqz p1, :cond_2
+
+    if-eqz p2, :cond_2
+
+    .line 847
+    invoke-interface {p2}, Ljava/lang/CharSequence;->length()I
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    move-object v0, p1
+
+    .line 848
+    goto :goto_0
+
+    .line 850
+    :cond_1
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, "|"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    .line 851
+    :cond_2
+    if-nez p1, :cond_3
+
+    if-eqz p2, :cond_3
+
+    move-object v0, p2
+
+    .line 852
+    goto :goto_0
+
+    .line 854
+    :cond_3
+    invoke-static {}, Lcom/android/internal/policy/impl/SamsungLockScreenProperties;->isNoServiceDisplayWhenNoSIM()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    .line 855
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const v1, 0x104030d
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    .line 857
+    :cond_4
+    const-string v0, ""
+
+    goto :goto_0
+.end method
+
 .method protected onAttachedToWindow()V
     .locals 0
 
     .prologue
-    .line 747
+    .line 756
     invoke-super {p0}, Landroid/widget/LinearLayout;->onAttachedToWindow()V
 
-    .line 749
+    .line 758
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->updateText()V
 
-    .line 750
+    .line 759
     return-void
 .end method
 
@@ -209,26 +258,26 @@
     .locals 1
 
     .prologue
-    .line 754
+    .line 763
     invoke-super {p0}, Landroid/widget/LinearLayout;->onDetachedFromWindow()V
 
-    .line 756
+    .line 765
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
 
-    .line 757
+    .line 766
     return-void
 .end method
 
 .method protected onFinishInflate()V
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 761
+    .line 770
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    .line 762
+    .line 771
     const v0, 0x1020265
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->findViewById(I)Landroid/view/View;
@@ -239,7 +288,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
 
-    .line 763
+    .line 772
     iget-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mContext:Landroid/content/Context;
 
     const-string v1, "phone"
@@ -252,7 +301,16 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    .line 764
+    .line 773
+    iget-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    iget-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v1, v2}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
+
+    .line 774
     return-void
 .end method
 
@@ -264,20 +322,20 @@
 
     const/16 v8, 0x8
 
-    const/4 v5, 0x1
+    const/4 v7, 0x1
 
     const v6, 0x104031b
 
-    const-string v7, ". "
+    const-string v5, " | "
 
-    .line 768
+    .line 778
     iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
     invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSimState()I
 
     move-result v1
 
-    .line 771
+    .line 781
     .local v1, simState:I
     invoke-static {}, Lcom/android/internal/policy/impl/SamsungLockScreenProperties;->isPLMNEnable()Z
 
@@ -285,22 +343,22 @@
 
     if-eqz v3, :cond_1
 
-    .line 772
+    .line 782
     iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
 
     const/4 v4, 0x0
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 777
+    .line 787
     :goto_0
     const-string v0, "0"
 
-    .line 780
+    .line 791
     .local v0, lock_key:Ljava/lang/String;
-    if-ne v1, v5, :cond_2
+    if-ne v1, v7, :cond_2
 
-    invoke-static {}, Lcom/android/internal/policy/impl/ClockWidget;->access$500()Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+    invoke-static {}, Lcom/android/internal/policy/impl/ClockWidget;->access$600()Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     move-result-object v3
 
@@ -310,10 +368,10 @@
 
     if-nez v3, :cond_2
 
-    .line 781
+    .line 792
     iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
 
-    invoke-static {}, Lcom/android/internal/policy/impl/ClockWidget;->access$500()Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+    invoke-static {}, Lcom/android/internal/policy/impl/ClockWidget;->access$600()Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     move-result-object v4
 
@@ -329,18 +387,18 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v4, v5}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     move-result-object v4
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 813
+    .line 840
     :cond_0
     :goto_1
     return-void
 
-    .line 774
+    .line 784
     .end local v0           #lock_key:Ljava/lang/String;
     :cond_1
     iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
@@ -349,7 +407,7 @@
 
     goto :goto_0
 
-    .line 783
+    .line 794
     .restart local v0       #lock_key:Ljava/lang/String;
     :cond_2
     const-string v3, "0"
@@ -360,7 +418,7 @@
 
     if-nez v3, :cond_4
 
-    .line 784
+    .line 795
     const-string v3, "2"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -369,7 +427,7 @@
 
     if-eqz v3, :cond_3
 
-    .line 785
+    .line 796
     iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -390,7 +448,7 @@
 
     const-string v5, ". "
 
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -414,7 +472,7 @@
 
     goto :goto_1
 
-    .line 786
+    .line 797
     :cond_3
     const-string v3, "3"
 
@@ -424,7 +482,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 787
+    .line 798
     iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -445,7 +503,7 @@
 
     const-string v5, ". "
 
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -469,28 +527,83 @@
 
     goto :goto_1
 
-    .line 790
+    .line 801
     :cond_4
-    if-ne v1, v5, :cond_5
+    if-ne v1, v7, :cond_6
 
-    .line 791
+    .line 802
+    iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 804
+    .local v2, str:Ljava/lang/String;
+    invoke-static {}, Lcom/android/internal/policy/impl/SamsungLockScreenProperties;->isNoServiceDisplayWhenNoSIM()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
+
+    .line 805
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v4, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    const-string v4, ". "
+    const-string v4, " | "
 
-    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-static {}, Lcom/android/internal/policy/impl/ClockWidget;->access$600()Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->getTelephonyPlmn()Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    invoke-virtual {p0, v4, v5}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 809
+    :goto_2
+    iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
+
+    invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_1
+
+    .line 807
+    :cond_5
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, " | "
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -508,25 +621,19 @@
 
     move-result-object v2
 
-    .line 792
-    .local v2, str:Ljava/lang/String;
-    iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
+    goto :goto_2
 
-    invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto/16 :goto_1
-
-    .line 794
+    .line 811
     .end local v2           #str:Ljava/lang/String;
-    :cond_5
+    :cond_6
     const/4 v3, 0x4
 
-    if-ne v1, v3, :cond_6
+    if-ne v1, v3, :cond_7
 
-    .line 795
+    .line 812
     iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
 
-    invoke-static {}, Lcom/android/internal/policy/impl/ClockWidget;->access$500()Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+    invoke-static {}, Lcom/android/internal/policy/impl/ClockWidget;->access$600()Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     move-result-object v4
 
@@ -542,7 +649,7 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v4, v5}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     move-result-object v4
 
@@ -550,16 +657,16 @@
 
     goto/16 :goto_1
 
-    .line 797
-    :cond_6
+    .line 814
+    :cond_7
     const/4 v3, 0x2
 
-    if-ne v1, v3, :cond_7
+    if-ne v1, v3, :cond_8
 
-    .line 798
+    .line 815
     iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
 
-    invoke-static {}, Lcom/android/internal/policy/impl/ClockWidget;->access$500()Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+    invoke-static {}, Lcom/android/internal/policy/impl/ClockWidget;->access$600()Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     move-result-object v4
 
@@ -577,7 +684,7 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v4, v5}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     move-result-object v4
 
@@ -585,16 +692,16 @@
 
     goto/16 :goto_1
 
-    .line 800
-    :cond_7
+    .line 817
+    :cond_8
     const/4 v3, 0x3
 
-    if-ne v1, v3, :cond_8
+    if-ne v1, v3, :cond_9
 
-    .line 801
+    .line 818
     iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
 
-    invoke-static {}, Lcom/android/internal/policy/impl/ClockWidget;->access$500()Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+    invoke-static {}, Lcom/android/internal/policy/impl/ClockWidget;->access$600()Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     move-result-object v4
 
@@ -612,7 +719,7 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v4, v5}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     move-result-object v4
 
@@ -620,16 +727,45 @@
 
     goto/16 :goto_1
 
-    .line 803
-    :cond_8
+    .line 820
+    :cond_9
     const/4 v3, 0x5
 
-    if-ne v1, v3, :cond_9
+    if-ne v1, v3, :cond_b
 
-    .line 804
+    .line 821
+    invoke-static {}, Lcom/android/internal/policy/impl/SamsungLockScreenProperties;->isNoServiceDisplayWhenNoSIM()Z
+
+    move-result v3
+
+    if-nez v3, :cond_a
+
+    iget v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mServiceState:I
+
+    if-ne v3, v7, :cond_a
+
+    .line 822
     iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
 
-    invoke-static {}, Lcom/android/internal/policy/impl/ClockWidget;->access$500()Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    const v5, 0x104030d
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_1
+
+    .line 824
+    :cond_a
+    iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
+
+    invoke-static {}, Lcom/android/internal/policy/impl/ClockWidget;->access$600()Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     move-result-object v4
 
@@ -637,7 +773,7 @@
 
     move-result-object v4
 
-    invoke-static {}, Lcom/android/internal/policy/impl/ClockWidget;->access$500()Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+    invoke-static {}, Lcom/android/internal/policy/impl/ClockWidget;->access$600()Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     move-result-object v5
 
@@ -645,7 +781,7 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v4, v5}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     move-result-object v4
 
@@ -653,28 +789,83 @@
 
     goto/16 :goto_1
 
-    .line 806
-    :cond_9
-    if-nez v1, :cond_a
+    .line 827
+    :cond_b
+    if-nez v1, :cond_d
 
-    .line 807
+    .line 828
+    iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 830
+    .restart local v2       #str:Ljava/lang/String;
+    invoke-static {}, Lcom/android/internal/policy/impl/SamsungLockScreenProperties;->isNoServiceDisplayWhenNoSIM()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_c
+
+    .line 831
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v4, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    const-string v4, ". "
+    const-string v4, " | "
 
-    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-static {}, Lcom/android/internal/policy/impl/ClockWidget;->access$600()Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->getTelephonyPlmn()Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    invoke-virtual {p0, v4, v5}, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 835
+    :goto_3
+    iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
+
+    invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_1
+
+    .line 833
+    :cond_c
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, " | "
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -692,17 +883,11 @@
 
     move-result-object v2
 
-    .line 808
-    .restart local v2       #str:Ljava/lang/String;
-    iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
+    goto :goto_3
 
-    invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto/16 :goto_1
-
-    .line 811
+    .line 838
     .end local v2           #str:Ljava/lang/String;
-    :cond_a
+    :cond_d
     iget-object v3, p0, Lcom/android/internal/policy/impl/ClockWidget$EmergencyCall;->mEmergencyCallText:Landroid/widget/TextView;
 
     invoke-virtual {v3, v8}, Landroid/widget/TextView;->setVisibility(I)V

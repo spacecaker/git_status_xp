@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 354
+    .line 357
     iput-object p1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$2;->this$0:Lcom/lidroid/systemui/quickpanel/PowerWidget;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,13 +42,13 @@
     .parameter "v"
 
     .prologue
-    .line 356
+    .line 359
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$2;->this$0:Lcom/lidroid/systemui/quickpanel/PowerWidget;
 
     #calls: Lcom/lidroid/systemui/quickpanel/PowerWidget;->animateCollapse()V
     invoke-static {v0}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->access$300(Lcom/lidroid/systemui/quickpanel/PowerWidget;)V
 
-    .line 357
+    .line 360
     const/4 v0, 0x1
 
     return v0

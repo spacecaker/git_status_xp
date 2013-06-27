@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 131
+    .line 134
     iput-object p1, p0, Lcom/android/packageinstaller/PackageInstallerActivity$4;->this$0:Lcom/android/packageinstaller/PackageInstallerActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,18 +43,18 @@
     .parameter "which"
 
     .prologue
-    .line 133
+    .line 136
     const-string v0, "PackageInstaller"
 
     const-string v1, "Finishing off activity so that user can navigate to settings manually"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 134
+    .line 137
     iget-object v0, p0, Lcom/android/packageinstaller/PackageInstallerActivity$4;->this$0:Lcom/android/packageinstaller/PackageInstallerActivity;
 
     invoke-virtual {v0}, Lcom/android/packageinstaller/PackageInstallerActivity;->finish()V
 
-    .line 135
+    .line 138
     return-void
 .end method

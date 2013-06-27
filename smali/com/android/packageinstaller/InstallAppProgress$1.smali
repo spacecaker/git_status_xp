@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 71
+    .line 72
     iput-object p1, p0, Lcom/android/packageinstaller/InstallAppProgress$1;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -47,17 +47,16 @@
 
     const/4 v7, 0x0
 
-    .line 73
+    .line 74
     iget v4, p1, Landroid/os/Message;->what:I
 
     packed-switch v4, :pswitch_data_0
 
-    .line 128
-    :cond_0
+    .line 124
     :goto_0
     return-void
 
-    .line 76
+    .line 77
     :pswitch_0
     iget-object v4, p0, Lcom/android/packageinstaller/InstallAppProgress$1;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
@@ -68,16 +67,16 @@
 
     invoke-virtual {v4, v9}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 79
+    .line 80
     const/4 v0, 0x0
 
-    .line 80
+    .line 81
     .local v0, centerTextDrawable:Landroid/graphics/drawable/Drawable;
     iget v4, p1, Landroid/os/Message;->arg1:I
 
-    if-ne v4, v6, :cond_4
+    if-ne v4, v6, :cond_3
 
-    .line 81
+    .line 82
     iget-object v4, p0, Lcom/android/packageinstaller/InstallAppProgress$1;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     #getter for: Lcom/android/packageinstaller/InstallAppProgress;->mLaunchButton:Landroid/widget/Button;
@@ -87,7 +86,7 @@
 
     invoke-virtual {v4, v7}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 82
+    .line 83
     iget-object v4, p0, Lcom/android/packageinstaller/InstallAppProgress$1;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     invoke-virtual {v4}, Lcom/android/packageinstaller/InstallAppProgress;->getResources()Landroid/content/res/Resources;
@@ -100,10 +99,10 @@
 
     move-result-object v0
 
-    .line 83
+    .line 84
     const v1, 0x7f050007
 
-    .line 85
+    .line 86
     .local v1, centerTextLabel:I
     iget-object v4, p0, Lcom/android/packageinstaller/InstallAppProgress$1;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
@@ -129,10 +128,10 @@
     #setter for: Lcom/android/packageinstaller/InstallAppProgress;->mLaunchIntent:Landroid/content/Intent;
     invoke-static {v4, v5}, Lcom/android/packageinstaller/InstallAppProgress;->access$202(Lcom/android/packageinstaller/InstallAppProgress;Landroid/content/Intent;)Landroid/content/Intent;
 
-    .line 87
+    .line 88
     const/4 v2, 0x0
 
-    .line 88
+    .line 89
     .local v2, enabled:Z
     iget-object v4, p0, Lcom/android/packageinstaller/InstallAppProgress$1;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
@@ -141,9 +140,9 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_0
 
-    .line 89
+    .line 90
     iget-object v4, p0, Lcom/android/packageinstaller/InstallAppProgress$1;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     invoke-virtual {v4}, Lcom/android/packageinstaller/InstallAppProgress;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -161,25 +160,25 @@
 
     move-result-object v3
 
-    .line 91
+    .line 92
     .local v3, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_0
 
     invoke-interface {v3}, Ljava/util/List;->size()I
 
     move-result v4
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_0
 
-    .line 92
+    .line 93
     const/4 v2, 0x1
 
-    .line 95
-    .end local v3           #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    :cond_1
-    if-eqz v2, :cond_3
-
     .line 96
+    .end local v3           #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+    :cond_0
+    if-eqz v2, :cond_2
+
+    .line 97
     iget-object v4, p0, Lcom/android/packageinstaller/InstallAppProgress$1;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     #getter for: Lcom/android/packageinstaller/InstallAppProgress;->mLaunchButton:Landroid/widget/Button;
@@ -191,12 +190,12 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 110
+    .line 111
     .end local v2           #enabled:Z
     :goto_1
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
-    .line 111
+    .line 112
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v4
@@ -207,7 +206,7 @@
 
     invoke-virtual {v0, v7, v7, v4, v5}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 114
+    .line 115
     iget-object v4, p0, Lcom/android/packageinstaller/InstallAppProgress$1;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     #getter for: Lcom/android/packageinstaller/InstallAppProgress;->mStatusTextView:Landroid/widget/TextView;
@@ -217,8 +216,8 @@
 
     invoke-virtual {v4, v0, v8, v8, v8}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    .line 116
-    :cond_2
+    .line 117
+    :cond_1
     iget-object v4, p0, Lcom/android/packageinstaller/InstallAppProgress$1;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     #getter for: Lcom/android/packageinstaller/InstallAppProgress;->mStatusTextView:Landroid/widget/TextView;
@@ -228,7 +227,7 @@
 
     invoke-virtual {v4, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 117
+    .line 118
     iget-object v4, p0, Lcom/android/packageinstaller/InstallAppProgress$1;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     #getter for: Lcom/android/packageinstaller/InstallAppProgress;->mDoneButton:Landroid/widget/Button;
@@ -240,7 +239,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 118
+    .line 119
     iget-object v4, p0, Lcom/android/packageinstaller/InstallAppProgress$1;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     #getter for: Lcom/android/packageinstaller/InstallAppProgress;->mOkPanel:Landroid/view/View;
@@ -250,34 +249,11 @@
 
     invoke-virtual {v4, v7}, Landroid/view/View;->setVisibility(I)V
 
-    .line 121
-    iget-object v4, p0, Lcom/android/packageinstaller/InstallAppProgress$1;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
-
-    #getter for: Lcom/android/packageinstaller/InstallAppProgress;->mAppInfo:Landroid/content/pm/ApplicationInfo;
-    invoke-static {v4}, Lcom/android/packageinstaller/InstallAppProgress;->access$300(Lcom/android/packageinstaller/InstallAppProgress;)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v4
-
-    iget-object v4, v4, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    const-string v5, "com.svox.langpack.installer"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    .line 122
-    iget-object v4, p0, Lcom/android/packageinstaller/InstallAppProgress$1;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
-
-    invoke-virtual {v4}, Lcom/android/packageinstaller/InstallAppProgress;->finish()V
-
     goto/16 :goto_0
 
-    .line 98
+    .line 99
     .restart local v2       #enabled:Z
-    :cond_3
+    :cond_2
     iget-object v4, p0, Lcom/android/packageinstaller/InstallAppProgress$1;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     #getter for: Lcom/android/packageinstaller/InstallAppProgress;->mLaunchButton:Landroid/widget/Button;
@@ -289,17 +265,17 @@
 
     goto :goto_1
 
-    .line 100
+    .line 101
     .end local v1           #centerTextLabel:I
     .end local v2           #enabled:Z
-    :cond_4
+    :cond_3
     iget v4, p1, Landroid/os/Message;->arg1:I
 
     const/4 v5, -0x4
 
-    if-ne v4, v5, :cond_5
+    if-ne v4, v5, :cond_4
 
-    .line 101
+    .line 102
     iget-object v4, p0, Lcom/android/packageinstaller/InstallAppProgress$1;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     #calls: Lcom/android/packageinstaller/InstallAppProgress;->showDialogInner(I)V
@@ -307,22 +283,22 @@
 
     goto/16 :goto_0
 
-    .line 105
-    :cond_5
+    .line 106
+    :cond_4
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x1080199
+    const v5, 0x108018d
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 107
+    .line 108
     const v1, 0x7f050009
 
-    .line 108
+    .line 109
     .restart local v1       #centerTextLabel:I
     iget-object v4, p0, Lcom/android/packageinstaller/InstallAppProgress$1;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
@@ -335,7 +311,9 @@
 
     goto :goto_1
 
-    .line 73
+    .line 74
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

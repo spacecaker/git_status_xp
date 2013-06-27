@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 156
+    .line 153
     iput-object p1, p0, Lcom/android/packageinstaller/InstallAppProgress$2;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,18 +43,18 @@
     .parameter "which"
 
     .prologue
-    .line 158
+    .line 155
     const-string v0, "InstallAppProgress"
 
     const-string v1, "Canceling installation"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 159
+    .line 156
     iget-object v0, p0, Lcom/android/packageinstaller/InstallAppProgress$2;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     invoke-virtual {v0}, Lcom/android/packageinstaller/InstallAppProgress;->finish()V
 
-    .line 160
+    .line 157
     return-void
 .end method

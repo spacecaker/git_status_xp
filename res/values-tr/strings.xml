@@ -1,42 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Paket yükleyici</string>
-    <string name="install">Yükle</string>
-    <string name="done">Kaydet</string>
-    <string name="security_settings_desc">Bu uygulamaya izin ver:</string>
-    <string name="cancel">İptal</string>
+    <string name="app_name">Package installer</string>
+    <string name="install">Kur</string>
+    <string name="done">Tamam</string>
+    <string name="security_settings_desc">Uygulamaya izin vermek:</string>
+    <string name="cancel">GeriGel</string>
     <string name="unknown">Bilinmeyen</string>
-    <string name="installing">Yükleniyor...</string>
-    <string name="install_done">Uygulama yüklendi</string>
-    <string name="install_confirm_question">Bu uygulamayı yüklemek istiyor musunuz?</string>
-    <string name="install_failed">Uygulama yüklenmedi</string>
-    <string name="install_failed_msg">%s bu telefona yüklenemiyor</string>
+    <string name="installing">Lx Kuruyor…</string>
+    <string name="install_done">Uygulama Kuruldu</string>
+    <string name="install_confirm_question">Bu uygulamayı kurmak istiyor musun?</string>
+    <string name="install_failed">Uygulama kurulamadı</string>
+    <string name="install_failed_msg">%1$s Uygulama kurulumunda hata var.</string>
     <string name="launch">Aç</string>
-    <string name="unknown_apps_dlg_title">Yükleme engellendi</string>
-    <string name="unknown_apps_dlg_text">Güvenlik için, telefonunuz Android Marketi’nde bulunmayan uygulamaları engellemeye ayarlanmıştır</string>
-    <string name="ok">Tmm</string>
+    <string name="unknown_apps_dlg_title">Kurulum kilitlendi</string>
+    <string name="unknown_apps_dlg_text">Güvenlik için Markette olmayan uygulamaları engelliyoruz(FurkanGümrükçü).</string>
+    <string name="ok">Tamam</string>
     <string name="settings">Ayarlar</string>
-    <string name="manage_applications">Uygulamaları yönet</string>
-    <string name="dlg_app_replacement_title">Uygulamayı değiştir</string>
-    <string name="dlg_app_replacement_statement">"Yüklemekte olduğunuz uygulama bir başka uygulamanın yerini alacak.
+    <string name="manage_applications">Uygulamaları Yönet</string>
+    <string name="dlg_app_replacement_title">Uygulama Değiştirin</string>
+    <string name="dlg_app_replacement_statement">"Yüklediğiniz uygulama başka bir uygulama yerini alacak.
 
-Tüm geçmiş kullanıcı verisi kaydedilecek"</string>
-    <string name="dlg_sys_app_replacement_statement">"Bu bir sistem uygulamasıdır. Hala değiştirmek istiyor musunuz?
+Önceki kurulum bilgileri kaydedildi."</string>
+    <string name="dlg_sys_app_replacement_statement">"Bu sistem, bir uygulamadır. SİZ hala bunu değiştirmek istiyor musunuz?
 
-Tüm önceki kullanıcı bilgisi kaydedilecek"</string>
-    <string name="out_of_space_dlg_title">Alan yetersiz</string>
-    <string name="out_of_space_dlg_text">%s yüklenemiyor. Bazı öğeleri silin ve tekrar deneyin</string>
-    <string name="dlg_ok">Tmm</string>
-    <string name="app_not_found_dlg_title">Uygulama bulunamadı</string>
-    <string name="app_not_found_dlg_text">Uyguluma kurulu uygulamalar listesinde bulunamadı</string>
-    <string name="uninstall_application_question">Uygulama kaldırılsın mı?</string>
-    <string name="uninstall_update_question">Güncellemeyi kaldır?</string>
-    <string name="uninstall_application_text">Uygulama kaldırılacak</string>
-    <string name="uninstall_update_text">Uygulama güncellemesi kaldırılacak. Hala fabrika sürümünü kullanabilirsiniz</string>
-    <string name="uninstalling">Kaldırılıyor...</string>
-    <string name="uninstall_done">Kaldırma sona erdi!</string>
-    <string name="uninstall_failed">Kaldırma başarısız</string>
-    <string name="uninstall_failed_msg">%s yüklenemiyor</string>
-    <string name="Parse_error_dlg_title">Derleyici hatası</string>
-    <string name="Parse_error_dlg_text">Paket çözümlemede sorun var</string>
+Önceki kurulum bilgileri kaydedildi."</string>
+    <string name="out_of_space_dlg_title">Alan dışı</string>
+    <string name="out_of_space_dlg_text">%1$s Lütfen bellek ayırın.Uygulama kurulamadı.</string>
+    <string name="dlg_ok">OK</string>
+    <string name="app_not_found_dlg_title">Uygulama Bulunamadı</string>
+    <string name="app_not_found_dlg_text">Uygulama yüklü uygulamalar listesinde bulunamadı.</string>
+    <string name="uninstall_application_question">Uygulamayı Kaldırmak mı?</string>
+    <string name="uninstall_update_question">Güncellemeyi Kaldırmak mı?</string>
+    <string name="uninstall_application_text">Bu uygulama kaldırılacak.</string>
+    <string name="uninstall_update_text">Uygulama güncelleme kaldırılacaktır. Hala uygulama fabrika sürümünü kullanabilirsiniz.</string>
+    <string name="uninstalling">Kaldırılıyor…</string>
+    <string name="uninstall_done">Kaldırma Tamamlandı</string>
+    <string name="uninstall_failed">Kaldırma işlemi tamamlanmadı</string>
+    <string name="uninstall_failed_msg">%1$s Olmuyor Kaldırılamıyor</string>
+    <string name="Parse_error_dlg_title">Ayrıştırma Hatası</string>
+    <string name="Parse_error_dlg_text">Paket ayrıştırma bir sorun var.</string>
+    <string name="install_location">Kurulum yeri</string>
 </resources>

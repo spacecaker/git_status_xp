@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">打包安装程序</string>
+    <string name="install">安装</string>
+    <string name="done">完成</string>
+    <string name="security_settings_desc">允许安装该应用程序：</string>
+    <string name="cancel">取消</string>
+    <string name="unknown">未知</string>
+    <string name="installing">正在安装...</string>
+    <string name="install_done">应用程序已安装</string>
+    <string name="install_confirm_question">是否要安装该应用程序？</string>
+    <string name="install_failed">应用程序未安装</string>
+    <string name="install_failed_msg">无法在此手机上安装%1$s。</string>
+    <string name="launch">打开</string>
+    <string name="unknown_apps_dlg_title">禁止安装</string>
+    <string name="unknown_apps_dlg_text">为了安全起见，您的手机已设置为禁止安装不是从 Android 电子市场中获取的应用程序。</string>
+    <string name="ok">确定</string>
+    <string name="settings">设置</string>
+    <string name="manage_applications">管理应用程序</string>
+    <string name="dlg_app_replacement_title">替换应用程序</string>
+    <string name="dlg_app_replacement_statement">"您正在安装的应用程序会替换其他应用程序。
+
+会保存所有以前的用户数据。"</string>
+    <string name="dlg_sys_app_replacement_statement">"这是一个系统应用程序。您是否仍要替换它？
+
+之前的所有用户数据都会保存。"</string>
+    <string name="out_of_space_dlg_title">没有存储空间</string>
+    <string name="out_of_space_dlg_text">无法安装%1$s，请释放一些存储空间并重试。</string>
+    <string name="dlg_ok">确定</string>
+    <string name="app_not_found_dlg_title">找不到应用程序</string>
+    <string name="app_not_found_dlg_text">在已安装应用程序的列表中找不到该应用程序。</string>
+    <string name="uninstall_application_question">是否卸载应用程序？</string>
+    <string name="uninstall_update_question">是否卸载更新？</string>
+    <string name="uninstall_application_text">将卸载此应用程序。</string>
+    <string name="uninstall_update_text">此时将卸载该应用程序更新。仍可使用该应用程序的出厂版。</string>
+    <string name="uninstalling">正在卸载...</string>
+    <string name="uninstall_done">卸载完成</string>
+    <string name="uninstall_failed">卸载失败</string>
+    <string name="uninstall_failed_msg">无法卸载%1$s</string>
+    <string name="Parse_error_dlg_title">解析错误</string>
+    <string name="Parse_error_dlg_text">解析包时出现问题。</string>
+    <string name="install_location">安装位置</string>
+</resources>

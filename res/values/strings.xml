@@ -39,4 +39,5 @@ All previous user data will be saved."</string>
     <string name="uninstall_failed_msg">%1$s could not be uninstalled</string>
     <string name="Parse_error_dlg_title">Parse error</string>
     <string name="Parse_error_dlg_text">There is a problem parsing the package.</string>
+    <string name="install_location">Install location</string>
 </resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="install_locations">
+        <item>Default</item>
+        <item>Internal</item>
+        <item>External</item>
+    </string-array>
+</resources>

@@ -14,6 +14,12 @@
 .end annotation
 
 
+# static fields
+.field public static final FAILED:I = 0x0
+
+.field public static final SUCCEEDED:I = 0x1
+
+
 # instance fields
 .field private final TAG:Ljava/lang/String;
 
@@ -138,7 +144,7 @@
     .parameter "ev"
 
     .prologue
-    .line 125
+    .line 123
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
     move-result v0
@@ -147,27 +153,27 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 126
+    .line 124
     iget v0, p0, Lcom/android/packageinstaller/UninstallAppProgress;->mResultCode:I
 
     const/4 v1, -0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 128
+    .line 126
     const/4 v0, 0x1
 
-    .line 134
+    .line 132
     :goto_0
     return v0
 
-    .line 131
+    .line 129
     :cond_0
     iget v0, p0, Lcom/android/packageinstaller/UninstallAppProgress;->mResultCode:I
 
     invoke-virtual {p0, v0}, Lcom/android/packageinstaller/UninstallAppProgress;->setResult(I)V
 
-    .line 134
+    .line 132
     :cond_1
     invoke-super {p0, p1}, Landroid/app/Activity;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
@@ -193,12 +199,12 @@
     .line 100
     iget-object v1, p0, Lcom/android/packageinstaller/UninstallAppProgress;->mAppInfo:Landroid/content/pm/ApplicationInfo;
 
-    const/high16 v2, 0x7f07
+    const/high16 v2, 0x7f08
 
     invoke-static {p0, v1, v2}, Lcom/android/packageinstaller/PackageUtil;->initSnippetForInstalledApp(Landroid/app/Activity;Landroid/content/pm/ApplicationInfo;I)Landroid/view/View;
 
     .line 101
-    const v1, 0x7f07000a
+    const v1, 0x7f08000b
 
     invoke-virtual {p0, v1}, Lcom/android/packageinstaller/UninstallAppProgress;->findViewById(I)Landroid/view/View;
 
@@ -216,7 +222,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
     .line 103
-    const v1, 0x7f07000b
+    const v1, 0x7f08000c
 
     invoke-virtual {p0, v1}, Lcom/android/packageinstaller/UninstallAppProgress;->findViewById(I)Landroid/view/View;
 
@@ -232,7 +238,7 @@
     invoke-virtual {v1, v3}, Landroid/widget/ProgressBar;->setIndeterminate(Z)V
 
     .line 106
-    const v1, 0x7f070011
+    const v1, 0x7f080012
 
     invoke-virtual {p0, v1}, Lcom/android/packageinstaller/UninstallAppProgress;->findViewById(I)Landroid/view/View;
 
@@ -241,7 +247,7 @@
     iput-object v1, p0, Lcom/android/packageinstaller/UninstallAppProgress;->mOkPanel:Landroid/view/View;
 
     .line 107
-    const v1, 0x7f070007
+    const v1, 0x7f080008
 
     invoke-virtual {p0, v1}, Lcom/android/packageinstaller/UninstallAppProgress;->findViewById(I)Landroid/view/View;
 
@@ -294,20 +300,9 @@
     .line 115
     iget-object v0, p0, Lcom/android/packageinstaller/UninstallAppProgress;->mOkButton:Landroid/widget/Button;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_0
 
     .line 116
-    const-string v0, "eng"
-
-    sget-object v1, Landroid/os/Build;->TYPE:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 117
     const-string v0, "UninstallAppProgress"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -334,14 +329,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 119
-    :cond_0
+    .line 117
     iget v0, p0, Lcom/android/packageinstaller/UninstallAppProgress;->mResultCode:I
 
     invoke-virtual {p0, v0}, Lcom/android/packageinstaller/UninstallAppProgress;->setResultAndFinish(I)V
 
-    .line 121
-    :cond_1
+    .line 119
+    :cond_0
     return-void
 .end method
 

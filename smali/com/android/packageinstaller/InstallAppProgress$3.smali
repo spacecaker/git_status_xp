@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 148
+    .line 145
     iput-object p1, p0, Lcom/android/packageinstaller/InstallAppProgress$3;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,24 +43,24 @@
     .parameter "which"
 
     .prologue
-    .line 151
+    .line 148
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.MANAGE_PACKAGE_STORAGE"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 152
+    .line 149
     .local v0, intent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/packageinstaller/InstallAppProgress$3;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     invoke-virtual {v1, v0}, Lcom/android/packageinstaller/InstallAppProgress;->startActivity(Landroid/content/Intent;)V
 
-    .line 153
+    .line 150
     iget-object v1, p0, Lcom/android/packageinstaller/InstallAppProgress$3;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     invoke-virtual {v1}, Lcom/android/packageinstaller/InstallAppProgress;->finish()V
 
-    .line 154
+    .line 151
     return-void
 .end method

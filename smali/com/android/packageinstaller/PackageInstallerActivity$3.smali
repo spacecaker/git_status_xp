@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 136
+    .line 139
     iput-object p1, p0, Lcom/android/packageinstaller/PackageInstallerActivity$3;->this$0:Lcom/android/packageinstaller/PackageInstallerActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,19 +43,19 @@
     .parameter "which"
 
     .prologue
-    .line 138
+    .line 141
     const-string v0, "PackageInstaller"
 
     const-string v1, "Launching settings"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 139
+    .line 142
     iget-object v0, p0, Lcom/android/packageinstaller/PackageInstallerActivity$3;->this$0:Lcom/android/packageinstaller/PackageInstallerActivity;
 
     #calls: Lcom/android/packageinstaller/PackageInstallerActivity;->launchSettingsAppAndFinish()V
     invoke-static {v0}, Lcom/android/packageinstaller/PackageInstallerActivity;->access$100(Lcom/android/packageinstaller/PackageInstallerActivity;)V
 
-    .line 140
+    .line 143
     return-void
 .end method

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 171
+    .line 174
     iput-object p1, p0, Lcom/android/packageinstaller/PackageInstallerActivity$6;->this$0:Lcom/android/packageinstaller/PackageInstallerActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,18 +43,18 @@
     .parameter "which"
 
     .prologue
-    .line 173
+    .line 176
     const-string v0, "PackageInstaller"
 
     const-string v1, "Canceling installation"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 174
+    .line 177
     iget-object v0, p0, Lcom/android/packageinstaller/PackageInstallerActivity$6;->this$0:Lcom/android/packageinstaller/PackageInstallerActivity;
 
     invoke-virtual {v0}, Lcom/android/packageinstaller/PackageInstallerActivity;->finish()V
 
-    .line 175
+    .line 178
     return-void
 .end method

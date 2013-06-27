@@ -9,7 +9,8 @@
         </LinearLayout>
     </ScrollView>
     <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@android:style/ButtonBar">
-        <Button android:id="@id/ok_button" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/install" android:layout_weight="1.0" />
-        <Button android:id="@id/cancel_button" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/cancel" android:layout_weight="1.0" />
+        <Spinner android:entries="@array/install_locations" android:id="@id/install_location" android:layout_width="0.0dip" android:layout_height="wrap_content" android:prompt="@string/install_location" android:layout_weight="1.0" />
+        <Button android:id="@id/ok_button" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/install" android:layout_weight="0.7" />
+        <Button android:id="@id/cancel_button" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/cancel" android:layout_weight="0.7" />
     </LinearLayout>
 </LinearLayout>

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 173
+    .line 170
     iput-object p1, p0, Lcom/android/packageinstaller/InstallAppProgress$PackageInstallObserver;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     invoke-direct {p0}, Landroid/content/pm/IPackageInstallObserver$Stub;-><init>()V
@@ -40,7 +40,7 @@
     .parameter "returnCode"
 
     .prologue
-    .line 175
+    .line 172
     iget-object v1, p0, Lcom/android/packageinstaller/InstallAppProgress$PackageInstallObserver;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     #getter for: Lcom/android/packageinstaller/InstallAppProgress;->mHandler:Landroid/os/Handler;
@@ -54,11 +54,11 @@
 
     move-result-object v0
 
-    .line 176
+    .line 173
     .local v0, msg:Landroid/os/Message;
     iput p2, v0, Landroid/os/Message;->arg1:I
 
-    .line 177
+    .line 174
     iget-object v1, p0, Lcom/android/packageinstaller/InstallAppProgress$PackageInstallObserver;->this$0:Lcom/android/packageinstaller/InstallAppProgress;
 
     #getter for: Lcom/android/packageinstaller/InstallAppProgress;->mHandler:Landroid/os/Handler;
@@ -68,6 +68,6 @@
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 178
+    .line 175
     return-void
 .end method

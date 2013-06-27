@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 115
+    .line 118
     iput-object p1, p0, Lcom/android/packageinstaller/PackageInstallerActivity$2;->this$0:Lcom/android/packageinstaller/PackageInstallerActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,12 +43,12 @@
     .parameter "which"
 
     .prologue
-    .line 117
+    .line 120
     iget-object v0, p0, Lcom/android/packageinstaller/PackageInstallerActivity$2;->this$0:Lcom/android/packageinstaller/PackageInstallerActivity;
 
     #calls: Lcom/android/packageinstaller/PackageInstallerActivity;->startInstallConfirm()V
     invoke-static {v0}, Lcom/android/packageinstaller/PackageInstallerActivity;->access$000(Lcom/android/packageinstaller/PackageInstallerActivity;)V
 
-    .line 118
+    .line 121
     return-void
 .end method

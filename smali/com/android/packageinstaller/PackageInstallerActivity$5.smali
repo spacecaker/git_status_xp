@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 148
+    .line 151
     iput-object p1, p0, Lcom/android/packageinstaller/PackageInstallerActivity$5;->this$0:Lcom/android/packageinstaller/PackageInstallerActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,11 +43,11 @@
     .parameter "which"
 
     .prologue
-    .line 150
+    .line 153
     iget-object v0, p0, Lcom/android/packageinstaller/PackageInstallerActivity$5;->this$0:Lcom/android/packageinstaller/PackageInstallerActivity;
 
     invoke-virtual {v0}, Lcom/android/packageinstaller/PackageInstallerActivity;->finish()V
 
-    .line 151
+    .line 154
     return-void
 .end method

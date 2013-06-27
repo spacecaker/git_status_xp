@@ -3,8 +3,18 @@
 .source "UninstallerActivity.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnCancelListener;
 .implements Landroid/view/View$OnClickListener;
+.implements Landroid/content/DialogInterface$OnCancelListener;
+
+
+# static fields
+.field private static final DLG_APP_NOT_FOUND:I = 0x1
+
+.field private static final DLG_BASE:I = 0x0
+
+.field private static final DLG_UNINSTALL_FAILED:I = 0x2
+
+.field private static final TAG:Ljava/lang/String; = "UninstallerActivity"
 
 
 # instance fields
@@ -47,6 +57,7 @@
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 92
+    .local v0, newIntent:Landroid/content/Intent;
     const-string v1, "com.android.packageinstaller.applicationInfo"
 
     iget-object v2, p0, Lcom/android/packageinstaller/UninstallerActivity;->mAppInfo:Landroid/content/pm/ApplicationInfo;
@@ -261,7 +272,7 @@
     invoke-virtual {p0, v7}, Lcom/android/packageinstaller/UninstallerActivity;->setContentView(I)V
 
     .line 126
-    const v7, 0x7f07000f
+    const v7, 0x7f080010
 
     invoke-virtual {p0, v7}, Lcom/android/packageinstaller/UninstallerActivity;->findViewById(I)Landroid/view/View;
 
@@ -271,7 +282,7 @@
 
     .line 127
     .local v6, question:Landroid/widget/TextView;
-    const v7, 0x7f070010
+    const v7, 0x7f080011
 
     invoke-virtual {p0, v7}, Lcom/android/packageinstaller/UninstallerActivity;->findViewById(I)Landroid/view/View;
 
@@ -303,12 +314,12 @@
     :goto_2
     iget-object v7, p0, Lcom/android/packageinstaller/UninstallerActivity;->mAppInfo:Landroid/content/pm/ApplicationInfo;
 
-    const/high16 v8, 0x7f07
+    const/high16 v8, 0x7f08
 
     invoke-static {p0, v7, v8}, Lcom/android/packageinstaller/PackageUtil;->initSnippetForInstalledApp(Landroid/app/Activity;Landroid/content/pm/ApplicationInfo;I)Landroid/view/View;
 
     .line 137
-    const v7, 0x7f070007
+    const v7, 0x7f080008
 
     invoke-virtual {p0, v7}, Lcom/android/packageinstaller/UninstallerActivity;->findViewById(I)Landroid/view/View;
 
@@ -319,7 +330,7 @@
     iput-object v7, p0, Lcom/android/packageinstaller/UninstallerActivity;->mOk:Landroid/widget/Button;
 
     .line 138
-    const v7, 0x7f070008
+    const v7, 0x7f080009
 
     invoke-virtual {p0, v7}, Lcom/android/packageinstaller/UninstallerActivity;->findViewById(I)Landroid/view/View;
 

@@ -7,6 +7,22 @@
 .implements Landroid/view/View$OnClickListener;
 
 
+# static fields
+.field private static final DLG_BASE:I = 0x0
+
+.field private static final DLG_INSTALL_ERROR:I = 0x5
+
+.field private static final DLG_OUT_OF_SPACE:I = 0x4
+
+.field private static final DLG_PACKAGE_ERROR:I = 0x3
+
+.field private static final DLG_REPLACE_APP:I = 0x1
+
+.field private static final DLG_UNKNOWN_APPS:I = 0x2
+
+.field private static final TAG:Ljava/lang/String; = "PackageInstaller"
+
+
 # instance fields
 .field private localLOGV:Z
 
@@ -15,6 +31,8 @@
 .field private mCancel:Landroid/widget/Button;
 
 .field mInstallConfirm:Landroid/view/View;
+
+.field private mLocation:Landroid/widget/Spinner;
 
 .field private mOk:Landroid/widget/Button;
 
@@ -30,15 +48,15 @@
     .locals 1
 
     .prologue
-    .line 52
+    .line 53
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 55
+    .line 56
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->localLOGV:Z
 
-    .line 60
+    .line 61
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mAppInfo:Landroid/content/pm/ApplicationInfo;
@@ -51,7 +69,7 @@
     .parameter "x0"
 
     .prologue
-    .line 52
+    .line 53
     invoke-direct {p0}, Lcom/android/packageinstaller/PackageInstallerActivity;->startInstallConfirm()V
 
     return-void
@@ -62,7 +80,7 @@
     .parameter "x0"
 
     .prologue
-    .line 52
+    .line 53
     invoke-direct {p0}, Lcom/android/packageinstaller/PackageInstallerActivity;->launchSettingsAppAndFinish()V
 
     return-void
@@ -76,12 +94,12 @@
 
     const/4 v5, 0x0
 
-    .line 211
+    .line 214
     iget-object v3, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPkgInfo:Landroid/content/pm/PackageParser$Package;
 
     iget-object v2, v3, Landroid/content/pm/PackageParser$Package;->packageName:Ljava/lang/String;
 
-    .line 214
+    .line 217
     .local v2, pkgName:Ljava/lang/String;
     iget-object v3, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPm:Landroid/content/pm/PackageManager;
 
@@ -93,7 +111,7 @@
 
     move-result-object v1
 
-    .line 215
+    .line 218
     .local v1, oldName:[Ljava/lang/String;
     if-eqz v1, :cond_0
 
@@ -105,15 +123,15 @@
 
     if-eqz v3, :cond_0
 
-    .line 216
+    .line 219
     aget-object v2, v1, v5
 
-    .line 217
+    .line 220
     iget-object v3, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPkgInfo:Landroid/content/pm/PackageParser$Package;
 
     invoke-virtual {v3, v2}, Landroid/content/pm/PackageParser$Package;->setPackageName(Ljava/lang/String;)V
 
-    .line 221
+    .line 224
     :cond_0
     :try_start_0
     iget-object v3, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPm:Landroid/content/pm/PackageManager;
@@ -128,26 +146,26 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 226
+    .line 229
     :goto_0
     iget-object v3, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mAppInfo:Landroid/content/pm/ApplicationInfo;
 
     if-nez v3, :cond_1
 
-    .line 227
+    .line 230
     invoke-direct {p0}, Lcom/android/packageinstaller/PackageInstallerActivity;->startInstallConfirm()V
 
-    .line 233
+    .line 236
     :goto_1
     return-void
 
-    .line 223
+    .line 226
     :catch_0
     move-exception v3
 
     move-object v0, v3
 
-    .line 224
+    .line 227
     .local v0, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     const/4 v3, 0x0
 
@@ -155,7 +173,7 @@
 
     goto :goto_0
 
-    .line 229
+    .line 232
     .end local v0           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     :cond_1
     iget-boolean v3, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->localLOGV:Z
@@ -190,7 +208,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 231
+    .line 234
     :cond_2
     invoke-direct {p0, v6}, Lcom/android/packageinstaller/PackageInstallerActivity;->showDialogInner(I)V
 
@@ -203,7 +221,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 206
+    .line 209
     invoke-virtual {p0}, Lcom/android/packageinstaller/PackageInstallerActivity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -231,21 +249,21 @@
     .locals 2
 
     .prologue
-    .line 200
+    .line 203
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.settings.APPLICATION_SETTINGS"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 201
+    .line 204
     .local v0, launchSettingsIntent:Landroid/content/Intent;
     invoke-virtual {p0, v0}, Lcom/android/packageinstaller/PackageInstallerActivity;->startActivity(Landroid/content/Intent;)V
 
-    .line 202
+    .line 205
     invoke-virtual {p0}, Lcom/android/packageinstaller/PackageInstallerActivity;->finish()V
 
-    .line 203
+    .line 206
     return-void
 .end method
 
@@ -254,13 +272,13 @@
     .parameter "id"
 
     .prologue
-    .line 100
+    .line 103
     invoke-virtual {p0, p1}, Lcom/android/packageinstaller/PackageInstallerActivity;->removeDialog(I)V
 
-    .line 101
+    .line 104
     invoke-virtual {p0, p1}, Lcom/android/packageinstaller/PackageInstallerActivity;->showDialog(I)V
 
-    .line 102
+    .line 105
     return-void
 .end method
 
@@ -268,10 +286,10 @@
     .locals 6
 
     .prologue
-    .line 77
+    .line 79
     iget-object v4, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mInstallConfirm:Landroid/view/View;
 
-    const v5, 0x7f070004
+    const v5, 0x7f080004
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -279,9 +297,9 @@
 
     check-cast v2, Landroid/widget/LinearLayout;
 
-    .line 78
+    .line 80
     .local v2, permsSection:Landroid/widget/LinearLayout;
-    const v4, 0x7f070006
+    const v4, 0x7f080006
 
     invoke-virtual {v2, v4}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -289,24 +307,24 @@
 
     check-cast v3, Landroid/widget/LinearLayout;
 
-    .line 80
+    .line 82
     .local v3, securityList:Landroid/widget/LinearLayout;
     const/4 v1, 0x0
 
-    .line 81
+    .line 83
     .local v1, permVisible:Z
     iget-object v4, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPkgInfo:Landroid/content/pm/PackageParser$Package;
 
     if-eqz v4, :cond_0
 
-    .line 82
+    .line 84
     new-instance v0, Landroid/widget/AppSecurityPermissions;
 
     iget-object v4, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPkgInfo:Landroid/content/pm/PackageParser$Package;
 
     invoke-direct {v0, p0, v4}, Landroid/widget/AppSecurityPermissions;-><init>(Landroid/content/Context;Landroid/content/pm/PackageParser$Package;)V
 
-    .line 83
+    .line 85
     .local v0, asp:Landroid/widget/AppSecurityPermissions;
     invoke-virtual {v0}, Landroid/widget/AppSecurityPermissions;->getPermissionCount()I
 
@@ -314,27 +332,27 @@
 
     if-lez v4, :cond_0
 
-    .line 84
+    .line 86
     const/4 v1, 0x1
 
-    .line 85
+    .line 87
     invoke-virtual {v0}, Landroid/widget/AppSecurityPermissions;->getPermissionsView()Landroid/view/View;
 
     move-result-object v4
 
     invoke-virtual {v3, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 88
+    .line 90
     .end local v0           #asp:Landroid/widget/AppSecurityPermissions;
     :cond_0
     if-nez v1, :cond_1
 
-    .line 89
+    .line 91
     const/4 v4, 0x4
 
     invoke-virtual {v2, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 91
+    .line 93
     :cond_1
     iget-object v4, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mInstallConfirm:Landroid/view/View;
 
@@ -342,8 +360,8 @@
 
     invoke-virtual {v4, v5}, Landroid/view/View;->setVisibility(I)V
 
-    .line 92
-    const v4, 0x7f070007
+    .line 94
+    const v4, 0x7f080008
 
     invoke-virtual {p0, v4}, Lcom/android/packageinstaller/PackageInstallerActivity;->findViewById(I)Landroid/view/View;
 
@@ -353,8 +371,8 @@
 
     iput-object v4, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mOk:Landroid/widget/Button;
 
-    .line 93
-    const v4, 0x7f070008
+    .line 95
+    const v4, 0x7f080009
 
     invoke-virtual {p0, v4}, Lcom/android/packageinstaller/PackageInstallerActivity;->findViewById(I)Landroid/view/View;
 
@@ -364,17 +382,28 @@
 
     iput-object v4, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mCancel:Landroid/widget/Button;
 
-    .line 94
+    .line 96
     iget-object v4, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mOk:Landroid/widget/Button;
 
     invoke-virtual {v4, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 95
+    .line 97
     iget-object v4, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mCancel:Landroid/widget/Button;
 
     invoke-virtual {v4, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 96
+    .line 98
+    const v4, 0x7f080007
+
+    invoke-virtual {p0, v4}, Lcom/android/packageinstaller/PackageInstallerActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/Spinner;
+
+    iput-object v4, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mLocation:Landroid/widget/Spinner;
+
+    .line 99
     return-void
 .end method
 
@@ -385,117 +414,132 @@
     .parameter "dialog"
 
     .prologue
-    .line 270
+    .line 273
     invoke-virtual {p0}, Lcom/android/packageinstaller/PackageInstallerActivity;->finish()V
 
-    .line 271
+    .line 274
     return-void
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 4
-    .parameter
+    .locals 5
+    .parameter "v"
 
     .prologue
-    const-string v3, "android.intent.extra.INSTALLER_PACKAGE_NAME"
-
-    .line 274
-    iget-object v0, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mOk:Landroid/widget/Button;
-
-    if-ne p1, v0, :cond_3
-
-    .line 276
-    new-instance v0, Landroid/content/Intent;
-
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+    const-string v4, "android.intent.extra.INSTALLER_PACKAGE_NAME"
 
     .line 277
-    const-string v1, "com.android.packageinstaller.applicationInfo"
+    iget-object v2, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mOk:Landroid/widget/Button;
 
-    iget-object v2, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPkgInfo:Landroid/content/pm/PackageParser$Package;
-
-    iget-object v2, v2, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+    if-ne p1, v2, :cond_3
 
     .line 279
-    iget-object v1, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPackageURI:Landroid/net/Uri;
+    new-instance v1, Landroid/content/Intent;
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
     .line 280
-    const-class v1, Lcom/android/packageinstaller/InstallAppProgress;
+    .local v1, newIntent:Landroid/content/Intent;
+    const-string v2, "com.android.packageinstaller.applicationInfo"
 
-    invoke-virtual {v0, p0, v1}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
+    iget-object v3, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPkgInfo:Landroid/content/pm/PackageParser$Package;
 
-    .line 281
-    invoke-virtual {p0}, Lcom/android/packageinstaller/PackageInstallerActivity;->getIntent()Landroid/content/Intent;
+    iget-object v3, v3, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    move-result-object v1
-
-    const-string v2, "android.intent.extra.INSTALLER_PACKAGE_NAME"
-
-    invoke-virtual {v1, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
     .line 282
-    if-eqz v1, :cond_0
+    iget-object v2, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPackageURI:Landroid/net/Uri;
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
     .line 283
-    const-string v2, "android.intent.extra.INSTALLER_PACKAGE_NAME"
+    const-string v2, "location"
 
-    invoke-virtual {v0, v3, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    iget-object v3, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mLocation:Landroid/widget/Spinner;
+
+    invoke-virtual {v3}, Landroid/widget/Spinner;->getSelectedItemPosition()I
+
+    move-result v3
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    .line 284
+    const-class v2, Lcom/android/packageinstaller/InstallAppProgress;
+
+    invoke-virtual {v1, p0, v2}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
     .line 285
-    :cond_0
-    iget-boolean v1, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->localLOGV:Z
-
-    if-eqz v1, :cond_1
-
-    const-string v1, "PackageInstaller"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "downloaded app uri="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0}, Lcom/android/packageinstaller/PackageInstallerActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPackageURI:Landroid/net/Uri;
+    const-string v3, "android.intent.extra.INSTALLER_PACKAGE_NAME"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v0
 
     .line 286
-    :cond_1
-    invoke-virtual {p0, v0}, Lcom/android/packageinstaller/PackageInstallerActivity;->startActivity(Landroid/content/Intent;)V
+    .local v0, installerPackageName:Ljava/lang/String;
+    if-eqz v0, :cond_0
 
     .line 287
+    const-string v2, "android.intent.extra.INSTALLER_PACKAGE_NAME"
+
+    invoke-virtual {v1, v4, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 289
+    :cond_0
+    iget-boolean v2, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->localLOGV:Z
+
+    if-eqz v2, :cond_1
+
+    const-string v2, "PackageInstaller"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "downloaded app uri="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPackageURI:Landroid/net/Uri;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 290
+    :cond_1
+    invoke-virtual {p0, v1}, Lcom/android/packageinstaller/PackageInstallerActivity;->startActivity(Landroid/content/Intent;)V
+
+    .line 291
     invoke-virtual {p0}, Lcom/android/packageinstaller/PackageInstallerActivity;->finish()V
 
-    .line 292
+    .line 296
+    .end local v0           #installerPackageName:Ljava/lang/String;
+    .end local v1           #newIntent:Landroid/content/Intent;
     :cond_2
     :goto_0
     return-void
 
-    .line 288
+    .line 292
     :cond_3
-    iget-object v0, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mCancel:Landroid/widget/Button;
+    iget-object v2, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mCancel:Landroid/widget/Button;
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v2, :cond_2
 
-    .line 290
+    .line 294
     invoke-virtual {p0}, Lcom/android/packageinstaller/PackageInstallerActivity;->finish()V
 
     goto :goto_0
@@ -506,15 +550,15 @@
     .parameter "icicle"
 
     .prologue
-    .line 237
+    .line 240
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 239
+    .line 242
     invoke-virtual {p0}, Lcom/android/packageinstaller/PackageInstallerActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
-    .line 240
+    .line 243
     .local v1, intent:Landroid/content/Intent;
     invoke-virtual {v1}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
@@ -522,14 +566,14 @@
 
     iput-object v2, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPackageURI:Landroid/net/Uri;
 
-    .line 241
+    .line 244
     invoke-virtual {p0}, Lcom/android/packageinstaller/PackageInstallerActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPm:Landroid/content/pm/PackageManager;
 
-    .line 242
+    .line 245
     iget-object v2, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPackageURI:Landroid/net/Uri;
 
     invoke-static {v2}, Lcom/android/packageinstaller/PackageUtil;->getPackageInfo(Landroid/net/Uri;)Landroid/content/pm/PackageParser$Package;
@@ -538,40 +582,40 @@
 
     iput-object v2, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPkgInfo:Landroid/content/pm/PackageParser$Package;
 
-    .line 245
+    .line 248
     iget-object v2, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPkgInfo:Landroid/content/pm/PackageParser$Package;
 
     if-nez v2, :cond_0
 
-    .line 246
+    .line 249
     const-string v2, "PackageInstaller"
 
     const-string v3, "Parse error when parsing manifest. Discontinuing installation"
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 247
+    .line 250
     const/4 v2, 0x3
 
     invoke-direct {p0, v2}, Lcom/android/packageinstaller/PackageInstallerActivity;->showDialogInner(I)V
 
-    .line 266
+    .line 269
     :goto_0
     return-void
 
-    .line 252
+    .line 255
     :cond_0
     const/4 v2, 0x1
 
     invoke-virtual {p0, v2}, Lcom/android/packageinstaller/PackageInstallerActivity;->requestWindowFeature(I)Z
 
-    .line 253
+    .line 256
     const v2, 0x7f030002
 
     invoke-virtual {p0, v2}, Lcom/android/packageinstaller/PackageInstallerActivity;->setContentView(I)V
 
-    .line 254
-    const v2, 0x7f070009
+    .line 257
+    const v2, 0x7f08000a
 
     invoke-virtual {p0, v2}, Lcom/android/packageinstaller/PackageInstallerActivity;->findViewById(I)Landroid/view/View;
 
@@ -579,14 +623,14 @@
 
     iput-object v2, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mInstallConfirm:Landroid/view/View;
 
-    .line 255
+    .line 258
     iget-object v2, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mInstallConfirm:Landroid/view/View;
 
     const/4 v3, 0x4
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 256
+    .line 259
     iget-object v2, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPkgInfo:Landroid/content/pm/PackageParser$Package;
 
     iget-object v2, v2, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
@@ -597,27 +641,27 @@
 
     move-result-object v0
 
-    .line 258
+    .line 261
     .local v0, as:Lcom/android/packageinstaller/PackageUtil$AppSnippet;
-    const/high16 v2, 0x7f07
+    const/high16 v2, 0x7f08
 
     invoke-static {p0, v0, v2}, Lcom/android/packageinstaller/PackageUtil;->initSnippetForNewApp(Landroid/app/Activity;Lcom/android/packageinstaller/PackageUtil$AppSnippet;I)Landroid/view/View;
 
-    .line 260
+    .line 263
     invoke-direct {p0}, Lcom/android/packageinstaller/PackageInstallerActivity;->isInstallingUnknownAppsAllowed()Z
 
     move-result v2
 
     if-nez v2, :cond_1
 
-    .line 262
+    .line 265
     const/4 v2, 0x2
 
     invoke-direct {p0, v2}, Lcom/android/packageinstaller/PackageInstallerActivity;->showDialogInner(I)V
 
     goto :goto_0
 
-    .line 265
+    .line 268
     :cond_1
     invoke-direct {p0}, Lcom/android/packageinstaller/PackageInstallerActivity;->initiateInstall()V
 
@@ -638,20 +682,20 @@
 
     const v8, 0x7f050004
 
-    .line 106
+    .line 109
     packed-switch p1, :pswitch_data_0
 
-    .line 195
+    .line 198
     const/4 v5, 0x0
 
     :goto_0
     return-object v5
 
-    .line 108
+    .line 111
     :pswitch_0
     const v4, 0x7f050012
 
-    .line 110
+    .line 113
     .local v4, msgId:I
     iget-object v5, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mAppInfo:Landroid/content/pm/ApplicationInfo;
 
@@ -665,10 +709,10 @@
 
     if-eqz v5, :cond_0
 
-    .line 111
+    .line 114
     const v4, 0x7f050013
 
-    .line 113
+    .line 116
     :cond_0
     new-instance v5, Landroid/app/AlertDialog$Builder;
 
@@ -710,7 +754,7 @@
 
     goto :goto_0
 
-    .line 128
+    .line 131
     .end local v4           #msgId:I
     :pswitch_1
     new-instance v5, Landroid/app/AlertDialog$Builder;
@@ -757,7 +801,7 @@
 
     goto :goto_0
 
-    .line 145
+    .line 148
     :pswitch_2
     new-instance v5, Landroid/app/AlertDialog$Builder;
 
@@ -793,7 +837,7 @@
 
     goto/16 :goto_0
 
-    .line 157
+    .line 160
     :pswitch_3
     iget-object v5, p0, Lcom/android/packageinstaller/PackageInstallerActivity;->mPm:Landroid/content/pm/PackageManager;
 
@@ -805,7 +849,7 @@
 
     move-result-object v0
 
-    .line 158
+    .line 161
     .local v0, appTitle:Ljava/lang/CharSequence;
     const v5, 0x7f050015
 
@@ -821,7 +865,7 @@
 
     move-result-object v2
 
-    .line 160
+    .line 163
     .local v2, dlgText:Ljava/lang/String;
     new-instance v5, Landroid/app/AlertDialog$Builder;
 
@@ -865,7 +909,7 @@
 
     goto/16 :goto_0
 
-    .line 181
+    .line 184
     .end local v0           #appTitle:Ljava/lang/CharSequence;
     .end local v2           #dlgText:Ljava/lang/String;
     :pswitch_4
@@ -879,7 +923,7 @@
 
     move-result-object v1
 
-    .line 182
+    .line 185
     .local v1, appTitle1:Ljava/lang/CharSequence;
     const v5, 0x7f05000a
 
@@ -895,7 +939,7 @@
 
     move-result-object v3
 
-    .line 184
+    .line 187
     .local v3, dlgText1:Ljava/lang/String;
     new-instance v5, Landroid/app/AlertDialog$Builder;
 
@@ -929,7 +973,7 @@
 
     goto/16 :goto_0
 
-    .line 106
+    .line 109
     nop
 
     :pswitch_data_0

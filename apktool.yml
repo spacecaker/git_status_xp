@@ -1,0 +1,13 @@
+version: 1.5.2
+apkFileName: touchwiz30launcher.apk
+isFrameworkApk: false
+usesFramework:
+  ids:
+  - 1
+sdkInfo:
+  minSdkVersion: '8'
+  targetSdkVersion: '10'
+packageInfo:
+  cur_package: com.sec.android.app.twlauncher
+  orig_package: com.sec.android.app.twlauncher
+compressionType: true

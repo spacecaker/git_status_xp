@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="flat_rate_title">Atención!</string>
+    <string name="flat_rate_message">La configuración de este móvil se adaptará a tarifa de Internet que tenga contratada. ¿Tiene una Tarifa Plana de Internet?</string>
+    <string name="enable_flat_rate">Sí</string>
+    <string name="ok_string">OK</string>
+</resources>

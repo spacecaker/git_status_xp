@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Инсталационна програма Package Installer</string>
+    <string name="install">Инстал.</string>
+    <string name="done">Готв</string>
+    <string name="security_settings_desc">Разрешение на това приложение да:</string>
+    <string name="cancel">Отказ</string>
+    <string name="unknown">Няма информация</string>
+    <string name="installing">Инсталиране...</string>
+    <string name="install_done">Приложението е инсталирано</string>
+    <string name="install_confirm_question">Искате ли да инсталирате това приложение?</string>
+    <string name="install_failed">Приложението не е инсталирано</string>
+    <string name="install_failed_msg">Не може да се инсталира %s на този телефон</string>
+    <string name="launch">Отвори</string>
+    <string name="unknown_apps_dlg_title">Инсталирането е блокирано</string>
+    <string name="unknown_apps_dlg_text">За целите на защитата вашият телефон е настроен да блокира инсталиране на приложения, които нямат източници в Android Market</string>
+    <string name="ok">OK</string>
+    <string name="settings">Настройки</string>
+    <string name="manage_applications">Управление на приложенията</string>
+    <string name="dlg_app_replacement_title">Замяна на приложението</string>
+    <string name="dlg_app_replacement_statement">"Приложението, което инсталирате, ще замени друго приложение.
+
+Всички данни на предишния потребител ще бъдат съхранени"</string>
+    <string name="dlg_sys_app_replacement_statement">"Това е системно приложение. Все още ли искате да го замените?
+
+ Всички данни на предишния потребител ще бъдат съхранени"</string>
+    <string name="out_of_space_dlg_title">Няма място</string>
+    <string name="out_of_space_dlg_text">Не може да се инсталира %s. Изтрийте някои елементи и опитайте отново</string>
+    <string name="dlg_ok">OK</string>
+    <string name="app_not_found_dlg_title">Приложението не е намерено</string>
+    <string name="app_not_found_dlg_text">Приложението не е намерено в списъка на инсталираните приложения.</string>
+    <string name="uninstall_application_question">Деинсталиране на приложението?</string>
+    <string name="uninstall_update_question">Деинст.на актуализацията?</string>
+    <string name="uninstall_application_text">Приложението ще бъде деинсталирано</string>
+    <string name="uninstall_update_text">Актуализацията на приложението ще бъде деинсталирана. Все пак ще можете да използвате фабричната версия</string>
+    <string name="uninstalling">Деинсталиране...</string>
+    <string name="uninstall_done">Край на деинсталирането!</string>
+    <string name="uninstall_failed">Неуспешно деинсталиране</string>
+    <string name="uninstall_failed_msg">Не може да се инстал. %s</string>
+    <string name="Parse_error_dlg_title">Грешка в анализа</string>
+    <string name="Parse_error_dlg_text">Има проблем при анализирането на пакета</string>
+</resources>

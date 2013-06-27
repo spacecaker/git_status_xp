@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Instalator paketa</string>
+    <string name="install">Instaliraj</string>
+    <string name="done">Gotovo</string>
+    <string name="security_settings_desc">Dozvoli ovoj aplikaciji sledeće:</string>
+    <string name="cancel">Otkaži</string>
+    <string name="unknown">Nepoznato</string>
+    <string name="installing">Instaliranje...</string>
+    <string name="install_done">Aplikacija instalirana</string>
+    <string name="install_confirm_question">Da li želiš da instaliraš ovu aplikaciju?</string>
+    <string name="install_failed">Aplikacija nije instalirana</string>
+    <string name="install_failed_msg">Nemoguće instalirati %s na ovaj telefon</string>
+    <string name="launch">Otvori</string>
+    <string name="unknown_apps_dlg_title">Instaliranje blokirano</string>
+    <string name="unknown_apps_dlg_text">Radi bezbednosti telefon je podešen tako da blokira instaliranje aplikacije koje ne potiču iz Android prodavnice</string>
+    <string name="ok">OK</string>
+    <string name="settings">Podešavanja</string>
+    <string name="manage_applications">Organizuj aplikacije</string>
+    <string name="dlg_app_replacement_title">Zameni aplikaciju</string>
+    <string name="dlg_app_replacement_statement">"Aplikacija koja se instalira će zameniti neku drugu aplikaciju.
+
+Biće sačuvani svi prethodni korisnički podaci"</string>
+    <string name="dlg_sys_app_replacement_statement">"Ovo je sistemska aplikacija. Da li je ipak treba zameniti?
+
+Biće sačuvani svi prethodni korisnički podaci"</string>
+    <string name="out_of_space_dlg_title">Nema prostora</string>
+    <string name="out_of_space_dlg_text">Nemoguće instalirati %s. Obriši neke stavke i probaj opet</string>
+    <string name="dlg_ok">OK</string>
+    <string name="app_not_found_dlg_title">Nema aplikacije</string>
+    <string name="app_not_found_dlg_text">Aplikacija nije nađena u listi instaliranih aplikacija</string>
+    <string name="uninstall_application_question">Deinstaliraj aplikaciju?</string>
+    <string name="uninstall_update_question">Deinstaliraj dopunu?</string>
+    <string name="uninstall_application_text">Aplikacija će biti deinstalirana</string>
+    <string name="uninstall_update_text">Dopuna aplikacije će biti deinstalirana. I dalje možeš da koristiš fabričku verziju</string>
+    <string name="uninstalling">Deinstaliranje...</string>
+    <string name="uninstall_done">Deinstalacija završena!</string>
+    <string name="uninstall_failed">Deinstalacija neuspešna</string>
+    <string name="uninstall_failed_msg">Nemoguće instalirati %s</string>
+    <string name="Parse_error_dlg_title">Greška parsera</string>
+    <string name="Parse_error_dlg_text">Došlo je do problema pri parsiranju paketa</string>
+</resources>

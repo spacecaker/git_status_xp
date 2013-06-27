@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Инсталирање пакети</string>
+    <string name="install">Инст.</string>
+    <string name="done">ГОТОВ</string>
+    <string name="security_settings_desc">Дозвола за апликацијата да:</string>
+    <string name="cancel">Откажи</string>
+    <string name="unknown">Непознато</string>
+    <string name="installing">Се инсталира...</string>
+    <string name="install_done">Апликацијата е инсталирана</string>
+    <string name="install_confirm_question">Сакате да ја инсталирате апликацијата?</string>
+    <string name="install_failed">Апликацијата не е инсталирана</string>
+    <string name="install_failed_msg">Не може да се инсталира %s на овој телефон</string>
+    <string name="launch">Отвори</string>
+    <string name="unknown_apps_dlg_title">Инсталирањето е блокирано</string>
+    <string name="unknown_apps_dlg_text">Од безбедносни причини, телефонот е поставен да блокира инсталирање апликации што не се од Пазарот на Андроид</string>
+    <string name="ok">OK</string>
+    <string name="settings">Опции</string>
+    <string name="manage_applications">Уреди апликации</string>
+    <string name="dlg_app_replacement_title">Замени апликација</string>
+    <string name="dlg_app_replacement_statement">"Апликацијата што ја инсталирате ќе замени друга апликација.
+
+Сите претходни кориснички податоци ќе се зачуваат"</string>
+    <string name="dlg_sys_app_replacement_statement">"Ова е системска апликација. Уште ли сакате да ја замените?
+
+Сите претходни кориснички податоци ќе се сочуваат"</string>
+    <string name="out_of_space_dlg_title">Нема простор</string>
+    <string name="out_of_space_dlg_text">Не може да се инсталира %s. Избришете некој запис и обидете се повторно</string>
+    <string name="dlg_ok">OK</string>
+    <string name="app_not_found_dlg_title">Ја нема апликацијата</string>
+    <string name="app_not_found_dlg_text">Апликацијата ја нема на листата инсталирани апликации</string>
+    <string name="uninstall_application_question">Деинсталирај апликација?</string>
+    <string name="uninstall_update_question">Деинсталирај ажурирање?</string>
+    <string name="uninstall_application_text">Апликацијата ќе се деинсталира</string>
+    <string name="uninstall_update_text">Ажурирањето на апликацијата ќе се деинсталира. Уште може да ја користите фабричката верзија</string>
+    <string name="uninstalling">Се деинсталира...</string>
+    <string name="uninstall_done">Деинсталацијата заврши!</string>
+    <string name="uninstall_failed">Неуспешно деинсталирање</string>
+    <string name="uninstall_failed_msg">Не може да се инстал. %s</string>
+    <string name="Parse_error_dlg_title">Грешка во распакувањето</string>
+    <string name="Parse_error_dlg_text">Има проблем за распакување на пакетот</string>
+</resources>

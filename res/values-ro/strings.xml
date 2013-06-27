@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Program de instalare pachete</string>
+    <string name="install">Inst.</string>
+    <string name="done">Gata</string>
+    <string name="security_settings_desc">Se permite aplicaţiei să:</string>
+    <string name="cancel">Anul.</string>
+    <string name="unknown">Necunoscut</string>
+    <string name="installing">Instalare...</string>
+    <string name="install_done">Aplicaţia a fost instalată</string>
+    <string name="install_confirm_question">Doriţi să instalaţi această aplicaţie?</string>
+    <string name="install_failed">Aplicaţia nu este instalată</string>
+    <string name="install_failed_msg">Imposibil de instalat %s pe acest telefon</string>
+    <string name="launch">Desc.</string>
+    <string name="unknown_apps_dlg_title">Instalarea a fost blocată</string>
+    <string name="unknown_apps_dlg_text">Pentru siguranţă, telefonul este setat să blocheze instalarea aplicaţiilor care nu provin de la Android Market</string>
+    <string name="ok">OK</string>
+    <string name="settings">Setări</string>
+    <string name="manage_applications">Gestionare aplicaţii</string>
+    <string name="dlg_app_replacement_title">Înlocuire aplicaţie</string>
+    <string name="dlg_app_replacement_statement">"Aplicaţia pe care o instalaţi va înlocui o altă aplicaţie.
+
+Toate datele anterioare ale utilizatorului se vor salva"</string>
+    <string name="dlg_sys_app_replacement_statement">"Acesta este o aplicaţie de sistem. Doriţi totuşi să o înlocuiţi?
+
+Toate datele anterioare ale utilizatorilor se vor salva"</string>
+    <string name="out_of_space_dlg_title">Spaţiu insuficient</string>
+    <string name="out_of_space_dlg_text">Imposibil de instalat %s. Ştergeţi câteva elemente şi încercaţi din nou</string>
+    <string name="dlg_ok">OK</string>
+    <string name="app_not_found_dlg_title">Aplicaţia nu a fost găsită</string>
+    <string name="app_not_found_dlg_text">Aplicaţia nu a fost găsită în lista de aplicaţii instalate</string>
+    <string name="uninstall_application_question">Dezinstalaţi aplicaţia?</string>
+    <string name="uninstall_update_question">Dezinstalare actualizare?</string>
+    <string name="uninstall_application_text">Aplicaţia va fi dezinstalată</string>
+    <string name="uninstall_update_text">Actualizarea aplicaţiei va fi dezinstalată. Puteţi utiliza în continuare versiunea din fabrică</string>
+    <string name="uninstalling">Se dezinstalează...</string>
+    <string name="uninstall_done">Dezinstalarea s-a terminat!</string>
+    <string name="uninstall_failed">Dezinstalarea a eşuat</string>
+    <string name="uninstall_failed_msg">Imposibil de instalat %s</string>
+    <string name="Parse_error_dlg_title">Eroare la analizare</string>
+    <string name="Parse_error_dlg_text">A apărut o problemă la analizarea pachetului</string>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pakkauppsetning</string>
+    <string name="install">Setja upp</string>
+    <string name="done">Lokið</string>
+    <string name="security_settings_desc">Leyfa þessu forriti að:</string>
+    <string name="cancel">Hætta</string>
+    <string name="unknown">Óþekkt</string>
+    <string name="installing">Set upp...</string>
+    <string name="install_done">Forritið var sett upp</string>
+    <string name="install_confirm_question">Viltu setja þetta forrit upp?</string>
+    <string name="install_failed">Forritið var ekki sett upp</string>
+    <string name="install_failed_msg">Mistókst að setja upp %s í símanum</string>
+    <string name="launch">Opna</string>
+    <string name="unknown_apps_dlg_title">Uppsetningin var stöðvuð</string>
+    <string name="unknown_apps_dlg_text">Til öryggis er lokað fyrir uppsetningu forrita sem ekki eru frá Android-markaðnum</string>
+    <string name="ok">OK</string>
+    <string name="settings">Stillingar</string>
+    <string name="manage_applications">Vinna með forrit</string>
+    <string name="dlg_app_replacement_title">Skipta forriti út</string>
+    <string name="dlg_app_replacement_statement">"Forritið sem þú ert að setja upp skiptir út fyrirliggjandi forriti.
+
+Öll eldri gögn verða vistuð"</string>
+    <string name="dlg_sys_app_replacement_statement">"Þetta er kerfisforrit. Viltu samt skipta því út?
+
+Öll eldri notandagögn verða vistuð"</string>
+    <string name="out_of_space_dlg_title">Of lítið minni</string>
+    <string name="out_of_space_dlg_text">Mistókst að setja upp %s. Eyddu einhverjum atriðum og reyndu aftur</string>
+    <string name="dlg_ok">OK</string>
+    <string name="app_not_found_dlg_title">Forritið fannst ekki</string>
+    <string name="app_not_found_dlg_text">Þetta forrit fannst ekki á listanum yfir uppsett forrit</string>
+    <string name="uninstall_application_question">Viltu fjarlægja forritið?</string>
+    <string name="uninstall_update_question">Fjarlægja uppfærslu?</string>
+    <string name="uninstall_application_text">Forritið verður fjarlægt</string>
+    <string name="uninstall_update_text">Uppfærsla forritsins verður fjarlægð. Þú getur notað upprunalegu útgáfuna áfram</string>
+    <string name="uninstalling">Set upp...</string>
+    <string name="uninstall_done">Búið að fjarlægja!</string>
+    <string name="uninstall_failed">Mistókst að fjarlægja</string>
+    <string name="uninstall_failed_msg">Mistókst að setja upp %s</string>
+    <string name="Parse_error_dlg_title">Þáttaravilla</string>
+    <string name="Parse_error_dlg_text">Það kom upp vandamál við þáttun pakkans</string>
+</resources>

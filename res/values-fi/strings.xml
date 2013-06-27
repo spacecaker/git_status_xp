@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Paketin asennusohjelma</string>
+    <string name="install">Asenna</string>
+    <string name="done">Valm.</string>
+    <string name="security_settings_desc">Salli, että tämä sovellus:</string>
+    <string name="cancel">Peruuta</string>
+    <string name="unknown">Tuntematon</string>
+    <string name="installing">Asennetaan...</string>
+    <string name="install_done">Sovellus asennettu</string>
+    <string name="install_confirm_question">Haluatko asentaa tämän sovelluksen?</string>
+    <string name="install_failed">Sovellusta ei ole asennettu</string>
+    <string name="install_failed_msg">Sovellusta %s ei voi asentaa tähän puhelimeen</string>
+    <string name="launch">Avaa</string>
+    <string name="unknown_apps_dlg_title">Asenna estetyt</string>
+    <string name="unknown_apps_dlg_text">Puhelin on turvallisuussyistä asetettu estämään muiden kuin Android Marketissa olevien sovellusten asennus</string>
+    <string name="ok">OK</string>
+    <string name="settings">Asetukset</string>
+    <string name="manage_applications">Hallitse sovelluksia</string>
+    <string name="dlg_app_replacement_title">Korvaa sovellus</string>
+    <string name="dlg_app_replacement_statement">"Asennettava sovellus korvaa toisen sovelluksen.
+
+Kaikki aikaisemmat käyttäjätiedot tallennetaan"</string>
+    <string name="dlg_sys_app_replacement_statement">"Tämä on järjestelmäsovellus. Haluatko silti korvata sen?
+
+Kaikki aikaisemmat käyttäjätiedot tallennetaan"</string>
+    <string name="out_of_space_dlg_title">Tila ei riitä</string>
+    <string name="out_of_space_dlg_text">Sovellusta %s ei voi asentaa. Poista kohteita ja yritä uudelleen</string>
+    <string name="dlg_ok">OK</string>
+    <string name="app_not_found_dlg_title">Sovellusta ei löydy</string>
+    <string name="app_not_found_dlg_text">Sovellusta ei löydy asennettujen sovellusten luettelosta</string>
+    <string name="uninstall_application_question">Poistetaanko sovelluksen asennus?</string>
+    <string name="uninstall_update_question">Poista päivit. asennus?</string>
+    <string name="uninstall_application_text">Sovelluksen asennus poistetaan</string>
+    <string name="uninstall_update_text">Sovelluspäivityksen asennus poistetaan. Voit edelleen käyttää tehdasversiota</string>
+    <string name="uninstalling">Asennusta poistetaan...</string>
+    <string name="uninstall_done">Sovelluksen asennuksen poistaminen on valmis!</string>
+    <string name="uninstall_failed">Asennuksen poistaminen epäonnistui</string>
+    <string name="uninstall_failed_msg">Sovell. %s ei voi asentaa</string>
+    <string name="Parse_error_dlg_title">Jäsennysvirhe</string>
+    <string name="Parse_error_dlg_text">Pakettia jäsennettäessä tapahtui virhe</string>
+</resources>

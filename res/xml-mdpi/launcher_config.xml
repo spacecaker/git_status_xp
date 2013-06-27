@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<config
-  xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.twlauncher">
-    <columnno launcher:menuColumnCount="3" />
-    <itemno launcher:itemNumOfPage="9" />
-    <pageindicator launcher:useLargeDrawablesOnly="false" />
-    <launcher launcher:screenCount="9" launcher:defaultScreenCount="3" launcher:useFullScreenQuickViewLandScape="true" launcher:useMainMenuConcentrationEffect="true" launcher:use16BitWindow="false" launcher:useMainMenuListMode="true" launcher:useImageMenu="true" />
-    <product launcher:modelFamily="S1" launcher:model="GT-S5670" />
-</config>

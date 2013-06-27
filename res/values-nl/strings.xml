@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pakketinstallatie</string>
+    <string name="install">Install.</string>
+    <string name="done">Klaar</string>
+    <string name="security_settings_desc">Deze applicatie toestaan om:</string>
+    <string name="cancel">Annul.</string>
+    <string name="unknown">Onbekend</string>
+    <string name="installing">Installeren...</string>
+    <string name="install_done">Applicatie geïnstalleerd</string>
+    <string name="install_confirm_question">Wilt u deze applicatie installeren?</string>
+    <string name="install_failed">Applicatie niet geïnstalleerd</string>
+    <string name="install_failed_msg">Kan %s niet op deze telefoon installeren</string>
+    <string name="launch">Openen</string>
+    <string name="unknown_apps_dlg_title">Installeren geblokkeerd</string>
+    <string name="unknown_apps_dlg_text">Als beveiliging blokkeert uw telefoon de installatie van applicaties die niet afkomstig zijn uit de Android Market</string>
+    <string name="ok">OK</string>
+    <string name="settings">Instellingen</string>
+    <string name="manage_applications">Applicaties beheren</string>
+    <string name="dlg_app_replacement_title">Applicatie vervangen</string>
+    <string name="dlg_app_replacement_statement">"De applicatie die u installeert, komt in de plaats van een andere applicatie.
+
+Alle eerdere gebruikersgegevens worden opgeslagen"</string>
+    <string name="dlg_sys_app_replacement_statement">"Dit is een systeemapplicatie. Wilt u deze vervangen?
+
+Alle eerdere gebruikergegevens worden opgeslagen"</string>
+    <string name="out_of_space_dlg_title">Te weinig ruimte</string>
+    <string name="out_of_space_dlg_text">Kan %s niet installeren. Verwijder een aantal items en probeer het opnieuw</string>
+    <string name="dlg_ok">OK</string>
+    <string name="app_not_found_dlg_title">Applicatie niet gevonden</string>
+    <string name="app_not_found_dlg_text">De applicatie is niet gevonden in de lijst met geïnstalleerde applicaties</string>
+    <string name="uninstall_application_question">Applicatie verwijderen?</string>
+    <string name="uninstall_update_question">Update verwijderen?</string>
+    <string name="uninstall_application_text">Applicatie wordt verwijderd</string>
+    <string name="uninstall_update_text">Applicatieupdate wordt verwijderd. U kunt nog wel de standaardversie gebruiken</string>
+    <string name="uninstalling">Verwijderen...</string>
+    <string name="uninstall_done">Verwijderen voltooid!</string>
+    <string name="uninstall_failed">Niet verwijderd</string>
+    <string name="uninstall_failed_msg">Kan %s niet installeren</string>
+    <string name="Parse_error_dlg_title">Parseerfout</string>
+    <string name="Parse_error_dlg_text">Er is een probleem met het parseren van het pakket</string>
+</resources>

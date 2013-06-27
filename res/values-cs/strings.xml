@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Instalační program balíčků</string>
+    <string name="install">Instal</string>
+    <string name="done">Hot.</string>
+    <string name="security_settings_desc">Povolit tuto aplikaci:</string>
+    <string name="cancel">Zruš.</string>
+    <string name="unknown">Neznámé</string>
+    <string name="installing">Instalace...</string>
+    <string name="install_done">Aplikace byla nainstalována</string>
+    <string name="install_confirm_question">Chcete nainstalovat tuto aplikaci?</string>
+    <string name="install_failed">Aplikace není nainstalována</string>
+    <string name="install_failed_msg">%s se do telefonu nepodařilo nainstalovat</string>
+    <string name="launch">Otev.</string>
+    <string name="unknown_apps_dlg_title">Instalace byla zablokována</string>
+    <string name="unknown_apps_dlg_text">Z důvodu zabezpečení je telefon nastaven tak, že blokuje instalaci aplikací, které nepocházejí z trhu Android</string>
+    <string name="ok">OK</string>
+    <string name="settings">Nastavení</string>
+    <string name="manage_applications">Správa aplikací</string>
+    <string name="dlg_app_replacement_title">Nahradit aplikaci</string>
+    <string name="dlg_app_replacement_statement">"Instalovaná aplikace nahradí jinou aplikaci.
+
+Všechna předchozí uživatelská data budou uložena"</string>
+    <string name="dlg_sys_app_replacement_statement">"Toto je systémová aplikace. Chcete ji nahradit?
+
+Všechna předchozí uživatelská data budou uložena"</string>
+    <string name="out_of_space_dlg_title">Nedostatek místa</string>
+    <string name="out_of_space_dlg_text">%s se nepodařilo nainstalovat. Odstraňte některé položky a opakujte akci</string>
+    <string name="dlg_ok">OK</string>
+    <string name="app_not_found_dlg_title">Aplikace nebyla nalezena</string>
+    <string name="app_not_found_dlg_text">Aplikace nebyla nalezena v seznamu nainstalovaných aplikací</string>
+    <string name="uninstall_application_question">Odinstalovat aplikaci?</string>
+    <string name="uninstall_update_question">Odinstalovat aktualizaci?</string>
+    <string name="uninstall_application_text">Aplikace bude odinstalována</string>
+    <string name="uninstall_update_text">Aktualizace aplikace bude odinstalována. Můžete nadále používat tovární verzi</string>
+    <string name="uninstalling">Odinstalování...</string>
+    <string name="uninstall_done">Odinstalace byla dokončena!</string>
+    <string name="uninstall_failed">Odinstalace se nezdařila</string>
+    <string name="uninstall_failed_msg">%s nebyl nainstalován</string>
+    <string name="Parse_error_dlg_title">Chyba analýzy</string>
+    <string name="Parse_error_dlg_text">Při analýze balíčku došlo k potížím</string>
+</resources>

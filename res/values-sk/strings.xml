@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Inštalátor balíka</string>
+    <string name="install">Inštal.</string>
+    <string name="done">Hotovo</string>
+    <string name="security_settings_desc">Povoliť tejto aplikácii:</string>
+    <string name="cancel">Zruš.</string>
+    <string name="unknown">Neznáme</string>
+    <string name="installing">Inštaluje sa...</string>
+    <string name="install_done">Aplikácia je nainštalovaná</string>
+    <string name="install_confirm_question">Chcete nainštalovať túto aplikáciu?</string>
+    <string name="install_failed">Aplikácia nie je nainštalovaná</string>
+    <string name="install_failed_msg">%s sa nedá nainštalovať do tohto telefónu</string>
+    <string name="launch">Otvoriť</string>
+    <string name="unknown_apps_dlg_title">Inštalácia je blokovaná</string>
+    <string name="unknown_apps_dlg_text">Z bezpečnostných dôvodov je telefón nastavený na blokovanie inštalácie aplikácií, ktoré nepochádzajú z obchodu Android</string>
+    <string name="ok">OK</string>
+    <string name="settings">Nastavenia</string>
+    <string name="manage_applications">Spravovať aplikácie</string>
+    <string name="dlg_app_replacement_title">Nahradiť aplikáciu</string>
+    <string name="dlg_app_replacement_statement">"Aplikácia, ktorú inštalujete, nahradí inú aplikáciu.
+
+Všetky predchádzajúce používateľské údaje budú uložené"</string>
+    <string name="dlg_sys_app_replacement_statement">"Toto je systémová aplikácia. Chcete ju stále nahradiť?
+
+Všetky predchádzajúce používateľské údaje budú uložené"</string>
+    <string name="out_of_space_dlg_title">Nedostatok miesta</string>
+    <string name="out_of_space_dlg_text">%s sa nedá nainštalovať. Vymažte niektoré položky a skúste to znova</string>
+    <string name="dlg_ok">OK</string>
+    <string name="app_not_found_dlg_title">Aplikácia sa nedá nájsť</string>
+    <string name="app_not_found_dlg_text">Aplikáciu sa nepodarilo nájsť v zozname nainštalovaných aplikácií</string>
+    <string name="uninstall_application_question">Odinštalovať aplikáciu?</string>
+    <string name="uninstall_update_question">Odinštal. aktualizáciu?</string>
+    <string name="uninstall_application_text">Aplikácia sa odinštaluje</string>
+    <string name="uninstall_update_text">Aktualizácia aplikácie sa odinštaluje. Stále môžete použiť verziu od výrobcu</string>
+    <string name="uninstalling">Odinštaluje sa...</string>
+    <string name="uninstall_done">Odinštalovanie je dokončené!</string>
+    <string name="uninstall_failed">Odinštalovanie nebolo úspešné</string>
+    <string name="uninstall_failed_msg">%s sa nedá nainštalovať</string>
+    <string name="Parse_error_dlg_title">Chyba analyzovania</string>
+    <string name="Parse_error_dlg_text">Pri analýze balíka sa vyskytol problém</string>
+</resources>

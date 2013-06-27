@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Suiteálaí Pacáiste</string>
+    <string name="install">Suiteáil</string>
+    <string name="done">Déant</string>
+    <string name="security_settings_desc">Ceadaigh don fheidhmchlár seo:</string>
+    <string name="cancel">Ar Ceal</string>
+    <string name="unknown">Anaithnid</string>
+    <string name="installing">Ag suiteáil...</string>
+    <string name="install_done">Feidhmchlár suiteáilte</string>
+    <string name="install_confirm_question">An mian leat an feidhmchlár seo a shuiteáil?</string>
+    <string name="install_failed">Níl feidhmchlár suiteáilte</string>
+    <string name="install_failed_msg">Ní féidir %s a shuiteáil ar an bhfón seo</string>
+    <string name="launch">Oscl</string>
+    <string name="unknown_apps_dlg_title">Cuireadh bac ar shuiteáil</string>
+    <string name="unknown_apps_dlg_text">Ar mhaithe le slándáil, tá an fón socraithe le bac a chur ar shuiteáil feidhmchlár nach as an Margadh Android iad</string>
+    <string name="ok">OK</string>
+    <string name="settings">Socruithe</string>
+    <string name="manage_applications">Bainistigh feidhmchláir</string>
+    <string name="dlg_app_replacement_title">Ionadaigh feidhmchlár</string>
+    <string name="dlg_app_replacement_statement">"Rachaidh an feidhmchlár atá á shuiteáil agat in ionad feidhmchláir eile.
+
+ Sábhálfar gach sonra úsáideora a bhí ann roimhe"</string>
+    <string name="dlg_sys_app_replacement_statement">"Is feidhmchlár córais é seo. An mian leat é a ionadú go fóill?
+
+Sábhálfar na sonraí úsáideora go léir a bhí ann roimhe"</string>
+    <string name="out_of_space_dlg_title">As spás</string>
+    <string name="out_of_space_dlg_text">Ní féidir %s a shuiteáil. Scrios roinnt míreanna agus triail arís</string>
+    <string name="dlg_ok">OK</string>
+    <string name="app_not_found_dlg_title">Níor aimsíodh an feidhmchlár</string>
+    <string name="app_not_found_dlg_text">Níor aimsíodh an feidhmchlár i liosta na bhfeidhmchlár suiteáilte</string>
+    <string name="uninstall_application_question">Díshuiteáil feidhmchlár?</string>
+    <string name="uninstall_update_question">Díshuiteáil an nuashonrú?</string>
+    <string name="uninstall_application_text">Díshuiteálfar an feidhmchlár</string>
+    <string name="uninstall_update_text">Díshuiteálfar an nuashonrú don fheidhmchlár. Féadann tú úsáid a bhaint as an leagan monarchan fós</string>
+    <string name="uninstalling">Ag díshuiteáil...</string>
+    <string name="uninstall_done">Díshuiteáil comhlíonta!</string>
+    <string name="uninstall_failed">Níor éirigh le díshuiteáil</string>
+    <string name="uninstall_failed_msg">Ní féidir %s a shuiteáil</string>
+    <string name="Parse_error_dlg_title">Earráid Pharsála</string>
+    <string name="Parse_error_dlg_text">Tá fadhb le parsáil an phacáiste</string>
+</resources>

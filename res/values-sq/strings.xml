@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Instaluesi i paketës</string>
+    <string name="install">Insta</string>
+    <string name="done">Fund</string>
+    <string name="security_settings_desc">Lejo këtë program të:</string>
+    <string name="cancel">Anulo</string>
+    <string name="unknown">I panjohur</string>
+    <string name="installing">Duke instaluar...</string>
+    <string name="install_done">programi u instalua</string>
+    <string name="install_confirm_question">Dëshiron ta instalosh këtë program?</string>
+    <string name="install_failed">programi nuk është instaluar</string>
+    <string name="install_failed_msg">Nuk mund ta instalojë %s në këtë telefon</string>
+    <string name="launch">Hape</string>
+    <string name="unknown_apps_dlg_title">Instalimi është bllokuar</string>
+    <string name="unknown_apps_dlg_text">Për hir të sigurshmërisë, telefoni yt është programuar që të bllokojë instalimin e Programeve që nuk e kanë prejardhjen nga Android Market</string>
+    <string name="ok">OK</string>
+    <string name="settings">Percaktimet e vlerave</string>
+    <string name="manage_applications">Trajto Programet</string>
+    <string name="dlg_app_replacement_title">Zëvendëso programin</string>
+    <string name="dlg_app_replacement_statement">"programi që po instalon do të zëvendësojë një program tjetër.
+
+Të gjitha të dhënat e përdoruesit ekzistuese do të ruhen"</string>
+    <string name="dlg_sys_app_replacement_statement">"Ky është program sistemi. Ende dëshiron ta zëvendësosh?
+
+Të gjitha të dhënat e mëparshme të përdoruesit do të ruhen"</string>
+    <string name="out_of_space_dlg_title">S’ka vend</string>
+    <string name="out_of_space_dlg_text">Nuk mund të instalojë %s. Fshi disa artikuj dhe provoje përsëri</string>
+    <string name="dlg_ok">OK</string>
+    <string name="app_not_found_dlg_title">Nuk gjendet programi</string>
+    <string name="app_not_found_dlg_text">programi nuk u gjet në listën e Programeve të instaluara</string>
+    <string name="uninstall_application_question">Ta çinstaloj aplikacionin?</string>
+    <string name="uninstall_update_question">Çinstalo përditësimin?</string>
+    <string name="uninstall_application_text">programi do të çinstalohet</string>
+    <string name="uninstall_update_text">Përditësimi i programit do të çinstalohet. Mund të përdorësh ende versionin e fabrikës</string>
+    <string name="uninstalling">Duke çinstaluar...</string>
+    <string name="uninstall_done">Çinstalimi përfundoi!</string>
+    <string name="uninstall_failed">Çinstalimi nuk pati sukses</string>
+    <string name="uninstall_failed_msg">Nuk mund të instalojë %s</string>
+    <string name="Parse_error_dlg_title">Gabim në analizë</string>
+    <string name="Parse_error_dlg_text">Pati një problem gjatë analizës së paketës</string>
+</resources>

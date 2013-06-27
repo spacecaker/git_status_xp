@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Instalador del paquete</string>
+    <string name="install">Instal.</string>
+    <string name="done">Hecho</string>
+    <string name="security_settings_desc">Permitir a esta aplicación:</string>
+    <string name="cancel">Cancelar</string>
+    <string name="unknown">Desconocido</string>
+    <string name="installing">Instalando...</string>
+    <string name="install_done">Aplicación instalada</string>
+    <string name="install_confirm_question">¿Desea instalar esta aplicación?</string>
+    <string name="install_failed">Aplicación no instalada</string>
+    <string name="install_failed_msg">No se puede instalar %s en este teléfono</string>
+    <string name="launch">Abrir</string>
+    <string name="unknown_apps_dlg_title">Instalación bloqueada</string>
+    <string name="unknown_apps_dlg_text">Para mayor seguridad, el teléfono está configurado para bloquear la instalación de aplicaciones que no provengan del mercado Android</string>
+    <string name="ok">OK</string>
+    <string name="settings">Ajustes</string>
+    <string name="manage_applications">Administrar aplicaciones</string>
+    <string name="dlg_app_replacement_title">Sustituir aplicación</string>
+    <string name="dlg_app_replacement_statement">La aplicación que va a instalar sustituirá otra aplicación. Se guardarán todos los datos de usuario anteriores</string>
+    <string name="dlg_sys_app_replacement_statement">Ésta es una aplicación de sistema. ¿Desea sustituirla? Todos los datos de usuario anteriores se guardarán</string>
+    <string name="out_of_space_dlg_title">Sin espacio</string>
+    <string name="out_of_space_dlg_text">No se puede instalar %s. Eliminar algunos elementos e intentar de nuevo</string>
+    <string name="dlg_ok">OK</string>
+    <string name="app_not_found_dlg_title">Aplicación no encontrada</string>
+    <string name="app_not_found_dlg_text">No se ha encontrado la aplicación en la lista de aplicaciones instaladas</string>
+    <string name="uninstall_application_question">¿Desinstalar aplicación?</string>
+    <string name="uninstall_update_question">¿Desinstalar actualiz.?</string>
+    <string name="uninstall_application_text">La aplicación se desinstalará</string>
+    <string name="uninstall_update_text">Se desinstalará la actualización de la aplicación. Puede seguir utilizando la versión de fábrica</string>
+    <string name="uninstalling">Desinstalando...</string>
+    <string name="uninstall_done">Desinstalación finalizada</string>
+    <string name="uninstall_failed">Desinstalación incorrecta</string>
+    <string name="uninstall_failed_msg">No se puede instalar %s</string>
+    <string name="Parse_error_dlg_title">Error de análisis</string>
+    <string name="Parse_error_dlg_text">Se ha producido un problema al analizar el paquete</string>
+</resources>

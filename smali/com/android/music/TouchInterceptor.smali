@@ -76,12 +76,14 @@
     .locals 2
 
     .prologue
-    .line 203
-    const-string v0, "GT-S5660"
-
     const-string v1, "GT-S5830"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    .line 203
+    const-string v0, "GT-S5830"
+
+    const-string v0, "GT-S5830"
+
+    invoke-virtual {v1, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -912,12 +914,12 @@
     .line 486
     iget-object v3, p0, Lcom/android/music/TouchInterceptor;->mWindowParams:Landroid/view/WindowManager$LayoutParams;
 
-    iput v6, v3, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v6, v3, Landroid/view/WindowManager$LayoutParams;->height:I
 
     .line 487
     iget-object v3, p0, Lcom/android/music/TouchInterceptor;->mWindowParams:Landroid/view/WindowManager$LayoutParams;
 
-    iput v6, v3, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v6, v3, Landroid/view/WindowManager$LayoutParams;->width:I
 
     .line 488
     iget-object v3, p0, Lcom/android/music/TouchInterceptor;->mWindowParams:Landroid/view/WindowManager$LayoutParams;

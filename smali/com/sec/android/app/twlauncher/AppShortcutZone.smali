@@ -195,7 +195,7 @@
 
     .line 120
     .local v0, a:Landroid/content/res/TypedArray;
-    const/4 v1, 0x4
+    const/4 v1, 0x5
 
     invoke-virtual {v0, v4, v1}, Landroid/content/res/TypedArray;->getInt(II)I
 
@@ -2784,7 +2784,7 @@
     .local v3, index:I
     if-ltz v7, :cond_1
 
-    const/4 v8, 0x3
+    const/4 v8, 0x4
 
     if-ge v7, v8, :cond_1
 
@@ -3627,7 +3627,7 @@
     .local v2, child:Landroid/view/View;
     if-eqz v2, :cond_0
 
-    const/4 v6, 0x3
+    const/4 v6, 0x4
 
     if-ge p2, v6, :cond_0
 

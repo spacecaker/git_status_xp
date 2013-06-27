@@ -4885,7 +4885,7 @@
     move-result v12
 
     .local v12, type:I
-    const/4 v0, 0x3
+    const/4 v0, 0x4
 
     if-ne v12, v0, :cond_1
 
@@ -4960,7 +4960,7 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 703
-    const/4 v0, 0x3
+    const/4 v0, 0x4
 
     if-lt v5, v0, :cond_0
 

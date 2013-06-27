@@ -53,57 +53,28 @@
     <public type="drawable" name="grid_selector2" id="0x7f020010" />
     <public type="drawable" name="homescreen_add" id="0x7f020011" />
     <public type="drawable" name="homescreen_add_bg" id="0x7f020012" />
-    <public type="drawable" name="APKTOOL_DUMMY_0017" id="0x7f020017" />
-    <public type="drawable" name="APKTOOL_DUMMY_0018" id="0x7f020018" />
-    <public type="drawable" name="APKTOOL_DUMMY_0019" id="0x7f020019" />
-    <public type="drawable" name="APKTOOL_DUMMY_001a" id="0x7f02001a" />
-    <public type="drawable" name="APKTOOL_DUMMY_001b" id="0x7f02001b" />
-    <public type="drawable" name="APKTOOL_DUMMY_0025" id="0x7f020025" />
-    <public type="drawable" name="APKTOOL_DUMMY_0026" id="0x7f020026" />
-    <public type="drawable" name="APKTOOL_DUMMY_0027" id="0x7f020027" />
+    <public type="drawable" name="APKTOOL_DUMMY_0016" id="0x7f020016" />
     <public type="drawable" name="homescreen_menu_mainmenu_icon_bg" id="0x7f020029" />
+    <public type="drawable" name="APKTOOL_DUMMY_003d" id="0x7f02003d" />
+    <public type="drawable" name="APKTOOL_DUMMY_003e" id="0x7f02003e" />
+    <public type="drawable" name="APKTOOL_DUMMY_0040" id="0x7f020040" />
     <public type="drawable" name="APKTOOL_DUMMY_0046" id="0x7f020046" />
-    <public type="drawable" name="APKTOOL_DUMMY_0047" id="0x7f020047" />
     <public type="drawable" name="homescreen_menu_shortcut_icon_bg" id="0x7f020048" />
     <public type="drawable" name="homescreen_menu_shortcut_iconmenu_bg" id="0x7f020049" />
-    <public type="drawable" name="APKTOOL_DUMMY_004b" id="0x7f02004b" />
-    <public type="drawable" name="APKTOOL_DUMMY_004d" id="0x7f02004d" />
-    <public type="drawable" name="APKTOOL_DUMMY_004f" id="0x7f02004f" />
-    <public type="drawable" name="APKTOOL_DUMMY_0051" id="0x7f020051" />
-    <public type="drawable" name="APKTOOL_DUMMY_0052" id="0x7f020052" />
-    <public type="drawable" name="APKTOOL_DUMMY_0053" id="0x7f020053" />
-    <public type="drawable" name="APKTOOL_DUMMY_0058" id="0x7f020058" />
-    <public type="drawable" name="APKTOOL_DUMMY_0059" id="0x7f020059" />
-    <public type="drawable" name="APKTOOL_DUMMY_0069" id="0x7f020069" />
-    <public type="drawable" name="APKTOOL_DUMMY_008c" id="0x7f02008c" />
-    <public type="drawable" name="APKTOOL_DUMMY_008d" id="0x7f02008d" />
-    <public type="drawable" name="APKTOOL_DUMMY_008e" id="0x7f02008e" />
-    <public type="drawable" name="APKTOOL_DUMMY_0091" id="0x7f020091" />
-    <public type="drawable" name="APKTOOL_DUMMY_009f" id="0x7f02009f" />
-    <public type="drawable" name="APKTOOL_DUMMY_00a0" id="0x7f0200a0" />
-    <public type="drawable" name="APKTOOL_DUMMY_00a7" id="0x7f0200a7" />
-    <public type="drawable" name="APKTOOL_DUMMY_00ad" id="0x7f0200ad" />
-    <public type="drawable" name="APKTOOL_DUMMY_00b6" id="0x7f0200b6" />
-    <public type="drawable" name="APKTOOL_DUMMY_00c4" id="0x7f0200c4" />
-    <public type="drawable" name="APKTOOL_DUMMY_00c6" id="0x7f0200c6" />
-    <public type="drawable" name="APKTOOL_DUMMY_00cd" id="0x7f0200cd" />
-    <public type="drawable" name="APKTOOL_DUMMY_00d4" id="0x7f0200d4" />
-    <public type="drawable" name="APKTOOL_DUMMY_00e1" id="0x7f0200e1" />
-    <public type="drawable" name="APKTOOL_DUMMY_00e4" id="0x7f0200e4" />
-    <public type="drawable" name="APKTOOL_DUMMY_00ea" id="0x7f0200ea" />
-    <public type="drawable" name="APKTOOL_DUMMY_00f9" id="0x7f0200f9" />
-    <public type="drawable" name="APKTOOL_DUMMY_00fb" id="0x7f0200fb" />
-    <public type="drawable" name="APKTOOL_DUMMY_0100" id="0x7f020100" />
-    <public type="drawable" name="APKTOOL_DUMMY_0103" id="0x7f020103" />
-    <public type="drawable" name="APKTOOL_DUMMY_0108" id="0x7f020108" />
-    <public type="drawable" name="APKTOOL_DUMMY_010c" id="0x7f02010c" />
-    <public type="drawable" name="APKTOOL_DUMMY_0114" id="0x7f020114" />
-    <public type="drawable" name="APKTOOL_DUMMY_0118" id="0x7f020118" />
-    <public type="drawable" name="APKTOOL_DUMMY_011d" id="0x7f02011d" />
-    <public type="drawable" name="APKTOOL_DUMMY_011f" id="0x7f02011f" />
-    <public type="drawable" name="APKTOOL_DUMMY_0125" id="0x7f020125" />
-    <public type="drawable" name="APKTOOL_DUMMY_0126" id="0x7f020126" />
-    <public type="drawable" name="APKTOOL_DUMMY_0127" id="0x7f020127" />
+    <public type="drawable" name="APKTOOL_DUMMY_005b" id="0x7f02005b" />
+    <public type="drawable" name="APKTOOL_DUMMY_005c" id="0x7f02005c" />
+    <public type="drawable" name="APKTOOL_DUMMY_007b" id="0x7f02007b" />
+    <public type="drawable" name="APKTOOL_DUMMY_007e" id="0x7f02007e" />
+    <public type="drawable" name="APKTOOL_DUMMY_007f" id="0x7f02007f" />
+    <public type="drawable" name="APKTOOL_DUMMY_0085" id="0x7f020085" />
+    <public type="drawable" name="APKTOOL_DUMMY_0097" id="0x7f020097" />
+    <public type="drawable" name="APKTOOL_DUMMY_0099" id="0x7f020099" />
+    <public type="drawable" name="APKTOOL_DUMMY_009a" id="0x7f02009a" />
+    <public type="drawable" name="APKTOOL_DUMMY_009b" id="0x7f02009b" />
+    <public type="drawable" name="APKTOOL_DUMMY_00a3" id="0x7f0200a3" />
+    <public type="drawable" name="APKTOOL_DUMMY_00cc" id="0x7f0200cc" />
+    <public type="drawable" name="APKTOOL_DUMMY_00e0" id="0x7f0200e0" />
+    <public type="drawable" name="APKTOOL_DUMMY_0124" id="0x7f020124" />
     <public type="drawable" name="pressed_application_background" id="0x7f020129" />
     <public type="drawable" name="quicknavigation_background" id="0x7f02012c" />
     <public type="drawable" name="shortcut_selector" id="0x7f02012f" />
@@ -122,7 +93,11 @@
     <public type="drawable" name="homescreen_icon_bg" id="0x7f020013" />
     <public type="drawable" name="homescreen_icon_bg_h" id="0x7f020014" />
     <public type="drawable" name="homescreen_icon_del" id="0x7f020015" />
-    <public type="drawable" name="homescreen_menu_bg" id="0x7f020016" />
+    <public type="drawable" name="homescreen_menu_black_bg" id="0x7f020017" />
+    <public type="drawable" name="homescreen_menu_button_done" id="0x7f020018" />
+    <public type="drawable" name="homescreen_menu_button_done_press" id="0x7f020019" />
+    <public type="drawable" name="homescreen_menu_button_edit" id="0x7f02001a" />
+    <public type="drawable" name="homescreen_menu_button_edit_press" id="0x7f02001b" />
     <public type="drawable" name="homescreen_menu_delete_02" id="0x7f02001c" />
     <public type="drawable" name="homescreen_menu_icon_delete" id="0x7f02001d" />
     <public type="drawable" name="homescreen_menu_icon_delete_01" id="0x7f02001e" />
@@ -132,6 +107,9 @@
     <public type="drawable" name="homescreen_menu_icon_edit_02" id="0x7f020022" />
     <public type="drawable" name="homescreen_menu_icon_edit_03" id="0x7f020023" />
     <public type="drawable" name="homescreen_menu_icon_edit_bg" id="0x7f020024" />
+    <public type="drawable" name="homescreen_menu_icon_edit_bg_01" id="0x7f020025" />
+    <public type="drawable" name="homescreen_menu_icon_edit_bg_02" id="0x7f020026" />
+    <public type="drawable" name="homescreen_menu_icon_edit_bg_03" id="0x7f020027" />
     <public type="drawable" name="homescreen_menu_mainmenu_bg" id="0x7f020028" />
     <public type="drawable" name="homescreen_menu_marketbg_0" id="0x7f02002a" />
     <public type="drawable" name="homescreen_menu_marketbg_1" id="0x7f02002b" />
@@ -152,34 +130,37 @@
     <public type="drawable" name="homescreen_menu_page_edit_softkey_press" id="0x7f02003a" />
     <public type="drawable" name="homescreen_menu_page_edit_title_bg" id="0x7f02003b" />
     <public type="drawable" name="homescreen_menu_page_focus" id="0x7f02003c" />
-    <public type="drawable" name="homescreen_menu_page_focus_02" id="0x7f02003d" />
-    <public type="drawable" name="homescreen_menu_page_focus_03" id="0x7f02003e" />
     <public type="drawable" name="homescreen_menu_page_focus_large" id="0x7f02003f" />
-    <public type="drawable" name="homescreen_menu_page_focus_large_" id="0x7f020040" />
     <public type="drawable" name="homescreen_menu_page_focus_middle" id="0x7f020041" />
     <public type="drawable" name="homescreen_menu_page_focus_small" id="0x7f020042" />
     <public type="drawable" name="homescreen_menu_page_more" id="0x7f020043" />
     <public type="drawable" name="homescreen_menu_press" id="0x7f020044" />
     <public type="drawable" name="homescreen_menu_shortcut_bg" id="0x7f020045" />
+    <public type="drawable" name="homescreen_menu_shortcut_black_bg" id="0x7f020047" />
     <public type="drawable" name="homescreen_menu_shortcut_white_bg" id="0x7f02004a" />
+    <public type="drawable" name="homescreen_menu_white_bg" id="0x7f02004b" />
     <public type="drawable" name="homescreen_page" id="0x7f02004c" />
+    <public type="drawable" name="homescreen_page_dim" id="0x7f020053" />
     <public type="drawable" name="homescreen_page_dim_01" id="0x7f020054" />
     <public type="drawable" name="homescreen_page_dim_02" id="0x7f020055" />
     <public type="drawable" name="homescreen_page_dim_03" id="0x7f020056" />
     <public type="drawable" name="homescreen_page_focus" id="0x7f020057" />
+    <public type="drawable" name="homescreen_page_focus_02" id="0x7f020058" />
+    <public type="drawable" name="homescreen_page_focus_03" id="0x7f020059" />
     <public type="drawable" name="homescreen_quick_navigation_add" id="0x7f02005a" />
-    <public type="drawable" name="homescreen_quick_navigation_add_01" id="0x7f02005b" />
-    <public type="drawable" name="homescreen_quick_navigation_add_02" id="0x7f02005c" />
     <public type="drawable" name="homescreen_quick_navigation_bg" id="0x7f02005d" />
     <public type="drawable" name="homescreen_quick_navigation_bg_press" id="0x7f02005e" />
     <public type="drawable" name="homescreen_quick_navigation_hightlight" id="0x7f02005f" />
     <public type="drawable" name="homescreen_remove_bg" id="0x7f020060" />
+    <public type="drawable" name="homescreen_remove_bg_02" id="0x7f020061" />
     <public type="drawable" name="homescreen_remove_bg_drag" id="0x7f020062" />
+    <public type="drawable" name="homescreen_remove_bg_drag_02" id="0x7f020063" />
     <public type="drawable" name="homescreen_remove_icon" id="0x7f020064" />
     <public type="drawable" name="homescreen_remove_uninstall_bg" id="0x7f020065" />
     <public type="drawable" name="homescreen_remove_uninstall_bg_drag_r" id="0x7f020066" />
     <public type="drawable" name="homescreen_remove_uninstall_bg_drag_u" id="0x7f020067" />
     <public type="drawable" name="homescreen_uninstall_icon" id="0x7f020068" />
+    <public type="drawable" name="homescreen_wallpaper_setting_bg" id="0x7f020069" />
     <public type="drawable" name="ic_btn_speak_now" id="0x7f02006a" />
     <public type="drawable" name="ic_launcher_add_folder" id="0x7f02006b" />
     <public type="drawable" name="ic_launcher_application" id="0x7f02006c" />
@@ -197,49 +178,48 @@
     <public type="drawable" name="ic_menu_details" id="0x7f020078" />
     <public type="drawable" name="ic_menu_discard" id="0x7f020079" />
     <public type="drawable" name="ic_menu_edit" id="0x7f02007a" />
-    <public type="drawable" name="ic_menu_gallery" id="0x7f02007b" />
     <public type="drawable" name="ic_menu_grid_view" id="0x7f02007c" />
     <public type="drawable" name="ic_menu_list_view" id="0x7f02007d" />
-    <public type="drawable" name="ic_menu_notifications" id="0x7f02007e" />
-    <public type="drawable" name="ic_menu_preferences" id="0x7f02007f" />
     <public type="drawable" name="ic_menu_save" id="0x7f020080" />
     <public type="drawable" name="ic_menu_search" id="0x7f020081" />
     <public type="drawable" name="ic_menu_settings" id="0x7f020082" />
     <public type="drawable" name="ic_menu_view_by" id="0x7f020083" />
     <public type="drawable" name="ic_menu_wallpaper" id="0x7f020084" />
-    <public type="drawable" name="ic_search_category_default" id="0x7f020085" />
     <public type="drawable" name="ic_search_widget" id="0x7f020086" />
     <public type="drawable" name="mainmenu_bg_01" id="0x7f020087" />
     <public type="drawable" name="mainmenu_bg_02" id="0x7f020088" />
     <public type="drawable" name="mainmenu_bg_03" id="0x7f020089" />
     <public type="drawable" name="mainmenu_bg_gallery" id="0x7f02008a" />
     <public type="drawable" name="mainmenu_bg_music" id="0x7f02008b" />
+    <public type="drawable" name="mainmenu_black_page" id="0x7f02008c" />
+    <public type="drawable" name="mainmenu_black_page_dim" id="0x7f02008d" />
+    <public type="drawable" name="mainmenu_black_page_focus" id="0x7f02008e" />
     <public type="drawable" name="mainmenu_icon_alarm_bg" id="0x7f02008f" />
     <public type="drawable" name="mainmenu_icon_album_bg" id="0x7f020090" />
+    <public type="drawable" name="mainmenu_icon_allshare" id="0x7f020091" />
     <public type="drawable" name="mainmenu_icon_allshare_bg" id="0x7f020092" />
     <public type="drawable" name="mainmenu_icon_anycallservice_bg" id="0x7f020093" />
     <public type="drawable" name="mainmenu_icon_application" id="0x7f020094" />
     <public type="drawable" name="mainmenu_icon_application2" id="0x7f020095" />
     <public type="drawable" name="mainmenu_icon_application_bg" id="0x7f020096" />
-    <public type="drawable" name="mainmenu_icon_application_iconmenu" id="0x7f020097" />
     <public type="drawable" name="mainmenu_icon_battery_use" id="0x7f020098" />
-    <public type="drawable" name="mainmenu_icon_bg_01" id="0x7f020099" />
-    <public type="drawable" name="mainmenu_icon_bg_02" id="0x7f02009a" />
-    <public type="drawable" name="mainmenu_icon_bg_03" id="0x7f02009b" />
     <public type="drawable" name="mainmenu_icon_bluetooth_settings" id="0x7f02009c" />
     <public type="drawable" name="mainmenu_icon_browser" id="0x7f02009d" />
     <public type="drawable" name="mainmenu_icon_browser_bg" id="0x7f02009e" />
+    <public type="drawable" name="mainmenu_icon_calculater" id="0x7f02009f" />
+    <public type="drawable" name="mainmenu_icon_calculater_bg" id="0x7f0200a0" />
     <public type="drawable" name="mainmenu_icon_calculator" id="0x7f0200a1" />
     <public type="drawable" name="mainmenu_icon_calculator_bg" id="0x7f0200a2" />
-    <public type="drawable" name="mainmenu_icon_calculator_iconmenu" id="0x7f0200a3" />
     <public type="drawable" name="mainmenu_icon_calendar" id="0x7f0200a4" />
     <public type="drawable" name="mainmenu_icon_camera" id="0x7f0200a5" />
     <public type="drawable" name="mainmenu_icon_camera_bg" id="0x7f0200a6" />
+    <public type="drawable" name="mainmenu_icon_carmount" id="0x7f0200a7" />
     <public type="drawable" name="mainmenu_icon_carmount_bg" id="0x7f0200a8" />
     <public type="drawable" name="mainmenu_icon_clock" id="0x7f0200a9" />
     <public type="drawable" name="mainmenu_icon_clock_bg" id="0x7f0200aa" />
     <public type="drawable" name="mainmenu_icon_contact" id="0x7f0200ab" />
     <public type="drawable" name="mainmenu_icon_contact_bg" id="0x7f0200ac" />
+    <public type="drawable" name="mainmenu_icon_daily_birefing" id="0x7f0200ad" />
     <public type="drawable" name="mainmenu_icon_daily_birefing_bg" id="0x7f0200ae" />
     <public type="drawable" name="mainmenu_icon_daum_bg" id="0x7f0200af" />
     <public type="drawable" name="mainmenu_icon_dial" id="0x7f0200b0" />
@@ -248,6 +228,7 @@
     <public type="drawable" name="mainmenu_icon_digitalframe_bg" id="0x7f0200b3" />
     <public type="drawable" name="mainmenu_icon_drawingmemo_bg" id="0x7f0200b4" />
     <public type="drawable" name="mainmenu_icon_dynamiccanvas_bg" id="0x7f0200b5" />
+    <public type="drawable" name="mainmenu_icon_e_book" id="0x7f0200b6" />
     <public type="drawable" name="mainmenu_icon_e_book_bg" id="0x7f0200b7" />
     <public type="drawable" name="mainmenu_icon_email" id="0x7f0200b8" />
     <public type="drawable" name="mainmenu_icon_email_bg" id="0x7f0200b9" />
@@ -261,19 +242,22 @@
     <public type="drawable" name="mainmenu_icon_gmail" id="0x7f0200c1" />
     <public type="drawable" name="mainmenu_icon_gmail_bg" id="0x7f0200c2" />
     <public type="drawable" name="mainmenu_icon_google_bg" id="0x7f0200c3" />
+    <public type="drawable" name="mainmenu_icon_googlemap" id="0x7f0200c4" />
     <public type="drawable" name="mainmenu_icon_googlemap_bg" id="0x7f0200c5" />
+    <public type="drawable" name="mainmenu_icon_googletalk" id="0x7f0200c6" />
     <public type="drawable" name="mainmenu_icon_googletalk_bg" id="0x7f0200c7" />
     <public type="drawable" name="mainmenu_icon_googsearch_bg" id="0x7f0200c8" />
     <public type="drawable" name="mainmenu_icon_home" id="0x7f0200c9" />
     <public type="drawable" name="mainmenu_icon_home2" id="0x7f0200ca" />
     <public type="drawable" name="mainmenu_icon_home_bg" id="0x7f0200cb" />
-    <public type="drawable" name="mainmenu_icon_home_iconmenu" id="0x7f0200cc" />
+    <public type="drawable" name="mainmenu_icon_homemount" id="0x7f0200cd" />
     <public type="drawable" name="mainmenu_icon_homemount_bg" id="0x7f0200ce" />
     <public type="drawable" name="mainmenu_icon_imageeditor_bg" id="0x7f0200cf" />
     <public type="drawable" name="mainmenu_icon_internet" id="0x7f0200d0" />
     <public type="drawable" name="mainmenu_icon_internetphone_bg" id="0x7f0200d1" />
     <public type="drawable" name="mainmenu_icon_june_bg" id="0x7f0200d2" />
     <public type="drawable" name="mainmenu_icon_language_keyboard" id="0x7f0200d3" />
+    <public type="drawable" name="mainmenu_icon_layar" id="0x7f0200d4" />
     <public type="drawable" name="mainmenu_icon_layar_bg" id="0x7f0200d5" />
     <public type="drawable" name="mainmenu_icon_location_security" id="0x7f0200d6" />
     <public type="drawable" name="mainmenu_icon_log_bg" id="0x7f0200d7" />
@@ -285,14 +269,16 @@
     <public type="drawable" name="mainmenu_icon_memo_bg" id="0x7f0200dd" />
     <public type="drawable" name="mainmenu_icon_message" id="0x7f0200de" />
     <public type="drawable" name="mainmenu_icon_message_bg" id="0x7f0200df" />
-    <public type="drawable" name="mainmenu_icon_message_iconmenu" id="0x7f0200e0" />
+    <public type="drawable" name="mainmenu_icon_minidiary" id="0x7f0200e1" />
     <public type="drawable" name="mainmenu_icon_minidiary_bg" id="0x7f0200e2" />
     <public type="drawable" name="mainmenu_icon_mobile_ap_settings" id="0x7f0200e3" />
+    <public type="drawable" name="mainmenu_icon_movieplayer" id="0x7f0200e4" />
     <public type="drawable" name="mainmenu_icon_movieplayer_bg" id="0x7f0200e5" />
     <public type="drawable" name="mainmenu_icon_music" id="0x7f0200e6" />
     <public type="drawable" name="mainmenu_icon_music_bg" id="0x7f0200e7" />
     <public type="drawable" name="mainmenu_icon_myfiles" id="0x7f0200e8" />
     <public type="drawable" name="mainmenu_icon_myfiles_bg" id="0x7f0200e9" />
+    <public type="drawable" name="mainmenu_icon_mysingle" id="0x7f0200ea" />
     <public type="drawable" name="mainmenu_icon_mysingle_bg" id="0x7f0200eb" />
     <public type="drawable" name="mainmenu_icon_nate_bg" id="0x7f0200ec" />
     <public type="drawable" name="mainmenu_icon_natebrowser_bg" id="0x7f0200ed" />
@@ -307,20 +293,26 @@
     <public type="drawable" name="mainmenu_icon_running_services" id="0x7f0200f6" />
     <public type="drawable" name="mainmenu_icon_samsungapps" id="0x7f0200f7" />
     <public type="drawable" name="mainmenu_icon_samsungapps_bg" id="0x7f0200f8" />
+    <public type="drawable" name="mainmenu_icon_samsungemail" id="0x7f0200f9" />
     <public type="drawable" name="mainmenu_icon_samsungemail_bg" id="0x7f0200fa" />
+    <public type="drawable" name="mainmenu_icon_samsungim" id="0x7f0200fb" />
     <public type="drawable" name="mainmenu_icon_samsungim_bg" id="0x7f0200fc" />
     <public type="drawable" name="mainmenu_icon_select_wifi_network" id="0x7f0200fd" />
     <public type="drawable" name="mainmenu_icon_setting" id="0x7f0200fe" />
     <public type="drawable" name="mainmenu_icon_setting_bg" id="0x7f0200ff" />
+    <public type="drawable" name="mainmenu_icon_simtoolkit" id="0x7f020100" />
     <public type="drawable" name="mainmenu_icon_simtoolkit_bg" id="0x7f020101" />
     <public type="drawable" name="mainmenu_icon_smartreader_bg" id="0x7f020102" />
+    <public type="drawable" name="mainmenu_icon_social_hub" id="0x7f020103" />
     <public type="drawable" name="mainmenu_icon_social_hub_bg" id="0x7f020104" />
     <public type="drawable" name="mainmenu_icon_socialhub" id="0x7f020105" />
     <public type="drawable" name="mainmenu_icon_sound_display" id="0x7f020106" />
     <public type="drawable" name="mainmenu_icon_subway_bg" id="0x7f020107" />
+    <public type="drawable" name="mainmenu_icon_task" id="0x7f020108" />
     <public type="drawable" name="mainmenu_icon_task_bg" id="0x7f020109" />
     <public type="drawable" name="mainmenu_icon_taskmanager_bg" id="0x7f02010a" />
     <public type="drawable" name="mainmenu_icon_tasmanager" id="0x7f02010b" />
+    <public type="drawable" name="mainmenu_icon_thinkfree" id="0x7f02010c" />
     <public type="drawable" name="mainmenu_icon_thinkfree_bg" id="0x7f02010d" />
     <public type="drawable" name="mainmenu_icon_tmap_bg" id="0x7f02010e" />
     <public type="drawable" name="mainmenu_icon_tservice_bg" id="0x7f02010f" />
@@ -328,19 +320,25 @@
     <public type="drawable" name="mainmenu_icon_tv_bg" id="0x7f020111" />
     <public type="drawable" name="mainmenu_icon_videostudio_bg" id="0x7f020112" />
     <public type="drawable" name="mainmenu_icon_voicecommand_bg" id="0x7f020113" />
+    <public type="drawable" name="mainmenu_icon_voicedialer" id="0x7f020114" />
     <public type="drawable" name="mainmenu_icon_voicedialer_bg" id="0x7f020115" />
     <public type="drawable" name="mainmenu_icon_voicerecorder" id="0x7f020116" />
     <public type="drawable" name="mainmenu_icon_voicerecorder_bg" id="0x7f020117" />
+    <public type="drawable" name="mainmenu_icon_voicesearch" id="0x7f020118" />
     <public type="drawable" name="mainmenu_icon_voicesearch_bg" id="0x7f020119" />
     <public type="drawable" name="mainmenu_icon_weather_bg" id="0x7f02011a" />
     <public type="drawable" name="mainmenu_icon_wifi_settings" id="0x7f02011b" />
     <public type="drawable" name="mainmenu_icon_worldclock_bg" id="0x7f02011c" />
+    <public type="drawable" name="mainmenu_icon_writeandgo" id="0x7f02011d" />
     <public type="drawable" name="mainmenu_icon_writeandgo_bg" id="0x7f02011e" />
+    <public type="drawable" name="mainmenu_icon_youtube" id="0x7f02011f" />
     <public type="drawable" name="mainmenu_icon_youtube_bg" id="0x7f020120" />
     <public type="drawable" name="mainmenu_page" id="0x7f020121" />
     <public type="drawable" name="mainmenu_page_dim" id="0x7f020122" />
     <public type="drawable" name="mainmenu_page_focus" id="0x7f020123" />
-    <public type="drawable" name="mainmenu_page_focus_" id="0x7f020124" />
+    <public type="drawable" name="mainmenu_white_page" id="0x7f020125" />
+    <public type="drawable" name="mainmenu_white_page_dim" id="0x7f020126" />
+    <public type="drawable" name="mainmenu_white_page_focus" id="0x7f020127" />
     <public type="drawable" name="placeholder_google" id="0x7f020128" />
     <public type="drawable" name="quick_navigation_bar_bg" id="0x7f02012a" />
     <public type="drawable" name="quick_navigation_bar_w_bg" id="0x7f02012b" />
@@ -354,10 +352,13 @@
     <public type="drawable" name="widget_delete_icon" id="0x7f020136" />
     <public type="drawable" name="widget_icon_grid" id="0x7f020137" />
     <public type="drawable" name="ic_menu_share_via" id="0x7f020138" />
+    <public type="drawable" name="ic_menu_sort_view" id="0x7f020139" />
+    <public type="drawable" name="homescreen_page_black" id="0x7f02004d" />
     <public type="drawable" name="homescreen_page_black_dim" id="0x7f02004e" />
+    <public type="drawable" name="homescreen_page_black_dim_01" id="0x7f02004f" />
     <public type="drawable" name="homescreen_page_black_focus" id="0x7f020050" />
-    <public type="drawable" name="homescreen_remove_bg_02" id="0x7f020061" />
-    <public type="drawable" name="homescreen_remove_bg_drag_02" id="0x7f020063" />
+    <public type="drawable" name="homescreen_page_black_focus_02" id="0x7f020051" />
+    <public type="drawable" name="homescreen_page_black_focus_03" id="0x7f020052" />
     <public type="layout" name="add_list_item" id="0x7f030000" />
     <public type="layout" name="application" id="0x7f030001" />
     <public type="layout" name="application_boxed" id="0x7f030002" />
@@ -618,12 +619,11 @@
     <public type="string" name="ok_string" id="0x7f0a004e" />
     <public type="string" name="menu_shareapp" id="0x7f0a004f" />
     <public type="string" name="sort_app" id="0x7f0a0050" />
-    <public type="string" name="launcher_settings" id="0x7f0a0051" />
     <public type="style" name="WorkspaceIcon" id="0x7f0b0000" />
     <public type="style" name="WorkspaceIcon.Portrait" id="0x7f0b0001" />
     <public type="style" name="WorkspaceIcon.Landscape" id="0x7f0b0002" />
     <public type="style" name="WorkspaceIcon.Portrait.Tablet" id="0x7f0b0003" />
     <public type="style" name="WorkspaceIcon.Landscape.Tablet" id="0x7f0b0004" />
     <public type="style" name="SearchButton" id="0x7f0b0005" />
-    <public type="array" name="wallpapers" id="0x7f0c0000" />
+    <public type="array" name="APKTOOL_DUMMY_0000" id="0x7f0c0000" />
 </resources>

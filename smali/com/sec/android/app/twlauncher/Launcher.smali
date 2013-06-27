@@ -244,12 +244,12 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .locals 4
 
     .prologue
     const/4 v2, 0x7
 
-    const/4 v0, 0x4
+    const/4 v0, 0x3
 
     const/4 v1, 0x0
 
@@ -396,7 +396,7 @@
     iput-object v0, p0, Lcom/sec/android/app/twlauncher/Launcher;->mProductModelFamilyName:Ljava/lang/String;
 
     .line 380
-    const-string v0, "GT-I9000"
+    const-string v0, "GT-S5670"
 
     iput-object v0, p0, Lcom/sec/android/app/twlauncher/Launcher;->mProductModelName:Ljava/lang/String;
 
@@ -3216,29 +3216,6 @@
     move-object v5, v7
 
     goto :goto_2
-.end method
-
-.method private onLauncherSettingsSelected()V
-    .locals 3
-
-    .prologue
-    .line 2431
-    new-instance v0, Landroid/content/Intent;
-
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
-
-    .line 2432
-    const-string v1, "com.touchwiz.settings"
-
-    const-string v2, "com.touchwiz.settings.MainActivity"
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 2433
-    invoke-virtual {p0, v0}, Lcom/sec/android/app/twlauncher/Launcher;->startActivity(Landroid/content/Intent;)V
-
-    .line 2434
-    return-void
 .end method
 
 .method private onShareAppRequested()V
@@ -10466,7 +10443,7 @@
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
-    .locals 9
+    .locals 8
     .parameter
 
     .prologue
@@ -10729,42 +10706,6 @@
     move-result-object v0
 
     const v1, 0x7f020138
-
-    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
-
-    const/16 v0, 0x10
-
-    const v1, 0x7f0a0051
-
-    invoke-interface {p1, v4, v0, v3, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
-
-    move-result-object v0
-
-    const v1, 0x7f020082
-
-    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
-
-    const/16 v0, 0x10
-
-    const v1, 0x7f0a0051
-
-    invoke-interface {p1, v7, v0, v3, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
-
-    move-result-object v0
-
-    const v1, 0x7f020082
-
-    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
-
-    const/16 v0, 0x10
-
-    const v1, 0x7f0a0051
-
-    invoke-interface {p1, v5, v0, v3, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
-
-    move-result-object v0
-
-    const v1, 0x7f020082
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -11509,17 +11450,12 @@
 
     move v0, v2
 
-    :pswitch_d
-    invoke-direct {p0}, Lcom/sec/android/app/twlauncher/Launcher;->onShareAppRequested()V
-
-    move v0, v2
-
     .line 2168
     goto :goto_0
 
-    .line 2156
-    :pswitch_e
-    invoke-direct {p0}, Lcom/sec/android/app/twlauncher/Launcher;->onLauncherSettingsSelected()V
+    .line 2126
+    :pswitch_d
+    invoke-direct {p0}, Lcom/sec/android/app/twlauncher/Launcher;->onShareAppRequested()V
 
     move v0, v2
 
@@ -11547,7 +11483,6 @@
         :pswitch_b
         :pswitch_c
         :pswitch_d
-        :pswitch_e
     .end packed-switch
 .end method
 

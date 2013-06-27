@@ -11,7 +11,7 @@
         <RadioButton android:id="@id/xec_radiobuttton_option1" android:checked="false" android:text="@string/enable_flat_rate" />
         <RadioButton android:id="@id/xec_radiobuttton_option2" android:checked="true" android:text="@string/enable_non_flat_rate" />
     </RadioGroup>
-    <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="125.0dip">
+    <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="250.0dip">
         <Button android:id="@id/OK" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ok_string" />
     </LinearLayout>
 </LinearLayout>

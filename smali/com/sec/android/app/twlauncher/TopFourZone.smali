@@ -1132,7 +1132,7 @@
     invoke-virtual {p0, p1, p2}, Lcom/sec/android/app/twlauncher/TopFourZone;->addView(Landroid/view/View;I)V
 
     .line 460
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
     invoke-virtual {p1, v1}, Landroid/view/View;->setVisibility(I)V
 

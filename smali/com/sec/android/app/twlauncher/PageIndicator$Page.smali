@@ -720,8 +720,6 @@
 
     move-object/from16 v4, v19
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
-
     .line 474
     :cond_7
     :goto_3
@@ -1129,8 +1127,6 @@
     move/from16 v3, v29
 
     move-object/from16 v4, v19
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
     goto/16 :goto_3
 

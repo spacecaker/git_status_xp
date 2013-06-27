@@ -79,7 +79,6 @@
     <string name="enable_flat_rate">Yes, I have a Flat Tariff Rate.</string>
     <string name="enable_non_flat_rate">I do not have a Flat Tariff Rate</string>
     <string name="ok_string">OK</string>
-    <string name="menu_shareapp">Share app</string>
+    <string name="menu_shareapp">Share app via</string>
     <string name="sort_app">Sort app</string>
-    <string name="launcher_settings">Launcher settings</string>
 </resources>

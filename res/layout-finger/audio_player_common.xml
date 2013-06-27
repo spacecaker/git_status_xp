@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/music_play_control_bg" android:paddingTop="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center" android:layout_gravity="bottom" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="-3.0dip">
+            <com.android.music.RepeatingImageButton android:id="@id/prev" android:background="@drawable/music_play_control_btn_selector" android:layout_width="58.0dip" android:layout_height="36.0dip" android:src="@drawable/ic_music_play_control_btn_prev" />
+            <ImageButton android:id="@id/pause" android:background="@drawable/music_play_control_btn_selector" android:layout_width="58.0dip" android:layout_height="36.0dip" android:layout_marginLeft="12.0dip" android:layout_marginRight="12.0dip" />
+            <com.android.music.RepeatingImageButton android:id="@id/next" android:background="@drawable/music_play_control_btn_selector" android:layout_width="58.0dip" android:layout_height="36.0dip" android:src="@drawable/ic_music_play_control_btn_next" />
+        </LinearLayout>
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="-7.0dip">
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="14.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:layout_gravity="bottom" android:id="@id/currenttime" android:paddingLeft="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_alignParentLeft="true" />
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="14.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="right" android:layout_gravity="bottom" android:id="@id/totaltime" android:paddingRight="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        <SeekBar android:scrollbarStyle="outsideOverlay" android:id="@id/progress" android:paddingLeft="20.0dip" android:paddingRight="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxHeight="8.0dip" style="@style/music_tw_seekbar" />
+    </LinearLayout>
+</merge>

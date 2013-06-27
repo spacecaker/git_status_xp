@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="view_background">#ff1c1c1c</color>
-    <color name="title_background">#ff828282</color>
-    <color name="shadow">#cc222222</color>
+    <color name="appwidget_text">#ffffffff</color>
+    <color name="eqaulizer_text_activate">#ffffffff</color>
+    <color name="eqaulizer_text_deactivate">#ff444444</color>
+    <color name="surround_text_activate">#ff84b610</color>
+    <color name="list_item_first_line">#ffffffff</color>
+    <color name="list_item_second_line">#ff46c0ff</color>
+    <color name="player_album_text">#ff46aeff</color>
+    <color name="tab_nowplaying_text">#ffffffff</color>
+    <color name="list_item_duration">#ffc8c8c8</color>
+    <color name="dragndrop_background">#e0103010</color>
+    <color name="expanding_child_background">#ff404040</color>
     <color name="transparent">#00000000</color>
 </resources>

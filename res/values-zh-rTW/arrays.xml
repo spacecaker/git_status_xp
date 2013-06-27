@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="install_locations">
-        <item>默認位置</item>
-        <item>內置儲存</item>
-        <item>儲存卡</item>
-    </string-array>
-</resources>

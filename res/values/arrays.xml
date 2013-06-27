@@ -1,8 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="install_locations">
-        <item>Default</item>
-        <item>Internal</item>
-        <item>External</item>
+    <string-array name="entries_list_equalizer">
+        <item>@string/normal</item>
+        <item>@string/rock</item>
+        <item>@string/jazz</item>
+        <item>@string/classic</item>
+        <item>@string/dance</item>
+        <item>@string/pop</item>
+        <item>@string/live</item>
+        <item>@string/concert_hall</item>
+        <item>@string/wide</item>
+        <item>@string/music_clarity</item>
+        <item>@string/bass_enhancement</item>
+        <item>@string/externalization</item>
+    </string-array>
+    <string-array name="entryvalues_list_equalizer">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+    </string-array>
+    <string-array name="mTitleInfoButton">
+        <item>artistname</item>
+        <item>name</item>
+        <item>albumname</item>
+    </string-array>
+    <string-array name="weeklist">
+        <item>1 week</item>
+        <item>2 weeks</item>
+        <item>3 weeks</item>
+        <item>4 weeks</item>
+        <item>5 weeks</item>
+        <item>6 weeks</item>
+        <item>7 weeks</item>
+        <item>8 weeks</item>
+        <item>9 weeks</item>
+        <item>10 weeks</item>
+        <item>11 weeks</item>
+        <item>12 weeks</item>
     </string-array>
 </resources>

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="TallTitleBarTheme" parent="@*android:style/Theme.NoTitleBar">
-        <item name="android:windowContentOverlay">@null</item>
+    <style name="music_tw_seekbar">
+        <item name="android:maxHeight">6.0dip</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/music_play_tw3_horizontal_seekbar</item>
+        <item name="android:minHeight">0.0dip</item>
+        <item name="android:thumb">@drawable/music_play_tw3_progressive_point</item>
+        <item name="android:thumbOffset">10.0dip</item>
     </style>
 </resources>

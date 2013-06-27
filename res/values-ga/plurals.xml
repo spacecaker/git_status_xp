@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="NNNtrackstoplaylist">
+        <item quantity="other">%1$d amhrán curtha leis an seinnliosta</item>
+        <item quantity="one">1 amhrán curtha leis an seinnliosta</item>
+    </plurals>
+    <plurals name="NNNtracksdeleted">
+        <item quantity="other">Scriosadh %1$d amhrán</item>
+        <item quantity="one">Scriosadh 1 amhrán</item>
+    </plurals>
+    <plurals name="Nalbums">
+        <item quantity="other">%1$d albam</item>
+        <item quantity="one">1 albam</item>
+    </plurals>
+    <plurals name="Nsongs">
+        <item quantity="other">%1$d amhrán</item>
+    </plurals>
+    <plurals name="Nsongscomp">
+        <item quantity="other">%1$d as %2$d amhrán</item>
+    </plurals>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="weeklist">
+        <item>1 săpt.</item>
+        <item>2 săpt.</item>
+        <item>3 săpt.</item>
+        <item>4 săpt.</item>
+        <item>5 săpt.</item>
+        <item>6 săpt.</item>
+        <item>7 săpt.</item>
+        <item>8 săpt.</item>
+        <item>9 săpt.</item>
+        <item>10 săpt.</item>
+        <item>11 săpt.</item>
+        <item>12 săpt.</item>
+    </string-array>
+</resources>

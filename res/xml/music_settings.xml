@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/settings">
+        <CheckBoxPreference android:persistent="true" android:title="@string/srs_channel" android:key="srs_channel" android:defaultValue="false" android:disableDependentsState="true" />
+        <ListPreference android:persistent="true" android:enabled="true" android:entries="@array/entries_list_equalizer" android:title="@string/equalizer" android:key="equalizer" android:dependency="srs_channel" android:defaultValue="1" android:dialogTitle="@string/equalizer" android:entryValues="@array/entryvalues_list_equalizer" />
+    </PreferenceCategory>
+</PreferenceScreen>

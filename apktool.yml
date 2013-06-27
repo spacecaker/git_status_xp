@@ -1,13 +1,13 @@
 version: 1.5.2
-apkFileName: packageinstaller.apk
+apkFileName: music.apk
 isFrameworkApk: false
 usesFramework:
   ids:
   - 1
 sdkInfo:
-  minSdkVersion: '8'
-  targetSdkVersion: '8'
+  minSdkVersion: '10'
+  targetSdkVersion: '10'
 packageInfo:
-  cur_package: com.android.packageinstaller
-  orig_package: com.android.packageinstaller
-compressionType: true
+  cur_package: com.android.music
+  orig_package: com.android.music
+compressionType: false

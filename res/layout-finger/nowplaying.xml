@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/nowplaying" android:background="@drawable/music_bottom_playback_bg" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="64.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:gravity="center_vertical" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/nowplaying_item" android:background="@drawable/music_list_nowplaying_background" android:focusable="true" android:layout_width="270.0dip" android:layout_height="40.0dip">
-        <TextView android:textAppearance="?android:textAppearanceMedium" android:ellipsize="end" android:id="@id/title" android:paddingRight="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="55.0dip" android:singleLine="true" />
-    </LinearLayout>
-</LinearLayout>

@@ -1,4 +1,4 @@
-.class Lcom/android/internal/policy/impl/GlobalActions$2;
+.class Lcom/android/internal/policy/impl/GlobalActions$19;
 .super Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;
 .source "GlobalActions.java"
 
@@ -29,8 +29,8 @@
     .parameter "x4"
 
     .prologue
-    .line 166
-    iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$2;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
+    .line 130
+    iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$19;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     move-object v0, p0
 
@@ -52,40 +52,32 @@
 
 # virtual methods
 .method onToggle(Z)V
-    .locals 2
+    .locals 5
     .parameter "on"
 
     .prologue
-    .line 169
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$2;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
+    invoke-static {}, Landroid/bluetooth/BluetoothAdapter;->getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
 
-    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mConnectivityManager:Landroid/net/ConnectivityManager;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$200(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/net/ConnectivityManager;
+    move-result-object v1
 
-    move-result-object v0
+    if-nez p1, :cond_0
 
-    if-eqz p1, :cond_0
-
-    const/4 v1, 0x1
-
-    :goto_0
-    invoke-virtual {v0, v1}, Landroid/net/ConnectivityManager;->setMobileDataEnabled(Z)V
-
-    .line 170
-    return-void
-
-    .line 169
-    :cond_0
-    const/4 v1, 0x0
+    invoke-virtual {v1}, Landroid/bluetooth/BluetoothAdapter;->disable()Z
 
     goto :goto_0
+
+    :cond_0
+    invoke-virtual {v1}, Landroid/bluetooth/BluetoothAdapter;->enable()Z
+
+    :goto_0
+    return-void
 .end method
 
 .method public showBeforeProvisioning()Z
     .locals 1
 
     .prologue
-    .line 177
+    .line 156
     const/4 v0, 0x0
 
     return v0
@@ -95,8 +87,23 @@
     .locals 1
 
     .prologue
-    .line 173
+    .line 152
     const/4 v0, 0x1
 
     return v0
+.end method
+
+.method willCreate()V
+    .locals 3
+
+    .prologue
+    .line 134
+    iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$19;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
+
+    const v0, 0x10804a1
+
+    iput v0, p0, Lcom/android/internal/policy/impl/GlobalActions$19;->mEnabledIconResId:I
+
+    .line 138
+    return-void
 .end method

@@ -1,5 +1,5 @@
 .class Lcom/android/internal/policy/impl/GlobalActions$11;
-.super Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;
+.super Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;
 .source "GlobalActions.java"
 
 
@@ -19,52 +19,114 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;II)V
-    .locals 0
+.method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;IIIII)V
+    .locals 6
     .parameter
     .parameter "x0"
     .parameter "x1"
+    .parameter "x2"
+    .parameter "x3"
+    .parameter "x4"
 
     .prologue
-    .line 235
+    .line 130
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$11;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    invoke-direct {p0, p2, p3}, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;-><init>(II)V
+    move-object v0, p0
+
+    move v1, p2
+
+    move v2, p3
+
+    move v3, p4
+
+    move v4, p5
+
+    move v5, p6
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;-><init>(IIIII)V
 
     return-void
 .end method
 
-.method static synthetic access$0(Lcom/android/internal/policy/impl/GlobalActions$11;)Lcom/android/internal/policy/impl/GlobalActions;
-    .locals 1
-    .parameter
-
-    .prologue
-    .line 1082
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$11;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public onPress()V
-    .locals 4
+.method onToggle(Z)V
+    .locals 9
+    .parameter "on"
 
     .prologue
-    .line 239
+    const/4 v3, 0x1
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x2
+
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$11;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    new-instance v0, Landroid/os/Handler;
+    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAudioManager:Landroid/media/AudioManager;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$100(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/media/AudioManager;
 
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+    move-result-object v0
 
-    new-instance v1, Lcom/android/internal/policy/impl/GlobalActions$11$1;
+    invoke-virtual {v0}, Landroid/media/AudioManager;->getRingerMode()I
 
-    invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/GlobalActions$11$1;-><init>(Lcom/android/internal/policy/impl/GlobalActions$11;)V
+    move-result v5
 
-    const-wide/16 v2, 0x258
+    iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$11;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/internal/policy/impl/GlobalActions;->access$000(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "vibrate_in_silent"
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    if-nez p1, :cond_1
+
+    if-eq v5, v8, :cond_0
+
+    const/4 v5, 0x0
+
+    :cond_0
+    const/4 v6, 0x0
+
+    const/4 v4, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v4, 0x0
+
+    if-eq v5, v8, :cond_2
+
+    const/4 v4, 0x1
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x2
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v5, 0x2
+
+    const/4 v6, 0x1
+
+    :goto_0
+    invoke-static {v1, v2, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    invoke-virtual {v0, v5}, Landroid/media/AudioManager;->setRingerMode(I)V
+
+    invoke-virtual {v0, v7, v6}, Landroid/media/AudioManager;->setVibrateSetting(II)V
 
     return-void
 .end method
@@ -73,8 +135,8 @@
     .locals 1
 
     .prologue
-    .line 247
-    const/4 v0, 0x1
+    .line 156
+    const/4 v0, 0x0
 
     return v0
 .end method
@@ -83,8 +145,23 @@
     .locals 1
 
     .prologue
-    .line 243
+    .line 152
     const/4 v0, 0x1
 
     return v0
+.end method
+
+.method willCreate()V
+    .locals 3
+
+    .prologue
+    .line 134
+    iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$11;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
+
+    const v0, 0x1080487
+
+    iput v0, p0, Lcom/android/internal/policy/impl/GlobalActions$11;->mEnabledIconResId:I
+
+    .line 138
+    return-void
 .end method

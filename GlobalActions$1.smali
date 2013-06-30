@@ -29,7 +29,7 @@
     .parameter "x4"
 
     .prologue
-    .line 138
+    .line 130
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     move-object v0, p0
@@ -58,10 +58,10 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 149
+    .line 141
     if-eqz p1, :cond_1
 
-    .line 150
+    .line 142
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAudioManager:Landroid/media/AudioManager;
@@ -93,17 +93,17 @@
     :goto_0
     invoke-virtual {v0, v1}, Landroid/media/AudioManager;->setRingerMode(I)V
 
-    .line 157
+    .line 149
     :goto_1
     return-void
 
-    .line 150
+    .line 142
     :cond_0
     const/4 v1, 0x0
 
     goto :goto_0
 
-    .line 155
+    .line 147
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
@@ -123,7 +123,7 @@
     .locals 1
 
     .prologue
-    .line 164
+    .line 156
     const/4 v0, 0x0
 
     return v0
@@ -133,7 +133,7 @@
     .locals 1
 
     .prologue
-    .line 160
+    .line 152
     const/4 v0, 0x1
 
     return v0
@@ -145,7 +145,7 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 142
+    .line 134
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
@@ -165,15 +165,15 @@
 
     if-ne v0, v2, :cond_0
 
-    const v0, 0x10801ad
+    const v0, 0x10801b9
 
     :goto_0
-    iput v0, p0, Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;->mEnabledIconResId:I
+    iput v0, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->mEnabledIconResId:I
 
-    .line 146
+    .line 138
     return-void
 
-    .line 142
+    .line 134
     :cond_0
     const v0, 0x1080031
 

@@ -155,7 +155,7 @@
     .line 134
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$17;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    const v0, 0x108049f
+    const v0, 0x10804b6
 
     iput v0, p0, Lcom/android/internal/policy/impl/GlobalActions$17;->mEnabledIconResId:I
 

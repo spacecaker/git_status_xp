@@ -452,11 +452,11 @@
 
     const v3, 0x1080032
 
-    const v4, 0x104014d
+    const v4, 0x1040123
 
-    const v5, 0x104014e
+    const v5, 0x1040124
 
-    const v6, 0x104014f
+    const v6, 0x1040125
 
     move-object v1, p0
 
@@ -466,15 +466,15 @@
 
     new-instance v0, Lcom/android/internal/policy/impl/GlobalActions$11;
 
-    const v2, 0x1080487
+    const v2, 0x10804b9
 
-    const v3, 0x1080486
+    const v3, 0x10804ba
 
-    const v4, 0x104048b
+    const v4, 0x1040533
 
-    const v5, 0x104048c
+    const v5, 0x1040518
 
-    const v6, 0x104048d
+    const v6, 0x1040519
 
     move-object v1, p0
 
@@ -485,15 +485,15 @@
     .line 161
     new-instance v0, Lcom/android/internal/policy/impl/GlobalActions$2;
 
-    const v2, 0x10803c9
+    const v2, 0x1080412
 
-    const v3, 0x10803c8
+    const v3, 0x1080411
 
-    const v4, 0x1040451
+    const v4, 0x104044e
 
-    const v5, 0x1040452
+    const v5, 0x104044f
 
-    const v6, 0x1040453
+    const v6, 0x1040450
 
     move-object v1, p0
 
@@ -506,13 +506,13 @@
 
     const v2, 0x10801b5
 
-    const v3, 0x10801b6
+    const v3, 0x10801aa
 
-    const v4, 0x1040150
+    const v4, 0x1040126
 
-    const v5, 0x1040151
+    const v5, 0x1040127
 
-    const v6, 0x1040152
+    const v6, 0x1040128
 
     move-object v1, p0
 
@@ -522,15 +522,15 @@
 
     new-instance v0, Lcom/android/internal/policy/impl/GlobalActions$12;
 
-    const v2, 0x108048b
+    const v2, 0x10804ad
 
-    const v3, 0x108048a
+    const v3, 0x10804ac
 
-    const v4, 0x1040491
+    const v4, 0x104051d
 
-    const v5, 0x1040492
+    const v5, 0x104051e
 
-    const v6, 0x1040493
+    const v6, 0x104051f
 
     move-object v1, p0
 
@@ -540,15 +540,15 @@
 
     new-instance v0, Lcom/android/internal/policy/impl/GlobalActions$13;
 
-    const v2, 0x108048d
+    const v2, 0x10804af
 
-    const v3, 0x108048c
+    const v3, 0x10804ae
 
-    const v4, 0x1040494
+    const v4, 0x1040520
 
-    const v5, 0x1040495
+    const v5, 0x1040521
 
-    const v6, 0x1040496
+    const v6, 0x1040522
 
     move-object v1, p0
 
@@ -558,15 +558,15 @@
 
     new-instance v0, Lcom/android/internal/policy/impl/GlobalActions$14;
 
-    const v2, 0x1080489
+    const v2, 0x10804a9
 
-    const v3, 0x1080488
+    const v3, 0x10804a8
 
-    const v4, 0x104048e
+    const v4, 0x104051a
 
-    const v5, 0x104048f
+    const v5, 0x104051b
 
-    const v6, 0x1040490
+    const v6, 0x104051c
 
     move-object v1, p0
 
@@ -576,15 +576,15 @@
 
     new-instance v0, Lcom/android/internal/policy/impl/GlobalActions$15;
 
-    const v2, 0x108049d
+    const v2, 0x10804b4
 
-    const v3, 0x108049c
+    const v3, 0x10804b3
 
-    const v4, 0x104049c
+    const v4, 0x1040524
 
-    const v5, 0x104049d
+    const v5, 0x1040525
 
-    const v6, 0x104049e
+    const v6, 0x1040526
 
     move-object v1, p0
 
@@ -594,15 +594,15 @@
 
     new-instance v0, Lcom/android/internal/policy/impl/GlobalActions$16;
 
-    const v2, 0x108049b
+    const v2, 0x10804ab
 
-    const v3, 0x108049a
+    const v3, 0x10804aa
 
-    const v4, 0x104049f
+    const v4, 0x1040527
 
-    const v5, 0x10404a0
+    const v5, 0x1040528
 
-    const v6, 0x10404a1
+    const v6, 0x1040529
 
     move-object v1, p0
 
@@ -612,15 +612,15 @@
 
     new-instance v0, Lcom/android/internal/policy/impl/GlobalActions$17;
 
-    const v2, 0x108049f
+    const v2, 0x10804b6
 
-    const v3, 0x108049e
+    const v3, 0x10804b5
 
-    const v4, 0x10404a2
+    const v4, 0x104052a
 
-    const v5, 0x10404a3
+    const v5, 0x104052b
 
-    const v6, 0x10404a4
+    const v6, 0x104052c
 
     move-object v1, p0
 
@@ -630,15 +630,15 @@
 
     new-instance v0, Lcom/android/internal/policy/impl/GlobalActions$18;
 
-    const v2, 0x10804a3
+    const v2, 0x10804bc
 
-    const v3, 0x10804a2
+    const v3, 0x10804bb
 
-    const v4, 0x10404a5
+    const v4, 0x104052d
 
-    const v5, 0x10404a6
+    const v5, 0x104052e
 
-    const v6, 0x10404a7
+    const v6, 0x104052f
 
     move-object v1, p0
 
@@ -648,15 +648,15 @@
 
     new-instance v0, Lcom/android/internal/policy/impl/GlobalActions$19;
 
-    const v2, 0x10804a1
+    const v2, 0x10804b1
 
-    const v3, 0x10804a0
+    const v3, 0x10804b0
 
-    const v4, 0x10404a8
+    const v4, 0x1040530
 
-    const v5, 0x10404a9
+    const v5, 0x1040531
 
-    const v6, 0x10404aa
+    const v6, 0x1040532
 
     move-object v1, p0
 
@@ -1153,9 +1153,9 @@
 
     new-instance v2, Lcom/android/internal/policy/impl/GlobalActions$8;
 
-    const v3, 0x10803d3
+    const v3, 0x108042b
 
-    const v4, 0x104048a
+    const v4, 0x1040512
 
     invoke-direct {v2, p0, v3, v4}, Lcom/android/internal/policy/impl/GlobalActions$8;-><init>(Lcom/android/internal/policy/impl/GlobalActions;II)V
 
@@ -1178,9 +1178,9 @@
 
     new-instance v2, Lcom/android/internal/policy/impl/GlobalActions$9;
 
-    const v3, 0x10803d4
+    const v3, 0x108042c
 
-    const v4, 0x1040488
+    const v4, 0x1040510
 
     invoke-direct {v2, p0, v3, v4}, Lcom/android/internal/policy/impl/GlobalActions$9;-><init>(Lcom/android/internal/policy/impl/GlobalActions;II)V
 
@@ -1203,9 +1203,9 @@
 
     new-instance v2, Lcom/android/internal/policy/impl/GlobalActions$10;
 
-    const v3, 0x10803d2
+    const v3, 0x108042a
 
-    const v4, 0x1040489
+    const v4, 0x1040511
 
     invoke-direct {v2, p0, v3, v4}, Lcom/android/internal/policy/impl/GlobalActions$10;-><init>(Lcom/android/internal/policy/impl/GlobalActions;II)V
 
@@ -1230,7 +1230,7 @@
 
     const v3, 0x1080030
 
-    const v4, 0x104014c
+    const v4, 0x1040122
 
     invoke-direct {v2, p0, v3, v4}, Lcom/android/internal/policy/impl/GlobalActions$4;-><init>(Lcom/android/internal/policy/impl/GlobalActions;II)V
 
@@ -1331,7 +1331,7 @@
     goto :goto_0
 
     :cond_21
-    const v4, 0x104014a
+    const v4, 0x1040120
 
     invoke-virtual {v8, v4}, Landroid/app/AlertDialog;->setTitle(I)V
 

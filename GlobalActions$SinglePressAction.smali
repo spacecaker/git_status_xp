@@ -81,7 +81,7 @@
 
     .line 448
     .local v1, messageView:Landroid/widget/TextView;
-    const v3, 0x10201af
+    const v3, 0x10201b0
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -117,7 +117,7 @@
     .end local v1           #messageView:Landroid/widget/TextView;
     .end local v2           #v:Landroid/view/View;
     :cond_0
-    const v3, 0x109002a
+    const v3, 0x1090027
 
     const/4 v4, 0x0
 

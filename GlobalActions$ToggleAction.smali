@@ -140,7 +140,7 @@
 
     .line 527
     .local v2, messageView:Landroid/widget/TextView;
-    const v6, 0x10201af
+    const v6, 0x10201b0
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -230,7 +230,7 @@
     .end local v4           #statusView:Landroid/widget/TextView;
     .end local v5           #v:Landroid/view/View;
     :cond_1
-    const v6, 0x109002a
+    const v6, 0x1090027
 
     invoke-virtual {p4, v6, p3, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

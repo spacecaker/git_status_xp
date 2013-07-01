@@ -19,8 +19,6 @@
 
 .field private final ACTION_LOCKSCREEN_WALLPAPER_CHANGED:Ljava/lang/String;
 
-.field private final CSC_WALLPAPERIMAGE_PATH:Ljava/lang/String;
-
 .field private final DBG:Z
 
 .field private final MSG_LIVE_WALLPAPER_CHANGED:I
@@ -53,115 +51,110 @@
 
     const-string v4, "com.android.lockscreenwallpaper.CHANGED"
 
-    .line 471
+    .line 485
     iput-object p1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->this$0:Lcom/android/internal/policy/impl/CircleLockScreen;
 
-    .line 472
+    .line 486
     invoke-direct {p0, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    .line 452
+    .line 467
     const-string v1, "WallpaperWidget"
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->TAG:Ljava/lang/String;
 
-    .line 453
+    .line 468
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->DBG:Z
 
-    .line 456
+    .line 471
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
-    .line 459
+    .line 474
     const-string v1, "com.android.lockscreenwallpaper.CHANGED"
 
     iput-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->ACTION_LOCKSCREEN_WALLPAPER_CHANGED:Ljava/lang/String;
 
-    .line 460
+    .line 475
     const-string v1, "com.android.lockscreenwallpaper.LIVE_CHANGED"
 
     iput-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->ACTION_LOCKSCREEN_LIVE_WALLPAPER_CHANGED:Ljava/lang/String;
 
-    .line 462
+    .line 477
     const-string v1, "/data/data/com.cooliris.media/files/zzzzzz_lockscreen_wallpaper.jpg"
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->WALLPAPER_IMAGE_PATH:Ljava/lang/String;
 
-    .line 463
-    const-string v1, "/system/wallpaper/default_lockscreen/default_lockscreen.jpg"
-
-    iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->CSC_WALLPAPERIMAGE_PATH:Ljava/lang/String;
-
-    .line 465
+    .line 479
     const/16 v1, 0x12c0
 
     iput v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->MSG_WALLPAPER_CHANGED:I
 
-    .line 466
+    .line 480
     const/16 v1, 0x12c1
 
     iput v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->MSG_LIVE_WALLPAPER_CHANGED:I
 
-    .line 475
+    .line 489
     new-instance v1, Landroid/widget/ImageView;
 
     invoke-direct {v1, p2}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
-    .line 476
+    .line 490
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
     sget-object v2, Landroid/widget/ImageView$ScaleType;->FIT_XY:Landroid/widget/ImageView$ScaleType;
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
-    .line 477
+    .line 491
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
     invoke-virtual {p0, v1, v3, v3}, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->addView(Landroid/view/View;II)V
 
-    .line 480
+    .line 494
     new-instance v1, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget$1;
 
     invoke-direct {v1, p0, p1}, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget$1;-><init>(Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;Lcom/android/internal/policy/impl/CircleLockScreen;)V
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mHandler:Landroid/os/Handler;
 
-    .line 495
+    .line 509
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 496
+    .line 510
     .local v0, filter:Landroid/content/IntentFilter;
     const-string v1, "com.android.lockscreenwallpaper.CHANGED"
 
     invoke-virtual {v0, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 497
+    .line 511
     const-string v1, "com.android.lockscreenwallpaper.LIVE_CHANGED"
 
     invoke-virtual {v0, v5}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 500
+    .line 514
     new-instance v1, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget$2;
 
     invoke-direct {v1, p0, p1}, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget$2;-><init>(Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;Lcom/android/internal/policy/impl/CircleLockScreen;)V
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 510
+    .line 524
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p2, v1, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 513
+    .line 527
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->setLockScreenWallpaper()V
 
-    .line 514
+    .line 528
     return-void
 .end method
 
@@ -170,7 +163,7 @@
     .parameter "x0"
 
     .prologue
-    .line 450
+    .line 465
     invoke-direct {p0}, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->handleWallpaperUpdate()V
 
     return-void
@@ -181,7 +174,7 @@
     .parameter "x0"
 
     .prologue
-    .line 450
+    .line 465
     invoke-direct {p0}, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->handleLiveWallpaperUpdate()V
 
     return-void
@@ -192,7 +185,7 @@
     .parameter "x0"
 
     .prologue
-    .line 450
+    .line 465
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mHandler:Landroid/os/Handler;
 
     return-object v0
@@ -202,14 +195,14 @@
     .locals 2
 
     .prologue
-    .line 524
+    .line 538
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 525
+    .line 539
     return-void
 .end method
 
@@ -217,17 +210,17 @@
     .locals 2
 
     .prologue
-    .line 518
+    .line 532
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 519
+    .line 533
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->setLockScreenWallpaper()V
 
-    .line 520
+    .line 534
     return-void
 .end method
 
@@ -237,14 +230,14 @@
     .locals 2
 
     .prologue
-    .line 529
+    .line 543
     const-string v0, "WallpaperWidget"
 
     const-string v1, "cleanUp()"
 
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 530
+    .line 544
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -253,7 +246,7 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 531
+    .line 545
     return-void
 .end method
 
@@ -261,71 +254,41 @@
     .locals 2
 
     .prologue
-    .line 535
+    .line 549
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
     const v1, 0x106000c
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 536
+    .line 550
     return-void
 .end method
 
 .method public setLockScreenWallpaper()V
-    .locals 8
+    .locals 7
 
     .prologue
-    const v6, 0x1080413
-
-    const-string v7, "WallpaperWidget"
-
-    const-string v4, "/system/wallpaper/default_lockscreen/default_lockscreen.jpg"
+    const v6, 0x1080477
 
     const-string v3, "/data/data/com.cooliris.media/files/zzzzzz_lockscreen_wallpaper.jpg"
 
-    .line 540
-    iget-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->this$0:Lcom/android/internal/policy/impl/CircleLockScreen;
-
-    #getter for: Lcom/android/internal/policy/impl/CircleLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-    invoke-static {v2}, Lcom/android/internal/policy/impl/CircleLockScreen;->access$400(Lcom/android/internal/policy/impl/CircleLockScreen;)Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->getWallpaperMode()I
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    .line 541
-    iget-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
-
-    const/16 v3, 0x8
-
-    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    .line 569
-    :goto_0
-    return-void
-
-    .line 545
-    :cond_0
+    .line 554
     new-instance v1, Ljava/io/File;
 
     const-string v2, "/data/data/com.cooliris.media/files/zzzzzz_lockscreen_wallpaper.jpg"
 
     invoke-direct {v1, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 547
+    .line 556
     .local v1, file:Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
-    .line 549
+    .line 558
     :try_start_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
@@ -343,15 +306,17 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    .line 566
+    :goto_0
+    return-void
 
-    .line 550
+    .line 559
     :catch_0
     move-exception v2
 
     move-object v0, v2
 
-    .line 551
+    .line 560
     .local v0, ex:Ljava/lang/Exception;
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
@@ -359,79 +324,9 @@
 
     goto :goto_0
 
-    .line 554
+    .line 564
     .end local v0           #ex:Ljava/lang/Exception;
-    :cond_1
-    new-instance v1, Ljava/io/File;
-
-    .end local v1           #file:Ljava/io/File;
-    const-string v2, "/system/wallpaper/default_lockscreen/default_lockscreen.jpg"
-
-    invoke-direct {v1, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    .line 556
-    .restart local v1       #file:Ljava/io/File;
-    invoke-virtual {v1}, Ljava/io/File;->exists()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    .line 557
-    const-string v2, "WallpaperWidget"
-
-    const-string v2, "csc wallpaper file exist "
-
-    invoke-static {v7, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 559
-    :try_start_1
-    iget-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
-
-    new-instance v3, Landroid/graphics/drawable/BitmapDrawable;
-
-    invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->getContext()Landroid/content/Context;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    const-string v5, "/system/wallpaper/default_lockscreen/default_lockscreen.jpg"
-
-    invoke-direct {v3, v4, v5}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Ljava/lang/String;)V
-
-    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
-
-    goto :goto_0
-
-    .line 560
-    :catch_1
-    move-exception v2
-
-    move-object v0, v2
-
-    .line 561
-    .restart local v0       #ex:Ljava/lang/Exception;
-    const-string v2, "WallpaperWidget"
-
-    const-string v2, "csc wallpaper file exist. But creating is failed. "
-
-    invoke-static {v7, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 562
-    iget-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
-
-    invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    goto :goto_0
-
-    .line 566
-    .end local v0           #ex:Ljava/lang/Exception;
-    :cond_2
+    :cond_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
     invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setImageResource(I)V

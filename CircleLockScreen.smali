@@ -16,22 +16,12 @@
 .end annotation
 
 
-# static fields
-.field private static final LOCK_KEY:Ljava/lang/String; = "ril.pin_mode"
-
-
 # instance fields
-.field private final BATTERY_INFO_NOT_DISPLAY:I
-
 .field private DBG:Z
 
 .field private TAG:Ljava/lang/String;
 
-.field private mBackgroudLayout:Landroid/widget/RelativeLayout;
-
 .field private mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-
-.field private mCircleLockScreenTTS:Lcom/android/internal/policy/impl/CircleLockScreenTTS;
 
 .field private mCircleUnlockView:Lcom/android/internal/policy/impl/CircleUnlockView;
 
@@ -55,13 +45,11 @@
 
 .field private mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
-.field private mPlmnText:Landroid/widget/TextView;
+.field private mRadioWidget:Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;
 
 .field private mRootLayout:Landroid/widget/RelativeLayout;
 
 .field private mShadowImage:Landroid/widget/ImageView;
-
-.field private mTelephonyManager:Landroid/telephony/TelephonyManager;
 
 .field private mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
@@ -80,100 +68,87 @@
     .prologue
     const/high16 v7, 0x4160
 
-    const/high16 v6, 0x3f80
+    const/4 v6, 0x0
 
-    const/4 v5, 0x0
+    const/high16 v5, 0x3f80
 
     const/4 v3, 0x1
 
     const/4 v4, -0x1
 
-    .line 89
+    .line 83
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    .line 55
+    .line 53
     const-string v1, "CircleLockScreen"
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->TAG:Ljava/lang/String;
 
-    .line 56
+    .line 54
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->DBG:Z
 
-    .line 84
-    iput v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->BATTERY_INFO_NOT_DISPLAY:I
-
-    .line 91
+    .line 85
     iput-object p1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mContext:Landroid/content/Context;
 
-    .line 92
+    .line 86
     iput-object p4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
-    .line 93
+    .line 87
     iput-object p5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
-    .line 94
+    .line 88
     iput-object p3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    .line 95
+    .line 89
     iget v1, p2, Landroid/content/res/Configuration;->orientation:I
 
     iput v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mCreationOrientation:I
 
-    .line 97
+    .line 91
     invoke-virtual {p0, v3}, Lcom/android/internal/policy/impl/CircleLockScreen;->setFocusable(Z)V
 
-    .line 98
+    .line 92
     invoke-virtual {p0, v3}, Lcom/android/internal/policy/impl/CircleLockScreen;->setFocusableInTouchMode(Z)V
 
-    .line 99
+    .line 93
     const/high16 v1, 0x4
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/CircleLockScreen;->setDescendantFocusability(I)V
 
-    .line 101
-    new-instance v1, Lcom/android/internal/policy/impl/CircleLockScreenTTS;
+    .line 96
+    sget-boolean v1, Lcom/android/internal/policy/impl/JKaySettings;->lockscreenWallpaperVisible:Z
 
-    invoke-direct {v1, p1}, Lcom/android/internal/policy/impl/CircleLockScreenTTS;-><init>(Landroid/content/Context;)V
+    if-eqz v1, :cond_3
 
-    iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mCircleLockScreenTTS:Lcom/android/internal/policy/impl/CircleLockScreenTTS;
+    sget-boolean v1, Lcom/android/internal/policy/impl/JKaySettings;->lockscreenTransparent:Z
 
-    .line 104
-    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    if-nez v1, :cond_3
 
-    move-result-object v1
-
-    const-string v2, "lockscreen_wallpaper"
-
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    if-ne v1, v3, :cond_2
-
-    move v1, v5
+    move v1, v6
 
     :goto_0
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mIsLiveWallpaper:Z
 
-    .line 110
+    .line 102
     new-instance v1, Landroid/widget/RelativeLayout;
 
     invoke-direct {v1, p1}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRootLayout:Landroid/widget/RelativeLayout;
 
-    .line 113
+    .line 105
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mIsLiveWallpaper:Z
 
     if-nez v1, :cond_0
 
+    .line 106
     new-instance v1, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;
 
     invoke-direct {v1, p0, p1}, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;-><init>(Lcom/android/internal/policy/impl/CircleLockScreen;Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mWallpaper:Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;
 
-    .line 116
+    .line 109
     :cond_0
     new-instance v1, Landroid/widget/LinearLayout;
 
@@ -181,19 +156,19 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
-    .line 117
+    .line 110
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1, v3}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 120
+    .line 113
     new-instance v1, Lcom/android/internal/policy/impl/CircleUnlockView;
 
     invoke-direct {v1, p1, p5}, Lcom/android/internal/policy/impl/CircleUnlockView;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/KeyguardScreenCallback;)V
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mCircleUnlockView:Lcom/android/internal/policy/impl/CircleUnlockView;
 
-    .line 121
+    .line 114
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mCircleUnlockView:Lcom/android/internal/policy/impl/CircleUnlockView;
 
     new-instance v2, Lcom/android/internal/policy/impl/CircleLockScreen$1;
@@ -202,14 +177,14 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/policy/impl/CircleUnlockView;->setOnCircleTouchListener(Lcom/android/internal/policy/impl/CircleUnlockView$OnCircleTouchListener;)V
 
-    .line 142
+    .line 135
     new-instance v1, Lcom/android/internal/policy/impl/ClockWidget;
 
     invoke-direct {v1, p1, p4, p2}, Lcom/android/internal/policy/impl/ClockWidget;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Landroid/content/res/Configuration;)V
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
 
-    .line 145
+    .line 138
     new-instance v1, Lcom/android/internal/policy/impl/CircleMissedEventWidget;
 
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleLockScreen;->getContext()Landroid/content/Context;
@@ -222,7 +197,7 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMissedEventWidget:Lcom/android/internal/policy/impl/CircleMissedEventWidget;
 
-    .line 148
+    .line 141
     new-instance v1, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleLockScreen;->getContext()Landroid/content/Context;
@@ -233,75 +208,97 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
-    .line 149
+    .line 145
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setTopLayout()V
 
-    .line 153
+    new-instance v1, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;
+
+    invoke-direct {v1, p1, p5, p4}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/KeyguardScreenCallback;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
+
+    iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRadioWidget:Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;
+
+    .line 154
+    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRadioWidget:Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;
+
+    invoke-virtual {v1}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->setTopLayout()V
+
+    .line 149
     new-instance v1, Landroid/widget/ImageView;
 
     invoke-direct {v1, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mShadowImage:Landroid/widget/ImageView;
 
-    .line 154
+    .line 150
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mShadowImage:Landroid/widget/ImageView;
 
     sget-object v2, Landroid/widget/ImageView$ScaleType;->FIT_XY:Landroid/widget/ImageView$ScaleType;
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
-    .line 155
+    .line 151
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mShadowImage:Landroid/widget/ImageView;
 
-    const v2, 0x10803ae
+    const v2, 0x10803ef
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 158
+    .line 154
     new-instance v1, Landroid/widget/ImageView;
 
     invoke-direct {v1, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mImageView:Landroid/widget/ImageView;
 
-    .line 159
+    .line 155
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mImageView:Landroid/widget/ImageView;
 
     sget-object v2, Landroid/widget/ImageView$ScaleType;->FIT_XY:Landroid/widget/ImageView$ScaleType;
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
-    .line 162
+    .line 158
     new-instance v1, Landroid/widget/TextView;
 
     invoke-direct {v1, p1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mHelpText:Landroid/widget/TextView;
 
-    .line 163
+    .line 159
+    sget-boolean v1, Lcom/android/internal/policy/impl/JKaySettings;->lockscreenShowHelpText:Z
+
+    if-nez v1, :cond_1
+
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mHelpText:Landroid/widget/TextView;
 
-    const v2, 0x1040466
+    const/4 v2, 0x4
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mHelpText:Landroid/widget/TextView;
+
+    const v2, 0x10404dd
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
-    .line 164
+    .line 160
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mHelpText:Landroid/widget/TextView;
 
     const/high16 v2, -0x100
 
-    invoke-virtual {v1, v6, v6, v6, v2}, Landroid/widget/TextView;->setShadowLayer(FFFI)V
+    invoke-virtual {v1, v5, v5, v5, v2}, Landroid/widget/TextView;->setShadowLayer(FFFI)V
 
-    .line 165
+    .line 161
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mHelpText:Landroid/widget/TextView;
 
     const v2, -0x141415
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 166
+    .line 162
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mHelpText:Landroid/widget/TextView;
 
     const/4 v2, 0x2
@@ -310,7 +307,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    .line 167
+    .line 163
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleLockScreen;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -321,7 +318,7 @@
 
     iget v0, v1, Landroid/util/DisplayMetrics;->density:F
 
-    .line 168
+    .line 164
     .local v0, scale:F
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mHelpText:Landroid/widget/TextView;
 
@@ -333,101 +330,74 @@
 
     float-to-int v3, v3
 
-    invoke-virtual {v1, v5, v2, v5, v3}, Landroid/widget/TextView;->setPadding(IIII)V
+    invoke-virtual {v1, v6, v2, v6, v3}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 169
+    .line 165
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mHelpText:Landroid/widget/TextView;
 
     const/16 v2, 0x11
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setGravity(I)V
 
+    .line 169
+    invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/CircleLockScreen;->setComponentLayout(Landroid/content/Context;)V
+
     .line 170
-    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mHelpText:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setCursorVisible(Z)V
-
-    .line 172
-    new-instance v1, Landroid/widget/RelativeLayout;
-
-    invoke-direct {v1, p1}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;)V
-
-    iput-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mBackgroudLayout:Landroid/widget/RelativeLayout;
-
-    .line 173
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mIsLiveWallpaper:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
-    .line 174
-    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mBackgroudLayout:Landroid/widget/RelativeLayout;
+    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRootLayout:Landroid/widget/RelativeLayout;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mWallpaper:Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;
 
     invoke-virtual {v1, v2, v4, v4}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;II)V
 
-    .line 175
-    :cond_1
-    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mBackgroudLayout:Landroid/widget/RelativeLayout;
+    .line 171
+    :cond_2
+    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRootLayout:Landroid/widget/RelativeLayout;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mShadowImage:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v2, v4, v4}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;II)V
 
-    .line 176
-    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mBackgroudLayout:Landroid/widget/RelativeLayout;
+    .line 172
+    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRootLayout:Landroid/widget/RelativeLayout;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mImageView:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v2, v4, v4}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;II)V
 
-    .line 179
-    invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/CircleLockScreen;->setComponentLayout(Landroid/content/Context;)V
-
-    .line 181
-    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRootLayout:Landroid/widget/RelativeLayout;
-
-    iget-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mBackgroudLayout:Landroid/widget/RelativeLayout;
-
-    invoke-virtual {v1, v2, v4, v4}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;II)V
-
-    .line 182
+    .line 173
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRootLayout:Landroid/widget/RelativeLayout;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1, v2, v4, v4}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;II)V
 
-    .line 183
+    .line 174
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRootLayout:Landroid/widget/RelativeLayout;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mCircleUnlockView:Lcom/android/internal/policy/impl/CircleUnlockView;
 
     invoke-virtual {v1, v2, v4, v4}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;II)V
 
-    .line 184
+    .line 175
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRootLayout:Landroid/widget/RelativeLayout;
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/CircleLockScreen;->addView(Landroid/view/View;)V
 
-    .line 187
-    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+    .line 178
+    invoke-virtual {p4, p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->registerInfoCallback(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$InfoCallback;)V
 
-    invoke-virtual {v1, p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->registerInfoCallback(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$InfoCallback;)V
-
-    .line 188
-    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-
-    invoke-virtual {v1, p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->registerSimStateCallback(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimStateCallback;)V
-
-    .line 189
+    .line 179
     return-void
 
     .end local v0           #scale:F
-    :cond_2
+    :cond_3
     move v1, v3
 
-    .line 104
+    .line 96
     goto/16 :goto_0
 .end method
 
@@ -437,21 +407,10 @@
     .parameter "x1"
 
     .prologue
-    .line 52
+    .line 50
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/CircleLockScreen;->bedimBackground(Z)V
 
     return-void
-.end method
-
-.method static synthetic access$400(Lcom/android/internal/policy/impl/CircleLockScreen;)Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 52
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-
-    return-object v0
 .end method
 
 .method private bedimBackground(Z)V
@@ -463,35 +422,29 @@
 
     const/4 v2, 0x4
 
-    .line 308
-    if-eqz p1, :cond_2
+    .line 315
+    if-eqz p1, :cond_1
 
-    .line 312
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
-
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->getVisibility()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 313
+    .line 319
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-virtual {v0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setVisibility(I)V
 
-    .line 315
-    :cond_0
+    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRadioWidget:Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;
+
+    invoke-virtual {v0, v2}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->setVisibility(I)V
+
+    .line 344
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mCircleUnlockView:Lcom/android/internal/policy/impl/CircleUnlockView;
 
     invoke-virtual {v0, v2}, Lcom/android/internal/policy/impl/CircleUnlockView;->setVisibility(I)V
 
-    .line 317
+    .line 325
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRootLayout:Landroid/widget/RelativeLayout;
 
     invoke-virtual {v0}, Landroid/widget/RelativeLayout;->buildDrawingCache()V
 
-    .line 319
+    .line 327
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mImageView:Landroid/widget/ImageView;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRootLayout:Landroid/widget/RelativeLayout;
@@ -502,222 +455,77 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 320
+    .line 328
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mCircleUnlockView:Lcom/android/internal/policy/impl/CircleUnlockView;
 
     invoke-virtual {v0, v3}, Lcom/android/internal/policy/impl/CircleUnlockView;->setVisibility(I)V
 
-    .line 322
+    .line 330
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mImageView:Landroid/widget/ImageView;
 
     const/16 v1, 0x4c
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setAlpha(I)V
 
-    .line 324
+    .line 332
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mIsLiveWallpaper:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
+    .line 333
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mWallpaper:Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->setLockScreenBlack()V
 
-    .line 326
-    :cond_1
+    .line 335
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 328
+    .line 336
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mImageView:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 343
+    .line 356
     :goto_0
     return-void
 
-    .line 333
-    :cond_2
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
-
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->getVisibility()I
-
-    move-result v0
-
-    if-ne v0, v2, :cond_3
-
-    .line 334
+    .line 344
+    :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-virtual {v0, v3}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setVisibility(I)V
 
-    .line 338
-    :cond_3
+    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRadioWidget:Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;
+
+    invoke-virtual {v0, v3}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->setVisibility(I)V
+
+    .line 350
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mIsLiveWallpaper:Z
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_2
 
-    .line 339
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mWallpaper:Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->setLockScreenWallpaper()V
 
-    .line 340
-    :cond_4
+    .line 351
+    :cond_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 341
+    .line 352
+    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
+
+    invoke-virtual {v0, v3}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setVisibility(I)V
+
+    .line 354
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mImageView:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    goto :goto_0
-.end method
-
-.method static getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 2
-    .parameter "telephonyPlmn"
-    .parameter "telephonySpn"
-
-    .prologue
-    .line 635
-    if-eqz p0, :cond_0
-
-    if-nez p1, :cond_0
-
-    move-object v0, p0
-
-    .line 645
-    :goto_0
-    return-object v0
-
-    .line 637
-    :cond_0
-    if-eqz p0, :cond_2
-
-    if-eqz p1, :cond_2
-
-    .line 638
-    invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    move-object v0, p0
-
-    .line 639
-    goto :goto_0
-
-    .line 641
-    :cond_1
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, "|"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    .line 642
-    :cond_2
-    if-nez p0, :cond_3
-
-    if-eqz p1, :cond_3
-
-    move-object v0, p1
-
-    .line 643
-    goto :goto_0
-
-    .line 645
-    :cond_3
-    const-string v0, ""
-
-    goto :goto_0
-.end method
-
-.method private getPermanentBlockString()Ljava/lang/String;
-    .locals 4
-
-    .prologue
-    .line 650
-    const-string v1, "ril.pin_mode"
-
-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 651
-    .local v0, lock_key:Ljava/lang/String;
-    const-string v1, "2"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string v1, "3"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 652
-    :cond_0
-    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "getPermanentBlockString :"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object v1, v0
-
-    .line 655
-    :goto_0
-    return-object v1
-
-    :cond_1
-    const-string v1, "0"
 
     goto :goto_0
 .end method
@@ -737,12 +545,12 @@
 
     const/4 v7, -0x1
 
-    .line 208
+    .line 198
     iget v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mCreationOrientation:I
 
-    if-eq v4, v6, :cond_1
+    if-eq v4, v6, :cond_3
 
-    .line 213
+    .line 203
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
@@ -753,12 +561,13 @@
 
     move-result v1
 
-    .line 214
+    .line 204
     .local v1, layoutPosition:I
     iget-boolean v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->DBG:Z
 
     if-eqz v4, :cond_0
 
+    .line 205
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -779,46 +588,67 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 217
+    .line 208
     :cond_0
     new-instance v3, Landroid/widget/FrameLayout;
 
     invoke-direct {v3, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    .line 218
+    .line 209
     .local v3, mBlankLayout:Landroid/widget/FrameLayout;
     new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v0, v7, v7}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 219
+    .line 210
     .local v0, blankLayoutParams:Landroid/widget/LinearLayout$LayoutParams;
     iput v9, v0, Landroid/widget/LinearLayout$LayoutParams;->weight:F
 
-    .line 221
+    .line 212
     packed-switch v1, :pswitch_data_0
 
-    .line 304
+    .line 311
     .end local v0           #blankLayoutParams:Landroid/widget/LinearLayout$LayoutParams;
     .end local v1           #layoutPosition:I
     .end local v3           #mBlankLayout:Landroid/widget/FrameLayout;
     :goto_0
+    sget-boolean v1, Lcom/android/internal/policy/impl/JKaySettings;->lockscreenShowClock:Z
+
+    if-nez v1, :cond_1
+
+    const/4 v1, 0x4
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/ClockWidget;->setVisibility(I)V
+
+    goto :goto_1
+
+    :cond_1
+    sget-boolean v1, Lcom/android/internal/policy/impl/JKaySettings;->lockscreenShowAlarmInfo:Z
+
+    if-eqz v1, :cond_2
+
+    invoke-direct {p0}, Lcom/android/internal/policy/impl/CircleLockScreen;->updateNextAlarmInfo()V
+
+    :cond_2
+    :goto_1
     return-void
 
-    .line 225
+    .line 216
     .restart local v0       #blankLayoutParams:Landroid/widget/LinearLayout$LayoutParams;
     .restart local v1       #layoutPosition:I
     .restart local v3       #mBlankLayout:Landroid/widget/FrameLayout;
     :pswitch_0
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mShadowImage:Landroid/widget/ImageView;
 
-    const v5, 0x10803ae
+    const v5, 0x10803ef
 
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 229
+    .line 220
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
 
     invoke-virtual {v4}, Lcom/android/internal/policy/impl/ClockWidget;->getRootLayout()Landroid/widget/LinearLayout;
@@ -829,69 +659,81 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    .line 231
+    .line 222
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
 
     const/16 v5, 0x30
 
     invoke-virtual {v4, v5}, Lcom/android/internal/policy/impl/ClockWidget;->setGravity(I)V
 
-    .line 232
+    .line 223
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
 
     invoke-virtual {v4, v5, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 235
+    .line 226
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMissedEventWidget:Lcom/android/internal/policy/impl/CircleMissedEventWidget;
 
     invoke-virtual {v4, v5, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 238
+    .line 229
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mHelpText:Landroid/widget/TextView;
 
     invoke-virtual {v4, v5, v7, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;II)V
 
-    .line 242
+    .line 238
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-virtual {v4}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setBottomLayout()V
 
-    .line 245
+    .line 240
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-virtual {v4, v5, v7, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;II)V
 
+    iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRadioWidget:Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;
+
+    invoke-virtual {v4, v5, v7, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;II)V
+
+    invoke-virtual {v5}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->setBottomLayout()V
+
     goto :goto_0
 
-    .line 251
+    .line 248
     :pswitch_1
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mShadowImage:Landroid/widget/ImageView;
 
-    const v5, 0x10803af
+    const v5, 0x10803f0
 
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 255
+    .line 257
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-virtual {v4}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setTopLayout()V
 
-    .line 257
+    .line 259
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-virtual {v4, v5, v7, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;II)V
 
-    .line 261
+    iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRadioWidget:Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;
+
+    invoke-virtual {v4, v5, v7, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;II)V
+
+    invoke-virtual {v5}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->setTopLayout()V
+
+    .line 264
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
 
     invoke-virtual {v4}, Lcom/android/internal/policy/impl/ClockWidget;->getRootLayout()Landroid/widget/LinearLayout;
@@ -900,69 +742,75 @@
 
     invoke-virtual {v4, v10}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    .line 262
+    .line 265
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
 
     invoke-virtual {v4, v10}, Lcom/android/internal/policy/impl/ClockWidget;->setGravity(I)V
 
-    .line 263
+    .line 266
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
 
     invoke-virtual {v4, v5, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 266
+    .line 267
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMissedEventWidget:Lcom/android/internal/policy/impl/CircleMissedEventWidget;
 
     invoke-virtual {v4, v5, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 269
+    .line 270
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mHelpText:Landroid/widget/TextView;
 
     invoke-virtual {v4, v5, v7, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;II)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    .line 274
+    .line 275
     :pswitch_2
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mShadowImage:Landroid/widget/ImageView;
 
-    const v5, 0x10803ad
+    const v5, 0x10803ee
 
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 278
+    .line 284
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-virtual {v4}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->setTopLayout()V
 
-    .line 279
+    .line 286
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-virtual {v4, v5, v7, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;II)V
 
-    .line 282
+    iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRadioWidget:Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;
+
+    invoke-virtual {v4, v5, v7, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;II)V
+
+    invoke-virtual {v5}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->setTopLayout()V
+
+    .line 289
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mHelpText:Landroid/widget/TextView;
 
     invoke-virtual {v4, v5, v7, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;II)V
 
-    .line 285
+    .line 292
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMissedEventWidget:Lcom/android/internal/policy/impl/CircleMissedEventWidget;
 
     invoke-virtual {v4, v5, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 289
+    .line 296
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
 
     invoke-virtual {v4}, Lcom/android/internal/policy/impl/ClockWidget;->getRootLayout()Landroid/widget/LinearLayout;
@@ -973,14 +821,14 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    .line 291
+    .line 298
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
 
     const/16 v5, 0x50
 
     invoke-virtual {v4, v5}, Lcom/android/internal/policy/impl/ClockWidget;->setGravity(I)V
 
-    .line 292
+    .line 299
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
@@ -989,34 +837,38 @@
 
     goto/16 :goto_0
 
-    .line 298
+    .line 305
     .end local v0           #blankLayoutParams:Landroid/widget/LinearLayout$LayoutParams;
     .end local v1           #layoutPosition:I
     .end local v3           #mBlankLayout:Landroid/widget/FrameLayout;
-    :cond_1
+    :cond_3
     new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v2, v7, v7}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 299
+    .line 306
     .local v2, lp:Landroid/widget/LinearLayout$LayoutParams;
     iput v9, v2, Landroid/widget/LinearLayout$LayoutParams;->weight:F
 
-    .line 300
+    .line 307
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-virtual {v4, v5, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 301
+    iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRadioWidget:Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;
+
+    invoke-virtual {v4, v5, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 308
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMissedEventWidget:Lcom/android/internal/policy/impl/CircleMissedEventWidget;
 
     invoke-virtual {v4, v5, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 302
+    .line 309
     iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mComponentBox:Landroid/widget/LinearLayout;
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
@@ -1025,7 +877,11 @@
 
     goto/16 :goto_0
 
-    .line 221
+    .line 212
+    nop
+
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -1034,15 +890,67 @@
     .end packed-switch
 .end method
 
+.method private updateNextAlarmInfo()V
+    .locals 5
+
+    .prologue
+    .line 286
+    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v1}, Lcom/android/internal/widget/LockPatternUtils;->getNextAlarm()Ljava/lang/String;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
+
+    const v2, 0x10202eb
+
+    invoke-virtual {v0, v2}, Lcom/android/internal/policy/impl/ClockWidget;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/TextView;
+
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 328
+    const v1, 0x108002e
+
+    const v0, 0x0
+
+    invoke-virtual {v2, v1, v0, v0, v0}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
+
+    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_0
+
+    :cond_0
+    const v2, 0x10202eb
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
+
+    invoke-virtual {v0, v2}, Lcom/android/internal/policy/impl/ClockWidget;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    const v0, 0x8
+
+    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 292
+    :goto_0
+    return-void
+.end method
+
 
 # virtual methods
 .method public cleanUp()V
-    .locals 3
+    .locals 2
 
     .prologue
-    const/4 v2, 0x0
-
-    .line 384
+    .line 399
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->DBG:Z
 
     if-eqz v0, :cond_0
@@ -1051,15 +959,20 @@
 
     const-string v1, "cleanUp()"
 
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 385
+    .line 400
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     invoke-virtual {v0, p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->removeCallback(Ljava/lang/Object;)V
 
-    .line 387
+    .line 401
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
+
+    .line 403
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mIsLiveWallpaper:Z
 
     if-nez v0, :cond_1
@@ -1068,45 +981,27 @@
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->cleanUp()V
 
-    .line 388
+    .line 404
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->cleanUp()V
 
-    .line 389
+    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRadioWidget:Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;
+
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->cleanUp()V
+
+    .line 406
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/ClockWidget;->cleanUp()V
 
-    .line 390
+    .line 407
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMissedEventWidget:Lcom/android/internal/policy/impl/CircleMissedEventWidget;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->cleanUp()V
 
-    .line 392
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mCircleUnlockView:Lcom/android/internal/policy/impl/CircleUnlockView;
-
-    invoke-virtual {v0, v2}, Lcom/android/internal/policy/impl/CircleUnlockView;->setOnCircleTouchListener(Lcom/android/internal/policy/impl/CircleUnlockView$OnCircleTouchListener;)V
-
-    .line 393
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mCircleUnlockView:Lcom/android/internal/policy/impl/CircleUnlockView;
-
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/CircleUnlockView;->cleanUp()V
-
-    .line 398
-    iput-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-
-    .line 399
-    iput-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    .line 400
-    iput-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-
-    .line 401
-    iput-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mContext:Landroid/content/Context;
-
-    .line 402
+    .line 408
     return-void
 .end method
 
@@ -1119,10 +1014,10 @@
 
     const/4 v3, 0x0
 
-    .line 193
+    .line 183
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
 
-    .line 194
+    .line 184
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleLockScreen;->isShown()Z
 
     move-result v1
@@ -1131,11 +1026,11 @@
 
     move v1, v3
 
-    .line 202
+    .line 192
     :goto_0
     return v1
 
-    .line 197
+    .line 187
     :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1177,7 +1072,7 @@
 
     move-result-object v0
 
-    .line 198
+    .line 188
     .local v0, text:Ljava/lang/CharSequence;
     invoke-interface {v0}, Ljava/lang/CharSequence;->length()I
 
@@ -1185,12 +1080,12 @@
 
     if-le v1, v4, :cond_1
 
-    .line 199
+    .line 189
     invoke-interface {v0, v3, v4}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 201
+    .line 191
     :cond_1
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
 
@@ -1198,7 +1093,7 @@
 
     invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 202
+    .line 192
     const/4 v1, 0x1
 
     goto :goto_0
@@ -1208,20 +1103,25 @@
     .locals 1
 
     .prologue
-    .line 446
+    .line 461
     const/4 v0, 0x0
 
     return v0
 .end method
 
-.method protected onAttachedToWindow()V
+.method public onClockVisibilityChanged()V
     .locals 0
 
     .prologue
-    .line 579
-    invoke-super {p0}, Landroid/widget/FrameLayout;->onAttachedToWindow()V
+    .line 455
+    return-void
+.end method
 
-    .line 580
+.method public onDeviceProvisioned()V
+    .locals 0
+
+    .prologue
+    .line 576
     return-void
 .end method
 
@@ -1229,7 +1129,7 @@
     .locals 2
 
     .prologue
-    .line 368
+    .line 381
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->DBG:Z
 
     if-eqz v0, :cond_0
@@ -1238,25 +1138,38 @@
 
     const-string v1, "onPause()"
 
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 369
+    .line 382
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->onPause()V
 
-    .line 370
+    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRadioWidget:Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;
+
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->onPause()V
+
+    .line 384
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/ClockWidget;->onPause()V
 
-    .line 371
+    .line 385
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMissedEventWidget:Lcom/android/internal/policy/impl/CircleMissedEventWidget;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->onPause()V
 
-    .line 372
+    .line 386
+    return-void
+.end method
+
+.method public onPhoneStateChanged(I)V
+    .locals 0
+    .parameter "phoneState"
+
+    .prologue
+    .line 452
     return-void
 .end method
 
@@ -1265,7 +1178,7 @@
     .parameter "newState"
 
     .prologue
-    .line 441
+    .line 423
     return-void
 .end method
 
@@ -1276,12 +1189,12 @@
     .parameter "batteryLevel"
 
     .prologue
-    .line 417
+    .line 429
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/internal/policy/impl/ClockWidget;->refreshBatteryInfo(ZZI)V
 
-    .line 418
+    .line 430
     return-void
 .end method
 
@@ -1291,12 +1204,12 @@
     .parameter "spn"
 
     .prologue
-    .line 428
+    .line 440
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/internal/policy/impl/ClockWidget;->onRefreshCarrierInfo(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
 
-    .line 429
+    .line 441
     return-void
 .end method
 
@@ -1304,7 +1217,7 @@
     .locals 2
 
     .prologue
-    .line 376
+    .line 390
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->DBG:Z
 
     if-eqz v0, :cond_0
@@ -1313,25 +1226,36 @@
 
     const-string v1, "onResume()"
 
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 377
+    .line 391
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMusicWidget:Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/GlassLockScreenMusicWidget;->onResume()V
 
-    .line 378
+    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mRadioWidget:Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;
+
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/GlassLockScreenFMRadioWidget;->onResume()V
+
+    .line 393
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/ClockWidget;->onResume()V
 
-    .line 379
+    .line 394
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mMissedEventWidget:Lcom/android/internal/policy/impl/CircleMissedEventWidget;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->onResume()V
 
-    .line 380
+    sget-boolean v1, Lcom/android/internal/policy/impl/JKaySettings;->lockscreenShowAlarmInfo:Z
+
+    if-eqz v1, :cond_1
+
+    invoke-direct {p0}, Lcom/android/internal/policy/impl/CircleLockScreen;->updateNextAlarmInfo()V
+
+    .line 395
+    :cond_1
     return-void
 .end method
 
@@ -1340,7 +1264,7 @@
     .parameter "state"
 
     .prologue
-    .line 435
+    .line 447
     return-void
 .end method
 
@@ -1349,12 +1273,12 @@
     .parameter "simState"
 
     .prologue
-    .line 574
+    .line 571
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/policy/impl/ClockWidget;->onSimStateChanged(Lcom/android/internal/telephony/IccCard$State;)V
 
-    .line 575
+    .line 572
     return-void
 .end method
 
@@ -1362,7 +1286,7 @@
     .locals 0
 
     .prologue
-    .line 424
+    .line 436
     return-void
 .end method
 
@@ -1371,7 +1295,7 @@
     .parameter "event"
 
     .prologue
-    .line 363
+    .line 376
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mCircleUnlockView:Lcom/android/internal/policy/impl/CircleUnlockView;
 
     const/4 v1, 0x0
@@ -1383,49 +1307,11 @@
     return v0
 .end method
 
-.method public onUpdateBatteryInfo(II)V
-    .locals 3
-    .parameter "batteryInfoStatus"
-    .parameter "batteryLevel"
-
-    .prologue
-    .line 661
-    const/4 v0, 0x0
-
-    .line 662
-    .local v0, mPlugedState:Z
-    if-nez p1, :cond_0
-
-    .line 663
-    const/4 v0, 0x0
-
-    .line 668
-    :goto_0
-    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/ClockWidget;
-
-    iget-object v2, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-
-    invoke-virtual {v2}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->shouldShowBatteryInfo()Z
-
-    move-result v2
-
-    invoke-virtual {v1, v2, v0, p2}, Lcom/android/internal/policy/impl/ClockWidget;->refreshBatteryInfo(ZZI)V
-
-    .line 669
-    return-void
-
-    .line 666
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
-.end method
-
 .method public setScreenOff()V
     .locals 0
 
     .prologue
-    .line 410
+    .line 418
     return-void
 .end method
 
@@ -1433,450 +1319,6 @@
     .locals 0
 
     .prologue
-    .line 406
+    .line 413
     return-void
-.end method
-
-.method public updateText()V
-    .locals 9
-
-    .prologue
-    const v8, 0x104031e
-
-    const/4 v5, 0x1
-
-    const/4 v4, 0x0
-
-    const v6, 0x104031b
-
-    const-string v7, ". "
-
-    .line 584
-    iget-object v3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-
-    if-eqz v3, :cond_0
-
-    iget-object v3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mContext:Landroid/content/Context;
-
-    if-nez v3, :cond_1
-
-    .line 631
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 586
-    :cond_1
-    iget-object v3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mTelephonyManager:Landroid/telephony/TelephonyManager;
-
-    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSimState()I
-
-    move-result v1
-
-    .line 589
-    .local v1, simState:I
-    iget-object v3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mPlmnText:Landroid/widget/TextView;
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 591
-    const-string v0, "0"
-
-    .line 594
-    .local v0, lock_key:Ljava/lang/String;
-    invoke-direct {p0}, Lcom/android/internal/policy/impl/CircleLockScreen;->getPermanentBlockString()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 595
-    iget-object v3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mPlmnText:Landroid/widget/TextView;
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setSingleLine(Z)V
-
-    .line 598
-    if-ne v1, v5, :cond_2
-
-    iget-object v3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-
-    invoke-virtual {v3}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->isDeviceProvisioned()Z
-
-    move-result v3
-
-    if-nez v3, :cond_2
-
-    .line 599
-    iget-object v3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mPlmnText:Landroid/widget/TextView;
-
-    iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-
-    invoke-virtual {v4}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->getTelephonyPlmn()Ljava/lang/CharSequence;
-
-    move-result-object v4
-
-    invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleLockScreen;->getContext()Landroid/content/Context;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Lcom/android/internal/policy/impl/CircleLockScreen;->getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto :goto_0
-
-    .line 601
-    :cond_2
-    const-string v3, "0"
-
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_4
-
-    .line 602
-    const-string v3, "2"
-
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    .line 603
-    iget-object v3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mPlmnText:Landroid/widget/TextView;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mContext:Landroid/content/Context;
-
-    const v6, 0x1040477
-
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string v5, ". "
-
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mContext:Landroid/content/Context;
-
-    const v6, 0x1040478
-
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto :goto_0
-
-    .line 604
-    :cond_3
-    const-string v3, "3"
-
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    .line 605
-    iget-object v3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mPlmnText:Landroid/widget/TextView;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mContext:Landroid/content/Context;
-
-    const v6, 0x1040477
-
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string v5, ". "
-
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mContext:Landroid/content/Context;
-
-    const v6, 0x1040479
-
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto/16 :goto_0
-
-    .line 608
-    :cond_4
-    if-ne v1, v5, :cond_5
-
-    .line 609
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, ". "
-
-    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 610
-    .local v2, str:Ljava/lang/String;
-    iget-object v3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mPlmnText:Landroid/widget/TextView;
-
-    invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto/16 :goto_0
-
-    .line 612
-    .end local v2           #str:Ljava/lang/String;
-    :cond_5
-    const/4 v3, 0x4
-
-    if-ne v1, v3, :cond_6
-
-    .line 613
-    iget-object v3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mPlmnText:Landroid/widget/TextView;
-
-    iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-
-    invoke-virtual {v4}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->getTelephonyPlmn()Ljava/lang/CharSequence;
-
-    move-result-object v4
-
-    invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleLockScreen;->getContext()Landroid/content/Context;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Lcom/android/internal/policy/impl/CircleLockScreen;->getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto/16 :goto_0
-
-    .line 615
-    :cond_6
-    const/4 v3, 0x2
-
-    if-ne v1, v3, :cond_7
-
-    .line 616
-    iget-object v3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mPlmnText:Landroid/widget/TextView;
-
-    iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-
-    invoke-virtual {v4}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->getTelephonyPlmn()Ljava/lang/CharSequence;
-
-    move-result-object v4
-
-    invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleLockScreen;->getContext()Landroid/content/Context;
-
-    move-result-object v5
-
-    const v6, 0x1040329
-
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Lcom/android/internal/policy/impl/CircleLockScreen;->getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto/16 :goto_0
-
-    .line 618
-    :cond_7
-    const/4 v3, 0x3
-
-    if-ne v1, v3, :cond_8
-
-    .line 619
-    iget-object v3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mPlmnText:Landroid/widget/TextView;
-
-    iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-
-    invoke-virtual {v4}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->getTelephonyPlmn()Ljava/lang/CharSequence;
-
-    move-result-object v4
-
-    invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleLockScreen;->getContext()Landroid/content/Context;
-
-    move-result-object v5
-
-    const v6, 0x1040327
-
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Lcom/android/internal/policy/impl/CircleLockScreen;->getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto/16 :goto_0
-
-    .line 621
-    :cond_8
-    const/4 v3, 0x5
-
-    if-ne v1, v3, :cond_9
-
-    .line 622
-    iget-object v3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mPlmnText:Landroid/widget/TextView;
-
-    iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-
-    invoke-virtual {v4}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->getTelephonyPlmn()Ljava/lang/CharSequence;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-
-    invoke-virtual {v5}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->getTelephonySpn()Ljava/lang/CharSequence;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Lcom/android/internal/policy/impl/CircleLockScreen;->getCarrierString(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto/16 :goto_0
-
-    .line 624
-    :cond_9
-    if-nez v1, :cond_a
-
-    .line 625
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, ". "
-
-    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 626
-    .restart local v2       #str:Ljava/lang/String;
-    iget-object v3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mPlmnText:Landroid/widget/TextView;
-
-    invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto/16 :goto_0
-
-    .line 629
-    .end local v2           #str:Ljava/lang/String;
-    :cond_a
-    iget-object v3, p0, Lcom/android/internal/policy/impl/CircleLockScreen;->mPlmnText:Landroid/widget/TextView;
-
-    const/16 v4, 0x8
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setVisibility(I)V
-
-    goto/16 :goto_0
 .end method

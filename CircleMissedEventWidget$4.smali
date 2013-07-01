@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 177
+    .line 180
     iput-object p1, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget$4;->this$0:Lcom/android/internal/policy/impl/CircleMissedEventWidget;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 179
+    .line 182
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 180
+    .line 183
     .local v0, action:Ljava/lang/String;
     const-string v2, "com.android.server.NotificationManagerService.NotificationArrived"
 
@@ -63,15 +63,15 @@
 
     if-eqz v2, :cond_1
 
-    .line 182
+    .line 185
     :cond_0
     const-string v2, "CircleMissedEventWidget"
 
     const-string v3, "received MISSED_EVENT intent !! "
 
-    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 183
+    .line 186
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget$4;->this$0:Lcom/android/internal/policy/impl/CircleMissedEventWidget;
 
     #getter for: Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mHandler:Landroid/os/Handler;
@@ -85,7 +85,7 @@
 
     move-result-object v1
 
-    .line 184
+    .line 187
     .local v1, msg:Landroid/os/Message;
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget$4;->this$0:Lcom/android/internal/policy/impl/CircleMissedEventWidget;
 
@@ -96,7 +96,7 @@
 
     invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 186
+    .line 189
     .end local v1           #msg:Landroid/os/Message;
     :cond_1
     return-void

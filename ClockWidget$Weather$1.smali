@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 233
+    .line 223
     iput-object p1, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather$1;->this$0:Lcom/android/internal/policy/impl/ClockWidget$Weather;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,16 +39,16 @@
     .parameter "msg"
 
     .prologue
-    .line 236
+    .line 226
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 242
+    .line 232
     :goto_0
     return-void
 
-    .line 239
+    .line 229
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather$1;->this$0:Lcom/android/internal/policy/impl/ClockWidget$Weather;
 
@@ -56,7 +56,7 @@
 
     goto :goto_0
 
-    .line 236
+    .line 226
     :pswitch_data_0
     .packed-switch 0x12c0
         :pswitch_0

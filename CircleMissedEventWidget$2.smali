@@ -48,25 +48,9 @@
 
     const-string v1, "onTouchEvent() in MissedEvent"
 
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 128
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget$2;->this$0:Lcom/android/internal/policy/impl/CircleMissedEventWidget;
-
-    #getter for: Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mCircleUnlockView:Lcom/android/internal/policy/impl/CircleUnlockView;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/CircleMissedEventWidget;->access$100(Lcom/android/internal/policy/impl/CircleMissedEventWidget;)Lcom/android/internal/policy/impl/CircleUnlockView;
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    .line 130
-    :goto_0
-    return v0
-
-    :cond_0
+    .line 129
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleMissedEventWidget$2;->this$0:Lcom/android/internal/policy/impl/CircleMissedEventWidget;
 
     #getter for: Lcom/android/internal/policy/impl/CircleMissedEventWidget;->mCircleUnlockView:Lcom/android/internal/policy/impl/CircleUnlockView;
@@ -78,5 +62,5 @@
 
     move-result v0
 
-    goto :goto_0
+    return v0
 .end method

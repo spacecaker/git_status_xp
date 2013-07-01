@@ -109,7 +109,7 @@
 
 .field private mDistanceRatio:D
 
-.field private mIsFirst:Z
+.field private mIsUnlockCalled:Z
 
 .field private mOnCircleTouchListener:Lcom/android/internal/policy/impl/CircleUnlockView$OnCircleTouchListener;
 
@@ -130,121 +130,122 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/internal/policy/impl/KeyguardScreenCallback;)V
-    .locals 5
+    .locals 4
     .parameter "context"
     .parameter "callback"
 
     .prologue
-    const/16 v4, 0x96
+    const/4 v0, 0x0
 
-    const/4 v3, 0x1
+    iput-boolean v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mIsUnlockCalled:Z
+
+    const/16 v3, 0x96
 
     const/high16 v2, 0x3f80
 
-    .line 133
+    .line 129
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    .line 41
+    .line 39
     const-string v0, "CircleLockScreen"
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->TAG:Ljava/lang/String;
 
-    .line 42
-    iput-boolean v3, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->DBG:Z
+    .line 40
+    const/4 v0, 0x1
 
-    .line 47
+    iput-boolean v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->DBG:Z
+
+    .line 45
     const/16 v0, 0xff
 
     iput v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->CIRCLE_MAX_ALPHA:I
 
-    .line 48
+    .line 46
     const/16 v0, 0x50
 
     iput v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->CIRCLE_MIN_ALPHA:I
 
-    .line 49
+    .line 47
     const-wide/16 v0, 0x352
 
     iput-wide v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->ALPHA_ANI_DURATION:J
 
-    .line 50
+    .line 48
     const v0, 0x3ecccccd
 
     iput v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->ALPHA_ANI_START:F
 
-    .line 51
+    .line 49
     const v0, 0x3e4ccccd
 
     iput v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->ALPHA_ANI_END:F
 
-    .line 52
+    .line 50
     const-wide/16 v0, 0x190
 
     iput-wide v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->SCALE_ANI_DURATION:J
 
-    .line 53
+    .line 51
     const v0, 0x3edc28f6
 
     iput v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->SCALE_ANI_START:F
 
-    .line 54
+    .line 52
     iput v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->SCALE_ANI_END:F
 
-    .line 55
+    .line 53
     const v0, 0x3f8ccccd
 
     iput v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->ARROW_SCALE_ANI_START:F
 
-    .line 56
+    .line 54
     iput v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->ARROW_SCALE_ANI_END:F
 
-    .line 57
-    iput v4, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->ARROW_START_ANI_DURATION:I
+    .line 55
+    iput v3, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->ARROW_START_ANI_DURATION:I
 
-    .line 58
+    .line 56
     const/16 v0, 0x12c
 
     iput v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->ARROW_START_ANI_OFFSET:I
 
-    .line 59
-    iput v4, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->ARROW_REPEAT_ANI_DURATION:I
+    .line 57
+    iput v3, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->ARROW_REPEAT_ANI_DURATION:I
 
-    .line 60
+    .line 58
     const/16 v0, 0x190
 
     iput v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->ARROW_REPEAT_ANI_OFFSET:I
 
-    .line 61
+    .line 59
     const-wide v0, 0x3fe99999a0000000L
 
     iput-wide v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->UNLOCK_RELEASE_THRESHOLD:D
 
-    .line 62
+    .line 60
     const-wide v0, 0x3ff4ccccc0000000L
 
     iput-wide v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->UNLOCK_DRAG_THRESHOLD:D
 
-    .line 114
+    .line 112
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleAniFlag:Z
 
-    .line 116
-    iput-boolean v3, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mIsFirst:Z
-
-    .line 135
+    .line 131
     iput-object p1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mContext:Landroid/content/Context;
 
-    .line 137
+    .line 133
     iput-object p2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
-    .line 140
+    .line 136
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleUnlockView;->setLayout()V
 
-    .line 141
+    .line 137
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleUnlockView;->setAnimation()V
 
-    .line 143
+    .line 139
     return-void
 .end method
 
@@ -253,7 +254,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleOut:Landroid/widget/ImageView;
 
     return-object v0
@@ -264,7 +265,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim1:Landroid/view/animation/AnimationSet;
 
     return-object v0
@@ -275,7 +276,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow2_1:Landroid/widget/ImageView;
 
     return-object v0
@@ -286,7 +287,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim3:Landroid/view/animation/AlphaAnimation;
 
     return-object v0
@@ -297,7 +298,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow3_1:Landroid/widget/ImageView;
 
     return-object v0
@@ -308,7 +309,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleRoot:Landroid/widget/RelativeLayout;
 
     return-object v0
@@ -319,7 +320,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow1:Landroid/widget/ImageView;
 
     return-object v0
@@ -330,7 +331,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim2:Landroid/view/animation/AnimationSet;
 
     return-object v0
@@ -341,7 +342,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow2:Landroid/widget/ImageView;
 
     return-object v0
@@ -352,7 +353,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim3:Landroid/view/animation/AnimationSet;
 
     return-object v0
@@ -363,7 +364,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow3:Landroid/widget/ImageView;
 
     return-object v0
@@ -374,7 +375,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim1:Landroid/view/animation/AlphaAnimation;
 
     return-object v0
@@ -385,7 +386,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow1_1:Landroid/widget/ImageView;
 
     return-object v0
@@ -396,7 +397,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 37
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim2:Landroid/view/animation/AlphaAnimation;
 
     return-object v0
@@ -417,7 +418,7 @@
 
     const-wide v6, 0x3fc999999999999aL
 
-    .line 478
+    .line 474
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -438,44 +439,44 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 480
+    .line 476
     cmpg-double v2, p1, v6
 
     if-gez v2, :cond_1
 
-    .line 481
+    .line 477
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleIn:Landroid/widget/ImageView;
 
     invoke-virtual {v2, v11}, Landroid/widget/ImageView;->setAlpha(I)V
 
-    .line 482
+    .line 478
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleOut:Landroid/widget/ImageView;
 
     invoke-virtual {v2, v11}, Landroid/widget/ImageView;->setAlpha(I)V
 
-    .line 483
+    .line 479
     iget-boolean v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleAniFlag:Z
 
     if-eqz v2, :cond_0
 
-    .line 484
+    .line 480
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleAniFlag:Z
 
-    .line 485
+    .line 481
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleOut:Landroid/widget/ImageView;
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->alphaAnim:Landroid/view/animation/AlphaAnimation;
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 501
+    .line 497
     :cond_0
     :goto_0
     return-void
 
-    .line 487
+    .line 483
     :cond_1
     cmpl-double v2, p1, v6
 
@@ -485,18 +486,18 @@
 
     if-gez v2, :cond_2
 
-    .line 488
+    .line 484
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleAniFlag:Z
 
-    .line 489
+    .line 485
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleUnlockView;->clearAllAnimation()V
 
-    .line 490
+    .line 486
     invoke-virtual {p0, v10}, Lcom/android/internal/policy/impl/CircleUnlockView;->setAllCircleArrowVisibility(I)V
 
-    .line 492
+    .line 488
     const-wide v2, 0x4058fffff7aaaaadL
 
     sub-double v4, p1, v6
@@ -509,7 +510,7 @@
 
     double-to-int v1, v2
 
-    .line 493
+    .line 489
     .local v1, outerCircleOpacity:I
     const-wide v2, -0x3f9b2aaab19c71c5L
 
@@ -523,7 +524,7 @@
 
     double-to-int v0, v2
 
-    .line 494
+    .line 490
     .local v0, innerCircleOpacity:I
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleIn:Landroid/widget/ImageView;
 
@@ -533,7 +534,7 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setAlpha(I)V
 
-    .line 495
+    .line 491
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleOut:Landroid/widget/ImageView;
 
     mul-int/lit16 v3, v1, 0xff
@@ -544,7 +545,7 @@
 
     goto :goto_0
 
-    .line 496
+    .line 492
     .end local v0           #innerCircleOpacity:I
     .end local v1           #outerCircleOpacity:I
     :cond_2
@@ -552,13 +553,13 @@
 
     if-ltz v2, :cond_0
 
-    .line 497
+    .line 493
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleUnlockView;->clearAllAnimation()V
 
-    .line 498
+    .line 494
     invoke-virtual {p0, v10}, Lcom/android/internal/policy/impl/CircleUnlockView;->setAllCircleArrowVisibility(I)V
 
-    .line 499
+    .line 495
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleIn:Landroid/widget/ImageView;
 
     invoke-virtual {v2, v5}, Landroid/widget/ImageView;->setAlpha(I)V
@@ -573,14 +574,14 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 695
+    .line 682
     const/16 v2, 0x14
 
     new-array v1, v2, [I
 
     fill-array-data v1, :array_0
 
-    .line 708
+    .line 695
     .local v1, unlockscreen_lock_drawables:[I
     const-wide v2, 0x3fb999999999999aL
 
@@ -588,10 +589,10 @@
 
     if-gez v2, :cond_0
 
-    .line 709
+    .line 696
     const/4 v0, 0x0
 
-    .line 715
+    .line 702
     .local v0, index:I
     :goto_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->TAG:Ljava/lang/String;
@@ -614,14 +615,14 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 716
+    .line 703
     aget v2, v1, v0
 
     return v2
 
-    .line 710
+    .line 697
     .end local v0           #index:I
     :cond_0
     const-wide v2, 0x3ff0cccccccccccdL
@@ -630,7 +631,7 @@
 
     if-ltz v2, :cond_1
 
-    .line 711
+    .line 698
     array-length v2, v1
 
     sub-int v0, v2, v4
@@ -638,7 +639,7 @@
     .restart local v0       #index:I
     goto :goto_0
 
-    .line 713
+    .line 700
     .end local v0           #index:I
     :cond_1
     array-length v2, v1
@@ -654,31 +655,31 @@
     .restart local v0       #index:I
     goto :goto_0
 
-    .line 695
+    .line 682
     nop
 
     :array_0
     .array-data 0x4
-        0xb3t 0x3t 0x8t 0x1t
-        0xb4t 0x3t 0x8t 0x1t
-        0xb5t 0x3t 0x8t 0x1t
-        0xb6t 0x3t 0x8t 0x1t
-        0xb7t 0x3t 0x8t 0x1t
-        0xb8t 0x3t 0x8t 0x1t
-        0xb9t 0x3t 0x8t 0x1t
-        0xbat 0x3t 0x8t 0x1t
-        0xbbt 0x3t 0x8t 0x1t
-        0xbct 0x3t 0x8t 0x1t
-        0xbdt 0x3t 0x8t 0x1t
-        0xbet 0x3t 0x8t 0x1t
-        0xbft 0x3t 0x8t 0x1t
-        0xc0t 0x3t 0x8t 0x1t
-        0xc1t 0x3t 0x8t 0x1t
-        0xc2t 0x3t 0x8t 0x1t
-        0xc3t 0x3t 0x8t 0x1t
-        0xc4t 0x3t 0x8t 0x1t
-        0xc5t 0x3t 0x8t 0x1t
-        0xc6t 0x3t 0x8t 0x1t
+        0xf4t 0x3t 0x8t 0x1t
+        0xf5t 0x3t 0x8t 0x1t
+        0xf6t 0x3t 0x8t 0x1t
+        0xf7t 0x3t 0x8t 0x1t
+        0xf8t 0x3t 0x8t 0x1t
+        0xf9t 0x3t 0x8t 0x1t
+        0xfat 0x3t 0x8t 0x1t
+        0xfbt 0x3t 0x8t 0x1t
+        0xfct 0x3t 0x8t 0x1t
+        0xfdt 0x3t 0x8t 0x1t
+        0xfet 0x3t 0x8t 0x1t
+        0xfft 0x3t 0x8t 0x1t
+        0x0t 0x4t 0x8t 0x1t
+        0x1t 0x4t 0x8t 0x1t
+        0x2t 0x4t 0x8t 0x1t
+        0x3t 0x4t 0x8t 0x1t
+        0x4t 0x4t 0x8t 0x1t
+        0x5t 0x4t 0x8t 0x1t
+        0x6t 0x4t 0x8t 0x1t
+        0x7t 0x4t 0x8t 0x1t
     .end array-data
 .end method
 
@@ -687,12 +688,12 @@
     .parameter "v"
 
     .prologue
-    .line 679
+    .line 666
     const-wide/16 v0, 0x0
 
     invoke-direct {p0, p1, v0, v1}, Lcom/android/internal/policy/impl/CircleUnlockView;->setCenterImage(Landroid/view/View;D)V
 
-    .line 680
+    .line 667
     return-void
 .end method
 
@@ -704,10 +705,10 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 683
+    .line 670
     if-nez p1, :cond_0
 
-    .line 685
+    .line 672
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleCenter:Landroid/widget/ImageView;
 
     invoke-direct {p0, p2, p3}, Lcom/android/internal/policy/impl/CircleUnlockView;->getUnlockscreenLockImageIdAt(D)I
@@ -716,23 +717,23 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 692
+    .line 679
     :goto_0
     return-void
 
-    .line 688
+    .line 675
     :cond_0
     invoke-virtual {p1, v1}, Landroid/view/View;->setDrawingCacheEnabled(Z)V
 
-    .line 689
+    .line 676
     invoke-virtual {p1, v1}, Landroid/view/View;->buildDrawingCache(Z)V
 
-    .line 690
+    .line 677
     invoke-virtual {p1, v1}, Landroid/view/View;->getDrawingCache(Z)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 691
+    .line 678
     .local v0, bm:Landroid/graphics/Bitmap;
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleCenter:Landroid/widget/ImageView;
 
@@ -743,149 +744,46 @@
 
 
 # virtual methods
-.method public cleanUp()V
-    .locals 3
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 739
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->TAG:Ljava/lang/String;
-
-    const-string v1, "cleanUp CircleUnlockView"
-
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 740
-    invoke-virtual {p0}, Lcom/android/internal/policy/impl/CircleUnlockView;->clearAllAnimation()V
-
-    .line 742
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->scaleAnim:Landroid/view/animation/ScaleAnimation;
-
-    invoke-virtual {v0, v2}, Landroid/view/animation/ScaleAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    .line 743
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->alphaAnim:Landroid/view/animation/AlphaAnimation;
-
-    invoke-virtual {v0, v2}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    .line 744
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAlphaAnim1:Landroid/view/animation/AlphaAnimation;
-
-    invoke-virtual {v0, v2}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    .line 745
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAlphaAnim2:Landroid/view/animation/AlphaAnimation;
-
-    invoke-virtual {v0, v2}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    .line 746
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAlphaAnim3:Landroid/view/animation/AlphaAnimation;
-
-    invoke-virtual {v0, v2}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    .line 747
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartScaleAnim1:Landroid/view/animation/ScaleAnimation;
-
-    invoke-virtual {v0, v2}, Landroid/view/animation/ScaleAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    .line 748
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartScaleAnim2:Landroid/view/animation/ScaleAnimation;
-
-    invoke-virtual {v0, v2}, Landroid/view/animation/ScaleAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    .line 749
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartScaleAnim3:Landroid/view/animation/ScaleAnimation;
-
-    invoke-virtual {v0, v2}, Landroid/view/animation/ScaleAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    .line 750
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim1:Landroid/view/animation/AnimationSet;
-
-    invoke-virtual {v0, v2}, Landroid/view/animation/AnimationSet;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    .line 751
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim2:Landroid/view/animation/AnimationSet;
-
-    invoke-virtual {v0, v2}, Landroid/view/animation/AnimationSet;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    .line 752
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim3:Landroid/view/animation/AnimationSet;
-
-    invoke-virtual {v0, v2}, Landroid/view/animation/AnimationSet;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    .line 753
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim1:Landroid/view/animation/AlphaAnimation;
-
-    invoke-virtual {v0, v2}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    .line 754
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim2:Landroid/view/animation/AlphaAnimation;
-
-    invoke-virtual {v0, v2}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    .line 755
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim3:Landroid/view/animation/AlphaAnimation;
-
-    invoke-virtual {v0, v2}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    .line 756
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->circleUnlockViewScaleAnim:Landroid/view/animation/ScaleAnimation;
-
-    invoke-virtual {v0, v2}, Landroid/view/animation/ScaleAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    .line 757
-    iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->circleUnlockViewAlphaAnim:Landroid/view/animation/AlphaAnimation;
-
-    invoke-virtual {v0, v2}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    .line 759
-    iput-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-
-    .line 761
-    return-void
-.end method
-
 .method public clearAllAnimation()V
     .locals 1
 
     .prologue
-    .line 721
+    .line 708
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleOut:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->clearAnimation()V
 
-    .line 722
+    .line 709
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow1:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->clearAnimation()V
 
-    .line 723
+    .line 710
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow2:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->clearAnimation()V
 
-    .line 724
+    .line 711
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow3:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->clearAnimation()V
 
-    .line 725
+    .line 712
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow1_1:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->clearAnimation()V
 
-    .line 726
+    .line 713
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow2_1:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->clearAnimation()V
 
-    .line 727
+    .line 714
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow3_1:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->clearAnimation()V
 
-    .line 728
+    .line 715
     return-void
 .end method
 
@@ -895,34 +793,18 @@
     .parameter "event"
 
     .prologue
-    .line 518
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-
-    move-object/from16 v22, v0
-
-    if-nez v22, :cond_0
-
-    const/16 v22, 0x0
-
-    .line 672
-    :goto_0
-    return v22
-
-    .line 525
-    :cond_0
+    .line 520
     invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getX()F
 
     move-result v18
 
-    .line 526
+    .line 521
     .local v18, touchedEventX:F
     invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getY()F
 
     move-result v19
 
-    .line 529
+    .line 524
     .local v19, touchedEventY:F
     move-object/from16 v0, p0
 
@@ -930,9 +812,9 @@
 
     move-object/from16 v22, v0
 
-    if-nez v22, :cond_1
+    if-nez v22, :cond_0
 
-    .line 530
+    .line 525
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->TAG:Ljava/lang/String;
@@ -941,15 +823,17 @@
 
     const-string v23, "Occured Divided by zero Exception caused by mCircleMain-Null"
 
-    invoke-static/range {v22 .. v23}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 531
+    .line 526
     const/16 v22, 0x0
 
-    goto :goto_0
+    .line 659
+    :goto_0
+    return v22
 
-    .line 532
-    :cond_1
+    .line 527
+    :cond_0
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleMain:Landroid/widget/FrameLayout;
@@ -960,9 +844,9 @@
 
     move-result v22
 
-    if-nez v22, :cond_2
+    if-nez v22, :cond_1
 
-    .line 533
+    .line 528
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->TAG:Ljava/lang/String;
@@ -971,15 +855,15 @@
 
     const-string v23, "Occured Divided by zero Exception caused by mCircleMain.getHeight() == 0"
 
-    invoke-static/range {v22 .. v23}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 534
+    .line 529
     const/16 v22, 0x0
 
     goto :goto_0
 
-    .line 535
-    :cond_2
+    .line 530
+    :cond_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleMain:Landroid/widget/FrameLayout;
@@ -990,9 +874,9 @@
 
     move-result v22
 
-    if-nez v22, :cond_3
+    if-nez v22, :cond_2
 
-    .line 536
+    .line 531
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->TAG:Ljava/lang/String;
@@ -1001,29 +885,29 @@
 
     const-string v23, "Occured Divided by zero Exception caused by mCircleMain.getWidth() == 0"
 
-    invoke-static/range {v22 .. v23}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 537
+    .line 532
     const/16 v22, 0x0
 
     goto :goto_0
 
-    .line 540
-    :cond_3
+    .line 535
+    :cond_2
     invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v22
 
     packed-switch v22, :pswitch_data_0
 
-    .line 672
-    :cond_4
+    .line 659
+    :cond_3
     :goto_1
     const/16 v22, 0x1
 
     goto :goto_0
 
-    .line 544
+    .line 539
     :pswitch_0
     move-object/from16 v0, p0
 
@@ -1031,9 +915,9 @@
 
     move-object/from16 v22, v0
 
-    if-eqz v22, :cond_5
+    if-eqz v22, :cond_4
 
-    .line 545
+    .line 540
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mOnCircleTouchListener:Lcom/android/internal/policy/impl/CircleUnlockView$OnCircleTouchListener;
@@ -1046,8 +930,14 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/policy/impl/CircleUnlockView$OnCircleTouchListener;->onCircleTouchDown(Landroid/view/View;)V
 
-    .line 548
-    :cond_5
+    .line 543
+    :cond_4
+    const/4 v0, 0x0
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Lcom/android/internal/policy/impl/CircleUnlockView;->mIsUnlockCalled:Z
+
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -1056,7 +946,7 @@
 
     invoke-interface/range {v22 .. v22}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 550
+    .line 545
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleRoot:Landroid/widget/RelativeLayout;
@@ -1065,7 +955,7 @@
 
     invoke-virtual/range {v22 .. v22}, Landroid/widget/RelativeLayout;->clearAnimation()V
 
-    .line 551
+    .line 546
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleRoot:Landroid/widget/RelativeLayout;
@@ -1076,24 +966,24 @@
 
     invoke-virtual/range {v22 .. v23}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
-    .line 554
+    .line 549
     move/from16 v0, v18
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/internal/policy/impl/CircleUnlockView;->mX:F
 
-    .line 555
+    .line 550
     move/from16 v0, v19
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/internal/policy/impl/CircleUnlockView;->mY:F
 
-    .line 556
-    if-eqz p1, :cond_6
+    .line 551
+    if-eqz p1, :cond_5
 
-    .line 557
+    .line 552
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->originalCircleX:F
@@ -1142,7 +1032,7 @@
 
     move/from16 v20, v0
 
-    .line 558
+    .line 553
     .local v20, xOffset:I
     move-object/from16 v0, p0
 
@@ -1192,12 +1082,12 @@
 
     move/from16 v21, v0
 
-    .line 565
+    .line 560
     .local v21, yOffset:I
     :goto_2
     invoke-direct/range {p0 .. p1}, Lcom/android/internal/policy/impl/CircleUnlockView;->setCenterImage(Landroid/view/View;)V
 
-    .line 568
+    .line 563
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleMain:Landroid/widget/FrameLayout;
@@ -1210,7 +1100,7 @@
 
     check-cast v11, Landroid/widget/RelativeLayout$LayoutParams;
 
-    .line 569
+    .line 564
     .local v11, lp:Landroid/widget/RelativeLayout$LayoutParams;
     move-object/from16 v0, p0
 
@@ -1236,7 +1126,7 @@
 
     sub-int v15, v22, v20
 
-    .line 570
+    .line 565
     .local v15, rightMargin:I
     move-object/from16 v0, p0
 
@@ -1262,7 +1152,7 @@
 
     sub-int v4, v22, v21
 
-    .line 571
+    .line 566
     .local v4, bottomMargin:I
     move/from16 v0, v20
 
@@ -1270,20 +1160,20 @@
 
     iput v0, v1, Landroid/widget/RelativeLayout$LayoutParams;->leftMargin:I
 
-    .line 572
+    .line 567
     iput v15, v11, Landroid/widget/RelativeLayout$LayoutParams;->rightMargin:I
 
-    .line 573
+    .line 568
     move/from16 v0, v21
 
     move-object v1, v11
 
     iput v0, v1, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I
 
-    .line 574
+    .line 569
     iput v4, v11, Landroid/widget/RelativeLayout$LayoutParams;->bottomMargin:I
 
-    .line 575
+    .line 570
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleMain:Landroid/widget/FrameLayout;
@@ -1296,7 +1186,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 578
+    .line 573
     const-wide/16 v22, 0x0
 
     move-object/from16 v0, p0
@@ -1305,7 +1195,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/internal/policy/impl/CircleUnlockView;->circleUnlockAnimation(D)V
 
-    .line 580
+    .line 575
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleOut:Landroid/widget/ImageView;
@@ -1322,13 +1212,13 @@
 
     goto/16 :goto_1
 
-    .line 560
+    .line 555
     .end local v4           #bottomMargin:I
     .end local v11           #lp:Landroid/widget/RelativeLayout$LayoutParams;
     .end local v15           #rightMargin:I
     .end local v20           #xOffset:I
     .end local v21           #yOffset:I
-    :cond_6
+    :cond_5
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->originalCircleX:F
@@ -1361,7 +1251,7 @@
 
     move/from16 v20, v0
 
-    .line 561
+    .line 556
     .restart local v20       #xOffset:I
     move-object/from16 v0, p0
 
@@ -1398,7 +1288,7 @@
     .restart local v21       #yOffset:I
     goto/16 :goto_2
 
-    .line 585
+    .line 580
     .end local v20           #xOffset:I
     .end local v21           #yOffset:I
     :pswitch_1
@@ -1408,9 +1298,9 @@
 
     move-object/from16 v22, v0
 
-    if-eqz v22, :cond_7
+    if-eqz v22, :cond_6
 
-    .line 586
+    .line 581
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mOnCircleTouchListener:Lcom/android/internal/policy/impl/CircleUnlockView$OnCircleTouchListener;
@@ -1423,8 +1313,8 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/policy/impl/CircleUnlockView$OnCircleTouchListener;->onCircleTouchMove(Landroid/view/View;)V
 
-    .line 590
-    :cond_7
+    .line 584
+    :cond_6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -1433,25 +1323,25 @@
 
     invoke-interface/range {v22 .. v22}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 593
+    .line 587
     const/4 v5, 0x0
 
-    .line 594
+    .line 588
     .local v5, diffX:I
     const/4 v6, 0x0
 
-    .line 595
+    .line 589
     .local v6, diffY:I
     if-eqz p1, :cond_8
 
-    .line 597
+    .line 591
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v22
 
     div-int/lit8 v12, v22, 0x2
 
-    .line 598
+    .line 592
     .local v12, mCircleCenterX:I
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getMeasuredHeight()I
 
@@ -1459,7 +1349,7 @@
 
     div-int/lit8 v13, v22, 0x2
 
-    .line 599
+    .line 593
     .local v13, mCircleCenterY:I
     move v0, v12
 
@@ -1475,7 +1365,7 @@
 
     move v5, v0
 
-    .line 600
+    .line 594
     move v0, v13
 
     int-to-float v0, v0
@@ -1514,7 +1404,7 @@
 
     div-int v6, v22, v23
 
-    .line 607
+    .line 601
     .end local v12           #mCircleCenterX:I
     .end local v13           #mCircleCenterY:I
     :goto_3
@@ -1544,13 +1434,13 @@
 
     add-double v9, v22, v24
 
-    .line 608
+    .line 602
     .local v9, distance_square:D
     invoke-static {v9, v10}, Ljava/lang/Math;->sqrt(D)D
 
     move-result-wide v7
 
-    .line 609
+    .line 603
     .local v7, distance:D
     move-object/from16 v0, p0
 
@@ -1590,7 +1480,7 @@
 
     move/from16 v14, v22
 
-    .line 610
+    .line 604
     .local v14, min:I
     :goto_4
     div-int/lit8 v22, v14, 0x2
@@ -1601,7 +1491,7 @@
 
     move-wide/from16 v16, v0
 
-    .line 611
+    .line 605
     .local v16, threshold:D
     div-double v22, v7, v16
 
@@ -1611,7 +1501,7 @@
 
     iput-wide v0, v2, Lcom/android/internal/policy/impl/CircleUnlockView;->mDistanceRatio:D
 
-    .line 615
+    .line 609
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mDistanceRatio:D
@@ -1624,7 +1514,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/internal/policy/impl/CircleUnlockView;->circleUnlockAnimation(D)V
 
-    .line 616
+    .line 610
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mDistanceRatio:D
@@ -1639,7 +1529,7 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/internal/policy/impl/CircleUnlockView;->setCenterImage(Landroid/view/View;D)V
 
-    .line 618
+    .line 613
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mDistanceRatio:D
@@ -1650,30 +1540,25 @@
 
     cmpl-double v22, v22, v24
 
-    if-ltz v22, :cond_4
-
-    .line 619
-    if-nez p1, :cond_a
-
-    .line 622
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mIsFirst:Z
-
-    move/from16 v22, v0
-
-    if-eqz v22, :cond_4
-
-    .line 623
-    const/16 v22, 0x0
-
-    move/from16 v0, v22
+    if-ltz v22, :cond_3
 
     move-object/from16 v1, p0
 
-    iput-boolean v0, v1, Lcom/android/internal/policy/impl/CircleUnlockView;->mIsFirst:Z
+    iget-boolean v0, v1, Lcom/android/internal/policy/impl/CircleUnlockView;->mIsUnlockCalled:Z
 
-    .line 624
+    if-eqz v0, :cond_7
+
+    goto/16 :goto_1
+
+    :cond_7
+    const/4 v0, 0x1
+
+    iput-boolean v0, v1, Lcom/android/internal/policy/impl/CircleUnlockView;->mIsUnlockCalled:Z
+
+    .line 614
+    if-nez p1, :cond_a
+
+    .line 616
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -1684,7 +1569,7 @@
 
     goto/16 :goto_1
 
-    .line 603
+    .line 597
     .end local v7           #distance:D
     .end local v9           #distance_square:D
     .end local v14           #min:I
@@ -1704,7 +1589,7 @@
 
     move v5, v0
 
-    .line 604
+    .line 598
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mY:F
@@ -1745,7 +1630,7 @@
 
     goto/16 :goto_3
 
-    .line 609
+    .line 603
     .restart local v7       #distance:D
     .restart local v9       #distance_square:D
     :cond_9
@@ -1763,7 +1648,7 @@
 
     goto/16 :goto_4
 
-    .line 631
+    .line 620
     .restart local v14       #min:I
     .restart local v16       #threshold:D
     :cond_a
@@ -1773,9 +1658,9 @@
 
     move-object/from16 v22, v0
 
-    if-eqz v22, :cond_4
+    if-eqz v22, :cond_3
 
-    .line 632
+    .line 621
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mOnCircleUnlockListener:Lcom/android/internal/policy/impl/CircleUnlockView$OnCircleUnlockListener;
@@ -1790,7 +1675,7 @@
 
     goto/16 :goto_1
 
-    .line 640
+    .line 629
     .end local v5           #diffX:I
     .end local v6           #diffY:I
     .end local v7           #distance:D
@@ -1800,7 +1685,7 @@
     :pswitch_2
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/CircleUnlockView;->clearAllAnimation()V
 
-    .line 641
+    .line 630
     const/16 v22, 0x4
 
     move-object/from16 v0, p0
@@ -1809,16 +1694,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/CircleUnlockView;->setAllCircleArrowVisibility(I)V
 
-    .line 642
-    const/16 v22, 0x1
-
-    move/from16 v0, v22
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Lcom/android/internal/policy/impl/CircleUnlockView;->mIsFirst:Z
-
-    .line 645
+    .line 633
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mOnCircleTouchListener:Lcom/android/internal/policy/impl/CircleUnlockView$OnCircleTouchListener;
@@ -1827,7 +1703,7 @@
 
     if-eqz v22, :cond_b
 
-    .line 646
+    .line 634
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mOnCircleTouchListener:Lcom/android/internal/policy/impl/CircleUnlockView$OnCircleTouchListener;
@@ -1840,36 +1716,37 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/policy/impl/CircleUnlockView$OnCircleTouchListener;->onCircleTouchUp(Landroid/view/View;)V
 
-    .line 651
+    .line 640
     :cond_b
-    const-wide v22, 0x3fe99999a0000000L
-
-    move-object/from16 v0, p0
-
-    iget-wide v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mDistanceRatio:D
-
-    move-wide/from16 v24, v0
-
-    cmpg-double v22, v22, v24
-
-    if-gtz v22, :cond_e
-
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mDistanceRatio:D
 
     move-wide/from16 v22, v0
 
-    const-wide v24, 0x3ff4ccccc0000000L
+    const-wide v24, 0x3fe99999a0000000L
 
-    cmpg-double v22, v22, v24
+    cmpl-double v22, v22, v24
 
-    if-gez v22, :cond_e
+    if-ltz v22, :cond_f
 
-    .line 653
-    if-nez p1, :cond_d
+    move-object/from16 v1, p0
 
-    .line 655
+    iget-boolean v0, v1, Lcom/android/internal/policy/impl/CircleUnlockView;->mIsUnlockCalled:Z
+
+    if-eqz v0, :cond_c
+
+    goto/16 :goto_1
+
+    :cond_c
+    const/4 v0, 0x1
+
+    iput-boolean v0, v1, Lcom/android/internal/policy/impl/CircleUnlockView;->mIsUnlockCalled:Z
+
+    .line 641
+    if-nez p1, :cond_e
+
+    .line 643
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -1878,8 +1755,8 @@
 
     invoke-interface/range {v22 .. v22}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->goToUnlockScreen()V
 
-    .line 668
-    :cond_c
+    .line 655
+    :cond_d
     :goto_5
     move-object/from16 v0, p0
 
@@ -1893,17 +1770,17 @@
 
     goto/16 :goto_1
 
-    .line 659
-    :cond_d
+    .line 646
+    :cond_e
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mOnCircleUnlockListener:Lcom/android/internal/policy/impl/CircleUnlockView$OnCircleUnlockListener;
 
     move-object/from16 v22, v0
 
-    if-eqz v22, :cond_c
+    if-eqz v22, :cond_d
 
-    .line 660
+    .line 647
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mOnCircleUnlockListener:Lcom/android/internal/policy/impl/CircleUnlockView$OnCircleUnlockListener;
@@ -1918,8 +1795,8 @@
 
     goto :goto_5
 
-    .line 664
-    :cond_e
+    .line 651
+    :cond_f
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleOut:Landroid/widget/ImageView;
@@ -1934,7 +1811,7 @@
 
     invoke-virtual/range {v22 .. v23}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 665
+    .line 652
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleRoot:Landroid/widget/RelativeLayout;
@@ -1951,7 +1828,9 @@
 
     goto :goto_5
 
-    .line 540
+    .line 535
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -1966,21 +1845,21 @@
     .parameter "event"
 
     .prologue
-    .line 506
+    .line 502
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
 
     iput v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->originalCircleX:F
 
-    .line 507
+    .line 503
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v0
 
     iput v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->originalCircleY:F
 
-    .line 508
+    .line 504
     const/4 v0, 0x0
 
     return v0
@@ -1991,37 +1870,37 @@
     .parameter "visibility"
 
     .prologue
-    .line 731
+    .line 718
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow1:Landroid/widget/ImageView;
 
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 732
+    .line 719
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow2:Landroid/widget/ImageView;
 
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 733
+    .line 720
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow3:Landroid/widget/ImageView;
 
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 734
+    .line 721
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow1_1:Landroid/widget/ImageView;
 
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 735
+    .line 722
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow2_1:Landroid/widget/ImageView;
 
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 736
+    .line 723
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow3_1:Landroid/widget/ImageView;
 
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 737
+    .line 724
     return-void
 .end method
 
@@ -2029,7 +1908,7 @@
     .locals 9
 
     .prologue
-    .line 225
+    .line 221
     new-instance v0, Landroid/view/animation/ScaleAnimation;
 
     const v1, 0x3edc28f6
@@ -2052,7 +1931,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->scaleAnim:Landroid/view/animation/ScaleAnimation;
 
-    .line 228
+    .line 224
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->scaleAnim:Landroid/view/animation/ScaleAnimation;
 
     new-instance v1, Landroid/view/animation/AccelerateDecelerateInterpolator;
@@ -2061,14 +1940,14 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/ScaleAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    .line 229
+    .line 225
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->scaleAnim:Landroid/view/animation/ScaleAnimation;
 
     const-wide/16 v1, 0x190
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/ScaleAnimation;->setDuration(J)V
 
-    .line 231
+    .line 227
     new-instance v0, Landroid/view/animation/AlphaAnimation;
 
     const v1, 0x3ecccccd
@@ -2079,21 +1958,21 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->alphaAnim:Landroid/view/animation/AlphaAnimation;
 
-    .line 232
+    .line 228
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->alphaAnim:Landroid/view/animation/AlphaAnimation;
 
     const-wide/16 v1, 0x352
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
 
-    .line 233
+    .line 229
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->alphaAnim:Landroid/view/animation/AlphaAnimation;
 
     const/4 v1, -0x1
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AlphaAnimation;->setRepeatCount(I)V
 
-    .line 235
+    .line 231
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->alphaAnim:Landroid/view/animation/AlphaAnimation;
 
     new-instance v1, Lcom/android/internal/policy/impl/CircleUnlockView$1;
@@ -2102,7 +1981,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 258
+    .line 254
     new-instance v0, Landroid/view/animation/AnimationSet;
 
     const/4 v1, 0x0
@@ -2111,21 +1990,21 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mOutCircleAnimationSet:Landroid/view/animation/AnimationSet;
 
-    .line 259
+    .line 255
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mOutCircleAnimationSet:Landroid/view/animation/AnimationSet;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->scaleAnim:Landroid/view/animation/ScaleAnimation;
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
-    .line 260
+    .line 256
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mOutCircleAnimationSet:Landroid/view/animation/AnimationSet;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->alphaAnim:Landroid/view/animation/AlphaAnimation;
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
-    .line 262
+    .line 258
     new-instance v0, Landroid/view/animation/ScaleAnimation;
 
     const v1, 0x3f8ccccd
@@ -2148,7 +2027,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartScaleAnim1:Landroid/view/animation/ScaleAnimation;
 
-    .line 265
+    .line 261
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartScaleAnim1:Landroid/view/animation/ScaleAnimation;
 
     new-instance v1, Landroid/view/animation/AccelerateDecelerateInterpolator;
@@ -2157,7 +2036,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/ScaleAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    .line 267
+    .line 263
     new-instance v0, Landroid/view/animation/AlphaAnimation;
 
     const/4 v1, 0x0
@@ -2168,7 +2047,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAlphaAnim1:Landroid/view/animation/AlphaAnimation;
 
-    .line 268
+    .line 264
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAlphaAnim1:Landroid/view/animation/AlphaAnimation;
 
     new-instance v1, Lcom/android/internal/policy/impl/CircleUnlockView$2;
@@ -2177,7 +2056,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 285
+    .line 281
     new-instance v0, Landroid/view/animation/AnimationSet;
 
     const/4 v1, 0x0
@@ -2186,35 +2065,35 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim1:Landroid/view/animation/AnimationSet;
 
-    .line 286
+    .line 282
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim1:Landroid/view/animation/AnimationSet;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartScaleAnim1:Landroid/view/animation/ScaleAnimation;
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
-    .line 287
+    .line 283
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim1:Landroid/view/animation/AnimationSet;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAlphaAnim1:Landroid/view/animation/AlphaAnimation;
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
-    .line 288
+    .line 284
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim1:Landroid/view/animation/AnimationSet;
 
     const-wide/16 v1, 0x190
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/AnimationSet;->setStartOffset(J)V
 
-    .line 289
+    .line 285
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim1:Landroid/view/animation/AnimationSet;
 
     const-wide/16 v1, 0x96
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/AnimationSet;->setDuration(J)V
 
-    .line 291
+    .line 287
     new-instance v0, Landroid/view/animation/ScaleAnimation;
 
     const v1, 0x3f8ccccd
@@ -2237,7 +2116,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartScaleAnim2:Landroid/view/animation/ScaleAnimation;
 
-    .line 294
+    .line 290
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartScaleAnim2:Landroid/view/animation/ScaleAnimation;
 
     new-instance v1, Landroid/view/animation/AccelerateDecelerateInterpolator;
@@ -2246,7 +2125,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/ScaleAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    .line 296
+    .line 292
     new-instance v0, Landroid/view/animation/AlphaAnimation;
 
     const/4 v1, 0x0
@@ -2257,7 +2136,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAlphaAnim2:Landroid/view/animation/AlphaAnimation;
 
-    .line 297
+    .line 293
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAlphaAnim2:Landroid/view/animation/AlphaAnimation;
 
     new-instance v1, Lcom/android/internal/policy/impl/CircleUnlockView$3;
@@ -2266,7 +2145,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 314
+    .line 310
     new-instance v0, Landroid/view/animation/AnimationSet;
 
     const/4 v1, 0x0
@@ -2275,35 +2154,35 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim2:Landroid/view/animation/AnimationSet;
 
-    .line 315
+    .line 311
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim2:Landroid/view/animation/AnimationSet;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartScaleAnim2:Landroid/view/animation/ScaleAnimation;
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
-    .line 316
+    .line 312
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim2:Landroid/view/animation/AnimationSet;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAlphaAnim2:Landroid/view/animation/AlphaAnimation;
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
-    .line 317
+    .line 313
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim2:Landroid/view/animation/AnimationSet;
 
     const-wide/16 v1, 0x15e
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/AnimationSet;->setStartOffset(J)V
 
-    .line 318
+    .line 314
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim2:Landroid/view/animation/AnimationSet;
 
     const-wide/16 v1, 0x96
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/AnimationSet;->setDuration(J)V
 
-    .line 321
+    .line 317
     new-instance v0, Landroid/view/animation/ScaleAnimation;
 
     const v1, 0x3f8ccccd
@@ -2326,7 +2205,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartScaleAnim3:Landroid/view/animation/ScaleAnimation;
 
-    .line 324
+    .line 320
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartScaleAnim3:Landroid/view/animation/ScaleAnimation;
 
     new-instance v1, Landroid/view/animation/AccelerateDecelerateInterpolator;
@@ -2335,7 +2214,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/ScaleAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    .line 325
+    .line 321
     new-instance v0, Landroid/view/animation/AlphaAnimation;
 
     const/4 v1, 0x0
@@ -2346,7 +2225,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAlphaAnim3:Landroid/view/animation/AlphaAnimation;
 
-    .line 326
+    .line 322
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAlphaAnim3:Landroid/view/animation/AlphaAnimation;
 
     new-instance v1, Lcom/android/internal/policy/impl/CircleUnlockView$4;
@@ -2355,7 +2234,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 343
+    .line 339
     new-instance v0, Landroid/view/animation/AnimationSet;
 
     const/4 v1, 0x0
@@ -2364,35 +2243,35 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim3:Landroid/view/animation/AnimationSet;
 
-    .line 344
+    .line 340
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim3:Landroid/view/animation/AnimationSet;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartScaleAnim3:Landroid/view/animation/ScaleAnimation;
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
-    .line 345
+    .line 341
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim3:Landroid/view/animation/AnimationSet;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAlphaAnim3:Landroid/view/animation/AlphaAnimation;
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
-    .line 346
+    .line 342
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim3:Landroid/view/animation/AnimationSet;
 
     const-wide/16 v1, 0x12c
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/AnimationSet;->setStartOffset(J)V
 
-    .line 347
+    .line 343
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowStartAnim3:Landroid/view/animation/AnimationSet;
 
     const-wide/16 v1, 0x96
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/AnimationSet;->setDuration(J)V
 
-    .line 349
+    .line 345
     new-instance v0, Landroid/view/animation/AlphaAnimation;
 
     const/4 v1, 0x0
@@ -2403,21 +2282,21 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim1:Landroid/view/animation/AlphaAnimation;
 
-    .line 350
+    .line 346
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim1:Landroid/view/animation/AlphaAnimation;
 
     const-wide/16 v1, 0x190
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/AlphaAnimation;->setStartOffset(J)V
 
-    .line 351
+    .line 347
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim1:Landroid/view/animation/AlphaAnimation;
 
     const-wide/16 v1, 0x96
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
 
-    .line 352
+    .line 348
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim1:Landroid/view/animation/AlphaAnimation;
 
     new-instance v1, Lcom/android/internal/policy/impl/CircleUnlockView$5;
@@ -2426,7 +2305,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 370
+    .line 366
     new-instance v0, Landroid/view/animation/AlphaAnimation;
 
     const/4 v1, 0x0
@@ -2437,21 +2316,21 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim2:Landroid/view/animation/AlphaAnimation;
 
-    .line 371
+    .line 367
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim2:Landroid/view/animation/AlphaAnimation;
 
     const-wide/16 v1, 0x226
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/AlphaAnimation;->setStartOffset(J)V
 
-    .line 372
+    .line 368
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim2:Landroid/view/animation/AlphaAnimation;
 
     const-wide/16 v1, 0x96
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
 
-    .line 373
+    .line 369
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim2:Landroid/view/animation/AlphaAnimation;
 
     new-instance v1, Lcom/android/internal/policy/impl/CircleUnlockView$6;
@@ -2460,7 +2339,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 391
+    .line 387
     new-instance v0, Landroid/view/animation/AlphaAnimation;
 
     const/4 v1, 0x0
@@ -2471,21 +2350,21 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim3:Landroid/view/animation/AlphaAnimation;
 
-    .line 392
+    .line 388
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim3:Landroid/view/animation/AlphaAnimation;
 
     const-wide/16 v1, 0x2bc
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/AlphaAnimation;->setStartOffset(J)V
 
-    .line 393
+    .line 389
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim3:Landroid/view/animation/AlphaAnimation;
 
     const-wide/16 v1, 0x96
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
 
-    .line 394
+    .line 390
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->arrowRepeatAlphaAnim3:Landroid/view/animation/AlphaAnimation;
 
     new-instance v1, Lcom/android/internal/policy/impl/CircleUnlockView$7;
@@ -2494,7 +2373,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 412
+    .line 408
     new-instance v0, Landroid/view/animation/AlphaAnimation;
 
     const/high16 v1, 0x3f80
@@ -2505,21 +2384,21 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->circleUnlockViewAlphaAnim:Landroid/view/animation/AlphaAnimation;
 
-    .line 413
+    .line 409
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->circleUnlockViewAlphaAnim:Landroid/view/animation/AlphaAnimation;
 
     const-wide/16 v1, 0x0
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/AlphaAnimation;->setStartOffset(J)V
 
-    .line 414
+    .line 410
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->circleUnlockViewAlphaAnim:Landroid/view/animation/AlphaAnimation;
 
     const-wide/16 v1, 0x1f4
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
 
-    .line 415
+    .line 411
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->circleUnlockViewAlphaAnim:Landroid/view/animation/AlphaAnimation;
 
     new-instance v1, Lcom/android/internal/policy/impl/CircleUnlockView$8;
@@ -2528,7 +2407,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 432
+    .line 428
     new-instance v0, Landroid/view/animation/ScaleAnimation;
 
     const/high16 v1, 0x3f80
@@ -2551,7 +2430,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->circleUnlockViewScaleAnim:Landroid/view/animation/ScaleAnimation;
 
-    .line 435
+    .line 431
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->circleUnlockViewScaleAnim:Landroid/view/animation/ScaleAnimation;
 
     new-instance v1, Landroid/view/animation/AccelerateDecelerateInterpolator;
@@ -2560,21 +2439,21 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/ScaleAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    .line 436
+    .line 432
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->circleUnlockViewScaleAnim:Landroid/view/animation/ScaleAnimation;
 
     const-wide/16 v1, 0x0
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/ScaleAnimation;->setStartOffset(J)V
 
-    .line 437
+    .line 433
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->circleUnlockViewScaleAnim:Landroid/view/animation/ScaleAnimation;
 
     const-wide/16 v1, 0x1f4
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/ScaleAnimation;->setDuration(J)V
 
-    .line 438
+    .line 434
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->circleUnlockViewScaleAnim:Landroid/view/animation/ScaleAnimation;
 
     new-instance v1, Lcom/android/internal/policy/impl/CircleUnlockView$9;
@@ -2583,7 +2462,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/ScaleAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 454
+    .line 450
     return-void
 .end method
 
@@ -2591,7 +2470,7 @@
     .locals 8
 
     .prologue
-    const v7, 0x1080383
+    const v7, 0x10803ae
 
     const/4 v6, -0x1
 
@@ -2601,7 +2480,7 @@
 
     const/4 v3, 0x4
 
-    .line 146
+    .line 142
     new-instance v1, Landroid/widget/RelativeLayout;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mContext:Landroid/content/Context;
@@ -2610,12 +2489,12 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleRoot:Landroid/widget/RelativeLayout;
 
-    .line 147
+    .line 143
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleRoot:Landroid/widget/RelativeLayout;
 
     invoke-virtual {v1, v3}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
-    .line 150
+    .line 146
     new-instance v1, Landroid/widget/FrameLayout;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mContext:Landroid/content/Context;
@@ -2624,7 +2503,7 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleMain:Landroid/widget/FrameLayout;
 
-    .line 153
+    .line 149
     new-instance v1, Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mContext:Landroid/content/Context;
@@ -2633,10 +2512,26 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleIn:Landroid/widget/ImageView;
 
-    .line 154
+    .line 150
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleIn:Landroid/widget/ImageView;
 
-    const v2, 0x1080386
+    const v2, 0x10803b1
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    .line 153
+    new-instance v1, Landroid/widget/ImageView;
+
+    iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleOut:Landroid/widget/ImageView;
+
+    .line 154
+    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleOut:Landroid/widget/ImageView;
+
+    const v2, 0x10803b2
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -2647,40 +2542,24 @@
 
     invoke-direct {v1, v2}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
-    iput-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleOut:Landroid/widget/ImageView;
-
-    .line 158
-    iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleOut:Landroid/widget/ImageView;
-
-    const v2, 0x1080387
-
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    .line 161
-    new-instance v1, Landroid/widget/ImageView;
-
-    iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mContext:Landroid/content/Context;
-
-    invoke-direct {v1, v2}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
-
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow1:Landroid/widget/ImageView;
 
-    .line 162
+    .line 158
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow1:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 163
+    .line 159
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow1:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v5}, Landroid/widget/ImageView;->setAlpha(I)V
 
-    .line 164
+    .line 160
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow1:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 167
+    .line 163
     new-instance v1, Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mContext:Landroid/content/Context;
@@ -2689,24 +2568,24 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow2:Landroid/widget/ImageView;
 
-    .line 168
+    .line 164
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow2:Landroid/widget/ImageView;
 
-    const v2, 0x1080384
+    const v2, 0x10803af
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 169
+    .line 165
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow2:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v5}, Landroid/widget/ImageView;->setAlpha(I)V
 
-    .line 170
+    .line 166
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow2:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 173
+    .line 169
     new-instance v1, Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mContext:Landroid/content/Context;
@@ -2715,24 +2594,24 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow3:Landroid/widget/ImageView;
 
-    .line 174
+    .line 170
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow3:Landroid/widget/ImageView;
 
-    const v2, 0x1080385
+    const v2, 0x10803b0
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 175
+    .line 171
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow3:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v5}, Landroid/widget/ImageView;->setAlpha(I)V
 
-    .line 176
+    .line 172
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow3:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 178
+    .line 174
     new-instance v1, Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mContext:Landroid/content/Context;
@@ -2741,17 +2620,17 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow1_1:Landroid/widget/ImageView;
 
-    .line 179
+    .line 175
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow1_1:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 180
+    .line 176
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow1_1:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 183
+    .line 179
     new-instance v1, Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mContext:Landroid/content/Context;
@@ -2760,19 +2639,19 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow2_1:Landroid/widget/ImageView;
 
-    .line 184
+    .line 180
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow2_1:Landroid/widget/ImageView;
 
-    const v2, 0x1080384
+    const v2, 0x10803af
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 185
+    .line 181
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow2_1:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 188
+    .line 184
     new-instance v1, Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mContext:Landroid/content/Context;
@@ -2781,19 +2660,19 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow3_1:Landroid/widget/ImageView;
 
-    .line 189
+    .line 185
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow3_1:Landroid/widget/ImageView;
 
-    const v2, 0x1080385
+    const v2, 0x10803b0
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 190
+    .line 186
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow3_1:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 193
+    .line 189
     new-instance v1, Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mContext:Landroid/content/Context;
@@ -2802,107 +2681,107 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleCenter:Landroid/widget/ImageView;
 
-    .line 194
+    .line 190
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleCenter:Landroid/widget/ImageView;
 
-    const v2, 0x108038a
+    const v2, 0x10803b5
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 195
+    .line 191
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleCenter:Landroid/widget/ImageView;
 
     sget-object v2, Landroid/widget/ImageView$ScaleType;->CENTER:Landroid/widget/ImageView$ScaleType;
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
-    .line 198
+    .line 194
     new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
 
     invoke-direct {v0, v4, v4}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
-    .line 199
+    .line 195
     .local v0, lp:Landroid/widget/FrameLayout$LayoutParams;
     const/16 v1, 0x11
 
     iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
-    .line 202
+    .line 198
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleMain:Landroid/widget/FrameLayout;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleIn:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v2, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 203
+    .line 199
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleMain:Landroid/widget/FrameLayout;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleOut:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v2, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 204
+    .line 200
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleMain:Landroid/widget/FrameLayout;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow1:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v2, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 205
+    .line 201
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleMain:Landroid/widget/FrameLayout;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow2:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v2, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 206
+    .line 202
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleMain:Landroid/widget/FrameLayout;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow3:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v2, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 207
+    .line 203
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleMain:Landroid/widget/FrameLayout;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow1_1:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v2, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 208
+    .line 204
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleMain:Landroid/widget/FrameLayout;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow2_1:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v2, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 209
+    .line 205
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleMain:Landroid/widget/FrameLayout;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow3_1:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v2, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 210
+    .line 206
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleMain:Landroid/widget/FrameLayout;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleCenter:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v2, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 211
+    .line 207
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleRoot:Landroid/widget/RelativeLayout;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleMain:Landroid/widget/FrameLayout;
 
     invoke-virtual {v1, v2, v4, v4}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;II)V
 
-    .line 212
+    .line 208
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleRoot:Landroid/widget/RelativeLayout;
 
     invoke-virtual {p0, v1, v6, v6}, Lcom/android/internal/policy/impl/CircleUnlockView;->addView(Landroid/view/View;II)V
 
-    .line 213
+    .line 209
     return-void
 .end method
 
@@ -2911,10 +2790,10 @@
     .parameter "onCircleTouchListener"
 
     .prologue
-    .line 471
+    .line 467
     iput-object p1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mOnCircleTouchListener:Lcom/android/internal/policy/impl/CircleUnlockView$OnCircleTouchListener;
 
-    .line 472
+    .line 468
     return-void
 .end method
 
@@ -2923,9 +2802,9 @@
     .parameter "onCircleUnlockListener"
 
     .prologue
-    .line 462
+    .line 458
     iput-object p1, p0, Lcom/android/internal/policy/impl/CircleUnlockView;->mOnCircleUnlockListener:Lcom/android/internal/policy/impl/CircleUnlockView$OnCircleUnlockListener;
 
-    .line 463
+    .line 459
     return-void
 .end method

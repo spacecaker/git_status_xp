@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 480
+    .line 494
     iput-object p1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget$1;->this$1:Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;
 
     iput-object p2, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget$1;->val$this$0:Lcom/android/internal/policy/impl/CircleLockScreen;
@@ -44,16 +44,16 @@
     .parameter "msg"
 
     .prologue
-    .line 483
+    .line 497
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 491
+    .line 505
     :goto_0
     return-void
 
-    .line 485
+    .line 499
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget$1;->this$1:Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;
 
@@ -62,7 +62,7 @@
 
     goto :goto_0
 
-    .line 488
+    .line 502
     :pswitch_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget$1;->this$1:Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;
 
@@ -71,7 +71,7 @@
 
     goto :goto_0
 
-    .line 483
+    .line 497
     :pswitch_data_0
     .packed-switch 0x12c0
         :pswitch_0

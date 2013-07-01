@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 259
+    .line 249
     iput-object p1, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather$2;->this$0:Lcom/android/internal/policy/impl/ClockWidget$Weather;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,28 +42,12 @@
     .prologue
     const-string v4, "ClockWidget"
 
-    .line 261
-    iget-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather$2;->this$0:Lcom/android/internal/policy/impl/ClockWidget$Weather;
-
-    #getter for: Lcom/android/internal/policy/impl/ClockWidget$Weather;->mHandler:Landroid/os/Handler;
-    invoke-static {v1}, Lcom/android/internal/policy/impl/ClockWidget$Weather;->access$100(Lcom/android/internal/policy/impl/ClockWidget$Weather;)Landroid/os/Handler;
-
-    move-result-object v1
-
-    if-nez v1, :cond_1
-
-    .line 270
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 262
-    :cond_1
+    .line 251
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 263
+    .line 252
     .local v0, action:Ljava/lang/String;
     const-string v1, "com.sec.android.widgetapp.accuweatherdaemon.action.CHANGE_SETTING"
 
@@ -71,9 +55,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
-    .line 264
+    .line 253
     iget-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather$2;->this$0:Lcom/android/internal/policy/impl/ClockWidget$Weather;
 
     #getter for: Lcom/android/internal/policy/impl/ClockWidget$Weather;->mHandler:Landroid/os/Handler;
@@ -96,17 +80,20 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 265
+    .line 254
     const-string v1, "ClockWidget"
 
     const-string v1, "Receice ACTION_WEATHER_SETTING_CHANGED"
 
-    invoke-static {v4, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    .line 259
+    :cond_0
+    :goto_0
+    return-void
 
-    .line 266
-    :cond_2
+    .line 255
+    :cond_1
     const-string v1, "com.sec.android.widgetapp.accuweatherdaemon.action.WEATHER_DATE_SYNC"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -115,7 +102,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 267
+    .line 256
     iget-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$Weather$2;->this$0:Lcom/android/internal/policy/impl/ClockWidget$Weather;
 
     #getter for: Lcom/android/internal/policy/impl/ClockWidget$Weather;->mHandler:Landroid/os/Handler;
@@ -138,12 +125,12 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 268
+    .line 257
     const-string v1, "ClockWidget"
 
     const-string v1, "Receice ACTION_WEATHER_DATE_SYNC"
 
-    invoke-static {v4, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

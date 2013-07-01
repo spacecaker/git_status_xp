@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 500
+    .line 514
     iput-object p1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget$2;->this$1:Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;
 
     iput-object p2, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget$2;->val$this$0:Lcom/android/internal/policy/impl/CircleLockScreen;
@@ -45,12 +45,12 @@
     .parameter "intent"
 
     .prologue
-    .line 502
+    .line 516
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 503
+    .line 517
     .local v0, action:Ljava/lang/String;
     const-string v1, "com.android.lockscreenwallpaper.CHANGED"
 
@@ -60,7 +60,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 504
+    .line 518
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget$2;->this$1:Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;
 
     #getter for: Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mHandler:Landroid/os/Handler;
@@ -83,12 +83,12 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 508
+    .line 522
     :cond_0
     :goto_0
     return-void
 
-    .line 505
+    .line 519
     :cond_1
     const-string v1, "com.android.lockscreenwallpaper.LIVE_CHANGED"
 
@@ -98,7 +98,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 506
+    .line 520
     iget-object v1, p0, Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget$2;->this$1:Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;
 
     #getter for: Lcom/android/internal/policy/impl/CircleLockScreen$WallpaperWidget;->mHandler:Landroid/os/Handler;

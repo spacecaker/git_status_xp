@@ -36,7 +36,7 @@
     .parameter
 
     .prologue
-    .line 525
+    .line 503
     iput-object p1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$TimeChangedReceiver$1;->this$1:Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$TimeChangedReceiver;
 
     iput-boolean p2, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$TimeChangedReceiver$1;->val$timezoneChanged:Z
@@ -56,12 +56,12 @@
     .locals 3
 
     .prologue
-    .line 527
+    .line 505
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$TimeChangedReceiver$1;->val$timezoneChanged:Z
 
     if-eqz v1, :cond_0
 
-    .line 529
+    .line 507
     iget-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$TimeChangedReceiver$1;->val$tmpIntent:Landroid/content/Intent;
 
     const-string v2, "time-zone"
@@ -70,7 +70,7 @@
 
     move-result-object v0
 
-    .line 530
+    .line 508
     .local v0, tz:Ljava/lang/String;
     iget-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$TimeChangedReceiver$1;->val$clock:Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;
 
@@ -83,16 +83,16 @@
     move-result-object v2
 
     #setter for: Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->mCalendar:Ljava/util/Calendar;
-    invoke-static {v1, v2}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->access$302(Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;Ljava/util/Calendar;)Ljava/util/Calendar;
+    invoke-static {v1, v2}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->access$202(Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;Ljava/util/Calendar;)Ljava/util/Calendar;
 
-    .line 534
+    .line 512
     .end local v0           #tz:Ljava/lang/String;
     :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate$TimeChangedReceiver$1;->val$clock:Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;
 
     #calls: Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->refreshTimeAndDate()V
-    invoke-static {v1}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->access$400(Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;)V
+    invoke-static {v1}, Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;->access$300(Lcom/android/internal/policy/impl/ClockWidget$TimeAndDate;)V
 
-    .line 535
+    .line 513
     return-void
 .end method

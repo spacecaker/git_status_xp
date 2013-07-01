@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 268
+    .line 264
     iput-object p1, p0, Lcom/android/internal/policy/impl/CircleUnlockView$2;->this$0:Lcom/android/internal/policy/impl/CircleUnlockView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "animation"
 
     .prologue
-    .line 283
+    .line 279
     return-void
 .end method
 
@@ -51,7 +51,7 @@
     .parameter "animation"
 
     .prologue
-    .line 278
+    .line 274
     return-void
 .end method
 
@@ -60,7 +60,7 @@
     .parameter "animation"
 
     .prologue
-    .line 272
+    .line 268
     iget-object v0, p0, Lcom/android/internal/policy/impl/CircleUnlockView$2;->this$0:Lcom/android/internal/policy/impl/CircleUnlockView;
 
     #getter for: Lcom/android/internal/policy/impl/CircleUnlockView;->mCircleArrow1:Landroid/widget/ImageView;
@@ -72,6 +72,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 273
+    .line 269
     return-void
 .end method

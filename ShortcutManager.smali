@@ -102,7 +102,7 @@
 
     const-string v5, "ShortcutObserver could not re-query shortcuts."
 
-    invoke-static {v6, v5}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 92
     :cond_0
@@ -175,7 +175,7 @@
 
     const-string v5, "Intent URI for shortcut invalid."
 
-    invoke-static {v6, v5, v1}, Landroid/util/secutil/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v6, v5, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
 .end method

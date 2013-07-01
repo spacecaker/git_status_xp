@@ -1,6 +1,9 @@
 .class Lcom/android/internal/policy/impl/RecentApplicationsDialog$1;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "RecentApplicationsDialog.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -24,61 +27,56 @@
     .parameter
 
     .prologue
-    .line 319
+    .line 74
     iput-object p1, p0, Lcom/android/internal/policy/impl/RecentApplicationsDialog$1;->this$0:Lcom/android/internal/policy/impl/RecentApplicationsDialog;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
-    .parameter "context"
-    .parameter "intent"
+.method public run()V
+    .locals 6
 
     .prologue
-    .line 322
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    const/4 v5, 0x0
 
-    move-result-object v0
+    .line 77
+    iget-object v4, p0, Lcom/android/internal/policy/impl/RecentApplicationsDialog$1;->this$0:Lcom/android/internal/policy/impl/RecentApplicationsDialog;
 
-    .line 323
-    .local v0, action:Ljava/lang/String;
-    const-string v2, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
+    iget-object v0, v4, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->mButtons:[Landroid/view/View;
 
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .local v0, arr$:[Landroid/view/View;
+    array-length v3, v0
 
-    move-result v2
+    .local v3, len$:I
+    const/4 v2, 0x0
 
-    if-eqz v2, :cond_0
+    .local v2, i$:I
+    :goto_0
+    if-ge v2, v3, :cond_0
 
-    .line 324
-    const-string v2, "reason"
+    aget-object v1, v0, v2
 
-    invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    .line 78
+    .local v1, b:Landroid/view/View;
+    iget-object v4, p0, Lcom/android/internal/policy/impl/RecentApplicationsDialog$1;->this$0:Lcom/android/internal/policy/impl/RecentApplicationsDialog;
 
-    move-result-object v1
+    #calls: Lcom/android/internal/policy/impl/RecentApplicationsDialog;->setButtonAppearance(Landroid/view/View;Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
+    invoke-static {v4, v1, v5, v5}, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->access$000(Lcom/android/internal/policy/impl/RecentApplicationsDialog;Landroid/view/View;Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
 
-    .line 325
-    .local v1, reason:Ljava/lang/String;
-    const-string v2, "recentapps"
+    .line 79
+    invoke-virtual {v1, v5}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 77
+    add-int/lit8 v2, v2, 0x1
 
-    move-result v2
+    goto :goto_0
 
-    if-nez v2, :cond_0
-
-    .line 326
-    iget-object v2, p0, Lcom/android/internal/policy/impl/RecentApplicationsDialog$1;->this$0:Lcom/android/internal/policy/impl/RecentApplicationsDialog;
-
-    invoke-virtual {v2}, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->dismiss()V
-
-    .line 329
-    .end local v1           #reason:Ljava/lang/String;
+    .line 81
+    .end local v1           #b:Landroid/view/View;
     :cond_0
     return-void
 .end method

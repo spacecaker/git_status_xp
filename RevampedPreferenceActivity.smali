@@ -431,7 +431,7 @@
     invoke-static {v1, v7, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     .line 92
-    const-string v7, "LidroidParts##############"
+    const-string v7, "RomFeatures##############"
 
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -495,7 +495,7 @@
     invoke-static {v1, v7, v6}, Landroid/provider/Settings$System;->putFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)Z
 
     .line 98
-    const-string v7, "LidroidParts##############"
+    const-string v7, "RomFeatures##############"
 
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -572,7 +572,7 @@
     invoke-static {v1, v10, v7}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     .line 108
-    const-string v7, "LidroidParts##############"
+    const-string v7, "RomFeatures##############"
 
     new-instance v10, Ljava/lang/StringBuilder;
 

@@ -44,7 +44,7 @@
 
     .prologue
     .line 134
-    const-string v1, "lidroid_ui_style"
+    const-string v1, "creed_ui_style"
 
     invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -69,9 +69,9 @@
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 139
-    const-string v1, "com.lidroid.parts"
+    const-string v1, "rom.features.parts"
 
-    const-string v2, "com.lidroid.parts.MainActivity"
+    const-string v2, "rom.features.parts.MainActivity"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 

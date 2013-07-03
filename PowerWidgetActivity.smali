@@ -136,17 +136,17 @@
     invoke-virtual {v6}, Ljava/util/HashMap;->clear()V
 
     .line 74
-    invoke-static {p0}, Lcom/lidroid/util/PowerWidgetUtil;->getCurrentButtons(Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {p0}, LROM/Control/util/PowerWidgetUtil;->getCurrentButtons(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-static {v6}, Lcom/lidroid/util/PowerWidgetUtil;->getButtonListFromString(Ljava/lang/String;)Ljava/util/ArrayList;
+    invoke-static {v6}, LROM/Control/util/PowerWidgetUtil;->getButtonListFromString(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v1
 
     .line 77
     .local v1, buttonList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    sget-object v6, Lcom/lidroid/util/PowerWidgetUtil;->BUTTONS:Ljava/util/HashMap;
+    sget-object v6, LROM/Control/util/PowerWidgetUtil;->BUTTONS:Ljava/util/HashMap;
 
     invoke-virtual {v6}, Ljava/util/HashMap;->values()Ljava/util/Collection;
 
@@ -168,10 +168,10 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;
+    check-cast v0, LROM/Control/util/PowerWidgetUtil$ButtonInfo;
 
     .line 79
-    .local v0, button:Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;
+    .local v0, button:LROM/Control/util/PowerWidgetUtil$ButtonInfo;
     new-instance v2, Landroid/preference/CheckBoxPreference;
 
     invoke-direct {v2, p0}, Landroid/preference/CheckBoxPreference;-><init>(Landroid/content/Context;)V
@@ -188,7 +188,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v0}, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, LROM/Control/util/PowerWidgetUtil$ButtonInfo;->getId()Ljava/lang/String;
 
     move-result-object v7
 
@@ -203,14 +203,14 @@
     invoke-virtual {v2, v6}, Landroid/preference/CheckBoxPreference;->setKey(Ljava/lang/String;)V
 
     .line 85
-    invoke-virtual {v0}, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;->getTitleResId()I
+    invoke-virtual {v0}, LROM/Control/util/PowerWidgetUtil$ButtonInfo;->getTitleResId()I
 
     move-result v6
 
     invoke-virtual {v2, v6}, Landroid/preference/CheckBoxPreference;->setTitle(I)V
 
     .line 88
-    invoke-virtual {v0}, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, LROM/Control/util/PowerWidgetUtil$ButtonInfo;->getId()Ljava/lang/String;
 
     move-result-object v6
 
@@ -229,7 +229,7 @@
     :goto_1
     iget-object v6, p0, Lcom/lidroid/parts/PowerWidgetActivity;->mCheckBoxPrefs:Ljava/util/HashMap;
 
-    invoke-virtual {v0}, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, LROM/Control/util/PowerWidgetUtil$ButtonInfo;->getId()Ljava/lang/String;
 
     move-result-object v7
 
@@ -247,7 +247,7 @@
     goto :goto_1
 
     .line 100
-    .end local v0           #button:Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;
+    .end local v0           #button:LROM/Control/util/PowerWidgetUtil$ButtonInfo;
     .end local v2           #cb:Landroid/preference/CheckBoxPreference;
     :cond_1
     return-void
@@ -393,19 +393,19 @@
     if-eqz v1, :cond_3
 
     .line 118
-    invoke-static {p0}, Lcom/lidroid/util/PowerWidgetUtil;->getCurrentButtons(Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {p0}, LROM/Control/util/PowerWidgetUtil;->getCurrentButtons(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-static {v0}, Lcom/lidroid/util/PowerWidgetUtil;->getButtonStringFromList(Ljava/util/ArrayList;)Ljava/lang/String;
+    invoke-static {v0}, LROM/Control/util/PowerWidgetUtil;->getButtonStringFromList(Ljava/util/ArrayList;)Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Lcom/lidroid/util/PowerWidgetUtil;->mergeInNewButtonString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v4, v5}, LROM/Control/util/PowerWidgetUtil;->mergeInNewButtonString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-static {p0, v4}, Lcom/lidroid/util/PowerWidgetUtil;->saveCurrentButtons(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {p0, v4}, LROM/Control/util/PowerWidgetUtil;->saveCurrentButtons(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 120
     const/4 v4, 0x1

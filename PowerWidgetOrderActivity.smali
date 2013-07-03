@@ -20,7 +20,7 @@
 
 .field private mButtonList:Landroid/widget/ListView;
 
-.field private mDropListener:Lcom/lidroid/widgets/TouchInterceptor$DropListener;
+.field private mDropListener:LROM/Control/widgets/TouchInterceptor$DropListener;
 
 
 # direct methods
@@ -36,7 +36,7 @@
 
     invoke-direct {v0, p0}, Lcom/lidroid/parts/PowerWidgetOrderActivity$1;-><init>(Lcom/lidroid/parts/PowerWidgetOrderActivity;)V
 
-    iput-object v0, p0, Lcom/lidroid/parts/PowerWidgetOrderActivity;->mDropListener:Lcom/lidroid/widgets/TouchInterceptor$DropListener;
+    iput-object v0, p0, Lcom/lidroid/parts/PowerWidgetOrderActivity;->mDropListener:LROM/Control/widgets/TouchInterceptor$DropListener;
 
     .line 99
     return-void
@@ -89,11 +89,11 @@
     .line 54
     iget-object v0, p0, Lcom/lidroid/parts/PowerWidgetOrderActivity;->mButtonList:Landroid/widget/ListView;
 
-    check-cast v0, Lcom/lidroid/widgets/TouchInterceptor;
+    check-cast v0, LROM/Control/widgets/TouchInterceptor;
 
-    iget-object v1, p0, Lcom/lidroid/parts/PowerWidgetOrderActivity;->mDropListener:Lcom/lidroid/widgets/TouchInterceptor$DropListener;
+    iget-object v1, p0, Lcom/lidroid/parts/PowerWidgetOrderActivity;->mDropListener:LROM/Control/widgets/TouchInterceptor$DropListener;
 
-    invoke-virtual {v0, v1}, Lcom/lidroid/widgets/TouchInterceptor;->setDropListener(Lcom/lidroid/widgets/TouchInterceptor$DropListener;)V
+    invoke-virtual {v0, v1}, LROM/Control/widgets/TouchInterceptor;->setDropListener(LROM/Control/widgets/TouchInterceptor$DropListener;)V
 
     .line 55
     new-instance v0, Lcom/lidroid/parts/PowerWidgetOrderActivity$ButtonAdapter;
@@ -120,9 +120,9 @@
     .line 61
     iget-object v0, p0, Lcom/lidroid/parts/PowerWidgetOrderActivity;->mButtonList:Landroid/widget/ListView;
 
-    check-cast v0, Lcom/lidroid/widgets/TouchInterceptor;
+    check-cast v0, LROM/Control/widgets/TouchInterceptor;
 
-    invoke-virtual {v0, v1}, Lcom/lidroid/widgets/TouchInterceptor;->setDropListener(Lcom/lidroid/widgets/TouchInterceptor$DropListener;)V
+    invoke-virtual {v0, v1}, LROM/Control/widgets/TouchInterceptor;->setDropListener(LROM/Control/widgets/TouchInterceptor$DropListener;)V
 
     .line 62
     invoke-virtual {p0, v1}, Lcom/lidroid/parts/PowerWidgetOrderActivity;->setListAdapter(Landroid/widget/ListAdapter;)V

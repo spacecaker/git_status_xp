@@ -20,7 +20,7 @@
         value = {
             "Ljava/util/ArrayList",
             "<",
-            "Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;",
+            "LROM/Control/util/PowerWidgetUtil$ButtonInfo;",
             ">;"
         }
     .end annotation
@@ -77,7 +77,7 @@
 
     .line 112
     :try_start_0
-    const-string v2, "lidroid"
+    const-string v2, "creed"
 
     invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
 
@@ -185,10 +185,10 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;
+    check-cast v0, LROM/Control/util/PowerWidgetUtil$ButtonInfo;
 
     .line 156
-    .local v0, button:Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;
+    .local v0, button:LROM/Control/util/PowerWidgetUtil$ButtonInfo;
     const v7, 0x7f090009
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -209,7 +209,7 @@
 
     .line 159
     .local v3, icon:Landroid/widget/ImageView;
-    invoke-virtual {v0}, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;->getTitleResId()I
+    invoke-virtual {v0}, LROM/Control/util/PowerWidgetUtil$ButtonInfo;->getTitleResId()I
 
     move-result v7
 
@@ -228,7 +228,7 @@
     .line 166
     iget-object v7, p0, Lcom/lidroid/parts/PowerWidgetOrderActivity$ButtonAdapter;->mSystemUIResources:Landroid/content/res/Resources;
 
-    invoke-virtual {v0}, Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;->getIcon()Ljava/lang/String;
+    invoke-virtual {v0}, LROM/Control/util/PowerWidgetUtil$ButtonInfo;->getIcon()Ljava/lang/String;
 
     move-result-object v8
 
@@ -267,7 +267,7 @@
     return-object v6
 
     .line 151
-    .end local v0           #button:Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;
+    .end local v0           #button:LROM/Control/util/PowerWidgetUtil$ButtonInfo;
     .end local v3           #icon:Landroid/widget/ImageView;
     .end local v4           #name:Landroid/widget/TextView;
     .end local v6           #v:Landroid/view/View;
@@ -278,7 +278,7 @@
     goto :goto_0
 
     .line 172
-    .restart local v0       #button:Lcom/lidroid/util/PowerWidgetUtil$ButtonInfo;
+    .restart local v0       #button:LROM/Control/util/PowerWidgetUtil$ButtonInfo;
     .restart local v3       #icon:Landroid/widget/ImageView;
     .restart local v4       #name:Landroid/widget/TextView;
     .restart local v5       #resId:I
@@ -303,11 +303,11 @@
     .line 123
     iget-object v3, p0, Lcom/lidroid/parts/PowerWidgetOrderActivity$ButtonAdapter;->mContext:Landroid/content/Context;
 
-    invoke-static {v3}, Lcom/lidroid/util/PowerWidgetUtil;->getCurrentButtons(Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {v3}, LROM/Control/util/PowerWidgetUtil;->getCurrentButtons(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-static {v3}, Lcom/lidroid/util/PowerWidgetUtil;->getButtonListFromString(Ljava/lang/String;)Ljava/util/ArrayList;
+    invoke-static {v3}, LROM/Control/util/PowerWidgetUtil;->getButtonListFromString(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v1
 
@@ -341,7 +341,7 @@
 
     .line 128
     .local v0, button:Ljava/lang/String;
-    sget-object v3, Lcom/lidroid/util/PowerWidgetUtil;->BUTTONS:Ljava/util/HashMap;
+    sget-object v3, LROM/Control/util/PowerWidgetUtil;->BUTTONS:Ljava/util/HashMap;
 
     invoke-virtual {v3, v0}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
@@ -352,7 +352,7 @@
     .line 129
     iget-object v3, p0, Lcom/lidroid/parts/PowerWidgetOrderActivity$ButtonAdapter;->mButtons:Ljava/util/ArrayList;
 
-    sget-object v4, Lcom/lidroid/util/PowerWidgetUtil;->BUTTONS:Ljava/util/HashMap;
+    sget-object v4, LROM/Control/util/PowerWidgetUtil;->BUTTONS:Ljava/util/HashMap;
 
     invoke-virtual {v4, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 

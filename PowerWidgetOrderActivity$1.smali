@@ -3,7 +3,7 @@
 .source "PowerWidgetOrderActivity.java"
 
 # interfaces
-.implements Lcom/lidroid/widgets/TouchInterceptor$DropListener;
+.implements LROM/Control/widgets/TouchInterceptor$DropListener;
 
 
 # annotations
@@ -46,11 +46,11 @@
     .line 77
     iget-object v2, p0, Lcom/lidroid/parts/PowerWidgetOrderActivity$1;->this$0:Lcom/lidroid/parts/PowerWidgetOrderActivity;
 
-    invoke-static {v2}, Lcom/lidroid/util/PowerWidgetUtil;->getCurrentButtons(Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {v2}, LROM/Control/util/PowerWidgetUtil;->getCurrentButtons(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-static {v2}, Lcom/lidroid/util/PowerWidgetUtil;->getButtonListFromString(Ljava/lang/String;)Ljava/util/ArrayList;
+    invoke-static {v2}, LROM/Control/util/PowerWidgetUtil;->getButtonListFromString(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v1
 
@@ -83,11 +83,11 @@
     .line 88
     iget-object v2, p0, Lcom/lidroid/parts/PowerWidgetOrderActivity$1;->this$0:Lcom/lidroid/parts/PowerWidgetOrderActivity;
 
-    invoke-static {v1}, Lcom/lidroid/util/PowerWidgetUtil;->getButtonStringFromList(Ljava/util/ArrayList;)Ljava/lang/String;
+    invoke-static {v1}, LROM/Control/util/PowerWidgetUtil;->getButtonStringFromList(Ljava/util/ArrayList;)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/lidroid/util/PowerWidgetUtil;->saveCurrentButtons(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {v2, v3}, LROM/Control/util/PowerWidgetUtil;->saveCurrentButtons(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 92
     iget-object v2, p0, Lcom/lidroid/parts/PowerWidgetOrderActivity$1;->this$0:Lcom/lidroid/parts/PowerWidgetOrderActivity;

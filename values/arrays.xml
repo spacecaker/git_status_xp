@@ -26,8 +26,8 @@
         <item>Rotary Revamped</item>
         <item>Lense</item>
         <item>Ring</item>
-        <item>Tab</item>
-        <item>Circle</item>
+        <item>Samsung Circle</item>
+        <item>Samsung Sliding Tab</item>
     </string-array>
     <string-array name="lockscreen_values_sgs2">
         <item>1</item>
@@ -83,13 +83,13 @@
         <item>1800000</item>
     </string-array>
     <string-array name="pref_lockscreen_gesture_action_entries">
-        <item>Gestures Unlock</item>
-        <item>Gestures Toggle Sound</item>
-        <item>Gestures Shortcut or Activity</item>
-        <item>Toggle Flash Light</item>
+        <item>@string/array_gestunl</item>
+        <item>@string/array_gestsnd</item>
+        <item>@string/array_gestact</item>
+        <item>@string/array_gestlight</item>
     </string-array>
-    <string-array name="pref_lockscreen_gestures_sensitivity_entries">
-        <item>1 (broadest)</item>
+    <array name="pref_lockscreen_gestures_sensitivity_entries">
+        <item>@string/arraysens1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
@@ -100,8 +100,8 @@
         <item>9</item>
         <item>10</item>
         <item>11</item>
-        <item>12 (strictest)</item>
-    </string-array>
+        <item>@string/arraysens12</item>
+    </array>
     <string-array name="pref_lockscreen_gestures_sensitivity_values">
         <item>1</item>
         <item>2</item>
@@ -117,11 +117,11 @@
         <item>12</item>
     </string-array>
     <string-array name="animation_entries">
-        <item>Off</item>
-        <item>Fast</item>
-        <item>Normal</item>
-        <item>Slow</item>
-        <item>VerySlow</item>
+        <item>@string/arrayanim_off</item>
+        <item>@string/arrayanim_fast</item>
+        <item>@string/arrayanim_normal</item>
+        <item>@string/arrayanim_slow</item>
+        <item>@string/arrayanim_veryslow</item>
     </string-array>
     <string-array name="animation_values">
         <item>0.0</item>
@@ -131,13 +131,13 @@
         <item>2.0</item>
     </string-array>
     <string-array name="font_size_entries">
-        <item>Extremely Small</item>
-        <item>Extra Small</item>
-        <item>Small</item>
-        <item>Normal</item>
-        <item>Large</item>
-        <item>Extra Large</item>
-        <item>Extremely Large</item>
+        <item>@string/arrayfont_exs</item>
+        <item>@string/arrayfont_es</item>
+        <item>@string/arrayfont_s</item>
+        <item>@string/arrayfont_n</item>
+        <item>@string/arrayfont_l</item>
+        <item>@string/arrayfont_el</item>
+        <item>@string/arrayfont_exl</item>
     </string-array>
     <string-array name="font_size_values">
         <item>0.70</item>
@@ -149,9 +149,9 @@
         <item>1.30</item>
     </string-array>
     <string-array name="entries_brightness_widget">
-        <item>Auto/Dim/40%/100%</item>
-        <item>Auto/Dim/25%1$/50%2$/75%3$/100%</item>
-        <item>Auto/25%/100%</item>
+        <item>Auto/Dim/40/100%</item>
+        <item>Auto/Dim/25/50/75/100%</item>
+        <item>Auto/25/100%</item>
         <item>Dim/100%</item>
     </string-array>
     <string-array name="values_brightness_widget">

@@ -79,7 +79,6 @@
     <string name="window_animations_speed">窗口动画速度</string>
     <string name="transition_animations_speed">切换动画速度</string>
     <string name="font_size">字体大小</string>
-    <string name="lidroid_ui_style">IOS风格设置界面</string>
     <string name="ui_style_summary_on">使用IOS风格设置界面</string>
     <string name="ui_style_summary_off">使用三星原生风格界面</string>
     <string name="title_widget_buttons">扩展视图控件</string>
@@ -120,4 +119,5 @@
     <string name="cm_sound_mode_soundVib_sound_vib_silent">铃声 + 震动 / 铃声 / 震动 / 静音</string>
     <string name="cm_sound_mode_vib_silent">震动 / 静音</string>
     <string name="power_widget_pref_group">下拉栏开关设置</string>
+    <string name="creed_ui_style">IOS风格设置界面</string>
 </resources>

@@ -116,7 +116,6 @@
     <public type="string" name="window_animations_speed" id="0x7f08004b" />
     <public type="string" name="transition_animations_speed" id="0x7f08004c" />
     <public type="string" name="font_size" id="0x7f08004d" />
-    <public type="string" name="lidroid_ui_style" id="0x7f08004e" />
     <public type="string" name="ui_style_summary_on" id="0x7f08004f" />
     <public type="string" name="ui_style_summary_off" id="0x7f080050" />
     <public type="string" name="title_widget_buttons" id="0x7f080051" />
@@ -157,24 +156,57 @@
     <public type="string" name="cm_sound_mode_soundVib_sound_vib_silent" id="0x7f080074" />
     <public type="string" name="cm_sound_mode_vib_silent" id="0x7f080075" />
     <public type="string" name="power_widget_pref_group" id="0x7f080076" />
-    <public type="string" name="statbat_tweaks" id="0x7f080077" />
-    <public type="string" name="statclock_tweaks" id="0x7f080078" />
-    <public type="string" name="statusbar_settings" id="0x7f080079" />
-    <public type="string" name="batterybar_title" id="0x7f08007a" />
-    <public type="string" name="touchkeys_options" id="0x7f08007b" />
-    <public type="string" name="input_opts" id="0x7f08007c" />
-    <public type="string" name="pref_about" id="0x7f08007d" />
-    <public type="string" name="developer" id="0x7f08007e" />
-    <public type="string" name="developer_summary" id="0x7f08007f" />
-    <public type="string" name="title_toggle_sleep" id="0x7f080080" />
-    <public type="string" name="title_toggle_mediaprev" id="0x7f080081" />
-    <public type="string" name="title_toggle_medianext" id="0x7f080082" />
-    <public type="string" name="title_toggle_mediapp" id="0x7f080083" />
-    <public type="string" name="title_toggle_networkmode" id="0x7f080084" />
-    <public type="string" name="touchwiz" id="0x7f080085" />
-    <public type="string" name="touchwiz_launcher" id="0x7f080086" />
-    <public type="string" name="powermenu" id="0x7f080087" />
-    <public type="string" name="powermenu_customize" id="0x7f080088" />
+    <public type="string" name="cz1" id="0x7f080077" />
+    <public type="string" name="cz2" id="0x7f080078" />
+    <public type="string" name="lidroid_ui_style" id="0x7f080079" />
+    <public type="string" name="about_title" id="0x7f08007a" />
+    <public type="string" name="about_summary" id="0x7f08007b" />
+    <public type="string" name="pref_about" id="0x7f08007c" />
+    <public type="string" name="developer" id="0x7f08007d" />
+    <public type="string" name="developer_summary" id="0x7f08007e" />
+    <public type="string" name="title_toggle_networkmode" id="0x7f08007f" />
+    <public type="string" name="batterybar_title" id="0x7f080080" />
+    <public type="string" name="logcat_save_title" id="0x7f080081" />
+    <public type="string" name="pref_tools" id="0x7f080082" />
+    <public type="string" name="statbat_tweaks" id="0x7f080083" />
+    <public type="string" name="statclock_tweaks" id="0x7f080084" />
+    <public type="string" name="statusbar_settings" id="0x7f080085" />
+    <public type="string" name="systest_title" id="0x7f080086" />
+    <public type="string" name="testsettings_title" id="0x7f080087" />
+    <public type="string" name="touchkeys_options" id="0x7f080088" />
+    <public type="string" name="logcat_save_summary" id="0x7f080089" />
+    <public type="string" name="arrayanim_off" id="0x7f08008a" />
+    <public type="string" name="arrayanim_fast" id="0x7f08008b" />
+    <public type="string" name="arrayanim_normal" id="0x7f08008c" />
+    <public type="string" name="arrayanim_slow" id="0x7f08008d" />
+    <public type="string" name="arrayanim_veryslow" id="0x7f08008e" />
+    <public type="string" name="arrayfont_exs" id="0x7f08008f" />
+    <public type="string" name="arrayfont_es" id="0x7f080090" />
+    <public type="string" name="arrayfont_s" id="0x7f080091" />
+    <public type="string" name="arrayfont_n" id="0x7f080092" />
+    <public type="string" name="arrayfont_l" id="0x7f080093" />
+    <public type="string" name="arrayfont_el" id="0x7f080094" />
+    <public type="string" name="arrayfont_exl" id="0x7f080095" />
+    <public type="string" name="arraysens1" id="0x7f080096" />
+    <public type="string" name="arraysens12" id="0x7f080097" />
+    <public type="string" name="array_gestunl" id="0x7f080098" />
+    <public type="string" name="array_gestsnd" id="0x7f080099" />
+    <public type="string" name="array_gestact" id="0x7f08009a" />
+    <public type="string" name="array_gestlight" id="0x7f08009b" />
+    <public type="string" name="input_opts" id="0x7f08009c" />
+    <public type="string" name="title_toggle_sleep" id="0x7f08009d" />
+    <public type="string" name="title_toggle_mediaprev" id="0x7f08009e" />
+    <public type="string" name="title_toggle_medianext" id="0x7f08009f" />
+    <public type="string" name="title_toggle_mediapp" id="0x7f0800a0" />
+    <public type="string" name="statsignal_tweaks" id="0x7f0800a1" />
+    <public type="string" name="lock_othercat" id="0x7f0800a2" />
+    <public type="string" name="device_info_title" id="0x7f0800a3" />
+    <public type="string" name="attention" id="0x7f0800a4" />
+    <public type="string" name="click_me_cancel" id="0x7f0800a5" />
+    <public type="string" name="menu_user" id="0x7f0800a6" />
+    <public type="string" name="no_select_title" id="0x7f0800a7" />
+    <public type="string" name="no" id="0x7f0800a8" />
+    <public type="string" name="creed_ui_style" id="0x7f08004e" />
     <public type="id" name="action_picker" id="0x7f090000" />
     <public type="id" name="gestures_run_in_background" id="0x7f090001" />
     <public type="id" name="gestures_draw_label" id="0x7f090002" />

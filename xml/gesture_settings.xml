@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="lockscreen_gestures"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:title="@string/pref_lockscreen_gestures_enable_title" android:key="lockscreen_gestures_enable" />
+    <CheckBoxPreference android:title="@string/pref_lockscreen_gestures_trail_title" android:key="lockscreen_gestures_trail" android:dependency="lockscreen_gestures_enable" />
+    <ListPreference android:entries="@array/pref_lockscreen_gestures_sensitivity_entries" android:title="@string/pref_lockscreen_gestures_sensitivity_title" android:key="lockscreen_gestures_sensitivity" android:dependency="lockscreen_gestures_enable" android:entryValues="@array/pref_lockscreen_gestures_sensitivity_values" />
+    <Preference android:title="@string/pref_lockscreen_gestures_color_title" android:key="lockscreen_gestures_color" android:dependency="lockscreen_gestures_enable" />
+    <PreferenceScreen android:title="@string/pref_lockscreen_gestures_builder_title" android:key="lockscreen_gestures_builder">
+        <intent android:targetPackage="com.lidroid.parts" android:action="android.intent.action.MAIN" android:targetClass="com.lidroid.parts.GestureListActivity" />
+    </PreferenceScreen>
+</PreferenceScreen>

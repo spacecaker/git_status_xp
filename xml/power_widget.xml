@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/title_buttons" android:key="pref_buttons" />
+    <PreferenceCategory android:title="@string/title_button_modes">
+        <ListPreference android:entries="@array/entries_brightness_widget" android:title="@string/pref_brightness_mode_title" android:key="pref_brightness_mode" android:summary="@string/pref_brightness_mode_summary" android:dialogTitle="@string/pref_brightness_mode_title" android:entryValues="@array/values_brightness_widget" />
+        <ListPreference android:entries="@array/entries_ring_widget" android:title="@string/pref_ring_mode_title" android:key="pref_ring_mode" android:summary="@string/pref_ring_mode_summary" android:dialogTitle="@string/pref_ring_mode_title" android:entryValues="@array/values_ring_widget" />
+    </PreferenceCategory>
+</PreferenceScreen>

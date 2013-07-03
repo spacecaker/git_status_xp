@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/app_name"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/power_widget_pref_group">
+        <CheckBoxPreference android:title="@string/title_expanded_hide_onchange" android:key="expanded_hide_onchange" android:summary="@string/summary_expanded_hide_onchange" android:defaultValue="false" />
+        <PreferenceScreen android:title="@string/title_widget_picker" android:key="widget_picker" android:summary="@string/summary_widget_picker">
+            <intent android:targetPackage="com.lidroid.parts" android:action="android.intent.action.MAIN" android:targetClass="com.lidroid.parts.PowerWidgetActivity" />
+        </PreferenceScreen>
+        <PreferenceScreen android:title="@string/title_widget_order" android:key="widget_order" android:summary="@string/summary_widget_order">
+            <intent android:targetPackage="com.lidroid.parts" android:action="android.intent.action.MAIN" android:targetClass="com.lidroid.parts.PowerWidgetOrderActivity" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/statusbar_settings">
+        <Preference android:title="@string/batterybar_title" android:key="batterybartweaks">
+            <intent android:targetPackage="statusbar.tweaks" android:action="android.intent.action.MAIN" android:targetClass="statusbar.tweaks.options" />
+        </Preference>
+        <Preference android:title="@string/statbat_tweaks" android:key="batterytweaks">
+            <intent android:targetPackage="statusbar.tweaks" android:action="android.intent.action.MAIN" android:targetClass="statusbar.tweaks.otheractivities.BatteryActivity" />
+        </Preference>
+        <Preference android:title="@string/statclock_tweaks" android:key="clocktweaks">
+            <intent android:targetPackage="statusbar.tweaks" android:action="android.intent.action.MAIN" android:targetClass="statusbar.tweaks.otheractivities.ClockActivity" />
+        </Preference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/lockscreen_pref_group">
+        <ListPreference android:persistent="true" android:entries="@array/lockscreen_entries" android:title="@string/lockscreen_title" android:key="lockscreen_style_pref" android:defaultValue="1" android:entryValues="@array/lockscreen_values" />
+        <CheckBoxPreference android:title="@string/menu_unlock_title" android:key="menu_unlock_screen" android:summary="@string/menu_unlock_summary" android:defaultValue="false" />
+        <PreferenceScreen android:title="@string/lockscreen_detail_title" android:key="lockscreen_detail" android:summary="@string/lockscreen_detail_summary">
+            <intent android:targetPackage="com.lidroid.parts" android:action="android.intent.action.MAIN" android:targetClass="com.lidroid.parts.LockScreenActivity" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/input_opts">
+        <Preference android:title="@string/touchkeys_options" android:key="touchkeys">
+            <intent android:targetPackage="key.tweaks" android:action="android.intent.action.MAIN" android:targetClass="key.tweaks.Preferences" />
+        </Preference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/general">
+        <ListPreference android:persistent="true" android:entries="@array/animation_entries" android:title="@string/window_animations_speed" android:key="window_animations" android:defaultValue="1.0" android:entryValues="@array/animation_values" />
+        <ListPreference android:persistent="true" android:entries="@array/animation_entries" android:title="@string/transition_animations_speed" android:key="transition_animations" android:defaultValue="1.0" android:entryValues="@array/animation_values" />
+        <ListPreference android:persistent="true" android:entries="@array/font_size_entries" android:title="@string/font_size" android:key="font_size" android:defaultValue="1.0" android:entryValues="@array/font_size_values" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/powermenu">
+        <Preference android:title="@string/powermenu_customize">
+            <intent android:targetPackage="com.jkaysoft.gingertheme" android:action="android.intent.action.MAIN" android:targetClass="com.jkaysoft.gingertheme.ThemeSettings" />
+        </Preference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/touchwiz">
+        <Preference android:title="@string/touchwiz_launcher">
+            <intent android:targetPackage="com.touchwiz.settings" android:action="android.intent.action.MAIN" android:targetClass="com.touchwiz.settings.MainActivity" />
+        </Preference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_about">
+        <Preference android:title="@string/developer" android:summary="@string/developer_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>

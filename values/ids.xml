@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="action_picker">false</item>
+    <item type="id" name="gestures_run_in_background">false</item>
+    <item type="id" name="gestures_draw_label">false</item>
+    <item type="id" name="gestures_overlay">false</item>
+    <item type="id" name="addGesture">false</item>
+    <item type="id" name="cancelGesture">false</item>
+    <item type="id" name="addButton">false</item>
+    <item type="id" name="icon">false</item>
+    <item type="id" name="grabber">false</item>
+    <item type="id" name="name">false</item>
+</resources>

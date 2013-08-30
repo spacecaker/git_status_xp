@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007 The Android Open Source Project
+ * Copyright (C) 2008 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,1182 +14,664 @@
  * limitations under the License.
  */
 
-package com.android.internal.widget;
-
+package com.android.internal.policy.impl;
 
 import com.android.internal.R;
+import com.android.internal.widget.LockPatternUtils;
+import com.android.internal.widget.SlidingTab;
+import com.android.internal.widget.WaveView;
+import com.android.internal.widget.multiwaveview.MultiWaveView;
+import com.android.internal.widget.multiwaveview.TargetDrawable;
 
+import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
+import android.content.ActivityNotFoundException;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
+import android.content.res.Resources.NotFoundException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.Rect;
-import android.os.Debug;
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.os.SystemClock;
-import android.os.Vibrator;
-import android.provider.CmSystem.RinglockStyle;
-import android.provider.Settings;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.MotionEvent;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.InsetDrawable;
+import android.graphics.drawable.LayerDrawable;
+import android.graphics.drawable.StateListDrawable;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.*;
+import android.widget.ImageView.ScaleType;
+import android.widget.LinearLayout.LayoutParams;
+import android.util.Log;
+import android.media.AudioManager;
+import android.provider.MediaStore;
+import android.provider.Settings;
 
+import java.io.File;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Displays and detects the user's unlock attempt, which is a drag of a finger
- * across PATTERN_SIZE regions of the screen.
- *
- * Is also capable of displaying a static pattern in "in progress", "wrong" or
- * "correct" states.
+ * The screen within {@link LockPatternKeyguardView} that shows general
+ * information about the device depending on its state, and how to get
+ * past it, as applicable.
  */
-public class LockPatternView extends View {
-    // Aspect to use when rendering this view
-    private static final int ASPECT_SQUARE = 0; // View will be the minimum of width/height
-    private static final int ASPECT_LOCK_WIDTH = 1; // Fixed width; height will be minimum of (w,h)
-    private static final int ASPECT_LOCK_HEIGHT = 2; // Fixed height; width will be minimum of (w,h)
+class LockScreen extends LinearLayout implements KeyguardScreen {
 
-    // Vibrator pattern for creating a tactile bump
-    private static final long[] DEFAULT_VIBE_PATTERN = {0, 1, 40, 41};
+    private static final int ON_RESUME_PING_DELAY = 500; // delay first ping until the screen is on
+    private static final boolean DBG = false;
+    private static final String TAG = "LockScreen";
+    private static final String ENABLE_MENU_KEY_FILE = "/data/local/enable_menu_key";
+    private static final int WAIT_FOR_ANIMATION_TIMEOUT = 0;
+    private static final int STAY_ON_WHILE_GRABBED_TIMEOUT = 30000;
 
-    private static final boolean PROFILE_DRAWING = false;
-    private boolean mDrawingProfilingStarted = false;
+    private LockPatternUtils mLockPatternUtils;
+    private KeyguardUpdateMonitor mUpdateMonitor;
+    private KeyguardScreenCallback mCallback;
 
-    private Paint mPaint = new Paint();
-    private Paint mPathPaint = new Paint();
+    // current configuration state of keyboard and display
+    private int mKeyboardHidden;
+    private int mCreationOrientation;
 
-    // TODO: make this common with PhoneWindow
-    static final int STATUS_BAR_HEIGHT = 25;
+    private boolean mSilentMode;
+    private AudioManager mAudioManager;
+    private boolean mEnableMenuKeyInLockScreen;
 
-    /**
-     * How many milliseconds we spend animating each circle of a lock pattern
-     * if the animating mode is set.  The entire animation should take this
-     * constant * the length of the pattern to complete.
-     */
-    private static final int MILLIS_PER_CIRCLE_ANIMATING = 700;
+    private KeyguardStatusViewManager mStatusViewManager;
+    private UnlockWidgetCommonMethods mUnlockWidgetMethods;
+    private View mUnlockWidget;
 
-    private OnPatternListener mOnPatternListener;
-    private ArrayList<Cell> mPattern = new ArrayList<Cell>(PATTERN_SIZE*PATTERN_SIZE);
+    private interface UnlockWidgetCommonMethods {
+        // Update resources based on phone state
+        public void updateResources();
 
-    /**
-     * Lookup table for the circles of the pattern we are currently drawing.
-     * This will be the cells of the complete pattern unless we are animating,
-     * in which case we use this to hold the cells we are drawing for the in
-     * progress animation.
-     */
-    private boolean[][] mPatternDrawLookup = new boolean[PATTERN_SIZE][PATTERN_SIZE];
+        // Get the view associated with this widget
+        public View getView();
 
-    /**
-     * the in progress point:
-     * - during interaction: where the user's finger is
-     * - during animation: the current tip of the animating line
-     */
-    private float mInProgressX = -1;
-    private float mInProgressY = -1;
+        // Reset the view
+        public void reset(boolean animate);
 
-    private long mAnimatingPeriodStart;
+        // Animate the widget if it supports ping()
+        public void ping();
+    }
 
-    private DisplayMode mPatternDisplayMode = DisplayMode.Correct;
-    private boolean mInputEnabled = true;
-    private boolean mInStealthMode = false;
-    private boolean mTactileFeedbackEnabled = true;
-    private boolean mPatternInProgress = false;
-    
-    private boolean mVisibleDots = true;
-    private boolean mShowErrorPath = true;
-    private int mDelay = 2000;
+    class SlidingTabMethods implements SlidingTab.OnTriggerListener, UnlockWidgetCommonMethods {
+        private final SlidingTab mSlidingTab;
 
-    private float mDiameterFactor = 0.5f;
-    private float mHitFactor = 0.6f;
-
-    private float mSquareWidth;
-    private float mSquareHeight;
-
-    private Bitmap mBitmapBtnDefault;
-    private Bitmap mBitmapBtnTouched;
-    private Bitmap mBitmapCircleDefault;
-    private Bitmap mBitmapCircleGreen;
-    private Bitmap mBitmapCircleRed;
-
-    private Bitmap mBitmapArrowGreenUp;
-    private Bitmap mBitmapArrowRedUp;
-
-    private final Path mCurrentPath = new Path();
-    private final Rect mInvalidate = new Rect();
-
-    private int mBitmapWidth;
-    private int mBitmapHeight;
-
-
-    private Vibrator vibe; // Vibrator for creating tactile feedback
-
-    private long[] mVibePattern;
-
-    private int mAspect;
-
-    private static int PATTERN_SIZE = 3;
-
-    /**
-     * Represents a cell in the PATTERN_SIZE X PATTERN_SIZE matrix of the unlock pattern view.
-     */
-    public static class Cell {
-        int row;
-        int column;
-
-        // keep # objects limited to PATTERN_SIZE
-        static Cell[][] sCells;
-        static {
-            updateSize();
+        SlidingTabMethods(SlidingTab slidingTab) {
+            mSlidingTab = slidingTab;
         }
 
-        /**
-         * @param row The row of the cell.
-         * @param column The column of the cell.
-         */
-        private Cell(int row, int column) {
-            checkRange(row, column);
-            this.row = row;
-            this.column = column;
+        public void updateResources() {
+            boolean vibe = mSilentMode
+                && (mAudioManager.getRingerMode() == AudioManager.RINGER_MODE_VIBRATE);
+
+            mSlidingTab.setRightTabResources(
+                    mSilentMode ? ( vibe ? R.drawable.ic_jog_dial_vibrate_on
+                                         : R.drawable.ic_jog_dial_sound_off )
+                                : R.drawable.ic_jog_dial_sound_on,
+                    mSilentMode ? R.drawable.jog_tab_target_yellow
+                                : R.drawable.jog_tab_target_gray,
+                    mSilentMode ? R.drawable.jog_tab_bar_right_sound_on
+                                : R.drawable.jog_tab_bar_right_sound_off,
+                    mSilentMode ? R.drawable.jog_tab_right_sound_on
+                                : R.drawable.jog_tab_right_sound_off);
         }
 
-        public int getRow() {
-            return row;
-        }
-
-        public int getColumn() {
-            return column;
-        }
-
-        /**
-         * @param row The row of the cell.
-         * @param column The column of the cell.
-         */
-        public static synchronized Cell of(int row, int column) {
-            checkRange(row, column);
-            return sCells[row][column];
-        }
-
-        public static void updateSize() {
-            sCells = new Cell[PATTERN_SIZE][PATTERN_SIZE];
-            for (int i = 0; i < PATTERN_SIZE; i++) {
-                 for (int j = 0; j < PATTERN_SIZE; j++) {
-                      sCells[i][j] = new Cell(i, j);
-                 }
+        /** {@inheritDoc} */
+        public void onTrigger(View v, int whichHandle) {
+            if (whichHandle == SlidingTab.OnTriggerListener.LEFT_HANDLE) {
+                mCallback.goToUnlockScreen();
+            } else if (whichHandle == SlidingTab.OnTriggerListener.RIGHT_HANDLE) {
+                toggleRingMode();
+                mCallback.pokeWakelock();
             }
         }
 
-        private static void checkRange(int row, int column) {
-            if (row < 0 || row > PATTERN_SIZE-1) {
-                throw new IllegalArgumentException("row must be in range 0-" + (PATTERN_SIZE-1));
+        /** {@inheritDoc} */
+        public void onGrabbedStateChange(View v, int grabbedState) {
+            if (grabbedState == SlidingTab.OnTriggerListener.RIGHT_HANDLE) {
+                mSilentMode = isSilentMode();
+                mSlidingTab.setRightHintText(mSilentMode ? R.string.lockscreen_sound_on_label
+                        : R.string.lockscreen_sound_off_label);
             }
-            if (column < 0 || column > PATTERN_SIZE-1) {
-                throw new IllegalArgumentException("column must be in range 0-" + (PATTERN_SIZE-1));
-            }
-        }
-
-        public String toString() {
-            return "(row=" + row + ",clmn=" + column + ")";
-        }
-    }
-
-    /**
-     * How to display the current pattern.
-     */
-    public enum DisplayMode {
-
-        /**
-         * The pattern drawn is correct (i.e draw it in a friendly color)
-         */
-        Correct,
-
-        /**
-         * Animate the pattern (for demo, and help).
-         */
-        Animate,
-
-        /**
-         * The pattern is wrong (i.e draw a foreboding color)
-         */
-        Wrong
-    }
-
-    /**
-     * The call back interface for detecting patterns entered by the user.
-     */
-    public static interface OnPatternListener {
-
-        /**
-         * A new pattern has begun.
-         */
-        void onPatternStart();
-
-        /**
-         * The pattern was cleared.
-         */
-        void onPatternCleared();
-
-        /**
-         * The user extended the pattern currently being drawn by one cell.
-         * @param pattern The pattern with newly added cell.
-         */
-        void onPatternCellAdded(List<Cell> pattern);
-
-        /**
-         * A pattern was detected from the user.
-         * @param pattern The pattern.
-         */
-        void onPatternDetected(List<Cell> pattern);
-    }
-
-    public LockPatternView(Context context) {
-        this(context, null);
-    }
-
-    public LockPatternView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        vibe = new Vibrator();
-
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.LockPatternView);
-
-        final String aspect = a.getString(R.styleable.LockPatternView_aspect);
-
-        if ("square".equals(aspect)) {
-            mAspect = ASPECT_SQUARE;
-        } else if ("lock_width".equals(aspect)) {
-            mAspect = ASPECT_LOCK_WIDTH;
-        } else if ("lock_height".equals(aspect)) {
-            mAspect = ASPECT_LOCK_HEIGHT;
-        } else {
-            mAspect = ASPECT_SQUARE;
-        }
-
-        setClickable(true);
-
-        mPathPaint.setAntiAlias(true);
-        mPathPaint.setDither(true);
-        mPathPaint.setColor(Color.WHITE);   // TODO this should be from the style
-        mPathPaint.setAlpha(128);
-        mPathPaint.setStyle(Paint.Style.STROKE);
-        mPathPaint.setStrokeJoin(Paint.Join.ROUND);
-        mPathPaint.setStrokeCap(Paint.Cap.ROUND);
-
-        // lot's of bitmaps!
-        int ringlockStyle = Settings.System.getInt(getContext().getContentResolver(),
-                Settings.System.PATTERN_STYLE_PREF, RinglockStyle.getIdByStyle(RinglockStyle.Holo));
-
-        switch (RinglockStyle.getStyleById(ringlockStyle)) {
-            case Revamped:
-                mBitmapBtnDefault = getBitmapFor(R.drawable.btn_code_lock_default_rev);
-                mBitmapBtnTouched = getBitmapFor(R.drawable.btn_code_lock_touched_rev);
-                mBitmapCircleDefault = getBitmapFor(R.drawable.indicator_code_lock_point_area_default_rev);
-                mBitmapCircleGreen = getBitmapFor(R.drawable.indicator_code_lock_point_area_green_rev);
-                mBitmapCircleRed = getBitmapFor(R.drawable.indicator_code_lock_point_area_red_rev);
-                break;
-            case Holo:
-                mBitmapBtnDefault = getBitmapFor(R.drawable.btn_code_lock_default_holo);
-                mBitmapBtnTouched = getBitmapFor(R.drawable.btn_code_lock_touched_holo);
-                mBitmapCircleDefault = getBitmapFor(R.drawable.indicator_code_lock_point_area_default_holo);
-                mBitmapCircleGreen = getBitmapFor(R.drawable.indicator_code_lock_point_area_green_holo);
-                mBitmapCircleRed = getBitmapFor(R.drawable.indicator_code_lock_point_area_red_holo);
-                break;
-            case Blade:
-                mBitmapBtnDefault = getBitmapFor(R.drawable.btn_code_lock_default_blade);
-                mBitmapBtnTouched = getBitmapFor(R.drawable.btn_code_lock_touched_blade);
-                mBitmapCircleDefault = getBitmapFor(R.drawable.indicator_code_lock_point_area_default_blade);
-                mBitmapCircleGreen = getBitmapFor(R.drawable.indicator_code_lock_point_area_green_blade);
-                mBitmapCircleRed = getBitmapFor(R.drawable.indicator_code_lock_point_area_red_blade);
-                break;
-            default:
-                mBitmapBtnDefault = getBitmapFor(R.drawable.btn_code_lock_default);
-                mBitmapBtnTouched = getBitmapFor(R.drawable.btn_code_lock_touched);
-                mBitmapCircleDefault = getBitmapFor(R.drawable.indicator_code_lock_point_area_default);
-                mBitmapCircleGreen = getBitmapFor(R.drawable.indicator_code_lock_point_area_green);
-                mBitmapCircleRed = getBitmapFor(R.drawable.indicator_code_lock_point_area_red);
-                break;
-        }
-
-        mBitmapArrowGreenUp = getBitmapFor(R.drawable.indicator_code_lock_drag_direction_green_up);
-        mBitmapArrowRedUp = getBitmapFor(R.drawable.indicator_code_lock_drag_direction_red_up);
-
-        // we assume all bitmaps have the same size
-        mBitmapWidth = mBitmapBtnDefault.getWidth();
-        mBitmapHeight = mBitmapBtnDefault.getHeight();
-
-        // allow vibration pattern to be customized
-        mVibePattern = loadVibratePattern(com.android.internal.R.array.config_virtualKeyVibePattern);
-    }
-
-    private long[] loadVibratePattern(int id) {
-        int[] pattern = null;
-        try {
-            pattern = getResources().getIntArray(id);
-        } catch (Resources.NotFoundException e) {
-            Log.e("LockPatternView", "Vibrate pattern missing, using default", e);
-        }
-        if (pattern == null) {
-            return DEFAULT_VIBE_PATTERN;
-        }
-
-        long[] tmpPattern = new long[pattern.length];
-        for (int i = 0; i < pattern.length; i++) {
-            tmpPattern[i] = pattern[i];
-        }
-        return tmpPattern;
-    }
-
-    private Bitmap getBitmapFor(int resId) {
-        return BitmapFactory.decodeResource(getContext().getResources(), resId);
-    }
-
-    /**
-     * @return Whether the view is in stealth mode.
-     */
-    public boolean isInStealthMode() {
-        return mInStealthMode;
-    }
-
-    /**
-     * @return Whether the view has tactile feedback enabled.
-     */
-    public boolean isTactileFeedbackEnabled() {
-        return mTactileFeedbackEnabled;
-    }
-
-    /**
-     * @return the current pattern lockscreen size
-     */
-    public int getLockPatternSize() {
-        return PATTERN_SIZE;
-    }
-
-    /**
-     * Set whether the view is in stealth mode.  If true, there will be no
-     * visible feedback as the user enters the pattern.
-     *
-     * @param inStealthMode Whether in stealth mode.
-     */
-    public void setInStealthMode(boolean inStealthMode) {
-        mInStealthMode = inStealthMode;
-    }
-    
-    public void setVisibleDots(boolean visibleDots) {
-        mVisibleDots = visibleDots;
-    }
-    
-    public boolean isVisibleDots() {
-        return mVisibleDots;
-    }
-    
-    public void setShowErrorPath(boolean showErrorPath) {
-        mShowErrorPath = showErrorPath;
-    }
-    
-    public boolean isShowErrorPath() {
-        return mShowErrorPath;
-    }
-
-    /**
-     * Set whether the view will use tactile feedback.  If true, there will be
-     * tactile feedback as the user enters the pattern.
-     *
-     * @param tactileFeedbackEnabled Whether tactile feedback is enabled
-     */
-    public void setTactileFeedbackEnabled(boolean tactileFeedbackEnabled) {
-        mTactileFeedbackEnabled = tactileFeedbackEnabled;
-    }
-
-    /**
-     * Set the PATTERN_SIZE size of the lockscreen
-     *
-     * @param size
-     */
-    public void setLockPatternSize(int size) {
-        PATTERN_SIZE = size;
-        mPattern = new ArrayList<Cell>(PATTERN_SIZE*PATTERN_SIZE);
-        mPatternDrawLookup = new boolean[PATTERN_SIZE][PATTERN_SIZE];
-        Cell.updateSize();
-    }
-
-    /**
-     * Set the call back for pattern detection.
-     * @param onPatternListener The call back.
-     */
-    public void setOnPatternListener(
-            OnPatternListener onPatternListener) {
-        mOnPatternListener = onPatternListener;
-    }
-
-    /**
-     * Set the pattern explicitely (rather than waiting for the user to input
-     * a pattern).
-     * @param displayMode How to display the pattern.
-     * @param pattern The pattern.
-     */
-    public void setPattern(DisplayMode displayMode, List<Cell> pattern) {
-        mPattern.clear();
-        mPattern.addAll(pattern);
-        clearPatternDrawLookup();
-        for (Cell cell : pattern) {
-            mPatternDrawLookup[cell.getRow()][cell.getColumn()] = true;
-        }
-
-        setDisplayMode(displayMode);
-    }
-
-    /**
-     * Set the display mode of the current pattern.  This can be useful, for
-     * instance, after detecting a pattern to tell this view whether change the
-     * in progress result to correct or wrong.
-     * @param displayMode The display mode.
-     */
-    public void setDisplayMode(DisplayMode displayMode) {
-        mPatternDisplayMode = displayMode;
-        if (displayMode == DisplayMode.Animate) {
-            if (mPattern.size() == 0) {
-                throw new IllegalStateException("you must have a pattern to "
-                        + "animate if you want to set the display mode to animate");
-            }
-            mAnimatingPeriodStart = SystemClock.elapsedRealtime();
-            final Cell first = mPattern.get(0);
-            mInProgressX = getCenterXForColumn(first.getColumn());
-            mInProgressY = getCenterYForRow(first.getRow());
-            clearPatternDrawLookup();
-        }
-        invalidate();
-    }
-
-    /**
-     * Clear the pattern.
-     */
-    public void clearPattern() {
-        resetPattern();
-    }
-
-    /**
-     * Reset all pattern state.
-     */
-    private void resetPattern() {
-        mPattern.clear();
-        clearPatternDrawLookup();
-        mPatternDisplayMode = DisplayMode.Correct;
-        invalidate();
-    }
-
-    /**
-     * Clear the pattern lookup table.
-     */
-    private void clearPatternDrawLookup() {
-        for (int i = 0; i < PATTERN_SIZE; i++) {
-            for (int j = 0; j < PATTERN_SIZE; j++) {
-                mPatternDrawLookup[i][j] = false;
+            // Don't poke the wake lock when returning to a state where the handle is
+            // not grabbed since that can happen when the system (instead of the user)
+            // cancels the grab.
+            if (grabbedState != SlidingTab.OnTriggerListener.NO_HANDLE) {
+                mCallback.pokeWakelock();
             }
         }
-    }
 
-    /**
-     * Disable input (for instance when displaying a message that will
-     * timeout so user doesn't get view into messy state).
-     */
-    public void disableInput() {
-        mInputEnabled = false;
-    }
-
-    /**
-     * Enable input.
-     */
-    public void enableInput() {
-        mInputEnabled = true;
-    }
-    
-    public int getIncorrectDelay() {
-        return mDelay;
-    }
-    
-    public void setIncorrectDelay(int delay) {
-        mDelay = delay;
-    }
-
-    @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        final int width = w - mPaddingLeft - mPaddingRight;
-        mSquareWidth = width / (float)PATTERN_SIZE;
-
-        final int height = h - mPaddingTop - mPaddingBottom;
-        mSquareHeight = height / (float)PATTERN_SIZE;
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        final int width = MeasureSpec.getSize(widthMeasureSpec);
-        final int height = MeasureSpec.getSize(heightMeasureSpec);
-        int viewWidth = width;
-        int viewHeight = height;
-        switch (mAspect) {
-            case ASPECT_SQUARE:
-                viewWidth = viewHeight = Math.min(width, height);
-                break;
-            case ASPECT_LOCK_WIDTH:
-                viewWidth = width;
-                viewHeight = Math.min(width, height);
-                break;
-            case ASPECT_LOCK_HEIGHT:
-                viewWidth = Math.min(width, height);
-                viewHeight = height;
-                break;
+        public View getView() {
+            return mSlidingTab;
         }
-        setMeasuredDimension(viewWidth, viewHeight);
+
+        public void reset(boolean animate) {
+            mSlidingTab.reset(animate);
+        }
+
+        public void ping() {
+        }
     }
 
-    /**
-     * Determines whether the point x, y will add a new point to the current
-     * pattern (in addition to finding the cell, also makes heuristic choices
-     * such as filling in gaps based on current pattern).
-     * @param x The x coordinate.
-     * @param y The y coordinate.
-     */
-    private Cell detectAndAddHit(float x, float y) {
-        final Cell cell = checkForNewHit(x, y);
-        if (cell != null) {
+    class WaveViewMethods implements WaveView.OnTriggerListener, UnlockWidgetCommonMethods {
 
-            // check for gaps in existing pattern
-            final ArrayList<Cell> pattern = mPattern;
-            if (!pattern.isEmpty()) {
-                final Cell lastCell = pattern.get(pattern.size() - 1);
-                int dRow = cell.row - lastCell.row;
-                int dColumn = cell.column - lastCell.column;
+        private final WaveView mWaveView;
 
-                int fillInRow = lastCell.row;
-                int fillInColumn = lastCell.column;
+        WaveViewMethods(WaveView waveView) {
+            mWaveView = waveView;
+        }
+        /** {@inheritDoc} */
+        public void onTrigger(View v, int whichHandle) {
+            if (whichHandle == WaveView.OnTriggerListener.CENTER_HANDLE) {
+                requestUnlockScreen();
+            }
+        }
 
-                if (!( (dRow!=0) && (dColumn!=0) && (Math.abs(dRow)!=Math.abs(dColumn)) )) {
-                    while (true) {
-                          fillInRow += Integer.signum(dRow);
-                          fillInColumn += Integer.signum(dColumn);
-                          if ((fillInRow==cell.row) && (fillInColumn==cell.column) ) break;
-                          Cell fillInGapCell = Cell.of(fillInRow, fillInColumn);
-                          if (!mPatternDrawLookup[fillInGapCell.row][fillInGapCell.column]) {
-                              addCellToPattern(fillInGapCell);
-                          }
-                    }
+        /** {@inheritDoc} */
+        public void onGrabbedStateChange(View v, int grabbedState) {
+            // Don't poke the wake lock when returning to a state where the handle is
+            // not grabbed since that can happen when the system (instead of the user)
+            // cancels the grab.
+            if (grabbedState == WaveView.OnTriggerListener.CENTER_HANDLE) {
+                mCallback.pokeWakelock(STAY_ON_WHILE_GRABBED_TIMEOUT);
+            }
+        }
+
+        public void updateResources() {
+        }
+
+        public View getView() {
+            return mWaveView;
+        }
+        public void reset(boolean animate) {
+            mWaveView.reset();
+        }
+        public void ping() {
+        }
+    }
+
+    class MultiWaveViewMethods implements MultiWaveView.OnTriggerListener,
+            UnlockWidgetCommonMethods {
+
+        private final MultiWaveView mMultiWaveView;
+        private boolean mCameraDisabled;
+        private String[] mStoredTargets;
+        private int mTargetOffset;
+        private boolean mIsScreenLarge;
+
+        MultiWaveViewMethods(MultiWaveView multiWaveView) {
+            mMultiWaveView = multiWaveView;
+            final boolean cameraDisabled = mLockPatternUtils.getDevicePolicyManager()
+                    .getCameraDisabled(null);
+            if (cameraDisabled) {
+                Log.v(TAG, "Camera disabled by Device Policy");
+                mCameraDisabled = true;
+            } else {
+                // Camera is enabled if resource is initially defined for MultiWaveView
+                // in the lockscreen layout file
+                mCameraDisabled = mMultiWaveView.getTargetResourceId()
+                        != R.array.lockscreen_targets_with_camera;
+            }
+        }
+
+        public boolean isScreenLarge() {
+            final int screenSize = Resources.getSystem().getConfiguration().screenLayout &
+                    Configuration.SCREENLAYOUT_SIZE_MASK;
+            boolean isScreenLarge = screenSize == Configuration.SCREENLAYOUT_SIZE_LARGE ||
+                    screenSize == Configuration.SCREENLAYOUT_SIZE_XLARGE;
+            return isScreenLarge;
+        }
+
+        private StateListDrawable getLayeredDrawable(Drawable back, Drawable front, int inset, boolean frontBlank) {
+            Resources res = getResources();
+            InsetDrawable[] inactivelayer = new InsetDrawable[2];
+            InsetDrawable[] activelayer = new InsetDrawable[2];
+            inactivelayer[0] = new InsetDrawable(res.getDrawable(com.android.internal.R.drawable.ic_lockscreen_lock_pressed), 0, 0, 0, 0);
+            inactivelayer[1] = new InsetDrawable(front, inset, inset, inset, inset);
+            activelayer[0] = new InsetDrawable(back, 0, 0, 0, 0);
+            activelayer[1] = new InsetDrawable(frontBlank ? res.getDrawable(android.R.color.transparent) : front, inset, inset, inset, inset);
+            StateListDrawable states = new StateListDrawable();
+            LayerDrawable inactiveLayerDrawable = new LayerDrawable(inactivelayer);
+            inactiveLayerDrawable.setId(0, 0);
+            inactiveLayerDrawable.setId(1, 1);
+            LayerDrawable activeLayerDrawable = new LayerDrawable(activelayer);
+            activeLayerDrawable.setId(0, 0);
+            activeLayerDrawable.setId(1, 1);
+            states.addState(TargetDrawable.STATE_INACTIVE, inactiveLayerDrawable);
+            states.addState(TargetDrawable.STATE_ACTIVE, activeLayerDrawable);
+            return states;
+        }
+
+        public void updateResources() {
+            String storedVal = Settings.System.getString(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_TARGETS);
+            if (storedVal == null) {
+                int resId;
+                mStoredTargets = null;
+                if (mCameraDisabled) {
+                    // Fall back to showing ring/silence if camera is disabled by DPM...
+                    resId = mSilentMode ? R.array.lockscreen_targets_when_silent
+                            : R.array.lockscreen_targets_when_soundon;
+                } else {
+                    resId = R.array.lockscreen_targets_with_camera;
                 }
-            }
-            addCellToPattern(cell);
-            if (mTactileFeedbackEnabled){
-                vibe.vibrate(mVibePattern, -1); // Generate tactile feedback
-            }
-            return cell;
-        }
-        return null;
-    }
-
-    private void addCellToPattern(Cell newCell) {
-        mPatternDrawLookup[newCell.getRow()][newCell.getColumn()] = true;
-        mPattern.add(newCell);
-        if (mOnPatternListener != null) {
-            mOnPatternListener.onPatternCellAdded(mPattern);
-        }
-    }
-
-    // helper method to find which cell a point maps to
-    private Cell checkForNewHit(float x, float y) {
-
-        final int rowHit = getRowHit(y);
-        if (rowHit < 0) {
-            return null;
-        }
-        final int columnHit = getColumnHit(x);
-        if (columnHit < 0) {
-            return null;
-        }
-
-        if (mPatternDrawLookup[rowHit][columnHit]) {
-            return null;
-        }
-        return Cell.of(rowHit, columnHit);
-    }
-
-    /**
-     * Helper method to find the row that y falls into.
-     * @param y The y coordinate
-     * @return The row that y falls in, or -1 if it falls in no row.
-     */
-    private int getRowHit(float y) {
-
-        final float squareHeight = mSquareHeight;
-        float hitSize = squareHeight * mHitFactor;
-
-        float offset = mPaddingTop + (squareHeight - hitSize) / 2f;
-        for (int i = 0; i < PATTERN_SIZE; i++) {
-
-            final float hitTop = offset + squareHeight * i;
-            if (y >= hitTop && y <= hitTop + hitSize) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    /**
-     * Helper method to find the column x fallis into.
-     * @param x The x coordinate.
-     * @return The column that x falls in, or -1 if it falls in no column.
-     */
-    private int getColumnHit(float x) {
-        final float squareWidth = mSquareWidth;
-        float hitSize = squareWidth * mHitFactor;
-
-        float offset = mPaddingLeft + (squareWidth - hitSize) / 2f;
-        for (int i = 0; i < PATTERN_SIZE; i++) {
-
-            final float hitLeft = offset + squareWidth * i;
-            if (x >= hitLeft && x <= hitLeft + hitSize) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!mInputEnabled || !isEnabled()) {
-            return false;
-        }
-
-        final float x = motionEvent.getX();
-        final float y = motionEvent.getY();
-        Cell hitCell;
-        switch(motionEvent.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                resetPattern();
-                hitCell = detectAndAddHit(x, y);
-                if (hitCell != null && mOnPatternListener != null) {
-                    mPatternInProgress = true;
-                    mPatternDisplayMode = DisplayMode.Correct;
-                    mOnPatternListener.onPatternStart();
-                } else if (mOnPatternListener != null) {
-                    mPatternInProgress = false;
-                    mOnPatternListener.onPatternCleared();
+                mMultiWaveView.setTargetResources(resId);
+            } else {
+                mStoredTargets = storedVal.split("\\|");
+                mIsScreenLarge = isScreenLarge();
+                ArrayList<TargetDrawable> storedDraw = new ArrayList<TargetDrawable>();
+                final Resources res = getResources();
+                final int targetInset = res.getDimensionPixelSize(com.android.internal.R.dimen.lockscreen_target_inset);
+                final PackageManager packMan = mContext.getPackageManager();
+                final boolean isLandscape = mCreationOrientation == Configuration.ORIENTATION_LANDSCAPE;
+                final Drawable blankActiveDrawable = res.getDrawable(R.drawable.ic_lockscreen_target_activated);
+                final InsetDrawable activeBack = new InsetDrawable(blankActiveDrawable, 0, 0, 0, 0);
+                // Shift targets for landscape lockscreen on phones
+                mTargetOffset = isLandscape && !mIsScreenLarge ? 2 : 0;
+                if (mTargetOffset == 2) {
+                    storedDraw.add(new TargetDrawable(res, null));
+                    storedDraw.add(new TargetDrawable(res, null));
                 }
-                if (hitCell != null) {
-                    final float startX = getCenterXForColumn(hitCell.column);
-                    final float startY = getCenterYForRow(hitCell.row);
-
-                    final float widthOffset = mSquareWidth / 2f;
-                    final float heightOffset = mSquareHeight / 2f;
-
-                    invalidate((int) (startX - widthOffset), (int) (startY - heightOffset),
-                            (int) (startX + widthOffset), (int) (startY + heightOffset));
-                }
-                mInProgressX = x;
-                mInProgressY = y;
-                if (PROFILE_DRAWING) {
-                    if (!mDrawingProfilingStarted) {
-                        Debug.startMethodTracing("LockPatternDrawing");
-                        mDrawingProfilingStarted = true;
-                    }
-                }
-                return true;
-            case MotionEvent.ACTION_UP:
-                // report pattern detected
-                if (!mPattern.isEmpty() && mOnPatternListener != null) {
-                    mPatternInProgress = false;
-                    mOnPatternListener.onPatternDetected(mPattern);
-                    invalidate();
-                }
-                if (PROFILE_DRAWING) {
-                    if (mDrawingProfilingStarted) {
-                        Debug.stopMethodTracing();
-                        mDrawingProfilingStarted = false;
-                    }
-                }
-                return true;
-            case MotionEvent.ACTION_MOVE:
-                final int patternSizePreHitDetect = mPattern.size();
-                hitCell = detectAndAddHit(x, y);
-                final int patternSize = mPattern.size();
-                if (hitCell != null && (mOnPatternListener != null) && (patternSize == 1)) {
-                    mPatternInProgress = true;
-                    mOnPatternListener.onPatternStart();
-                }
-                // note current x and y for rubber banding of in progress
-                // patterns
-                final float dx = Math.abs(x - mInProgressX);
-                final float dy = Math.abs(y - mInProgressY);
-                if (dx + dy > mSquareWidth * 0.01f) {
-                    float oldX = mInProgressX;
-                    float oldY = mInProgressY;
-
-                    mInProgressX = x;
-                    mInProgressY = y;
-
-                    if (mPatternInProgress && patternSize > 0) {
-                        final ArrayList<Cell> pattern = mPattern;
-                        final float radius = mSquareWidth * mDiameterFactor * 0.5f;
-
-                        final Cell lastCell = pattern.get(patternSize - 1);
-
-                        float startX = getCenterXForColumn(lastCell.column);
-                        float startY = getCenterYForRow(lastCell.row);
-
-                        float left;
-                        float top;
-                        float right;
-                        float bottom;
-
-                        final Rect invalidateRect = mInvalidate;
-
-                        if (startX < x) {
-                            left = startX;
-                            right = x;
-                        } else {
-                            left = x;
-                            right = startX;
-                        }
-
-                        if (startY < y) {
-                            top = startY;
-                            bottom = y;
-                        } else {
-                            top = y;
-                            bottom = startY;
-                        }
-
-                        // Invalidate between the pattern's last cell and the current location
-                        invalidateRect.set((int) (left - radius), (int) (top - radius),
-                                (int) (right + radius), (int) (bottom + radius));
-
-                        if (startX < oldX) {
-                            left = startX;
-                            right = oldX;
-                        } else {
-                            left = oldX;
-                            right = startX;
-                        }
-
-                        if (startY < oldY) {
-                            top = startY;
-                            bottom = oldY;
-                        } else {
-                            top = oldY;
-                            bottom = startY;
-                        }
-
-                        // Invalidate between the pattern's last cell and the previous location
-                        invalidateRect.union((int) (left - radius), (int) (top - radius),
-                                (int) (right + radius), (int) (bottom + radius));
-
-                        // Invalidate between the pattern's new cell and the pattern's previous cell
-                        if (hitCell != null) {
-                            startX = getCenterXForColumn(hitCell.column);
-                            startY = getCenterYForRow(hitCell.row);
-
-                            if (patternSize >= 2) {
-                                // (re-using hitcell for old cell)
-                                hitCell = pattern.get(patternSize - 1 - (patternSize - patternSizePreHitDetect));
-                                oldX = getCenterXForColumn(hitCell.column);
-                                oldY = getCenterYForRow(hitCell.row);
-
-                                if (startX < oldX) {
-                                    left = startX;
-                                    right = oldX;
-                                } else {
-                                    left = oldX;
-                                    right = startX;
+                // Add unlock target
+                storedDraw.add(new TargetDrawable(res, res.getDrawable(R.drawable.ic_lockscreen_unlock)));
+                for (int i = 0; i < 8 - mTargetOffset - 1; i++) {
+                    int tmpInset = targetInset;
+                    if (i < mStoredTargets.length) {
+                        String uri = mStoredTargets[i];
+                        if (!uri.equals(MultiWaveView.EMPTY_TARGET)) {
+                            try {
+                                Intent in = Intent.parseUri(uri,0);
+                                Drawable front = null;
+                                Drawable back = activeBack;
+                                boolean frontBlank = false;
+                                if (in.hasExtra(MultiWaveView.ICON_FILE)) {
+                                    String fSource = in.getStringExtra(MultiWaveView.ICON_FILE);
+                                    if (fSource != null) {
+                                        File fPath = new File(fSource);
+                                        if (fPath.exists()) {
+                                            front = new BitmapDrawable(res, BitmapFactory.decodeFile(fSource));
+                                        }
+                                    }
+                                } else if (in.hasExtra(MultiWaveView.ICON_RESOURCE)) {
+                                    String rSource = in.getStringExtra(MultiWaveView.ICON_RESOURCE);
+                                    String rPackage = in.getStringExtra(MultiWaveView.ICON_PACKAGE);
+                                    if (rSource != null) {
+                                        if (rPackage != null) {
+                                            try {
+                                                Context rContext = mContext.createPackageContext(rPackage, 0);
+                                                int id = rContext.getResources().getIdentifier(rSource, "drawable", rPackage);
+                                                front = rContext.getResources().getDrawable(id);
+                                                id = rContext.getResources().getIdentifier(rSource.replaceAll("_normal", "_activated"),
+                                                        "drawable", rPackage);
+                                                back = rContext.getResources().getDrawable(id);
+                                                tmpInset = 0;
+                                                frontBlank = true;
+                                            } catch (NameNotFoundException e) {
+                                                e.printStackTrace();
+                                            } catch (NotFoundException e) {
+                                                e.printStackTrace();
+                                            }
+                                        } else {
+                                            front = res.getDrawable(res.getIdentifier(rSource, "drawable", "android"));
+                                            back = res.getDrawable(res.getIdentifier(
+                                                    rSource.replaceAll("_normal", "_activated"), "drawable", "android"));
+                                            tmpInset = 0;
+                                            frontBlank = true;
+                                        }
+                                    }
                                 }
-
-                                if (startY < oldY) {
-                                    top = startY;
-                                    bottom = oldY;
-                                } else {
-                                    top = oldY;
-                                    bottom = startY;
+                                if (front == null || back == null) {
+                                    ActivityInfo aInfo = in.resolveActivityInfo(packMan, PackageManager.GET_ACTIVITIES);
+                                    if (aInfo != null) {
+                                        front = aInfo.loadIcon(packMan);
+                                    } else {
+                                        front = res.getDrawable(android.R.drawable.sym_def_app_icon);
+                                    }
                                 }
-                            } else {
-                                left = right = startX;
-                                top = bottom = startY;
+                                storedDraw.add(new TargetDrawable(res, getLayeredDrawable(back,front, tmpInset, frontBlank)));
+                            } catch (Exception e) {
+                                storedDraw.add(new TargetDrawable(res, null));
                             }
-
-                            final float widthOffset = mSquareWidth / 2f;
-                            final float heightOffset = mSquareHeight / 2f;
-
-                            invalidateRect.set((int) (left - widthOffset),
-                                    (int) (top - heightOffset), (int) (right + widthOffset),
-                                    (int) (bottom + heightOffset));
+                        } else {
+                            storedDraw.add(new TargetDrawable(res, null));
                         }
-
-                        invalidate(invalidateRect);
                     } else {
-                        invalidate();
+                        storedDraw.add(new TargetDrawable(res, null));
                     }
                 }
-                return true;
-            case MotionEvent.ACTION_CANCEL:
-                resetPattern();
-                if (mOnPatternListener != null) {
-                    mPatternInProgress = false;
-                    mOnPatternListener.onPatternCleared();
-                }
-                if (PROFILE_DRAWING) {
-                    if (mDrawingProfilingStarted) {
-                        Debug.stopMethodTracing();
-                        mDrawingProfilingStarted = false;
+                mMultiWaveView.setTargetResources(storedDraw);
+            }
+        }
+
+        public void onGrabbed(View v, int handle) {
+
+        }
+
+        public void onReleased(View v, int handle) {
+
+        }
+
+        public void onTrigger(View v, int target) {
+            if (mStoredTargets == null) {
+                if (target == 0 || target == 1) { // 0 = unlock/portrait, 1 = unlock/landscape
+                    mCallback.goToUnlockScreen();
+                } else if (target == 2 || target == 3) { // 2 = alt/portrait, 3 = alt/landscape
+                    if (!mCameraDisabled) {
+                        // Start the Camera
+                        Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        mContext.startActivity(intent);
+                        mCallback.goToUnlockScreen();
+                    } else {
+                        toggleRingMode();
+                        mUnlockWidgetMethods.updateResources();
+                        mCallback.pokeWakelock();
                     }
                 }
-                return true;
+            } else {
+                final boolean isLand = mCreationOrientation == Configuration.ORIENTATION_LANDSCAPE;
+                if ((target == 0 && (mIsScreenLarge || !isLand)) || (target == 2 && !mIsScreenLarge && isLand)) {
+                    mCallback.goToUnlockScreen();
+                } else {
+                    target -= 1 + mTargetOffset;
+                    if (target < mStoredTargets.length && mStoredTargets[target] != null) {
+                        try {
+                            Intent tIntent = Intent.parseUri(mStoredTargets[target], 0);
+                            tIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            mContext.startActivity(tIntent);
+                            mCallback.goToUnlockScreen();
+                            return;
+                        } catch (URISyntaxException e) {
+                        } catch (ActivityNotFoundException e) {
+                        }
+                    }
+                }
+            }
+        }
+
+        public void onGrabbedStateChange(View v, int handle) {
+            // Don't poke the wake lock when returning to a state where the handle is
+            // not grabbed since that can happen when the system (instead of the user)
+            // cancels the grab.
+            if (handle != MultiWaveView.OnTriggerListener.NO_HANDLE) {
+                mCallback.pokeWakelock();
+            }
+        }
+
+        public View getView() {
+            return mMultiWaveView;
+        }
+
+        public void reset(boolean animate) {
+            mMultiWaveView.reset(animate);
+        }
+
+        public void ping() {
+            mMultiWaveView.ping();
+        }
+    }
+
+    private void requestUnlockScreen() {
+        // Delay hiding lock screen long enough for animation to finish
+        postDelayed(new Runnable() {
+            public void run() {
+                mCallback.goToUnlockScreen();
+            }
+        }, WAIT_FOR_ANIMATION_TIMEOUT);
+    }
+
+    private void toggleRingMode() {
+        // toggle silent mode
+        mSilentMode = !mSilentMode;
+        if (mSilentMode) {
+            final boolean vibe = (Settings.System.getInt(
+                mContext.getContentResolver(),
+                Settings.System.VIBRATE_IN_SILENT, 1) == 1);
+
+            mAudioManager.setRingerMode(vibe
+                ? AudioManager.RINGER_MODE_VIBRATE
+                : AudioManager.RINGER_MODE_SILENT);
+        } else {
+            mAudioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+        }
+    }
+
+    /**
+     * In general, we enable unlocking the insecure key guard with the menu key. However, there are
+     * some cases where we wish to disable it, notably when the menu button placement or technology
+     * is prone to false positives.
+     *
+     * @return true if the menu key should be enabled
+     */
+    private boolean shouldEnableMenuKey() {
+        final Resources res = getResources();
+        final boolean configDisabled = res.getBoolean(R.bool.config_disableMenuKeyInLockScreen);
+        final boolean isTestHarness = ActivityManager.isRunningInTestHarness();
+        final boolean fileOverride = (new File(ENABLE_MENU_KEY_FILE)).exists();
+        final boolean menuOverride = Settings.System.getInt(getContext().getContentResolver(), Settings.System.MENU_UNLOCK_SCREEN, 0) == 1;
+        return !configDisabled || isTestHarness || fileOverride || menuOverride;
+    }
+
+    /**
+     * @param context Used to setup the view.
+     * @param configuration The current configuration. Used to use when selecting layout, etc.
+     * @param lockPatternUtils Used to know the state of the lock pattern settings.
+     * @param updateMonitor Used to register for updates on various keyguard related
+     *    state, and query the initial state at setup.
+     * @param callback Used to communicate back to the host keyguard view.
+     */
+    LockScreen(Context context, Configuration configuration, LockPatternUtils lockPatternUtils,
+            KeyguardUpdateMonitor updateMonitor,
+            KeyguardScreenCallback callback) {
+        super(context);
+        mLockPatternUtils = lockPatternUtils;
+        mUpdateMonitor = updateMonitor;
+        mCallback = callback;
+
+        mEnableMenuKeyInLockScreen = shouldEnableMenuKey();
+
+        mCreationOrientation = configuration.orientation;
+
+        mKeyboardHidden = configuration.hardKeyboardHidden;
+
+        if (LockPatternKeyguardView.DEBUG_CONFIGURATION) {
+            Log.v(TAG, "***** CREATING LOCK SCREEN", new RuntimeException());
+            Log.v(TAG, "Cur orient=" + mCreationOrientation
+                    + " res orient=" + context.getResources().getConfiguration().orientation);
+        }
+
+        final LayoutInflater inflater = LayoutInflater.from(context);
+        if (DBG) Log.v(TAG, "Creation orientation = " + mCreationOrientation);
+        if (mCreationOrientation != Configuration.ORIENTATION_LANDSCAPE) {
+            inflater.inflate(R.layout.keyguard_screen_tab_unlock, this, true);
+        } else {
+            inflater.inflate(R.layout.keyguard_screen_tab_unlock_land, this, true);
+        }
+
+        setBackground(mContext, (ViewGroup) findViewById(R.id.root));
+
+        mStatusViewManager = new KeyguardStatusViewManager(this, mUpdateMonitor, mLockPatternUtils,
+                mCallback, false);
+
+        setFocusable(true);
+        setFocusableInTouchMode(true);
+        setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
+
+        mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+        mSilentMode = isSilentMode();
+
+        mUnlockWidget = findViewById(R.id.unlock_widget);
+        if (mUnlockWidget instanceof SlidingTab) {
+            SlidingTab slidingTabView = (SlidingTab) mUnlockWidget;
+            slidingTabView.setHoldAfterTrigger(true, false);
+            slidingTabView.setLeftHintText(R.string.lockscreen_unlock_label);
+            slidingTabView.setLeftTabResources(
+                    R.drawable.ic_jog_dial_unlock,
+                    R.drawable.jog_tab_target_green,
+                    R.drawable.jog_tab_bar_left_unlock,
+                    R.drawable.jog_tab_left_unlock);
+            SlidingTabMethods slidingTabMethods = new SlidingTabMethods(slidingTabView);
+            slidingTabView.setOnTriggerListener(slidingTabMethods);
+            mUnlockWidgetMethods = slidingTabMethods;
+        } else if (mUnlockWidget instanceof WaveView) {
+            WaveView waveView = (WaveView) mUnlockWidget;
+            WaveViewMethods waveViewMethods = new WaveViewMethods(waveView);
+            waveView.setOnTriggerListener(waveViewMethods);
+            mUnlockWidgetMethods = waveViewMethods;
+        } else if (mUnlockWidget instanceof MultiWaveView) {
+            MultiWaveView multiWaveView = (MultiWaveView) mUnlockWidget;
+            MultiWaveViewMethods multiWaveViewMethods = new MultiWaveViewMethods(multiWaveView);
+            multiWaveView.setOnTriggerListener(multiWaveViewMethods);
+            mUnlockWidgetMethods = multiWaveViewMethods;
+        } else {
+            throw new IllegalStateException("Unrecognized unlock widget: " + mUnlockWidget);
+        }
+
+        // Update widget with initial ring state
+        mUnlockWidgetMethods.updateResources();
+
+        if (DBG) Log.v(TAG, "*** LockScreen accel is "
+                + (mUnlockWidget.isHardwareAccelerated() ? "on":"off"));
+    }
+
+    static void setBackground(Context context, ViewGroup layout) {
+        String lockBack = Settings.System.getString(context.getContentResolver(), Settings.System.LOCKSCREEN_BACKGROUND);
+        if (lockBack != null) {
+            if (!lockBack.isEmpty()) {
+                try {
+                    layout.setBackgroundColor(Integer.parseInt(lockBack));
+                } catch(NumberFormatException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                try {
+                    layout.getParent();
+                    ViewParent parent =  layout.getParent();
+                    if (parent != null) {
+                        //change parent to show background correctly on scale
+                        RelativeLayout rlout = new RelativeLayout(context);
+                        ((ViewGroup) parent).removeView(layout);
+                        layout.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                        ((ViewGroup) parent).addView(rlout); // change parent to new layout
+                        rlout.addView(layout);
+                        // create framelayout and add imageview to set background
+                        FrameLayout flayout = new FrameLayout(context);
+                        flayout.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                        ImageView mLockScreenWallpaperImage = new ImageView(flayout.getContext());
+                        mLockScreenWallpaperImage.setScaleType(ScaleType.CENTER_CROP);
+                        flayout.addView(mLockScreenWallpaperImage, -1, -1);
+                        Context settingsContext = context.createPackageContext("com.android.settings", 0);
+                        String wallpaperFile = settingsContext.getFilesDir() + "/lockwallpaper";
+                        Bitmap background = BitmapFactory.decodeFile(wallpaperFile);
+                        Drawable d = new BitmapDrawable(context.getResources(), background);
+                        mLockScreenWallpaperImage.setImageDrawable(d);
+                        // add background to lock screen.
+                        rlout.addView(flayout,0);
+                    }
+                } catch (NameNotFoundException e) {
+                }
+            }
+        }
+    }
+
+    private boolean isSilentMode() {
+        return mAudioManager.getRingerMode() != AudioManager.RINGER_MODE_NORMAL;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_MENU && mEnableMenuKeyInLockScreen) {
+            mCallback.goToUnlockScreen();
         }
         return false;
     }
 
-    private float getCenterXForColumn(int column) {
-        return mPaddingLeft + column * mSquareWidth + mSquareWidth / 2f;
-    }
-
-    private float getCenterYForRow(int row) {
-        return mPaddingTop + row * mSquareHeight + mSquareHeight / 2f;
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        final ArrayList<Cell> pattern = mPattern;
-        final int count = pattern.size();
-        final boolean[][] drawLookup = mPatternDrawLookup;
-
-        if (mPatternDisplayMode == DisplayMode.Animate) {
-
-            // figure out which circles to draw
-
-            // + 1 so we pause on complete pattern
-            final int oneCycle = (count + 1) * MILLIS_PER_CIRCLE_ANIMATING;
-            final int spotInCycle = (int) (SystemClock.elapsedRealtime() -
-                    mAnimatingPeriodStart) % oneCycle;
-            final int numCircles = spotInCycle / MILLIS_PER_CIRCLE_ANIMATING;
-
-            clearPatternDrawLookup();
-            for (int i = 0; i < numCircles; i++) {
-                final Cell cell = pattern.get(i);
-                drawLookup[cell.getRow()][cell.getColumn()] = true;
-            }
-
-            // figure out in progress portion of ghosting line
-
-            final boolean needToUpdateInProgressPoint = numCircles > 0
-                    && numCircles < count;
-
-            if (needToUpdateInProgressPoint) {
-                final float percentageOfNextCircle =
-                        ((float) (spotInCycle % MILLIS_PER_CIRCLE_ANIMATING)) /
-                                MILLIS_PER_CIRCLE_ANIMATING;
-
-                final Cell currentCell = pattern.get(numCircles - 1);
-                final float centerX = getCenterXForColumn(currentCell.column);
-                final float centerY = getCenterYForRow(currentCell.row);
-
-                final Cell nextCell = pattern.get(numCircles);
-                final float dx = percentageOfNextCircle *
-                        (getCenterXForColumn(nextCell.column) - centerX);
-                final float dy = percentageOfNextCircle *
-                        (getCenterYForRow(nextCell.row) - centerY);
-                mInProgressX = centerX + dx;
-                mInProgressY = centerY + dy;
-            }
-            // TODO: Infinite loop here...
-            invalidate();
-        }
-
-        final float squareWidth = mSquareWidth;
-        final float squareHeight = mSquareHeight;
-
-        float radius = (squareWidth * mDiameterFactor * 0.5f);
-        mPathPaint.setStrokeWidth(radius);
-
-        final Path currentPath = mCurrentPath;
-        currentPath.rewind();
-
-        // TODO: the path should be created and cached every time we hit-detect a cell
-        // only the last segment of the path should be computed here
-        // draw the path of the pattern (unless the user is in progress, and
-        // we are in stealth mode)
-        final boolean drawPath = ((!mInStealthMode && mPatternDisplayMode != DisplayMode.Wrong)
-                                    || (mPatternDisplayMode == DisplayMode.Wrong && mShowErrorPath));
-        
-        //final boolean drawPath = (!mInStealthMode || mPatternDisplayMode == DisplayMode.Wrong);
-        if (drawPath) {
-            boolean anyCircles = false;
-            for (int i = 0; i < count; i++) {
-                Cell cell = pattern.get(i);
-
-                // only draw the part of the pattern stored in
-                // the lookup table (this is only different in the case
-                // of animation).
-                if (!drawLookup[cell.row][cell.column]) {
-                    break;
-                }
-                anyCircles = true;
-
-                float centerX = getCenterXForColumn(cell.column);
-                float centerY = getCenterYForRow(cell.row);
-                if (i == 0) {
-                    currentPath.moveTo(centerX, centerY);
-                } else {
-                    currentPath.lineTo(centerX, centerY);
-                }
-            }
-
-            // add last in progress section
-            if ((mPatternInProgress || mPatternDisplayMode == DisplayMode.Animate)
-                    && anyCircles) {
-                currentPath.lineTo(mInProgressX, mInProgressY);
-            }
-            canvas.drawPath(currentPath, mPathPaint);
-        }
-
-        // draw the circles
-        final int paddingTop = mPaddingTop;
-        final int paddingLeft = mPaddingLeft;
-        
-        if (mVisibleDots) {
-            for (int i = 0; i < PATTERN_SIZE; i++) {
-                float topY = paddingTop + i * squareHeight;
-                //float centerY = mPaddingTop + i * mSquareHeight + (mSquareHeight / 2);
-                for (int j = 0; j < PATTERN_SIZE; j++) {
-                    float leftX = paddingLeft + j * squareWidth;
-                    drawCircle(canvas, (int) leftX, (int) topY, drawLookup[i][j]);
-                }
+    void updateConfiguration() {
+        Configuration newConfig = getResources().getConfiguration();
+        if (newConfig.orientation != mCreationOrientation) {
+            mCallback.recreateMe(newConfig);
+        } else if (newConfig.hardKeyboardHidden != mKeyboardHidden) {
+            mKeyboardHidden = newConfig.hardKeyboardHidden;
+            final boolean isKeyboardOpen = mKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO;
+            if (mUpdateMonitor.isKeyguardBypassEnabled() && isKeyboardOpen) {
+                mCallback.goToUnlockScreen();
             }
         }
-
-        // draw the arrows associated with the path (unless the user is in progress, and
-        // we are in stealth mode)
-        boolean oldFlag = (mPaint.getFlags() & Paint.FILTER_BITMAP_FLAG) != 0;
-        mPaint.setFilterBitmap(true); // draw with higher quality since we render with transforms
-        if (drawPath) {
-            for (int i = 0; i < count - 1; i++) {
-                Cell cell = pattern.get(i);
-                Cell next = pattern.get(i + 1);
-
-                // only draw the part of the pattern stored in
-                // the lookup table (this is only different in the case
-                // of animation).
-                if (!drawLookup[next.row][next.column]) {
-                    break;
-                }
-
-                float leftX = paddingLeft + cell.column * squareWidth;
-                float topY = paddingTop + cell.row * squareHeight;
-
-                drawArrow(canvas, leftX, topY, cell, next);
-            }
-        }
-        mPaint.setFilterBitmap(oldFlag); // restore default flag
-    }
-
-    private void drawArrow(Canvas canvas, float leftX, float topY, Cell start, Cell end) {
-        boolean green = mPatternDisplayMode != DisplayMode.Wrong;
-
-        final int endRow = end.row;
-        final int startRow = start.row;
-        final int endColumn = end.column;
-        final int startColumn = start.column;
-
-        // offsets for centering the bitmap in the cell
-        final int offsetX = ((int) mSquareWidth - mBitmapWidth) / 2;
-        final int offsetY = ((int) mSquareHeight - mBitmapHeight) / 2;
-
-        // compute transform to place arrow bitmaps at correct angle inside circle.
-        // This assumes that the arrow image is drawn at 12:00 with it's top edge
-        // coincident with the circle bitmap's top edge.
-        Bitmap arrow = green ? mBitmapArrowGreenUp : mBitmapArrowRedUp;
-        Matrix matrix = new Matrix();
-        final int cellWidth = mBitmapCircleDefault.getWidth();
-        final int cellHeight = mBitmapCircleDefault.getHeight();
-
-        // the up arrow bitmap is at 12:00, so find the rotation from x axis and add 90 degrees.
-        final float theta = (float) Math.atan2(
-                (double) (endRow - startRow), (double) (endColumn - startColumn));
-        final float angle = (float) Math.toDegrees(theta) + 90.0f;
-
-        // compose matrix
-        matrix.setTranslate(leftX + offsetX, topY + offsetY); // transform to cell position
-        matrix.preRotate(angle, cellWidth / 2.0f, cellHeight / 2.0f);  // rotate about cell center
-        matrix.preTranslate((cellWidth - arrow.getWidth()) / 2.0f, 0.0f); // translate to 12:00 pos
-        canvas.drawBitmap(arrow, matrix, mPaint);
-    }
-
-    /**
-     * @param canvas
-     * @param leftX
-     * @param topY
-     * @param partOfPattern Whether this circle is part of the pattern.
-     */
-    private void drawCircle(Canvas canvas, int leftX, int topY, boolean partOfPattern) {
-        Bitmap outerCircle;
-        Bitmap innerCircle;
-
-        if (!partOfPattern || (mInStealthMode && mPatternDisplayMode != DisplayMode.Wrong)) {
-            // unselected circle
-            outerCircle = mBitmapCircleDefault;
-            innerCircle = mBitmapBtnDefault;
-        } else if (mPatternInProgress) {
-            // user is in middle of drawing a pattern
-            outerCircle = mBitmapCircleGreen;
-            innerCircle = mBitmapBtnTouched;
-        } else if (mPatternDisplayMode == DisplayMode.Wrong) {
-            // the pattern is wrong
-            
-            if (mShowErrorPath) {
-                outerCircle = mBitmapCircleRed;
-                innerCircle = mBitmapBtnDefault;
-            }
-            else {
-                outerCircle = mBitmapCircleDefault;
-                innerCircle = mBitmapBtnDefault;
-            }            
-        } else if (mPatternDisplayMode == DisplayMode.Correct ||
-                mPatternDisplayMode == DisplayMode.Animate) {
-            // the pattern is correct
-            outerCircle = mBitmapCircleGreen;
-            innerCircle = mBitmapBtnDefault;
-        } else {
-            throw new IllegalStateException("unknown display mode " + mPatternDisplayMode);
-        }
-
-        final int width = mBitmapWidth;
-        final int height = mBitmapHeight;
-
-        final float squareWidth = mSquareWidth;
-        final float squareHeight = mSquareHeight;
-
-        int offsetX = (int) ((squareWidth - width) / 2f);
-        int offsetY = (int) ((squareHeight - height) / 2f);
-
-        canvas.drawBitmap(outerCircle, leftX + offsetX, topY + offsetY, mPaint);
-        canvas.drawBitmap(innerCircle, leftX + offsetX, topY + offsetY, mPaint);
     }
 
     @Override
-    protected Parcelable onSaveInstanceState() {
-        Parcelable superState = super.onSaveInstanceState();
-        return new SavedState(superState,
-                LockPatternUtils.patternToString(mPattern),
-                mPatternDisplayMode.ordinal(),
-                mInputEnabled, mInStealthMode, mTactileFeedbackEnabled, mVisibleDots, mShowErrorPath);
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if (LockPatternKeyguardView.DEBUG_CONFIGURATION) {
+            Log.v(TAG, "***** LOCK ATTACHED TO WINDOW");
+            Log.v(TAG, "Cur orient=" + mCreationOrientation
+                    + ", new config=" + getResources().getConfiguration());
+        }
+        updateConfiguration();
     }
 
+    /** {@inheritDoc} */
     @Override
-    protected void onRestoreInstanceState(Parcelable state) {
-        final SavedState ss = (SavedState) state;
-        super.onRestoreInstanceState(ss.getSuperState());
-        setPattern(
-                DisplayMode.Correct,
-                LockPatternUtils.stringToPattern(ss.getSerializedPattern()));
-        mPatternDisplayMode = DisplayMode.values()[ss.getDisplayMode()];
-        mInputEnabled = ss.isInputEnabled();
-        mInStealthMode = ss.isInStealthMode();
-        mTactileFeedbackEnabled = ss.isTactileFeedbackEnabled();
-        mVisibleDots = ss.isVisibleDots();
-        mShowErrorPath = ss.isShowErrorPath();
+    protected void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (LockPatternKeyguardView.DEBUG_CONFIGURATION) {
+            Log.w(TAG, "***** LOCK CONFIG CHANGING", new RuntimeException());
+            Log.v(TAG, "Cur orient=" + mCreationOrientation
+                    + ", new config=" + newConfig);
+        }
+        updateConfiguration();
     }
 
-    /**
-     * The parecelable for saving and restoring a lock pattern view.
-     */
-    private static class SavedState extends BaseSavedState {
+    /** {@inheritDoc} */
+    public boolean needsInput() {
+        return false;
+    }
 
-        private final String mSerializedPattern;
-        private final int mDisplayMode;
-        private final boolean mInputEnabled;
-        private final boolean mInStealthMode;
-        private final boolean mTactileFeedbackEnabled;
-        private final boolean mVisibleDots;
-        private final boolean mShowErrorPath;
+    /** {@inheritDoc} */
+    public void onPause() {
+        mStatusViewManager.onPause();
+        mUnlockWidgetMethods.reset(false);
+    }
 
-        /**
-         * Constructor called from {@link LockPatternView#onSaveInstanceState()}
-         */
-        private SavedState(Parcelable superState, String serializedPattern, int displayMode,
-                boolean inputEnabled, boolean inStealthMode, boolean tactileFeedbackEnabled, boolean visibleDots, boolean showErrorPath) {
-            super(superState);
-            mSerializedPattern = serializedPattern;
-            mDisplayMode = displayMode;
-            mInputEnabled = inputEnabled;
-            mInStealthMode = inStealthMode;
-            mTactileFeedbackEnabled = tactileFeedbackEnabled;
-            mVisibleDots = visibleDots;
-            mShowErrorPath = showErrorPath;
+    private final Runnable mOnResumePing = new Runnable() {
+        public void run() {
+            mUnlockWidgetMethods.ping();
         }
+    };
 
-        /**
-         * Constructor called from {@link #CREATOR}
-         */
-        private SavedState(Parcel in) {
-            super(in);
-            mSerializedPattern = in.readString();
-            mDisplayMode = in.readInt();
-            mInputEnabled = (Boolean) in.readValue(null);
-            mInStealthMode = (Boolean) in.readValue(null);
-            mTactileFeedbackEnabled = (Boolean) in.readValue(null);
-            mVisibleDots = (Boolean) in.readValue(null);
-            mShowErrorPath = (Boolean) in.readValue(null);
-        }
+    /** {@inheritDoc} */
+    public void onResume() {
+        mStatusViewManager.onResume();
+        postDelayed(mOnResumePing, ON_RESUME_PING_DELAY);
+    }
 
-        public String getSerializedPattern() {
-            return mSerializedPattern;
-        }
+    /** {@inheritDoc} */
+    public void cleanUp() {
+        mUpdateMonitor.removeCallback(this); // this must be first
+        mLockPatternUtils = null;
+        mUpdateMonitor = null;
+        mCallback = null;
+    }
 
-        public int getDisplayMode() {
-            return mDisplayMode;
+    /** {@inheritDoc} */
+    public void onRingerModeChanged(int state) {
+        boolean silent = AudioManager.RINGER_MODE_NORMAL != state;
+        if (silent != mSilentMode) {
+            mSilentMode = silent;
+            mUnlockWidgetMethods.updateResources();
         }
+    }
 
-        public boolean isInputEnabled() {
-            return mInputEnabled;
-        }
-
-        public boolean isInStealthMode() {
-            return mInStealthMode;
-        }
-
-        public boolean isTactileFeedbackEnabled(){
-            return mTactileFeedbackEnabled;
-        }
-        
-        public boolean isVisibleDots() {
-            return mVisibleDots;
-        }
-        
-        public boolean isShowErrorPath() {
-            return mShowErrorPath;
-        }
-
-        @Override
-        public void writeToParcel(Parcel dest, int flags) {
-            super.writeToParcel(dest, flags);
-            dest.writeString(mSerializedPattern);
-            dest.writeInt(mDisplayMode);
-            dest.writeValue(mInputEnabled);
-            dest.writeValue(mInStealthMode);
-            dest.writeValue(mTactileFeedbackEnabled);
-            dest.writeValue(mVisibleDots);
-            dest.writeValue(mShowErrorPath);
-        }
-
-        public static final Parcelable.Creator<SavedState> CREATOR =
-                new Creator<SavedState>() {
-                    public SavedState createFromParcel(Parcel in) {
-                        return new SavedState(in);
-                    }
-
-                    public SavedState[] newArray(int size) {
-                        return new SavedState[size];
-                    }
-                };
+    public void onPhoneStateChanged(String newState) {
     }
 }
+

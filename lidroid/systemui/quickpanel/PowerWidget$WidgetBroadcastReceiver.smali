@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 260
+    .line 296
     iput-object p1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$WidgetBroadcastReceiver;->this$0:Lcom/lidroid/systemui/quickpanel/PowerWidget;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 260
+    .line 296
     invoke-direct {p0, p1}, Lcom/lidroid/systemui/quickpanel/PowerWidget$WidgetBroadcastReceiver;-><init>(Lcom/lidroid/systemui/quickpanel/PowerWidget;)V
 
     return-void
@@ -52,7 +52,7 @@
     .parameter "intent"
 
     .prologue
-    .line 262
+    .line 298
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -65,21 +65,21 @@
 
     if-eqz v0, :cond_0
 
-    .line 263
+    .line 299
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$WidgetBroadcastReceiver;->this$0:Lcom/lidroid/systemui/quickpanel/PowerWidget;
 
     invoke-virtual {v0}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->setupWidget()V
 
-    .line 273
+    .line 309
     :goto_0
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$WidgetBroadcastReceiver;->this$0:Lcom/lidroid/systemui/quickpanel/PowerWidget;
 
     invoke-virtual {v0}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->updateWidget()V
 
-    .line 274
+    .line 310
     return-void
 
-    .line 264
+    .line 300
     :cond_0
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -93,20 +93,20 @@
 
     if-eqz v0, :cond_1
 
-    .line 265
+    .line 301
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$WidgetBroadcastReceiver;->this$0:Lcom/lidroid/systemui/quickpanel/PowerWidget;
 
     #calls: Lcom/lidroid/systemui/quickpanel/PowerWidget;->updateButtonLayoutWidth()V
     invoke-static {v0}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->access$100(Lcom/lidroid/systemui/quickpanel/PowerWidget;)V
 
-    .line 266
+    .line 302
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$WidgetBroadcastReceiver;->this$0:Lcom/lidroid/systemui/quickpanel/PowerWidget;
 
     invoke-virtual {v0}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->setupWidget()V
 
     goto :goto_0
 
-    .line 269
+    .line 305
     :cond_1
     invoke-static {p1, p2}, Lcom/lidroid/systemui/quickpanel/PowerButton;->handleOnReceive(Landroid/content/Context;Landroid/content/Intent;)V
 

@@ -41,7 +41,7 @@
 
     .prologue
     .line 35
-    const v0, 0x7f090109
+    const v0, 0x7f0900c3
 
     return v0
 .end method
@@ -103,7 +103,7 @@
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/LockScreenActionButton;->mState:I
 
     .line 21
-    const v0, 0x7f02014c
+    const v0, 0x7f020164
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/LockScreenActionButton;->mIcon:I
 

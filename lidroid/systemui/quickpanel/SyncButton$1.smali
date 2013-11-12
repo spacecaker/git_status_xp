@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 20
+    .line 16
     iput-object p1, p0, Lcom/lidroid/systemui/quickpanel/SyncButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/SyncButton;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,11 +42,11 @@
     .parameter "which"
 
     .prologue
-    .line 23
+    .line 19
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/SyncButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/SyncButton;
 
     invoke-virtual {v0}, Lcom/lidroid/systemui/quickpanel/SyncButton;->update()V
 
-    .line 24
+    .line 20
     return-void
 .end method

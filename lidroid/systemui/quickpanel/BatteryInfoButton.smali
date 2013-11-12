@@ -103,12 +103,12 @@
 
     .line 30
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v3, 0x7f090114
+    const v3, 0x7f0900b9
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     .line 33
-    const v3, 0x7f060009
+    const v3, 0x7f060007
 
     const/4 v4, 0x0
 
@@ -168,7 +168,7 @@
 
     .prologue
     .line 22
-    const v0, 0x7f090114
+    const v0, 0x7f0900b9
 
     return v0
 .end method
@@ -203,7 +203,7 @@
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;->mState:I
 
     .line 17
-    const v0, 0x7f02013a
+    const v0, 0x7f02013d
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;->mIcon:I
 

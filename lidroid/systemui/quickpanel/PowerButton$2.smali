@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 175
+    .line 176
     iput-object p1, p0, Lcom/lidroid/systemui/quickpanel/PowerButton$2;->this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,14 +42,14 @@
     .parameter "v"
 
     .prologue
-    .line 177
+    .line 178
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/lang/String;
 
-    .line 179
+    .line 180
     .local v2, type:Ljava/lang/String;
     invoke-static {}, Lcom/lidroid/systemui/quickpanel/PowerButton;->access$100()Ljava/util/HashMap;
 
@@ -63,6 +63,7 @@
 
     move-result-object v1
 
+    .end local p0
     .local v1, i$:Ljava/util/Iterator;
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -77,30 +78,30 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 180
+    .line 181
     .local v0, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Lcom/lidroid/systemui/quickpanel/PowerButton;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p0
 
-    check-cast v3, Ljava/lang/String;
+    check-cast p0, Ljava/lang/String;
 
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
     if-eqz v3, :cond_0
 
-    .line 181
+    .line 182
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p0
 
-    check-cast v3, Lcom/lidroid/systemui/quickpanel/PowerButton;
+    check-cast p0, Lcom/lidroid/systemui/quickpanel/PowerButton;
 
-    invoke-virtual {v3}, Lcom/lidroid/systemui/quickpanel/PowerButton;->toggleState()V
+    invoke-virtual {p0}, Lcom/lidroid/systemui/quickpanel/PowerButton;->toggleState()V
 
-    .line 187
+    .line 188
     .end local v0           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Lcom/lidroid/systemui/quickpanel/PowerButton;>;"
     :cond_1
     invoke-static {}, Lcom/lidroid/systemui/quickpanel/PowerButton;->access$200()Landroid/view/View$OnClickListener;
@@ -109,14 +110,14 @@
 
     if-eqz v3, :cond_2
 
-    .line 188
+    .line 189
     invoke-static {}, Lcom/lidroid/systemui/quickpanel/PowerButton;->access$200()Landroid/view/View$OnClickListener;
 
     move-result-object v3
 
     invoke-interface {v3, p1}, Landroid/view/View$OnClickListener;->onClick(Landroid/view/View;)V
 
-    .line 190
+    .line 191
     :cond_2
     return-void
 .end method

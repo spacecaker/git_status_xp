@@ -30,6 +30,48 @@
     .end annotation
 .end field
 
+.field public static final BUTTON_AIRPLANE:Ljava/lang/String; = "toggleAirplane"
+
+.field public static final BUTTON_AUTOROTATE:Ljava/lang/String; = "toggleAutoRotate"
+
+.field public static final BUTTON_BATTERY_INFO:Ljava/lang/String; = "toggleBatteryInfo"
+
+.field public static final BUTTON_BLUETOOTH:Ljava/lang/String; = "toggleBluetooth"
+
+.field public static final BUTTON_BRIGHTNESS:Ljava/lang/String; = "toggleBrightness"
+
+.field public static final BUTTON_FLASHLIGHT:Ljava/lang/String; = "toggleFlashlight"
+
+.field public static final BUTTON_GPS:Ljava/lang/String; = "toggleGPS"
+
+.field public static final BUTTON_LOCKSCREEN:Ljava/lang/String; = "toggleLockScreen"
+
+.field public static final BUTTON_MOBILEDATA:Ljava/lang/String; = "toggleMobileData"
+
+.field public static final BUTTON_NETWORKMODE:Ljava/lang/String; = "toggleNetworkMode"
+
+.field public static final BUTTON_REBOOT:Ljava/lang/String; = "toggleReboot"
+
+.field public static final BUTTON_SCREENTIMEOUT:Ljava/lang/String; = "toggleScreenTimeout"
+
+.field public static final BUTTON_SHUTDOWN:Ljava/lang/String; = "toggleShutdown"
+
+.field public static final BUTTON_SOUND:Ljava/lang/String; = "toggleSound"
+
+.field public static final BUTTON_STAY_AWAKE_PLUGGED:Ljava/lang/String; = "toggleStayAwakePlugged"
+
+.field public static final BUTTON_SYNC:Ljava/lang/String; = "toggleSync"
+
+.field public static final BUTTON_UNKNOWN:Ljava/lang/String; = "unknown"
+
+.field public static final BUTTON_USB_CONNECTION_MODE:Ljava/lang/String; = "toggleUSBConnectionMode"
+
+.field public static final BUTTON_USB_DEBUGGING:Ljava/lang/String; = "toggleUSBDebugging"
+
+.field public static final BUTTON_WIFI:Ljava/lang/String; = "toggleWifi"
+
+.field public static final BUTTON_WIFI_AP:Ljava/lang/String; = "toggleWifiAp"
+
 .field private static GLOBAL_ON_CLICK_LISTENER:Landroid/view/View$OnClickListener; = null
 
 .field private static GLOBAL_ON_LONG_CLICK_LISTENER:Landroid/view/View$OnLongClickListener; = null
@@ -62,6 +104,8 @@
 
 .field protected mStatusIcon:I
 
+.field private mTouchListener:Landroid/view/View$OnTouchListener;
+
 .field protected mType:Ljava/lang/String;
 
 .field protected mView:Landroid/view/View;
@@ -76,19 +120,19 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 39
+    .line 50
     sget-object v0, Landroid/graphics/PorterDuff$Mode;->SCREEN:Landroid/graphics/PorterDuff$Mode;
 
     sput-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->MASK_MODE:Landroid/graphics/PorterDuff$Mode;
 
-    .line 42
+    .line 53
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
-    .line 44
+    .line 55
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
     const-string v1, "toggleWifi"
@@ -97,16 +141,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 45
-    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
-
-    const-string v1, "toggleWifiAp"
-
-    const-class v2, Lcom/lidroid/systemui/quickpanel/WifiApButton;
-
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 46
+    .line 56
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
     const-string v1, "toggleMobileData"
@@ -115,7 +150,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 47
+    .line 57
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
     const-string v1, "toggleGPS"
@@ -124,7 +159,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 48
+    .line 58
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
     const-string v1, "toggleBluetooth"
@@ -133,7 +168,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 49
+    .line 59
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
     const-string v1, "toggleSound"
@@ -142,7 +177,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 50
+    .line 60
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
     const-string v1, "toggleAutoRotate"
@@ -151,7 +186,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 51
+    .line 61
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
     const-string v1, "toggleSync"
@@ -160,7 +195,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 52
+    .line 62
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
     const-string v1, "toggleBrightness"
@@ -169,7 +204,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 53
+    .line 63
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
     const-string v1, "toggleScreenTimeout"
@@ -178,7 +213,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 54
+    .line 64
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
     const-string v1, "toggleLockScreen"
@@ -187,16 +222,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 55
-    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
-
-    const-string v1, "toggleLockScreenAction"
-
-    const-class v2, Lcom/lidroid/systemui/quickpanel/LockScreenActionButton;
-
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 56
+    .line 65
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
     const-string v1, "toggleAirplane"
@@ -205,16 +231,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 57
-    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
-
-    const-string v1, "toggleFlashlight"
-
-    const-class v2, Lcom/lidroid/systemui/quickpanel/FlashlightButton;
-
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 58
+    .line 67
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
     const-string v1, "toggleReboot"
@@ -223,7 +240,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 62
+    .line 68
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
     const-string v1, "toggleShutdown"
@@ -232,6 +249,25 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 69
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleFlashlight"
+
+    const-class v2, Lcom/lidroid/systemui/quickpanel/FlashlightButton;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 70
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleNetworkMode"
+
+    const-class v2, Lcom/lidroid/systemui/quickpanel/NetworkModeButton;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 71
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
     const-string v1, "toggleUSBDebugging"
@@ -252,6 +288,15 @@
     .line 73
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
+    const-string v1, "toggleWifiAp"
+
+    const-class v2, Lcom/lidroid/systemui/quickpanel/WifiApButton;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 74
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
+
     const-string v1, "toggleStayAwakePlugged"
 
     const-class v2, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;
@@ -266,18 +311,26 @@
     const-class v2, Lcom/lidroid/systemui/quickpanel/BatteryInfoButton;
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	
+	sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
-    .line 71
+    const-string v1, "toggleLockScreenAction"
+
+    const-class v2, Lcom/lidroid/systemui/quickpanel/LockScreenActionButton;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 80
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
-    .line 80
+    .line 81
     sput-object v3, Lcom/lidroid/systemui/quickpanel/PowerButton;->GLOBAL_ON_CLICK_LISTENER:Landroid/view/View$OnClickListener;
 
-    .line 83
+    .line 84
     sput-object v3, Lcom/lidroid/systemui/quickpanel/PowerButton;->GLOBAL_ON_LONG_CLICK_LISTENER:Landroid/view/View$OnLongClickListener;
 
     return-void
@@ -287,29 +340,36 @@
     .locals 1
 
     .prologue
-    .line 29
+    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 77
+    .line 78
     const-string v0, "unknown"
 
     iput-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mType:Ljava/lang/String;
 
-    .line 86
+    .line 87
     new-instance v0, Lcom/lidroid/systemui/quickpanel/PowerButton$1;
 
     invoke-direct {v0, p0}, Lcom/lidroid/systemui/quickpanel/PowerButton$1;-><init>(Lcom/lidroid/systemui/quickpanel/PowerButton;)V
 
     iput-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mViewUpdateHandler:Landroid/os/Handler;
 
-    .line 175
+    .line 176
     new-instance v0, Lcom/lidroid/systemui/quickpanel/PowerButton$2;
 
     invoke-direct {v0, p0}, Lcom/lidroid/systemui/quickpanel/PowerButton$2;-><init>(Lcom/lidroid/systemui/quickpanel/PowerButton;)V
 
     iput-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mClickListener:Landroid/view/View$OnClickListener;
 
-    .line 193
+    .line 179
+    new-instance v0, Lcom/lidroid/systemui/quickpanel/PowerButton$4;
+
+    invoke-direct {v0, p0}, Lcom/lidroid/systemui/quickpanel/PowerButton$4;-><init>(Lcom/lidroid/systemui/quickpanel/PowerButton;)V
+
+    iput-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mTouchListener:Landroid/view/View$OnTouchListener;
+
+    .line 194
     new-instance v0, Lcom/lidroid/systemui/quickpanel/PowerButton$3;
 
     invoke-direct {v0, p0}, Lcom/lidroid/systemui/quickpanel/PowerButton$3;-><init>(Lcom/lidroid/systemui/quickpanel/PowerButton;)V
@@ -326,7 +386,7 @@
     .parameter "x2"
 
     .prologue
-    .line 29
+    .line 24
     invoke-direct {p0, p1, p2}, Lcom/lidroid/systemui/quickpanel/PowerButton;->updateImageView(II)V
 
     return-void
@@ -336,7 +396,7 @@
     .locals 1
 
     .prologue
-    .line 29
+    .line 24
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
     return-object v0
@@ -346,7 +406,7 @@
     .locals 1
 
     .prologue
-    .line 29
+    .line 24
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->GLOBAL_ON_CLICK_LISTENER:Landroid/view/View$OnClickListener;
 
     return-object v0
@@ -356,7 +416,7 @@
     .locals 1
 
     .prologue
-    .line 29
+    .line 24
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->GLOBAL_ON_LONG_CLICK_LISTENER:Landroid/view/View$OnLongClickListener;
 
     return-object v0
@@ -366,26 +426,26 @@
     .locals 9
 
     .prologue
-    .line 272
+    .line 273
     new-instance v2, Landroid/content/IntentFilter;
 
     invoke-direct {v2}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 274
-    .local v2, filter:Landroid/content/IntentFilter;
-    sget-object v8, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
-
-    monitor-enter v8
-
     .line 275
-    :try_start_0
+    .local v2, filter:Landroid/content/IntentFilter;
     sget-object v7, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
-    invoke-virtual {v7}, Ljava/util/HashMap;->values()Ljava/util/Collection;
+    monitor-enter v7
 
-    move-result-object v7
+    .line 276
+    :try_start_0
+    sget-object v8, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
-    invoke-interface {v7}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v8}, Ljava/util/HashMap;->values()Ljava/util/Collection;
+
+    move-result-object v8
+
+    invoke-interface {v8}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
@@ -393,9 +453,9 @@
     :cond_0
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_2
+    if-eqz v8, :cond_2
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -403,19 +463,19 @@
 
     check-cast v1, Lcom/lidroid/systemui/quickpanel/PowerButton;
 
-    .line 276
+    .line 277
     .local v1, button:Lcom/lidroid/systemui/quickpanel/PowerButton;
     invoke-virtual {v1}, Lcom/lidroid/systemui/quickpanel/PowerButton;->getBroadcastIntentFilter()Landroid/content/IntentFilter;
 
     move-result-object v6
 
-    .line 279
+    .line 280
     .local v6, tmp:Landroid/content/IntentFilter;
     invoke-virtual {v6}, Landroid/content/IntentFilter;->countActions()I
 
     move-result v5
 
-    .line 280
+    .line 281
     .local v5, num:I
     const/4 v3, 0x0
 
@@ -423,50 +483,50 @@
     :goto_0
     if-ge v3, v5, :cond_0
 
-    .line 281
+    .line 282
     invoke-virtual {v6, v3}, Landroid/content/IntentFilter;->getAction(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 282
+    .line 283
     .local v0, action:Ljava/lang/String;
     invoke-virtual {v2, v0}, Landroid/content/IntentFilter;->hasAction(Ljava/lang/String;)Z
 
-    move-result v7
+    move-result v8
 
-    if-nez v7, :cond_1
+    if-nez v8, :cond_1
 
-    .line 283
+    .line 284
     invoke-virtual {v2, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 280
+    .line 281
     :cond_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 287
+    .line 288
     .end local v0           #action:Ljava/lang/String;
     .end local v1           #button:Lcom/lidroid/systemui/quickpanel/PowerButton;
     .end local v3           #i:I
     .end local v5           #num:I
     .end local v6           #tmp:Landroid/content/IntentFilter;
     :cond_2
-    monitor-exit v8
+    monitor-exit v7
 
-    .line 290
+    .line 291
     return-object v2
 
-    .line 287
+    .line 288
     .end local v4           #i$:Ljava/util/Iterator;
     :catchall_0
-    move-exception v7
+    move-exception v8
 
-    monitor-exit v8
+    monitor-exit v7
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v7
+    throw v8
 .end method
 
 .method public static getAllObservedUris()Ljava/util/List;
@@ -482,35 +542,35 @@
     .end annotation
 
     .prologue
-    .line 295
+    .line 296
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
-    .line 297
-    .local v5, uris:Ljava/util/List;,"Ljava/util/List<Landroid/net/Uri;>;"
-    sget-object v7, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
-
-    monitor-enter v7
-
     .line 298
-    :try_start_0
+    .local v5, uris:Ljava/util/List;,"Ljava/util/List<Landroid/net/Uri;>;"
     sget-object v6, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
-    invoke-virtual {v6}, Ljava/util/HashMap;->values()Ljava/util/Collection;
+    monitor-enter v6
 
-    move-result-object v6
+    .line 299
+    :try_start_0
+    sget-object v7, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
-    invoke-interface {v6}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v7}, Ljava/util/HashMap;->values()Ljava/util/Collection;
+
+    move-result-object v7
+
+    invoke-interface {v7}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_2
+    if-eqz v7, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -518,13 +578,13 @@
 
     check-cast v0, Lcom/lidroid/systemui/quickpanel/PowerButton;
 
-    .line 299
+    .line 300
     .local v0, button:Lcom/lidroid/systemui/quickpanel/PowerButton;
     invoke-virtual {v0}, Lcom/lidroid/systemui/quickpanel/PowerButton;->getObservedUris()Ljava/util/List;
 
     move-result-object v3
 
-    .line 301
+    .line 302
     .local v3, tmp:Ljava/util/List;,"Ljava/util/List<Landroid/net/Uri;>;"
     invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -535,9 +595,9 @@
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_0
+    if-eqz v7, :cond_0
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -545,40 +605,40 @@
 
     check-cast v4, Landroid/net/Uri;
 
-    .line 302
+    .line 303
     .local v4, uri:Landroid/net/Uri;
     invoke-interface {v5, v4}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v7
 
-    if-nez v6, :cond_1
+    if-nez v7, :cond_1
 
-    .line 303
+    .line 304
     invoke-interface {v5, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 307
+    .line 308
     .end local v0           #button:Lcom/lidroid/systemui/quickpanel/PowerButton;
     .end local v2           #i$:Ljava/util/Iterator;
     .end local v3           #tmp:Ljava/util/List;,"Ljava/util/List<Landroid/net/Uri;>;"
     .end local v4           #uri:Landroid/net/Uri;
     :catchall_0
-    move-exception v6
+    move-exception v7
 
-    monitor-exit v7
+    monitor-exit v6
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v6
+    throw v7
 
     :cond_2
     :try_start_1
-    monitor-exit v7
+    monitor-exit v6
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 309
+    .line 310
     return-object v5
 .end method
 
@@ -587,52 +647,59 @@
     .parameter "key"
 
     .prologue
-    .line 345
-    sget-object v1, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
-
-    monitor-enter v1
-
     .line 346
-    :try_start_0
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
-    invoke-virtual {v0, p0}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
+    monitor-enter v0
 
     .line 347
-    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
+    :try_start_0
+    sget-object v1, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
-    invoke-virtual {v0, p0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p0}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result-object v0
+    move-result v1
 
-    check-cast v0, Lcom/lidroid/systemui/quickpanel/PowerButton;
+    if-eqz v1, :cond_0
 
-    monitor-exit v1
+    .line 348
+    sget-object v1, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
-    .line 349
+    invoke-virtual {v1, p0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    .end local p0
+    check-cast p0, Lcom/lidroid/systemui/quickpanel/PowerButton;
+
+    monitor-exit v0
+
+    move-object v0, p0
+
+    .line 350
     :goto_0
     return-object v0
 
+    .restart local p0
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    monitor-exit v1
+    monitor-exit v0
+
+    move-object v0, v1
 
     goto :goto_0
 
-    .line 351
+    .line 352
+    .end local p0
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public static handleOnChangeUri(Landroid/net/Uri;)V
@@ -640,96 +707,12 @@
     .parameter "uri"
 
     .prologue
-    .line 327
-    sget-object v3, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
-
-    monitor-enter v3
-
     .line 328
-    :try_start_0
     sget-object v2, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
-    invoke-virtual {v2}, Ljava/util/HashMap;->values()Ljava/util/Collection;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    .local v1, i$:Ljava/util/Iterator;
-    :cond_0
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/lidroid/systemui/quickpanel/PowerButton;
+    monitor-enter v2
 
     .line 329
-    .local v0, button:Lcom/lidroid/systemui/quickpanel/PowerButton;
-    invoke-virtual {v0}, Lcom/lidroid/systemui/quickpanel/PowerButton;->getObservedUris()Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-interface {v2, p0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 330
-    invoke-virtual {v0, p0}, Lcom/lidroid/systemui/quickpanel/PowerButton;->onChangeUri(Landroid/net/Uri;)V
-
-    goto :goto_0
-
-    .line 333
-    .end local v0           #button:Lcom/lidroid/systemui/quickpanel/PowerButton;
-    .end local v1           #i$:Ljava/util/Iterator;
-    :catchall_0
-    move-exception v2
-
-    monitor-exit v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v2
-
-    .restart local v1       #i$:Ljava/util/Iterator;
-    :cond_1
-    :try_start_1
-    monitor-exit v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    .line 334
-    return-void
-.end method
-
-.method public static handleOnReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
-    .parameter "context"
-    .parameter "intent"
-
-    .prologue
-    .line 313
-    invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 316
-    .local v0, action:Ljava/lang/String;
-    sget-object v4, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
-
-    monitor-enter v4
-
-    .line 317
     :try_start_0
     sget-object v3, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
@@ -739,6 +722,90 @@
 
     invoke-interface {v3}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
+    move-result-object v1
+
+    .local v1, i$:Ljava/util/Iterator;
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/lidroid/systemui/quickpanel/PowerButton;
+
+    .line 330
+    .local v0, button:Lcom/lidroid/systemui/quickpanel/PowerButton;
+    invoke-virtual {v0}, Lcom/lidroid/systemui/quickpanel/PowerButton;->getObservedUris()Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-interface {v3, p0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    .line 331
+    invoke-virtual {v0, p0}, Lcom/lidroid/systemui/quickpanel/PowerButton;->onChangeUri(Landroid/net/Uri;)V
+
+    goto :goto_0
+
+    .line 334
+    .end local v0           #button:Lcom/lidroid/systemui/quickpanel/PowerButton;
+    .end local v1           #i$:Ljava/util/Iterator;
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v3
+
+    .restart local v1       #i$:Ljava/util/Iterator;
+    :cond_1
+    :try_start_1
+    monitor-exit v2
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .line 335
+    return-void
+.end method
+
+.method public static handleOnReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 5
+    .parameter "context"
+    .parameter "intent"
+
+    .prologue
+    .line 314
+    invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 317
+    .local v0, action:Ljava/lang/String;
+    sget-object v3, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
+
+    monitor-enter v3
+
+    .line 318
+    :try_start_0
+    sget-object v4, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
+
+    invoke-virtual {v4}, Ljava/util/HashMap;->values()Ljava/util/Collection;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
@@ -746,9 +813,9 @@
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -756,43 +823,43 @@
 
     check-cast v1, Lcom/lidroid/systemui/quickpanel/PowerButton;
 
-    .line 319
+    .line 320
     .local v1, button:Lcom/lidroid/systemui/quickpanel/PowerButton;
     invoke-virtual {v1}, Lcom/lidroid/systemui/quickpanel/PowerButton;->getBroadcastIntentFilter()Landroid/content/IntentFilter;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->hasAction(Ljava/lang/String;)Z
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->hasAction(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
 
-    .line 320
+    .line 321
     invoke-virtual {v1, p0, p1}, Lcom/lidroid/systemui/quickpanel/PowerButton;->onReceive(Landroid/content/Context;Landroid/content/Intent;)V
 
     goto :goto_0
 
-    .line 323
+    .line 324
     .end local v1           #button:Lcom/lidroid/systemui/quickpanel/PowerButton;
     .end local v2           #i$:Ljava/util/Iterator;
     :catchall_0
-    move-exception v3
+    move-exception v4
 
-    monitor-exit v4
+    monitor-exit v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v3
+    throw v4
 
     .restart local v2       #i$:Ljava/util/Iterator;
     :cond_1
     :try_start_1
-    monitor-exit v4
+    monitor-exit v3
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 324
+    .line 325
     return-void
 .end method
 
@@ -802,7 +869,7 @@
     .parameter "view"
 
     .prologue
-    .line 213
+    .line 214
     sget-object v2, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
     invoke-virtual {v2, p0}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
@@ -813,12 +880,12 @@
 
     if-eqz p1, :cond_1
 
-    .line 214
+    .line 215
     sget-object v3, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
     monitor-enter v3
 
-    .line 215
+    .line 216
     :try_start_0
     sget-object v2, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
@@ -828,31 +895,33 @@
 
     if-eqz v2, :cond_0
 
-    .line 217
+    .line 218
     sget-object v2, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
     invoke-virtual {v2, p0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p0
 
-    check-cast v2, Lcom/lidroid/systemui/quickpanel/PowerButton;
+    .end local p0
+    check-cast p0, Lcom/lidroid/systemui/quickpanel/PowerButton;
 
-    invoke-virtual {v2, p1}, Lcom/lidroid/systemui/quickpanel/PowerButton;->setupButton(Landroid/view/View;)V
+    invoke-virtual {p0, p1}, Lcom/lidroid/systemui/quickpanel/PowerButton;->setupButton(Landroid/view/View;)V
 
-    .line 230
+    .line 231
     :goto_0
     monitor-exit v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 231
+    .line 232
     const/4 v2, 0x1
 
-    .line 233
+    .line 234
     :goto_1
     return v2
 
-    .line 221
+    .line 222
+    .restart local p0
     :cond_0
     :try_start_1
     sget-object v2, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
@@ -869,11 +938,11 @@
 
     check-cast v1, Lcom/lidroid/systemui/quickpanel/PowerButton;
 
-    .line 223
+    .line 224
     .local v1, pb:Lcom/lidroid/systemui/quickpanel/PowerButton;
     invoke-virtual {v1, p1}, Lcom/lidroid/systemui/quickpanel/PowerButton;->setupButton(Landroid/view/View;)V
 
-    .line 225
+    .line 226
     sget-object v2, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
     invoke-virtual {v2, p0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -883,12 +952,14 @@
 
     goto :goto_0
 
-    .line 226
+    .line 227
     .end local v1           #pb:Lcom/lidroid/systemui/quickpanel/PowerButton;
     :catch_0
-    move-exception v0
+    move-exception v2
 
-    .line 227
+    move-object v0, v2
+
+    .line 228
     .local v0, e:Ljava/lang/Exception;
     :try_start_2
     const-string v2, "PowerButton"
@@ -915,8 +986,9 @@
 
     goto :goto_0
 
-    .line 230
+    .line 231
     .end local v0           #e:Ljava/lang/Exception;
+    .end local p0
     :catchall_0
     move-exception v2
 
@@ -926,7 +998,8 @@
 
     throw v2
 
-    .line 233
+    .line 234
+    .restart local p0
     :cond_1
     const/4 v2, 0x0
 
@@ -938,10 +1011,10 @@
     .parameter "listener"
 
     .prologue
-    .line 337
+    .line 338
     sput-object p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->GLOBAL_ON_CLICK_LISTENER:Landroid/view/View$OnClickListener;
 
-    .line 338
+    .line 339
     return-void
 .end method
 
@@ -950,10 +1023,10 @@
     .parameter "listener"
 
     .prologue
-    .line 341
+    .line 342
     sput-object p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->GLOBAL_ON_LONG_CLICK_LISTENER:Landroid/view/View$OnLongClickListener;
 
-    .line 342
+    .line 343
     return-void
 .end method
 
@@ -961,20 +1034,20 @@
     .locals 4
 
     .prologue
-    .line 250
-    sget-object v3, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
-
-    monitor-enter v3
-
-    .line 252
-    :try_start_0
+    .line 251
     sget-object v2, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
-    invoke-virtual {v2}, Ljava/util/HashMap;->values()Ljava/util/Collection;
+    monitor-enter v2
 
-    move-result-object v2
+    .line 253
+    :try_start_0
+    sget-object v3, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
-    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v3}, Ljava/util/HashMap;->values()Ljava/util/Collection;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
@@ -982,9 +1055,9 @@
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -992,38 +1065,40 @@
 
     check-cast v1, Lcom/lidroid/systemui/quickpanel/PowerButton;
 
-    .line 253
+    .line 254
     .local v1, pb:Lcom/lidroid/systemui/quickpanel/PowerButton;
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {v1, v2}, Lcom/lidroid/systemui/quickpanel/PowerButton;->setupButton(Landroid/view/View;)V
+    invoke-virtual {v1, v3}, Lcom/lidroid/systemui/quickpanel/PowerButton;->setupButton(Landroid/view/View;)V
 
     goto :goto_0
 
-    .line 258
+    .line 259
+    .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #pb:Lcom/lidroid/systemui/quickpanel/PowerButton;
     :catchall_0
-    move-exception v2
+    move-exception v3
 
-    monitor-exit v3
+    monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
-
-    .line 257
-    :cond_0
-    :try_start_1
-    sget-object v2, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
-
-    invoke-virtual {v2}, Ljava/util/HashMap;->clear()V
+    throw v3
 
     .line 258
-    monitor-exit v3
+    .restart local v0       #i$:Ljava/util/Iterator;
+    :cond_0
+    :try_start_1
+    sget-object v3, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
+
+    invoke-virtual {v3}, Ljava/util/HashMap;->clear()V
+
+    .line 259
+    monitor-exit v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 259
+    .line 260
     return-void
 .end method
 
@@ -1032,12 +1107,12 @@
     .parameter "key"
 
     .prologue
-    .line 238
+    .line 239
     sget-object v1, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
     monitor-enter v1
 
-    .line 240
+    .line 241
     :try_start_0
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
@@ -1047,7 +1122,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 242
+    .line 243
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1060,19 +1135,19 @@
 
     invoke-virtual {v0, v2}, Lcom/lidroid/systemui/quickpanel/PowerButton;->setupButton(Landroid/view/View;)V
 
-    .line 244
+    .line 245
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 246
+    .line 247
     :cond_0
     monitor-exit v1
 
-    .line 247
+    .line 248
     return-void
 
-    .line 246
+    .line 247
     :catchall_0
     move-exception v0
 
@@ -1087,20 +1162,20 @@
     .locals 4
 
     .prologue
-    .line 262
-    sget-object v3, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
-
-    monitor-enter v3
-
-    .line 264
-    :try_start_0
+    .line 263
     sget-object v2, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
-    invoke-virtual {v2}, Ljava/util/HashMap;->values()Ljava/util/Collection;
+    monitor-enter v2
 
-    move-result-object v2
+    .line 265
+    :try_start_0
+    sget-object v3, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS_LOADED:Ljava/util/HashMap;
 
-    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v3}, Ljava/util/HashMap;->values()Ljava/util/Collection;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
@@ -1108,9 +1183,9 @@
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1118,30 +1193,32 @@
 
     check-cast v1, Lcom/lidroid/systemui/quickpanel/PowerButton;
 
-    .line 265
+    .line 266
     .local v1, pb:Lcom/lidroid/systemui/quickpanel/PowerButton;
     invoke-virtual {v1}, Lcom/lidroid/systemui/quickpanel/PowerButton;->update()V
 
     goto :goto_0
 
-    .line 267
+    .line 268
+    .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #pb:Lcom/lidroid/systemui/quickpanel/PowerButton;
     :catchall_0
-    move-exception v2
+    move-exception v3
 
-    monitor-exit v3
+    monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    throw v3
 
+    .restart local v0       #i$:Ljava/util/Iterator;
     :cond_0
     :try_start_1
-    monitor-exit v3
+    monitor-exit v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 268
+    .line 269
     return-void
 .end method
 
@@ -1151,7 +1228,7 @@
     .parameter "resId"
 
     .prologue
-    .line 166
+    .line 167
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
 
     invoke-virtual {v1, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1160,11 +1237,11 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 167
+    .line 168
     .local v0, imageIcon:Landroid/widget/ImageView;
     invoke-virtual {v0, p2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 168
+    .line 169
     return-void
 .end method
 
@@ -1174,7 +1251,7 @@
     .parameter "resDraw"
 
     .prologue
-    .line 171
+    .line 172
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
 
     invoke-virtual {v1, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1183,11 +1260,11 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 172
+    .line 173
     .local v0, imageIcon:Landroid/widget/ImageView;
     invoke-virtual {v0, p2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 173
+    .line 174
     return-void
 .end method
 
@@ -1197,7 +1274,7 @@
     .locals 1
 
     .prologue
-    .line 145
+    .line 146
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
@@ -1218,7 +1295,7 @@
     .end annotation
 
     .prologue
-    .line 149
+    .line 150
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -1236,7 +1313,7 @@
     .locals 0
 
     .prologue
-    .line 137
+    .line 138
     return-void
 .end method
 
@@ -1245,7 +1322,7 @@
     .parameter "uri"
 
     .prologue
-    .line 142
+    .line 143
     return-void
 .end method
 
@@ -1255,7 +1332,7 @@
     .parameter "intent"
 
     .prologue
-    .line 132
+    .line 133
     return-void
 .end method
 
@@ -1264,29 +1341,29 @@
     .parameter "view"
 
     .prologue
-    .line 153
+    .line 154
     iput-object p1, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
 
-    .line 154
+    .line 155
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    .line 155
+    .line 156
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
 
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mType:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 156
+    .line 157
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
 
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mClickListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 157
+    .line 158
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
 
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mLongClickListener:Landroid/view/View$OnLongClickListener;
@@ -1294,6 +1371,13 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
     .line 159
+    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
+
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mTouchListener:Landroid/view/View$OnTouchListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+
+    .line 160
     :cond_0
     return-void
 .end method
@@ -1305,13 +1389,13 @@
     .locals 0
 
     .prologue
-    .line 125
+    .line 126
     invoke-virtual {p0}, Lcom/lidroid/systemui/quickpanel/PowerButton;->updateState()V
 
-    .line 126
+    .line 127
     invoke-virtual {p0}, Lcom/lidroid/systemui/quickpanel/PowerButton;->updateView()V
 
-    .line 127
+    .line 128
     return-void
 .end method
 
@@ -1322,15 +1406,15 @@
     .locals 3
 
     .prologue
-    .line 117
+    .line 118
     iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
 
     if-eqz v2, :cond_0
 
-    .line 118
-    const v0, 0x7f0c00cb
-
     .line 119
+    const v0, 0x7f0c00b4
+
+    .line 120
     .local v0, buttonText:I
     iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
 
@@ -1340,7 +1424,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 120
+    .line 121
     .local v1, text:Landroid/widget/TextView;
     invoke-virtual {p0}, Lcom/lidroid/systemui/quickpanel/PowerButton;->getText()I
 
@@ -1348,7 +1432,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
-    .line 122
+    .line 123
     .end local v0           #buttonText:I
     .end local v1           #text:Landroid/widget/TextView;
     :cond_0
@@ -1359,13 +1443,13 @@
     .locals 2
 
     .prologue
-    .line 162
+    .line 163
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mViewUpdateHandler:Landroid/os/Handler;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 163
+    .line 164
     return-void
 .end method

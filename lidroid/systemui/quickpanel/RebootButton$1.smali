@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 46
+    .line 33
     iput-object p1, p0, Lcom/lidroid/systemui/quickpanel/RebootButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/RebootButton;
 
     iput-object p2, p0, Lcom/lidroid/systemui/quickpanel/RebootButton$1;->val$context:Landroid/content/Context;
@@ -48,20 +48,20 @@
     .parameter "which"
 
     .prologue
-    .line 48
+    .line 35
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/RebootButton$1;->val$context:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f060006
+    const v2, 0x7f060004
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 49
+    .line 36
     .local v0, actions:[Ljava/lang/String;
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/RebootButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/RebootButton;
 
@@ -70,6 +70,6 @@
     #setter for: Lcom/lidroid/systemui/quickpanel/RebootButton;->action:Ljava/lang/String;
     invoke-static {v1, v2}, Lcom/lidroid/systemui/quickpanel/RebootButton;->access$002(Lcom/lidroid/systemui/quickpanel/RebootButton;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 50
+    .line 37
     return-void
 .end method

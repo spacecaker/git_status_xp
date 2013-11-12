@@ -36,7 +36,12 @@
 # direct methods
 .method constructor <init>(Lcom/lidroid/systemui/quickpanel/WifiButton$WifiStateTracker;Landroid/net/wifi/WifiManager;Z)V
     .locals 0
+    .parameter
+    .parameter
+    .parameter
 
+    .prologue
+    .line 43
     iput-object p1, p0, Lcom/lidroid/systemui/quickpanel/WifiButton$WifiStateTracker$1;->this$0:Lcom/lidroid/systemui/quickpanel/WifiButton$WifiStateTracker;
 
     iput-object p2, p0, Lcom/lidroid/systemui/quickpanel/WifiButton$WifiStateTracker$1;->val$wifiManager:Landroid/net/wifi/WifiManager;
@@ -52,9 +57,13 @@
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .parameter "x0"
 
+    .prologue
+    .line 43
     check-cast p1, [Ljava/lang/Void;
 
+    .end local p1
     invoke-virtual {p0, p1}, Lcom/lidroid/systemui/quickpanel/WifiButton$WifiStateTracker$1;->doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
 
     move-result-object v0
@@ -64,15 +73,20 @@
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
     .locals 2
+    .parameter "args"
 
+    .prologue
     const/4 p1, 0x0
 
+    .line 46
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/WifiButton$WifiStateTracker$1;->val$wifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v1}, Landroid/net/wifi/WifiManager;->getWifiApState()I
 
     move-result v0
 
+    .line 52
+    .local v0, wifiApState:I
     iget-boolean v1, p0, Lcom/lidroid/systemui/quickpanel/WifiButton$WifiStateTracker$1;->val$desiredState:Z
 
     if-eqz v1, :cond_1
@@ -85,6 +99,7 @@
 
     if-ne v0, v1, :cond_1
 
+    .line 54
     :cond_0
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/WifiButton$WifiStateTracker$1;->val$wifiManager:Landroid/net/wifi/WifiManager;
 
@@ -92,6 +107,7 @@
 
     invoke-virtual {v1, p1, p0}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
+    .line 57
     :cond_1
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/WifiButton$WifiStateTracker$1;->val$wifiManager:Landroid/net/wifi/WifiManager;
 
@@ -99,5 +115,6 @@
 
     invoke-virtual {v1, p0}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
+    .line 58
     return-object p1
 .end method

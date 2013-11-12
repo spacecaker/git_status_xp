@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 53
+    .line 40
     iput-object p1, p0, Lcom/lidroid/systemui/quickpanel/RebootButton$2;->this$0:Lcom/lidroid/systemui/quickpanel/RebootButton;
 
     iput-object p2, p0, Lcom/lidroid/systemui/quickpanel/RebootButton$2;->val$context:Landroid/content/Context;
@@ -38,6 +38,54 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
+.end method
+
+.method private rebootRecovery(Ljava/lang/String;)V
+    .locals 2
+    .parameter "stringParam"
+
+    .prologue
+    .line 92
+    const-string v1, "recovery"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 96
+    :try_start_0
+    new-instance v0, Ljava/io/File;
+
+    const-string v1, "/cache/recovery/boot"
+
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .line 97
+    .local v0, bootFile:Ljava/io/File;
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    .line 99
+    invoke-virtual {v0}, Ljava/io/File;->createNewFile()Z
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 109
+    .end local v0           #bootFile:Ljava/io/File;
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 105
+    :catch_0
+    move-exception v1
+
+    goto :goto_0
 .end method
 
 
@@ -48,7 +96,7 @@
     .parameter "which"
 
     .prologue
-    .line 55
+    .line 42
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/RebootButton$2;->val$context:Landroid/content/Context;
 
     const-string v2, "power"
@@ -59,7 +107,7 @@
 
     check-cast v0, Landroid/os/PowerManager;
 
-    .line 56
+    .line 43
     .local v0, pm:Landroid/os/PowerManager;
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/RebootButton$2;->this$0:Lcom/lidroid/systemui/quickpanel/RebootButton;
 
@@ -68,8 +116,10 @@
 
     move-result-object v1
 
+    invoke-direct {p0, v1}, Lcom/lidroid/systemui/quickpanel/RebootButton$2;->rebootRecovery(Ljava/lang/String;)V
+
     invoke-virtual {v0, v1}, Landroid/os/PowerManager;->reboot(Ljava/lang/String;)V
 
-    .line 57
+    .line 44
     return-void
 .end method

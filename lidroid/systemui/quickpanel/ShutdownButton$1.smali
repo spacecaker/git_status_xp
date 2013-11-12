@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 44
+    .line 31
     iput-object p1, p0, Lcom/lidroid/systemui/quickpanel/ShutdownButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/ShutdownButton;
 
     iput-object p2, p0, Lcom/lidroid/systemui/quickpanel/ShutdownButton$1;->val$context:Landroid/content/Context;
@@ -48,14 +48,14 @@
     .parameter "which"
 
     .prologue
-    .line 46
+    .line 33
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.ACTION_REQUEST_SHUTDOWN"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 47
+    .line 34
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "android.intent.extra.KEY_CONFIRM"
 
@@ -63,16 +63,16 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 48
+    .line 35
     const/high16 v1, 0x1000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 49
+    .line 36
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/ShutdownButton$1;->val$context:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 50
+    .line 37
     return-void
 .end method

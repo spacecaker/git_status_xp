@@ -21,7 +21,7 @@
     .locals 2
 
     .prologue
-    .line 18
+    .line 13
     new-instance v0, Lcom/lidroid/systemui/quickpanel/WifiApButton$WifiApStateTracker;
 
     const/4 v1, 0x0
@@ -37,7 +37,7 @@
     .locals 1
 
     .prologue
-    .line 99
+    .line 84
     invoke-direct {p0}, Lcom/lidroid/systemui/quickpanel/PowerButton;-><init>()V
 
     const-string v0, "toggleWifiAp"
@@ -53,18 +53,18 @@
     .locals 2
 
     .prologue
-    .line 149
+    .line 132
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 150
+    .line 133
     .local v0, filter:Landroid/content/IntentFilter;
     const-string v1, "android.net.wifi.WIFI_AP_STATE_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 151
+    .line 134
     return-object v0
 .end method
 
@@ -72,37 +72,35 @@
     .locals 1
 
     .prologue
-    .line 155
-    const v0, 0x7f090108
+    .line 138
+    const v0, 0x7f0900b7
 
     return v0
 .end method
 
 .method protected handleLongClick()Z
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 135
+    .line 118
     new-instance v0, Landroid/content/Intent;
 
-    const-string v1, "android.intent.action.MAIN"
+    const-string v1, "android.settings.WIRELESS_SETTINGS"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 136
+    .line 119
     .local v0, intent:Landroid/content/Intent;
-    const-string v1, "com.android.settings"
+    const-string v1, "android.intent.category.DEFAULT"
 
-    const-string v2, "com.android.settings.TetherSettings"
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 137
+    .line 120
     const/high16 v1, 0x1000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 138
+    .line 121
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/WifiApButton;->mView:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -111,7 +109,7 @@
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 139
+    .line 122
     const/4 v1, 0x1
 
     return v1
@@ -123,12 +121,12 @@
     .parameter "intent"
 
     .prologue
-    .line 144
+    .line 127
     sget-object v0, Lcom/lidroid/systemui/quickpanel/WifiApButton;->sWifiApState:Lcom/lidroid/systemui/quickpanel/StateTracker;
 
     invoke-virtual {v0, p1, p2}, Lcom/lidroid/systemui/quickpanel/StateTracker;->onActualStateChange(Landroid/content/Context;Landroid/content/Intent;)V
 
-    .line 145
+    .line 128
     return-void
 .end method
 
@@ -136,7 +134,7 @@
     .locals 2
 
     .prologue
-    .line 128
+    .line 113
     sget-object v0, Lcom/lidroid/systemui/quickpanel/WifiApButton;->sWifiApState:Lcom/lidroid/systemui/quickpanel/StateTracker;
 
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/WifiApButton;->mView:Landroid/view/View;
@@ -147,7 +145,7 @@
 
     invoke-virtual {v0, v1}, Lcom/lidroid/systemui/quickpanel/StateTracker;->toggleState(Landroid/content/Context;)V
 
-    .line 129
+    .line 114
     return-void
 .end method
 
@@ -155,11 +153,11 @@
     .locals 4
 
     .prologue
-    const v3, 0x7f020166
+    const v3, 0x7f02010d
 
-    const v2, 0x7f020165
+    const v2, 0x7f02010c
 
-    .line 103
+    .line 88
     sget-object v0, Lcom/lidroid/systemui/quickpanel/WifiApButton;->sWifiApState:Lcom/lidroid/systemui/quickpanel/StateTracker;
 
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/WifiApButton;->mView:Landroid/view/View;
@@ -174,29 +172,29 @@
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/WifiApButton;->mState:I
 
-    .line 104
+    .line 89
     iget v0, p0, Lcom/lidroid/systemui/quickpanel/WifiApButton;->mState:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 124
+    .line 109
     :goto_0
     :pswitch_0
     return-void
 
-    .line 106
+    .line 91
     :pswitch_1
     iput v2, p0, Lcom/lidroid/systemui/quickpanel/WifiApButton;->mIcon:I
 
     goto :goto_0
 
-    .line 109
+    .line 94
     :pswitch_2
     iput v3, p0, Lcom/lidroid/systemui/quickpanel/WifiApButton;->mIcon:I
 
     goto :goto_0
 
-    .line 117
+    .line 102
     :pswitch_3
     sget-object v0, Lcom/lidroid/systemui/quickpanel/WifiApButton;->sWifiApState:Lcom/lidroid/systemui/quickpanel/StateTracker;
 
@@ -206,18 +204,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 118
+    .line 103
     iput v3, p0, Lcom/lidroid/systemui/quickpanel/WifiApButton;->mIcon:I
 
     goto :goto_0
 
-    .line 120
+    .line 105
     :cond_0
     iput v2, p0, Lcom/lidroid/systemui/quickpanel/WifiApButton;->mIcon:I
 
     goto :goto_0
 
-    .line 104
+    .line 89
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_2

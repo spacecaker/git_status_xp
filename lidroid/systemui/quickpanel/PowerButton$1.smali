@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 86
+    .line 87
     iput-object p1, p0, Lcom/lidroid/systemui/quickpanel/PowerButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,21 +39,21 @@
     .parameter "msg"
 
     .prologue
-    .line 89
+    .line 90
     iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
 
     iget-object v2, v2, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
 
     if-eqz v2, :cond_0
 
-    .line 90
-    const v0, 0x7f0c00d0
-
     .line 91
-    .local v0, buttonIcon:I
-    const v1, 0x7f0c00cc
+    const v0, 0x7f0c00b3
 
     .line 92
+    .local v0, buttonIcon:I
+    const v1, 0x7f0c00b5
+
+    .line 93
     .local v1, buttonState:I
     iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
 
@@ -64,61 +64,75 @@
     #calls: Lcom/lidroid/systemui/quickpanel/PowerButton;->updateImageView(II)V
     invoke-static {v2, v0, v3}, Lcom/lidroid/systemui/quickpanel/PowerButton;->access$000(Lcom/lidroid/systemui/quickpanel/PowerButton;II)V
 
-    .line 93
+    .line 94
     iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
 
     invoke-virtual {v2}, Lcom/lidroid/systemui/quickpanel/PowerButton;->updateText()V
 
-    .line 96
+    .line 97
     iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
 
     iget v2, v2, Lcom/lidroid/systemui/quickpanel/PowerButton;->mState:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 104
+    .line 105
     iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
 
-    const v3, 0x7f02013b
+    const v3, 0x7f02013e
 
     #calls: Lcom/lidroid/systemui/quickpanel/PowerButton;->updateImageView(II)V
     invoke-static {v2, v1, v3}, Lcom/lidroid/systemui/quickpanel/PowerButton;->access$000(Lcom/lidroid/systemui/quickpanel/PowerButton;II)V
 
-    .line 108
+    .line 109
     .end local v0           #buttonIcon:I
     .end local v1           #buttonState:I
     :cond_0
     :goto_0
     return-void
 
-    .line 98
+    .line 99
     .restart local v0       #buttonIcon:I
     .restart local v1       #buttonState:I
     :pswitch_0
     iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
 
-    const v3, 0x7f02013d
+    const v3, 0x7f020141
 
     #calls: Lcom/lidroid/systemui/quickpanel/PowerButton;->updateImageView(II)V
     invoke-static {v2, v1, v3}, Lcom/lidroid/systemui/quickpanel/PowerButton;->access$000(Lcom/lidroid/systemui/quickpanel/PowerButton;II)V
 
     goto :goto_0
 
-    .line 101
+    .line 102
     :pswitch_1
     iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
 
-    const v3, 0x7f02013c
+    const v3, 0x7f020140
 
     #calls: Lcom/lidroid/systemui/quickpanel/PowerButton;->updateImageView(II)V
     invoke-static {v2, v1, v3}, Lcom/lidroid/systemui/quickpanel/PowerButton;->access$000(Lcom/lidroid/systemui/quickpanel/PowerButton;II)V
 
     goto :goto_0
 
-    .line 96
+    .line 102
+    :pswitch_2
+    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerButton$1;->this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
+
+    const v3, 0x7f02013f
+
+    #calls: Lcom/lidroid/systemui/quickpanel/PowerButton;->updateImageView(II)V
+    invoke-static {v2, v1, v3}, Lcom/lidroid/systemui/quickpanel/PowerButton;->access$000(Lcom/lidroid/systemui/quickpanel/PowerButton;II)V
+
+    goto :goto_0
+
+    .line 97
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
         :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

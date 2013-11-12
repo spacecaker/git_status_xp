@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 53
+    .line 40
     iput-object p1, p0, Lcom/lidroid/systemui/quickpanel/ShutdownButton$2;->this$0:Lcom/lidroid/systemui/quickpanel/ShutdownButton;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,9 +43,9 @@
     .parameter "which"
 
     .prologue
-    .line 55
+    .line 42
     invoke-interface {p1}, Landroid/content/DialogInterface;->cancel()V
 
-    .line 56
+    .line 43
     return-void
 .end method

@@ -17,6 +17,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 16
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     return-void
@@ -27,12 +29,16 @@
 .method public onPause()V
     .locals 3
 
+    .prologue
+    .line 40
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
+    .line 42
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/FlashlightActivity;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
+    .line 43
     invoke-virtual {p0}, Lcom/lidroid/systemui/quickpanel/FlashlightActivity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -43,18 +49,23 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
+    .line 45
     invoke-virtual {p0}, Lcom/lidroid/systemui/quickpanel/FlashlightActivity;->finish()V
 
+    .line 46
     return-void
 .end method
 
 .method public onResume()V
     .locals 6
 
+    .prologue
     const-string v5, "screen_off_timeout"
 
+    .line 23
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
+    .line 25
     invoke-virtual {p0}, Lcom/lidroid/systemui/quickpanel/FlashlightActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v2
@@ -63,16 +74,20 @@
 
     move-result-object v0
 
+    .line 26
+    .local v0, lp:Landroid/view/WindowManager$LayoutParams;
     const/high16 v2, 0x3f80
 
     iput v2, v0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
+    .line 27
     invoke-virtual {p0}, Lcom/lidroid/systemui/quickpanel/FlashlightActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v2
 
     invoke-virtual {v2, v0}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
+    .line 28
     invoke-virtual {p0}, Lcom/lidroid/systemui/quickpanel/FlashlightActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v2
@@ -85,6 +100,7 @@
 
     invoke-virtual {v2, v3}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
+    .line 30
     const-string v2, "power"
 
     invoke-virtual {p0, v2}, Lcom/lidroid/systemui/quickpanel/FlashlightActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -93,6 +109,8 @@
 
     check-cast v1, Landroid/os/PowerManager;
 
+    .line 31
+    .local v1, pm:Landroid/os/PowerManager;
     const/4 v2, 0x6
 
     const-string v3, "Flashlight"
@@ -103,10 +121,12 @@
 
     iput-object v2, p0, Lcom/lidroid/systemui/quickpanel/FlashlightActivity;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
+    .line 32
     iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/FlashlightActivity;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
+    .line 33
     invoke-virtual {p0}, Lcom/lidroid/systemui/quickpanel/FlashlightActivity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -121,6 +141,7 @@
 
     iput v2, p0, Lcom/lidroid/systemui/quickpanel/FlashlightActivity;->mOrigScreenTimeout:I
 
+    .line 35
     invoke-virtual {p0}, Lcom/lidroid/systemui/quickpanel/FlashlightActivity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -131,5 +152,6 @@
 
     invoke-static {v2, v5, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
+    .line 37
     return-void
 .end method

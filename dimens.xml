@@ -55,5 +55,5 @@
     <dimen name="status_bar_signal_icon_inner_size">20.0dip</dimen>
     <dimen name="status_bar_signal_icon_expanded_outer_cu_width">38.0dip</dimen>
     <dimen name="status_bar_signal_icon_expanded_inner_cu_width">16.0dip</dimen>
-    <dimen name="scroll_view_margin_top">200.0dip</dimen>
+    <dimen name="scroll_view_margin_top">130.0dip</dimen>
 </resources>

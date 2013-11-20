@@ -104,7 +104,7 @@
 
     .prologue
     .line 67
-    const v0, 0x7f080084
+    const v0, 0x7f0900f2
 
     return v0
 .end method
@@ -217,7 +217,7 @@
     if-ne v0, v1, :cond_0
 
     .line 23
-    const v0, 0x7f0200f4
+    const v0, 0x7f02014f
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/AutoRotateButton;->mIcon:I
 
@@ -230,7 +230,7 @@
 
     .line 26
     :cond_0
-    const v0, 0x7f0200f3
+    const v0, 0x7f02014e
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/AutoRotateButton;->mIcon:I
 

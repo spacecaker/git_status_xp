@@ -116,7 +116,7 @@
 
     .prologue
     .line 65
-    const v0, 0x7f0800a1
+    const v0, 0x7f090113
 
     return v0
 .end method
@@ -225,7 +225,7 @@
     if-eqz v0, :cond_0
 
     .line 24
-    const v0, 0x7f020107
+    const v0, 0x7f02015e
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;->mIcon:I
 
@@ -240,7 +240,7 @@
 
     .line 27
     :cond_0
-    const v0, 0x7f020106
+    const v0, 0x7f02015d
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/StayAwakePluggedButton;->mIcon:I
 

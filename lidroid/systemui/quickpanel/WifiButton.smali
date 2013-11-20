@@ -73,7 +73,7 @@
 
     .prologue
     .line 138
-    const v0, 0x7f08007d
+    const v0, 0x7f0900eb
 
     return v0
 .end method
@@ -153,9 +153,9 @@
     .locals 4
 
     .prologue
-    const v3, 0x7f020113
+    const v3, 0x7f020168
 
-    const v2, 0x7f020112
+    const v2, 0x7f020167
 
     .line 88
     sget-object v0, Lcom/lidroid/systemui/quickpanel/WifiButton;->sWifiState:Lcom/lidroid/systemui/quickpanel/StateTracker;

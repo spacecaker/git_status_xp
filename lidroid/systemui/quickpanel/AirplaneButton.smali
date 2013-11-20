@@ -116,7 +116,7 @@
 
     .prologue
     .line 65
-    const v0, 0x7f08008b
+    const v0, 0x7f0900f9
 
     return v0
 .end method
@@ -251,7 +251,7 @@
     if-eqz v0, :cond_0
 
     .line 24
-    const v0, 0x7f0200df
+    const v0, 0x7f020139
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/AirplaneButton;->mIcon:I
 
@@ -266,7 +266,7 @@
 
     .line 27
     :cond_0
-    const v0, 0x7f0200de
+    const v0, 0x7f020138
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/AirplaneButton;->mIcon:I
 

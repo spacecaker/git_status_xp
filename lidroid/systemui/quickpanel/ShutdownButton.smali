@@ -71,12 +71,12 @@
 
     .line 27
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v3, 0x7f08008e
+    const v3, 0x7f0900fc
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     .line 29
-    const v3, 0x7f080090
+    const v3, 0x7f0900fd
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -130,7 +130,7 @@
 
     .prologue
     .line 22
-    const v0, 0x7f08008e
+    const v0, 0x7f0900fc
 
     return v0
 .end method
@@ -165,7 +165,7 @@
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/ShutdownButton;->mState:I
 
     .line 17
-    const v0, 0x7f020104
+    const v0, 0x7f02015b
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/ShutdownButton;->mIcon:I
 

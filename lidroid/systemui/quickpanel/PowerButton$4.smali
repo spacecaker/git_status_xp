@@ -43,7 +43,7 @@
 
     .prologue
     .line 260
-    const v1, 0x7f0200f6
+    const v1, 0x7f020151
 
     .line 262
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getActionMasked()I
@@ -69,13 +69,13 @@
 
     .line 265
     :cond_0
-    const v1, 0x7f0200f5
+    const v1, 0x7f020150
 
     goto :goto_0
 
     .line 266
     :cond_1
-    const v1, 0x7f0200f5
+    const v1, 0x7f020150
 
     goto :goto_0
 .end method

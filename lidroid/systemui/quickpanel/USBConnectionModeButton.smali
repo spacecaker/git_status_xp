@@ -115,7 +115,7 @@
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     .line 33
-    const v3, 0x7f0f0006
+    const v3, 0x7f060007
 
     invoke-direct {p0}, Lcom/lidroid/systemui/quickpanel/USBConnectionModeButton;->getCurrentUSBConnectionMode()I
 
@@ -241,7 +241,7 @@
     if-eqz v2, :cond_1
 
     .line 332
-    const v0, 0x7f02010b
+    const v0, 0x7f02014d
 
     .line 340
     :cond_0
@@ -259,7 +259,7 @@
     if-eqz v2, :cond_0
 
     .line 336
-    const v0, 0x7f02010a
+    const v0, 0x7f020163
 
     goto :goto_0
 .end method
@@ -358,7 +358,7 @@
     if-eqz v2, :cond_1
 
     .line 312
-    const v0, 0x7f08009c
+    const v0, 0x7f09010f
 
     .line 320
     :cond_0
@@ -376,7 +376,7 @@
     if-eqz v2, :cond_0
 
     .line 316
-    const v0, 0x7f08009d
+    const v0, 0x7f090110
 
     goto :goto_0
 .end method
@@ -388,7 +388,7 @@
 
     .prologue
     .line 24
-    const v0, 0x7f08009b
+    const v0, 0x7f09010e
 
     return v0
 .end method

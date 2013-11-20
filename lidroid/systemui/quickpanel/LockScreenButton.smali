@@ -119,7 +119,7 @@
 
     .prologue
     .line 87
-    const v0, 0x7f08008a
+    const v0, 0x7f0900f8
 
     return v0
 .end method
@@ -274,7 +274,7 @@
     .locals 2
 
     .prologue
-    const v1, 0x7f0200f1
+    const v1, 0x7f02014a
 
     .line 22
     invoke-static {}, Lcom/lidroid/systemui/quickpanel/LockScreenButton;->getState()Z
@@ -307,7 +307,7 @@
     if-eqz v0, :cond_1
 
     .line 27
-    const v0, 0x7f0200f2
+    const v0, 0x7f02014b
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/LockScreenButton;->mIcon:I
 

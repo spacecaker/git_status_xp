@@ -260,7 +260,7 @@
 
     .prologue
     .line 147
-    const v0, 0x7f080089
+    const v0, 0x7f0900f7
 
     return v0
 .end method
@@ -516,7 +516,7 @@
 
     if-gt v0, v1, :cond_0
 
-    const v2, 0x7f0200fc
+    const v2, 0x7f020156
 
     iput v2, p0, Lcom/lidroid/systemui/quickpanel/ScreenTimeoutButton;->mIcon:I
 
@@ -534,7 +534,7 @@
 
     if-gt v0, v1, :cond_1
 
-    const v2, 0x7f020100
+    const v2, 0x7f020159
 
     iput v2, p0, Lcom/lidroid/systemui/quickpanel/ScreenTimeoutButton;->mIcon:I
 
@@ -550,7 +550,7 @@
 
     if-gt v0, v1, :cond_2
 
-    const v2, 0x7f0200fd
+    const v2, 0x7f020157
 
     iput v2, p0, Lcom/lidroid/systemui/quickpanel/ScreenTimeoutButton;->mIcon:I
 
@@ -566,7 +566,7 @@
 
     if-gt v0, v1, :cond_3
 
-    const v2, 0x7f0200fe
+    const v2, 0x7f020158
 
     iput v2, p0, Lcom/lidroid/systemui/quickpanel/ScreenTimeoutButton;->mIcon:I
 
@@ -582,7 +582,7 @@
 
     if-gt v0, v1, :cond_4
 
-    const v2, 0x7f0200fb
+    const v2, 0x7f020155
 
     iput v2, p0, Lcom/lidroid/systemui/quickpanel/ScreenTimeoutButton;->mIcon:I
 
@@ -598,7 +598,7 @@
 
     if-gt v0, v1, :cond_5
 
-    const v2, 0x7f0200ff
+    const v2, 0x7f02016a
 
     iput v2, p0, Lcom/lidroid/systemui/quickpanel/ScreenTimeoutButton;->mIcon:I
 
@@ -609,7 +609,7 @@
     goto :goto_0
 
     :cond_5
-    const v2, 0x7f020102
+    const v2, 0x7f02015a
 
     iput v2, p0, Lcom/lidroid/systemui/quickpanel/ScreenTimeoutButton;->mIcon:I
 

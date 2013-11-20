@@ -116,7 +116,7 @@
 
     .prologue
     .line 65
-    const v0, 0x7f09010d
+    const v0, 0x7f08009a
 
     return v0
 .end method
@@ -225,7 +225,7 @@
     if-eqz v0, :cond_0
 
     .line 24
-    const v0, 0x7f020162
+    const v0, 0x7f02010d
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;->mIcon:I
 
@@ -240,7 +240,7 @@
 
     .line 27
     :cond_0
-    const v0, 0x7f020161
+    const v0, 0x7f02010c
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/USBDebuggingButton;->mIcon:I
 

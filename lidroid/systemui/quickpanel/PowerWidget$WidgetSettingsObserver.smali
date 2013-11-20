@@ -28,16 +28,16 @@
     .parameter "uri"
 
     .prologue
-    .line 316
+    .line 752
     iput-object p1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$WidgetSettingsObserver;->this$0:Lcom/lidroid/systemui/quickpanel/PowerWidget;
 
-    .line 317
+    .line 753
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 319
+    .line 755
     iput-object p3, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$WidgetSettingsObserver;->mUri:Landroid/net/Uri;
 
-    .line 320
+    .line 757
     return-void
 .end method
 
@@ -47,36 +47,34 @@
     .locals 3
 
     .prologue
-    .line 323
-    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$WidgetSettingsObserver;->this$0:Lcom/lidroid/systemui/quickpanel/PowerWidget;
+    .line 761
+    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$WidgetSettingsObserver;->this$0:Lcom/lidroid/systemui/quickpanel/PowerWidget;
 
     #getter for: Lcom/lidroid/systemui/quickpanel/PowerWidget;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->access$200(Lcom/lidroid/systemui/quickpanel/PowerWidget;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-static {v0}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->access$0(Lcom/lidroid/systemui/quickpanel/PowerWidget;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 325
-    .local v0, resolver:Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
     iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$WidgetSettingsObserver;->mUri:Landroid/net/Uri;
 
     const/4 v2, 0x0
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 326
+    .line 763
     return-void
 .end method
 
 .method public onChange(Z)V
     .locals 2
-    .parameter "selfChange"
+    .parameter "bool"
 
     .prologue
-    .line 335
+    .line 767
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$WidgetSettingsObserver;->mUri:Landroid/net/Uri;
 
     const-string v1, "expanded_widget_buttons"
@@ -91,46 +89,44 @@
 
     if-eqz v0, :cond_0
 
-    .line 336
+    .line 769
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$WidgetSettingsObserver;->this$0:Lcom/lidroid/systemui/quickpanel/PowerWidget;
 
     invoke-virtual {v0}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->setupWidget()V
 
-    .line 338
+    .line 773
     :cond_0
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$WidgetSettingsObserver;->mUri:Landroid/net/Uri;
 
     invoke-static {v0}, Lcom/lidroid/systemui/quickpanel/PowerButton;->handleOnChangeUri(Landroid/net/Uri;)V
 
-    .line 341
+    .line 774
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$WidgetSettingsObserver;->this$0:Lcom/lidroid/systemui/quickpanel/PowerWidget;
 
     invoke-virtual {v0}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->updateWidget()V
 
-    .line 342
+    .line 776
     return-void
 .end method
 
 .method public unobserve()V
-    .locals 2
+    .locals 1
 
     .prologue
-    .line 329
-    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$WidgetSettingsObserver;->this$0:Lcom/lidroid/systemui/quickpanel/PowerWidget;
+    .line 780
+    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$WidgetSettingsObserver;->this$0:Lcom/lidroid/systemui/quickpanel/PowerWidget;
 
     #getter for: Lcom/lidroid/systemui/quickpanel/PowerWidget;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->access$200(Lcom/lidroid/systemui/quickpanel/PowerWidget;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-static {v0}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->access$0(Lcom/lidroid/systemui/quickpanel/PowerWidget;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 331
-    .local v0, resolver:Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
     invoke-virtual {v0, p0}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 332
+    .line 782
     return-void
 .end method

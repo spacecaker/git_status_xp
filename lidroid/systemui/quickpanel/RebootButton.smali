@@ -108,12 +108,12 @@
 
     .line 30
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v3, 0x7f0900fb
+    const v3, 0x7f08008d
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     .line 33
-    const v3, 0x7f060005
+    const v3, 0x7f0f0004
 
     const/4 v4, 0x0
 
@@ -173,7 +173,7 @@
 
     .prologue
     .line 24
-    const v0, 0x7f0900fb
+    const v0, 0x7f08008d
 
     return v0
 .end method
@@ -208,7 +208,7 @@
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/RebootButton;->mState:I
 
     .line 19
-    const v0, 0x7f020152
+    const v0, 0x7f0200f7
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/RebootButton;->mIcon:I
 

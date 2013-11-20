@@ -104,7 +104,7 @@
 
     .prologue
     .line 67
-    const v0, 0x7f0900f4
+    const v0, 0x7f080086
 
     return v0
 .end method
@@ -210,7 +210,7 @@
     if-eqz v0, :cond_0
 
     .line 27
-    const v0, 0x7f020149
+    const v0, 0x7f0200f0
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/GPSButton;->mIcon:I
 
@@ -232,7 +232,7 @@
 
     .line 31
     :cond_0
-    const v0, 0x7f020148
+    const v0, 0x7f0200ef
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/GPSButton;->mIcon:I
 

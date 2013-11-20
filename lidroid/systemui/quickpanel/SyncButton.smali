@@ -104,7 +104,7 @@
 
     .prologue
     .line 104
-    const v0, 0x7f0900f5
+    const v0, 0x7f080087
 
     return v0
 .end method
@@ -317,7 +317,7 @@
     if-eqz v0, :cond_0
 
     .line 41
-    const v0, 0x7f020160
+    const v0, 0x7f020109
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/SyncButton;->mIcon:I
 
@@ -332,7 +332,7 @@
 
     .line 44
     :cond_0
-    const v0, 0x7f02015f
+    const v0, 0x7f020108
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/SyncButton;->mIcon:I
 

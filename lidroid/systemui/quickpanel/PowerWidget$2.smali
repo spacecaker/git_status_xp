@@ -27,9 +27,10 @@
     .parameter
 
     .prologue
-    .line 357
+    .line 1
     iput-object p1, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$2;->this$0:Lcom/lidroid/systemui/quickpanel/PowerWidget;
 
+    .line 204
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -39,16 +40,16 @@
 # virtual methods
 .method public onLongClick(Landroid/view/View;)Z
     .locals 1
-    .parameter "v"
+    .parameter "paramAnonymousView"
 
     .prologue
-    .line 359
+    .line 208
     iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerWidget$2;->this$0:Lcom/lidroid/systemui/quickpanel/PowerWidget;
 
     #calls: Lcom/lidroid/systemui/quickpanel/PowerWidget;->animateCollapse()V
-    invoke-static {v0}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->access$300(Lcom/lidroid/systemui/quickpanel/PowerWidget;)V
+    invoke-static {v0}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->access$2(Lcom/lidroid/systemui/quickpanel/PowerWidget;)V
 
-    .line 360
+    .line 209
     const/4 v0, 0x1
 
     return v0

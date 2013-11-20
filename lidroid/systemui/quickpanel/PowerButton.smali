@@ -40,13 +40,21 @@
 
 .field public static final BUTTON_BRIGHTNESS:Ljava/lang/String; = "toggleBrightness"
 
+.field public static final BUTTON_FLASHLIGHT:Ljava/lang/String; = "toggleFlashlight"
+
 .field public static final BUTTON_GPS:Ljava/lang/String; = "toggleGPS"
 
 .field public static final BUTTON_LOCKSCREEN:Ljava/lang/String; = "toggleLockScreen"
 
+.field public static final BUTTON_ME_PROFILE:Ljava/lang/String; = "toggleMeProfile"
+
 .field public static final BUTTON_MOBILEDATA:Ljava/lang/String; = "toggleMobileData"
 
 .field public static final BUTTON_NETWORKMODE:Ljava/lang/String; = "toggleNetworkMode"
+
+.field public static final BUTTON_REBOOT:Ljava/lang/String; = "toggleReboot"
+
+.field public static final BUTTON_RECENT_APPS:Ljava/lang/String; = "toggleRecentApps"
 
 .field public static final BUTTON_SCREENTIMEOUT:Ljava/lang/String; = "toggleScreenTimeout"
 
@@ -55,6 +63,10 @@
 .field public static final BUTTON_SOUND:Ljava/lang/String; = "toggleSound"
 
 .field public static final BUTTON_STAY_AWAKE_PLUGGED:Ljava/lang/String; = "toggleStayAwakePlugged"
+
+.field public static final BUTTON_SYNC:Ljava/lang/String; = "toggleSync"
+
+.field public static final BUTTON_SYSTEM_SETTINGS:Ljava/lang/String; = "toggleSystemSettings"
 
 .field public static final BUTTON_UNKNOWN:Ljava/lang/String; = "unknown"
 
@@ -88,6 +100,8 @@
 
 
 # instance fields
+.field protected mBitmap:Landroid/graphics/Bitmap;
+
 .field private mClickListener:Landroid/view/View$OnClickListener;
 
 .field protected mIcon:I
@@ -97,6 +111,8 @@
 .field protected mState:I
 
 .field protected mStatusIcon:I
+
+.field protected mText:Ljava/lang/String;
 
 .field private mTouchListener:Landroid/view/View$OnTouchListener;
 
@@ -180,6 +196,15 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 61
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleSync"
+
+    const-class v2, Lcom/lidroid/systemui/quickpanel/SyncButton;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
     .line 62
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
@@ -216,12 +241,30 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 67
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleReboot"
+
+    const-class v2, Lcom/lidroid/systemui/quickpanel/RebootButton;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
     .line 68
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
     const-string v1, "toggleShutdown"
 
     const-class v2, Lcom/lidroid/systemui/quickpanel/ShutdownButton;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 69
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleFlashlight"
+
+    const-class v2, Lcom/lidroid/systemui/quickpanel/FlashlightButton;
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -279,11 +322,30 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 76
     sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
 
-    const-string v1, "toggleLockScreenAction"
+    const-string v1, "toggleSystemSettings"
 
-    const-class v2, Lcom/lidroid/systemui/quickpanel/LockScreenActionButton;
+    const-class v2, Lcom/lidroid/systemui/quickpanel/SystemSettingsButton;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 77
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleRecentApps"
+
+    const-class v2, Lcom/lidroid/systemui/quickpanel/RecentAppsButton;
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 78
+    sget-object v0, Lcom/lidroid/systemui/quickpanel/PowerButton;->BUTTONS:Ljava/util/HashMap;
+
+    const-string v1, "toggleMeProfile"
+
+    const-class v2, Lcom/lidroid/systemui/quickpanel/MeProfileButton;
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -343,6 +405,17 @@
 
     iput-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mLongClickListener:Landroid/view/View$OnLongClickListener;
 
+    .line 457
+    const-string v0, ""
+
+    iput-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mText:Ljava/lang/String;
+
+    .line 459
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mBitmap:Landroid/graphics/Bitmap;
+
+    .line 461
     return-void
 .end method
 
@@ -1195,20 +1268,42 @@
     .parameter "resId"
 
     .prologue
-    .line 167
-    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
+    .line 422
+    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
 
-    invoke-virtual {v1, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 168
-    .local v0, imageIcon:Landroid/widget/ImageView;
     invoke-virtual {v0, p2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 169
+    .line 425
+    const v0, 0x7f0e009a
+
+    if-ne p1, v0, :cond_0
+
+    .line 428
+    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mBitmap:Landroid/graphics/Bitmap;
+
+    if-eqz v0, :cond_0
+
+    .line 430
+    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
+
+    invoke-virtual {v0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mBitmap:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+
+    .line 435
+    :cond_0
     return-void
 .end method
 
@@ -1373,35 +1468,53 @@
     .locals 3
 
     .prologue
-    .line 118
-    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
+    const v2, 0x7f0e009b
 
-    if-eqz v2, :cond_0
+    .line 496
+    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
 
-    .line 119
-    const v0, 0x7f0c00d3
+    if-eqz v0, :cond_0
 
-    .line 120
-    .local v0, buttonText:I
-    iget-object v2, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
+    .line 499
+    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
 
-    invoke-virtual {v2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/widget/TextView;
+    check-cast v0, Landroid/widget/TextView;
 
-    .line 121
-    .local v1, text:Landroid/widget/TextView;
     invoke-virtual {p0}, Lcom/lidroid/systemui/quickpanel/PowerButton;->getText()I
 
-    move-result v2
+    move-result v1
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 123
-    .end local v0           #buttonText:I
-    .end local v1           #text:Landroid/widget/TextView;
+    .line 502
+    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mText:Ljava/lang/String;
+
+    const-string v1, ""
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 504
+    iget-object v0, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mView:Landroid/view/View;
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/lidroid/systemui/quickpanel/PowerButton;->mText:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 508
     :cond_0
     return-void
 .end method

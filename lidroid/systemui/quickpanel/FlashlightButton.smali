@@ -112,7 +112,7 @@
 
     .prologue
     .line 57
-    const v0, 0x7f0900a3
+    const v0, 0x7f08008c
 
     return v0
 .end method
@@ -221,7 +221,7 @@
     packed-switch v0, :pswitch_data_0
 
     .line 26
-    const v0, 0x7f020071
+    const v0, 0x7f0200ed
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/FlashlightButton;->mIcon:I
 
@@ -231,7 +231,7 @@
 
     .line 22
     :pswitch_0
-    const v0, 0x7f020072
+    const v0, 0x7f0200ee
 
     iput v0, p0, Lcom/lidroid/systemui/quickpanel/FlashlightButton;->mIcon:I
 

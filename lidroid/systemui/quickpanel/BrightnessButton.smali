@@ -706,7 +706,7 @@
 
     .prologue
     .line 248
-    const v0, 0x7f0900f6
+    const v0, 0x7f080088
 
     return v0
 .end method
@@ -881,7 +881,7 @@
     .locals 5
 
     .prologue
-    const v4, 0x7f020143
+    const v4, 0x7f0200ea
 
     const/4 v3, 0x5
 
@@ -903,7 +903,7 @@
     if-eqz v1, :cond_0
 
     .line 55
-    const v1, 0x7f020140
+    const v1, 0x7f0200e7
 
     iput v1, p0, Lcom/lidroid/systemui/quickpanel/BrightnessButton;->mIcon:I
 
@@ -924,7 +924,7 @@
 
     .line 72
     :pswitch_0
-    const v1, 0x7f020142
+    const v1, 0x7f0200e9
 
     iput v1, p0, Lcom/lidroid/systemui/quickpanel/BrightnessButton;->mIcon:I
 
@@ -955,7 +955,7 @@
 
     .line 68
     :pswitch_3
-    const v1, 0x7f020141
+    const v1, 0x7f0200e8
 
     iput v1, p0, Lcom/lidroid/systemui/quickpanel/BrightnessButton;->mIcon:I
 

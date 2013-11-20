@@ -126,7 +126,7 @@
 
     .prologue
     .line 93
-    const v0, 0x7f0900ed
+    const v0, 0x7f08007f
 
     return v0
 .end method
@@ -178,7 +178,7 @@
 
     const/4 v1, 0x1
 
-    const-string v2, "com.serajr.powertoggles.POWERTOGGLES_CHANGE_NETWORK_MODE"
+    const-string v2, "com.android.phone.CHANGE_NETWORK_MODE"
 
     .line 83
     iget-object v3, p0, Lcom/lidroid/systemui/quickpanel/NetworkModeButton;->mView:Landroid/view/View;
@@ -206,7 +206,7 @@
 
     invoke-direct {v4, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string v2, "com.serajr.powertoggles.POWERTOGGLES_NEW_NETWORK_MODE"
+    const-string v2, "com.android.phone.NEW_NETWORK_MODE"
 
     invoke-virtual {v4, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -234,7 +234,7 @@
 
     if-ne v0, v1, :cond_0
 
-    const v2, 0x7f02016e
+    const v2, 0x7f0200dc
 
     iput v2, p0, Lcom/lidroid/systemui/quickpanel/NetworkModeButton;->mIcon:I
 
@@ -252,7 +252,7 @@
 
     if-ne v0, v1, :cond_1
 
-    const v2, 0x7f02016d
+    const v2, 0x7f0200db
 
     iput v2, p0, Lcom/lidroid/systemui/quickpanel/NetworkModeButton;->mIcon:I
 
@@ -264,7 +264,7 @@
 
     .line 96
     :cond_1
-    const v2, 0x7f02016f
+    const v2, 0x7f0200dd
 
     iput v2, p0, Lcom/lidroid/systemui/quickpanel/NetworkModeButton;->mIcon:I
 

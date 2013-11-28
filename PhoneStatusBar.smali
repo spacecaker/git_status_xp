@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;,
         Lcom/android/systemui/statusbar/phone/PhoneStatusBar$FastColorDrawable;,
         Lcom/android/systemui/statusbar/phone/PhoneStatusBar$MyTicker;,
         Lcom/android/systemui/statusbar/phone/PhoneStatusBar$H;
@@ -223,6 +224,17 @@
 .field mStatusIcons:Landroid/widget/LinearLayout;
 
 .field mStopTracing:Ljava/lang/Runnable;
+
+.field private mSystemUIPreferencesObservers:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field mSystemUiVisibility:I
 
@@ -498,6 +510,13 @@
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$29;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStopTracing:Ljava/lang/Runnable;
+
+    .line 5000
+    new-instance v0, Ljava/util/LinkedList;
+
+    invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
 
     .line 2774
     return-void
@@ -824,6 +843,29 @@
     iget v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mDolbyInfoCount:I
 
     return v0
+.end method
+
+.method static synthetic access$4231(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/net/Uri;)V
+    .locals 0
+    .parameter
+    .parameter
+
+    .prologue
+    .line 158
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateSystemUIPreferences(Landroid/net/Uri;)V
+
+    return-void
+.end method
+
+.method static synthetic access$4901(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)Landroid/content/Context;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 97
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mContext:Landroid/content/Context;
+
+    return-object v0
 .end method
 
 .method static synthetic access$500(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)Lcom/android/systemui/statusbar/BaseStatusBar$H;
@@ -1504,6 +1546,149 @@
     move-exception v0
 
     goto :goto_0
+.end method
+
+.method private preferenceQuickpanelTogglesPerRow()V
+    .locals 7
+
+    .prologue
+    .line 939
+    const/4 v0, 0x3
+
+    .line 940
+    .local v0, defaultPreferenceValue:I
+    const/4 v4, -0x1
+
+    .line 945
+    .local v4, value:I
+    :try_start_0
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "preference_quickpanel_toggles_per_row"
+
+    invoke-static {v5, v6, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v4
+
+    .line 954
+    :goto_0
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mPowerWidget:Lcom/lidroid/systemui/quickpanel/PowerWidget;
+
+    .line 955
+    .local v3, finalPowerWidget:Lcom/lidroid/systemui/quickpanel/PowerWidget;
+    move v2, v4
+
+    .line 956
+    .local v2, finalGridLayout:I
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    new-instance v6, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$31;
+
+    invoke-direct {v6, p0, v3, v2}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$31;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Lcom/lidroid/systemui/quickpanel/PowerWidget;I)V
+
+    invoke-virtual {v5, v6}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->post(Ljava/lang/Runnable;)Z
+
+    .line 966
+    return-void
+
+    .line 947
+    .end local v2           #finalGridLayout:I
+    .end local v3           #finalPowerWidget:Lcom/lidroid/systemui/quickpanel/PowerWidget;
+    :catch_0
+    move-exception v1
+
+    .line 949
+    .local v1, e:Ljava/lang/Exception;
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_0
+.end method
+
+.method private preferenceQuickpanelTogglesShowLabels()V
+    .locals 8
+
+    .prologue
+    .line 1206
+    const/4 v0, 0x1
+
+    .line 1207
+    .local v0, defaultPreferenceValue:I
+    const/4 v5, -0x1
+
+    .line 1213
+    .local v5, value:I
+    :try_start_0
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string v7, "preference_quickpanel_toggles_show_labels"
+
+    invoke-static {v6, v7, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v5
+
+    .line 1221
+    :goto_0
+    const/4 v6, 0x1
+
+    if-ne v5, v6, :cond_0
+
+    .line 1223
+    const/4 v4, 0x1
+
+    .line 1232
+    .local v4, show:Z
+    :goto_1
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mPowerWidget:Lcom/lidroid/systemui/quickpanel/PowerWidget;
+
+    .line 1233
+    .local v2, finalPowerWidget:Lcom/lidroid/systemui/quickpanel/PowerWidget;
+    move v3, v4
+
+    .line 1234
+    .local v3, finalShow:Z
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    new-instance v7, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$40;
+
+    invoke-direct {v7, p0, v2, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$40;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Lcom/lidroid/systemui/quickpanel/PowerWidget;Z)V
+
+    invoke-virtual {v6, v7}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->post(Ljava/lang/Runnable;)Z
+
+    .line 1244
+    return-void
+
+    .line 1215
+    .end local v2           #finalPowerWidget:Lcom/lidroid/systemui/quickpanel/PowerWidget;
+    .end local v3           #finalShow:Z
+    .end local v4           #show:Z
+    :catch_0
+    move-exception v1
+
+    .line 1217
+    .local v1, e:Ljava/lang/Exception;
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_0
+
+    .line 1227
+    .end local v1           #e:Ljava/lang/Exception;
+    :cond_0
+    const/4 v4, 0x0
+
+    .restart local v4       #show:Z
+    goto :goto_1
 .end method
 
 .method private prepareNavigationBarView()V
@@ -2326,6 +2511,455 @@
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mLightsOnAnimation:Landroid/animation/AnimatorSet;
 
     goto :goto_1
+.end method
+
+.method private setUpQuickPanel()V
+    .locals 2
+
+    .prologue
+    .line 197
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
+
+    const v1, 0x7f0c00cd
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/lidroid/systemui/quickpanel/PowerWidget;
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mPowerWidget:Lcom/lidroid/systemui/quickpanel/PowerWidget;
+
+    .line 199
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->preferenceQuickpanelTogglesPerRow()V
+
+    .line 201
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->preferenceQuickpanelTogglesShowLabels()V
+
+    .line 203
+    return-void
+.end method
+
+.method private startObserveAllPreferences()V
+    .locals 5
+
+    .prologue
+    const/4 v4, 0x0
+
+    .line 139
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    .line 141
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->stopObserveAllPreferences()V
+
+    .line 142
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->clear()V
+
+    .line 147
+    :cond_0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_background_opacity"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 148
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_show_battery_percentage"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 149
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_center_clock"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 150
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_left_corner_tap"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 151
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_right_corner_tap"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 152
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_two_fingers_tap"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 155
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_expanded_background_opacity"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 156
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_expanded_full_screen"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 157
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_expanded_show_tabs"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 158
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_expanded_quickpanel_tab"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 159
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_expanded_sliders_tab"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 160
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_expanded_app_list_tab"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 161
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_expanded_recents_tab"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 162
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_expanded_show_labels"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 163
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_expanded_apps_layout"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 164
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_expanded_grid_apps_per_row"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 165
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_expanded_show_carrier_label"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 166
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_expanded_change_carrier_label"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 167
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_expanded_show_clock"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 168
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_statusbar_expanded_show_date"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 171
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_quickpanel_toggles_show_labels"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 172
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    const-string v3, "preference_quickpanel_toggles_per_row"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;-><init>(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;Landroid/os/Handler;Landroid/net/Uri;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 175
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    .line 176
+    .local v0, iterator:Ljava/util/Iterator;
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 181
+    return-void
+
+    .line 178
+    :cond_1
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;->observe()V
+
+    goto :goto_0
+.end method
+
+.method private stopObserveAllPreferences()V
+    .locals 2
+
+    .prologue
+    .line 117
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mSystemUIPreferencesObservers:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    .line 118
+    .local v0, iterator:Ljava/util/Iterator;
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    .line 123
+    return-void
+
+    .line 120
+    :cond_0
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar$SystemUIPreferencesObserver;->unobserve()V
+
+    goto :goto_0
 .end method
 
 .method private trackMovement(Landroid/view/MotionEvent;)V
@@ -6633,9 +7267,8 @@
 
     invoke-virtual {v4, v1, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mPowerWidget:Lcom/lidroid/systemui/quickpanel/PowerWidget;
-
-    invoke-virtual {v1}, Lcom/lidroid/systemui/quickpanel/PowerWidget;->setupWidget()V
+    .line 713
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setUpQuickPanel()V
 
     .line 714
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarView:Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;

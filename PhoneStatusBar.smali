@@ -15,8 +15,8 @@ public class WifiButton extends PowerButton{
     private static final StateTracker sWifiState = new WifiStateTracker();
 
     /**
-* Subclass of StateTracker to get/set Wifi state.
-*/
+     * Subclass of StateTracker to get/set Wifi state.
+     */
     private static final class WifiStateTracker extends StateTracker {
         @Override
         public int getActualState(Context context) {
@@ -46,8 +46,8 @@ public class WifiButton extends PowerButton{
                 @Override
                 protected Void doInBackground(Void... args) {
                     /**
-* Disable tethering if enabling Wifi
-*/
+                     * Disable tethering if enabling Wifi
+                     */
                     int wifiApState = wifiManager.getWifiApState();
                     if (desiredState
                             && ((wifiApState == WifiManager.WIFI_AP_STATE_ENABLING) || (wifiApState == WifiManager.WIFI_AP_STATE_ENABLED))) {
@@ -73,9 +73,9 @@ public class WifiButton extends PowerButton{
         }
 
         /**
-* Converts WifiManager's state values into our Wifi/Bluetooth-common
-* state values.
-*/
+         * Converts WifiManager's state values into our Wifi/Bluetooth-common
+         * state values.
+         */
         private static int wifiStateToFiveState(int wifiState) {
             switch (wifiState) {
                 case WifiManager.WIFI_STATE_DISABLED:

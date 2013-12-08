@@ -583,6 +583,9 @@ public class StatusBarToggles extends LinearLayout {
             String action = intent.getAction();
 
             if (action.equals(Intent.ACTION_CONFIGURATION_CHANGED)) {
+	        if (mCompactLayout) {
+	            updateButtonLayoutWidth();
+                }
                 recreateButtonLayout();
             } else {
                 // handle the intent through our power buttons

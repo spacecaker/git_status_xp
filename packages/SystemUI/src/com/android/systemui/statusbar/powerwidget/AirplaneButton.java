@@ -1,41 +1,65 @@
-/*
- * Copyright (C) 2012 The AOKP Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+package com.android.systemui.statusbar.powerwidget;
 
-package com.android.internal.util.weather;
+import com.android.systemui.R;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
+import android.provider.Settings;
 
-public class YahooPlaceFinder {
+import java.util.ArrayList;
+import java.util.List;
 
-    private static final String YAHOO_API_BASE_REV_URL = "http://where.yahooapis.com/geocode?appid=jYkTZp64&q=%1$s,+%2$s&gflags=R";
-    private static final String YAHOO_API_BASE_URL = "http://where.yahooapis.com/geocode?appid=jYkTZp64&q=%1$s";
+public class AirplaneButton extends PowerButton {
 
-    public static String reverseGeoCode(Context c, double latitude, double longitude) {
-
-        String url = String.format(YAHOO_API_BASE_REV_URL, String.valueOf(latitude),
-                String.valueOf(longitude));
-        String response = new HttpRetriever().retrieve(url);
-        return new WeatherXmlParser(c).parsePlaceFinderResponse(response);
-
+    private static final List<Uri> OBSERVED_URIS = new ArrayList<Uri>();
+    static {
+        OBSERVED_URIS.add(Settings.System.getUriFor(Settings.System.AIRPLANE_MODE_ON));
     }
 
-    public static String GeoCode(Context c, String location) {
-        String url = String.format(YAHOO_API_BASE_URL, location).replace(' ', '+');
-        String response = new HttpRetriever().retrieve(url);
-        return new WeatherXmlParser(c).parsePlaceFinderResponse(response);
+    public AirplaneButton() { mType = BUTTON_AIRPLANE; }
+
+    @Override
+    protected void updateState(Context context) {
+        if (getState(context)) {
+            mIcon = R.drawable.stat_airplane_on;
+            mState = STATE_ENABLED;
+        } else {
+            mIcon = R.drawable.stat_airplane_off;
+            mState = STATE_DISABLED;
+        }
     }
 
+    @Override
+    protected void toggleState(Context context) {
+        boolean state = getState(context);
+        Settings.System.putInt(context.getContentResolver(),
+            Settings.System.AIRPLANE_MODE_ON, state ? 0 : 1);
+        // notify change
+        Intent intent = new Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        // Reverse state when sending the intent, since we grabbed it before the toggle.
+        intent.putExtra("state", !state);
+        context.sendBroadcast(intent);
+    }
+
+    @Override
+    protected boolean handleLongClick(Context context) {
+        Intent intent = new Intent("android.settings.AIRPLANE_MODE_SETTINGS");
+        intent.addCategory(Intent.CATEGORY_DEFAULT);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+        return true;
+    }
+
+    @Override
+    protected List<Uri> getObservedUris() {
+        return OBSERVED_URIS;
+    }
+
+    private boolean getState(Context context) {
+        return Settings.System.getInt(context.getContentResolver(),
+                 Settings.System.AIRPLANE_MODE_ON,0) == 1;
+    }
 }
+

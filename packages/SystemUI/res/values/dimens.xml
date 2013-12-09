@@ -150,6 +150,12 @@
     <dimen name="notification_panel_margin_bottom">0dp</dimen>
     <dimen name="notification_panel_margin_left">0dp</dimen>
 
+    <!-- Height of the brightness slider in the toggles tab -->
+    <dimen name="toggles_slider_panel_height">48dp</dimen>
+
+    <!-- Toggles row height for page layout -->
+    <dimen name="status_bar_toggles_row_height">100dp</dimen>
+
     <!-- Gravity for the notification panel -->
     <!-- 0x37 = fill_horizontal|top -->
     <integer name="notification_panel_layout_gravity">0x37</integer>

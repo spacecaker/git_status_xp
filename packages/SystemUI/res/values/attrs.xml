@@ -35,5 +35,9 @@
     <declare-styleable name="RecentsPanelView">
         <attr name="recentItemLayout" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="StatusBarToggles">
+        <attr name="compactLayout" format="boolean" />
+    </declare-styleable>
 </resources>
 

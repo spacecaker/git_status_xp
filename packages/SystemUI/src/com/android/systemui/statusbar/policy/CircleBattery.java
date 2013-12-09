@@ -214,8 +214,8 @@ public class CircleBattery extends ImageView {
         mPaintSystem = new Paint(mPaintFont);
         mPaintRed = new Paint(mPaintFont);
 
-        mPaintFont.setColor(res.getColor(R.color.holo_blue_dark));
-        mPaintSystem.setColor(res.getColor(R.color.holo_blue_dark));
+        mPaintFont.setColor(res.getColor(R.color.white));
+        mPaintSystem.setColor(res.getColor(R.color.white));
         // could not find the darker definition anywhere in resources
         // do not want to use static 0x404040 color value. would break theming.
         mPaintGray.setColor(res.getColor(R.color.darker_gray));

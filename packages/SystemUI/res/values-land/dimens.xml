@@ -37,5 +37,6 @@
     <!-- Where to place the app icon over the thumbnail -->
     <dimen name="status_bar_recents_app_icon_left_margin">8dp</dimen>
     <dimen name="status_bar_recents_app_icon_top_margin">8dp</dimen>
-
+    <!-- Toggles row height for page layout -->
+    <dimen name="status_bar_toggles_row_height">80dp</dimen>
 </resources>

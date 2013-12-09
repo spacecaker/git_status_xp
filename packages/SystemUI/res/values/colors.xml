@@ -29,9 +29,17 @@
     <drawable name="notification_item_background_legacy_color">#ffaaaaaa</drawable>
     <drawable name="intruder_bg_pressed">#ff33B5E5</drawable>
     <drawable name="nav_bar_bg">#ff000000</drawable>
-
+    <drawable name="notification_header_bg2">#FF000000</drawable>
     <!-- ==================== system bar only ==================== -->
     <drawable name="system_bar_background">#ff000000</drawable>
     <!-- the darkening filter applied to notifications -->
     <drawable name="notification_icon_area_smoke">#aa000000</drawable>
+
+    <!-- toggles button label -->
+    <color name="toggles_button_label_off">#ffaaaaaa</color>
+    <color name="toggles_button_label_on">#ffffffff</color>
+
+    <!-- tabs text colors -->
+    <color name="tab_selected_color">#ffffffff</color>
+    <color name="tab_deselected_color">#ff808080</color>
 </resources>

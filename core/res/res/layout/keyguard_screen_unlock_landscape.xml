@@ -28,38 +28,57 @@
     android:layout_height="match_parent"
     android:rowCount="7">
 
-    <!-- Column 0: Time, date and status -->
     <com.android.internal.widget.DigitalClock android:id="@+id/time"
-        android:layout_marginTop="8dip"
-        android:layout_marginBottom="12dip"
-        android:layout_gravity="right">
+        android:layout_marginTop="@dimen/keyguard_lockscreen_status_line_clockfont_top_margin"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
         <!-- Because we can't have multi-tone fonts, we render two TextViews, one on
         top of the other. Hence the redundant layout... -->
-        <TextView android:id="@+id/timeDisplayBackground"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:ellipsize="none"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="@dimen/keyguard_lockscreen_clock_font_size"
-            android:layout_marginBottom="6dip"
-            android:textColor="@color/lockscreen_clock_background"
-            />
+            <TextView android:id="@+id/timeDisplayHours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="none"
+                android:textSize="110sp"
+                android:textStyle="bold"
+                android:textColor="@color/lockscreen_clock_foreground"
+                />
 
-        <TextView android:id="@+id/timeDisplayForeground"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:ellipsize="none"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="@dimen/keyguard_lockscreen_clock_font_size"
-            android:layout_marginBottom="6dip"
-            android:layout_alignLeft="@id/timeDisplayBackground"
-            android:layout_alignTop="@id/timeDisplayBackground"
-            android:textColor="@color/lockscreen_clock_foreground"
-            />
+            <TextView android:id="@+id/sep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="none"
+                android:textSize="110sp"
+                android:textColor="@color/lockscreen_clock_foreground"
+                />
 
+            <TextView android:id="@+id/timeDisplayMinutes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="none"
+                android:textSize="110sp"
+                android:textColor="@color/lockscreen_clock_foreground"
+                />
+
+            <TextView android:id="@+id/amPm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="none"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/lockscreen_clock_foreground"
+                />
+
+        </LinearLayout>
     </com.android.internal.widget.DigitalClock>
 
     <TextView

@@ -2344,6 +2344,20 @@ public final class Settings {
         public static final String SIP_ASK_ME_EACH_TIME = "SIP_ASK_ME_EACH_TIME";
 
         /**
+         * Whether or not to auto-collapse the volume panel when status bar is collapsed
+         *
+         * @hide
+         */
+        public static final String COLLAPSE_VOLUME_PANEL = "collapse_volume_panel";
+
+        /**
+         * Whether or not to use a center clock in phone status bar
+         *
+         * @hide
+         */
+        public static final String STATUS_BAR_CENTER_CLOCK = "status_bar_center_clock";
+
+        /**
          * Torch state (flashlight)
          * @hide
          */
@@ -2357,6 +2371,13 @@ public final class Settings {
          * @hide
          */
         public static final String POINTER_SPEED = "pointer_speed";
+
+        /**
+         * Type of toggles to use: 0 = none, 1 = compact, 2 = page
+         *
+         * @hide
+         */
+        public static final String TOGGLES_TYPE = "toggles_type";
 
         /**
          * Use the Notification Power Widget? (Who wouldn't!)
@@ -2461,6 +2482,11 @@ public final class Settings {
          * @hide
          */
         public static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
+
+        /* Network speed indicator
+         * @hide
+         */
+        public static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
 
         /**
          * Display style of the status bar battery information
@@ -2915,7 +2941,10 @@ public final class Settings {
          public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
 
         /**
-         * Show the pending notification counts as overlays on the status bar
+         * Whether to use the custom status bar header or not
+         * @hide
+         */
+        public static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings

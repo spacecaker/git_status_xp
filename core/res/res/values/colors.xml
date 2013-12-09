@@ -166,6 +166,7 @@
     <color name="holo_green_light">#ff99cc00</color>
     <!-- A light Holo shade of red -->
     <color name="holo_red_light">#ffff4444</color>
+    <color name="holo_red_white">#ffffffff</color>
     <!-- A dark Holo shade of blue -->
     <color name="holo_blue_dark">#ff0099cc</color>
     <!-- A dark Holo shade of green -->

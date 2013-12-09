@@ -39,6 +39,7 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Handler;
+import android.graphics.Typeface;
 import android.os.Message;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -132,6 +133,9 @@ class KeyguardStatusViewManager implements OnClickListener {
     // always show battery status?
     private boolean mAlwaysShowBattery = false;
 
+    private static final String SYSTEM = "/system/fonts/";
+    private static final String SYSTEM_FONT_TIME_LIGHT = SYSTEM + "AndroidClockMono-Light.ttf";
+
     // last known SIM state
     protected State mSimState;
 
@@ -153,6 +157,12 @@ class KeyguardStatusViewManager implements OnClickListener {
     private CharSequence mSpn;
     protected int mPhoneState;
     private DigitalClock mDigitalClock;
+
+    private static final Typeface sLightFont;
+  
+    static {
+        sLightFont = Typeface.createFromFile(SYSTEM_FONT_TIME_LIGHT);
+    }
 
     private class TransientTextManager {
         private TextView mTextView;
@@ -267,6 +277,14 @@ class KeyguardStatusViewManager implements OnClickListener {
             mEmergencyCallButton.setText(R.string.lockscreen_emergency_call);
             mEmergencyCallButton.setOnClickListener(this);
             mEmergencyCallButton.setFocusable(false); // touch only!
+        }
+
+        if (mDateView != null) {
+            mDateView.setTypeface(sLightFont);
+        }
+
+        if (mAlarmStatusView != null) {
+            mAlarmStatusView.setTypeface(sLightFont);
         }
 
         mTransientTextManager = new TransientTextManager(mCarrierView);
@@ -749,7 +767,7 @@ class KeyguardStatusViewManager implements OnClickListener {
         }
 
         final int clockAlign = Settings.System.getInt(getContext().getContentResolver(),
-                Settings.System.LOCKSCREEN_CLOCK_ALIGN, 2);
+                Settings.System.LOCKSCREEN_CLOCK_ALIGN, 1);
         int margin = (int) Math.round(getContext().getResources().getDimension(
                 R.dimen.keyguard_lockscreen_status_line_font_right_margin));
 
@@ -759,7 +777,7 @@ class KeyguardStatusViewManager implements OnClickListener {
         }
 
         int leftMargin = 0, rightMargin = 0;
-        int gravity = Gravity.RIGHT;
+        int gravity = Gravity.CENTER;
 
         switch (clockAlign) {
         case 0:

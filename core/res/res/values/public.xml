@@ -175,8 +175,6 @@
   <java-symbol type="id" name="text" />
   <java-symbol type="id" name="time" />
   <java-symbol type="id" name="time_current" />
-  <java-symbol type="id" name="timeDisplayBackground" />
-  <java-symbol type="id" name="timeDisplayForeground" />
   <java-symbol type="id" name="titleDivider" />
   <java-symbol type="id" name="titleDividerTop" />
   <java-symbol type="id" name="timePicker" />
@@ -3941,4 +3939,8 @@
 
   <!-- Stylus gestures -->
   <java-symbol type="bool" name="config_stylusGestures" />
+
+  <java-symbol type="id" name="sep" />
+  <java-symbol type="id" name="timeDisplayHours" />
+  <java-symbol type="id" name="timeDisplayMinutes" />
 </resources>

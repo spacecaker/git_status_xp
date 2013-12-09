@@ -98,6 +98,16 @@
                 />
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="80dp"
+            android:id="@+id/search_light"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/search_light"
+            android:scaleType="center"
+            android:visibility="gone"
+            />
+
         <com.android.systemui.statusbar.policy.DeadZone
             android:id="@+id/deadzone"
             android:layout_height="@dimen/navigation_bar_deadzone_size"
@@ -181,6 +191,16 @@
                 android:scaleType="center"
                 />
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/search_light"
+            android:layout_height="80dp"
+            android:layout_width="match_parent"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/search_light"
+            android:scaleType="center"
+            android:visibility="gone"
+            />
 
         <com.android.systemui.statusbar.policy.DeadZone
             android:id="@+id/deadzone"

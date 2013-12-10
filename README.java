@@ -181,8 +181,6 @@ public class PhoneStatusBar extends BaseStatusBar {
 
     PhoneStatusBarPolicy mIconPolicy;
 
-    private boolean mUseCenterClock = false;
-
     // These are no longer handled by the policy, because we need custom strategies for them
     BatteryController mBatteryController;
     LocationController mLocationController;
@@ -341,8 +339,6 @@ public class PhoneStatusBar extends BaseStatusBar {
                     Settings.System.TOGGLES_TYPE), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.COLLAPSE_VOLUME_PANEL), false, this);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.STATUS_BAR_CENTER_CLOCK), false, this);
             update();
         }
 
@@ -370,12 +366,6 @@ public class PhoneStatusBar extends BaseStatusBar {
             mCollapseVolumes = Settings.System.getInt(
                     resolver, Settings.System.COLLAPSE_VOLUME_PANEL, 0) == 1;
 
-            boolean useCenterClock = Settings.System.getInt(
-                    resolver, Settings.System.STATUS_BAR_CENTER_CLOCK, 0) == 1;
-            if (mUseCenterClock != useCenterClock) {
-                mUseCenterClock = useCenterClock;
-                recreateStatusBar();
-            }
             updateCustomHeaderStatus();
 
         }
@@ -490,8 +480,7 @@ public class PhoneStatusBar extends BaseStatusBar {
                 com.android.internal.R.integer.config_screenBrightnessDim);
 
         mStatusBarWindow = (StatusBarWindowView) View.inflate(context,
-                mUseCenterClock ? R.layout.super_status_bar_center_clock : R.layout.super_status_bar,
-                null);
+                R.layout.super_status_bar, null);
         if (DEBUG) {
             mStatusBarWindow.setBackgroundColor(0x6000FF80);
         }

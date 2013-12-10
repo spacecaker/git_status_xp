@@ -236,20 +236,7 @@ LOCAL_SRC_FILES += \
 	voip/java/android/net/sip/ISipSession.aidl \
 	voip/java/android/net/sip/ISipSessionListener.aidl \
 	voip/java/android/net/sip/ISipService.aidl \
-	fmradio/java/com/stericsson/hardware/fm/IFmReceiver.aidl \
-	fmradio/java/com/stericsson/hardware/fm/IFmTransmitter.aidl \
-	fmradio/java/com/stericsson/hardware/fm/IOnStateChangedListener.aidl \
-	fmradio/java/com/stericsson/hardware/fm/IOnStartedListener.aidl \
-	fmradio/java/com/stericsson/hardware/fm/IOnErrorListener.aidl \
-	fmradio/java/com/stericsson/hardware/fm/IOnScanListener.aidl \
-	fmradio/java/com/stericsson/hardware/fm/IOnForcedPauseListener.aidl \
-	fmradio/java/com/stericsson/hardware/fm/IOnForcedResetListener.aidl \
-	fmradio/java/com/stericsson/hardware/fm/IOnBlockScanListener.aidl \
-	fmradio/java/com/stericsson/hardware/fm/IOnRDSDataFoundListener.aidl \
-	fmradio/java/com/stericsson/hardware/fm/IOnSignalStrengthListener.aidl \
-	fmradio/java/com/stericsson/hardware/fm/IOnStereoListener.aidl \
-	fmradio/java/com/stericsson/hardware/fm/IOnExtraCommandListener.aidl \
-	fmradio/java/com/stericsson/hardware/fm/IOnAutomaticSwitchListener.aidl
+
 #
 
 

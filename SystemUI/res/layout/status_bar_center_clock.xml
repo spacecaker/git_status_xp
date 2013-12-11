@@ -50,6 +50,20 @@
         android:orientation="horizontal"
         >
 
+<<<<<<< HEAD
+
+        <com.android.systemui.statusbar.policy.Clock
+            android:id="@+id/clock"
+            android:textAppearance="@style/TextAppearance.StatusBar.Clock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+	android:paddingLeft="6dip"
+	android:paddingRight="6dip"
+            android:clickable="false"/>
+
+=======
+>>>>>>> 89eace6b4245ed30f32ff34b8d800d09b06a987c
         <LinearLayout
             android:id="@+id/notification_icon_area"
             android:layout_width="0dip"

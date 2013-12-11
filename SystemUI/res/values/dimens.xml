@@ -154,7 +154,7 @@
     <dimen name="toggles_slider_panel_height">48dp</dimen>
 
     <!-- Toggles row height for page layout -->
-    <dimen name="status_bar_toggles_row_height">100dp</dimen>
+    <dimen name="status_bar_toggles_row_height">90dp</dimen>
 
     <!-- Gravity for the notification panel -->
     <!-- 0x37 = fill_horizontal|top -->

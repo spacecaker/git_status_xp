@@ -364,6 +364,8 @@ public class PhoneStatusBar extends BaseStatusBar {
             if (mNotificationPanel != null) {
                 setTogglesType(mTogglesType);
             }
+            if (mTogglesType == TOGGLES_TYPE_COMPACT)
+                mCompactToggles.updateVisibility();
 
             mCollapseVolumes = Settings.System.getInt(
                     resolver, Settings.System.COLLAPSE_VOLUME_PANEL, 0) == 1;
@@ -992,7 +994,6 @@ public class PhoneStatusBar extends BaseStatusBar {
     private void prepareNavigationBarView() {
         mNavigationBarView.reorient();
         mNavigationBarView.setListener(mRecentsClickListener,mRecentsPanel, mHomeSearchActionListener);
-        mNavigationBarView.getSearchLight().setOnTouchListener(mHomeSearchActionListener);
         updateSearchPanel();
     }
 
@@ -1589,12 +1590,6 @@ public class PhoneStatusBar extends BaseStatusBar {
         final WindowManager wm = WindowManagerImpl.getDefault();
         wm.updateViewLayout(mStatusBarContainer, lp);
 
-        if (mTogglesType == TOGGLES_TYPE_PAGE) {
-            if (mNotificationData.size() > 0)
-                mTabHost.setCurrentTab(0);
-            else
-                mTabHost.setCurrentTab(1);
-        }
         // Updating the window layout will force an expensive traversal/redraw.
         // Kick off the reveal animation after this is complete to avoid animation latency.
         if (revealAfterDraw) {
@@ -3087,15 +3082,6 @@ public class PhoneStatusBar extends BaseStatusBar {
         TextView tv = (TextView) view.findViewById(R.id.tabsText);
         tv.setText(text);
         return view;
-    }
-    
-    public void setCurrentTab(int tab) {
-        if (mTogglesType == TOGGLES_TYPE_PAGE)
-            mTabHost.setCurrentTab(tab);
-    }
-
-    public boolean usesPagedToggles() {
-        return mTogglesType == TOGGLES_TYPE_PAGE;
     }
 
     private static class FastColorDrawable extends Drawable {

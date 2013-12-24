@@ -41,41 +41,48 @@ public class NavBar extends Fragment {
     private ViewGroup mContainer;
     private Activity mActivity;
     private MenuItem mEditMenu;
+    private boolean mWasInExpandedState;
     private final static Intent mIntent = new Intent("android.intent.action.NAVBAR_EDIT");
     private static final int MENU_RESET = Menu.FIRST;
     private static final int MENU_EDIT = Menu.FIRST + 1;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.nav_bar, container, false);
-        setHasOptionsMenu(true);
-        mContainer = container;
-        mActivity = getActivity();
-        mActivity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        return view;
-    }
-
-    /**
-     * Toggles navbar edit mode
-     * @param on True to enter edit mode / false to exit
-     * @param save True to save changes / false to discard them
-     */
-    private void toggleEditMode(boolean on, boolean save) {
-        mIntent.putExtra("edit", on);
-        mIntent.putExtra("save", save);
-        mActivity.sendBroadcast(mIntent);
-        mEditMenu.setTitle(on ? R.string.navigation_bar_menu_editable :  R.string.navigation_bar_menu_locked)
-        .setIcon(on ? R.drawable.stat_navbar_edit_on : R.drawable.stat_navbar_edit_off);
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mActivity = activity;
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.nav_bar, container, false);
+
+        mContainer = container;
+        setHasOptionsMenu(true);
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_SHOW_NAVIGATION_IN_EXPANDED_DESKTOP);
+
         // If running on a phone, remove padding around container
-        if (!Utils.isTablet(getActivity())) {
+        if (Utils.isPhone(mActivity)) {
             mContainer.setPadding(0, 0, 0, 0);
         }
+    }
+
+    @Override
+    public void onDetach() {
+        mActivity = null;
+        super.onDetach();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        toggleEditMode(false, false);
     }
 
     @Override
@@ -98,7 +105,7 @@ public class NavBar extends Fragment {
         case MENU_RESET:
             new AlertDialog.Builder(mActivity)
             .setTitle(R.string.lockscreen_target_reset_title)
-            .setIconAttribute(android.R.attr.alertDialogIcon)
+            .setIcon(android.R.drawable.ic_dialog_alert)
             .setMessage(R.string.navigation_bar_reset_message)
             .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
@@ -127,21 +134,23 @@ public class NavBar extends Fragment {
         }
     }
 
-    @Override
-    public void onPause() {
-        toggleEditMode(false, false);
-        super.onPause();
-    }
-
-    @Override
-    public void onStop() {
-        toggleEditMode(false, false);
-        super.onStop();
-    }
-
-    @Override
-    public void onDestroy() {
-        toggleEditMode(false, false);
-        super.onDestroy();
+    /**
+     * Toggles navbar edit mode
+     * @param on True to enter edit mode / false to exit
+     * @param save True to save changes / false to discard them
+     */
+    private void toggleEditMode(boolean on, boolean save) {
+        mIntent.putExtra("edit", on);
+        mIntent.putExtra("save", save);
+        mActivity.sendBroadcast(mIntent);
+        if (mEditMenu != null) {
+            mEditMenu.setTitle(on ? R.string.navigation_bar_menu_editable :  R.string.navigation_bar_menu_locked)
+            .setIcon(on ? R.drawable.stat_navbar_edit_on : R.drawable.stat_navbar_edit_off);
+        }
+        if (on) {
+            Utils.lockCurrentOrientation(mActivity);
+        } else {
+            mActivity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+        }
     }
 }

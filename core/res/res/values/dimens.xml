@@ -240,4 +240,10 @@
 
     <!-- Lockscreen target insets -->
     <item type="dimen" name="lockscreen_target_inset">25dp</item>
+    <!-- Default target placement radius for MultiWaveView -->
+    <dimen name="multiwaveview_target_placement_radius">135dip</dimen>
+
+    <!-- Default distance beyond which MultiWaveView snaps to the target radius -->
+    <dimen name="multiwaveview_snap_margin">20dip</dimen>
+
 </resources>

@@ -1954,6 +1954,16 @@ public final class Settings {
         public static final String LOCKSCREEN_ROTATION = "lockscreen_rotation";
 
         /**
+         * Which lockscreen style to use. The value is an integer.
+         * ( 0 - GlowPadView: JB )
+         * ( 1 - MultiwaveView: ICS )
+         * ( 2 - Tabs: GB   )
+         * ( 3 - Rotary: Eclair )
+         * @hide
+         */
+        public static final String LOCKSCREEN_STYLE = "lockscreen_style";
+
+        /**
          * Control the type of rotation which can be performed using the accelerometer
          * if ACCELEROMETER_ROTATION is enabled.
          * Value is a bitwise combination of
@@ -2462,6 +2472,12 @@ public final class Settings {
          */
         public static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
 
+        /**
+         * Whether or not to use a center clock in phone status bar
+         *
+         * @hide
+         */
+        public static final String STATUS_BAR_QUICKER_PANEL = "status_bar_quicker_panel";
 
         /**
          * Use the QuickPanel Widget? (Who wouldn't!)

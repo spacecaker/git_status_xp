@@ -56,13 +56,13 @@
             android:clickable="true"
             />
 
-        <ImageView android:id="@+id/settings_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:scaleType="center"
-            android:src="@drawable/ic_notify_quicksettings"
-            android:contentDescription="@string/accessibility_settings_button"
-            />
+    <ImageView android:id="@+id/clear_all_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:scaleType="center"
+        android:src="@drawable/ic_notify_clear"
+        android:contentDescription="@string/accessibility_clear_all"
+        />
     </LinearLayout>
 
     <Space
@@ -71,11 +71,23 @@
         android:layout_weight="1"
         />
 
-    <ImageView android:id="@+id/clear_all_button"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:scaleType="center"
-        android:src="@drawable/ic_notify_clear"
-        android:contentDescription="@string/accessibility_clear_all"
-        />
+        <ImageView android:id="@+id/settings_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_notify_quicksettings"
+            android:contentDescription="@string/accessibility_settings_button"
+            />
+
+        <LinearLayout 
+            android:orientation="horizontal" 
+            android:layout_width="wrap_content" 
+            android:layout_height="fill_parent" 
+            android:layout_alignParentRight="true">
+            <com.spacecaker.ButtonBurst 
+                android:id="@+id/quickpanel_button" 
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:scaleType="center"/>
+         </LinearLayout>
 </LinearLayout>

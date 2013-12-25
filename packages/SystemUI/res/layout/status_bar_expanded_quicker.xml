@@ -27,7 +27,7 @@
     android:background="@drawable/notification_panel_bg"
     android:paddingTop="@dimen/notification_panel_padding_top"
     android:layout_marginLeft="@dimen/notification_panel_margin_left"
-    >
+    >	
 
     <TextView
         android:id="@+id/carrier_label"
@@ -40,50 +40,70 @@
         android:visibility="invisible"
         />
 
+	<com.spacecaker.SpaceLayOut 
+            android:orientation="vertical" 
+            android:id="@+id/spacelayoutbar" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/close_handle_underlap"
         android:orientation="vertical"
         >
+        <com.spacecaker.DatePanel 
+            android:orientation="vertical" 
+            android:id="@+id/date_panel" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content">
 
-        <include layout="@layout/status_bar_expanded_header"
+            <com.spacecaker.PageView 
+                android:id="@+id/panelflipper" 
+                android:layout_width="fill_parent" 
+                android:layout_height="45.0dip">
+
+        <include layout="@layout/status_bar_expanded_header_quicker"
             android:layout_width="match_parent"
             android:layout_height="@dimen/notification_panel_header_height"
             />
 
-        <com.android.systemui.statusbar.powerwidget.PowerWidget
-            android:id="@+id/exp_power_stat"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/notification_panel_widget_height"
-        />
+            </com.spacecaker.PageView>
 
-        <TextView
-            android:id="@+id/emergency_calls_only"
-            android:textAppearance="@style/TextAppearance.StatusBar.Expanded.Network.EmergencyOnly"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:paddingBottom="4dp"
-            android:gravity="center"
-            android:visibility="gone"
-            />
-
-        <ScrollView
-            android:id="@+id/scroll"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fadingEdge="none"
-            android:overScrollMode="always"
-            >
-            <com.android.systemui.statusbar.policy.NotificationRowLayout
-                android:id="@+id/latestItems"
+        </com.spacecaker.DatePanel>
+            
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                systemui:rowHeight="@dimen/notification_row_min_height"
-                />
-        </ScrollView>
+                android:layout_height="match_parent"
+                >
+	<com.spacecaker.PageViewFlipper 
+            android:id="@+id/flipper" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content">
+		
+        	<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">   
+		        <FrameLayout
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_gravity="top"
+		            android:layout_weight="0"
+		            >
+		        <com.android.systemui.statusbar.powerwidget.PowerWidget
+            			android:id="@+id/exp_power_stat"
+			            android:layout_width="match_parent"
+			            android:layout_height="@dimen/notification_panel_widget_height"
+			        />
+		        </FrameLayout> 
+                    <include layout="@layout/status_bar_expanded_notif" />
+        	</LinearLayout>
+        	<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">    
+                    <include layout="@layout/status_bar_expanded_quick" />
+        	</LinearLayout>
+            </com.spacecaker.PageViewFlipper>
+            </LinearLayout>
     </LinearLayout>
-
+    </com.spacecaker.SpaceLayOut>	
     <com.android.systemui.statusbar.phone.CloseDragHandle android:id="@+id/close"
         android:layout_width="match_parent"
         android:layout_height="@dimen/close_handle_height"

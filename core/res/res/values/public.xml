@@ -3943,4 +3943,11 @@
   <java-symbol type="id" name="sep" />
   <java-symbol type="id" name="timeDisplayHours" />
   <java-symbol type="id" name="timeDisplayMinutes" />
+  <java-symbol type="drawable" name="ic_lockscreen_chevron_up" />
+  <java-symbol type="drawable" name="ic_lockscreen_chevron_down" />
+  <java-symbol type="drawable" name="ic_lockscreen_chevron_left" />
+  <java-symbol type="drawable" name="ic_lockscreen_chevron_right" />
+  <java-symbol type="id" name="multiwave_widget" />
+  <java-symbol type="id" name="tab_widget" />
+  <java-symbol type="id" name="rotary_widget" />
 </resources>

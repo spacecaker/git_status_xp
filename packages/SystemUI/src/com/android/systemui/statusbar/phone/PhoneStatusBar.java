@@ -170,6 +170,8 @@ public class PhoneStatusBar extends BaseStatusBar {
 
     PhoneStatusBarPolicy mIconPolicy;
 
+    private boolean mUseQuickerPanel = true;
+
     // These are no longer handled by the policy, because we need custom strategies for them
     BatteryController mBatteryController;
     LocationController mLocationController;
@@ -328,6 +330,14 @@ public class PhoneStatusBar extends BaseStatusBar {
                     Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
             mBrightnessControl = !autoBrightness && Settings.System.getInt(
                     resolver, Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1;
+
+            boolean useQuickerPanel = Settings.System.getInt(
+                    resolver, Settings.System.STATUS_BAR_QUICKER_PANEL, 1) == 1;
+            if (mUseQuickerPanel != useQuickerPanel) {
+                mUseQuickerPanel = useQuickerPanel;
+                recreateStatusBar();
+            }
+
             updateCustomHeaderStatus();
         }
     }
@@ -441,7 +451,8 @@ public class PhoneStatusBar extends BaseStatusBar {
                 com.android.internal.R.integer.config_screenBrightnessDim);
 
         mStatusBarWindow = (StatusBarWindowView) View.inflate(context,
-                R.layout.super_status_bar, null);
+                mUseQuickerPanel ? R.layout.super_status_bar_quicker : R.layout.super_status_bar,
+                null);
         if (DEBUG) {
             mStatusBarWindow.setBackgroundColor(0x6000FF80);
         }

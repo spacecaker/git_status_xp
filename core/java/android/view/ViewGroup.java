@@ -4297,21 +4297,16 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     public void offsetChildrenTopAndBottom(int offset) {
         final int count = mChildrenCount;
         final View[] children = mChildren;
-        boolean invalidate = false;
-		
+
         for (int i = 0; i < count; i++) {
             final View v = children[i];
             v.mTop += offset;
             v.mBottom += offset;
             if (v.mDisplayList != null) {
-			    invalidate = true;
                 v.mDisplayList.offsetTopBottom(offset);
+                invalidateViewProperty(false, false);
             }
         }
-
-        if (invalidate) {
-            invalidateViewProperty(false, false);
-        }		
     }
 
     /**

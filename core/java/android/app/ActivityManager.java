@@ -372,7 +372,7 @@ public class ActivityManager {
         MemInfoReader reader = new MemInfoReader();
         reader.readMemInfo();
         if (reader.getTotalSize() >= (256*1024*1024)) {
-            // If the device has at least 256MB RAM available to the kernel,
+            // If the device has at least 512MB RAM available to the kernel,
             // we can afford the overhead of graphics acceleration.
             return true;
         }

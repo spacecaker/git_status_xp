@@ -1623,7 +1623,7 @@ public final class ViewRootImpl implements ViewParent,
 
             if (mAttachInfo.mHardwareRenderer != null &&
                     mAttachInfo.mHardwareRenderer.isEnabled()) {
-                if (hwInitialized ||
+                if (hwInitialized || windowShouldResize ||
                         mWidth != mAttachInfo.mHardwareRenderer.getWidth() ||
                         mHeight != mAttachInfo.mHardwareRenderer.getHeight()) {
                     mAttachInfo.mHardwareRenderer.setup(mWidth, mHeight);

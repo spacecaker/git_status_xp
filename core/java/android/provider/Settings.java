@@ -2344,20 +2344,6 @@ public final class Settings {
         public static final String SIP_ASK_ME_EACH_TIME = "SIP_ASK_ME_EACH_TIME";
 
         /**
-         * Whether or not to auto-collapse the volume panel when status bar is collapsed
-         *
-         * @hide
-         */
-        public static final String COLLAPSE_VOLUME_PANEL = "collapse_volume_panel";
-
-        /**
-         * Whether or not to use a center clock in phone status bar
-         *
-         * @hide
-         */
-        public static final String STATUS_BAR_CENTER_CLOCK = "status_bar_center_clock";
-
-        /**
          * Torch state (flashlight)
          * @hide
          */
@@ -2371,13 +2357,6 @@ public final class Settings {
          * @hide
          */
         public static final String POINTER_SPEED = "pointer_speed";
-
-        /**
-         * Type of toggles to use: 0 = none, 1 = compact, 2 = page
-         *
-         * @hide
-         */
-        public static final String TOGGLES_TYPE = "toggles_type";
 
         /**
          * Use the Notification Power Widget? (Who wouldn't!)
@@ -2482,6 +2461,43 @@ public final class Settings {
          * @hide
          */
         public static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
+
+
+        /**
+         * Use the QuickPanel Widget? (Who wouldn't!)
+         *
+         * @hide
+         */
+        public static final String QUICKER_VIEW_WIDGET = "quicker_view_widget";
+
+        /**
+         * Whether to hide the notification screen after clicking on a widget
+         * button
+         *
+         * @hide
+         */
+        public static final String QUICKER_HIDE_ONCHANGE = "quicker_hide_onchange";
+
+        /**
+         * Hide scroll bar in power widget
+         *
+         * @hide
+         */
+        public static final String QUICKER_HIDE_SCROLLBAR = "quicker_hide_scrollbar";
+
+        /**
+         * Haptic feedback in power widget
+         *
+         * @hide
+         */
+        public static final String QUICKER_HAPTIC_FEEDBACK = "quicker_haptic_feedback";
+
+        /**
+         * Widget Buttons to Use
+         *
+         * @hide
+         */
+        public static final String SPACE_WIDGET_BUTTONS = "space_widget_buttons";
 
         /* Network speed indicator
          * @hide
@@ -2945,6 +2961,35 @@ public final class Settings {
          * @hide
          */
         public static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
+
+        /**
+         * ListView Animations
+         * 0 == None
+         * 1 == Wave (Left)
+         * 2 == Wave (Right)
+         * 3 == Scale
+         * 4 == Alpha
+         * 5 == Stack (Top)
+         * 6 == Stack (Bottom)
+         * 7 == Translate (Left)
+         * 8 == Translate (Right)
+         * @hide
+         */
+        public static final String LISTVIEW_ANIMATION = "listview_animation";
+
+        /**
+         * ListView Interpolators
+         * 0 == None
+         * 1 == accelerate_interpolator
+         * 2 == decelerate_interpolator
+         * 3 == accelerate_decelerate_interpolator
+         * 4 == anticipate_interpolator
+         * 5 == overshoot_interpolator
+         * 6 == anticipate_overshoot_interpolator
+         * 7 == bounce_interpolator
+         * @hide
+         */
+        public static final String LISTVIEW_INTERPOLATOR = "listview_interpolator";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings

@@ -17,6 +17,20 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/themes_settings_title" >
 
+    <PreferenceScreen
+            android:key="pref_lockscreen_style"
+            android:title="@string/pref_lockscreen_style_title"
+            android:summary="@string/pref_lockscreen_style_summary"
+            android:fragment="com.android.settings.cyanogenmod.LockscreenInterface$LockStyle">
+    </PreferenceScreen>
+
+    <PreferenceCategory android:title="Lockscreen Styles">
+        <com.android.settings.cyanogenmod..GalleryPickerPreference android:key="pref_lockscreen_picker"
+            xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+            settings:entryDrawables="@array/lockscreen_style_drawables" 
+            settings:entryCaptions="@array/lockscreen_style_captions"/>
+    </PreferenceCategory>
+
      <PreferenceScreen
          android:key="screen_security"
          android:fragment="com.android.settings.SecuritySettings"

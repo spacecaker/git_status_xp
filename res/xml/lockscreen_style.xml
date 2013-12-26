@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="pref_lockscreen_style_title">
+    <!-- Lockscreen style -->
+    <PreferenceCategory android:title="Lockscreen Styles">
+        <com.android.settings.cyanogenmod..GalleryPickerPreference android:key="pref_lockscreen_picker"
+            xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+            settings:entryDrawables="@array/lockscreen_style_drawables" 
+            settings:entryCaptions="@array/lockscreen_style_captions"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

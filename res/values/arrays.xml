@@ -1590,5 +1590,19 @@
         <item>6</item>
         <item>7</item>
     </string-array>
+
+    <array name="lockscreen_style_captions" >
+        <item>Jellybean</item>
+        <item>Ice Cream Sandwich</item>
+        <item>Gingerbread</item>
+        <item>Eclair</item>
+    </array>
+
+    <array name="lockscreen_style_drawables" translatable="false">
+        <item>@drawable/lock_jb</item>
+        <item>@drawable/lock_ics</item>
+        <item>@drawable/lock_gingerbread</item>
+        <item>@drawable/lock_eclair</item>
+    </array>
     <!-- **** CYANOGENMOD EDITS END **** -->
 </resources>

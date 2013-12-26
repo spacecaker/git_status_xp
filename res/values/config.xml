@@ -38,5 +38,5 @@
          find this limiting; it would be good to have the interface work with
          very long strings too. -->
     <integer name="maximum_user_dictionary_word_length" translatable="false">48</integer>
-
+    <bool name="config_allow_eclair_lock" translatable="false">true</bool>
 </resources>

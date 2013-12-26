@@ -290,4 +290,10 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
         }
     }
 
+    public void startPreferencePanel(String fragmentClass, Bundle args, int titleRes,
+            CharSequence titleText, Fragment resultTo, int resultRequestCode) {
+        PreferenceActivity pa = (PreferenceActivity) this.getActivity();
+        pa.startPreferencePanel(fragmentClass, args, titleRes, titleText,
+                resultTo, resultRequestCode);
+    }
 }

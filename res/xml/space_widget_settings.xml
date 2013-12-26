@@ -19,11 +19,18 @@
 
     <!-- Notification drawer Power Widget -->
     <PreferenceCategory
-       android:title="@string/power_widget_title">
+       android:title="Quick Panel">
+
+       <CheckBoxPreference
+            android:key="status_bar_quicker_panel"
+            android:title="@string/status_bar_quicker_panel"
+            android:summary="@string/status_bar_quicker_panel_summary"
+            android:defaultValue="true" />
 
         <CheckBoxPreference
             android:key="quicker_widget"
-            android:title="@string/title_expanded_widget"
+            android:title="Quick Panel Widget"
+            android:dependency="status_bar_quicker_panel"
             android:defaultValue="true" />
 
         <PreferenceScreen

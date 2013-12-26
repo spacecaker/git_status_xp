@@ -5024,5 +5024,12 @@
     <string name="listview_overshoot_interpolator">Overshoot</string>
     <string name="listview_anticipate_overshoot_interpolator">Anticipate and overshoot</string>
     <string name="listview_bounce_interpolator">Bounce</string>
+    <string name="status_bar_quicker_panel">Enable Quick Panel View</string>
+    <string name="status_bar_quicker_panel_summary">This Option enables/disables the 4.2.2 Quick Panel View</string>
+    <string name="pref_lockscreen_style_title">Lockscreen style</string>
+    <string name="pref_lockscreen_style_summary">Choose your style of lockscreen</string>
+    <string name="apply">Apply</string>
+    <string name="item_count">%1$d/%2$d</string>
+    <string name="okay">Okay</string>
     <!-- **** MSR ADDITIONS END **** -->
 </resources>

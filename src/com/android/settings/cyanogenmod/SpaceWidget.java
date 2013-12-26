@@ -61,8 +61,10 @@ public class SpaceWidget extends SettingsPreferenceFragment implements
     private static final String UI_EXP_WIDGET_HIDE_ONCHANGE = "quicker_hide_onchange";
     private static final String UI_EXP_WIDGET_HIDE_SCROLLBAR = "quicker_hide_scrollbar";
     private static final String UI_EXP_WIDGET_HAPTIC_FEEDBACK = "quicker_haptic_feedback";
+    private static final String STATUS_BAR_QUICKER_PANEL = "status_bar_quicker_panel";
 
     private CheckBoxPreference mSpaceWidget;
+    private CheckBoxPreference mUseQuickerPanel;
     private CheckBoxPreference mSpaceWidgetHideOnChange;
     private CheckBoxPreference mSpaceWidgetHideScrollBar;
     private ListPreference mSpaceWidgetHapticFeedback;
@@ -76,6 +78,7 @@ public class SpaceWidget extends SettingsPreferenceFragment implements
 
             PreferenceScreen prefSet = getPreferenceScreen();
 
+            mUseQuickerPanel = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_QUICKER_PANEL);
             mSpaceWidget = (CheckBoxPreference) prefSet.findPreference(UI_EXP_WIDGET);
             mSpaceWidgetHideOnChange = (CheckBoxPreference) prefSet
                     .findPreference(UI_EXP_WIDGET_HIDE_ONCHANGE);
@@ -87,6 +90,8 @@ public class SpaceWidget extends SettingsPreferenceFragment implements
             mSpaceWidgetHapticFeedback.setOnPreferenceChangeListener(this);
             mSpaceWidgetHapticFeedback.setSummary(mSpaceWidgetHapticFeedback.getEntry());
 
+            mUseQuickerPanel.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUS_BAR_QUICKER_PANEL, 1) == 1));
             mSpaceWidget.setChecked((Settings.System.getInt(getActivity().getApplicationContext()
                     .getContentResolver(),
                     Settings.System.QUICKER_VIEW_WIDGET, 1) == 1));
@@ -122,6 +127,11 @@ public class SpaceWidget extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.QUICKER_VIEW_WIDGET,
                     value ? 1 : 0);
+        } else if (preference == mUseQuickerPanel) {
+            value = mUseQuickerPanel.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_QUICKER_PANEL, value ? 1 : 0);
+            return true;
         } else if (preference == mSpaceWidgetHideOnChange) {
             value = mSpaceWidgetHideOnChange.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),

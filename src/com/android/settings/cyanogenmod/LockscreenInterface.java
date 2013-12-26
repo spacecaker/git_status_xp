@@ -44,12 +44,14 @@ import android.widget.Toast;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.settings.cyanogenmod.LockscreenStyle;
 import com.android.settings.notificationlight.ColorPickerView;
 
 public class LockscreenInterface extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "LockscreenInterface";
     private static final int LOCKSCREEN_BACKGROUND = 1024;
+    private static final String LOCKSCREEN_STYLE_PREF = "pref_lockscreen_style";
     public static final String KEY_WEATHER_PREF = "lockscreen_weather";
     public static final String KEY_CALENDAR_PREF = "lockscreen_calendar";
     public static final String KEY_BACKGROUND_PREF = "lockscreen_background";
@@ -63,6 +65,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private ListPreference mBatteryStatus;
     private ListPreference mClockAlign;
     private PreferenceScreen mLockscreenButtons;
+    private PreferenceScreen mLockStyle;
     private Activity mActivity;
     ContentResolver mResolver;
 
@@ -94,6 +97,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
         mClockAlign = (ListPreference) findPreference(KEY_CLOCK_ALIGN);
         mClockAlign.setOnPreferenceChangeListener(this);
+
+        mLockStyle = (PreferenceScreen) findPreference(LOCKSCREEN_STYLE_PREF);
 
         mLockscreenButtons = (PreferenceScreen) findPreference(KEY_LOCKSCREEN_BUTTONS);
         if (!hasButtons()) {

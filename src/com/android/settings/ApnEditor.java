@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2006 The Android Open Source Project
+ * Copyright (C) 2008 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,586 +14,523 @@
  * limitations under the License.
  */
 
-package com.android.settings;
+package com.android.systemui.statusbar.powerwidget;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.ContentUris;
-import android.content.ContentValues;
-import android.content.CursorLoader;
+import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.IntentFilter;
 import android.content.res.Resources;
-import android.database.Cursor;
+import android.database.ContentObserver;
 import android.net.Uri;
-import android.os.Bundle;
-import android.os.SystemProperties;
-import android.preference.CheckBoxPreference;
-import android.preference.EditTextPreference;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.provider.Telephony;
-import android.telephony.TelephonyManager;
+import android.net.wimax.WimaxHelper;
+import android.os.Handler;
+import android.provider.Settings;
+import android.util.AttributeSet;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
 
-import com.android.internal.telephony.Phone;
-import com.android.internal.telephony.TelephonyProperties;
+import com.android.systemui.R;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
-public class ApnEditor extends SettingsPreferenceFragment
-        implements SharedPreferences.OnSharedPreferenceChangeListener,
-                    Preference.OnPreferenceChangeListener {
+public class PowerWidget extends FrameLayout {
+    private static final String TAG = "PowerWidget";
 
-    private final static String TAG = ApnEditor.class.getSimpleName();
+    public static final String BUTTON_DELIMITER = "|";
 
-    private final static String SAVED_POS = "pos";
-    private final static String KEY_AUTH_TYPE = "auth_type";
-    private final static String KEY_PROTOCOL = "apn_protocol";
-    private final static String KEY_ROAMING_PROTOCOL = "apn_roaming_protocol";
-    private final static String KEY_CARRIER_ENABLED = "carrier_enabled";
-    private final static String KEY_BEARER = "bearer";
-    protected static final String EDIT_ACTION = "edit_action";
-    protected static final String EDIT_DATA = "edit_data";
+    private static final String BUTTONS_DEFAULT = PowerButton.BUTTON_WIFI
+                             + BUTTON_DELIMITER + PowerButton.BUTTON_BLUETOOTH
+                             + BUTTON_DELIMITER + PowerButton.BUTTON_GPS
+                             + BUTTON_DELIMITER + PowerButton.BUTTON_SOUND;
 
-    private static final int MENU_DELETE = Menu.FIRST;
-    private static final int MENU_SAVE = Menu.FIRST + 1;
-    private static final int MENU_CANCEL = Menu.FIRST + 2;
-    private static final int ERROR_DIALOG_ID = 0;
+    private static final FrameLayout.LayoutParams WIDGET_LAYOUT_PARAMS = new FrameLayout.LayoutParams(
+                                        ViewGroup.LayoutParams.MATCH_PARENT, // width = match_parent
+                                        ViewGroup.LayoutParams.WRAP_CONTENT  // height = wrap_content
+                                        );
 
-    private static String sNotSet;
-    private EditTextPreference mName;
-    private EditTextPreference mApn;
-    private EditTextPreference mProxy;
-    private EditTextPreference mPort;
-    private EditTextPreference mUser;
-    private EditTextPreference mServer;
-    private EditTextPreference mPassword;
-    private EditTextPreference mMmsc;
-    private EditTextPreference mMcc;
-    private EditTextPreference mMnc;
-    private EditTextPreference mMmsProxy;
-    private EditTextPreference mMmsPort;
-    private ListPreference mAuthType;
-    private EditTextPreference mApnType;
-    private ListPreference mProtocol;
-    private ListPreference mRoamingProtocol;
-    private CheckBoxPreference mCarrierEnabled;
-    private ListPreference mBearer;
+    private static final LinearLayout.LayoutParams BUTTON_LAYOUT_PARAMS = new LinearLayout.LayoutParams(
+                                        ViewGroup.LayoutParams.WRAP_CONTENT, // width = wrap_content
+                                        ViewGroup.LayoutParams.MATCH_PARENT, // height = match_parent
+                                        1.0f                                 // weight = 1
+                                        );
 
-    private String mCurMnc;
-    private String mCurMcc;
+    private static final int LAYOUT_SCROLL_BUTTON_THRESHOLD = 6;
 
-    private Uri mUri;
-    private Cursor mCursor;
-    private boolean mNewApn;
-    private boolean mFirstTime;
-    private Resources mRes;
+    // this is a list of all possible buttons and their corresponding classes
+    private static final HashMap<String, Class<? extends PowerButton>> sPossibleButtons =
+            new HashMap<String, Class<? extends PowerButton>>();
 
-    /**
-     * Standard projection for the interesting columns of a normal note.
-     */
-    private static final String[] sProjection = new String[] {
-            Telephony.Carriers._ID,     // 0
-            Telephony.Carriers.NAME,    // 1
-            Telephony.Carriers.APN,     // 2
-            Telephony.Carriers.PROXY,   // 3
-            Telephony.Carriers.PORT,    // 4
-            Telephony.Carriers.USER,    // 5
-            Telephony.Carriers.SERVER,  // 6
-            Telephony.Carriers.PASSWORD, // 7
-            Telephony.Carriers.MMSC, // 8
-            Telephony.Carriers.MCC, // 9
-            Telephony.Carriers.MNC, // 10
-            Telephony.Carriers.NUMERIC, // 11
-            Telephony.Carriers.MMSPROXY,// 12
-            Telephony.Carriers.MMSPORT, // 13
-            Telephony.Carriers.AUTH_TYPE, // 14
-            Telephony.Carriers.TYPE, // 15
-            Telephony.Carriers.PROTOCOL, // 16
-            Telephony.Carriers.CARRIER_ENABLED, // 17
-            Telephony.Carriers.BEARER, // 18
-            Telephony.Carriers.ROAMING_PROTOCOL // 19
-    };
+    static {
+        sPossibleButtons.put(PowerButton.BUTTON_WIFI, WifiButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_GPS, GPSButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_BLUETOOTH, BluetoothButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_BRIGHTNESS, BrightnessButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_SOUND, SoundButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_SYNC, SyncButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_WIFIAP, WifiApButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_SCREENTIMEOUT, ScreenTimeoutButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_MOBILEDATA, MobileDataButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_LOCKSCREEN, LockScreenButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_NETWORKMODE, NetworkModeButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_AUTOROTATE, AutoRotateButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_AIRPLANE, AirplaneButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_FLASHLIGHT, FlashlightButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_SLEEP, SleepButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_MEDIA_PLAY_PAUSE, MediaPlayPauseButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_MEDIA_PREVIOUS, MediaPreviousButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_MEDIA_NEXT, MediaNextButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_WIMAX, WimaxButton.class);
+        sPossibleButtons.put(PowerButton.BUTTON_LTE, LTEButton.class);
+    }
 
-    private static final int ID_INDEX = 0;
-    private static final int NAME_INDEX = 1;
-    private static final int APN_INDEX = 2;
-    private static final int PROXY_INDEX = 3;
-    private static final int PORT_INDEX = 4;
-    private static final int USER_INDEX = 5;
-    private static final int SERVER_INDEX = 6;
-    private static final int PASSWORD_INDEX = 7;
-    private static final int MMSC_INDEX = 8;
-    private static final int MCC_INDEX = 9;
-    private static final int MNC_INDEX = 10;
-    private static final int MMSPROXY_INDEX = 12;
-    private static final int MMSPORT_INDEX = 13;
-    private static final int AUTH_TYPE_INDEX = 14;
-    private static final int TYPE_INDEX = 15;
-    private static final int PROTOCOL_INDEX = 16;
-    private static final int CARRIER_ENABLED_INDEX = 17;
-    private static final int BEARER_INDEX = 18;
-    private static final int ROAMING_PROTOCOL_INDEX = 19;
+    // this is a list of our currently loaded buttons
+    private final HashMap<String, PowerButton> mButtons = new HashMap<String, PowerButton>();
+    private final ArrayList<String> mButtonNames = new ArrayList<String>();
 
+    private View.OnClickListener mAllButtonClickListener;
+    private View.OnLongClickListener mAllButtonLongClickListener;
+
+    private Context mContext;
+    private Handler mHandler;
+    private LayoutInflater mInflater;
+    private WidgetBroadcastReceiver mBroadcastReceiver = null;
+    private WidgetSettingsObserver mObserver = null;
+
+    private long[] mShortPressVibePattern;
+    private long[] mLongPressVibePattern;
+
+    private LinearLayout mButtonLayout;
+    private SnappingScrollView mScrollView;
+
+    public PowerWidget(Context context, AttributeSet attrs) {
+        super(context, attrs);
+
+        mContext = context;
+        mHandler = new Handler();
+        mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        mShortPressVibePattern = getLongIntArray(mContext.getResources(),
+                com.android.internal.R.array.config_virtualKeyVibePattern);
+        mLongPressVibePattern = getLongIntArray(mContext.getResources(),
+                com.android.internal.R.array.config_longPressVibePattern);
+
+        // get an initial width
+        updateButtonLayoutWidth();
+        setupWidget();
+    }
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        updateVisibility();
+    }
 
-        addPreferencesFromResource(R.xml.apn_editor);
+    static long[] getLongIntArray(Resources r, int resid) {
+        int[] ar = r.getIntArray(resid);
+        if (ar == null) {
+            return null;
+        }
+        long[] out = new long[ar.length];
+        for (int i=0; i < ar.length; i++) {
+            out[i] = ar[i];
+        }
+        return out;
+    }
 
-        sNotSet = getResources().getString(R.string.apn_not_set);
-        mName = (EditTextPreference) findPreference("apn_name");
-        mApn = (EditTextPreference) findPreference("apn_apn");
-        mProxy = (EditTextPreference) findPreference("apn_http_proxy");
-        mPort = (EditTextPreference) findPreference("apn_http_port");
-        mUser = (EditTextPreference) findPreference("apn_user");
-        mServer = (EditTextPreference) findPreference("apn_server");
-        mPassword = (EditTextPreference) findPreference("apn_password");
-        mMmsProxy = (EditTextPreference) findPreference("apn_mms_proxy");
-        mMmsPort = (EditTextPreference) findPreference("apn_mms_port");
-        mMmsc = (EditTextPreference) findPreference("apn_mmsc");
-        mMcc = (EditTextPreference) findPreference("apn_mcc");
-        mMnc = (EditTextPreference) findPreference("apn_mnc");
-        mApnType = (EditTextPreference) findPreference("apn_type");
+    public void destroyWidget() {
+        Log.i(TAG, "Clearing any old widget stuffs");
+        // remove all views from the layout
+        removeAllViews();
 
-        mAuthType = (ListPreference) findPreference(KEY_AUTH_TYPE);
-        mAuthType.setOnPreferenceChangeListener(this);
-
-        mProtocol = (ListPreference) findPreference(KEY_PROTOCOL);
-        mProtocol.setOnPreferenceChangeListener(this);
-
-        mRoamingProtocol = (ListPreference) findPreference(KEY_ROAMING_PROTOCOL);
-        // Only enable this on CDMA phones for now, since it may cause problems on other phone
-        // types.  (This screen is not normally accessible on CDMA phones, but is useful for
-        // testing.)
-        TelephonyManager tm = (TelephonyManager)getSystemService(Activity.TELEPHONY_SERVICE);
-        if (tm.getCurrentPhoneType() == Phone.PHONE_TYPE_CDMA) {
-            mRoamingProtocol.setOnPreferenceChangeListener(this);
-        } else {
-            getPreferenceScreen().removePreference(mRoamingProtocol);
+        // unregister our content receiver
+        if (mBroadcastReceiver != null) {
+            mContext.unregisterReceiver(mBroadcastReceiver);
+        }
+        // unobserve our content
+        if (mObserver != null) {
+            mObserver.unobserve();
         }
 
-        mCarrierEnabled = (CheckBoxPreference) findPreference(KEY_CARRIER_ENABLED);
+        // clear the button instances
+        unloadAllButtons();
+    }
 
-        mBearer = (ListPreference) findPreference(KEY_BEARER);
-        mBearer.setOnPreferenceChangeListener(this);
+    public void setupWidget() {
+        destroyWidget();
 
-        mRes = getResources();
+        Log.i(TAG, "Setting up widget");
 
-        final Intent intent = getActivity().getIntent();
-        String action = intent.getAction();
-        Bundle fragArgs = getArguments();
-
-        if (fragArgs != null && fragArgs.containsKey(EDIT_ACTION)) {
-            mUri = Uri.parse(fragArgs.getString(EDIT_DATA));
-            action = fragArgs.getString(EDIT_ACTION);
-        } else {
-            mUri = intent.getData();
+        String buttons = Settings.System.getString(mContext.getContentResolver(), Settings.System.WIDGET_BUTTONS);
+        if (buttons == null) {
+            Log.i(TAG, "Default buttons being loaded");
+            buttons = BUTTONS_DEFAULT;
+            // Add the WiMAX button if it's supported
+            if (WimaxHelper.isWimaxSupported(mContext)) {
+                buttons += BUTTON_DELIMITER + PowerButton.BUTTON_WIMAX;
+            }
         }
+        Log.i(TAG, "Button list: " + buttons);
 
-        mFirstTime = icicle == null;
-
-        if (action.equals(Intent.ACTION_INSERT)) {
-            if (mFirstTime || icicle.getInt(SAVED_POS) == 0) {
-                mUri = getContentResolver().insert(mUri, new ContentValues());
+        for (String button : buttons.split("\\|")) {
+            if (loadButton(button)) {
+                mButtonNames.add(button);
             } else {
-                mUri = ContentUris.withAppendedId(Telephony.Carriers.CONTENT_URI,
-                        icicle.getInt(SAVED_POS));
+                Log.e(TAG, "Error setting up button: " + button);
             }
-            mNewApn = true;
-            // If we were unable to create a new note, then just finish
-            // this activity.  A RESULT_CANCELED will be sent back to the
-            // original activity if they requested a result.
-            if (mUri == null) {
-                Log.w(TAG, "Failed to insert new telephony provider into "
-                        + getActivity().getIntent().getData());
-                finish();
-                return;
-            }
+        }
+        recreateButtonLayout();
+        updateHapticFeedbackSetting();
 
-            // The new entry was created, so assume all will end well and
-            // set the result to be returned.
-            getActivity().setResult(Activity.RESULT_OK, (new Intent()).setAction(mUri.toString()));
+        // set up a broadcast receiver for our intents, based off of what our power buttons have been loaded
+        setupBroadcastReceiver();
+        IntentFilter filter = getMergedBroadcastIntentFilter();
+        // we add this so we can update views and such if the settings for our widget change
+        //filter.addAction(Settings.SETTINGS_CHANGED);
+        // we need to detect orientation changes and update the static button width value appropriately
+        filter.addAction(Intent.ACTION_CONFIGURATION_CHANGED);
+        // register the receiver
+        mContext.registerReceiver(mBroadcastReceiver, filter);
+        // register our observer
+        mObserver = new WidgetSettingsObserver(mHandler);
+        mObserver.observe();
+    }
 
-        } else if (!action.equals(Intent.ACTION_EDIT)) {
-            finish();
-            return;
+    private boolean loadButton(String key) {
+        // first make sure we have a valid button
+        if (!sPossibleButtons.containsKey(key)) {
+            return false;
         }
 
-        CursorLoader qCursor = new CursorLoader(getActivity(), mUri, sProjection, null, null, null);
-        mCursor = qCursor.loadInBackground();
-        mCursor.moveToFirst();
+        if (mButtons.containsKey(key)) {
+            return true;
+        }
 
-        fillUi();
-        setHasOptionsMenu(true);
+        try {
+            // we need to instantiate a new button and add it
+            PowerButton pb = sPossibleButtons.get(key).newInstance();
+            pb.setExternalClickListener(mAllButtonClickListener);
+            pb.setExternalLongClickListener(mAllButtonLongClickListener);
+            // save it
+            mButtons.put(key, pb);
+        } catch (Exception e) {
+            Log.e(TAG, "Error loading button: " + key, e);
+            return false;
+        }
+
+        return true;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        getPreferenceScreen().getSharedPreferences()
-                .registerOnSharedPreferenceChangeListener(this);
+    private void unloadButton(String key) {
+        // first make sure we have a valid button
+        if (mButtons.containsKey(key)) {
+            // wipe out the button view
+            mButtons.get(key).setupButton(null);
+            // remove the button from our list of loaded ones
+            mButtons.remove(key);
+        }
     }
 
-    @Override
-    public void onPause() {
-        getPreferenceScreen().getSharedPreferences()
-                .unregisterOnSharedPreferenceChangeListener(this);
-        super.onPause();
+    private void unloadAllButtons() {
+        // cycle through setting the buttons to null
+        for (PowerButton pb : mButtons.values()) {
+            pb.setupButton(null);
+        }
+
+        // clear our list
+        mButtons.clear();
+        mButtonNames.clear();
     }
 
-    private void fillUi() {
-        if (mFirstTime) {
-            mFirstTime = false;
-            // Fill in all the values from the db in both text editor and summary
-            mName.setText(mCursor.getString(NAME_INDEX));
-            mApn.setText(mCursor.getString(APN_INDEX));
-            mProxy.setText(mCursor.getString(PROXY_INDEX));
-            mPort.setText(mCursor.getString(PORT_INDEX));
-            mUser.setText(mCursor.getString(USER_INDEX));
-            mServer.setText(mCursor.getString(SERVER_INDEX));
-            mPassword.setText(mCursor.getString(PASSWORD_INDEX));
-            mMmsProxy.setText(mCursor.getString(MMSPROXY_INDEX));
-            mMmsPort.setText(mCursor.getString(MMSPORT_INDEX));
-            mMmsc.setText(mCursor.getString(MMSC_INDEX));
-            mMcc.setText(mCursor.getString(MCC_INDEX));
-            mMnc.setText(mCursor.getString(MNC_INDEX));
-            mApnType.setText(mCursor.getString(TYPE_INDEX));
-            if (mNewApn) {
-                String numeric =
-                    SystemProperties.get(TelephonyProperties.PROPERTY_ICC_OPERATOR_NUMERIC);
-                // MCC is first 3 chars and then in 2 - 3 chars of MNC
-                if (numeric != null && numeric.length() > 4) {
-                    // Country code
-                    String mcc = numeric.substring(0, 3);
-                    // Network code
-                    String mnc = numeric.substring(3);
-                    // Auto populate MNC and MCC for new entries, based on what SIM reports
-                    mMcc.setText(mcc);
-                    mMnc.setText(mnc);
-                    mCurMnc = mnc;
-                    mCurMcc = mcc;
+    static class SnappingScrollView extends HorizontalScrollView {
+
+        private boolean mSnapTrigger = false;
+
+        public SnappingScrollView(Context context) {
+            super(context);
+        }
+
+        Runnable mSnapRunnable = new Runnable(){
+            @Override
+            public void run() {
+                int mSelectedItem = ((getScrollX() + (BUTTON_LAYOUT_PARAMS.width / 2)) / BUTTON_LAYOUT_PARAMS.width);
+                int scrollTo = mSelectedItem * BUTTON_LAYOUT_PARAMS.width;
+                smoothScrollTo(scrollTo, 0);
+                mSnapTrigger = false;
+            }
+        };
+
+        @Override
+        protected void onScrollChanged(int l, int t, int oldl, int oldt) {
+            super.onScrollChanged(l, t, oldl, oldt);
+            if (Math.abs(oldl - l) <= 1 && mSnapTrigger) {
+                removeCallbacks(mSnapRunnable);
+                postDelayed(mSnapRunnable, 100);
+            }
+        }
+
+        @Override
+        public boolean onTouchEvent(MotionEvent ev) {
+            int action = ev.getAction();
+            if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
+                mSnapTrigger = true;
+            }
+            return super.onTouchEvent(ev);
+        }
+
+    }
+
+    private void recreateButtonLayout() {
+        removeAllViews();
+
+        // create a linearlayout to hold our buttons
+        mButtonLayout = new LinearLayout(mContext);
+        mButtonLayout.setOrientation(LinearLayout.HORIZONTAL);
+        mButtonLayout.setGravity(Gravity.CENTER_HORIZONTAL);
+
+        for (String button : mButtonNames) {
+            PowerButton pb = mButtons.get(button);
+            if (pb != null) {
+                View buttonView = mInflater.inflate(R.layout.power_widget_button, null, false);
+                pb.setupButton(buttonView);
+                mButtonLayout.addView(buttonView, BUTTON_LAYOUT_PARAMS);
+            }
+        }
+
+        // we determine if we're using a horizontal scroll view based on a threshold of button counts
+        if (mButtonLayout.getChildCount() > LAYOUT_SCROLL_BUTTON_THRESHOLD) {
+            // we need our horizontal scroll view to wrap the linear layout
+            mScrollView = new SnappingScrollView(mContext);
+            // make the fading edge the size of a button (makes it more noticible that we can scroll
+            mScrollView.setFadingEdgeLength(mContext.getResources().getDisplayMetrics().widthPixels / LAYOUT_SCROLL_BUTTON_THRESHOLD);
+            mScrollView.setScrollBarStyle(View.SCROLLBARS_INSIDE_INSET);
+            mScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER);
+            mScrollView.addView(mButtonLayout, WIDGET_LAYOUT_PARAMS);
+            updateScrollbar();
+            addView(mScrollView, WIDGET_LAYOUT_PARAMS);
+        } else {
+            // not needed, just add the linear layout
+            addView(mButtonLayout, WIDGET_LAYOUT_PARAMS);
+        }
+    }
+
+    public void updateAllButtons() {
+        // cycle through our buttons and update them
+        for (PowerButton pb : mButtons.values()) {
+            pb.update(mContext);
+        }
+    }
+
+    private IntentFilter getMergedBroadcastIntentFilter() {
+        IntentFilter filter = new IntentFilter();
+
+        for (PowerButton button : mButtons.values()) {
+            IntentFilter tmp = button.getBroadcastIntentFilter();
+
+            // cycle through these actions, and see if we need them
+            int num = tmp.countActions();
+            for (int i = 0; i < num; i++) {
+                String action = tmp.getAction(i);
+                if(!filter.hasAction(action)) {
+                    filter.addAction(action);
                 }
             }
-            int authVal = mCursor.getInt(AUTH_TYPE_INDEX);
-            if (authVal != -1) {
-                mAuthType.setValueIndex(authVal);
+        }
+
+        // return our merged filter
+        return filter;
+    }
+
+    private List<Uri> getAllObservedUris() {
+        List<Uri> uris = new ArrayList<Uri>();
+
+        for (PowerButton button : mButtons.values()) {
+            List<Uri> tmp = button.getObservedUris();
+
+            for (Uri uri : tmp) {
+                if (!uris.contains(uri)) {
+                    uris.add(uri);
+                }
+            }
+        }
+
+        return uris;
+    }
+
+    public void setGlobalButtonOnClickListener(View.OnClickListener listener) {
+        mAllButtonClickListener = listener;
+        for (PowerButton pb : mButtons.values()) {
+            pb.setExternalClickListener(listener);
+        }
+    }
+
+    public void setGlobalButtonOnLongClickListener(View.OnLongClickListener listener) {
+        mAllButtonLongClickListener = listener;
+        for (PowerButton pb : mButtons.values()) {
+            pb.setExternalLongClickListener(listener);
+        }
+    }
+
+    private void setupBroadcastReceiver() {
+        if (mBroadcastReceiver == null) {
+            mBroadcastReceiver = new WidgetBroadcastReceiver();
+        }
+    }
+
+    private void updateButtonLayoutWidth() {
+        // use our context to set a valid button width
+        BUTTON_LAYOUT_PARAMS.width = mContext.getResources().getDisplayMetrics().widthPixels / LAYOUT_SCROLL_BUTTON_THRESHOLD;
+    }
+
+    private void updateVisibility() {
+        // now check if we need to display the widget still
+        boolean displayPowerWidget = Settings.System.getInt(mContext.getContentResolver(),
+                   Settings.System.EXPANDED_VIEW_WIDGET, 1) == 1;
+        if(!displayPowerWidget) {
+            setVisibility(View.GONE);
+        } else {
+            setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void updateScrollbar() {
+        if (mScrollView == null) return;
+        boolean hideScrollBar = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.EXPANDED_HIDE_SCROLLBAR, 0) == 1;
+        mScrollView.setHorizontalScrollBarEnabled(!hideScrollBar);
+    }
+
+    private void updateHapticFeedbackSetting() {
+        ContentResolver cr = mContext.getContentResolver();
+        int expandedHapticFeedback = Settings.System.getInt(cr,
+                Settings.System.EXPANDED_HAPTIC_FEEDBACK, 2);
+        long[] clickPattern = null, longClickPattern = null;
+        boolean hapticFeedback;
+
+        if (expandedHapticFeedback == 2) {
+             hapticFeedback = Settings.System.getInt(cr,
+                     Settings.System.HAPTIC_FEEDBACK_ENABLED, 1) == 1;
+        } else {
+            hapticFeedback = (expandedHapticFeedback == 1);
+        }
+
+        if (hapticFeedback) {
+            clickPattern = mShortPressVibePattern;
+            longClickPattern = mLongPressVibePattern;
+        }
+
+        for (PowerButton button : mButtons.values()) {
+            button.setHapticFeedback(hapticFeedback, clickPattern, longClickPattern);
+        }
+    }
+
+    // our own broadcast receiver :D
+    private class WidgetBroadcastReceiver extends BroadcastReceiver {
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (action.equals(Intent.ACTION_CONFIGURATION_CHANGED)) {
+                updateButtonLayoutWidth();
+                recreateButtonLayout();
             } else {
-                mAuthType.setValue(null);
+                // handle the intent through our power buttons
+                for (PowerButton button : mButtons.values()) {
+                    // call "onReceive" on those that matter
+                    if (button.getBroadcastIntentFilter().hasAction(action)) {
+                        button.onReceive(context, intent);
+                    }
+                }
             }
 
-            mProtocol.setValue(mCursor.getString(PROTOCOL_INDEX));
-            mRoamingProtocol.setValue(mCursor.getString(ROAMING_PROTOCOL_INDEX));
-            mCarrierEnabled.setChecked(mCursor.getInt(CARRIER_ENABLED_INDEX)==1);
-            mBearer.setValue(mCursor.getString(BEARER_INDEX));
+            // update our widget
+            updateAllButtons();
+        }
+    };
+
+    // our own settings observer :D
+    private class WidgetSettingsObserver extends ContentObserver {
+        public WidgetSettingsObserver(Handler handler) {
+            super(handler);
         }
 
-        mName.setSummary(checkNull(mName.getText()));
-        mApn.setSummary(checkNull(mApn.getText()));
-        mProxy.setSummary(checkNull(mProxy.getText()));
-        mPort.setSummary(checkNull(mPort.getText()));
-        mUser.setSummary(checkNull(mUser.getText()));
-        mServer.setSummary(checkNull(mServer.getText()));
-        mPassword.setSummary(starify(mPassword.getText()));
-        mMmsProxy.setSummary(checkNull(mMmsProxy.getText()));
-        mMmsPort.setSummary(checkNull(mMmsPort.getText()));
-        mMmsc.setSummary(checkNull(mMmsc.getText()));
-        mMcc.setSummary(checkNull(mMcc.getText()));
-        mMnc.setSummary(checkNull(mMnc.getText()));
-        mApnType.setSummary(checkNull(mApnType.getText()));
+        public void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
 
-        String authVal = mAuthType.getValue();
-        if (authVal != null) {
-            int authValIndex = Integer.parseInt(authVal);
-            mAuthType.setValueIndex(authValIndex);
+            // watch for display widget
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.EXPANDED_VIEW_WIDGET),
+                            false, this);
 
-            String []values = mRes.getStringArray(R.array.apn_auth_entries);
-            mAuthType.setSummary(values[authValIndex]);
-        } else {
-            mAuthType.setSummary(sNotSet);
-        }
+            // watch for scrollbar hiding
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.EXPANDED_HIDE_SCROLLBAR),
+                            false, this);
 
-        mProtocol.setSummary(
-                checkNull(protocolDescription(mProtocol.getValue(), mProtocol)));
-        mRoamingProtocol.setSummary(
-                checkNull(protocolDescription(mRoamingProtocol.getValue(), mRoamingProtocol)));
-        mBearer.setSummary(
-                checkNull(bearerDescription(mBearer.getValue())));
-    }
+            // watch for haptic feedback
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.EXPANDED_HAPTIC_FEEDBACK),
+                            false, this);
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.HAPTIC_FEEDBACK_ENABLED),
+                            false, this);
 
-    /**
-     * Returns the UI choice (e.g., "IPv4/IPv6") corresponding to the given
-     * raw value of the protocol preference (e.g., "IPV4V6"). If unknown,
-     * return null.
-     */
-    private String protocolDescription(String raw, ListPreference protocol) {
-        int protocolIndex = protocol.findIndexOfValue(raw);
-        if (protocolIndex == -1) {
-            return null;
-        } else {
-            String[] values = mRes.getStringArray(R.array.apn_protocol_entries);
-            try {
-                return values[protocolIndex];
-            } catch (ArrayIndexOutOfBoundsException e) {
-                return null;
-            }
-        }
-    }
+            // watch for changes in buttons
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.WIDGET_BUTTONS),
+                            false, this);
 
-    private String bearerDescription(String raw) {
-        int mBearerIndex = mBearer.findIndexOfValue(raw);
-        if (mBearerIndex == -1) {
-            return null;
-        } else {
-            String[] values = mRes.getStringArray(R.array.bearer_entries);
-            try {
-                return values[mBearerIndex];
-            } catch (ArrayIndexOutOfBoundsException e) {
-                return null;
-            }
-        }
-    }
-
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        String key = preference.getKey();
-        if (KEY_AUTH_TYPE.equals(key)) {
-            try {
-                int index = Integer.parseInt((String) newValue);
-                mAuthType.setValueIndex(index);
-
-                String []values = mRes.getStringArray(R.array.apn_auth_entries);
-                mAuthType.setSummary(values[index]);
-            } catch (NumberFormatException e) {
-                return false;
-            }
-        } else if (KEY_PROTOCOL.equals(key)) {
-            String protocol = protocolDescription((String) newValue, mProtocol);
-            if (protocol == null) {
-                return false;
-            }
-            mProtocol.setSummary(protocol);
-            mProtocol.setValue((String) newValue);
-        } else if (KEY_ROAMING_PROTOCOL.equals(key)) {
-            String protocol = protocolDescription((String) newValue, mRoamingProtocol);
-            if (protocol == null) {
-                return false;
-            }
-            mRoamingProtocol.setSummary(protocol);
-            mRoamingProtocol.setValue((String) newValue);
-        } else if (KEY_BEARER.equals(key)) {
-            String bearer = bearerDescription((String) newValue);
-            if (bearer == null) {
-                return false;
-            }
-            mBearer.setValue((String) newValue);
-            mBearer.setSummary(bearer);
-        }
-
-        return true;
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        // If it's a new APN, then cancel will delete the new entry in onPause
-        if (!mNewApn) {
-            menu.add(0, MENU_DELETE, 0, R.string.menu_delete)
-                .setIcon(R.drawable.ic_menu_delete_holo_dark);
-        }
-        menu.add(0, MENU_SAVE, 0, R.string.menu_save)
-            .setIcon(android.R.drawable.ic_menu_save);
-        menu.add(0, MENU_CANCEL, 0, R.string.menu_cancel)
-            .setIcon(android.R.drawable.ic_menu_close_clear_cancel);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-        case MENU_DELETE:
-            deleteApn();
-            return true;
-        case MENU_SAVE:
-            if (validateAndSave(false)) {
-                finish();
-            }
-            return true;
-        case MENU_CANCEL:
-            if (mNewApn) {
-                getContentResolver().delete(mUri, null, null);
-            }
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle icicle) {
-        super.onSaveInstanceState(icicle);
-        if (validateAndSave(true)) {
-            icicle.putInt(SAVED_POS, mCursor.getInt(ID_INDEX));
-        }
-    }
-
-    /**
-     * Check the key fields' validity and save if valid.
-     * @param force save even if the fields are not valid, if the app is
-     *        being suspended
-     * @return true if the data was saved
-     */
-    private boolean validateAndSave(boolean force) {
-        String name = checkNotSet(mName.getText());
-        String apn = checkNotSet(mApn.getText());
-        String mcc = checkNotSet(mMcc.getText());
-        String mnc = checkNotSet(mMnc.getText());
-
-        if (getErrorMsg() != null && !force) {
-            showDialog(ERROR_DIALOG_ID);
-            return false;
-        }
-
-        if (!mCursor.moveToFirst()) {
-            Log.w(TAG,
-                    "Could not go to the first row in the Cursor when saving data.");
-            return false;
-        }
-
-        // If it's a new APN and a name or apn haven't been entered, then erase the entry
-        if (force && mNewApn && name.length() < 1 && apn.length() < 1) {
-            getContentResolver().delete(mUri, null, null);
-            return false;
-        }
-
-        ContentValues values = new ContentValues();
-
-        // Add a dummy name "Untitled", if the user exits the screen without adding a name but 
-        // entered other information worth keeping.
-        values.put(Telephony.Carriers.NAME,
-                name.length() < 1 ? getResources().getString(R.string.untitled_apn) : name);
-        values.put(Telephony.Carriers.APN, apn);
-        values.put(Telephony.Carriers.PROXY, checkNotSet(mProxy.getText()));
-        values.put(Telephony.Carriers.PORT, checkNotSet(mPort.getText()));
-        values.put(Telephony.Carriers.MMSPROXY, checkNotSet(mMmsProxy.getText()));
-        values.put(Telephony.Carriers.MMSPORT, checkNotSet(mMmsPort.getText()));
-        values.put(Telephony.Carriers.USER, checkNotSet(mUser.getText()));
-        values.put(Telephony.Carriers.SERVER, checkNotSet(mServer.getText()));
-        values.put(Telephony.Carriers.PASSWORD, checkNotSet(mPassword.getText()));
-        values.put(Telephony.Carriers.MMSC, checkNotSet(mMmsc.getText()));
-
-        String authVal = mAuthType.getValue();
-        if (authVal != null) {
-            values.put(Telephony.Carriers.AUTH_TYPE, Integer.parseInt(authVal));
-        }
-
-        values.put(Telephony.Carriers.PROTOCOL, checkNotSet(mProtocol.getValue()));
-        values.put(Telephony.Carriers.ROAMING_PROTOCOL, checkNotSet(mRoamingProtocol.getValue()));
-
-        values.put(Telephony.Carriers.TYPE, checkNotSet(mApnType.getText()));
-
-        values.put(Telephony.Carriers.MCC, mcc);
-        values.put(Telephony.Carriers.MNC, mnc);
-
-        values.put(Telephony.Carriers.NUMERIC, mcc + mnc);
-
-        if (mCurMnc != null && mCurMcc != null) {
-            if (mCurMnc.equals(mnc) && mCurMcc.equals(mcc)) {
-                values.put(Telephony.Carriers.CURRENT, 1);
+            // watch for power-button specific stuff that has been loaded
+            for(Uri uri : getAllObservedUris()) {
+                resolver.registerContentObserver(uri, false, this);
             }
         }
 
-        String bearerVal = mBearer.getValue();
-        if (bearerVal != null) {
-            values.put(Telephony.Carriers.BEARER, Integer.parseInt(bearerVal));
+        public void unobserve() {
+            ContentResolver resolver = mContext.getContentResolver();
+
+            resolver.unregisterContentObserver(this);
         }
 
-        getContentResolver().update(mUri, values, null, null);
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            ContentResolver resolver = mContext.getContentResolver();
+            Resources res = mContext.getResources();
 
-        return true;
-    }
-
-    private String getErrorMsg() {
-        String errorMsg = null;
-
-        String name = checkNotSet(mName.getText());
-        String apn = checkNotSet(mApn.getText());
-        String mcc = checkNotSet(mMcc.getText());
-        String mnc = checkNotSet(mMnc.getText());
-
-        if (name.length() < 1) {
-            errorMsg = mRes.getString(R.string.error_name_empty);
-        } else if (apn.length() < 1) {
-            errorMsg = mRes.getString(R.string.error_apn_empty);
-        } else if (mcc.length() != 3) {
-            errorMsg = mRes.getString(R.string.error_mcc_not3);
-        } else if ((mnc.length() & 0xFFFE) != 2) {
-            errorMsg = mRes.getString(R.string.error_mnc_not23);
-        }
-
-        return errorMsg;
-    }
-
-    @Override
-    public Dialog onCreateDialog(int id) {
-
-        if (id == ERROR_DIALOG_ID) {
-            String msg = getErrorMsg();
-
-            return new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.error_title)
-                    .setPositiveButton(android.R.string.ok, null)
-                    .setMessage(msg)
-                    .create();
-        }
-
-        return super.onCreateDialog(id);
-    }
-
-    private void deleteApn() {
-        getContentResolver().delete(mUri, null, null);
-        finish();
-    }
-
-    private String starify(String value) {
-        if (value == null || value.length() == 0) {
-            return sNotSet;
-        } else {
-            char[] password = new char[value.length()];
-            for (int i = 0; i < password.length; i++) {
-                password[i] = '*';
+            // first check if our widget buttons have changed
+            if(uri.equals(Settings.System.getUriFor(Settings.System.WIDGET_BUTTONS))) {
+                setupWidget();
+            // now check if we change visibility
+            } else if(uri.equals(Settings.System.getUriFor(Settings.System.EXPANDED_VIEW_WIDGET))) {
+                updateVisibility();
+            // now check for scrollbar hiding
+            } else if(uri.equals(Settings.System.getUriFor(Settings.System.EXPANDED_HIDE_SCROLLBAR))) {
+                updateScrollbar();
             }
-            return new String(password);
-        }
-    }
 
-    private String checkNull(String value) {
-        if (value == null || value.length() == 0) {
-            return sNotSet;
-        } else {
-            return value;
-        }
-    }
-
-    private String checkNotSet(String value) {
-        if (value == null || value.equals(sNotSet)) {
-            return "";
-        } else {
-            return value;
-        }
-    }
-
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        Preference pref = findPreference(key);
-        if (pref != null) {
-            if (pref.equals(mPassword)){
-                pref.setSummary(starify(sharedPreferences.getString(key, "")));
-            } else {
-                pref.setSummary(checkNull(sharedPreferences.getString(key, "")));
+            if (uri.equals(Settings.System.getUriFor(Settings.System.HAPTIC_FEEDBACK_ENABLED))
+                    || uri.equals(Settings.System.getUriFor(Settings.System.EXPANDED_HAPTIC_FEEDBACK))) {
+                updateHapticFeedbackSetting();
             }
+
+            // do whatever the individual buttons must
+            for (PowerButton button : mButtons.values()) {
+                if (button.getObservedUris().contains(uri)) {
+                    button.onChangeUri(resolver, uri);
+                }
+            }
+
+            // something happened so update the widget
+            updateAllButtons();
         }
     }
 }

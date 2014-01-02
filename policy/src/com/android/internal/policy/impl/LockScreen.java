@@ -66,6 +66,7 @@ import com.android.internal.widget.SlidingTab;
 import com.android.internal.widget.WaveView;
 import com.android.internal.widget.AcerView;
 import com.android.internal.widget.SenseView;
+import com.android.internal.widget.multiwaveview.BlackBerryView;
 import com.android.internal.widget.multiwaveview.GlowPadView;
 import com.android.internal.widget.multiwaveview.MultiWaveView;
 import com.android.internal.widget.multiwaveview.TargetDrawable;
@@ -86,6 +87,7 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
     private static final String TAG = "LockScreen";
     private static final String ENABLE_MENU_KEY_FILE = "/data/local/enable_menu_key";
     private static final int WAIT_FOR_ANIMATION_TIMEOUT = 0;
+    private static final int WAIT_FOR_ANIMATION_TIMEOUT_BLACKBERRY = 250;
     private static final int STAY_ON_WHILE_GRABBED_TIMEOUT = 30000;
     private static final String ASSIST_ICON_METADATA_NAME =
             "com.android.systemui.action_assist_icon";
@@ -112,6 +114,7 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
     private GlowPadView mGlowPadSelector;
     private WaveView mWaveViewSelector;
     private AcerView mAcerViewSelector;
+    private BlackBerryView mBlackBerryViewSelector;
     private SenseView mSenseViewSelector;
     private MultiWaveView mMultiWaveSelector;
     private SlidingTab mSlidingTabSelector;
@@ -127,6 +130,8 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
     private static final int LOCK_STYLE_ACER = 4;
     private static final int LOCK_STYLE_HONEY = 5;
     private static final int LOCK_STYLE_SENSE = 6;
+    private static final int LOCK_STYLE_BLACKBERRY = 7;
+
     
     private boolean mUseJbLockscreen = (mLockscreenStyle == LOCK_STYLE_JB);
     private boolean mUseIcsLockscreen = (mLockscreenStyle == LOCK_STYLE_ICS);
@@ -135,6 +140,7 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
     private boolean mUseAcerLockscreen = (mLockscreenStyle == LOCK_STYLE_ACER);
     private boolean mUseHoneyLockscreen = (mLockscreenStyle == LOCK_STYLE_HONEY);
     private boolean mUseSenseLockscreen = (mLockscreenStyle == LOCK_STYLE_SENSE);
+    private boolean mUseBlackBerryLockscreen = (mLockscreenStyle == LOCK_STYLE_BLACKBERRY);
 
     private boolean mCameraDisabled;
     private boolean mSearchDisabled;
@@ -187,6 +193,52 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
 
         // Clean up when this widget is going away
         public void cleanUp();
+    }
+
+    class BlackBerryViewMethods implements BlackBerryView.OnTriggerListener, UnlockWidgetCommonMethods {
+
+        private final BlackBerryView mBlackBerryView;
+
+        BlackBerryViewMethods(BlackBerryView blackBerryView) {
+            mBlackBerryView = blackBerryView;
+        }
+        /** {@inheritDoc} */
+        public void onTrigger(View v, int whichHandle) {
+            if (whichHandle == BlackBerryView.OnTriggerListener.CENTER_HANDLE) {
+                requestUnlockScreen();
+            }
+        }
+
+        /** {@inheritDoc} */
+        public void onGrabbedStateChange(View v, int grabbedState) {
+            // Don't poke the wake lock when returning to a state where the handle is
+            // not grabbed since that can happen when the system (instead of the user)
+            // cancels the grab.
+            if (grabbedState == BlackBerryView.OnTriggerListener.CENTER_HANDLE) {
+                mCallback.pokeWakelock(STAY_ON_WHILE_GRABBED_TIMEOUT);
+            }
+        }
+
+        public void updateResources() {
+        }
+
+        public View getView() {
+            return mBlackBerryView;
+        }
+        public void reset(boolean animate) {
+            mBlackBerryView.reset();
+        }
+        public void ping() {
+        }
+        public void setEnabled(int resourceId, boolean enabled) {
+            // Not used
+        }
+        public int getTargetPosition(int resourceId) {
+            return -1; // Not supported
+        }
+        public void cleanUp() {
+            mBlackBerryView.setOnTriggerListener(null);
+        }
     }
 
     class RotarySelMethods implements RotarySelector.OnDialTriggerListener,
@@ -832,11 +884,18 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
 
     private void requestUnlockScreen() {
         // Delay hiding lock screen long enough for animation to finish
+        int timeout;
+        if (mUseBlackBerryLockscreen) {
+            timeout = WAIT_FOR_ANIMATION_TIMEOUT_BLACKBERRY;
+        }else {
+            timeout = WAIT_FOR_ANIMATION_TIMEOUT;
+        }
+
         postDelayed(new Runnable() {
             public void run() {
                 mCallback.goToUnlockScreen();
             }
-        }, WAIT_FOR_ANIMATION_TIMEOUT);
+        }, timeout);
     }
 
     private void toggleRingMode() {
@@ -955,6 +1014,14 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
                     inflater.inflate(R.layout.keyguard_screen_tab_wavers_unlock, this,
                                     true);
                 break;
+            case LOCK_STYLE_BLACKBERRY:
+                if (landscape)
+                    inflater.inflate(R.layout.keyguard_screen_tab_unlock_land, this,
+                                    true);
+                else
+                    inflater.inflate(R.layout.keyguard_screen_tab_wavers_unlock, this,
+                                    true);
+                break;
         }
 
         setBackground(mContext, (ViewGroup) findViewById(R.id.root));
@@ -975,6 +1042,7 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
         mAcerViewSelector = (AcerView) findViewById(R.id.acer_widget);
         mSenseViewSelector = (SenseView) findViewById(R.id.sense_widget);
         mWaveViewSelector = (WaveView) findViewById(R.id.waveview_widget);
+        mBlackBerryViewSelector = (BlackBerryView) findViewById(R.id.blackberry_widget);
         mSlidingTabSelector = (SlidingTab) findViewById(R.id.tab_widget);
         mRotarySelector = (RotarySelector) findViewById(R.id.rotary_widget);
 
@@ -983,6 +1051,7 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
             mAcerViewSelector.setVisibility(View.GONE);
             mSenseViewSelector.setVisibility(View.GONE);
             mWaveViewSelector.setVisibility(View.GONE);
+            mBlackBerryViewSelector.setVisibility(View.GONE);
             mMultiWaveSelector.setVisibility(View.GONE);
             mSlidingTabSelector.setVisibility(View.GONE);
             mRotarySelector.setVisibility(View.GONE);
@@ -992,6 +1061,7 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
             mAcerViewSelector.setVisibility(View.GONE);
             mSenseViewSelector.setVisibility(View.GONE);
             mWaveViewSelector.setVisibility(View.GONE);
+            mBlackBerryViewSelector.setVisibility(View.GONE);
             mGlowPadSelector.setVisibility(View.GONE);
             mSlidingTabSelector.setVisibility(View.GONE);
             mRotarySelector.setVisibility(View.GONE);
@@ -1001,6 +1071,7 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
             mAcerViewSelector.setVisibility(View.GONE);
             mSenseViewSelector.setVisibility(View.GONE);
             mWaveViewSelector.setVisibility(View.GONE);
+            mBlackBerryViewSelector.setVisibility(View.GONE);
             mGlowPadSelector.setVisibility(View.GONE);
             mSlidingTabSelector.setVisibility(View.VISIBLE);
             mRotarySelector.setVisibility(View.GONE);
@@ -1011,6 +1082,7 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
             mSenseViewSelector.setVisibility(View.GONE);
             mWaveViewSelector.setVisibility(View.GONE);
             mGlowPadSelector.setVisibility(View.GONE);
+            mBlackBerryViewSelector.setVisibility(View.GONE);
             mSlidingTabSelector.setVisibility(View.GONE);
             mRotarySelector.setVisibility(View.VISIBLE);
             mUnlockWidget = mRotarySelector;
@@ -1019,6 +1091,7 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
             mAcerViewSelector.setVisibility(View.VISIBLE);
             mSenseViewSelector.setVisibility(View.GONE);
             mWaveViewSelector.setVisibility(View.GONE);
+            mBlackBerryViewSelector.setVisibility(View.GONE);
             mGlowPadSelector.setVisibility(View.GONE);
             mSlidingTabSelector.setVisibility(View.GONE);
             mRotarySelector.setVisibility(View.GONE);
@@ -1029,6 +1102,7 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
             mSenseViewSelector.setVisibility(View.GONE);
             mWaveViewSelector.setVisibility(View.VISIBLE);
             mGlowPadSelector.setVisibility(View.GONE);
+            mBlackBerryViewSelector.setVisibility(View.GONE);
             mSlidingTabSelector.setVisibility(View.GONE);
             mRotarySelector.setVisibility(View.GONE);
             mUnlockWidget = mWaveViewSelector;
@@ -1039,8 +1113,19 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
             mWaveViewSelector.setVisibility(View.GONE);
             mGlowPadSelector.setVisibility(View.GONE);
             mSlidingTabSelector.setVisibility(View.GONE);
+            mBlackBerryViewSelector.setVisibility(View.GONE);
             mRotarySelector.setVisibility(View.GONE);
             mUnlockWidget = mSenseViewSelector;
+        } else if (mUseBlackBerryLockscreen) {
+            mMultiWaveSelector.setVisibility(View.GONE);
+            mAcerViewSelector.setVisibility(View.GONE);
+            mSenseViewSelector.setVisibility(View.GONE);
+            mWaveViewSelector.setVisibility(View.GONE);
+            mGlowPadSelector.setVisibility(View.GONE);
+            mSlidingTabSelector.setVisibility(View.GONE);
+            mBlackBerryViewSelector.setVisibility(View.VISIBLE);
+            mRotarySelector.setVisibility(View.GONE);
+            mUnlockWidget = mBlackBerryViewSelector;
         }
 
         mUnlockWidgetMethods = createUnlockMethods(mUnlockWidget);
@@ -1083,6 +1168,11 @@ class LockScreen extends LinearLayout implements KeyguardScreen {
             WaveViewMethods waveViewMethods = new WaveViewMethods(waveView);
             waveView.setOnTriggerListener(waveViewMethods);
             return waveViewMethods;
+        } else if (unlockWidget instanceof BlackBerryView) {
+            BlackBerryView blackBerryView = (BlackBerryView) unlockWidget;
+            BlackBerryViewMethods blackBerryViewMethods = new BlackBerryViewMethods(blackBerryView);
+            blackBerryView.setOnTriggerListener(blackBerryViewMethods);
+            return blackBerryViewMethods;
         } else if (unlockWidget instanceof MultiWaveView) {
             MultiWaveView multiWaveView = (MultiWaveView) mUnlockWidget;
             MultiWaveViewMethods multiWaveViewMethods = new MultiWaveViewMethods(multiWaveView);

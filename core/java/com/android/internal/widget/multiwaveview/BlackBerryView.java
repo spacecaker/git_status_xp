@@ -14,9 +14,12 @@
  * limitations under the License.
  */
 
-package com.android.internal.widget;
+package com.android.internal.widget.multiwaveview;
 
 import java.util.ArrayList;
+
+import android.view.WindowManager;
+import android.util.DisplayMetrics;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -25,6 +28,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
+import com.android.internal.widget.DrawableHolder;
 import android.os.Vibrator;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -37,14 +41,13 @@ import android.view.accessibility.AccessibilityManager;
 import com.android.internal.R;
 
 /**
- * A special widget containing a center and outer ring. Moving the center ring to the outer ring
- * causes an event that can be caught by implementing OnTriggerListener.
+ * A special widget containing lockscreen animation like BlackBerry which unlocks to swipe up to statusbar
  */
-public class AcerView extends View implements ValueAnimator.AnimatorUpdateListener {
-    private static final String TAG = "AcerView";
+public class BlackBerryView extends View implements ValueAnimator.AnimatorUpdateListener {
+    private static final String TAG = "BlackBerryView";
     private static final boolean DBG = false;
-    private static final long VIBRATE_SHORT = 20;  // msec
-    private static final long VIBRATE_LONG = 20;  // msec
+    private static final long VIBRATE_SHORT = 0;  // msec
+    private static final long VIBRATE_LONG = 0;  // msec
 
     // Lock state machine states
     private static final int STATE_RESET_LOCK = 0;
@@ -57,16 +60,16 @@ public class AcerView extends View implements ValueAnimator.AnimatorUpdateListen
     // Animation properties.
     private static final long DURATION = 300; // duration of transitional animations
     private static final long FINAL_DURATION = 500; // duration of final animations when unlocking
-    private static final long RING_DELAY = 1300; // when to start fading animated rings
+    private static final long RING_DELAY = 1300; // when to start fading animated hidden rings
     private static final long FINAL_DELAY = 200; // delay for unlock success animation
     private static final long SHORT_DELAY = 100; // for starting one animation after another.
-    private static final long RESET_TIMEOUT = 500; // elapsed time of inactivity before we reset
+    private static final long RESET_TIMEOUT = 300; // elapsed time of inactivity before we reset
 
     /**
      * The scale by which to multiply the unlock handle width to compute the radius
      * in which it can be grabbed when accessibility is disabled.
      */
-    private static final float GRAB_HANDLE_RADIUS_SCALE_ACCESSIBILITY_DISABLED = 1.0f;
+    private static final float GRAB_HANDLE_RADIUS_SCALE_ACCESSIBILITY_DISABLED = 0.5f;
 
     /**
      * The scale by which to multiply the unlock handle width to compute the radius
@@ -78,28 +81,31 @@ public class AcerView extends View implements ValueAnimator.AnimatorUpdateListen
     private OnTriggerListener mOnTriggerListener;
     private ArrayList<DrawableHolder> mDrawables = new ArrayList<DrawableHolder>(4);
     private boolean mFingerDown = false;
-    private float mRingRadius = 520.0f; // Radius of bitmap ring. Used to snap halo to it
-    private int mSnapRadius = 255; // minimum threshold for drag unlock
+    //private float mRingRadius = 1280.0f; // Radius of bitmap ring. Used to snap halo to it
+    private int mSnapRadius = 200; // minimum threshold for drag unlock
     private float mLockCenterX; // center of widget as dictated by widget size
     private float mLockCenterY;
     private float mMouseX; // current mouse position as of last touch event
     private float mMouseY;
+        private float dynamicScale;
+        private float mRingRadius;
+        private float mHeightHalo;
+        private float mHeightWave;
     private DrawableHolder mUnlockRing;
-    private DrawableHolder mUnlockDefault;
-    private DrawableHolder mUnlockHalo;
     private DrawableHolder mUnlockWave;
+    private DrawableHolder mUnlockHalo;
     private int mLockState = STATE_RESET_LOCK;
     private int mGrabbedState = OnTriggerListener.NO_HANDLE;
 
-    public AcerView(Context context) {
+    public BlackBerryView(Context context) {
         this(context, null);
     }
 
-    public AcerView(Context context, AttributeSet attrs) {
+    public BlackBerryView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        // TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AcerView);
-        // mOrientation = a.getInt(R.styleable.AcerView_orientation, HORIZONTAL);
+        // TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.WaveView);
+        // mOrientation = a.getInt(R.styleable.WaveView_orientation, HORIZONTAL);
         // a.recycle();
 
         initDrawables();
@@ -152,99 +158,94 @@ public class AcerView extends View implements ValueAnimator.AnimatorUpdateListen
         setMeasuredDimension(width, height);
     }
 
+        private void setScaleVars(){
+                DisplayMetrics metrics = new DisplayMetrics();
+                ((WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getMetrics(metrics);
+                float widthScreen = ((metrics.widthPixels / metrics.density) + (metrics.widthPixels/2));
+
+                dynamicScale = (float) (widthScreen/mUnlockWave.getWidth());
+                mRingRadius = metrics.heightPixels;
+                mHeightWave = mUnlockWave.getHeight();
+                mHeightHalo = mUnlockHalo.getHeight();
+        }
+
     private void initDrawables() {
-        mUnlockRing = new DrawableHolder(createDrawable(R.drawable.acer_unlock_ring));
-        mUnlockRing.setX(mLockCenterX - 120);
+        mUnlockRing = new DrawableHolder(createDrawable(R.drawable.blackberry_unlock_ring));
+                mUnlockWave = new DrawableHolder(createDrawable(R.drawable.blackberry_unlock_wave));
+        mUnlockHalo = new DrawableHolder(createDrawable(R.drawable.blackberry_unlock_halo));
+                setScaleVars();
+
+        mUnlockRing.setX(mLockCenterX);
         mUnlockRing.setY(mLockCenterY);
-        mUnlockRing.setScaleX(0.0f);
-        mUnlockRing.setScaleY(1.0f);
-        mUnlockRing.setAlpha(1.0f);
+        mUnlockRing.setScaleX(dynamicScale);
+        mUnlockRing.setScaleY(dynamicScale);
+        mUnlockRing.setAlpha(0.0f);
         mDrawables.add(mUnlockRing);
 
-        mUnlockDefault = new DrawableHolder(createDrawable(R.drawable.acer_unlock_default));
-        mUnlockDefault.setX(mLockCenterX);
-        mUnlockDefault.setY(mLockCenterY);
-        mUnlockDefault.setScaleX(0.0f);
-        mUnlockDefault.setScaleY(1.0f);
-        mUnlockDefault.setAlpha(1.0f);
-        mDrawables.add(mUnlockDefault);
-
-        mUnlockWave = new DrawableHolder(createDrawable(R.drawable.acer_unlock_wave));
-        mUnlockWave.setX(mLockCenterX + 120);
+        mUnlockWave.setX(mLockCenterX);
         mUnlockWave.setY(mLockCenterY);
-        mUnlockWave.setScaleX(0.0f);
-        mUnlockWave.setScaleY(1.0f);
+        mUnlockWave.setScaleX(dynamicScale);
+        mUnlockWave.setScaleY(dynamicScale);
         mUnlockWave.setAlpha(1.0f);
         mDrawables.add(mUnlockWave);
 
-        mUnlockHalo = new DrawableHolder(createDrawable(R.drawable.acer_unlock_halo));
         mUnlockHalo.setX(mLockCenterX);
-        mUnlockHalo.setY(mLockCenterY);
-        mUnlockHalo.setScaleX(1.0f);
-        mUnlockHalo.setScaleY(1.0f);
-        mUnlockHalo.setAlpha(1.0f);
+        mUnlockHalo.setY(mLockCenterY + (float)(mRingRadius/2));
+        mUnlockHalo.setScaleX((float)(dynamicScale*2));
+        mUnlockHalo.setScaleY(dynamicScale);
+        mUnlockHalo.setAlpha(0.0f);
         mDrawables.add(mUnlockHalo);
-
     }
 
-    private void waveUpdateFrame(float mouseX, float mouseY, boolean fingerDown) {
+    private void blackBerryUpdateFrame(float mouseX, float mouseY, boolean fingerDown) {
+                setScaleVars();
         double distX = mouseX - mLockCenterX;
         double distY = mouseY - mLockCenterY;
         int dragDistance = (int) Math.ceil(Math.hypot(distX, distY));
         double touchA = Math.atan2(distX, distY);
         float ringX = (float) (mLockCenterX + mRingRadius * Math.sin(touchA));
         float ringY = (float) (mLockCenterY + mRingRadius * Math.cos(touchA));
-        float shadescale = dragDistance * 2.0f / mRingRadius;
-        if (shadescale >= 1.0f) {
-            shadescale = 1.0f;
-            }
 
         switch (mLockState) {
             case STATE_RESET_LOCK:
                 if (DBG) Log.v(TAG, "State RESET_LOCK");
+
                 mUnlockRing.removeAnimationFor("x");
                 mUnlockRing.removeAnimationFor("y");
                 mUnlockRing.removeAnimationFor("scaleX");
                 mUnlockRing.removeAnimationFor("scaleY");
                 mUnlockRing.removeAnimationFor("alpha");
-                mUnlockRing.setX(mLockCenterX - 120);
+                mUnlockRing.setX(mLockCenterX);
                 mUnlockRing.setY(mLockCenterY);
-                mUnlockRing.setScaleY(1.0f);
-                mUnlockRing.setAlpha(1.0f);
-                mUnlockRing.addAnimTo(DURATION, 0, "scaleX", 0.0f, true);
-
-                mUnlockDefault.removeAnimationFor("x");
-                mUnlockDefault.removeAnimationFor("y");
-                mUnlockDefault.removeAnimationFor("scaleX");
-                mUnlockDefault.removeAnimationFor("scaleY");
-                mUnlockDefault.removeAnimationFor("alpha");
-                mUnlockDefault.setX(mLockCenterX);
-                mUnlockDefault.setY(mLockCenterY);
-                mUnlockDefault.setScaleY(1.0f);
-                mUnlockDefault.setAlpha(1.0f);
-                mUnlockDefault.addAnimTo(DURATION, 0, "scaleX", 0.0f, true);
+                mUnlockRing.setScaleY(dynamicScale);
+                mUnlockRing.setScaleY(dynamicScale);
+                mUnlockRing.setAlpha(0.0f);
 
                 mUnlockWave.removeAnimationFor("x");
                 mUnlockWave.removeAnimationFor("y");
                 mUnlockWave.removeAnimationFor("scaleX");
                 mUnlockWave.removeAnimationFor("scaleY");
                 mUnlockWave.removeAnimationFor("alpha");
-                mUnlockWave.setX(mLockCenterX + 120);
-                mUnlockWave.setY(mLockCenterY);
-                mUnlockWave.setScaleY(1.0f);
+                // mUnlockWave.setX(mLockCenterX);
+                // mUnlockWave.setY(mLockCenterY);
+                mUnlockWave.setScaleX(dynamicScale);
+                mUnlockWave.setScaleY(dynamicScale);
                 mUnlockWave.setAlpha(1.0f);
-                mUnlockWave.addAnimTo(DURATION, 0, "scaleX", 0.0f, true);
+                mUnlockWave.addAnimTo(DURATION, 0, "x", mLockCenterX, true);
+                mUnlockWave.addAnimTo(DURATION, 0, "y", mLockCenterY, true);
 
                 mUnlockHalo.removeAnimationFor("x");
                 mUnlockHalo.removeAnimationFor("y");
                 mUnlockHalo.removeAnimationFor("scaleX");
                 mUnlockHalo.removeAnimationFor("scaleY");
                 mUnlockHalo.removeAnimationFor("alpha");
-                mUnlockHalo.setX(mLockCenterX);
-                mUnlockHalo.setY(mLockCenterY);
-                mUnlockHalo.setScaleX(1.0f);
-                mUnlockHalo.setScaleY(1.0f);
-                mUnlockHalo.setAlpha(1.0f);
+                mUnlockHalo.setScaleX((float) (dynamicScale*2));
+                mUnlockHalo.setScaleY((float) (dynamicScale));
+                // mUnlockHalo.setAlpha(1.0f);
+                mUnlockHalo.addAnimTo(DURATION, 0, "x", mLockCenterX, true);
+                mUnlockHalo.addAnimTo(DURATION, 0, "y", mLockCenterY + (float)(((mHeightWave/2)+(mHeightHalo/2))*dynamicScale), true);
+                mUnlockHalo.addAnimTo(0, DURATION, "y", mLockCenterY + (float)(mRingRadius/2), true);
+                mUnlockHalo.addAnimTo(0, DURATION, "alpha", 0.0f, true);
 
                 removeCallbacks(mLockTimerActions);
 
@@ -257,33 +258,59 @@ public class AcerView extends View implements ValueAnimator.AnimatorUpdateListen
 
             case STATE_START_ATTEMPT:
                 if (DBG) Log.v(TAG, "State START_ATTEMPT");
+
                 mLockState = STATE_ATTEMPTING;
                 break;
 
             case STATE_ATTEMPTING:
                 if (DBG) Log.v(TAG, "State ATTEMPTING (fingerDown = " + fingerDown + ")");
-                if (dragDistance > mSnapRadius) {
+                if (mouseY < mLockCenterY - 55) {
                     if (fingerDown) {
-                        mUnlockDefault.setScaleX(1.0f);
-                        mUnlockWave.setScaleX(1.0f);
-                        mUnlockRing.setScaleX(1.0f);
+                        mUnlockWave.addAnimTo(0, 0, "x", mLockCenterX, true);
+                        mUnlockWave.addAnimTo(0, 0, "y", mouseY - (float)(((mHeightWave/2)+(mHeightHalo/2))*dynamicScale), true);
+                        mUnlockWave.addAnimTo(0, 0, "scaleX", dynamicScale, true);
+                        mUnlockWave.addAnimTo(0, 0, "scaleY", dynamicScale, true);
+                        mUnlockWave.addAnimTo(0, 0, "alpha", 1.0f, true);
+
+                        mUnlockHalo.addAnimTo(0, 0, "x", mouseX, true);
+                        mUnlockHalo.addAnimTo(0, 0, "y", mouseY, true);
+                        mUnlockHalo.addAnimTo(0, 0, "scaleX", (float)(dynamicScale*2), true);
+                        mUnlockHalo.addAnimTo(0, 0, "scaleY", dynamicScale, true);
+                        mUnlockHalo.addAnimTo(0, 0, "alpha", 1.0f, true);
                     }  else {
                         if (DBG) Log.v(TAG, "up detected, moving to STATE_UNLOCK_ATTEMPT");
                         mLockState = STATE_UNLOCK_ATTEMPT;
                     }
                 } else {
-                        mUnlockDefault.setScaleX(shadescale);
-                        mUnlockWave.setScaleX(shadescale);
-                        mUnlockRing.setScaleX(shadescale);
+                    mUnlockWave.addAnimTo(0, 0, "x", mLockCenterX, true);
+                    mUnlockWave.addAnimTo(0, 0, "y", mouseY - (float)(((mHeightWave/2)+(mHeightHalo/2))*dynamicScale), true);
+                    mUnlockWave.addAnimTo(0, 0, "scaleX", dynamicScale, true);
+                    mUnlockWave.addAnimTo(0, 0, "scaleY", dynamicScale, true);
+                    mUnlockWave.addAnimTo(0, 0, "alpha", 1.0f, true);
+
+                    mUnlockHalo.addAnimTo(0, 0, "x", mouseX, true);
+                    mUnlockHalo.addAnimTo(0, 0, "y", mouseY, true);
+                    mUnlockHalo.addAnimTo(0, 0, "scaleX", (float)(dynamicScale*2), true);
+                    mUnlockHalo.addAnimTo(0, 0, "scaleY", dynamicScale, true);
+                    mUnlockHalo.addAnimTo(0, 0, "alpha", 1.0f, true);
                 }
                 break;
 
             case STATE_UNLOCK_ATTEMPT:
                 if (DBG) Log.v(TAG, "State UNLOCK_ATTEMPT");
-                if (dragDistance > mSnapRadius) {
-                    mUnlockRing.addAnimTo(FINAL_DURATION, 0, "scaleX", 0.0f, false);
-                    mUnlockWave.addAnimTo(FINAL_DURATION, 0, "scaleX", 0.0f, false);
-                    mUnlockDefault.addAnimTo(FINAL_DURATION, 0, "scaleX", 0.0f, false);
+                if (mouseY < mLockCenterY - 55) {
+
+                    mUnlockWave.addAnimTo(FINAL_DURATION, 0, "x", mLockCenterX, true);
+                    mUnlockWave.addAnimTo(FINAL_DURATION, 0, "y", mLockCenterY - (float)(mRingRadius*dynamicScale), true);
+                    mUnlockWave.addAnimTo(FINAL_DURATION, 0, "scaleX", (float)(dynamicScale*2), false);
+                    mUnlockWave.addAnimTo(FINAL_DURATION, 0, "scaleY", dynamicScale, false);
+                    mUnlockWave.addAnimTo(FINAL_DURATION, 0, "alpha", 1.0f, false);
+
+                    mUnlockHalo.addAnimTo(FINAL_DURATION, 0, "x", mLockCenterX, true);
+                    mUnlockHalo.addAnimTo(FINAL_DURATION, 0, "y", mLockCenterY - (float)((mRingRadius-(mHeightHalo/2))*dynamicScale), true);
+                    mUnlockHalo.addAnimTo(FINAL_DURATION, 0, "scaleX", dynamicScale, false);
+                    mUnlockHalo.addAnimTo(FINAL_DURATION, 0, "scaleY", dynamicScale, false);
+                    mUnlockHalo.addAnimTo(FINAL_DURATION, 0, "alpha", 1.0f, false);
 
                     removeCallbacks(mLockTimerActions);
 
@@ -304,7 +331,6 @@ public class AcerView extends View implements ValueAnimator.AnimatorUpdateListen
                 if (DBG) Log.v(TAG, "Unknown state " + mLockState);
                 break;
         }
-        mUnlockDefault.startAnimations(this);
         mUnlockHalo.startAnimations(this);
         mUnlockRing.startAnimations(this);
         mUnlockWave.startAnimations(this);
@@ -318,7 +344,7 @@ public class AcerView extends View implements ValueAnimator.AnimatorUpdateListen
 
     @Override
     protected void onDraw(Canvas canvas) {
-        waveUpdateFrame(mMouseX, mMouseY, mFingerDown);
+        blackBerryUpdateFrame(mMouseX, mMouseY, mFingerDown);
         for (int i = 0; i < mDrawables.size(); ++i) {
             mDrawables.get(i).draw(canvas);
         }
@@ -386,7 +412,7 @@ public class AcerView extends View implements ValueAnimator.AnimatorUpdateListen
                 // the state machine stops advancing because onDraw() never gets called.
                 // The following ensures we advance to the next state in this case,
                 // either STATE_UNLOCK_ATTEMPT or STATE_RESET_LOCK.
-                waveUpdateFrame(mMouseX, mMouseY, mFingerDown);
+                blackBerryUpdateFrame(mMouseX, mMouseY, mFingerDown);
                 handled = true;
                 break;
 

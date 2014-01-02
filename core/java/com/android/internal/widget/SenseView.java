@@ -78,7 +78,7 @@ public class SenseView extends View implements ValueAnimator.AnimatorUpdateListe
     private OnTriggerListener mOnTriggerListener;
     private ArrayList<DrawableHolder> mDrawables = new ArrayList<DrawableHolder>(4);
     private boolean mFingerDown = false;
-    private float mRingRadius = 1280.0f; // Radius of bitmap ring. Used to snap halo to it
+    private float mRingRadius = 800.0f; // Radius of bitmap ring. Used to snap halo to it
     private int mSnapRadius = 200; // minimum threshold for drag unlock
     private float mLockCenterX; // center of widget as dictated by widget size
     private float mLockCenterY;
@@ -179,7 +179,7 @@ public class SenseView extends View implements ValueAnimator.AnimatorUpdateListe
 
         mUnlockHalo = new DrawableHolder(createDrawable(R.drawable.sense_unlock_halo));
         mUnlockHalo.setX(mLockCenterX);
-        mUnlockHalo.setY(mLockCenterY + 580);
+        mUnlockHalo.setY(mLockCenterY + 250);
         mUnlockHalo.setScaleX(1.0f);
         mUnlockHalo.setScaleY(1.0f);
         mUnlockHalo.setAlpha(1.0f);
@@ -240,7 +240,7 @@ public class SenseView extends View implements ValueAnimator.AnimatorUpdateListe
                 mUnlockHalo.setScaleY(1.0f);
                 mUnlockHalo.setAlpha(1.0f);
                 mUnlockHalo.addAnimTo(DURATION, 0, "x", mLockCenterX, true);
-                mUnlockHalo.addAnimTo(DURATION, 0, "y", mLockCenterY + 580, true);
+                mUnlockHalo.addAnimTo(DURATION, 0, "y", mLockCenterY + 250, true);
 
                 removeCallbacks(mLockTimerActions);
 

@@ -40,6 +40,12 @@
         android:layout_height="match_parent"
         />
 
+    <com.android.internal.widget.multiwaveview.BlackBerryView
+        android:id="@+id/blackberry_widget"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
 <GridLayout
     android:orientation="vertical"
     android:layout_width="match_parent"

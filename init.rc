@@ -32,7 +32,7 @@ loglevel 3
     export ANDROID_DATA /data
     export ASEC_MOUNTPOINT /mnt/asec
     export LOOP_MOUNTPOINT /mnt/obb
-    export BOOTCLASSPATH /system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/framework2.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar
+    export BOOTCLASSPATH /system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/framework_ext.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar:/system/framework/com.acer.android.os.jar
 
 # Backward compatibility
     symlink /system/etc /etc
@@ -49,7 +49,7 @@ loglevel 3
 
     mkdir /system
     mkdir /data 0771 system system
-    mkdir /cache 0771 system cache
+    mkdir /cache 0770 system cache
     mkdir /config 0500 root root
 
     # Directory for putting things only root should see.
@@ -127,7 +127,7 @@ on post-fs
 
     # We chown/chmod /cache again so because mount is run as root + defaults
     chown system cache /cache
-    chmod 0771 /cache
+    chmod 0770 /cache
 
     # This may have been created by the recovery system with odd permissions
     chown system cache /cache/recovery
@@ -194,8 +194,6 @@ on post-fs-data
 
     # create dalvik-cache, so as to enforce our permissions
     mkdir /data/dalvik-cache 0771 system system
-    chown system system /data/dalvik-cache
-    chmod 0771 /data/dalvik-cache
 
     # create resource-cache and double-check the perms
     mkdir /data/resource-cache 0771 system system
@@ -214,9 +212,6 @@ on post-fs-data
     # won't work.
     # Set indication (checked by vold) that we have finished this action
     #setprop vold.post_fs_data_done 1
-
-# Include extra init file
-    import /init.cm.rc
 
 on boot
 # basic network init
@@ -275,12 +270,8 @@ on boot
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/input_boost
 
     # Assume SMP uses shared cpufreq policy for all CPUs
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 
     chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/class/leds/keyboard-backlight/brightness

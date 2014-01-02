@@ -50,8 +50,6 @@ on fs
     wait /dev/block/platform/msm_sdcc.1/by-name/modem
     mount vfat /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
 
-    setprop ro.crypto.fuse_sdcard true
-
 on boot
    write /sys/devices/i2c-3/3-0024/cyttsp_update_fw 1
    write /sys/devices/i2c-3/3-005b/update_fw 1
@@ -84,6 +82,10 @@ service thermald /system/bin/thermald
    class main
    user root
    group root
+
+service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
+   user root
+   disabled
 
 service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
    user system
@@ -162,18 +164,15 @@ on early-boot
     setrlimit 8 67108864 67108864
 
 on early-init
-    export EXTERNAL_STORAGE /storage/sdcard0
-    export SECONDARY_STORAGE /storage/sdcard1
-
-    mkdir /storage 0050 system sdcard_r
-    mkdir /storage/sdcard0 0000 system system
-    mkdir /storage/sdcard1 0000 system system
-
     # for backwards compatibility
-    symlink /storage/sdcard0 /mnt/sdcard
+    export EXTERNAL_STORAGE /storage/sdcard0
+    export SECONDARY_STORAGE /mnt/external_sd
+    mkdir /storage 0550 system sdcard_r
+    mkdir /storage/sdcard0 0000 system system
+    mkdir /mnt/external_sd 0000 system system
     symlink /storage/sdcard0 /sdcard
-    symlink /storage/sdcard1 /external_sd
-    symlink /storage/sdcard1 /mnt/external_sd
+    symlink /storage/sdcard0 /mnt/sdcard
+    symlink /mnt/external_sd /external_sd
 
 
 on boot
@@ -755,6 +754,17 @@ service profiler_daemon /system/bin/profiler_daemon
 
 service sdcard /system/bin/sdcard /data/media 1023 1023
     class late_start
+    disabled
+
+on property:ro.fuse_sdcard=true
+    start sdcard
+
+# This will make sure that sdcard service starts as late_start.
+on nonencrypted
+    setprop ro.fuse_sdcard ${persist.fuse_sdcard}
+
+on property:vold.decrypt=trigger_restart_framework
+    setprop ro.fuse_sdcard ${persist.fuse_sdcard}
 
 service charger /charger
     class charger

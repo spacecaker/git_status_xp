@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.spacecaker.butter"
-    android:versionCode="2"
-    android:versionName="2.1" >
+    android:versionCode="3"
+    android:versionName="3.0" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -21,6 +21,8 @@
     <!-- Used to set ringtone -->
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
 
     <application
         android:allowTaskReparenting="true"
@@ -156,7 +158,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".menu.PlaylistPicker"
+            android:name="com.spacecaker.butter.menu.PlaylistPicker"
             android:icon="@drawable/ic_launcher"
             android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" >
             <intent-filter>
@@ -202,7 +204,7 @@
                 android:resource="@xml/appwidget4x2_info" />
         </receiver>
         <!-- Media button receiver -->
-        <receiver android:name=".service.MediaButtonIntentReceiver" >
+        <receiver android:name="com.spacecaker.butter.service.MediaButtonIntentReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.MEDIA_BUTTON" />
                 <action android:name="android.media.AUDIO_BECOMING_NOISY" />
@@ -210,7 +212,7 @@
         </receiver>
         <!-- Music service -->
         <service
-            android:name=".service.ApolloService"
+            android:name="com.spacecaker.butter.service.ApolloService"
             android:label="@string/butter_name"
             android:process=":main" />
     </application>

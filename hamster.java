@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2008 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.android.systemui.statusbar.powerwidget;
 
 import android.content.BroadcastReceiver;
@@ -23,514 +7,560 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.database.ContentObserver;
+import android.database.Cursor;
 import android.net.Uri;
-import android.net.wimax.WimaxHelper;
 import android.os.Handler;
+import android.provider.ContactsContract;
+import android.provider.ContactsContract.Contacts;
+import android.provider.ContactsContract.Profile;
 import android.provider.Settings;
+import android.provider.Settings.System;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
-import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
-
-import com.android.systemui.R;
-
-import java.util.ArrayList;
-import java.util.HashMap;
+import android.widget.FrameLayout.LayoutParams;
+import android.widget.ScrollView;
+import android.widget.TableLayout;
+import android.widget.TableLayout.LayoutParams;
+import android.widget.TableRow;
+import android.widget.TableRow.LayoutParams;
+import com.android.systemui.statusbar.powerwidget.PowerButton;
+import java.io.IOException;
+import java.lang.Exception;
+import java.lang.Object;
+import java.lang.String;
+import java.lang.Throwable;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
-public class PowerWidget extends FrameLayout {
-    private static final String TAG = "PowerWidget";
-
+public class PowerWidget
+extends FrameLayout {
+    private static final String BUTTONS_DEFAULT = "toggleSystemSettings|toggleRecentApps|toggleBatteryInfo|toggleWifi|toggleWifiAp|toggleBluetooth|toggleGPS|toggleSound|toggleFlashlight|toggleBrightness|toggleScreenTimeout|toggleStayAwakePlugged|toggleSync|toggleLockScreen|toggleAutoRotate|toggleAirplane|toggleMobileData|toggleNetworkMode|toggleUSBConnectionMode|toggleUSBDebugging|toggleReboot|toggleShutdown";
     public static final String BUTTON_DELIMITER = "|";
-
-    private static final String BUTTONS_DEFAULT = PowerButton.BUTTON_WIFI
-                             + BUTTON_DELIMITER + PowerButton.BUTTON_BLUETOOTH
-                             + BUTTON_DELIMITER + PowerButton.BUTTON_GPS
-                             + BUTTON_DELIMITER + PowerButton.BUTTON_SOUND;
-
-    private static final FrameLayout.LayoutParams WIDGET_LAYOUT_PARAMS = new FrameLayout.LayoutParams(
-                                        ViewGroup.LayoutParams.MATCH_PARENT, // width = match_parent
-                                        ViewGroup.LayoutParams.WRAP_CONTENT  // height = wrap_content
-                                        );
-
-    private static final LinearLayout.LayoutParams BUTTON_LAYOUT_PARAMS = new LinearLayout.LayoutParams(
-                                        ViewGroup.LayoutParams.WRAP_CONTENT, // width = wrap_content
-                                        ViewGroup.LayoutParams.MATCH_PARENT, // height = match_parent
-                                        1.0f                                 // weight = 1
-                                        );
-
-    private static final int LAYOUT_SCROLL_BUTTON_THRESHOLD = 6;
-
-    // this is a list of all possible buttons and their corresponding classes
-    private static final HashMap<String, Class<? extends PowerButton>> sPossibleButtons =
-            new HashMap<String, Class<? extends PowerButton>>();
-
-    static {
-        sPossibleButtons.put(PowerButton.BUTTON_WIFI, WifiButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_GPS, GPSButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_BLUETOOTH, BluetoothButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_BRIGHTNESS, BrightnessButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_SOUND, SoundButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_SYNC, SyncButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_WIFIAP, WifiApButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_SCREENTIMEOUT, ScreenTimeoutButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_MOBILEDATA, MobileDataButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_LOCKSCREEN, LockScreenButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_NETWORKMODE, NetworkModeButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_AUTOROTATE, AutoRotateButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_AIRPLANE, AirplaneButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_FLASHLIGHT, FlashlightButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_SLEEP, SleepButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_MEDIA_PLAY_PAUSE, MediaPlayPauseButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_MEDIA_PREVIOUS, MediaPreviousButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_MEDIA_NEXT, MediaNextButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_WIMAX, WimaxButton.class);
-        sPossibleButtons.put(PowerButton.BUTTON_LTE, LTEButton.class);
-    }
-
-    // this is a list of our currently loaded buttons
-    private final HashMap<String, PowerButton> mButtons = new HashMap<String, PowerButton>();
-    private final ArrayList<String> mButtonNames = new ArrayList<String>();
-
-    private View.OnClickListener mAllButtonClickListener;
-    private View.OnLongClickListener mAllButtonLongClickListener;
-
+    private static final String TAG = "PowerWidget";
+    private static final FrameLayout.LayoutParams WIDGET_LAYOUT_PARAMS = new FrameLayout.LayoutParams(-1, -2);
+    private WidgetBroadcastReceiver mBroadcastReceiver;
+    private int mButtonsPerRow;
+    private boolean mButtonsWithLabel;
     private Context mContext;
+    private ScrollView mGridScrollView;
     private Handler mHandler;
     private LayoutInflater mInflater;
-    private WidgetBroadcastReceiver mBroadcastReceiver = null;
-    private WidgetSettingsObserver mObserver = null;
+    private MeProfileContactObserver mMeProfileContactObserver;
+    private List<WidgetSettingsObserver> mObservers;
+    private TableLayout mTableLayout;
+    private TableRow mTableRow1;
+    private TableRow mTableRow10;
+    private TableRow mTableRow11;
+    private TableRow mTableRow12;
+    private TableRow mTableRow13;
+    private TableRow mTableRow14;
+    private TableRow mTableRow15;
+    private TableRow mTableRow2;
+    private TableRow mTableRow3;
+    private TableRow mTableRow4;
+    private TableRow mTableRow5;
+    private TableRow mTableRow6;
+    private TableRow mTableRow7;
+    private TableRow mTableRow8;
+    private TableRow mTableRow9;
 
-    private long[] mShortPressVibePattern;
-    private long[] mLongPressVibePattern;
-
-    private LinearLayout mButtonLayout;
-    private SnappingScrollView mScrollView;
-
-    public PowerWidget(Context context, AttributeSet attrs) {
-        super(context, attrs);
-
-        mContext = context;
-        mHandler = new Handler();
-        mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        mShortPressVibePattern = getLongIntArray(mContext.getResources(),
-                com.android.internal.R.array.config_virtualKeyVibePattern);
-        mLongPressVibePattern = getLongIntArray(mContext.getResources(),
-                com.android.internal.R.array.config_longPressVibePattern);
-
-        // get an initial width
-        updateButtonLayoutWidth();
-        setupWidget();
+    public PowerWidget(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.mMeProfileContactObserver = new MeProfileContactObserver();
+        this.mBroadcastReceiver = null;
+        this.mHandler = new Handler();
+        this.mButtonsWithLabel = true;
+        this.mButtonsPerRow = 3;
+        this.mObservers = new LinkedList();
+        this.mContext = context;
+        this.mInflater = (LayoutInflater)(context.getSystemService("layout_inflater"));
     }
 
-    @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
-        updateVisibility();
-    }
-
-    static long[] getLongIntArray(Resources r, int resid) {
-        int[] ar = r.getIntArray(resid);
-        if (ar == null) {
-            return null;
-        }
-        long[] out = new long[ar.length];
-        for (int i=0; i < ar.length; i++) {
-            out[i] = ar[i];
-        }
-        return out;
-    }
-
-    public void destroyWidget() {
-        Log.i(TAG, "Clearing any old widget stuffs");
-        // remove all views from the layout
-        removeAllViews();
-
-        // unregister our content receiver
-        if (mBroadcastReceiver != null) {
-            mContext.unregisterReceiver(mBroadcastReceiver);
-        }
-        // unobserve our content
-        if (mObserver != null) {
-            mObserver.unobserve();
-        }
-
-        // clear the button instances
-        unloadAllButtons();
-    }
-
-    public void setupWidget() {
-        destroyWidget();
-
-        Log.i(TAG, "Setting up widget");
-
-        String buttons = Settings.System.getString(mContext.getContentResolver(), Settings.System.WIDGET_BUTTONS);
-        if (buttons == null) {
-            Log.i(TAG, "Default buttons being loaded");
-            buttons = BUTTONS_DEFAULT;
-            // Add the WiMAX button if it's supported
-            if (WimaxHelper.isWimaxSupported(mContext)) {
-                buttons += BUTTON_DELIMITER + PowerButton.BUTTON_WIMAX;
+    /*
+     * Enabled aggressive block sorting
+     * Enabled unnecessary exception pruning
+     */
+    private void addViewToTableRow(View view, int n) {
+        TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(this.mContext.getResources().getDimensionPixelSize(R.dimen.quickpanel_button_width), this.mContext.getResources().getDimensionPixelSize(R.dimen.quickpanel_button_height));
+        switch (this.mButtonsPerRow) {
+            default: {
+                return;
             }
-        }
-        Log.i(TAG, "Button list: " + buttons);
-
-        for (String button : buttons.split("\\|")) {
-            if (loadButton(button)) {
-                mButtonNames.add(button);
-            } else {
-                Log.e(TAG, "Error setting up button: " + button);
+            case 2: {
+                if ((n >= 1) && (n <= 2)) {
+                    this.mTableRow1.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 3) && (n <= 4)) {
+                    this.mTableRow2.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 5) && (n <= 6)) {
+                    this.mTableRow3.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 7) && (n <= 8)) {
+                    this.mTableRow4.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 9) && (n <= 10)) {
+                    this.mTableRow5.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 11) && (n <= 12)) {
+                    this.mTableRow6.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 13) && (n <= 14)) {
+                    this.mTableRow7.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 15) && (n <= 16)) {
+                    this.mTableRow8.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 17) && (n <= 18)) {
+                    this.mTableRow9.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 19) && (n <= 20)) {
+                    this.mTableRow10.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 21) && (n <= 22)) {
+                    this.mTableRow11.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 23) && (n <= 24)) {
+                    this.mTableRow12.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 25) && (n <= 26)) {
+                    this.mTableRow13.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 27) && (n <= 28)) {
+                    this.mTableRow14.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if (n < 29) return;
+                if (n > 30) return;
+                this.mTableRow15.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                return;
             }
+            case 3: {
+                if ((n >= 1) && (n <= 3)) {
+                    this.mTableRow1.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 4) && (n <= 6)) {
+                    this.mTableRow2.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 7) && (n <= 9)) {
+                    this.mTableRow3.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 10) && (n <= 12)) {
+                    this.mTableRow4.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 13) && (n <= 15)) {
+                    this.mTableRow5.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 16) && (n <= 18)) {
+                    this.mTableRow6.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 19) && (n <= 21)) {
+                    this.mTableRow7.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 22) && (n <= 24)) {
+                    this.mTableRow8.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 25) && (n <= 27)) {
+                    this.mTableRow9.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if (n < 28) return;
+                if (n > 30) return;
+                this.mTableRow10.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                return;
+            }
+            case 4: {
+                if ((n >= 1) && (n <= 4)) {
+                    this.mTableRow1.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 5) && (n <= 8)) {
+                    this.mTableRow2.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 9) && (n <= 12)) {
+                    this.mTableRow3.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 13) && (n <= 16)) {
+                    this.mTableRow4.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 17) && (n <= 20)) {
+                    this.mTableRow5.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 21) && (n <= 24)) {
+                    this.mTableRow6.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if ((n >= 25) && (n <= 28)) {
+                    this.mTableRow7.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                    return;
+                }
+                if (n < 29) return;
+                if (n > 32) return;
+                this.mTableRow8.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+                return;
+            }
+            case 5: 
         }
-        recreateButtonLayout();
-        updateHapticFeedbackSetting();
-
-        // set up a broadcast receiver for our intents, based off of what our power buttons have been loaded
-        setupBroadcastReceiver();
-        IntentFilter filter = getMergedBroadcastIntentFilter();
-        // we add this so we can update views and such if the settings for our widget change
-        //filter.addAction(Settings.SETTINGS_CHANGED);
-        // we need to detect orientation changes and update the static button width value appropriately
-        filter.addAction(Intent.ACTION_CONFIGURATION_CHANGED);
-        // register the receiver
-        mContext.registerReceiver(mBroadcastReceiver, filter);
-        // register our observer
-        mObserver = new WidgetSettingsObserver(mHandler);
-        mObserver.observe();
+        if ((n >= 1) && (n <= 5)) {
+            this.mTableRow1.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+            return;
+        }
+        if ((n >= 6) && (n <= 10)) {
+            this.mTableRow2.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+            return;
+        }
+        if ((n >= 11) && (n <= 15)) {
+            this.mTableRow3.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+            return;
+        }
+        if ((n >= 16) && (n <= 20)) {
+            this.mTableRow4.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+            return;
+        }
+        if ((n >= 21) && (n <= 25)) {
+            this.mTableRow5.addView(view, (ViewGroup.LayoutParams)(layoutParams));
+            return;
+        }
+        if (n < 26) return;
+        if (n > 30) return;
+        this.mTableRow6.addView(view, (ViewGroup.LayoutParams)(layoutParams));
     }
 
-    private boolean loadButton(String key) {
-        // first make sure we have a valid button
-        if (!sPossibleButtons.containsKey(key)) {
-            return false;
-        }
-
-        if (mButtons.containsKey(key)) {
-            return true;
-        }
-
+    /*
+     * Unable to fully structure code
+     * Enabled aggressive block sorting
+     * Enabled unnecessary exception pruning
+     */
+    private Uri findMeProfileContactUri() throws IOException {
         try {
-            // we need to instantiate a new button and add it
-            PowerButton pb = sPossibleButtons.get(key).newInstance();
-            pb.setExternalClickListener(mAllButtonClickListener);
-            pb.setExternalLongClickListener(mAllButtonLongClickListener);
-            // save it
-            mButtons.put(key, pb);
-        } catch (Exception e) {
-            Log.e(TAG, "Error loading button: " + key, e);
-            return false;
+            var2_1 = this.mContext.getContentResolver().query(ContactsContract.Profile.CONTENT_URI, new String[]{"_id"}, (String)(null), (String[])(null), (String)(null));
+            if (var2_1 == null) return null;
         }
-
-        return true;
-    }
-
-    private void unloadButton(String key) {
-        // first make sure we have a valid button
-        if (mButtons.containsKey(key)) {
-            // wipe out the button view
-            mButtons.get(key).setupButton(null);
-            // remove the button from our list of loaded ones
-            mButtons.remove(key);
+        catch (Exception var1_6) {
+            throw new IOException(var1_6.toString());
+        }
+        var4_2 = var2_1.moveToFirst();
+        var5_3 = null;
+        ** if (!(var4_2)) goto lbl10
+lbl8: // 1 sources:
+        var5_3 = (var6_4 = Uri.withAppendedPath((Uri)(ContactsContract.Contacts.CONTENT_URI), (String)(var2_1.getString(var2_1.getColumnIndex("_id")))));
+lbl10: // 3 sources:
+        var2_1.close();
+        return var5_3;
+        catch (Throwable var3_5) {
+            var2_1.close();
+            throw var3_5;
         }
     }
 
-    private void unloadAllButtons() {
-        // cycle through setting the buttons to null
-        for (PowerButton pb : mButtons.values()) {
-            pb.setupButton(null);
+    private View inflateButtonView(String string) {
+        if (string.equals((Object)("toggleMeProfile"))) {
+            return this.mInflater.inflate(R.layout.quickpanel_me_profile_button, (ViewGroup)(null), false);
         }
-
-        // clear our list
-        mButtons.clear();
-        mButtonNames.clear();
+        if (!(this.mButtonsWithLabel)) return this.mInflater.inflate(R.layout.quickpanel_button_no_label, (ViewGroup)(null), false);
+        return this.mInflater.inflate(R.layout.quickpanel_button, (ViewGroup)(null), false);
     }
 
-    static class SnappingScrollView extends HorizontalScrollView {
-
-        private boolean mSnapTrigger = false;
-
-        public SnappingScrollView(Context context) {
-            super(context);
+    private void observeAllObserver() {
+        Iterator iterator = this.mObservers.iterator();
+        while (iterator.hasNext()) {
+            (WidgetSettingsObserver)(iterator.next()).observe();
         }
-
-        Runnable mSnapRunnable = new Runnable(){
-            @Override
-            public void run() {
-                int mSelectedItem = ((getScrollX() + (BUTTON_LAYOUT_PARAMS.width / 2)) / BUTTON_LAYOUT_PARAMS.width);
-                int scrollTo = mSelectedItem * BUTTON_LAYOUT_PARAMS.width;
-                smoothScrollTo(scrollTo, 0);
-                mSnapTrigger = false;
-            }
-        };
-
-        @Override
-        protected void onScrollChanged(int l, int t, int oldl, int oldt) {
-            super.onScrollChanged(l, t, oldl, oldt);
-            if (Math.abs(oldl - l) <= 1 && mSnapTrigger) {
-                removeCallbacks(mSnapRunnable);
-                postDelayed(mSnapRunnable, 100);
-            }
-        }
-
-        @Override
-        public boolean onTouchEvent(MotionEvent ev) {
-            int action = ev.getAction();
-            if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
-                mSnapTrigger = true;
-            }
-            return super.onTouchEvent(ev);
-        }
-
-    }
-
-    private void recreateButtonLayout() {
-        removeAllViews();
-
-        // create a linearlayout to hold our buttons
-        mButtonLayout = new LinearLayout(mContext);
-        mButtonLayout.setOrientation(LinearLayout.HORIZONTAL);
-        mButtonLayout.setGravity(Gravity.CENTER_HORIZONTAL);
-
-        for (String button : mButtonNames) {
-            PowerButton pb = mButtons.get(button);
-            if (pb != null) {
-                View buttonView = mInflater.inflate(R.layout.power_widget_button, null, false);
-                pb.setupButton(buttonView);
-                mButtonLayout.addView(buttonView, BUTTON_LAYOUT_PARAMS);
-            }
-        }
-
-        // we determine if we're using a horizontal scroll view based on a threshold of button counts
-        if (mButtonLayout.getChildCount() > LAYOUT_SCROLL_BUTTON_THRESHOLD) {
-            // we need our horizontal scroll view to wrap the linear layout
-            mScrollView = new SnappingScrollView(mContext);
-            // make the fading edge the size of a button (makes it more noticible that we can scroll
-            mScrollView.setFadingEdgeLength(mContext.getResources().getDisplayMetrics().widthPixels / LAYOUT_SCROLL_BUTTON_THRESHOLD);
-            mScrollView.setScrollBarStyle(View.SCROLLBARS_INSIDE_INSET);
-            mScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER);
-            mScrollView.addView(mButtonLayout, WIDGET_LAYOUT_PARAMS);
-            updateScrollbar();
-            addView(mScrollView, WIDGET_LAYOUT_PARAMS);
-        } else {
-            // not needed, just add the linear layout
-            addView(mButtonLayout, WIDGET_LAYOUT_PARAMS);
-        }
-    }
-
-    public void updateAllButtons() {
-        // cycle through our buttons and update them
-        for (PowerButton pb : mButtons.values()) {
-            pb.update(mContext);
-        }
-    }
-
-    private IntentFilter getMergedBroadcastIntentFilter() {
-        IntentFilter filter = new IntentFilter();
-
-        for (PowerButton button : mButtons.values()) {
-            IntentFilter tmp = button.getBroadcastIntentFilter();
-
-            // cycle through these actions, and see if we need them
-            int num = tmp.countActions();
-            for (int i = 0; i < num; i++) {
-                String action = tmp.getAction(i);
-                if(!filter.hasAction(action)) {
-                    filter.addAction(action);
-                }
-            }
-        }
-
-        // return our merged filter
-        return filter;
-    }
-
-    private List<Uri> getAllObservedUris() {
-        List<Uri> uris = new ArrayList<Uri>();
-
-        for (PowerButton button : mButtons.values()) {
-            List<Uri> tmp = button.getObservedUris();
-
-            for (Uri uri : tmp) {
-                if (!uris.contains(uri)) {
-                    uris.add(uri);
-                }
-            }
-        }
-
-        return uris;
-    }
-
-    public void setGlobalButtonOnClickListener(View.OnClickListener listener) {
-        mAllButtonClickListener = listener;
-        for (PowerButton pb : mButtons.values()) {
-            pb.setExternalClickListener(listener);
-        }
-    }
-
-    public void setGlobalButtonOnLongClickListener(View.OnLongClickListener listener) {
-        mAllButtonLongClickListener = listener;
-        for (PowerButton pb : mButtons.values()) {
-            pb.setExternalLongClickListener(listener);
-        }
+        return;
     }
 
     private void setupBroadcastReceiver() {
-        if (mBroadcastReceiver == null) {
-            mBroadcastReceiver = new WidgetBroadcastReceiver();
-        }
+        if (this.mBroadcastReceiver != null) return;
+        this.mBroadcastReceiver = new WidgetBroadcastReceiver(null);
     }
 
-    private void updateButtonLayoutWidth() {
-        // use our context to set a valid button width
-        BUTTON_LAYOUT_PARAMS.width = mContext.getResources().getDisplayMetrics().widthPixels / LAYOUT_SCROLL_BUTTON_THRESHOLD;
+    private void setupMeProfileContactObserver() {
+        Uri uri;
+        this.mContext.getContentResolver().unregisterContentObserver((ContentObserver)(this.mMeProfileContactObserver));
+        try {
+            uri = this.findMeProfileContactUri();
+            if (uri == null) return;
+        }
+        catch (IOException var1_2) {
+            var1_2.printStackTrace();
+            return;
+        }
+        this.mContext.getContentResolver().registerContentObserver(uri, false, (ContentObserver)(this.mMeProfileContactObserver));
+        return;
     }
 
-    private void updateVisibility() {
-        // now check if we need to display the widget still
-        boolean displayPowerWidget = Settings.System.getInt(mContext.getContentResolver(),
-                   Settings.System.EXPANDED_VIEW_WIDGET, 1) == 1;
-        if(!displayPowerWidget) {
-            setVisibility(View.GONE);
-        } else {
-            setVisibility(View.VISIBLE);
+    private void setupSettingsObserver() {
+        if (!(this.mObservers.isEmpty())) {
+            this.unobserveAllObserver();
+            this.mObservers.clear();
         }
+        this.mObservers.add((Object)(new WidgetSettingsObserver(this.mHandler, Settings.System.getUriFor((String)("expanded_haptic_feedback")))));
+        this.mObservers.add((Object)(new WidgetSettingsObserver(this.mHandler, Settings.System.getUriFor((String)("expanded_widget_buttons")))));
+        Iterator iterator = PowerButton.getAllObservedUris().iterator();
+        while (iterator.hasNext()) {
+            Uri uri = (Uri)(iterator.next());
+            this.mObservers.add((Object)(new WidgetSettingsObserver(this.mHandler, uri)));
+        }
+        return;
     }
 
-    private void updateScrollbar() {
-        if (mScrollView == null) return;
-        boolean hideScrollBar = Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.EXPANDED_HIDE_SCROLLBAR, 0) == 1;
-        mScrollView.setHorizontalScrollBarEnabled(!hideScrollBar);
+    private void setupTableLayout() {
+        if (this.mTableLayout == null) {
+            TableLayout.LayoutParams layoutParams = new TableLayout.LayoutParams(-1, -2);
+            this.mTableLayout = new TableLayout(this.mContext);
+            this.mTableLayout.setLayoutParams((ViewGroup.LayoutParams)(layoutParams));
+            this.mTableLayout.setStretchAllColumns(true);
+            TableRow.LayoutParams layoutParams2 = new TableRow.LayoutParams(-1, -2);
+            this.mTableRow1 = new TableRow(this.mContext);
+            this.mTableRow1.setLayoutParams((ViewGroup.LayoutParams)(layoutParams2));
+            this.mTableRow2 = new TableRow(this.mContext);
+            this.mTableRow2.setLayoutParams((ViewGroup.LayoutParams)(layoutParams2));
+            this.mTableRow3 = new TableRow(this.mContext);
+            this.mTableRow3.setLayoutParams((ViewGroup.LayoutParams)(layoutParams2));
+            this.mTableRow4 = new TableRow(this.mContext);
+            this.mTableRow4.setLayoutParams((ViewGroup.LayoutParams)(layoutParams2));
+            this.mTableRow5 = new TableRow(this.mContext);
+            this.mTableRow5.setLayoutParams((ViewGroup.LayoutParams)(layoutParams2));
+            this.mTableRow6 = new TableRow(this.mContext);
+            this.mTableRow6.setLayoutParams((ViewGroup.LayoutParams)(layoutParams2));
+            this.mTableRow7 = new TableRow(this.mContext);
+            this.mTableRow7.setLayoutParams((ViewGroup.LayoutParams)(layoutParams2));
+            this.mTableRow8 = new TableRow(this.mContext);
+            this.mTableRow8.setLayoutParams((ViewGroup.LayoutParams)(layoutParams2));
+            this.mTableRow9 = new TableRow(this.mContext);
+            this.mTableRow9.setLayoutParams((ViewGroup.LayoutParams)(layoutParams2));
+            this.mTableRow10 = new TableRow(this.mContext);
+            this.mTableRow10.setLayoutParams((ViewGroup.LayoutParams)(layoutParams2));
+            this.mTableRow11 = new TableRow(this.mContext);
+            this.mTableRow11.setLayoutParams((ViewGroup.LayoutParams)(layoutParams2));
+            this.mTableRow12 = new TableRow(this.mContext);
+            this.mTableRow12.setLayoutParams((ViewGroup.LayoutParams)(layoutParams2));
+            this.mTableRow13 = new TableRow(this.mContext);
+            this.mTableRow13.setLayoutParams((ViewGroup.LayoutParams)(layoutParams2));
+            this.mTableRow14 = new TableRow(this.mContext);
+            this.mTableRow14.setLayoutParams((ViewGroup.LayoutParams)(layoutParams2));
+            this.mTableRow15 = new TableRow(this.mContext);
+            this.mTableRow15.setLayoutParams((ViewGroup.LayoutParams)(layoutParams2));
+            this.mTableLayout.addView((View)(this.mTableRow1));
+            this.mTableLayout.addView((View)(this.mTableRow2));
+            this.mTableLayout.addView((View)(this.mTableRow3));
+            this.mTableLayout.addView((View)(this.mTableRow4));
+            this.mTableLayout.addView((View)(this.mTableRow5));
+            this.mTableLayout.addView((View)(this.mTableRow6));
+            this.mTableLayout.addView((View)(this.mTableRow7));
+            this.mTableLayout.addView((View)(this.mTableRow8));
+            this.mTableLayout.addView((View)(this.mTableRow9));
+            this.mTableLayout.addView((View)(this.mTableRow10));
+            this.mTableLayout.addView((View)(this.mTableRow11));
+            this.mTableLayout.addView((View)(this.mTableRow12));
+            this.mTableLayout.addView((View)(this.mTableRow13));
+            this.mTableLayout.addView((View)(this.mTableRow14));
+            this.mTableLayout.addView((View)(this.mTableRow15));
+            this.mGridScrollView = (ScrollView)(this.mInflater.inflate(R.layout.quickpanel_grid_scrollview, (ViewGroup)(null), false));
+            FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, -2);
+            this.mGridScrollView.addView((View)(this.mTableLayout), (ViewGroup.LayoutParams)(layoutParams3));
+        }
+        this.mTableRow1.removeAllViews();
+        this.mTableRow2.removeAllViews();
+        this.mTableRow3.removeAllViews();
+        this.mTableRow4.removeAllViews();
+        this.mTableRow5.removeAllViews();
+        this.mTableRow6.removeAllViews();
+        this.mTableRow7.removeAllViews();
+        this.mTableRow8.removeAllViews();
+        this.mTableRow9.removeAllViews();
+        this.mTableRow10.removeAllViews();
+        this.mTableRow11.removeAllViews();
+        this.mTableRow12.removeAllViews();
+        this.mTableRow13.removeAllViews();
+        this.mTableRow14.removeAllViews();
+        this.mTableRow15.removeAllViews();
     }
 
-    private void updateHapticFeedbackSetting() {
-        ContentResolver cr = mContext.getContentResolver();
-        int expandedHapticFeedback = Settings.System.getInt(cr,
-                Settings.System.EXPANDED_HAPTIC_FEEDBACK, 2);
-        long[] clickPattern = null, longClickPattern = null;
-        boolean hapticFeedback;
-
-        if (expandedHapticFeedback == 2) {
-             hapticFeedback = Settings.System.getInt(cr,
-                     Settings.System.HAPTIC_FEEDBACK_ENABLED, 1) == 1;
-        } else {
-            hapticFeedback = (expandedHapticFeedback == 1);
+    private void unobserveAllObserver() {
+        Iterator iterator = this.mObservers.iterator();
+        while (iterator.hasNext()) {
+            (WidgetSettingsObserver)(iterator.next()).unobserve();
         }
-
-        if (hapticFeedback) {
-            clickPattern = mShortPressVibePattern;
-            longClickPattern = mLongPressVibePattern;
-        }
-
-        for (PowerButton button : mButtons.values()) {
-            button.setHapticFeedback(hapticFeedback, clickPattern, longClickPattern);
-        }
+        return;
     }
 
-    // our own broadcast receiver :D
-    private class WidgetBroadcastReceiver extends BroadcastReceiver {
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
+    public void fullScroll() {
+        this.mGridScrollView.fullScroll(33);
+    }
 
-            if (action.equals(Intent.ACTION_CONFIGURATION_CHANGED)) {
-                updateButtonLayoutWidth();
-                recreateButtonLayout();
-            } else {
-                // handle the intent through our power buttons
-                for (PowerButton button : mButtons.values()) {
-                    // call "onReceive" on those that matter
-                    if (button.getBroadcastIntentFilter().hasAction(action)) {
-                        button.onReceive(context, intent);
-                    }
-                }
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        this.setGlobalButtonOnClickListener((View.OnClickListener)(new View.OnClickListener(){
+
+            public void onClick(View view) {
+                Settings.System.getInt((ContentResolver)(PowerWidget.this.mContext.getContentResolver()), (String)("expanded_hide_onchange"), (int)(0));
             }
+        }));
+        this.setGlobalButtonOnLongClickListener((View.OnLongClickListener)(new View.OnLongClickListener(){
 
-            // update our widget
-            updateAllButtons();
+            public boolean onLongClick(View view) {
+                return true;
+            }
+        }));
+    }
+
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if (this.mBroadcastReceiver != null) {
+            this.mContext.unregisterReceiver((BroadcastReceiver)(this.mBroadcastReceiver));
         }
-    };
+        this.unobserveAllObserver();
+        this.mObservers.clear();
+    }
 
-    // our own settings observer :D
-    private class WidgetSettingsObserver extends ContentObserver {
-        public WidgetSettingsObserver(Handler handler) {
+    public void setGlobalButtonOnClickListener(View.OnClickListener onClickListener) {
+        PowerButton.setGlobalOnClickListener(onClickListener);
+    }
+
+    public void setGlobalButtonOnLongClickListener(View.OnLongClickListener onLongClickListener) {
+        PowerButton.setGlobalOnLongClickListener(onLongClickListener);
+    }
+
+    public void setupButtonsWithLabel(boolean bl) {
+        this.mButtonsWithLabel = bl;
+    }
+
+    public void setupGridLayout(int n) {
+        if ((n < 2) || (n > 5)) return;
+        this.mButtonsPerRow = n;
+    }
+
+    /*
+     * Enabled aggressive block sorting
+     * Enabled unnecessary exception pruning
+     */
+    public void setupWidget() {
+        this.setupTableLayout();
+        this.removeAllViews();
+        if (this.mBroadcastReceiver != null) {
+            this.mContext.unregisterReceiver((BroadcastReceiver)(this.mBroadcastReceiver));
+        }
+        this.unobserveAllObserver();
+        PowerButton.unloadAllButtons();
+        int n = 0;
+        for (String string : "toggleMeProfile|toggleSystemSettings|toggleRecentApps|toggleBatteryInfo|toggleWifi|toggleWifiAp|toggleBluetooth|toggleGPS|toggleSound|toggleFlashlight|toggleBrightness|toggleScreenTimeout|toggleStayAwakePlugged|toggleSync|toggleLockScreen|toggleAutoRotate|toggleAirplane|toggleMobileData|toggleNetworkMode|toggleUSBConnectionMode|toggleUSBDebugging|toggleReboot|toggleShutdown".split("\\|")) {
+            View view = this.inflateButtonView(string);
+            if (PowerButton.loadButton(string, view)) {
+                this.addViewToTableRow(view, (n + 1));
+                ++n;
+                continue;
+            }
+            Log.e((String)("SerajrPowerWidget"), (String)(("Error setting up button: " + string)));
+        }
+        this.addView((View)(this.mGridScrollView), (ViewGroup.LayoutParams)(PowerWidget.WIDGET_LAYOUT_PARAMS));
+        this.setupBroadcastReceiver();
+        IntentFilter intentFilter = PowerButton.getAllBroadcastIntentFilters();
+        intentFilter.addAction("android.settings.SETTINGS_CHANGED_ACTION");
+        intentFilter.addAction("android.intent.action.CONFIGURATION_CHANGED");
+        this.mContext.registerReceiver((BroadcastReceiver)(this.mBroadcastReceiver), intentFilter);
+        this.setupSettingsObserver();
+        this.observeAllObserver();
+        this.setupMeProfileContactObserver();
+    }
+
+    public void updateWidget() {
+        PowerButton.updateAllButtons();
+    }
+
+    class MeProfileContactObserver
+    extends ContentObserver {
+        public MeProfileContactObserver() {
+            super((Handler)(null));
+        }
+
+        public void onChange(boolean bl) {
+            super.onChange(bl);
+            PowerWidget.this.updateWidget();
+        }
+    }
+
+    class WidgetBroadcastReceiver
+    extends BroadcastReceiver {
+        private WidgetBroadcastReceiver() {
+        }
+
+        /* synthetic */ WidgetBroadcastReceiver(PowerWidget powerToggles, WidgetBroadcastReceiver widgetBroadcastReceiver) {
+            this(powerToggles);
+        }
+
+        /*
+         * Enabled aggressive block sorting
+         * Enabled unnecessary exception pruning
+         */
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals((Object)("android.intent.action.CONFIGURATION_CHANGED"))) {
+                this$0.setupWidget();
+            } else {
+                PowerButton.handleOnReceive(context, intent);
+            }
+            this$0.updateWidget();
+        }
+    }
+
+    class WidgetSettingsObserver
+    extends ContentObserver {
+        private Uri mUri;
+
+        public WidgetSettingsObserver(Handler handler, Uri uri) {
             super(handler);
+            this.mUri = uri;
         }
 
         public void observe() {
-            ContentResolver resolver = mContext.getContentResolver();
+            PowerWidget.this.mContext.getContentResolver().registerContentObserver(this.mUri, false, (ContentObserver)(this));
+        }
 
-            // watch for display widget
-            resolver.registerContentObserver(
-                    Settings.System.getUriFor(Settings.System.EXPANDED_VIEW_WIDGET),
-                            false, this);
-
-            // watch for scrollbar hiding
-            resolver.registerContentObserver(
-                    Settings.System.getUriFor(Settings.System.EXPANDED_HIDE_SCROLLBAR),
-                            false, this);
-
-            // watch for haptic feedback
-            resolver.registerContentObserver(
-                    Settings.System.getUriFor(Settings.System.EXPANDED_HAPTIC_FEEDBACK),
-                            false, this);
-            resolver.registerContentObserver(
-                    Settings.System.getUriFor(Settings.System.HAPTIC_FEEDBACK_ENABLED),
-                            false, this);
-
-            // watch for changes in buttons
-            resolver.registerContentObserver(
-                    Settings.System.getUriFor(Settings.System.WIDGET_BUTTONS),
-                            false, this);
-
-            // watch for power-button specific stuff that has been loaded
-            for(Uri uri : getAllObservedUris()) {
-                resolver.registerContentObserver(uri, false, this);
+        public void onChange(boolean bl) {
+            if (this.mUri.equals((Object)(Settings.System.getUriFor((String)("expanded_widget_buttons"))))) {
+                PowerWidget.this.setupWidget();
             }
+            PowerButton.handleOnChangeUri(this.mUri);
+            PowerWidget.this.updateWidget();
         }
 
         public void unobserve() {
-            ContentResolver resolver = mContext.getContentResolver();
-
-            resolver.unregisterContentObserver(this);
-        }
-
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
-            ContentResolver resolver = mContext.getContentResolver();
-            Resources res = mContext.getResources();
-
-            // first check if our widget buttons have changed
-            if(uri.equals(Settings.System.getUriFor(Settings.System.WIDGET_BUTTONS))) {
-                setupWidget();
-            // now check if we change visibility
-            } else if(uri.equals(Settings.System.getUriFor(Settings.System.EXPANDED_VIEW_WIDGET))) {
-                updateVisibility();
-            // now check for scrollbar hiding
-            } else if(uri.equals(Settings.System.getUriFor(Settings.System.EXPANDED_HIDE_SCROLLBAR))) {
-                updateScrollbar();
-            }
-
-            if (uri.equals(Settings.System.getUriFor(Settings.System.HAPTIC_FEEDBACK_ENABLED))
-                    || uri.equals(Settings.System.getUriFor(Settings.System.EXPANDED_HAPTIC_FEEDBACK))) {
-                updateHapticFeedbackSetting();
-            }
-
-            // do whatever the individual buttons must
-            for (PowerButton button : mButtons.values()) {
-                if (button.getObservedUris().contains(uri)) {
-                    button.onChangeUri(resolver, uri);
-                }
-            }
-
-            // something happened so update the widget
-            updateAllButtons();
+            PowerWidget.this.mContext.getContentResolver().unregisterContentObserver((ContentObserver)(this));
         }
     }
+
 }
+

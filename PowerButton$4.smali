@@ -1,4 +1,4 @@
-.class Lcom/spacecaker/systemui/quickpanel/PowerButton$4;
+.class Lcom/lidroid/systemui/quickpanel/PowerButton$4;
 .super Ljava/lang/Object;
 .source "PowerButton.java"
 
@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/spacecaker/systemui/quickpanel/PowerButton;
+    value = Lcom/lidroid/systemui/quickpanel/PowerButton;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,17 +18,17 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/spacecaker/systemui/quickpanel/PowerButton;
+.field final synthetic this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
 
 
 # direct methods
-.method constructor <init>(Lcom/spacecaker/systemui/quickpanel/PowerButton;)V
+.method constructor <init>(Lcom/lidroid/systemui/quickpanel/PowerButton;)V
     .locals 0
     .parameter
 
     .prologue
     .line 176
-    iput-object p1, p0, Lcom/spacecaker/systemui/quickpanel/PowerButton$4;->this$0:Lcom/spacecaker/systemui/quickpanel/PowerButton;
+    iput-object p1, p0, Lcom/lidroid/systemui/quickpanel/PowerButton$4;->this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,7 +43,7 @@
 
     .prologue
     .line 260
-    const v1, 0x30200e1
+    const v1, 0x7f020104
 
     .line 262
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getActionMasked()I
@@ -69,13 +69,13 @@
 
     .line 265
     :cond_0
-    const v1, 0x3020084
+    const v1, 0x7f020103
 
     goto :goto_0
 
     .line 266
     :cond_1
-    const v1, 0x3020084
+    const v1, 0x7f020103
 
     goto :goto_0
 .end method

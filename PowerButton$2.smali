@@ -1,4 +1,4 @@
-.class Lcom/spacecaker/systemui/quickpanel/PowerButton$2;
+.class Lcom/lidroid/systemui/quickpanel/PowerButton$2;
 .super Ljava/lang/Object;
 .source "PowerButton.java"
 
@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/spacecaker/systemui/quickpanel/PowerButton;
+    value = Lcom/lidroid/systemui/quickpanel/PowerButton;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,17 +18,17 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/spacecaker/systemui/quickpanel/PowerButton;
+.field final synthetic this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
 
 
 # direct methods
-.method constructor <init>(Lcom/spacecaker/systemui/quickpanel/PowerButton;)V
+.method constructor <init>(Lcom/lidroid/systemui/quickpanel/PowerButton;)V
     .locals 0
     .parameter
 
     .prologue
     .line 176
-    iput-object p1, p0, Lcom/spacecaker/systemui/quickpanel/PowerButton$2;->this$0:Lcom/spacecaker/systemui/quickpanel/PowerButton;
+    iput-object p1, p0, Lcom/lidroid/systemui/quickpanel/PowerButton$2;->this$0:Lcom/lidroid/systemui/quickpanel/PowerButton;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -51,7 +51,7 @@
 
     .line 180
     .local v2, type:Ljava/lang/String;
-    invoke-static {}, Lcom/spacecaker/systemui/quickpanel/PowerButton;->access$100()Ljava/util/HashMap;
+    invoke-static {}, Lcom/lidroid/systemui/quickpanel/PowerButton;->access$100()Ljava/util/HashMap;
 
     move-result-object v3
 
@@ -79,7 +79,7 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     .line 181
-    .local v0, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Lcom/spacecaker/systemui/quickpanel/PowerButton;>;"
+    .local v0, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Lcom/lidroid/systemui/quickpanel/PowerButton;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object p0
@@ -97,21 +97,21 @@
 
     move-result-object p0
 
-    check-cast p0, Lcom/spacecaker/systemui/quickpanel/PowerButton;
+    check-cast p0, Lcom/lidroid/systemui/quickpanel/PowerButton;
 
-    invoke-virtual {p0}, Lcom/spacecaker/systemui/quickpanel/PowerButton;->toggleState()V
+    invoke-virtual {p0}, Lcom/lidroid/systemui/quickpanel/PowerButton;->toggleState()V
 
     .line 188
-    .end local v0           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Lcom/spacecaker/systemui/quickpanel/PowerButton;>;"
+    .end local v0           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Lcom/lidroid/systemui/quickpanel/PowerButton;>;"
     :cond_1
-    invoke-static {}, Lcom/spacecaker/systemui/quickpanel/PowerButton;->access$200()Landroid/view/View$OnClickListener;
+    invoke-static {}, Lcom/lidroid/systemui/quickpanel/PowerButton;->access$200()Landroid/view/View$OnClickListener;
 
     move-result-object v3
 
     if-eqz v3, :cond_2
 
     .line 189
-    invoke-static {}, Lcom/spacecaker/systemui/quickpanel/PowerButton;->access$200()Landroid/view/View$OnClickListener;
+    invoke-static {}, Lcom/lidroid/systemui/quickpanel/PowerButton;->access$200()Landroid/view/View$OnClickListener;
 
     move-result-object v3
 

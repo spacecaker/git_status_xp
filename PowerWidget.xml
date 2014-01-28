@@ -33,6 +33,7 @@
     <public type="drawable" name="preference_single_item" id="0x0302006a" />
     <public type="drawable" name="preference_top_item" id="0x0302006b" />
     <public type="drawable" name="settings_background" id="0x0302006c" />
+    <public type="drawable" name="stat_power" id="0x030200e0" />
     <public type="drawable" name="btn_default_pressed" id="0x03020000" />
     <public type="drawable" name="btn_default_selected" id="0x03020001" />
     <public type="drawable" name="btn_default_transparent_normal" id="0x03020003" />
@@ -229,6 +230,7 @@
     <public type="drawable" name="zzz_unlock_puzzle_noti_icon_unlock_fit" id="0x030200dd" />
     <public type="drawable" name="zzz_unlock_puzzle_noti_icon_visual_voice_mail" id="0x030200de" />
     <public type="drawable" name="zzz_unlock_textbg" id="0x030200df" />
+    <public type="drawable" name="stat_power_bg_press" id="0x030200e1" />
     <public type="layout" name="keyguard_screen_tab_unlock" id="0x03030000" />
     <public type="layout" name="keyguard_screen_tab_unlock_land" id="0x03030001" />
     <public type="layout" name="power_widget_button" id="0x03030002" />

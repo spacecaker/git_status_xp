@@ -268,6 +268,8 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         }
         IntentFilter filter = new IntentFilter(AudioManager.RINGER_MODE_CHANGED_ACTION);
 	mContext.registerReceiver(mRingerModeReceiver, filter);
+	
+	mDialog.setTitle(R.string.device_global_actions);
     }
 
 
